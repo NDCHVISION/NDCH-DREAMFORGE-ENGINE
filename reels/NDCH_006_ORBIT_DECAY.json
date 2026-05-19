@@ -13,34 +13,34 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't. The boosters that got you off the ground are now just dead weight. If you don't drop them, they will pull you back to earth. Let it burn. The friends, the habits, the old identity. They weren't meant for this altitude. You are.",
-      "word_count": 68,
+      "full_text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't. That's not failure. That's weight. The boosters that launched you were necessary once. Critical, even. But at altitude, they become anchors. If you don't drop them, they will pull you back to earth. That is not a warning. That is physics. Let it burn. The friends who needed you small. The habits that felt like home. The old identity you wore until it calcified. They were not designed for where you're going. Let them fall. Let them burn in re-entry. You are the part that makes it.",
+      "word_count": 112,
       "estimated_duration_seconds": 42,
       "segments": [
         {
           "id": "hook",
-          "text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't.",
+          "text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't. That's not failure. That's weight.",
           "timestamp_start": "0:00",
-          "timestamp_end": "0:12",
+          "timestamp_end": "0:13",
           "visual_prompt": "Opening vertical shot: bone-white (#F5F2EB) capsule ascending slowly through absolute black void (#1A1A1A). HUD panels materialize into frame — ALTITUDE: 22KM, VELOCITY: 1.2K M/S, OXYGEN: 97% — all in crisp bone-white digital readouts. Structural bolts along the capsule exterior begin to vibrate. Warning indicators pulse in crimson (#DC143C) at the HUD edges. Camera tracks upward with the capsule, void stretching infinitely below. The capsule hull glows with faint internal gold (#C6A94F) warmth — pressurized, alive, overloaded. Labels on the bolted exterior components become visible: COMFORT, OLD HABITS. Mood: mounting pressure, a system approaching its limit."
         },
         {
           "id": "logic",
-          "text": "The boosters that got you off the ground are now just dead weight. If you don't drop them, they will pull you back to earth.",
-          "timestamp_start": "0:12",
-          "timestamp_end": "0:25",
+          "text": "The boosters that launched you were necessary once. Critical, even. But at altitude, they become anchors. If you don't drop them, they will pull you back to earth. That is not a warning. That is physics.",
+          "timestamp_start": "0:13",
+          "timestamp_end": "0:27",
           "visual_prompt": "The first separation. A massive cylindrical booster module — labeled COMFORT in white stencil text — disconnects from the capsule base with a silent beat, then crimson fire (#DC143C) erupts from the explosive bolts. The booster tumbles downward into the black void, trailing crimson flame. The capsule jolts upward, hull flooding with gold (#C6A94F) light. HUD updates instantly: VELOCITY: 2.8K M/S. A second component labeled OLD HABITS vibrates on the hull, bolts glowing red. Camera continues tracking upward. The crimson glow of the falling booster shrinks below. Mood: the relief and grief of necessary loss."
         },
         {
           "id": "sacrifice",
-          "text": "Let it burn. The friends, the habits, the old identity. They weren't meant for this altitude.",
-          "timestamp_start": "0:25",
+          "text": "Let it burn. The friends who needed you small. The habits that felt like home. The old identity you wore until it calcified. They were not designed for where you're going. Let them fall. Let them burn in re-entry.",
+          "timestamp_start": "0:27",
           "timestamp_end": "0:38",
           "visual_prompt": "Rapid sequential separations. Components labeled SAFE FRIENDS, OLD HABITS, OLD IDENTITY detach one after another — each igniting in crimson (#DC143C) and tumbling away into the void. The capsule grows visibly cleaner and essential. Gold (#C6A94F) energy radiates intensely from the hull seams. HUD transitions: all warnings clear, display shifts to HIGH ORBIT in gold text, ALTITUDE: 285KM. The black void below is scattered with falling crimson sparks. Bone-white (#F5F2EB) stars appear ahead and above. Camera angle tilts slightly upward to reveal open space above — the destination becomes visible for the first time. Mood: painful clarity, irreversible forward momentum."
         },
         {
           "id": "identity",
-          "text": "You are.",
+          "text": "You are the part that makes it.",
           "timestamp_start": "0:38",
           "timestamp_end": "0:42",
           "visual_prompt": "Final frame. Pure silence. The capsule alone in the void — hull bone-white (#F5F2EB), radiating gold (#C6A94F) from every seam. HUD strips down to a single line: DESTINATION: BEYOND. The full star field appears in bone-white (#F5F2EB) points above. The capsule floats upward in slow motion, weightless and absolute. No crimson. No noise. No dead weight. Camera holds from slightly below, framing the capsule against infinite stars. Gold light pulses once — steady, final, certain. Mood: arrival. Identity confirmed. The silence of orbit."
@@ -67,5 +67,6 @@
       "#ndch"
     ],
     "alt_text": "A sleek gold spacecraft shedding flaming red parts in a black starfield."
-  }
+  },
+  "cover_frame_timestamp": "0:26"
 }
