@@ -1,0 +1,71 @@
+{
+  "reel_id": "NDCH_006_ORBIT_DECAY",
+  "engine_version": "1.0.0",
+  "concept": "Orbital stage separation as identity — the dead weight you must burn to reach altitude",
+  "theme": "The Law of Shedding",
+  "quote": "To reach the stars, you must burn the ship that got you here.",
+  "style_id": "style_3_hud",
+  "format": {
+    "target_duration_seconds": 42
+  },
+  "visual_prompt": {
+    "primary_prompt": "A 9:16 vertical cinematic sequence of a bone-white (#F5F2EB) capsule ascending through an absolute black void (#1A1A1A). The capsule is sleek and minimal — clean white hull plating reflecting gold (#C6A94F) light radiating from within its thrusters. A HUD overlay runs throughout: crisp digital readouts tracking ALTITUDE, VELOCITY, and OXYGEN LEVELS in bone-white data streams. The environment is total space — black (#1A1A1A) infinity, just the capsule ascending. Structural components of the capsule — labeled in clean white stencil text with words like COMFORT, SAFE FRIENDS, OLD HABITS, OLD IDENTITY — are physically bolted to the exterior. As the reel progresses, each component disconnects, ignites in crimson fire (#DC143C), and falls backward into the black void below. With each separation, the capsule hull radiates brighter gold (#C6A94F) light and HUD metrics climb. Camera is a vertical tracking shot — always moving upward. Cinematic motion, 4K vertical, no narration text overlays."
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't. The boosters that got you off the ground are now just dead weight. If you don't drop them, they will pull you back to earth. Let it burn. The friends, the habits, the old identity. They weren't meant for this altitude. You are.",
+      "word_count": 68,
+      "estimated_duration_seconds": 42,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You're wondering why everything is getting harder as you get higher. It's because you're trying to take the whole ship to the moon. You can't.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:12",
+          "visual_prompt": "Opening vertical shot: bone-white (#F5F2EB) capsule ascending slowly through absolute black void (#1A1A1A). HUD panels materialize into frame — ALTITUDE: 22KM, VELOCITY: 1.2K M/S, OXYGEN: 97% — all in crisp bone-white digital readouts. Structural bolts along the capsule exterior begin to vibrate. Warning indicators pulse in crimson (#DC143C) at the HUD edges. Camera tracks upward with the capsule, void stretching infinitely below. The capsule hull glows with faint internal gold (#C6A94F) warmth — pressurized, alive, overloaded. Labels on the bolted exterior components become visible: COMFORT, OLD HABITS. Mood: mounting pressure, a system approaching its limit."
+        },
+        {
+          "id": "logic",
+          "text": "The boosters that got you off the ground are now just dead weight. If you don't drop them, they will pull you back to earth.",
+          "timestamp_start": "0:12",
+          "timestamp_end": "0:25",
+          "visual_prompt": "The first separation. A massive cylindrical booster module — labeled COMFORT in white stencil text — disconnects from the capsule base with a silent beat, then crimson fire (#DC143C) erupts from the explosive bolts. The booster tumbles downward into the black void, trailing crimson flame. The capsule jolts upward, hull flooding with gold (#C6A94F) light. HUD updates instantly: VELOCITY: 2.8K M/S. A second component labeled OLD HABITS vibrates on the hull, bolts glowing red. Camera continues tracking upward. The crimson glow of the falling booster shrinks below. Mood: the relief and grief of necessary loss."
+        },
+        {
+          "id": "sacrifice",
+          "text": "Let it burn. The friends, the habits, the old identity. They weren't meant for this altitude.",
+          "timestamp_start": "0:25",
+          "timestamp_end": "0:38",
+          "visual_prompt": "Rapid sequential separations. Components labeled SAFE FRIENDS, OLD HABITS, OLD IDENTITY detach one after another — each igniting in crimson (#DC143C) and tumbling away into the void. The capsule grows visibly cleaner and essential. Gold (#C6A94F) energy radiates intensely from the hull seams. HUD transitions: all warnings clear, display shifts to HIGH ORBIT in gold text, ALTITUDE: 285KM. The black void below is scattered with falling crimson sparks. Bone-white (#F5F2EB) stars appear ahead and above. Camera angle tilts slightly upward to reveal open space above — the destination becomes visible for the first time. Mood: painful clarity, irreversible forward momentum."
+        },
+        {
+          "id": "identity",
+          "text": "You are.",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:42",
+          "visual_prompt": "Final frame. Pure silence. The capsule alone in the void — hull bone-white (#F5F2EB), radiating gold (#C6A94F) from every seam. HUD strips down to a single line: DESTINATION: BEYOND. The full star field appears in bone-white (#F5F2EB) points above. The capsule floats upward in slow motion, weightless and absolute. No crimson. No noise. No dead weight. Camera holds from slightly below, framing the capsule against infinite stars. Gold light pulses once — steady, final, certain. Mood: arrival. Identity confirmed. The silence of orbit."
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.8,
+        "style": 0.55,
+        "speed": 1.05
+      }
+    }
+  },
+  "instagram_config": {
+    "caption": "Drop the weight. 🚀\n\nGrowth requires shedding. You can't reach the next level while holding onto the tools of the last one.\n\nSave this for your next 'uncomfortable' decision.",
+    "hashtags": [
+      "#success",
+      "#growth",
+      "#transition",
+      "#mindset",
+      "#ndch"
+    ],
+    "alt_text": "A sleek gold spacecraft shedding flaming red parts in a black starfield."
+  }
+}
