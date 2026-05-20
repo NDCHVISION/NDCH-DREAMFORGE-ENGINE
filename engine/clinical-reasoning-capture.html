@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical Reasoning Capture — NDCH DreamForge</title>
+  <style>
+    :root {
+      --black:   #1A1A1A;
+      --gold:    #C6A94F;
+      --bone:    #F5F2EB;
+      --crimson: #DC143C;
+      --dark:    #111111;
+      --mid:     #242424;
+      --border:  #2E2E2E;
+      --success: #2D9C5A;
+      --warn-bg: #3A1F1F;
+      --warn-border: #8B3A3A;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--dark);
+      color: var(--bone);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-mark {
+      width: 34px; height: 34px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; color: var(--gold);
+    }
+    .logo-text { font-size: 14px; font-weight: 700; letter-spacing: 1.5px; }
+    .logo-sub  { font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 36px 24px 60px; }
+
+    h1 { font-size: 22px; font-weight: 700; color: var(--bone); margin-bottom: 4px; }
+    .subtitle { font-size: 13px; color: #888; margin-bottom: 28px; letter-spacing: 0.3px; }
+
+    /* ── AI enrichment banner ── */
+    .ai-banner {
+      display: none;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .ai-banner.error {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: #F5A0A0;
+    }
+    .ai-banner.success {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #1A2E23;
+      border: 1px solid #2D9C5A;
+      color: #80D4A0;
+    }
+    .banner-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .banner-body { flex: 1; }
+    .banner-title { font-weight: 700; margin-bottom: 2px; }
+    .banner-msg   { font-size: 13px; opacity: 0.9; }
+    .btn-retry {
+      margin-top: 10px;
+      background: transparent;
+      border: 1px solid #8B3A3A;
+      color: #F5A0A0;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: background 0.15s;
+    }
+    .btn-retry:hover { background: rgba(139,58,58,0.25); }
+
+    /* ── Form ── */
+    .form-section { margin-bottom: 28px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .field { margin-bottom: 18px; }
+    label {
+      display: block;
+      font-size: 13px;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    label .req { color: var(--crimson); margin-left: 2px; }
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      background: var(--mid);
+      border: 1px solid var(--border);
+      color: var(--bone);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus { border-color: var(--gold); }
+    textarea { resize: vertical; min-height: 88px; }
+    input[type="text"]::placeholder,
+    textarea::placeholder { color: #555; }
+
+    /* AI-enriched fields get a subtle highlight when populated by AI */
+    .ai-populated { border-color: var(--gold) !important; }
+
+    /* ── AI Enrich button ── */
+    .enrich-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .btn-enrich {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .btn-enrich:hover:not(:disabled) { background: rgba(198,169,79,0.12); }
+    .btn-enrich:disabled { opacity: 0.45; cursor: not-allowed; }
+    .enrich-note { font-size: 12px; color: #666; }
+
+    /* ── Save button ── */
+    .save-row { margin-top: 32px; display: flex; gap: 12px; align-items: center; }
+    .btn-save {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: opacity 0.15s;
+    }
+    .btn-save:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn-save:hover:not(:disabled) { opacity: 0.88; }
+    .save-hint { font-size: 12px; color: #666; }
+
+    /* ── Spinner ── */
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(198,169,79,0.3);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">ND</div>
+  <div>
+    <div class="logo-text">NDCH DreamForge</div>
+    <div class="logo-sub">Clinical Intelligence</div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Clinical Reasoning Capture</h1>
+  <p class="subtitle">Record and AI-enrich your clinical reasoning before saving to the case log.</p>
+
+  <!--
+    AI enrichment status banner.
+    role="alert" makes it announce to assistive tech as soon as content changes.
+    aria-live="assertive" covers AT that inspect role=alert lazily.
+  -->
+  <div
+    id="ai-banner"
+    class="ai-banner"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <span class="banner-icon" id="banner-icon" aria-hidden="true"></span>
+    <div class="banner-body">
+      <div class="banner-title" id="banner-title"></div>
+      <div class="banner-msg"  id="banner-msg"></div>
+      <button class="btn-retry" id="btn-retry" hidden aria-label="Retry AI enrichment">
+        ↻ Retry enrichment
+      </button>
+    </div>
+  </div>
+
+  <form id="crc-form" novalidate>
+
+    <!-- ── Encounter context ── -->
+    <div class="form-section">
+      <div class="section-label">Encounter Context</div>
+      <div class="field">
+        <label for="patient-id">Patient ID / MRN</label>
+        <input type="text" id="patient-id" name="patientId" placeholder="e.g. MRN-000123" />
+      </div>
+      <div class="field">
+        <label for="encounter-date">Date of encounter</label>
+        <input type="text" id="encounter-date" name="encounterDate" placeholder="YYYY-MM-DD" />
+      </div>
+    </div>
+
+    <!-- ── Clinical reasoning (required) ── -->
+    <div class="form-section">
+      <div class="section-label">Clinical Reasoning <span style="color:var(--crimson)">*</span></div>
+
+      <div class="field">
+        <label for="chief-complaint">Chief Complaint <span class="req">*</span></label>
+        <input
+          type="text"
+          id="chief-complaint"
+          name="chiefComplaint"
+          required
+          aria-required="true"
+          placeholder="Primary presenting symptom or concern"
+        />
+      </div>
+
+      <div class="field">
+        <label for="assessment">Assessment / Working Diagnosis <span class="req">*</span></label>
+        <textarea
+          id="assessment"
+          name="assessment"
+          required
+          aria-required="true"
+          placeholder="Differential or confirmed diagnosis with clinical rationale"
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="plan">Plan / Treatment <span class="req">*</span></label>
+        <textarea
+          id="plan"
+          name="plan"
+          required
+          aria-required="true"
+          placeholder="Investigations ordered, medications, referrals, follow-up"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- ── AI enrichment ── -->
+    <div class="form-section">
+      <div class="section-label">AI Enrichment (Gemini)</div>
+      <div class="enrich-row">
+        <button
+          type="button"
+          class="btn-enrich"
+          id="btn-enrich"
+          aria-label="Enrich with AI"
+        >
+          <span class="enrich-icon">✦</span>
+          Enrich with AI
+        </button>
+        <span class="enrich-note">Uses Gemini to suggest evidence-based additions</span>
+      </div>
+      <div class="field">
+        <label for="ai-suggestions">AI Suggestions</label>
+        <textarea
+          id="ai-suggestions"
+          name="aiSuggestions"
+          readonly
+          placeholder="AI-generated enrichment will appear here after enrichment runs"
+          aria-live="polite"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- ── Save ── -->
+    <div class="save-row">
+      <button type="submit" class="btn-save" id="btn-save" disabled>
+        Save to Case Log
+      </button>
+      <span class="save-hint" id="save-hint">Complete required fields to enable save</span>
+    </div>
+
+  </form>
+</main>
+
+<script>
+  /* ── Config ── */
+  const GEMINI_ENDPOINT = '/api/gemini-enrich';   // relative; override via data-gemini-endpoint on <body>
+
+  /* ── DOM refs ── */
+  const form         = document.getElementById('crc-form');
+  const btnEnrich    = document.getElementById('btn-enrich');
+  const btnRetry     = document.getElementById('btn-retry');
+  const btnSave      = document.getElementById('btn-save');
+  const saveHint     = document.getElementById('save-hint');
+  const banner       = document.getElementById('ai-banner');
+  const bannerIcon   = document.getElementById('banner-icon');
+  const bannerTitle  = document.getElementById('banner-title');
+  const bannerMsg    = document.getElementById('banner-msg');
+  const aiSuggestions = document.getElementById('ai-suggestions');
+
+  /* Required fields that gate the Save button */
+  const REQUIRED_IDS = ['chief-complaint', 'assessment', 'plan'];
+
+  /* ── Save-button gating ── */
+  function refreshSaveState() {
+    const allFilled = REQUIRED_IDS.every(id => {
+      const el = document.getElementById(id);
+      return el && el.value.trim().length > 0;
+    });
+    btnSave.disabled = !allFilled;
+    saveHint.textContent = allFilled
+      ? 'All required fields completed'
+      : 'Complete required fields to enable save';
+  }
+
+  REQUIRED_IDS.forEach(id => {
+    document.getElementById(id).addEventListener('input', refreshSaveState);
+  });
+
+  /* ── Banner helpers ── */
+  function hideBanner() {
+    banner.className = 'ai-banner';
+    bannerIcon.textContent  = '';
+    bannerTitle.textContent = '';
+    bannerMsg.textContent   = '';
+    btnRetry.hidden = true;
+  }
+
+  function showError(title, msg, showRetry = true) {
+    banner.className = 'ai-banner error';
+    bannerIcon.textContent  = '⚠';
+    bannerTitle.textContent = title;
+    bannerMsg.textContent   = msg;
+    btnRetry.hidden = !showRetry;
+  }
+
+  function showSuccess(msg) {
+    banner.className = 'ai-banner success';
+    bannerIcon.textContent  = '✓';
+    bannerTitle.textContent = 'AI enrichment applied';
+    bannerMsg.textContent   = msg;
+    btnRetry.hidden = true;
+  }
+
+  /* ── AI Enrichment ── */
+  async function runEnrichment() {
+    hideBanner();
+    btnEnrich.disabled = true;
+    const originalLabel = btnEnrich.innerHTML;
+    btnEnrich.innerHTML = '<span class="spinner"></span> Enriching…';
+
+    const endpoint = document.body.dataset.geminiEndpoint || GEMINI_ENDPOINT;
+
+    try {
+      const payload = {
+        chiefComplaint : document.getElementById('chief-complaint').value,
+        assessment     : document.getElementById('assessment').value,
+        plan           : document.getElementById('plan').value,
+      };
+
+      const res = await fetch(endpoint, {
+        method  : 'POST',
+        headers : { 'Content-Type': 'application/json' },
+        body    : JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.status === 429 || (data.error && /billing.*quota|quota.*depletion/i.test(data.error))) {
+        showError(
+          'AI enrichment unavailable',
+          'Gemini billing quota depleted — switch to a free-tier key or top up the project.',
+          true
+        );
+        return;
+      }
+
+      if (!res.ok) {
+        const detail = data.error || `HTTP ${res.status}`;
+        showError('AI enrichment failed', detail, true);
+        return;
+      }
+
+      const suggestion = data.suggestion || data.text;
+      if (!suggestion) {
+        showError('AI enrichment failed', 'Unexpected response format from enrichment service.', true);
+        return;
+      }
+      aiSuggestions.value = suggestion;
+      aiSuggestions.classList.add('ai-populated');
+      showSuccess('Suggestions added to the AI Suggestions field below.');
+
+    } catch (err) {
+      showError('AI enrichment failed', err.message || 'Network error', true);
+    } finally {
+      btnEnrich.disabled = false;
+      btnEnrich.innerHTML = originalLabel;
+    }
+  }
+
+  btnEnrich.addEventListener('click', runEnrichment);
+  btnRetry.addEventListener('click', runEnrichment);
+
+  /* ── Form submit ── */
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (btnSave.disabled) return;
+    // Dispatch a custom event so tests / integrations can listen.
+    form.dispatchEvent(new CustomEvent('crc:saved', { bubbles: true, detail: {
+      patientId      : document.getElementById('patient-id').value,
+      encounterDate  : document.getElementById('encounter-date').value,
+      chiefComplaint : document.getElementById('chief-complaint').value,
+      assessment     : document.getElementById('assessment').value,
+      plan           : document.getElementById('plan').value,
+      aiSuggestions  : aiSuggestions.value,
+    }}));
+    alert('Case saved successfully.');
+  });
+</script>
+</body>
+</html>
