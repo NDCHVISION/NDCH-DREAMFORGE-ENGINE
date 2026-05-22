@@ -1,0 +1,72 @@
+{
+  "reel_id": "NDCH_009_THE_STATUE",
+  "engine_version": "1.0.0",
+  "concept": "Michelangelo's David as subtractive identity — you are not building yourself, you are uncovering yourself by removing everything false",
+  "theme": "The Art of Subtraction",
+  "quote": "Perfection is not when there is nothing left to add, but when there is nothing left to take away.",
+  "style_id": "style_2_identity",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "visual_prompt": {
+    "primary_prompt": "A 9:16 vertical cinematic sequence rendered as compressed geological excavation — abstract cross-sections of dense black (#1A1A1A) stone architecture fractured and removed to reveal gold (#C6A94F) structural geometry compressed within. The environment is absolute black (#1A1A1A) void. Primary mass: monolithic compressed granite geometry — dense, dark, architecturally impenetrable, filling the frame. Deep crimson (#DC143C) fracture lines split the mass with surgical precision before each section falls away. Gold (#C6A94F) structural lattice is revealed from within — pre-formed, complete, waiting — not molten, not constructed, simply uncovered. Bone-white (#F5F2EB) particle geometry explodes from each fracture event and drifts upward into the void — the debris of what was false. The excavation is not construction: it is discovery. Each fracture event reveals more gold architecture that was always there. Camera holds fixed center-frame as stone geometry falls away from all directions simultaneously — always revealing, never adding. Aesthetic: geological revelation, sacred geometry emerging from compression, the precision violence of excavation. 4K vertical, no text overlays."
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You think you need to find yourself. You think you're missing something. That the version of you that matters is still somewhere ahead of you. You're wrong. You're already in there. You've always been in there. You're just buried under decades of other people's expectations. Their fear. Their version of who you should become. The discipline isn't adding new layers. It's removing them. It's chipping away the laziness, the lies, and the fear. Every false version you drop reveals more of what was always there. Stop looking for the missing piece. Start removing the excess. The masterpiece was never lost. It was only covered. It has been waiting for you to stop hiding it.",
+      "word_count": 114,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You think you need to find yourself. You think you're missing something. That the version of you that matters is still somewhere ahead of you.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:10",
+          "visual_prompt": "Opening frame: absolute black (#1A1A1A) granite geometry fills the entire vertical frame — monolithic, impenetrable, total. No gold visible. No fracture lines. The surface texture is compressed architectural stone, dense and absolute, structural mass at rest. A single bone-white (#F5F2EB) particle drifts upward out of frame — the only motion. The black mass is not threatening. It is simply unopened. Complete in its enclosure. Camera holds perfectly still. Mood: the weight of an unclaimed identity, the heaviness of an unexcavated self, structural mass before the first strike."
+        },
+        {
+          "id": "reframe",
+          "text": "You're wrong. You're already in there. You've always been in there. You're just buried under decades of other people's expectations. Their fear. Their version of who you should become.",
+          "timestamp_start": "0:10",
+          "timestamp_end": "0:22",
+          "visual_prompt": "At 'You're wrong' — first crimson (#DC143C) fracture lines erupt across the black mass with sudden explosive geometry. A section of granite architecture tears away — bone-white (#F5F2EB) dust particle cloud detonates outward and drifts upward. Gold (#C6A94F) structural lattice is revealed beneath: pre-formed, complete, unbuilt — it was always there. Camera holds center-frame. More crimson fractures accumulate across the surface. Each fracture event is a revelation, not a construction. The gold geometry grows more visible with each stone removal. Mood: the violence of recognition, the shock of what was always present, structural revelation through fracture."
+        },
+        {
+          "id": "process",
+          "text": "The discipline isn't adding new layers. It's removing them. It's chipping away the laziness, the lies, and the fear. Every false version you drop reveals more of what was always there.",
+          "timestamp_start": "0:22",
+          "timestamp_end": "0:34",
+          "visual_prompt": "Continuous excavation. Crimson (#DC143C) fracture events multiply — each one precise, each one removing more black granite geometry and revealing more gold (#C6A94F) structural lattice beneath. The gold architecture is becoming dominant — complex, layered, authoritative. Bone-white (#F5F2EB) particle debris fills the frame, drifting upward — the visible mass of everything false. The black stone is clearly a shell now, not the substance. Each removal accelerates the next. Camera holds still as the excavation intensifies from all directions simultaneously. Mood: the compounding momentum of subtraction, the discipline of removal as revelation."
+        },
+        {
+          "id": "identity",
+          "text": "Stop looking for the missing piece. Start removing the excess. The masterpiece was never lost. It was only covered. It has been waiting for you to stop hiding it.",
+          "timestamp_start": "0:34",
+          "timestamp_end": "0:45",
+          "visual_prompt": "Final frame. The black granite mass is almost entirely gone. Gold (#C6A94F) structural geometry dominates the vertical frame — complete, revealed, absolute. No crimson. No fracture lines. No debris in motion. Just the gold architecture, whole and permanent, filling the space the stone once occupied. A single slow pulse of gold light moves through the lattice from its deepest point outward — not warm, not emotional. Structural. The confirmation of what was always there. Fade to absolute black (#1A1A1A). Mood: the silence of the already-complete, the authority of the always-existing self now fully uncovered."
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.8,
+        "style": 0.5,
+        "speed": 0.95
+      }
+    }
+  },
+  "instagram_config": {
+    "caption": "Subtract to expand.\n\nYou aren't a project to be finished. You are a masterpiece to be revealed.\n\nEvery bad habit you drop. Every false version you release. That's not loss — that's excavation.\n\n#NkrumahDoctrine #TheArtOfSubtraction #SubtractiveIdentity #SelfMastery #NDCH",
+    "hashtags": [
+      "#nkrumahdoctrine",
+      "#selfmastery",
+      "#discipline",
+      "#mindset",
+      "#ndch"
+    ],
+    "alt_text": "An abstract compressed black granite mass fractured by crimson lines, revealing dense gold architectural geometry within — the excavation of identity."
+  },
+  "cover_frame_timestamp": "0:04"
+}
