@@ -9,7 +9,7 @@
         "id": "style_1_fractal",
         "label": "Fractal Gold Architecture",
         "description": "Surreal, looping fractal visuals with liquid gold tones, sacred geometry, and cinematic depth.",
-        "base_prompt": "Create a surreal looping reel about QUOTE \u2014 liquid gold fractal geometry, sacred architecture dissolving into light, hyper-detailed cinematic motion, 4K, slow zoom, spiritual aesthetic, no text overlays.",
+        "base_prompt": "Create a surreal looping reel about QUOTE — liquid gold fractal geometry, sacred architecture dissolving into light, hyper-detailed cinematic motion, 4K, slow zoom, spiritual aesthetic, no text overlays.",
         "keywords": [
           "water",
           "flow",
@@ -26,7 +26,7 @@
         "id": "style_2_identity",
         "label": "Identity & Shadow Self",
         "description": "Dark cinematic portraiture with dramatic lighting, silhouettes, and intense personal narrative energy.",
-        "base_prompt": "Create a cinematic reel about QUOTE \u2014 dark dramatic portraiture, silhouette against golden light, slow motion fabric and dust particles, intense personal transformation aesthetic, 4K, no text overlays.",
+        "base_prompt": "Create a cinematic reel about QUOTE — dark dramatic portraiture, silhouette against golden light, slow motion fabric and dust particles, intense personal transformation aesthetic, 4K, no text overlays.",
         "keywords": [
           "identity",
           "self",
@@ -44,7 +44,7 @@
         "id": "style_3_hud",
         "label": "HUD Neural Grid",
         "description": "Futuristic HUD-style overlays, neural network grids, dark sci-fi aesthetic with electric blue and gold.",
-        "base_prompt": "Create a futuristic reel about QUOTE \u2014 HUD data overlays, neural network grid lines, electric blue and gold neon accents, dark background, AI aesthetic, cinematic motion, 4K, no readable text.",
+        "base_prompt": "Create a futuristic reel about QUOTE — HUD data overlays, neural network grid lines, electric blue and gold neon accents, dark background, AI aesthetic, cinematic motion, 4K, no readable text.",
         "keywords": [
           "mind",
           "brain",
@@ -63,7 +63,7 @@
         "id": "style_4_forge",
         "label": "Forge & Ember",
         "description": "Molten metal close-ups, falling sparks against deep black, liquid gold solidifying. The raw material under pressure becoming something permanent.",
-        "base_prompt": "Create a dramatic reel about QUOTE \u2014 extreme close-up of glowing molten metal and cascading sparks against pure black, liquid gold solidifying into form, slow motion ember drift, hands gripping hammer, cinematic 4K, no text overlays.",
+        "base_prompt": "Create a dramatic reel about QUOTE — extreme close-up of glowing molten metal and cascading sparks against pure black, liquid gold solidifying into form, slow motion ember drift, hands gripping hammer, cinematic 4K, no text overlays.",
         "keywords": [
           "forge",
           "fire",
@@ -84,8 +84,8 @@
       "style_5_blueprint": {
         "id": "style_5_blueprint",
         "label": "Blueprint Architect",
-        "description": "Precise gold technical line drawings on deep black \u2014 architectural blueprints for human systems. Frameworks, diagrams, deliberate construction.",
-        "base_prompt": "Create a reel about QUOTE \u2014 precise gold architectural blueprint lines drawing themselves on deep black, geometric forms constructing from nothing, elegant technical diagrams morphing in sequence, drafting instruments, cinematic 4K, no readable text.",
+        "description": "Precise gold technical line drawings on deep black — architectural blueprints for human systems. Frameworks, diagrams, deliberate construction.",
+        "base_prompt": "Create a reel about QUOTE — precise gold architectural blueprint lines drawing themselves on deep black, geometric forms constructing from nothing, elegant technical diagrams morphing in sequence, drafting instruments, cinematic 4K, no readable text.",
         "keywords": [
           "plan",
           "design",
@@ -105,7 +105,7 @@
         "id": "style_6_obsidian",
         "label": "Obsidian Mirror",
         "description": "Deep reflective black surfaces, figures facing their reflection, confrontational stillness. Bone-white light, crimson shadow accents.",
-        "base_prompt": "Create a cinematic reel about QUOTE \u2014 polished obsidian and dark mirror surfaces, a lone figure standing before their distorted reflection, bone-white light source, deep crimson shadow accents, meditative confrontational stillness, 4K, no text overlays.",
+        "base_prompt": "Create a cinematic reel about QUOTE — polished obsidian and dark mirror surfaces, a lone figure standing before their distorted reflection, bone-white light source, deep crimson shadow accents, meditative confrontational stillness, 4K, no text overlays.",
         "keywords": [
           "reflection",
           "mirror",
@@ -120,6 +120,28 @@
         ],
         "emotional_tone": "confrontational",
         "camera_notes": "slow pull-back reveal, symmetrical framing, mirror-axis composition"
+      },
+      "style_7_threshold": {
+        "id": "style_7_threshold",
+        "label": "Threshold Guardian",
+        "description": "Liminal architecture and shadow guardian figures. Absolute black void, towering geometric gateways, shadow forms backlit by deep gold aperture light, crimson boundary traces, bone-white particle scatter. The pressure of the between-space — threshold as identity test.",
+        "base_prompt": "Create a cinematic reel about QUOTE — absolute black (#1A1A1A) void, a towering geometric gateway built from compressed architectural geometry, a dense shadow figure standing before it backlit by deep gold (#C6A94F) aperture light pulsing from within the gateway, crimson (#DC143C) boundary traces marking the figure's perimeter with surgical precision, bone-white (#F5F2EB) particle scatter drifting upward throughout, confrontational liminal stillness, slow center-frame hold, sequence arc: figure screens, fractures, dissolves, gold aperture floods frame, 4K vertical, no text overlays.",
+        "keywords": [
+          "fear",
+          "threshold",
+          "door",
+          "guardian",
+          "gate",
+          "enter",
+          "courage",
+          "step",
+          "passage",
+          "liminal",
+          "gatekeeper",
+          "through"
+        ],
+        "emotional_tone": "liminal",
+        "camera_notes": "fixed center-frame hold, slow deliberate forward push on confrontation, gold aperture flood on final phase"
       }
     },
     "style_selection_logic": {
@@ -206,6 +228,21 @@
             "reveal"
           ],
           "select": "style_6_obsidian"
+        },
+        {
+          "priority": 7,
+          "trigger_keywords": [
+            "fear",
+            "threshold",
+            "door",
+            "guardian",
+            "gate",
+            "enter",
+            "passage",
+            "liminal",
+            "gatekeeper"
+          ],
+          "select": "style_7_threshold"
         },
         {
           "priority": 99,
