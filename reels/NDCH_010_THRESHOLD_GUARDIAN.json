@@ -1,0 +1,66 @@
+{
+  "reel_id": "NDCH_010_THRESHOLD_GUARDIAN",
+  "engine_version": "1.0.0",
+  "concept": "Fear as a gatekeeper, not a wall — every threshold is guarded by the exact thing you have been avoiding, and passing through it is the price of the next version of yourself",
+  "theme": "The Guardian of the Gate",
+  "quote": "The cave you fear to enter holds the treasure you seek.",
+  "style_id": "style_5_threshold",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "visual_prompt": {
+    "primary_prompt": "A 9:16 vertical cinematic sequence rendered as liminal threshold architecture — absolute black (#1A1A1A) void framing a single massive geometric gateway structure built from compressed bone-white (#F5F2EB) and charcoal architectural slabs stacked into a towering vertical threshold. At the gateway's center: a concentrated aperture of gold (#C6A94F) light, deep and pulsing, permanent. A dense shadow figure stands in the foreground between viewer and gateway — total, stationary, backlit by gold. Crimson (#DC143C) light traces the shadow figure's perimeter with surgical precision — not threat, but boundary. The figure is made of compressed geometry, the same material as the gateway. Sequence arc: figure screens (holds), fractures (tests), dissolves (grants passage). Gold aperture expands with each phase. Bone-white (#F5F2EB) particle scatter moves upward throughout. Camera holds center-frame. No camera movement until the final passage phase. Aesthetic: liminal architecture, the pressure of the between-space, threshold as identity test. 4K vertical, no text overlays."
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "That knot in your stomach? Not a warning. A receipt. Every level up in your life has a guardian at the door. That guardian is made of the exact thing you've been avoiding. It's not blocking you. It's screening you. Fear doesn't guard empty rooms. It guards the next version of you. The one that requires more commitment, more sacrifice, more identity. People who read fear as a stop sign, turn back. People who read it as an entry fee, step through. Stop waiting for the fear to lift. It won't. Fear lives at every threshold. The door doesn't open for the fearless. It opens for the ones who walk in shaking.",
+      "word_count": 112,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "That knot in your stomach? Not a warning. A receipt. Every level up in your life has a guardian at the door.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:11",
+          "visual_prompt": "Opening frame. Absolute black (#1A1A1A) void. A massive geometric gateway structure fills the vertical frame — bone-white (#F5F2EB) architectural slabs compressed into a towering threshold shape. At the gateway's center: a concentrated aperture of gold (#C6A94F) light, distant, pulsing slowly. The shadow figure stands between viewer and gateway — dense, stationary, total. Its perimeter traced with crimson (#DC143C) light, sharp and precise. The figure is not moving. It is waiting. A single bone-white (#F5F2EB) particle drifts upward out of frame. Camera holds perfectly still. Mood: the weight of a threshold not yet entered, the presence of something that must be faced before passage."
+        },
+        {
+          "id": "reframe",
+          "text": "That guardian is made of the exact thing you've been avoiding. It's not blocking you. It's screening you. Fear doesn't guard empty rooms.",
+          "timestamp_start": "0:11",
+          "timestamp_end": "0:24",
+          "visual_prompt": "The shadow figure shifts — not a threat, a gesture. Crimson (#DC143C) light along its perimeter intensifies, geometric and precise, like a scanning pattern activating. The gateway's gold (#C6A94F) aperture behind it begins to expand — slowly, incrementally. The gateway's architectural slabs develop hairline fractures in bone-white (#F5F2EB), not damage but texture, the geometry of a structure designed to be passed through. Bone-white (#F5F2EB) particles begin drifting upward from the fracture points. The shadow figure is made of compressed geometry — the same material as the gateway itself. Camera holds center-frame. Mood: the recognition that the obstacle and the passage are the same structure."
+        },
+        {
+          "id": "process",
+          "text": "It guards the next version of you. The one that requires more commitment, more sacrifice, more identity. People who read fear as a stop sign, turn back. People who read it as an entry fee, step through.",
+          "timestamp_start": "0:24",
+          "timestamp_end": "0:35",
+          "visual_prompt": "The camera begins to move forward — slowly, definitionally. The shadow figure holds its position as the camera advances. Crimson (#DC143C) fracture lines spread across the figure's form — not destruction, registration. Each fracture reveals the figure is hollow. Gold (#C6A94F) light flows through the fracture lines from the gateway aperture behind it, outlining the figure's interior geometry in gold lattice. The bone-white (#F5F2EB) particle field intensifies. The gateway fills more of the frame. The shadow is becoming architecture, not obstacle. Mood: the momentum of commitment, the discovery that the guardian and the gate are one structure."
+        },
+        {
+          "id": "identity",
+          "text": "Stop waiting for the fear to lift. It won't. Fear lives at every threshold. The door doesn't open for the fearless. It opens for the ones who walk in shaking.",
+          "timestamp_start": "0:35",
+          "timestamp_end": "0:45",
+          "visual_prompt": "Camera passes through the shadow figure. The figure does not resist — it opens. Fractures multiply instantaneously across the entire shadow form; bone-white (#F5F2EB) geometry scatters upward into the void in a single detonation. Gold (#C6A94F) light floods the frame from the gateway aperture — total, structural, permanent. The gateway's interior: compressed gold architectural lattice extending to infinite depth in the vertical frame. No shadow. No obstacle. No crimson. The passage is complete. A single slow pulse of gold light moves from deep within the lattice toward the camera. Fade to absolute black (#1A1A1A). Mood: the silence on the other side of commitment, the architecture that was always through the door."
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.8,
+        "style": 0.5,
+        "speed": 0.95
+      }
+    }
+  },
+  "instagram_config": {
+    "caption": "Fear doesn't guard empty rooms.\n\nIt guards the next version of you. The one that costs more. The one that requires more sacrifice, more identity, more commitment.\n\nStop waiting for it to pass. Walk in shaking.\n\n#NkrumahDoctrine #ThresholdGuardian #FearAsGatekeeper #SelfMastery #NDCH",
+    "hashtags": ["#nkrumahdoctrine", "#selfmastery", "#discipline", "#mindset", "#ndch"],
+    "alt_text": "A massive geometric gateway structure in absolute black, shadow guardian figure backlit by gold aperture light — the threshold architecture of identity."
+  },
+  "cover_frame_timestamp": "0:03"
+}
