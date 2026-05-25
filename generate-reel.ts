@@ -29,7 +29,7 @@
  * Node ≥ 18 + ffmpeg on PATH required.
  */
 
-import { writeFileSync, readFileSync, existsSync, appendFileSync, copyFileSync, unlinkSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync, appendFileSync, copyFileSync } from 'node:fs';
 import { execSync }                                                 from 'node:child_process';
 import { randomUUID }                                               from 'node:crypto';
 import { tmpdir }                                                   from 'node:os';
@@ -778,8 +778,8 @@ async function main(): Promise<void> {
   }
 
   console.log('');
-  // Clear checkpoint -- full reel published successfully.
-  try { unlinkSync(CLIP_CHECKPOINT_PATH); } catch { /* already gone */ }
+  // Checkpoint preserved: if Instagram publish fails the next retry restores clips
+  // from the GitHub Actions cache and skips Runway regeneration, saving credits.
 
   console.log(`✓  Reel ready → ${publicUrl}`);
 }
