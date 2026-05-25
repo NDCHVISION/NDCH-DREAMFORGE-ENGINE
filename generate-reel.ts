@@ -60,6 +60,7 @@ import {
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
 
+const DR_NKRUMAH_VOICE_ID        = 'C9Uh5MFptuXa176UlaXE'; // Dr. Nkrumah's voice — always takes precedence over any spec or engine default
 const DEFAULT_VOICE_ID           = ENGINE_DEFAULTS.defaultVoiceId;
 const DEFAULT_ELEVENLABS_MODEL   = ENGINE_DEFAULTS.defaultModelId;
 const DEFAULT_OUTPUT_FORMAT      = 'mp3_44100_192';
@@ -207,7 +208,7 @@ function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): strin
 async function generateVoiceover(): Promise<string> {
   console.log('  [1/4] Generating voiceover via ElevenLabs…');
   const { elevenLabsKey, plan } = getConfig();
-  const voiceId      = plan.elevenLabs.voiceId ?? DEFAULT_VOICE_ID;
+  const voiceId      = DR_NKRUMAH_VOICE_ID; // immutable — overrides any spec or engine default
   const outputFormat = (plan.elevenLabs as Record<string, unknown>).outputFormat as string | undefined
                        ?? DEFAULT_OUTPUT_FORMAT;
 
@@ -716,7 +717,7 @@ async function main(): Promise<void> {
   console.log(`  release name  : ${releaseName}`);
   console.log(`  runway conc.  : ${runwayConcurrency}`);
   console.log(`  music path    : ${musicPath ?? '(auto-detect asset or skip)'}`);
-  console.log(`  voice         : ${plan.elevenLabs.voiceId ?? DEFAULT_VOICE_ID}`);
+  console.log(`  voice         : ${DR_NKRUMAH_VOICE_ID} (hardcoded — Dr. Nkrumah)`);
   console.log(`  model         : ${plan.elevenLabs.modelId}`);
   console.log(`  style         : ${plan.selectedStyleId ?? '(none)'}`);
   console.log(`  target secs   : ${plan.targetDurationSeconds ?? '(audio-driven)'}`);
