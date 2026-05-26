@@ -208,16 +208,7 @@ function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): strin
 async function generateVoiceover(): Promise<string> {
   console.log('  [1/4] Generating voiceover via ElevenLabs…');
   const { elevenLabsKey, plan } = getConfig();
-  // Brand-conditional voice selection:
-  //   • NDCH_ reels  → always use Dr. Nkrumah's voice (C9Uh5MFptuXa176UlaXE)
-  //   • SFM_ reels   → respect the spec's elevenLabs.voiceId field
-  //   • Unknown      → fall back to Dr. Nkrumah's voice
-  const specFile  = (plan.reelSpecPath ?? '').split('/').pop() ?? '';
-  const isSFMReel = specFile.startsWith('SFM_');
-  const specVoice = (plan.elevenLabs as Record<string, unknown>).voiceId as string | undefined;
-  const voiceId   = isSFMReel && specVoice
-    ? specVoice          // SFM: respect spec voice_id
-    : DR_NKRUMAH_VOICE_ID; // NDCH / default: always Dr. Nkrumah
+  const voiceId      = DR_NKRUMAH_VOICE_ID; // immutable — overrides any spec or engine default
   const outputFormat = (plan.elevenLabs as Record<string, unknown>).outputFormat as string | undefined
                        ?? DEFAULT_OUTPUT_FORMAT;
 
@@ -726,11 +717,7 @@ async function main(): Promise<void> {
   console.log(`  release name  : ${releaseName}`);
   console.log(`  runway conc.  : ${runwayConcurrency}`);
   console.log(`  music path    : ${musicPath ?? '(auto-detect asset or skip)'}`);
-  const _sfmLogFile = (plan.reelSpecPath ?? '').split('/').pop() ?? '';
-  const _isSFMLog   = _sfmLogFile.startsWith('SFM_');
-  const _specVoiceLog = (plan.elevenLabs as Record<string, unknown>).voiceId as string | undefined;
-  const _logVoice   = _isSFMLog && _specVoiceLog ? _specVoiceLog : DR_NKRUMAH_VOICE_ID;
-  console.log(`  voice         : ${_logVoice} (${_isSFMLog ? 'SFM spec voice' : 'Dr. Nkrumah hardcoded'})`);
+  console.log(`  voice         : ${DR_NKRUMAH_VOICE_ID} (hardcoded — Dr. Nkrumah)`);
   console.log(`  model         : ${plan.elevenLabs.modelId}`);
   console.log(`  style         : ${plan.selectedStyleId ?? '(none)'}`);
   console.log(`  target secs   : ${plan.targetDurationSeconds ?? '(audio-driven)'}`);
