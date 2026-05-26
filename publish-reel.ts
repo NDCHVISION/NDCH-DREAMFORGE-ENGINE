@@ -1,6 +1,6 @@
 /**
  * NDCH Vision — Instagram Reel Publisher
- * Meta Graph API v19.0  |  Facebook Login for Business route
+ * Meta Graph API v22.0  |  Facebook Login for Business route
  *
  * Required app permissions (as shown in Meta App Dashboard)
  * ──────────────────────────────────────────────────────────
@@ -40,7 +40,7 @@ import { resolve } from 'node:path';
 import { requestJson } from './http-client.ts';
 import { loadPublishRuntimeConfig, type PublishRuntimeConfig } from './config/env.ts';
 
-const GRAPH = 'https://graph.facebook.com/v19.0';
+const GRAPH = 'https://graph.facebook.com/v22.0';
 const POLL_EVERY = 5_000;
 const POLL_TIMEOUT = 120_000;
 
@@ -202,14 +202,13 @@ async function waitForContainer(containerId: string): Promise<void> {
   while (Date.now() < deadline) {
     attempt++;
 
-    const { status_code, status } = await gql<{
+    const { status_code } = await gql<{
       status_code: ContainerStatus;
-      status: string;
       id: string;
     }>(
       `/${containerId}`,
       'GET',
-      { fields: 'status_code,status', access_token: config.pageToken }
+      { fields: 'status_code', access_token: config.pageToken }
     );
 
     console.log(`         [${attempt}] ${status_code}`);
@@ -223,7 +222,7 @@ async function waitForContainer(containerId: string): Promise<void> {
       throw new Error('Container expired before publishing — re-upload the video');
     }
     if (status_code === 'ERROR') {
-      throw new Error(`Container processing failed: ${status ?? 'unknown'}`);
+      throw new Error('Container processing failed — check container status in Meta dashboard');
     }
   }
 
