@@ -1,0 +1,147 @@
+{
+  "reel_id": "NDCH_013_SELF_PROMISE_SANCTUARY_OPTIMIZED",
+  "engine_version": "1.0.0",
+  "concept": "The brutality and holiness of keeping promises to yourself. Every private discipline is a load-bearing brick in the inner architecture of self-respect. Every broken vow is a fracture point. The cathedral you are building is made entirely of things no one else witnessed.",
+  "theme": "Self-respect is forged every time you keep a promise no one else can see.",
+  "core_metaphor": "A cathedral that builds and collapses in real time based on whether you keep or break your word to yourself.",
+  "emotional_arc": "numb → exposed → convicted → reverent → unbreakable",
+  "quote": "The promises you keep in secret are the bricks of your self-respect. Break enough of them, and the whole cathedral collapses.",
+  "style_id": "style_3_hud_covenant",
+  "format": {
+    "target_duration_seconds": 42
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Final narration ends on an open clause with no terminal resolution. On loop 2, the trailing phrase flows directly into the opening question, creating a seamless cognitive loop. The viewer re-enters the reel mid-thought before registering the restart.",
+    "loop_seam": "...because underneath it all... [LOOP] ...Be honest…",
+    "visual_seam": "Scene 6 blueprint collapses frame-by-frame back to the exact sparse layout of Scene 1 frame 0. The final frame and the first frame are visually identical — the loop is invisible.",
+    "audio_design": {
+      "final_segment_treatment": "The word 'all' must trail into silence without downward inflection. It is a thought interrupted, not a sentence ending. ElevenLabs final segment: stability 0.75, style 0.0 to suppress resolution cues.",
+      "music_fade": "Soft fade-out begins at 0:40, music drops to near-zero at 0:42 then cuts — flowing into the sub-bass hit at 0:00 of loop 2."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "Surreal 9:16 vertical sequence. Pure black (#1A1A1A) void as the absolute foundation — not dark grey, not near-black, pure optical void. Floating above it: a precise architectural wireframe of a gothic cathedral rendered as a holographic HUD — gold (#C6A94F) structural lines at 0.5px weight, bone-white (#F5F2EB) connection nodes at intersection points, the whole structure appearing as if projected from within the void itself. The cathedral exists in three-dimensional space: nave, transept, and apse visible in isometric projection, each section a distinct structural zone. The gold lines have micro-luminescence — they emit faint light halos without blooming. Crimson (#DC143C) appears only as a failure state: arc-flash, fracture propagation, structural hemorrhage. No ambient light. No environment. No text. The cathedral IS the environment. 4K vertical, ultra-crisp line rendering.",
+    "runway_prompt_modifier": "holographic architectural wireframe, gothic cathedral HUD overlay, isometric projection, pure black void, gold luminescent structural lines, bone-white node points, crimson fracture propagation, no ambient light, no environment, cinematic vertical format",
+    "color_palette": {
+      "void": "#1A1A1A",
+      "structure": "#C6A94F",
+      "nodes": "#F5F2EB",
+      "failure": "#DC143C"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "subtle — 1-2px RGB channel split at frame edges only, more pronounced during crimson failure states",
+        "note": "Adds analog imperfection to the digital cathedral without overwhelming the line clarity"
+      },
+      "depth_of_field": {
+        "gravity_phase_scenes": [1, 2, 3],
+        "gravity_phase_focus": "razor-sharp on the damaged nodes, cathedral periphery falls to soft bokeh",
+        "restoration_phase_scenes": [4, 5, 6],
+        "restoration_phase_focus": "full-field sharpness as the structure completes — every line crisp to the frame edge"
+      },
+      "film_grain": {
+        "failure_scenes_intensity": 0.12,
+        "restoration_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, not film grain — matches the HUD aesthetic"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "Be honest… how many promises have you quietly broken to yourself this year? Not the big ones you post online. The small, brutal ones. Wake up. Show up. Stop lying. Every betrayal teaches your mind a devastating rule: my word means nothing when it's just for me. That's why you're stuck. Your nervous system simply doesn't believe a word you say anymore. But keep just one tiny vow today, and you rewrite the entire code. Treat your micro-disciplines like holy covenants. Protect your word, because underneath it all",
+      "mobius_note": "Final word 'all' is an open clause with no grammatical resolution. Must be rendered without terminal inflection — trailing off as if the thought continues beyond the frame. On loop, 'underneath it all' flows into 'Be honest…' completing the conceptual circuit.",
+      "word_count": 98,
+      "estimated_duration_seconds": 41,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Be honest… how many promises have you quietly broken to yourself this year?",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Frame opens on pure black (#1A1A1A) — held for exactly 8 frames before anything appears. Then: a single bone-white (#F5F2EB) node materializes at the vertical center of the frame, a precise 4px point of light. From it, gold (#C6A94F) architectural lines extend outward at isometric angles — the beginning of a cathedral floor plan rendered from directly overhead, each line appearing segment by segment as if being drawn by an invisible hand at 40px per second. The plan is incomplete. Several lines terminate abruptly mid-extension. Three additional bone-white nodes pulse weakly at structural intersections — not blinking, pulsing, like a slow irregular heartbeat. The outer thirds of the frame remain pure black void. Heavy chromatic aberration on node edges. The structure reads as fragile, partial, aspirational. Camera locked, zero movement. Mood: the inventory of an unfinished self. holographic architectural wireframe, gothic cathedral HUD overlay, isometric projection, pure black void, gold luminescent structural lines, bone-white node points, cinematic vertical format"
+        },
+        {
+          "id": "brutal_truth",
+          "text": "Not the big ones you post online. The small, brutal ones. Wake up. Show up. Stop lying.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:13",
+          "visual_prompt": "On 'Wake up' — simultaneous failure event across three bone-white (#F5F2EB) nodes: each node fractures outward in a starburst pattern, releasing crimson (#DC143C) arc-flash along the adjacent gold (#C6A94F) lines. The crimson doesn't flood — it travels: moving along the gold structural lines like electrical current finding ground, leaving crimson residue burns where it passes. The cathedral floor plan's left transept section begins to destabilize — gold lines in that zone develop micro-tremors, vibrating at high frequency before two lines snap and retract into the void. The bone-white nodes in the damaged zone turn crimson and begin flickering at irregular intervals, like failing LEDs. The camera does not move. The damage is architectural, not explosive. Chromatic aberration intensifies at fracture points. Mood: the quiet violence of self-betrayal. holographic architectural wireframe, crimson fracture propagation, arc-flash energy, structural failure, pure black void, cinematic vertical format"
+        },
+        {
+          "id": "the_rule",
+          "text": "Every betrayal teaches your mind a devastating rule: my word means nothing when it's just for me.",
+          "timestamp_start": "0:13",
+          "timestamp_end": "0:21",
+          "visual_prompt": "The crimson (#DC143C) failure state spreads from the left transept into the nave. Gold (#C6A94F) lines in the affected zone don't break — they dissolve: their luminescence fades from gold to dull amber to grey to nothing, the lines becoming transparent and then absent, leaving only the black void behind them. The cathedral's structural integrity is now visibly compromised — the remaining gold lines sag fractionally at their midpoints, the geometry no longer perfectly rigid. A slow camera drift begins: 0.3px per frame, pulling back infinitesimally to reveal the scale of what's missing. The remaining bone-white nodes cluster in the upper third — the apse zone — isolated, still connected to each other, but surrounded by absence. The crimson nodes in the collapsed zone have stopped flickering and gone dark. Dead nodes. The frame is now 40% void where structure used to be. Mood: the accumulated weight of a pattern. holographic architectural wireframe, structural dissolution, gold line decay, pure black void expansion, cinematic vertical format"
+        },
+        {
+          "id": "diagnosis",
+          "text": "That's why you're stuck. Your nervous system simply doesn't believe a word you say anymore.",
+          "timestamp_start": "0:21",
+          "timestamp_end": "0:28",
+          "visual_prompt": "Camera drifts slowly into a tight macro on a single surviving crimson (#DC143C) node — the last active failure point in the collapsed zone. At macro distance, the node's internal structure becomes visible: it is not solid but a lattice of crimson micro-lines in a state of continuous micro-fracture and partial self-repair, like a wound that cannot close. The gold (#C6A94F) structural lines terminating at this node are visible at their endpoints — they end in frayed, splayed filaments, no longer connected to anything. Around the node: absolute black (#1A1A1A). The surviving apse nodes are visible in the extreme upper background, out of focus, their bone-white light reduced to soft blur. The camera holds here. Nothing moves except the crimson node's internal flickering. Mood: the nervous system as architectural evidence. macro holographic node detail, crimson failure state, frayed gold line endpoints, pure black void, extreme depth of field, cinematic vertical format"
+        },
+        {
+          "id": "rewrite",
+          "text": "But keep just one tiny vow today, and you rewrite the entire code.",
+          "timestamp_start": "0:28",
+          "timestamp_end": "0:35",
+          "visual_prompt": "Camera snaps back to full-frame isometric view in a single cut. At the exact geometric center of the frame: a new bone-white (#F5F2EB) node appears — not flickering, not pulsing, stationary and absolute, burning at full luminance. From this node: gold (#C6A94F) structural lines extend outward at high velocity — not the slow 40px-per-second draw of Scene 1, but rapid geometric deployment, each line locking into place with a micro-flash at its endpoint. Where the lines reach the collapsed zone, they do not rebuild what was lost — they build higher. New gold lines extend vertically above the existing floor plan, constructing a second storey of the cathedral that didn't exist before. Crimson (#DC143C) residue on the damaged gold lines is overwritten by the new luminescence — not purged, overwritten, the new gold brighter than the crimson beneath. The bone-white central node begins generating secondary nodes at its cardinal points, each one locking in with precision. Mood: one kept promise as architectural overwrite. holographic architectural wireframe reconstruction, gold line deployment, structural elevation, bone-white anchor node, pure black void, cinematic vertical format"
+        },
+        {
+          "id": "mobius_close",
+          "text": "Treat your micro-disciplines like holy covenants. Protect your word, because underneath it all",
+          "timestamp_start": "0:35",
+          "timestamp_end": "0:42",
+          "mobius_note": "Final word 'all' must trail off without terminal inflection. ElevenLabs settings for this segment only: stability 0.75, style 0.0. The word should feel suspended mid-thought, not concluded.",
+          "visual_prompt": "The cathedral wireframe reaches completion — every structural zone connected, every node bone-white (#F5F2EB) and stable, gold (#C6A94F) lines at full luminance across the entire isometric plan. The structure is now taller than the original: nave, transept, apse, and a new spire zone extending into the upper frame. The gold lines pulse once in unison — a single slow wave of increased luminance moving from the central node outward to the frame edges and back. Then at 0:40 exactly: the reversal begins. Gold lines start retracting, segment by segment, in the reverse order they were built — not collapsing, folding, each line retreating cleanly back toward its origin node. Secondary nodes dissolve first, then primary nodes dim from full luminance to the weak pulse of Scene 1. By 0:42 the frame contains exactly what it contained at 0:00: one central node, four partial gold lines, three weak peripheral nodes. Pure black void surrounding them. The loop is sealed. Camera locked throughout. Mood: the architecture of commitment, folding back into the quiet question that started everything. holographic architectural wireframe, structural reversal, gold line retraction, loop seam preparation, pure black void, cinematic vertical format"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.68,
+        "similarity_boost": 0.72,
+        "style": 0.35,
+        "use_speaker_boost": true,
+        "speed": 0.88
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.75,
+        "style": 0.0,
+        "note": "Override style to 0.0 on final segment only to suppress terminal inflection on 'all'. All other segments use the default settings above."
+      },
+      "voice_notes": "Original spec specified pNInz6obpgDQGcFmaJgB. DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides this — C9Uh5MFptuXa176UlaXE will be used regardless. No action required unless hardcode is reverted."
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": ["promises", "betrayal", "rule", "stuck", "vow", "covenants"],
+    "peak_words": ["brutal", "nothing", "devastating", "lying"]
+  },
+  "music_config": {
+    "description": "Dark cinematic ambient at 75 BPM. Low piano hits on the 1 and 3. Subtle analog bass swells on the failure segments (0:06-0:28). Reversed pads sustaining throughout. Light percussive ticks at 75 BPM marking the pulse. Gold restoration sweep at 0:28 when the central node locks in.",
+    "fade_in_seconds": 2,
+    "fade_out_start_seconds": 40,
+    "fade_out_end_seconds": 42
+  },
+  "instagram_config": {
+    "caption": "If your word means nothing to you, nothing you build will feel like yours.\n\nStart with one small promise today. Keep it like it's holy.\n\nSave this for the day you're tempted to betray yourself again.\n\n#NkrumahDoctrine #SelfRespect #Discipline #SystemsArchitecture #InnerWork #NDCH",
+    "hashtags": ["#selfrespect", "#discipline", "#innerwork", "#selfmastery", "#ndch"],
+    "alt_text": "A holographic gothic cathedral wireframe in gold and bone-white, building and fracturing in a pure black void — the architecture of self-respect made visible."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — zero cached clips",
+    "loop_verification": "Before dispatch, confirm Scene 6 final frame matches Scene 1 opening frame. The blueprint must be visually identical at both ends — same node positions, same line fragments, same luminance levels.",
+    "kinetic_contrast_note": "Scene 1 opens on 8 frames of pure black before the first node appears. This is intentional — the void before the structure registers as weight. Do not reduce this hold.",
+    "schema_note": "Spec uses engine v1.0.0 segments schema matching NDCH_010. Original blueprint used narrationSegments/sceneTimeline (v1.1.0 schema). This file is the engine-compatible version."
+  },
+  "cover_frame_timestamp": "0:30"
+}
