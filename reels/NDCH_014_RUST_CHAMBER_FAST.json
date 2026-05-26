@@ -1,0 +1,163 @@
+{
+  "reel_id": "NDCH_014_RUST_CHAMBER_FAST",
+  "engine_version": "1.0.0",
+  "concept": "Rust and explosive reclamation — the price of comfort and unused potential. Comfort is not safety; it is chemical oxidation. Every day you avoid the friction of execution, the system pits. The system degrades. Turn the pressure back on.",
+  "theme": "The Price of Stagnation",
+  "core_metaphor": "A monolithic steel structure that corrodes in real time under comfort — then is reclaimed by friction, force, and the deliberate application of pressure.",
+  "emotional_arc": "exposed → convicted → condemned → ignited → reclaimed → reset",
+  "quote": "Comfort is not safety. It is chemical oxidation.",
+  "style_id": "style_3_hud_covenant",
+  "format": {
+    "target_duration_seconds": 42
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Voiceover ends on an incomplete grammatical clause with no resolution. On loop 2, '...is not self-preservation. It is simply...' flows directly into 'allowing the rust to set in.' — completing the circuit. The viewer is mid-sentence before they register the restart.",
+    "loop_seam": "...is not self-preservation. It is simply... [LOOP] ...allowing the rust to set in.",
+    "visual_seam": "Scene 6 final frame — pristine steel corner exploding with crimson rust — matches Scene 1 opening frame identically: same macro angle, same crimson oxidation coverage, same void background. The reset is invisible.",
+    "audio_design": {
+      "final_segment_treatment": "The word 'simply' must trail into dead silence with zero terminal inflection. It is a sentence that refuses to end. ElevenLabs final segment: stability 0.55, style 0.0 to suppress all resolution cues.",
+      "music_fade": "Industrial techno drops to silence at 0:38, replaced by a single sustained sub-bass tone that cuts at 0:42 — flowing directly into the machine-gun synth stab opening at 0:00 of loop 2."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical cinematic sequence. Hard-surface structural CAD mechanics — absolute zero fluid simulation. NEVER simulate liquid, pouring, morphing, or organic forms. The world is a monolithic raw steel obelisk in absolute black (#1A1A1A) void. Three color states only: deep crimson (#DC143C) oxidation and rust fractures; sharp gold (#C6A94F) diagnostic laser grid lines and HUD vectors; bone-white (#F5F2EB) ash particle clouds and technical readout text zones. The steel surface is geometric: flat planes, crisp 90-degree edges, exact mechanical tolerances. Rust manifests as brittle flaking scale layers — blistering, popping, peeling as solid chunks — never smearing or flowing. Gold lines are razor-sharp laser grids — diagnostic overlays with glitch artifacts, not glowing halos. Camera work is aggressive: extreme macro velocity tracking shots, impossible internal structural angles, hyper-speed snap cuts. No slow drifts. No ambient rotation. Every clip has explicit directional kinetic energy. 4K vertical.",
+    "runway_prompt_modifier": "hard-surface structural CAD mechanics, monolithic steel obelisk, brittle rust fracture and scale, gold diagnostic laser grid, absolute black void, zero fluid simulation, macro velocity tracking, industrial kinetic, aggressive snap cuts",
+    "global_visual_matrix": {
+      "rendering_engine": "Hard-surface structural CAD mechanics. Absolute zero fluid simulation. No liquid, no morphing, no organic forms.",
+      "chromatic_boundaries": {
+        "void": "#1A1A1A",
+        "oxidation": "#DC143C",
+        "diagnostic_grid": "#C6A94F",
+        "particulate": "#F5F2EB"
+      },
+      "anti_drift_rules": [
+        "NEVER generate liquid metal, molten material, or pouring effects",
+        "NEVER generate floating spheres, orbs, or rotating abstract assets",
+        "NEVER generate slow ambient camera drift without explicit directional purpose",
+        "ALWAYS render steel as hard angular geometry with crisp edges",
+        "ALWAYS render rust as brittle scale chunks — blistering, popping, fragmenting",
+        "ALWAYS include explicit kinetic camera movement in every clip"
+      ]
+    },
+    "color_palette": {
+      "void": "#1A1A1A",
+      "oxidation": "#DC143C",
+      "diagnostic_grid": "#C6A94F",
+      "particulate": "#F5F2EB"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "aggressive — 3-4px RGB channel split on rust fracture events; 1px baseline on gold grid lines",
+        "note": "Aberration spikes on every crimson event. Reinforces structural stress."
+      },
+      "film_grain": {
+        "corrosion_scenes_intensity": 0.18,
+        "reclamation_scenes_intensity": 0.04,
+        "grain_type": "digital noise — matched to HUD aesthetic, never film stock"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "allowing the rust to set in. Look at you. You think you're protecting your potential by staying safe. You aren't. Comfort is a chemical lie. It is a silent, predatory oxidation that dulls your capability faster than an active arena ever could. A blade left in a velvet scabbard doesn't stay pristine—it pits. It degrades. It loses its systemic purpose to the dampness of stagnant air. Friction is your fuel. The stress of execution, the weight of the work, the cold sting of rejection—that is the stone that grinds your edge. Step directly into the fire. Reclaim your sharpness. Because choosing to hide from the arena... ...is not self-preservation. It is simply",
+      "mobius_note": "The final word 'simply' is an open clause. No grammatical resolution. No period. Must render as a thought interrupted, not a sentence completing. On loop, 'It is simply' flows into 'allowing the rust to set in.' — completing the sentence across the loop boundary. ElevenLabs must render 'simply' as trailing suspension, not conclusion.",
+      "word_count": 109,
+      "estimated_duration_seconds": 41,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "allowing the rust to set in. Look at you. You think you're protecting your potential by staying safe.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Extreme close-up macro velocity tracking shot — camera accelerating laterally at high speed past the edge of a massive geometric raw steel block. The camera passes within millimeters of the surface, the frame blurred on entry and snapping to razor focus as it locks on a specific section of deep crimson (#DC143C) oxidation: thick, blistering, flaky scale chunks layered in striated formations. The rust is not smooth — it is geologically complex, with micro-fracture lines running between scale plates. Sharp gold (#C6A94F) diagnostic laser lines shoot across the frame at 45-degree angles, 1px-wide, glitching with 2-frame artifacts at irregular intervals. Background: absolute black (#1A1A1A) void — no ambient light, no environment. The steel edge is a precise 90-degree angle. Zero rotation. Zero drift. Pure lateral velocity arrest into locked macro. Mood: the forensic examination of something already compromised. hard-surface structural CAD mechanics, monolithic steel obelisk, brittle rust fracture and scale, gold diagnostic laser grid, absolute black void, zero fluid simulation, macro velocity tracking, industrial kinetic"
+        },
+        {
+          "id": "chemical_lie",
+          "text": "You aren't. Comfort is a chemical lie. It is a silent, predatory oxidation that dulls your capability faster than an active arena ever could.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:14",
+          "visual_prompt": "Fast tracking pan — camera locked to and following a sharp 90-degree metallic corner as it moves through the frame left to right at high velocity. Along the corner's face: heavy crimson (#DC143C) rust scale layers physically blister, pop, and peel off as solid brittle chunks — each chunk launching away from the surface and tumbling into the void. Zero liquid behavior. The peeling is mechanical: scale plates lift at edges, hinge, and separate as rigid planar fragments. Dense clouds of bone-white (#F5F2EB) ash particulate blast violently across the camera lens in horizontal streaks from the fracturing surface — obscuring the frame for 2-3 frames before clearing. Gold (#C6A94F) laser grid lines flash across the damaged zone like diagnostic error sweeps — each sweep accompanied by a 1-frame chromatic aberration spike. The void behind the corner remains absolute black. Mood: the kinetics of silent systemic failure. hard-surface structural CAD mechanics, brittle rust scale peeling, ash particulate blast, gold diagnostic laser sweep, zero fluid simulation, fast lateral tracking, chromatic aberration spikes"
+        },
+        {
+          "id": "scabbard",
+          "text": "A blade left in a velvet scabbard doesn't stay pristine—it pits. It degrades. It loses its systemic purpose to the dampness of stagnant air.",
+          "timestamp_start": "0:14",
+          "timestamp_end": "0:22",
+          "visual_prompt": "Impossible structural interior camera angle — the camera is positioned inside a narrow vertical cross-section of the monolithic steel obelisk, looking up through the internal channel. The mechanical walls on either side of the channel are heavily pitted: small circular corrosion craters, 1-3px diameter at render scale, packed densely across the surface. Crimson (#DC143C) corrosion bleeds from the pit edges — not liquid, but staining: the discoloration of oxidized metal at the molecular boundary. Gold (#C6A94F) HUD vectors project along the wall surfaces, measuring pit depth and density in real time — the numbers incrementing visibly. Bone-white (#F5F2EB) ash particulate falls slowly down the interior channel from above, accumulating on ledges. The top of the channel is a distant vanishing point in the absolute black (#1A1A1A) void. Camera locked. No movement. The architecture of rot made architectural. Mood: the internal view of a system consuming itself. impossible interior structural angle, corrosion pit detail, gold HUD measurement vectors, bone-white particulate fall, absolute black void column, zero fluid simulation"
+        },
+        {
+          "id": "friction",
+          "text": "Friction is your fuel. The stress of execution, the weight of the work, the cold sting of rejection—that is the stone that grinds your edge.",
+          "timestamp_start": "0:22",
+          "timestamp_end": "0:30",
+          "visual_prompt": "Hyper-speed visual transition — the corroded steel surface from scene 2 fills the frame. SNAP CUT: blindingly sharp gold (#C6A94F) laser grids flash-ignite across the entire surface simultaneously — a grid of 1px-wide orthogonal lines detonating from center outward. On ignition: intense gold sparks explode from every grid intersection point, each spark a 3-4px burst lasting 2 frames before extinguishing. The sparks vaporize the crimson (#DC143C) rust layers on contact — not melting, VAPORIZING: the rust scale lifts and disintegrates into bone-white (#F5F2EB) ash clouds that blast upward and out of frame in under 4 frames. The steel beneath the cleared zones is revealed as pristine — silver-grey, mirror finish, geometrically perfect. The diagnostic grid pulses twice more at 0:26 and 0:28, each pulse clearing additional corroded zones. Camera locked on full surface during grid ignition. Chromatic aberration maxes on each pulse. Mood: friction as detonation event. gold laser grid ignition, rust vaporization, spark burst at grid intersections, zero liquid simulation, chromatic aberration maximum, locked camera during ignition sequence"
+        },
+        {
+          "id": "reclaim",
+          "text": "Step directly into the fire. Reclaim your sharpness. Because choosing to hide from the arena...",
+          "timestamp_start": "0:30",
+          "timestamp_end": "0:36",
+          "visual_prompt": "Sweeping high-acceleration vertical panoramic shot — camera starts at ground level of the monolithic steel obelisk and drives upward along its face at maximum velocity, the surface moving through the frame like a rocket launch. The obelisk is now pristine: unblemished, razor-sharp planes of polished steel with gold-veined inlay lines running as structural reinforcement. Bone-white (#F5F2EB) light points reflect off the mirror surface at precise geometric intervals. Gold (#C6A94F) diagnostic HUD elements overlay the surface — structural integrity readings, load-bearing calculations, all at 100%. At the peak of the upward sweep (0:34), the camera locks on the obelisk's apex: a knife-edge termination point, the steel corner so sharp it appears as a single pixel against the absolute black (#1A1A1A) void. Zero corrosion. Zero pitting. Pure structural authority. Mood: the architecture of reclaimed potential. high-acceleration vertical panoramic shot, pristine polished steel obelisk, gold-veined structural inlay, bone-white reflection points, gold HUD integrity readout, absolute black void, knife-edge apex"
+        },
+        {
+          "id": "mobius_close",
+          "text": "...is not self-preservation. It is simply",
+          "timestamp_start": "0:36",
+          "timestamp_end": "0:42",
+          "mobius_note": "Final word 'simply' must trail off into dead silence — no grammatical completion, no terminal inflection. ElevenLabs settings for this segment only: stability 0.55, style 0.0. The word should feel suspended mid-thought. On loop, 'It is simply' connects to 'allowing the rust to set in.' completing the sentence.",
+          "visual_prompt": "Camera snaps from Scene 5 apex into a dead-lock macro position on a pristine steel corner — the same angular geometry as Scene 1, but currently flawless: polished, reflective, zero corrosion. Gold (#C6A94F) diagnostic laser lines frame the corner in a precise orthogonal grid. The frame holds this perfection for 4 seconds — the silence after reclamation. Then at exactly 0:40: a violent instantaneous event — deep crimson (#DC143C) rust fractures erupt simultaneously across the entire pristine surface. Not a spread — an eruption: every point fractures at once, scale plates forming and lifting in under 6 frames. By 0:42 the steel corner is fully oxidized — identical in coverage, texture, and composition to Scene 1 frame 0. The loop is sealed. The cycle restarts. Camera locked throughout. Chromatic aberration spikes to maximum on the rust eruption frame. Mood: the inevitability of the cycle for those who stop. dead-lock macro steel corner, pristine then instantaneous rust eruption, full oxidation reset to frame zero, chromatic aberration maximum on eruption, gold diagnostic grid, loop seam visual match"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.45,
+        "similarity_boost": 0.85,
+        "style": 0.15,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.55,
+        "style": 0.0,
+        "note": "Override on final segment only. 'simply' must trail into suspension — zero terminal inflection. The sentence refuses to complete."
+      },
+      "voice_notes": "speed: 1.05 forces aggressive delivery — 109 words in 41 seconds. This is intentional. Clips must move at the voiceover's pace. DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts will override to C9Uh5MFptuXa176UlaXE regardless of spec voice_id."
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": ["rust", "friction", "fuel", "sharpness", "reclaim", "covenants"],
+    "peak_words": ["oxidation", "predatory", "degrades", "pits", "fire"]
+  },
+  "music_config": {
+    "description": "Aggressive high-tempo industrial techno. Machine-gun synth stabs synchronized to the rust fracture events at 130 BPM. Heavy sub-bass foundation. Silence vacuum cuts between sections — the music stops completely for 1-2 beats before the next stab, creating kinetic contrast. Gold restoration sweep at 0:22 when the laser grid ignites — tempo doubles to 260 BPM for 4 beats then snaps back. No melodic elements. Pure percussive industrial architecture.",
+    "bpm": 130,
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 38,
+    "fade_out_end_seconds": 42,
+    "loop_seam_note": "Single sustained sub-bass tone from 0:38-0:42, cuts to silence, flows into opening machine-gun stab at 0:00 of loop 2."
+  },
+  "instagram_config": {
+    "caption": "Comfort isn't safety. It is chemical oxidation.\n\nEvery day you avoid the friction of execution, the system pits. The system degrades.\n\nThe blade left in the velvet scabbard doesn't stay pristine. It corrodes.\n\nTurn the pressure back on.\n\n#NkrumahDoctrine #SystemsArchitecture #KineticExecution #Discipline #NDCH",
+    "hashtags": ["#nkrumahdoctrine", "#systemsarchitecture", "#kineticexecution", "#discipline", "#ndch"],
+    "alt_text": "A monolithic steel obelisk fracturing with crimson rust under gold diagnostic laser grids — the architecture of stagnation and its explosive reclamation."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — zero cached clips",
+    "schema_version_note": "Blueprint provided as v2.0.0 (narrationSegments/sceneTimeline). This file is the engine-compatible v1.0.0 translation using voiceover.script.segments schema.",
+    "naming_note": "NDCH_014 prefix used to avoid collision with NDCH_013_SELF_PROMISE_SANCTUARY_OPTIMIZED (dispatched as Run #50, video generated, pending Instagram token refresh for publish).",
+    "anti_drift_enforcement": "All visual prompts include explicit anti-drift language: 'hard-surface structural CAD mechanics', 'zero fluid simulation', 'brittle rust scale', 'zero liquid behavior'. These phrases directly counter Runway's default fallback to liquid metal and floating assets.",
+    "kinetic_note": "speed: 1.05 is the engine of visual energy. At this delivery rate, clips cannot afford static ambient movement. Every clip must have explicit directional camera kinetics or the voiceover outruns the visuals.",
+    "loop_verification": "Before dispatch, confirm Scene 6 final frame (post-eruption) visually matches Scene 1 opening frame. Same crimson coverage density, same steel geometry, same void background.",
+    "mobius_seam_audio": "The music cut at 0:42 into sub-bass at 0:00 loop 2 carries the loop illusion as much as the visual reset. Both must be verified before final export."
+  },
+  "cover_frame_timestamp": "0:25"
+}
