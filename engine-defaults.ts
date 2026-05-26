@@ -61,3 +61,4 @@ function loadEngineDefaults(): EngineDefaults {
 }
 
 export const ENGINE_DEFAULTS = loadEngineDefaults();
+// SFM_002 dispatch wake — 2026-05-26T11:39:08Z
