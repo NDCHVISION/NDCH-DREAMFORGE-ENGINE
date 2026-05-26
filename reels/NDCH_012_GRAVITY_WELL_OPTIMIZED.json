@@ -1,0 +1,129 @@
+{
+  "reel_id": "NDCH_012_GRAVITY_WELL_OPTIMIZED",
+  "engine_version": "1.0.0",
+  "concept": "The gravity of your old life is not weakness — it is physics. Every environment, relationship, and system you were born into exerts a measurable force keeping you in orbit. Escape velocity is not motivation. It is the recognition that gravity exists, and the deliberate decision to burn through it.",
+  "theme": "Gravity Well",
+  "quote": "It is not who you are. It is what was holding you down.",
+  "style_id": "style_9_gravity_well",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Voiceover ends on an open grammatical clause. On loop 2, the final phrase resolves into the opening line, creating a seamless psychological loop. The viewer is 5 seconds into the second watch before they realize the video restarted.",
+    "loop_seam": "...what was holding you down... [LOOP] ...It's not that you're weak.",
+    "audio_design": {
+      "silence_at_seconds": 30,
+      "pitch_sweep_start_seconds": 40,
+      "pitch_sweep_end_seconds": 45,
+      "pitch_sweep_direction": "downward",
+      "sub_bass_drop_at_seconds": 0,
+      "note": "The downward pitch-sweep at 40-45s must flow directly into the sub-bass drop at 0:00. This carries the loop illusion as much as the visuals."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "A 9:16 vertical cinematic sequence built around the physics of gravitational pull — a lone silhouette caught in the compression field of an unseen gravity well, rendered in absolute black (#1A1A1A) space. Selective color grade throughout: the entire world is near-monochrome, desaturated to bone-white (#F5F2EB) and charcoal, except for glowing crimson (#DC143C) energy tendrils that map the gravity field and molten gold (#C6A94F) light that bleeds through fracture points. The crimson is not threat — it is topology, the visible architecture of force. Gravity phase (scenes 1-3, 0:00-0:30): heavy inward vignette, darkness compressing from all edges toward center, 20% film grain, the silhouette pulled toward the gravity well floor. Escape phase (scenes 4-5, 0:30-0:45): vignette inverts — light expands outward from center, grain drops to near-zero, the silhouette dissolves upward into a clean weightless starfield. No camera movement in gravity phase. Slow upward drift in escape phase. 4K vertical, no text overlays.",
+    "runway_prompt_modifier": "selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources",
+    "color_palette": {
+      "void": "#1A1A1A",
+      "bone": "#F5F2EB",
+      "crimson": "#DC143C",
+      "gold": "#C6A94F"
+    },
+    "post_processing": {
+      "selective_color_grade": {
+        "global_saturation": 0.15,
+        "sepia_strength": 0.3,
+        "hue_rotate_degrees": -10,
+        "color_overlay_blend_mode": "color",
+        "color_overlay_opacity": 0.6,
+        "targeted_channels": ["crimson", "gold"],
+        "note": "Desaturate globally, then re-saturate only #DC143C and #C6A94F channels so they glow synthetically against the monochrome world"
+      },
+      "vignette": {
+        "gravity_phase_scenes": [1, 2, 3],
+        "gravity_phase_type": "inward",
+        "gravity_phase_note": "Darkness compresses from edges toward center — subconscious gravity pull cue",
+        "escape_phase_scenes": [4, 5],
+        "escape_phase_type": "inverted_outward",
+        "escape_phase_note": "Light expands from center outward — decompression and escape sensation"
+      },
+      "film_grain": {
+        "gravity_phase_intensity": 0.20,
+        "escape_phase_intensity": 0.02,
+        "grain_type": "noise_matched",
+        "note": "Heavier grain in gravity phase (textured drag), fade to near-zero in weightless starfield (pristine freedom)"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "It's not that you're weak. It's that the gravity of your old life is heavy. Every system you were born into was calibrated to keep you in orbit. Same friends. Same ceiling. Same story. The people around you were not the enemy — they were the atmosphere. The pressure that made leaving feel like flying into nothing. Most people never break free because they never recognize gravity. They think it's character. They think it's just who they are. But it's not who you are. It's what was holding you down",
+      "mobius_note": "The final word ends WITHOUT punctuation and WITHOUT resolution — it is a grammatical fragment. ElevenLabs must render 'down' as a mid-thought trailing off, not a sentence ending. The audio should decay into silence, not resolve downward in pitch inflection. On loop, 'what was holding you down' flows directly into 'It's not that you're weak' — completing itself across the loop boundary.",
+      "word_count": 96,
+      "estimated_duration_seconds": 43,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "It's not that you're weak. It's that the gravity of your old life is heavy.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:09",
+          "visual_prompt": "Scene opens in absolute black (#1A1A1A) void. A lone silhouette stands in the lower third of the vertical frame, pressed downward — not by visible force, but by posture and geometry. Above the figure: a vast empty space, the suggestion of an unseen gravity well overhead, mapped only by sparse crimson (#DC143C) energy tendrils that trace invisible force lines through the frame. The world is near-monochrome. Only the crimson lines carry color. Heavy inward vignette — the edges of the frame are pure black, compressing toward the center. 20% film grain throughout. The figure is still. The gravity is already working. Mood: the recognition of a force that has always been there. selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources"
+        },
+        {
+          "id": "orbit",
+          "text": "Every system you were born into was calibrated to keep you in orbit. Same friends. Same ceiling. Same story.",
+          "timestamp_start": "0:09",
+          "timestamp_end": "0:20",
+          "visual_prompt": "The crimson (#DC143C) energy tendrils multiply and organize — they are not random, they form orbital rings around the silhouette. The figure's movement possibilities are visible as crimson arc paths, closed loops, orbits. Gold (#C6A94F) light appears at the center of the gravity well above — distant, compressed, a single point of molten light. The silhouette remains in its orbit, not resisting. Bone-white (#F5F2EB) particle traces drift in closed circular paths. The inward vignette intensifies. The geometry of the orbit becomes visible architecture. Mood: the recognition that the path you've been on was designed, not chosen. selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources"
+        },
+        {
+          "id": "atmosphere",
+          "text": "The people around you were not the enemy — they were the atmosphere. The pressure that made leaving feel like flying into nothing.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:30",
+          "visual_prompt": "The orbital crimson (#DC143C) structure expands to fill the frame — the atmosphere itself is now visible as a pressure system, not a threat, but physics. The silhouette stands at the center. Secondary silhouettes appear at orbital distances — grey, desaturated, part of the system, not hostile. The gold (#C6A94F) point above grows slightly — a destination that has always existed. Bone-white (#F5F2EB) particles press inward from all directions. Vignette at maximum compression — the frame feels like a closed system. Then: cut to silence. Dead silence. The pressure stops. Mood: the claustrophobic recognition that the atmosphere itself was the constraint. selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources"
+        },
+        {
+          "id": "recognition",
+          "text": "Most people never break free because they never recognize gravity. They think it's character. They think it's just who they are.",
+          "timestamp_start": "0:30",
+          "timestamp_end": "0:38",
+          "visual_prompt": "The silence breaks with a single gold (#C6A94F) pulse from above — the gravity well center detonates outward in gold light. The crimson (#DC143C) orbital rings fracture. The silhouette's geometry begins to loosen — not dissolving yet, but cracking along gold fracture lines. The vignette begins inverting: light pushing outward from center rather than darkness compressing inward. Film grain begins dropping — the texture of constraint lifting. The secondary silhouettes remain in their orbits, unaffected, still circling. Slow upward camera drift begins. Mood: the moment of recognition — that what felt like identity was only gravity. selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources"
+        },
+        {
+          "id": "mobius_close",
+          "text": "But it's not who you are. It's what was holding you down",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "mobius_note": "This segment ends the reel. The final word 'down' must trail off into dead silence — no terminal inflection, no resolution. Audio: downward pitch-sweep from 0:40-0:45 flowing directly into sub-bass drop at 0:00 of loop 2.",
+          "visual_prompt": "The silhouette dissolves upward — not an explosion, a release. Gold (#C6A94F) particle scatter replaces the figure, drifting upward into an infinite clean starfield. Absolute black (#1A1A1A) sky. No crimson. No orbital rings. No vignette compression — the frame is open, weightless, light expanding from every point. Film grain at near-zero. A single slow pulse of gold light from below moves upward through the starfield. The frame holds on pure weightless black and gold. Then: decay into silence. Fade. The loop seam is here. Mood: the silence of having left. The pristine architecture of what was always on the other side. selective color grade, desaturated world except glowing crimson and molten gold energy, all other colors reduced to near-monochrome, high contrast, cinematic noir with warm energy sources"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.75,
+        "similarity_boost": 0.85,
+        "style": 0.0,
+        "use_speaker_boost": true,
+        "speed": 0.9
+      },
+      "voice_notes": "style: 0.0 removes emotional resolution cues. The final phrase must feel like a thought interrupted mid-gravity, not a sentence completing. The voice should carry the weight of someone realizing something too large to finish saying. Do NOT use voice_id pNInz6obpgDQGcFmaJgB — DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides this field anyway."
+    }
+  },
+  "instagram_config": {
+    "caption": "It's not that you're weak.\n\nIt's that the gravity of your old life is heavy.\n\nEvery system you were born into was calibrated to keep you in orbit. Same friends. Same ceiling. Same story.\n\nMost people never break free because they never recognize gravity. They think it's character.\n\nIt's not character. It's physics.\n\nAnd physics can be escaped.\n\n#NkrumahDoctrine #GravityWell #EscapeVelocity #SelfMastery #NDCH",
+    "hashtags": ["#nkrumahdoctrine", "#gravitywell", "#escapevelocity", "#selfmastery", "#ndch"],
+    "alt_text": "A lone silhouette caught in the crimson energy topology of an invisible gravity well, dissolving upward into a weightless gold starfield — the physics of escaping your old life."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 10,
+    "clip_cache_status": "COLD — zero cached clips, first run will generate all 5 clips",
+    "voice_id_decision": "CONFIRMED: Use C9Uh5MFptuXa176UlaXE (Dr. Nkrumah). The generate-reel.ts hardcode overrides spec voice_id regardless.",
+    "critical_audio_note": "The Möbius loop lives or dies on the audio seam at 0:45→0:00. The downward pitch-sweep must be rendered and mixed before final export — it is not optional post-processing.",
+    "schema_note": "This spec uses the scenes/segments schema matching NDCH_010_THRESHOLD_GUARDIAN.json. The original blueprint used keyVisualBeats (narrative strings). This file is the engine-compatible translation."
+  },
+  "cover_frame_timestamp": "0:04"
+}
