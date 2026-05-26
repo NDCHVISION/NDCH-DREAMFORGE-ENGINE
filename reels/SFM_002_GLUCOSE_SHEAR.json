@@ -1,0 +1,170 @@
+{
+  "reel_id": "SFM_002_GLUCOSE_SHEAR",
+  "engine_version": "1.0.0",
+  "brand": "Sankofa Family Medicine",
+  "concept": "Endothelial cell damage via chronic hyperglycemia — how microvascular glucose spikes physically scar internal vessel linings. High blood sugar is not a passive metabolic number; it is a microscopic current of crystalline geometry tearing the one-cell-thick inner lining of your vasculature.",
+  "theme": "The Microvascular Scar",
+  "core_metaphor": "The arterial inner wall as a precision white geometric panel grid — intact and clean at baseline, fractured and scarred by the continuous impact of gold crystalline shards traveling within the azure particle stream.",
+  "emotional_arc": "false security → physical truth → cellular damage → urgency → reset",
+  "quote": "The cells don't have a voice to warn you. They simply take the damage until the network fails.",
+  "style_id": "style_3_hud",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "sfm_001_critique_applied": {
+    "fix_1_hook_isolation_mask": "Removed outer ring border. Scene 1 opens directly inside the conduit from frame zero — axial camera position, no masking geometry.",
+    "fix_2_proportional_transitions": "All scenes maintain consistent tunnel dimensions and camera tracking velocity. No abrupt wall thickness changes or angle cuts between segments.",
+    "fix_3_gold_remodeling_lines": "Replaced any crimson/electric arc language with precise gold (#BC9833) tracking path traces that map across the dark blue walls — slow-draw diagnostic lines, not discharge events.",
+    "fix_4_z_axis_loop_seam": "Final 5 seconds (0:40-0:45) are voiceover-silent. Camera drives on Z-axis directly into the central #070705 void, accelerating to full black by 0:45. This matches the axial position of frame 0:00 exactly."
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Voiceover ends at ~0:40 on 'fine' — the same phrase that opens the reel. On loop 2, 'fine' flows directly into 'You think your metabolism is fine because...' — completing the sentence. The phrase repetition is the loop mechanic. Frames 0:40-0:45 are silent Z-axis dive to void, then loop to Scene 1.",
+    "loop_seam": "...Because you think your metabolism is fine. [LOOP] You think your metabolism is fine because you don't feel the numbers changing.",
+    "visual_seam": "Scene 4 Z-axis drive reaches absolute black (#070705) void at 0:45 — matching the dark central channel of Scene 1 frame 0:00. The transition from void to the first conduit frame is invisible at loop speed.",
+    "audio_design": {
+      "final_segment_treatment": "The word 'fine' ends without terminal pitch drop — it trails as a mid-thought realization, not a conclusion. ElevenLabs final segment: stability 0.65, style 0.0. Music cuts to dead silence at exactly 0:40 — the silence runs through the Z-axis void dive.",
+      "music_fade": "Sub-bass drone cuts hard at 0:40, dead silence through 0:45. Re-entry at 0:00 loop 2 on the axial conduit reveal."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical hyper-precise hard-surface anatomical CAD engineering sequence. Absolute zero fluid simulation — NEVER render liquid, water, or organic flow dynamics. The world is the interior of a micro-vessel rendered as a precision engineering system: a cylindrical dark blue (#051C3B) conduit whose inner surface is lined with clean white (#FFFFFF) geometric panel tiles — flat, grid-aligned, exactly perpendicular to the wall surface. A high-velocity azure (#05436E) particle stream runs axially through the center as crisp 1px-wide vector lines, NOT fluid — electrical signal energy in particle form. Traveling within this stream: gold (#BC9833) micro-crystal shards — rigid angular polygonal fragments 2-4px, hard faceted edges, zero organic shape. Where shards impact white panels: thin black (#070705) stress fracture lines propagate at 3px/frame from impact point. Camera perspective: always first-person interior, axial — looking straight down the conduit length. Consistent tunnel dimensions across all scenes. No abrupt scale changes. No outer ring border elements. No masking geometry. 4K vertical.",
+    "runway_prompt_modifier": "hyper-precise anatomical CAD micro-vessel interior, white geometric panel tile lining, azure particle vector stream not fluid, gold angular micro-crystal shards, dark blue void walls, black stress fracture propagation, axial first-person perspective, consistent tunnel dimensions, zero fluid simulation, style3hud",
+    "global_visual_matrix": {
+      "rendering_engine": "Hyper-precise hard-surface 3D anatomical CAD engineering. Absolute zero fluid simulation.",
+      "chromatic_boundaries": {
+        "void_walls": "#051C3B",
+        "endothelial_panels": "#FFFFFF",
+        "particle_stream": "#05436E",
+        "crystalline_shards": "#BC9833",
+        "fracture_lines": "#070705"
+      },
+      "sfm_001_anti_drift_rules": [
+        "NEVER simulate liquid, water, or organic fluid — azure is a PARTICLE STREAM of vector lines only",
+        "NEVER render gold as liquid, molten, or glowing organic energy — it is RIGID CRYSTALLINE GEOMETRY",
+        "NEVER open with an outer ring or circular mask — camera starts INSIDE the conduit at frame zero",
+        "ALWAYS maintain consistent conduit diameter and camera speed across all scene transitions",
+        "Gold remodeling effects are SLOW-DRAW TRACKING PATHS, not electric arcs or spark discharges",
+        "Final 5 seconds are Z-axis void drive — camera must accelerate toward absolute black center point"
+      ]
+    },
+    "color_palette": {
+      "void_walls": "#051C3B",
+      "endothelial_panels": "#FFFFFF",
+      "particle_stream": "#05436E",
+      "crystalline_shards": "#BC9833",
+      "fracture_lines": "#070705"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "2-3px RGB split on crystal impact events; 0.5px baseline during clean stream sequences",
+        "note": "Aberration marks cellular damage events — minimal baseline preserves clinical authority"
+      },
+      "depth_of_field": {
+        "impact_scenes": [2, 3],
+        "impact_focus": "razor-sharp on crystal-panel contact point, conduit periphery soft bokeh",
+        "axial_scenes": [0, 1, 4],
+        "axial_focus": "full depth — entire conduit length crisp to vanishing point"
+      },
+      "film_grain": {
+        "damage_scenes_intensity": 0.10,
+        "clean_scenes_intensity": 0.02,
+        "grain_type": "fine digital noise, clinical HUD aesthetic"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You think your metabolism is fine because you don't feel the numbers changing. But a glucose spike isn't just an entry on a lab chart. It is a physical event. At a microscopic scale, excess sugar molecules act like millions of sharp crystalline shards rushing through your delicate vascular channels. Every time your numbers stay high, those crystals scrape against the smooth, one-cell-thick lining of your arteries. Your body can patch the microscopic scars, but it does so by laying down rigid tissue, permanently reducing your circulation. Stop waiting for a major warning sign. Protect the architecture of your system. Because you think your metabolism is fine",
+      "mobius_note": "The final word 'fine' is the same phrase that opens the reel. No terminal inflection — it trails as a realization mid-sentence. On loop, 'fine' connects to 'You think your metabolism is fine because...' — the sentence continues across the loop boundary. ElevenLabs must render 'fine' as suspension, not conclusion.",
+      "word_count": 107,
+      "estimated_duration_seconds": 38.7,
+      "voiceover_silence_tail_seconds": 6.3,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You think your metabolism is fine because you don't feel the numbers changing.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Camera opens INSIDE the micro-vessel conduit from absolute frame zero — no intro, no mask, no outer border. Axial perspective: looking straight down the conduit length, centered on the vanishing point at infinite depth. The inner wall lining is a perfect grid of white (#FFFFFF) geometric panel tiles — clean, unblemished, each panel precisely 40×40px at render scale with 1px dark blue (#051C3B) grid seams. The azure (#05436E) particle stream runs axially through the center: 8-12 crisp 1px-wide vector lines in parallel at high velocity, NOT fluid — purely digital signal energy. The stream vectors strobe in sync with a slow 60 BPM pulse. No crystals yet. White HUD diagnostic readouts at the conduit margins: [ENDOTHELIAL STATUS: INTACT], [GLUCOSE INDEX: NOMINAL]. Film grain at 0.02. Camera locked, centered, zero movement. Mood: the false security of an asymptomatic system. hyper-precise anatomical CAD micro-vessel interior, white geometric panel tiles, azure particle stream vectors, dark blue walls, axial first-person perspective, clean unblemished lining, style3hud"
+        },
+        {
+          "id": "shear_truth",
+          "text": "But a glucose spike isn't just an entry on a lab chart. It is a physical event. At a microscopic scale, excess sugar molecules act like millions of sharp crystalline shards rushing through your delicate vascular channels.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "Camera begins a slow steady forward drift at 0:06 — moving along the Z-axis into the conduit depth at constant low velocity, maintaining axial alignment throughout. At 0:10: gold (#BC9833) micro-crystal shards appear within the azure particle stream — rigid angular polygon fragments, each 2-4px at render scale with hard faceted geometry and no organic curvature. They travel at high velocity inside the stream, rotating minimally on their axes. From 0:12: first crystal-panel impacts begin — crystals reach the white (#FFFFFF) panel tiles at the conduit wall and make contact as hard geometric collisions, not splashing. At each impact point: a thin black (#070705) fracture line initiates at the impact node and propagates outward at 3px/frame along the panel grid seams — precise, branching at 45 and 90 degrees only, following the geometric grid. Chromatic aberration spikes to 2px on each impact. The azure stream maintains consistent velocity and channel width — no turbulence, no spreading, no fluid dynamics. HUD readout updates: [GLUCOSE INDEX: ELEVATED], [ENDOTHELIAL EVENTS: 14/sec]. Film grain rises to 0.10. Mood: the physical translation of an invisible metabolic number. gold crystalline shard impacts on white panels, black fracture line propagation, azure particle stream unchanged, axial camera forward drift, consistent conduit dimensions, style3hud"
+        },
+        {
+          "id": "scarring",
+          "text": "Every time your numbers stay high, those crystals scrape against the smooth, one-cell-thick lining of your arteries. Your body can patch the microscopic scars, but it does so by laying down rigid tissue, permanently reducing your circulation.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:36",
+          "visual_prompt": "Camera continues forward drift at the same constant velocity — no acceleration, no angle change, consistent tunnel dimensions maintained exactly from Scene 2. The white (#FFFFFF) panel grid now shows progressive damage accumulation: 30-40% of visible panels carry black (#070705) fracture networks, each pattern unique but geometrically precise. At 0:27 — the repair response: gold (#BC9833) tracking path traces begin drawing across the damaged panels at 4px/frame. These are NOT electric arcs — they are precision diagnostic line paths, slow-drawing from fracture origin points outward in straight geometric lines along the panel grid. Where a gold tracking path covers a fracture: the black line is overlaid by gold, the fracture is 'patched' but the panel surface beneath remains permanently thickened — the white tile becomes slightly off-white (#E8E4DC) indicating increased wall density. The azure (#05436E) particle stream narrows measurably from the Scene 1 channel width — the central void compresses 15% as the wall thickness increases. HUD: [LUMEN: -15%], [WALL DENSITY: +0.3mm], [PATCH EVENTS: ACTIVE]. Chromatic aberration at 2px baseline during gold tracking events. Mood: the false resolution of repair as entrapment. gold tracking path traces over fractures, wall thickening panel color shift, azure stream compression, consistent axial camera, no arc discharge events, style3hud"
+        },
+        {
+          "id": "mobius_close",
+          "text": "Stop waiting for a major warning sign. Protect the architecture of your system. Because you think your metabolism is fine",
+          "timestamp_start": "0:36",
+          "timestamp_end": "0:45",
+          "mobius_note": "Voiceover ends at approximately 0:40 on the word 'fine' — zero terminal inflection. ElevenLabs this segment only: stability 0.65, style 0.0. Frames 0:40-0:45 are voiceover-silent. The visual Z-axis void drive fires in this window.",
+          "visual_prompt": "Camera continues forward drift, now in the most damaged conduit state — panels 50%+ carrying gold-patched fracture networks, azure stream compressed to 60% original channel width. HUD readouts: [ARCHITECTURE: COMPROMISED], [PREVENTATIVE ACTION: REQUIRED]. At exactly 0:37: the camera smoothly accelerates on the Z-axis — still perfectly centered, no angle deviation. Tunnel walls begin rushing upward on both sides as velocity increases. The white panel details blur from macro-visible to streak at the conduit periphery. By 0:40: voiceover ends, camera at maximum Z-velocity, the central void — the #070705 dark channel at the axial center — now fills 40% of the frame as the camera dives toward it. From 0:40-0:45: pure Z-axis acceleration into the #070705 central void. The conduit walls recede to black at the frame edges. By 0:44: 90% of the frame is #070705 — the last peripheral glimpse of the dark blue (#051C3B) walls. At 0:45: full black frame, #070705 — loop seam. Camera perfectly centered on the axial void throughout, no deviation. Film grain drops to 0.02 as clarity increases on the void. Mood: the architecture of commitment at the vanishing point — the last visible geometry before the system resets to the beginning. Z-axis void drive, central dark channel expansion, conduit walls receding to black periphery, full void at loop seam, style3hud"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.65,
+        "similarity_boost": 0.85,
+        "style": 0.10,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0.0,
+        "note": "Override on final segment only. 'fine' trails into suspension — zero terminal inflection. On loop, 'fine' connects to 'You think your metabolism is fine because...' completing the sentence."
+      },
+      "voice_notes": "speed bumped from blueprint's 0.86 to 1.05 per SFM diagnostic — 107 words at 0.86 runs ~50s, exceeding the 45s target. At 1.05: ~38.7s of speech + 6.3s silent Z-axis dive = 45s total."
+    }
+  },
+  "subtitle_config": {
+    "font": "Cormorant Garamond",
+    "color": "#FFFFFF",
+    "highlight": "#BC9833",
+    "peak": "#05436E",
+    "highlight_words": ["crystalline", "shards", "endothelial", "vascular", "architecture", "metabolism", "glucose"],
+    "peak_words": ["scrape", "scar", "damage", "rigid", "reducing", "compromised"],
+    "peak_visibility_note": "Peak #05436E may be low-contrast on dark backgrounds — consider #0A7ABF for Vercel subtitle rendering"
+  },
+  "music_config": {
+    "description": "Low brooding electronic drone at constant sub-bass frequency, slowly tracking upward in pitch over the full 45 seconds — the metabolic pressure building. No percussion. No rhythm. Pure sustained pressure that incrementally intensifies. Hard cut to dead silence at exactly 0:40 — the silence runs through the Z-axis void dive and the loop seam. Sub-bass re-enters at 0:00 of loop 2 on the clean conduit reveal.",
+    "pitch_sweep": "slow upward from 40Hz to 80Hz over 0:00-0:40",
+    "cut_to_silence_seconds": 40,
+    "loop_seam_note": "Dead silence from 0:40 to 0:45. Sub-bass re-enters at loop 2 start."
+  },
+  "instagram_config": {
+    "caption": "The invisible current. 🔬\n\nChronic high blood sugar isn't an abstract issue. It is a physical force that alters the delicate inner lining of your blood vessels over time.\n\nTaking control of your metabolic health is the most fundamental way to preserve your body's architecture. Know your numbers before they leave a mark.\n\nSave this to lock in your daily preventative focus.\n\n#SankofaFamilyMedicine #MetabolicHealth #PreventativeHealth #Prediabetes #VascularHealth #SFM",
+    "hashtags": ["#preventativehealth", "#metabolichealth", "#prediabetes", "#vascularhealth", "#sankofafamilymedicine", "#sfm"],
+    "alt_text": "A minimalist medical HUD showing gold crystalline micro-structures impacting white geometric vessel wall panels inside a dark blue anatomical conduit — the physical architecture of endothelial damage from chronic hyperglycemia."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — first SFM_002 run",
+    "schema_version_note": "Blueprint was partial v1.0.0 (voiceoverScriptSegments, keyVisualBeats hybrid). Converted to full v1.0.0 segments schema with cinematographic visual_prompts.",
+    "sfm_001_critique_implementation": {
+      "hook_mask_fix": "All Scene 1 prompt language explicitly states 'no intro, no mask, no outer border' and 'camera opens INSIDE the conduit from absolute frame zero'. The outer ring that appeared in SFM_001 at 0:00-0:03 is suppressed.",
+      "transition_fix": "Scenes 2 and 3 both explicitly specify 'consistent tunnel dimensions maintained exactly' and 'no angle change'. Camera velocity remains constant across both scenes.",
+      "remodeling_fix": "Scene 3 (0:20-0:36) uses 'gold tracking path traces... slow-drawing from fracture origin points' with explicit prohibition: 'These are NOT electric arcs'. The crimson spark language from SFM_001 is fully replaced.",
+      "loop_seam_fix": "Scene 4 (0:40-0:45) executes pure Z-axis void drive to #070705 full black. Prompt specifies '0:45: full black frame — loop seam' and 'Camera perfectly centered on the axial void throughout, no deviation'."
+    },
+    "azure_fluid_guard": "All azure (#05436E) prompts use 'particle stream', 'vector lines', 'NOT fluid', 'purely digital signal energy' framing. The word 'fluid' in the original blueprint's visual description has been removed entirely.",
+    "crystal_geometry_guard": "Gold shards explicitly described as 'rigid angular polygon fragments', 'hard faceted geometry', 'no organic curvature' — prevents soft-glow or liquid-gold interpretation.",
+    "loop_verification": "Confirm Scene 4 final frame (0:45) is #070705 full black matching the dark central axial channel of Scene 1 frame 0:00. The axial void is the visual anchor of the loop.",
+    "cover_frame": "0:15 — first crystal impact event, gold shards visible against white panels with fracture lines initiating. Maximum visual information density."
+  },
+  "cover_frame_timestamp": "0:15"
+}
