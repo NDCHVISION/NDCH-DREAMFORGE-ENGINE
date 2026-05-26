@@ -120,7 +120,7 @@
         "similarity_boost": 0.85,
         "style": 0.10,
         "use_speaker_boost": true,
-        "speed": 1.05
+        "speed": 1.3
       },
       "final_segment_override": {
         "segment_id": "mobius_close",
@@ -128,7 +128,7 @@
         "style": 0.0,
         "note": "Override on final segment only. 'fine' trails into suspension — zero terminal inflection. On loop, 'fine' connects to 'You think your metabolism is fine because...' completing the sentence."
       },
-      "voice_notes": "speed bumped from blueprint's 0.86 to 1.05 per SFM diagnostic — 107 words at 0.86 runs ~50s, exceeding the 45s target. At 1.05: ~38.7s of speech + 6.3s silent Z-axis dive = 45s total."
+      "voice_notes": "speed bumped from blueprint's 0.86 to 1.05 per SFM diagnostic — then bumped again to 1.3 after empirical Run #55 measurement: 107 words at 1.05 generated 50.1s (128 WPM), exceeding the 45s target. At 1.3: 50.1 × (1.05/1.3) ≈ 40.5s of speech + 4.5s silent Z-axis dive = 45s total."
     }
   },
   "subtitle_config": {
@@ -164,7 +164,4 @@
     "azure_fluid_guard": "All azure (#05436E) prompts use 'particle stream', 'vector lines', 'NOT fluid', 'purely digital signal energy' framing. The word 'fluid' in the original blueprint's visual description has been removed entirely.",
     "crystal_geometry_guard": "Gold shards explicitly described as 'rigid angular polygon fragments', 'hard faceted geometry', 'no organic curvature' — prevents soft-glow or liquid-gold interpretation.",
     "loop_verification": "Confirm Scene 4 final frame (0:45) is #070705 full black matching the dark central axial channel of Scene 1 frame 0:00. The axial void is the visual anchor of the loop.",
-    "cover_frame": "0:15 — first crystal impact event, gold shards visible against white panels with fracture lines initiating. Maximum visual information density."
-  },
-  "cover_frame_timestamp": "0:15"
-}
+    "cover_frame": "0:15 — first crystal impact event, gold shards visible against white panels with fractur
