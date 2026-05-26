@@ -1,0 +1,176 @@
+{
+  "reel_id": "SFM_001_HYDRAULIC_LOAD_FAST",
+  "engine_version": "1.0.0",
+  "brand": "Sankofa Family Medicine",
+  "concept": "Silent vascular remodeling — how chronic high blood pressure quietly structuralizes organ failure behind a lack of symptoms. The silence is not health. It is a mechanical calculation the body is running without your knowledge.",
+  "theme": "The Silent Engine",
+  "core_metaphor": "The arterial system as a precision-engineered hydraulic conduit — monitored by gold telemetry rings, driven by azure energy streams — structurally remodeling under persistent force until the architecture locks.",
+  "emotional_arc": "false security → recognition → exposed → structural truth → clinical gravity → reset",
+  "quote": "The silence isn't health. It's a calculation.",
+  "style_id": "style_3_hud",
+  "format": {
+    "target_duration_seconds": 42
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Voiceover ends on an open clause — '...trading safety for...' — with no resolution. On loop 2, 'trading safety for...' flows directly into '...silence. You think you are healthy because your body is keeping quiet.' The sentence completes across the loop boundary. Viewer is mid-sentence into loop 2 before registering the restart.",
+    "loop_seam": "...Because the mechanics of your anatomy are trading safety for... [LOOP] ...silence. You think you are healthy because your body is keeping quiet.",
+    "visual_seam": "Scene 6 white-out laser resets the frame to the exact geometric composition of Scene 1 frame 0 — same conduit interior, same gold ring positions, same azure core stream alignment. The loop is architecturally invisible.",
+    "audio_design": {
+      "final_segment_treatment": "The words 'trading safety for' trail into silence at 39.5s. Zero terminal inflection on 'for'. The 2.5-second tail (39.5-42s) is voiceover-silent — occupied only by the white-out laser visual reset and the mechanical heartbeat's final beat before cut. ElevenLabs final segment: stability 0.65, style 0.0.",
+      "music_fade": "Mechanical heartbeat at 125 BPM cuts to absolute dead vacuum silence at precisely 39.5s. Zero fade — a hard cut. The silence is the sound of the system mid-remodel. Sub-bass re-entry at 0:00 of loop 2."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical hyper-precise hard-surface anatomical CAD engineering sequence. Absolute zero fluid simulation — NEVER render liquid, water, blood flow, or organic fluid dynamics. The world is the interior of a rigid cylindrical arterial conduit rendered as precision engineering infrastructure: geometric gold (#bc9833) structural rings stacked along the conduit length like load-bearing frame elements; a high-velocity azure (#05436e) fiber-optic data line stream running through the center axis representing blood pressure force as electrical energy signal — crisp vector lines, not fluid; deep dark blue (#051C3B) conduit wall surfaces; white (#FFFFFF) diagnostic readout indicators at ring boundaries; near-black (#070705) fracture shadows under structural stress. Camera perspective: first-person interior of the conduit — every shot is from inside, looking down the length or at the ring cross-sections in macro. Kinetic camera work: accelerating dives, rapid macro zooms on ring cross-sections, sweeping panoramic internal moves. Zero ambient drift. Zero rotation. Every clip has directional momentum. 4K vertical.",
+    "runway_prompt_modifier": "hyper-precise anatomical CAD engineering, rigid cylindrical arterial conduit interior, gold structural rings, azure fiber-optic energy stream not liquid, dark blue void walls, white diagnostic indicators, hard-surface geometry, first-person interior velocity, zero fluid simulation, style3hud",
+    "global_visual_matrix": {
+      "rendering_engine": "Hyper-precise hard-surface 3D anatomical CAD engineering. Absolute zero fluid simulation.",
+      "chromatic_boundaries": {
+        "void": "#051C3B",
+        "structural_rings": "#bc9833",
+        "energy_stream": "#05436e",
+        "alert_readout": "#FFFFFF",
+        "fracture_shadow": "#070705"
+      },
+      "anti_drift_rules": [
+        "NEVER simulate liquid, water, blood flow, or organic fluid dynamics — render azure as fiber-optic energy vectors only",
+        "NEVER generate floating orbs, spheres, or ambient rotation",
+        "NEVER interpret azure (#05436e) as water — it is electrical signal energy in crisp vector line form",
+        "ALWAYS render the conduit as rigid hard-surface geometry: flat inner walls, precise ring edges, orthogonal angles",
+        "ALWAYS apply first-person interior perspective — camera is inside the conduit, never outside",
+        "Gold structural rings are LOAD-BEARING — they must remain visible under all stress events",
+        "Under wall thickening (scene 4): rings compress inward as rigid geometry, they do NOT melt or flow"
+      ]
+    },
+    "color_palette": {
+      "void_walls": "#051C3B",
+      "structural_rings": "#bc9833",
+      "energy_stream": "#05436e",
+      "diagnostic_readout": "#FFFFFF",
+      "fracture_shadow": "#070705"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "3-4px RGB split on all fracture and wall-thickening events; 0.5px baseline during stable ring sequences",
+        "note": "Aberration is structural stress made visible — spikes on every remodeling event"
+      },
+      "depth_of_field": {
+        "macro_scenes": [3, 4],
+        "macro_focus": "razor-sharp on ring cross-section geometry, conduit walls fall to soft bokeh",
+        "interior_scenes": [0, 1, 2, 5],
+        "interior_focus": "full-depth sharpness — entire conduit length crisp"
+      },
+      "film_grain": {
+        "remodeling_scenes_intensity": 0.14,
+        "stable_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, diagnostic HUD aesthetic"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "silence. You think you are healthy because your body is keeping quiet. But high blood pressure isn't a disease you feel. It is a slow, structural calculation. Every single minute, your heart is throwing high-velocity force against a network of vessels that are slowly hardening to protect themselves from you. To survive the hydraulic load, the walls thicken. They narrow. They sacrifice their elasticity. The system doesn't scream under pressure—it simply remodels its architecture until the valves lock. Listen closer to the machine. Check the metrics. Because the mechanics of your anatomy are trading safety for",
+      "mobius_note": "Final word 'for' is an open grammatical clause — zero terminal inflection. The word trails into silence at 39.5s. On loop, 'trading safety for' connects to 'silence. You think you are healthy' — completing the sentence. ElevenLabs must render 'for' as a mid-thought suspension, not a sentence ending.",
+      "word_count": 109,
+      "estimated_duration_seconds": 39.5,
+      "voiceover_silence_tail_seconds": 2.5,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "silence. You think you are healthy because your body is keeping quiet.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Frame opens looking straight down the interior length of the arterial conduit — a perfectly cylindrical tunnel in dark blue (#051C3B) with precise 90-degree wall planes. Gold (#bc9833) structural rings are stacked at regular intervals down the conduit length, each ring a rigid 2px-wide circular frame element rendered in exact orthogonal geometry — no curve artifacts, perfect circles at full-frame width. Through the dead center of the conduit: the azure (#05436e) energy stream — a bundle of 8-12 crisp fiber-optic line vectors running in perfect parallel at high velocity, each line 1px-wide, zero spread, zero diffusion. The vectors do not pulse organically — they strobe at 125 BPM intervals, synchronized to the music. White (#FFFFFF) diagnostic readout indicators sit at each gold ring boundary: [PRESSURE: NOMINAL], [WALL STATUS: INTACT]. Camera locked at conduit mouth, centered on the vanishing point. Film grain 0.03. Mood: the deceptive appearance of operational normalcy. hyper-precise anatomical CAD engineering, rigid cylindrical arterial conduit interior, gold load-bearing rings, azure fiber-optic energy vectors at 125 BPM, dark blue void walls, white diagnostic readouts, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "calculation",
+          "text": "But high blood pressure isn't a disease you feel. It is a slow, structural calculation.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:13",
+          "visual_prompt": "Camera accelerates down the conduit interior at high velocity — the gold (#bc9833) rings rush toward and past the frame at increasing speed, the blue walls blurring into dark tunnel walls on the periphery. The azure (#05436e) fiber-optic energy vectors intensify: their strobe frequency increases from 125 BPM to 160 BPM over the duration, the vectors brightening toward full-intensity white-azure at each pulse. The gold rings begin exhibiting micro-contraction: each ring's inner radius measurably decreases by 1-2px per frame pass — not visually dramatic yet, but the telemetry lines at each ring now show updated readings. White (#FFFFFF) metric indicators populate the dark blue conduit margins: force calculations, pressure-per-unit-area readouts, wall-stress measurements incrementing upward in real time. The numbers are HUD-formatted, monospace, precise. Mood: the invisible calculation running beneath the surface of every heartbeat. first-person conduit dive acceleration, gold ring micro-contraction, azure energy strobe frequency increase, white metric population, dark blue tunnel walls, style3hud"
+        },
+        {
+          "id": "hardening",
+          "text": "Every single minute, your heart is throwing high-velocity force against a network of vessels that are slowly hardening to protect themselves from you.",
+          "timestamp_start": "0:13",
+          "timestamp_end": "0:21",
+          "visual_prompt": "The camera locks into a stable hovering position mid-conduit. Three distinct remodeling events fire in sequence: First at 0:14 — the gold (#bc9833) ring grid geometry distorts at four equidistant points on the ring circumference: micro-buckle deformations, 3-4px dents, the geometry losing perfect circularity. Second at 0:16 — near-black fracture shadows (#070705) appear at the distortion points: hairline cracks propagating along the gold ring surface at 5px/frame, each crack trailing a dark shadow stain on the adjacent blue wall. Third at 0:18 — the azure (#05436e) fiber-optic energy vectors collide with the buckled ring geometry: on contact they scatter laterally into 2-3 fragmented sub-beams before reassembling at the next ring, a 4-frame disruption visible at each collision. Chromatic aberration spikes to 3px on each event. Film grain rises to 0.14. The white diagnostic readouts change from green-tinted to yellow-tinted (achieved via FFFFFF opacity reduction to 0.7). Mood: the hydraulic assault made architectural. gold ring buckle deformation, fracture shadow propagation, azure energy scatter on ring collision, chromatic aberration spikes, dark blue wall damage, style3hud"
+        },
+        {
+          "id": "thickening",
+          "text": "To survive the hydraulic load, the walls thicken. They narrow. They sacrifice their elasticity.",
+          "timestamp_start": "0:21",
+          "timestamp_end": "0:28",
+          "visual_prompt": "Rapid macro zoom — camera snaps from mid-conduit position to extreme close-up on a single gold (#bc9833) ring cross-section, filling the full frame width. At macro distance the ring's structure is revealed: concentric geometric layers, each a distinct 0.5px ring within the main ring assembly, currently compressed together. Over the duration: the ring layers physically separate and stack outward — each concentric layer adds to the wall thickness, the dark blue conduit wall growing visibly inward. The effect is mechanical, not organic: layers translate inward in discrete 2px increments, like precision tolerances stacking. The azure (#05436e) energy stream in the center is squeezed: its available corridor narrows from full-width to 60% width over the scene, the fiber-optic vectors compressing but maintaining their crisp line structure — they do not spread or diffuse, they compress into a tighter bundle. White diagnostic readouts at the ring margin: [LUMEN: -38%], [WALL THICKNESS: +2.4mm], [ELASTICITY INDEX: DECLINING]. Chromatic aberration at 2px baseline. Mood: the architecture of compensation as a trap. macro ring cross-section, concentric layer stacking, dark blue wall inward growth, azure stream compression, lumen reduction metrics, white diagnostic HUD, style3hud"
+        },
+        {
+          "id": "remodel",
+          "text": "The system doesn't scream under pressure—it simply remodels its architecture until the valves lock.",
+          "timestamp_start": "0:28",
+          "timestamp_end": "0:35",
+          "visual_prompt": "Camera pulls back to full conduit interior panoramic view — sweeping arc from ring cross-section to full-length interior perspective. What is visible: the entire conduit interior has undergone visible structural remodeling since scene 1. Dark blue (#051C3B) wall sections have shifted inward, geometric block layers now visible as distinct hard-surface panels lining the conduit. The gold (#bc9833) ring lattice lines are partially obscured by the new wall geometry — compressed, some sections of the ring pattern no longer visible behind the structural buildup. The azure (#05436e) energy stream is now running through a significantly narrowed channel, still crisp but contained. All white (#FFFFFF) HUD data glitches violently at 0:30 — a 4-frame full-frame data corruption event: metrics flash to ERROR states, numbers redline, the diagnostic grid distorts. At 0:32 the glitch resolves to a new stable state: [LUMEN: -62%], [REMODELING: ACTIVE], [VALVE STATUS: COMPROMISED]. Chromatic aberration at 4px on the glitch event. Mood: the quiet architecture of locked-in failure. full conduit panoramic sweep, dark blue wall panel inward shift, gold ring partial occlusion, azure stream in narrowed channel, white HUD violent glitch, structural failure data state, style3hud"
+        },
+        {
+          "id": "mobius_close",
+          "text": "Listen closer to the machine. Check the metrics. Because the mechanics of your anatomy are trading safety for",
+          "timestamp_start": "0:35",
+          "timestamp_end": "0:42",
+          "mobius_note": "Voiceover track ends at 39.5s. The word 'for' trails into silence — zero terminal inflection, ElevenLabs stability 0.65, style 0.0. Frames 39.5-42.0 are voiceover-silent. The visual reset fires in this window.",
+          "visual_prompt": "Camera locks at conduit mouth looking straight down the length — same angle as Scene 1 frame 0. At 0:35: the conduit is in its remodeled compromised state — thick walls, partial gold occlusion, narrow azure channel. Then at exactly 0:37: a white (#FFFFFF) laser pulse fires from directly behind the camera, entering the conduit as a perfectly circular beam of maximum-intensity white light. The beam travels the conduit length at light-speed — a single 2-frame white flash across the full depth. On contact with every surface: dark blue walls retract to Scene 1 thickness in under 4 frames; gold rings expand back to original full-circle geometry; azure fiber-optic stream expands to full-width channel; fracture shadows are purged; all HUD readouts reset to NOMINAL state in clean white. By frame 0:40 the frame composition is IDENTICAL to Scene 1 frame 0:00: same ring positions, same stream width, same wall thickness, same diagnostic readouts. Frames 0:40-0:42: pure Scene 1 geometry held in perfect silence — the loop seam invisible. Chromatic aberration briefly maxes on the white laser pulse (2 frames) then drops to 0. Film grain at 0.03. Mood: the reset that makes the cycle look like health. white-out laser purge and geometric reset, gold ring restoration to full geometry, azure stream expansion to full channel, dark blue wall retraction, HUD NOMINAL reset, loop-seam composition match, style3hud"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.6,
+        "similarity_boost": 0.85,
+        "style": 0.1,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0.0,
+        "note": "Override on final segment only. 'for' must trail into suspension at 39.5s — zero terminal inflection. The sentence refuses to complete in this loop."
+      },
+      "voice_notes": "Blueprint specified pNInz6obpgDQGcFmaJgB (different voice). DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts will override to C9Uh5MFptuXa176UlaXE. SEE PRODUCTION NOTES — this may require a code change if SFM requires a distinct clinical narrator voice. speed: 1.05 squeezes 109 words into 39.5s per diagnostic specification."
+    }
+  },
+  "subtitle_config": {
+    "font": "Cormorant Garamond",
+    "color": "#FFFFFF",
+    "highlight": "#bc9833",
+    "peak": "#05436e",
+    "highlight_words": ["hydraulic", "structural", "calculation", "remodeling", "instrumentation", "metrics", "architecture"],
+    "peak_words": ["lock", "hardening", "narrow", "thicken", "scream", "silent"],
+    "peak_visibility_note": "Peak color #05436e (azure) is low-contrast against dark backgrounds. Consider #0A7ABF (lighter azure) for subtitle peak legibility — note for Vercel UI implementation."
+  },
+  "music_config": {
+    "description": "Deep rhythmic mechanical thud at 125 BPM — a clinical heartbeat rendered as precision percussion, not organic. Single low-frequency drum hit on beats 1 and 3 only. Layered with clean cinematic electronic sub-bass sustained chord. No hi-hats, no cymbals, no melodic content. The heartbeat IS the metronome — the azure energy vectors in the visuals strobe in sync. Hard cut to absolute dead vacuum silence at exactly 39.5 seconds — zero fade, zero decay. The silence is the moment between beats that never resolves.",
+    "bpm": 125,
+    "cut_to_silence_seconds": 39.5,
+    "fade_in_seconds": 0,
+    "loop_seam_note": "Hard silence from 39.5s to 42.0s. Sub-bass re-entry synchronized to Scene 1 conduit reveal at loop start."
+  },
+  "instagram_config": {
+    "caption": "The silence is a calculation. 🫀\n\nHypertension doesn't wait for permission to alter your anatomy. It is a quiet, continuous structural remodeling of your blood vessels under persistent force.\n\nDon't wait for a symptom to check your numbers. Knowledge is preservation.\n\n#SankofaFamilyMedicine #VascularRemodeling #PreventativeMedicine #PrecisionHealth #SFM",
+    "hashtags": ["#sankofafamilymedicine", "#vascularremodeling", "#preventativemedicine", "#precisionhealth", "#sfm"],
+    "alt_text": "The interior of a blood vessel rendered as precision engineering infrastructure — gold structural rings compressing under hydraulic load, azure energy streams narrowing, the architecture of silent hypertensive remodeling made visible."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — zero cached clips, first SFM reel",
+    "schema_version_note": "Blueprint provided as v2.0.0 (narrationSegments/sceneTimeline). This file is the engine-compatible v1.0.0 translation using voiceover.script.segments schema.",
+    "brand_note": "First SFM (Sankofa Family Medicine) reel. New color system: Dark Blue #051C3B (void), Gold #bc9833 (structure), Azure #05436e (energy stream), White #FFFFFF (diagnostics), Near-Black #070705 (fracture shadow). Distinct from NDCH palette (#1A1A1A void, #C6A94F gold, #DC143C crimson).",
+    "critical_voice_flag": "ATTENTION: generate-reel.ts contains a DR_NKRUMAH_VOICE_ID hardcode at line ~211 that will override the voice_id field to C9Uh5MFptuXa176UlaXE. Blueprint specified pNInz6obpgDQGcFmaJgB (Adam — neutral clinical voice). If SFM requires a distinct voice from NDCH content, the hardcode must be made conditional on brand context (e.g., reel_id prefix: SFM_ vs NDCH_). Spec updated to reflect actual runtime voice. Advise Dr. Nkrumah before dispatch if voice distinction is required.",
+    "azure_fluid_guard": "Azure (#05436e) is the highest liquid-simulation risk in this palette. All visual prompts explicitly frame it as 'fiber-optic data line vectors' and 'electrical signal energy' with 'zero fluid simulation' stated. Anti-drift rules prohibit liquid interpretation of azure. Monitor Scene 1 and 2 clips on generation — if liquid render appears, add 'particle accelerator beam' and 'laser conduit' to affected prompts.",
+    "voiceover_silence_tail": "Voiceover ends at 39.5s. The engine must not generate voiceover audio for frames 39.5-42.0 — this window is occupied by the visual reset only. The ElevenLabs spec word count of 109 words at speed 1.05 produces exactly 39.5s per diagnostic specification.",
+    "loop_verification": "Confirm Scene 6 post-laser-reset frame (0:40-0:42) matches Scene 1 opening frame (0:00) exactly: same conduit geometry, same gold ring positions, same azure stream width, same HUD diagnostic values.",
+    "clinical_content_note": "Medical information is physiologically accurate — hypertensive vascular remodeling (arterial wall hypertrophy, lumen narrowing, reduced compliance) is a clinically established mechanism. Content reviewed for clinical accuracy before production."
+  },
+  "cover_frame_timestamp": "0:25"
+}
