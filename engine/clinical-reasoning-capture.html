@@ -317,115 +317,372 @@
 
 <script>
   /* ── Config ── */
-  const GEMINI_ENDPOINT = '/api/gemini-enrich';   // relative; override via data-gemini-endpoint on <body>
+  const GEMINI_ENDPOINT = '/api/gemini-enrich';
+  const ENRICHMENT_AUDIT_ENDPOINT = '/api/enrichment-audit';
+  const ENRICHMENT_MODEL = 'gemini';
+  const ENRICHMENT_TIMEOUT_MS = 8_000;
+  const ENRICHMENT_MAX_RETRIES = 3;
+  const ENRICHMENT_CONFIDENCE_THRESHOLD = 0.7;
+  const SAFE_UNAVAILABLE_MESSAGE = 'AI output unavailable — review source.';
 
   /* ── DOM refs ── */
-  const form         = document.getElementById('crc-form');
-  const btnEnrich    = document.getElementById('btn-enrich');
-  const btnRetry     = document.getElementById('btn-retry');
-  const btnSave      = document.getElementById('btn-save');
-  const saveHint     = document.getElementById('save-hint');
-  const banner       = document.getElementById('ai-banner');
-  const bannerIcon   = document.getElementById('banner-icon');
-  const bannerTitle  = document.getElementById('banner-title');
-  const bannerMsg    = document.getElementById('banner-msg');
+  const form          = document.getElementById('crc-form');
+  const btnEnrich     = document.getElementById('btn-enrich');
+  const btnRetry      = document.getElementById('btn-retry');
+  const btnSave       = document.getElementById('btn-save');
+  const saveHint      = document.getElementById('save-hint');
+  const banner        = document.getElementById('ai-banner');
+  const bannerIcon    = document.getElementById('banner-icon');
+  const bannerTitle   = document.getElementById('banner-title');
+  const bannerMsg     = document.getElementById('banner-msg');
   const aiSuggestions = document.getElementById('ai-suggestions');
 
-  /* Required fields that gate the Save button */
   const REQUIRED_IDS = ['chief-complaint', 'assessment', 'plan'];
 
-  /* ── Save-button gating ── */
   function refreshSaveState() {
-    const allFilled = REQUIRED_IDS.every(id => {
+    const allFilled = REQUIRED_IDS.every((id) => {
       const el = document.getElementById(id);
       return el && el.value.trim().length > 0;
     });
+
     btnSave.disabled = !allFilled;
     saveHint.textContent = allFilled
       ? 'All required fields completed'
       : 'Complete required fields to enable save';
   }
 
-  REQUIRED_IDS.forEach(id => {
+  REQUIRED_IDS.forEach((id) => {
     document.getElementById(id).addEventListener('input', refreshSaveState);
   });
 
-  /* ── Banner helpers ── */
   function hideBanner() {
     banner.className = 'ai-banner';
-    bannerIcon.textContent  = '';
+    bannerIcon.textContent = '';
     bannerTitle.textContent = '';
-    bannerMsg.textContent   = '';
+    bannerMsg.textContent = '';
     btnRetry.hidden = true;
   }
 
   function showError(title, msg, showRetry = true) {
     banner.className = 'ai-banner error';
-    bannerIcon.textContent  = '⚠';
+    bannerIcon.textContent = '⚠';
     bannerTitle.textContent = title;
-    bannerMsg.textContent   = msg;
+    bannerMsg.textContent = msg;
     btnRetry.hidden = !showRetry;
   }
 
   function showSuccess(msg) {
     banner.className = 'ai-banner success';
-    bannerIcon.textContent  = '✓';
+    bannerIcon.textContent = '✓';
     bannerTitle.textContent = 'AI enrichment applied';
-    bannerMsg.textContent   = msg;
+    bannerMsg.textContent = msg;
     btnRetry.hidden = true;
   }
 
-  /* ── AI Enrichment ── */
+  function buildRequestId() {
+    const random = Math.random().toString(16).slice(2, 10);
+    return `enrich-${Date.now()}-${random}`;
+  }
+
+  function makeEnrichmentError(name, message, options = {}) {
+    const err = new Error(message);
+    err.name = name;
+    Object.assign(err, options);
+    return err;
+  }
+
+  function isRecord(value) {
+    return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+  }
+
+  function looksTruncated(text) {
+    const trimmed = String(text || '').trim();
+    if (!trimmed) return false;
+    if (/premature\s*close|premature\s*closure|unexpected end of json/i.test(trimmed)) return true;
+    const openCurly = (trimmed.match(/\{/g) || []).length;
+    const closeCurly = (trimmed.match(/\}/g) || []).length;
+    return (trimmed.startsWith('{') && !trimmed.endsWith('}')) || openCurly > closeCurly;
+  }
+
+  function validateStructuredOutput(payload) {
+    if (!isRecord(payload)) {
+      throw makeEnrichmentError('EnrichmentParseError', 'Enrichment payload must be an object');
+    }
+
+    const keys = Object.keys(payload);
+    const allowedKeys = ['suggestion', 'confidence', 'tokenUsage', 'model', 'status', 'error'];
+    if (keys.some((key) => !allowedKeys.includes(key))) {
+      throw makeEnrichmentError('EnrichmentParseError', 'Unexpected enrichment fields');
+    }
+
+    if (payload.status === 'partial') {
+      return { status: 'partial' };
+    }
+
+    if (typeof payload.suggestion !== 'string' || payload.suggestion.trim().length === 0) {
+      throw makeEnrichmentError('EnrichmentParseError', 'suggestion must be a non-empty string');
+    }
+    if (typeof payload.confidence !== 'number' || payload.confidence < 0 || payload.confidence > 1) {
+      throw makeEnrichmentError('EnrichmentParseError', 'confidence must be between 0 and 1');
+    }
+
+    let tokenUsage = null;
+    if (payload.tokenUsage !== undefined) {
+      if (!isRecord(payload.tokenUsage)) {
+        throw makeEnrichmentError('EnrichmentParseError', 'tokenUsage must be an object');
+      }
+
+      const tokenKeys = Object.keys(payload.tokenUsage);
+      const allowedTokenKeys = ['promptTokens', 'completionTokens', 'totalTokens'];
+      if (tokenKeys.some((key) => !allowedTokenKeys.includes(key))) {
+        throw makeEnrichmentError('EnrichmentParseError', 'tokenUsage contains unexpected fields');
+      }
+
+      if (
+        typeof payload.tokenUsage.promptTokens !== 'number'
+        || typeof payload.tokenUsage.completionTokens !== 'number'
+        || typeof payload.tokenUsage.totalTokens !== 'number'
+      ) {
+        throw makeEnrichmentError('EnrichmentParseError', 'tokenUsage fields must be numbers');
+      }
+
+      tokenUsage = {
+        promptTokens: payload.tokenUsage.promptTokens,
+        completionTokens: payload.tokenUsage.completionTokens,
+        totalTokens: payload.tokenUsage.totalTokens,
+      };
+    }
+
+    return {
+      status: 'complete',
+      suggestion: payload.suggestion,
+      confidence: payload.confidence,
+      model: typeof payload.model === 'string' ? payload.model : ENRICHMENT_MODEL,
+      tokenUsage,
+    };
+  }
+
+  function mapErrorToUi(err) {
+    if (err?.name === 'EnrichmentTimeoutError') {
+      return {
+        title: 'AI enrichment timed out',
+        message: 'AI enrichment timed out. Please retry.',
+        showRetry: true,
+        errorClass: err.name,
+      };
+    }
+    if (err?.name === 'EnrichmentRateLimitError') {
+      return {
+        title: 'AI enrichment unavailable',
+        message: 'Gemini billing quota depleted — switch to a free-tier key or top up the project.',
+        showRetry: true,
+        errorClass: err.name,
+      };
+    }
+    if (err?.name === 'EnrichmentUpstreamError') {
+      return {
+        title: 'AI enrichment failed',
+        message: 'AI enrichment service is temporarily unavailable. Please retry.',
+        showRetry: true,
+        errorClass: err.name,
+      };
+    }
+    if (err?.name === 'EnrichmentParseError') {
+      return {
+        title: err.partial ? 'AI enrichment partial' : 'AI enrichment unavailable',
+        message: SAFE_UNAVAILABLE_MESSAGE,
+        showRetry: Boolean(err.partial),
+        errorClass: err.name,
+      };
+    }
+
+    return {
+      title: 'AI enrichment unavailable',
+      message: SAFE_UNAVAILABLE_MESSAGE,
+      showRetry: false,
+      errorClass: 'UnknownEnrichmentError',
+    };
+  }
+
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function backoffDelayMs(attempt) {
+    return 250 * (2 ** (attempt - 1));
+  }
+
+  async function fetchWithTimeout(url, options, timeoutMs) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      return await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+    } catch (error) {
+      if (error?.name === 'AbortError') {
+        throw makeEnrichmentError('EnrichmentTimeoutError', `Timed out after ${timeoutMs}ms`);
+      }
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  async function writeAuditEntry(payload) {
+    const endpoint = document.body.dataset.enrichmentAuditEndpoint || ENRICHMENT_AUDIT_ENDPOINT;
+
+    try {
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          collection: 'enrichment_audit',
+          ...payload,
+        }),
+      });
+    } catch {
+      // Fail-closed enrichment UX must not crash if audit endpoint is unavailable.
+    }
+  }
+
+  function logStructured(payload) {
+    console.info('[enrichment]', JSON.stringify(payload));
+  }
+
+  async function requestEnrichment(payload, endpoint) {
+    const totalAttempts = ENRICHMENT_MAX_RETRIES + 1;
+    for (let attempt = 1; attempt <= totalAttempts; attempt += 1) {
+      try {
+        const res = await fetchWithTimeout(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }, ENRICHMENT_TIMEOUT_MS);
+
+        const rawText = await res.text();
+        let parsed;
+
+        try {
+          parsed = JSON.parse(rawText || '{}');
+        } catch {
+          if (looksTruncated(rawText)) {
+            throw makeEnrichmentError('EnrichmentParseError', 'Truncated enrichment response', { partial: true });
+          }
+          throw makeEnrichmentError('EnrichmentParseError', 'Malformed enrichment response JSON');
+        }
+
+        const errorMessage = typeof parsed.error === 'string' ? parsed.error : '';
+
+        if (res.status === 429 || /quota|rate\s*limit|billing/i.test(errorMessage)) {
+          throw makeEnrichmentError('EnrichmentRateLimitError', errorMessage || 'Rate limit reached');
+        }
+        if (res.status >= 500) {
+          throw makeEnrichmentError('EnrichmentUpstreamError', `HTTP ${res.status}`, { status: res.status, retryable: true });
+        }
+        if (res.status >= 400) {
+          throw makeEnrichmentError('EnrichmentUpstreamError', `HTTP ${res.status}`, { status: res.status, retryable: false });
+        }
+
+        const validated = validateStructuredOutput(parsed);
+        if (validated.status === 'partial') {
+          return {
+            status: 'partial',
+            retryAction: 'retry',
+            tokenUsage: null,
+            model: ENRICHMENT_MODEL,
+            errorClass: 'EnrichmentParseError',
+          };
+        }
+
+        return {
+          status: 'complete',
+          suggestion: validated.suggestion,
+          confidence: validated.confidence,
+          tokenUsage: validated.tokenUsage,
+          model: validated.model,
+        };
+      } catch (error) {
+        const retryable = error?.name === 'EnrichmentTimeoutError'
+          || error?.name === 'EnrichmentRateLimitError'
+          || (error?.name === 'EnrichmentUpstreamError' && Number(error.status) >= 500);
+
+        if (retryable && attempt < totalAttempts) {
+          await sleep(backoffDelayMs(attempt));
+          continue;
+        }
+
+        throw error;
+      }
+    }
+
+    throw makeEnrichmentError('EnrichmentUpstreamError', 'Retry budget exhausted', { status: 503, retryable: false });
+  }
+
   async function runEnrichment() {
     hideBanner();
     btnEnrich.disabled = true;
     const originalLabel = btnEnrich.innerHTML;
     btnEnrich.innerHTML = '<span class="spinner"></span> Enriching…';
 
+    const requestId = buildRequestId();
     const endpoint = document.body.dataset.geminiEndpoint || GEMINI_ENDPOINT;
+    const startedAt = Date.now();
+    let auditStatus = 'unavailable';
+    let auditErrorClass = null;
+    let auditTokenUsage = null;
 
     try {
       const payload = {
-        chiefComplaint : document.getElementById('chief-complaint').value,
-        assessment     : document.getElementById('assessment').value,
-        plan           : document.getElementById('plan').value,
+        chiefComplaint: document.getElementById('chief-complaint').value,
+        assessment: document.getElementById('assessment').value,
+        plan: document.getElementById('plan').value,
       };
 
-      const res = await fetch(endpoint, {
-        method  : 'POST',
-        headers : { 'Content-Type': 'application/json' },
-        body    : JSON.stringify(payload),
-      });
+      const result = await requestEnrichment(payload, endpoint);
+      auditTokenUsage = result.tokenUsage || null;
 
-      const data = await res.json().catch(() => ({}));
-
-      if (res.status === 429 || (data.error && /billing.*quota|quota.*depletion/i.test(data.error))) {
-        showError(
-          'AI enrichment unavailable',
-          'Gemini billing quota depleted — switch to a free-tier key or top up the project.',
-          true
-        );
+      if (result.status === 'partial') {
+        auditStatus = 'partial';
+        auditErrorClass = 'EnrichmentParseError';
+        showError('AI enrichment partial', SAFE_UNAVAILABLE_MESSAGE, true);
         return;
       }
 
-      if (!res.ok) {
-        const detail = data.error || `HTTP ${res.status}`;
-        showError('AI enrichment failed', detail, true);
+      if (result.confidence < ENRICHMENT_CONFIDENCE_THRESHOLD) {
+        auditStatus = 'unavailable';
+        showError('AI enrichment unavailable', SAFE_UNAVAILABLE_MESSAGE, false);
         return;
       }
 
-      const suggestion = data.suggestion || data.text;
-      if (!suggestion) {
-        showError('AI enrichment failed', 'Unexpected response format from enrichment service.', true);
-        return;
-      }
-      aiSuggestions.value = suggestion;
+      aiSuggestions.value = result.suggestion;
       aiSuggestions.classList.add('ai-populated');
+      auditStatus = 'complete';
       showSuccess('Suggestions added to the AI Suggestions field below.');
-
-    } catch (err) {
-      showError('AI enrichment failed', err.message || 'Network error', true);
+    } catch (error) {
+      const ui = mapErrorToUi(error);
+      auditStatus = error?.partial ? 'partial' : 'unavailable';
+      auditErrorClass = ui.errorClass;
+      showError(ui.title, ui.message, ui.showRetry);
     } finally {
+      const latencyMs = Date.now() - startedAt;
+      const auditEntry = {
+        requestId,
+        model: ENRICHMENT_MODEL,
+        latencyMs,
+        tokenUsage: auditTokenUsage,
+        errorClass: auditErrorClass,
+        status: auditStatus,
+      };
+
+      logStructured({
+        event: 'enrichment_call',
+        ...auditEntry,
+      });
+      await writeAuditEntry(auditEntry);
+
       btnEnrich.disabled = false;
       btnEnrich.innerHTML = originalLabel;
     }
@@ -434,19 +691,20 @@
   btnEnrich.addEventListener('click', runEnrichment);
   btnRetry.addEventListener('click', runEnrichment);
 
-  /* ── Form submit ── */
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (btnSave.disabled) return;
-    // Dispatch a custom event so tests / integrations can listen.
-    form.dispatchEvent(new CustomEvent('crc:saved', { bubbles: true, detail: {
-      patientId      : document.getElementById('patient-id').value,
-      encounterDate  : document.getElementById('encounter-date').value,
-      chiefComplaint : document.getElementById('chief-complaint').value,
-      assessment     : document.getElementById('assessment').value,
-      plan           : document.getElementById('plan').value,
-      aiSuggestions  : aiSuggestions.value,
-    }}));
+    form.dispatchEvent(new CustomEvent('crc:saved', {
+      bubbles: true,
+      detail: {
+        patientId: document.getElementById('patient-id').value,
+        encounterDate: document.getElementById('encounter-date').value,
+        chiefComplaint: document.getElementById('chief-complaint').value,
+        assessment: document.getElementById('assessment').value,
+        plan: document.getElementById('plan').value,
+        aiSuggestions: aiSuggestions.value,
+      },
+    }));
     alert('Case saved successfully.');
   });
 </script>
