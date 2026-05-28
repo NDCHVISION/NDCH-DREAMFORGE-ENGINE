@@ -534,6 +534,39 @@ function mergeAudioVideo(audioPath: string, videoPath: string): string {
   return outputPath;
 }
 
+
+// ── Step 3b: Brand identity overlay ──────────────────────────────────────────
+
+function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): string {
+  if (plan.brand !== 'Sankofa Family Medicine') return videoPath;
+
+  console.log('  [3b] Applying SFM brand identity overlay…');
+
+  const birdPath = join(process.cwd(), 'remotion/public/SFM_COMETTRANS_bird.png');
+  if (!existsSync(birdPath)) {
+    console.warn(`         [WARN] SFM bird PNG not found at ${birdPath} — skipping overlay`);
+    return videoPath;
+  }
+
+  const outputPath = join(TMP, 'final_branded.mp4');
+
+  try {
+    // Scale bird to 280×280px, composite centered over video, copy audio stream untouched
+    execSync(
+      `ffmpeg -y -i "${videoPath}" -i "${birdPath}" ` +
+      `-filter_complex "[1:v]scale=280:280[bird];[0:v][bird]overlay=(W-w)/2:(H-h)/2:format=auto" ` +
+      `-c:a copy "${outputPath}"`,
+      { stdio: 'inherit' }
+    );
+  } catch (err) {
+    throw new Error(`Failed to apply SFM brand overlay: ${(err as Error).message}`);
+  }
+
+  const duration = getMediaDuration(outputPath);
+  console.log(`         branded: ${outputPath} (${duration.toFixed(1)}s)`);
+  return outputPath;
+}
+
 // ── Step 4: GitHub Release upload ─────────────────────────────────────────────
 
 interface GitHubReleaseAsset {
@@ -732,7 +765,8 @@ async function main(): Promise<void> {
   const durationSecs = getMediaDuration(audioPath);
 
   const { videoPath, sceneTimeline } = await generateVideo(durationSecs);
-  const finalPath = mergeAudioVideo(audioPath, videoPath);
+  const mergedPath  = mergeAudioVideo(audioPath, videoPath);
+  const finalPath   = applyBrandOverlay(mergedPath, plan);
   const subtitlePath = writeSubtitleSidecar(plan, sceneTimeline);
   const { videoUrl: publicUrl, subtitleUrl } = await uploadToGitHubRelease(finalPath, subtitlePath);
 
