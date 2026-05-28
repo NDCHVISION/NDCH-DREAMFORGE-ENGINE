@@ -1,0 +1,159 @@
+{
+  "reel_id": "SFM_003_INSULIN_WALL",
+  "engine_version": "1.0.0",
+  "brand": "Sankofa Family Medicine",
+  "concept": "Insulin resistance — how chronic over-saturation of glucose forces cells to downregulate receptivity to protect themselves, leading to systemic metabolic gridlock.",
+  "theme": "The Cellular Shutters",
+  "core_metaphor": "Insulin is not a gentle key; it is a mechanical delivery unit. Resistance is the cell welding its own doors shut to survive the flood.",
+  "emotional_arc": "false security → structural realization → mechanical deadlock → conscious metabolic decompression",
+  "quote": "The cell does not hate energy. It is simply barricading the door against the pressure of your constant delivery.",
+  "style_id": "style_3_hud",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical hyper-precise 3D architectural CAD blueprint sequence. Absolute zero fluid simulation — NEVER render liquid, water, or organic flow. A deep dark blue (#051C3B) void substrate. Double-lined white (#FFFFFF) structural panels form a singular cell membrane corridor. The camera executes a continuous smooth forward Z-axis push down the central axis from frame zero — constant velocity, never stopping, never drifting laterally. Outside the corridor: a dense swarm of small azure (#05436E) particle vectors impact the exterior walls — these are hard geometric points, NOT liquid or flowing — they move as individual discrete units. Thin gold (#BC9833) telemetry indicators map the membrane surface. As pressure mounts across clips, thick geometric gold (#BC9833) shutter plates slide mechanically over the white membrane panels — hard surface, no glow, no liquid. SUBTITLE SAFETY ZONE: bottom 20% of frame (y=1536–1920 in 1080×1920) permanently clear of all grid layers, shutter plates, and particle vectors. 4K vertical.",
+    "runway_prompt_modifier": "architectural CAD cell membrane corridor, Z-axis forward push, azure particle vectors exterior walls, gold shutter plates sliding over white panels, dark blue void, subtitle zone bottom 20% clear, zero fluid simulation, hard-surface geometry, style3hud",
+    "global_visual_matrix": {
+      "rendering_engine": "Precision hard-surface architectural CAD. Absolute zero fluid simulation. No liquid, no morphing, no organic forms.",
+      "chromatic_boundaries": {
+        "void_space": "#051C3B",
+        "membrane_panels": "#FFFFFF",
+        "gold_shutters": "#BC9833",
+        "azure_particle_vectors": "#05436E"
+      },
+      "sfm_insulin_anti_drift_rules": [
+        "NEVER simulate liquid, water, or fluid — no flowing glucose, no liquid insulin waves",
+        "NEVER use the word 'flow' in prompt interpretation — azure elements are discrete particle VECTORS, not fluid",
+        "NEVER drift the camera laterally — Z-axis push ONLY, constant velocity forward",
+        "NEVER place shutter plates, grid lines, or particles in the bottom 20% subtitle safety zone",
+        "ALWAYS render gold shutter plates as hard flat geometric panels — mechanical, not glowing, not organic",
+        "ALWAYS render azure particle swarm as discrete hard-edged geometric points impacting the wall",
+        "The interior corridor center must remain a clear negative space runway throughout all clips",
+        "Gold telemetry text must remain in outer thirds of frame only — never crossing the central corridor"
+      ]
+    },
+    "color_palette": {
+      "void_space": "#051C3B",
+      "membrane": "#FFFFFF",
+      "gold_shutters": "#BC9833",
+      "azure_vectors": "#05436E"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "0.5px baseline. Spike to 2.0px on Clip 5 shutter lock event — the hardest cut in the reel.",
+        "note": "Clinical credibility register. Spike only at the structural deadlock moment."
+      },
+      "film_grain": {
+        "intensity": 0.04,
+        "grain_type": "fine digital noise, clinical HUD aesthetic"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You think you need more sugar because your energy keeps crashing. But your blood is already full of it. In primary care, we see that chronic fatigue isn't a lack of fuel—it is a lockout. When you constantly flood your system with glucose, your pancreas throws waves of insulin to force it into your cells. To survive that toxic saturation, your cells do something radical. They don't fail—they defend themselves. They downregulate. They slide heavy metabolic shutters over their receptors, welding the doors shut against the pressure of your delivery. You cannot cure a flooding engine by stepping on the gas. Clear the runway. Give the architecture room to breathe. Before you reach for another spark, look closely at your baseline.",
+      "word_count": 122,
+      "estimated_duration_seconds": 40.0,
+      "voiceover_silence_tail_seconds": 5.0,
+      "speed_calculation_note": "Empirical: 107 words at speed 1.05 → 50.1s (Run #55). Formula: (122/107) * 50.1 * (1.05/1.5) = 40.0s. Target voice ends ~0:40, void tail 0:40-0:45. Blueprint speed 0.88 would generate ~68s — corrected to 1.5.",
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You think you need more sugar because your energy keeps crashing.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:07",
+          "visual_prompt": "Camera opens on a deep dark blue (#051C3B) void. A clean white (#FFFFFF) double-lined cell membrane corridor fills the frame — the Z-axis push begins immediately at frame zero, constant velocity forward. The interior corridor is a clear open runway. Outside the membrane walls: a sparse azure (#05436E) particle swarm hovers at the frame margins — discrete geometric points, NOT liquid. Gold (#BC9833) telemetry indicators active on the membrane surface, showing live numerical parameters. Bottom 20% subtitle zone completely clear. Camera pushes forward only — no lateral drift, no rotation. Mood: false security — the system appears open, unaware of the pressure building. architectural CAD cell membrane corridor opening, Z-axis push initiated, sparse azure particle vectors at margins, gold telemetry active, dark blue void, subtitle zone clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "truth",
+          "text": "But your blood is already full of it. In primary care, we see that chronic fatigue isn't a lack of fuel—it is a lockout.",
+          "timestamp_start": "0:07",
+          "timestamp_end": "0:15",
+          "visual_prompt": "Z-axis push continues at constant velocity. The azure (#05436E) particle swarm density DOUBLES — the exterior membrane walls are now under sustained impact from dense geometric particle vectors hitting the surface in rapid succession. Gold (#BC9833) telemetry markers begin flashing warning parameters — [SIGNAL_OVERLOAD] and [RECEPTOR_PRESSURE_CRITICAL] labels appear in the left and right thirds of the frame at outer margins, 8pt monospace. The membrane panels remain white and structurally intact for now. Interior corridor still clear. Bottom 20% subtitle zone clear throughout. Mood: the realization — the system is already saturated. Z-axis push, azure particle swarm doubling in density, gold warning telemetry flashing at outer thirds, white membrane intact, subtitle zone clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "mechanism_1",
+          "text": "When you constantly flood your system with glucose, your pancreas throws waves of insulin to force it into your cells.",
+          "timestamp_start": "0:15",
+          "timestamp_end": "0:22",
+          "visual_prompt": "Z-axis push continues. Azure (#05436E) particle swarm at MAXIMUM density — the exterior walls are under continuous heavy impact from dense geometric point vectors. Gold (#BC9833) shutter plates begin to emerge at the far left and right edges of the membrane boundary — thin hairline gold panels appearing from the frame margins, beginning to slide inward at slow mechanical velocity. The white membrane panels remain visible beneath the emerging shutter edges. Gold telemetry warning cascade intensifying at outer thirds. Interior corridor still open. Bottom 20% subtitle zone clear. Mood: the mechanical response begins. maximum azure particle impact, first gold shutter plates emerging from margins, Z-axis push, subtitle zone clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "mechanism_2",
+          "text": "To survive that toxic saturation, your cells do something radical. They don't fail—they defend themselves. They downregulate.",
+          "timestamp_start": "0:22",
+          "timestamp_end": "0:30",
+          "visual_prompt": "Z-axis push continues. Gold (#BC9833) shutter plates advance steadily inward — now covering 50-60% of the white membrane surface, sliding with mechanical precision from both sides toward center. The plates are flat hard-edged geometric panels — NOT glowing, NOT liquid. The interior corridor narrows slightly as the plates advance but remains passable. Azure particle swarm continues impacting the exterior but the gold surface deflects some vectors — particles bounce off the emerging armor at sharp geometric angles. Bottom 20% subtitle zone completely clear. Mood: deliberate mechanical defense — the cell choosing survival over receptivity. gold shutter plates advancing to 60% membrane coverage, azure particles deflecting off shutter surface, corridor narrowing, Z-axis push, subtitle zone clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "shutters_lock",
+          "text": "They slide heavy metabolic shutters over their receptors, welding the doors shut against the pressure of your delivery.",
+          "timestamp_start": "0:30",
+          "timestamp_end": "0:37",
+          "visual_prompt": "SHUTTER LOCK EVENT. Gold (#BC9833) shutter plates SLAM to full closure — they cover the entire membrane surface flush, left and right plates meeting at the center seam with a precise hard-edge joint. The white membrane panels are completely sealed beneath gold armor. The azure (#05436E) particle swarm DEFLECTS entirely — all vectors bounce away from the sealed gold surface at hard geometric angles and scatter toward the frame margins. The interior corridor is now isolated — surrounded by gold fortress walls on both sides, dark blue void beyond them. Camera continues Z-axis push into the locked corridor. Gold telemetry goes silent — all warning parameters replaced by [SEALED] status. Bottom 20% subtitle zone clear. Mood: total lockdown — the architecture of defense is complete. full gold shutter plate closure, azure particle swarm deflecting entirely, sealed membrane corridor, Z-axis push continues, subtitle zone clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "void_close",
+          "text": "You cannot cure a flooding engine by stepping on the gas. Clear the runway. Give the architecture room to breathe. Before you reach for another spark, look closely at your baseline.",
+          "timestamp_start": "0:37",
+          "timestamp_end": "0:45",
+          "mobius_note": "Voiceover ends at approximately 0:40 on 'baseline' — lands with declarative authority, no suspension. Frames 0:40-0:45 are voiceover-silent void hold. Camera plunges into the terminal void node — the visual loop seam fires in this window.",
+          "visual_prompt": "The camera PLUNGES forward at accelerating velocity down the center of the sealed gold corridor — the shutter walls rush past at speed as the push accelerates dramatically. By 0:38 the corridor ends: the camera breaks through into a pure deep dark blue (#051C3B) void. All architecture dissolves. All particles gone. The gold walls vanish. Complete silence and void. From 0:40: voiceover ends. Camera holds in the void — one faint azure (#05436E) telemetry pulse point glows in the center distance. From 0:40-0:45: the void holds completely still. By 0:45: the frame matches frame zero exactly — the clean open white corridor begins to assemble from the margins, Z-axis push restarting. Loop seam is invisible. Bottom 20% subtitle zone clear throughout. Mood: decompression — the architecture needs space to reset. camera plunge through sealed corridor into pure dark blue void, azure pulse point in center distance, void hold 0:40-0:45, loop seam match to frame zero, subtitle zone clear, style3hud"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.65,
+        "similarity_boost": 0.85,
+        "style": 0.12,
+        "use_speaker_boost": true,
+        "speed": 1.5
+      },
+      "final_segment_override": {
+        "segment_id": "void_close",
+        "stability": 0.70,
+        "style": 0.0,
+        "note": "Final segment lands with declarative authority on 'baseline' — not suspension, not trailing. Clean close. The word hits and the architecture falls silent. Different from SFM_000's Möbius suspension — this reel closes with a verdict."
+      },
+      "voice_notes": "Blueprint speed 0.88 corrected to 1.5. At 0.88, 122 words → ~68s over target. At 1.5: (122/107) * 50.1 * (1.05/1.5) = 40.0s + 5.0s void tail = 45s. Blueprint voiceId 'pNInz6obpgDQGcFmaJgB' irrelevant — generate-reel.ts line 211 hardcodes DR_NKRUMAH_VOICE_ID = 'C9Uh5MFptuXa176UlaXE'."
+    }
+  },
+  "subtitle_config": {
+    "font": "Cormorant Garamond",
+    "color": "#FFFFFF",
+    "highlight": "#BC9833",
+    "peak": "#05436E",
+    "position": "bottom-center",
+    "highlight_words": ["insulin", "glucose", "shutters", "receptors", "baseline", "downregulate"],
+    "peak_words": ["lockout", "toxic", "welding", "flooding", "barricading"],
+    "safety_zone_note": "Bottom 20% of frame (y=1536-1920) preserved clear across all 6 clips per visual prompt specification."
+  },
+  "music_config": {
+    "description": "Heavy atmospheric sub-bass drone — low, structural, mechanical. An industrial hydraulic clamping sound effect reinforces the word 'shutters' at exactly 0:30 (Clip 5 onset). From 0:40 the music drops to total stillness — dead silence holds through the 0:40-0:45 void tail.",
+    "character": "industrial, architectural, deliberate — the sound of something being sealed permanently. Not aggressive. Inevitable.",
+    "cut_to_silence_seconds": 40,
+    "sfx_note": "Single hydraulic clamp sound effect at 0:30 onset — synchronized with Clip 5 shutter lock visual event."
+  },
+  "instagram_config": {
+    "caption": "Fatigue isn't always a lack of fuel — it's often a structural lockout.\n\nWhen the body is over-saturated with glucose, the cells barricade their gates to survive the load.\n\nReclaim your metabolic baseline.\n\nSave this post to remind yourself why the crash happens.\n\n#preventativemedicine #metabolichealth #insulinresistance #prediabetes #sankofafamilymedicine #sfm",
+    "hashtags": ["#preventativemedicine", "#metabolichealth", "#insulinresistance", "#prediabetes", "#sankofafamilymedicine", "#sfm"],
+    "alt_text": "A minimalist dark blue and gold architectural CAD diagram showing a cellular membrane corridor with gold shutter plates sliding into place — the visual language of insulin resistance.",
+    "cover_frame_timestamp": "0:30"
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — first SFM_003 run",
+    "precision_informed_removal": "Blueprint used 'precision-informed medicine' in Clip 2 narration. Replaced with 'primary care' per producer direction — keeps the educational register accessible.",
+    "speed_fix": "Blueprint speed 0.88 corrected to 1.5. Same 122-word count as SFM_000. At 0.88 → ~68s. At 1.5 → 40.0s voice + 5.0s void tail = 45s.",
+    "voice_id_fix": "Blueprint voiceId 'pNInz6obpgDQGcFmaJgB' irrelevant — hardcoded override in generate-reel.ts line 211.",
+    "azure_flow_fix": "Blueprint keyVisualBeat at 0:30 used 'azure flow turns away' — changed to 'azure particle swarm deflects' across all clip prompts to prevent Runway fluid simulation trigger.",
+    "clip_structure": "Blueprint had 4 variable-duration segments. Converted to 6 × 7.5s clips at natural sentence breaks. keyVisualBeats at 15s and 30s align exactly with Clip 2→3 and Clip 4→5 boundaries.",
+    "shutter_lock_cover_frame": "Cover frame at 0:30 — exact moment of full shutter plate closure. Strongest compositional still in the reel.",
+    "loop_seam": "Visual loop: camera accelerates through sealed corridor and plunges into void by 0:38. Void holds 0:40-0:45. Frame zero: clean open corridor reassembles from margins. Loop boundary invisible. Audio: no Möbius suspension — 'baseline' lands as a declarative close, not a trailing suspension."
+  },
+  "cover_frame_timestamp": "0:30"
+}
