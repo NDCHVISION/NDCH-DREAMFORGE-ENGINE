@@ -1,0 +1,177 @@
+{
+  "reel_id": "SFM_000_PARADIGM_INTRO",
+  "engine_version": "1.0.0",
+  "brand": "Sankofa Family Medicine",
+  "concept": "A high-leverage brand introduction establishing the core philosophy of Sankofa Family Medicine — precision-informed primary care that maps each patient's unique biological baseline from onset. The visual language anchors the Sankofa gold bird icon as the immovable identity center while architectural blueprint grids assemble and deconstruct around it across 6 clips.",
+  "theme": "Medicine That Remembers",
+  "core_metaphor": "Your body has its own history book — the gold bird looks backward to carry that knowledge forward. Clinical precision is not reactive; it is architectural, built from your foundational baseline.",
+  "emotional_arc": "orientation → structural realization → mechanical assembly → process depth → identity shift → void reset",
+  "quote": "To build a future that stays strong, you must first remember where your baseline started.",
+  "style_id": "style_3_hud",
+  "format": {
+    "target_duration_seconds": 45
+  },
+  "logo_production_note": {
+    "runway_approach": "Visual prompts describe the Sankofa bird in precise Runway-readable language derived from the COMETTRANS asset. Runway will render an interpreted version — fidelity is best-effort. Bird described as: gold 3D-rendered Sankofa symbol, body in backward-arcing crescent C-posture, beak angled downward-right holding suspended gold sphere, single round sapphire-blue gemstone eye, polished metallic gold surface with deep black linear-incised engravings on body panels, parallel elongated gold wing-bars extending diagonally lower-right, two short thick gold legs with flat pad feet, deep dark blue void background.",
+    "recommended_upgrade": "Build SFM_HUD_Overlay.tsx (Remotion) to composite the exact COMETTRANS PNG as a locked center overlay on top of Runway output — guarantees pixel-perfect brand identity. Runway handles background architecture; Remotion stamps the canonical asset. Same pattern as NDCH_HUD_Overlay.tsx already in production.",
+    "promptImage_option": "Alternatively, patch generate-reel.ts to pass promptImage parameter to Runway Gen-4 per clip — uses the bird PNG as visual seed for each generation. Requires engine update."
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Voiceover ends on 'next' — trailing as a forward-pointing suspension rather than resolution. On loop 2, 'before we plan what comes next' flows directly into 'Your body writes its own history book' — reading as a single continuous thought across the loop boundary. The viewer is mid-sentence before they register the restart.",
+    "loop_seam": "...before we plan what comes next. [LOOP] Your body writes its own history book.",
+    "visual_seam": "Clip 6 final frame: full deep dark blue (#051C3B) void with only the gold bird icon and its azure eye glow visible, all blueprint grids dissolved. Clip 1 opening frame: identical — same void, same bird, same azure pulse — with grids beginning to slide in from margins. The reset is invisible.",
+    "audio_design": {
+      "final_segment_treatment": "The word 'next' must trail with rising suspension — curiosity, not closure. Zero terminal pitch drop. ElevenLabs final segment: stability 0.65, style 0.0. It should feel like the thought is pointing forward to something about to be said.",
+      "music_fade": "Sub-bass drone cuts to dead silence at 0:42 — the silence holds through the 0:42-0:45 void tail and flows directly into the opening tone at 0:00 of loop 2."
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical precision architectural CAD brand identity sequence. Absolute zero fluid simulation — NEVER render liquid, water, or organic flow. The world is a deep dark blue (#051C3B) void space containing a fixed clinical blueprint architecture. CENTER ANCHOR: a 3D-rendered gold (#BC9833) Sankofa bird icon — body curved in backward-arcing crescent posture with head turned to look rearward over its own back, beak extended downward-right holding a suspended gold sphere, single round sapphire-blue (#05436E) gemstone eye emitting soft azure data light, polished metallic gold surface with deep black linear-incised engraving lines on body panels, parallel elongated gold wing-bars extending diagonally to lower-right, two short thick gold legs with flat pad base feet. Bird is centered and structurally locked in frame at all times — never obscured, never repositioned, never rotated. SUBTITLE SAFETY ZONE: bottom 20% of frame (approximately y=1536-1920 in 1080x1920) is kept permanently clear of all grid lines, text elements, and asset fragments — this zone belongs to subtitle overlay. Blueprint grid planes: flat, layered, composed of fine 1px white (#FFFFFF) orthogonal lines on dark blue substrate — they slide horizontally, tilt subtly, and dissolve cleanly without crossing the subtitle zone or the bird's eye. Fine white (#FFFFFF) clinical parameter text fragments and coordinate labels float at outer margins only. 4K vertical.",
+    "runway_prompt_modifier": "precision architectural CAD blueprint grid, 3D gold Sankofa bird icon center-locked, azure sapphire eye data pulse, dark blue clinical void, fine white telemetry lines outer margins only, subtitle zone bottom 20% clear, zero fluid simulation, zero ambient rotation, hard-surface geometry, style3hud",
+    "global_visual_matrix": {
+      "rendering_engine": "Precision hard-surface architectural CAD. Absolute zero fluid simulation. No liquid, no morphing, no organic forms.",
+      "chromatic_boundaries": {
+        "void_space": "#051C3B",
+        "gold_identity": "#BC9833",
+        "azure_data": "#05436E",
+        "white_telemetry": "#FFFFFF",
+        "bird_engraving": "#000000"
+      },
+      "sfm_paradigm_anti_drift_rules": [
+        "NEVER simulate liquid, water, or fluid — no molten gold, no flowing elements",
+        "NEVER rotate or drift the Sankofa bird icon — it is structurally locked center-frame at all times",
+        "NEVER obscure the bird icon with grid lines, particles, or geometric elements",
+        "NEVER place grid lines or text in the bottom 20% subtitle safety zone",
+        "ALWAYS render blueprint grids as flat hard-surface CAD planes — never as soft glowing auras",
+        "ALWAYS preserve the central corridor width — left and right thirds receive grid activity, center stays clear",
+        "Gold elements are POLISHED METALLIC SOLID — not glowing, not liquid, not organic",
+        "Azure eye pulse is a PRECISE POINT DATA SIGNAL — not a bloom or halo effect"
+      ]
+    },
+    "color_palette": {
+      "void_space": "#051C3B",
+      "gold_identity": "#BC9833",
+      "azure_data": "#05436E",
+      "white_telemetry": "#FFFFFF"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "0.5px baseline — subtle, clinical authority register. Spike to 1.5px on the Clip 6 grid dissolution event.",
+        "note": "Minimal aberration preserves clinical credibility. This is a brand intro, not a trauma reel."
+      },
+      "film_grain": {
+        "intensity": 0.04,
+        "grain_type": "fine digital noise, clinical HUD aesthetic"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "Your body writes its own history book. Every biological system has a baseline. At Sankofa Family Medicine, we believe that tracking a symptom is not the same as remembering the person. We practice precision-informed primary care—mapping your unique biology from the onset to build a structural baseline that belongs entirely to you. The principle of Sankofa reminds us that it is vital to go back and fetch what was lost. Your body carries its own deep history. When we decode your foundational metrics, your daily rhythms, and your unique genomic data, we engineer a forward path anchored in continuity. Step inside a clinical home designed directly around your blueprint. Let us understand the metrics together, before we plan what comes next.",
+      "mobius_note": "The word 'next' is an incomplete forward-pointing thought. No terminal inflection — it trails as anticipation, not conclusion. On loop, 'before we plan what comes next' connects to 'Your body writes its own history book' — the sentence continues across the loop boundary. ElevenLabs must render 'next' as suspension with rising curiosity tone.",
+      "word_count": 122,
+      "estimated_duration_seconds": 40.0,
+      "voiceover_silence_tail_seconds": 5.0,
+      "speed_calculation_note": "Empirical: 107 words at speed 1.05 → 50.1s (Run #55). Formula: (122/107) * 50.1 * (1.05/1.5) = 40.0s. Target voice ends ~0:40, void tail 0:40-0:45.",
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Your body writes its own history book. Every biological system has a baseline.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:07",
+          "visual_prompt": "Camera opens on a deep dark blue (#051C3B) void. Center frame: the 3D gold (#BC9833) Sankofa bird icon — body curved backward, beak holding gold sphere, single sapphire-blue (#05436E) eye emitting a slow, rhythmic azure data pulse at 0.5Hz. The bird is perfectly centered, structurally fixed. From the left and right margins: flat architectural blueprint grid planes begin sliding inward at constant low velocity — composed of fine 1px white (#FFFFFF) orthogonal lines on dark blue substrate, like CAD drafting layers assembling. The planes interlock cleanly behind the bird at the midpoint of the clip, framing it without crossing the central corridor or the subtitle zone (bottom 20% of frame kept clear). No grid lines cross the bird or its eye. Camera locked. Zero movement. Zero rotation. Zero drift. Mood: the first activation — a system coming online. precision architectural CAD blueprint grid assembling, 3D gold Sankofa bird icon center-locked, azure sapphire eye data pulse, dark blue clinical void, fine white orthogonal grid planes sliding from margins, subtitle zone bottom 20% clear, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "truth_1",
+          "text": "At Sankofa Family Medicine, we believe that tracking a symptom is not the same as remembering the person.",
+          "timestamp_start": "0:07",
+          "timestamp_end": "0:15",
+          "visual_prompt": "The fully assembled blueprint grid now holds steady. Camera executes a subtle upward tilt — rotating 3-4 degrees along the X-axis over 8 seconds, tilting the plane of the grid slightly toward the viewer without losing sight of the bird icon. The bird remains locked center-frame throughout the tilt via camera compensation. Along the top and bottom margins (outside the subtitle zone): fine white (#FFFFFF) clinical parameter labels slide vertically into position — fragments like [BASELINE STATUS], [LONGITUDINAL TRACKING: ACTIVE], [PATIENT ARCHITECTURE: INITIALIZING] — 8pt monospace, non-intrusive, flush to margin. The azure eye pulse slows to a deep, confident 0.3Hz. Blueprint grids are flat, hard-surface, no glow. Bottom 20% subtitle zone remains completely clear. Mood: the structural distinction being drawn — symptom tracking vs. person remembering. camera tilt on assembled blueprint grid, fine white parameter labels sliding to margins, gold Sankofa bird center-locked with compensation, azure eye slow pulse, clinical authority register, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "truth_2",
+          "text": "We practice precision-informed primary care—mapping your unique biology from the onset to build a structural baseline that belongs entirely to you.",
+          "timestamp_start": "0:15",
+          "timestamp_end": "0:22",
+          "visual_prompt": "Background blueprint grid transitions down the Z-axis — the camera moves forward slowly along the central depth axis, giving the impression of passing through the layered grid planes. As each plane passes, it reveals a slightly different layer behind it — the same blueprint geometry but with additional white telemetry parameter annotations appearing at the outer thirds of the frame (left 25% and right 25% only, center corridor preserved). From the gold bird icon: thin gold (#BC9833) telemetry ring vectors expand outward on a flat 2D axis — precise 1px-wide concentric rings growing at 8px/frame, stopping at the subtitle zone boundary and the frame edges. The rings are NOT glowing halos — they are sharp-edged CAD measurement circles. The azure eye pulse accelerates subtly to 0.8Hz. Bottom 20% subtitle zone clear. Mood: the architecture of a unique baseline being drawn. Z-axis camera forward drift through layered blueprint planes, gold telemetry rings expanding from bird icon center, white parameter annotations outer thirds only, central corridor preserved, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "process_1",
+          "text": "The principle of Sankofa reminds us that it is vital to go back and fetch what was lost. Your body carries its own deep history.",
+          "timestamp_start": "0:22",
+          "timestamp_end": "0:30",
+          "visual_prompt": "Smooth lateral tracking shot — camera moves slowly left to right along the blueprint grid plane at constant velocity, as if scanning across a large architectural schematic. The gold Sankofa bird icon moves with the camera, maintaining its center-frame position throughout via camera-bird synchronization — the surrounding blueprint environment scrolls while the bird stays locked. Along the left and right thirds of the frame: fine white (#FFFFFF) vertical strings of clinical metric data begin cascading slowly downward — parameter labels, numeric ranges, biological markers — descending at 6px/frame. These data strings occupy only the outer thirds (left 25% and right 25%) and stop cleanly 40px above the subtitle safety zone boundary. The gold telemetry rings from the previous clip gradually fade out. Blueprint grid continues in motion. Mood: the lateral scan of a full biological history. smooth lateral camera track, Sankofa bird center-locked via synchronization, white parameter metric cascades on outer thirds only, subtitle zone clear, blueprint grid lateral motion, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "process_2",
+          "text": "When we decode your foundational metrics, your daily rhythms, and your unique genomic data, we engineer a forward path anchored in continuity.",
+          "timestamp_start": "0:30",
+          "timestamp_end": "0:37",
+          "visual_prompt": "The lateral motion stops. Camera locks. The blueprint grid layers begin a clean mechanical deconstruction — each plane slides outward toward its origin margin at constant velocity, reversing the assembly sequence from Clip 1. The process is unhurried, deliberate, geometric — not a collapse or explosion. As each grid layer departs, the deep dark blue (#051C3B) void behind it becomes increasingly visible. The gold bird icon holds center, structurally unchanged. But its azure (#05436E) sapphire eye data pulse begins intensifying — shifting from a subtle 0.8Hz to a precise 1.5Hz, the light becoming visibly brighter and more focused. The white parameter cascade data strings on the outer thirds cease, their labels fading cleanly to void. Bottom 20% subtitle zone clear throughout. The bird is becoming the only thing that remains. Mood: the deconstruction of complexity back to the essential identity anchor. blueprint grid planes deconstruction sliding to margins, Sankofa bird center-locked and intensifying, azure eye pulse brightening to 1.5Hz, white data strings fading, dark blue void revealing, zero fluid simulation, style3hud"
+        },
+        {
+          "id": "mobius_close",
+          "text": "Step inside a clinical home designed directly around your blueprint. Let us understand the metrics together, before we plan what comes next.",
+          "timestamp_start": "0:37",
+          "timestamp_end": "0:45",
+          "mobius_note": "Voiceover ends at approximately 0:42 on the word 'next' — trailing with rising suspension, zero terminal pitch drop. ElevenLabs this segment only: stability 0.65, style 0.0. Frames 0:42-0:45 are voiceover-silent — the void hold fires in this window.",
+          "visual_prompt": "All blueprint grid planes have fully dissolved. The frame holds: deep dark blue (#051C3B) void, the gold (#BC9833) Sankofa bird centered, its azure (#05436E) eye now at maximum pulse intensity — a precise, focused sapphire data point radiating outward in a controlled circular ripple that expands to the subtitle zone boundary then dissipates. This is not a bloom or explosion — it is a precision diagnostic signal ring. At 0:37 when the clip begins, the bird stands in absolute clean void, the most authoritative compositional state. From 0:40: voiceover ends. Camera holds. Eye pulse continues at steady 1.5Hz. From 0:40-0:45: the azure eye emission slowly, steadily dims — not fading out, but settling to the exact same soft 0.3Hz pulse that opened Clip 1. By 0:45: the frame matches Clip 1 frame zero exactly — same void, same bird, same azure eye initiation pulse. Loop seam is invisible. Bottom 20% subtitle zone completely clear. Mood: arrival. The system is active. The baseline is yours. Sankofa bird center-locked in pure dark blue void, azure eye at maximum precision pulse then settling to loop-initiation state, no grid elements, absolute compositional authority, loop seam visual match to Clip 1 frame zero, style3hud"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.65,
+        "similarity_boost": 0.85,
+        "style": 0.12,
+        "use_speaker_boost": true,
+        "speed": 1.5
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0.0,
+        "note": "Override on final segment only. 'next' must trail with rising suspension — curiosity and forward momentum, not resolution. On loop, 'before we plan what comes next' connects directly to 'Your body writes its own history book' completing the thought."
+      },
+      "voice_notes": "Speed set to 1.5 based on empirical calibration: 107 words at speed 1.05 generated 50.1s (Run #55). 122 words at speed 1.5: (122/107) * 50.1 * (1.05/1.5) = ~40.0s voice + 5.0s void tail = 45s total. Blueprint spec had speed 0.85 which would generate ~68s — corrected. DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides any spec voice_id field."
+    }
+  },
+  "subtitle_config": {
+    "font": "Cormorant Garamond",
+    "color": "#FFFFFF",
+    "highlight": "#BC9833",
+    "peak": "#05436E",
+    "position": "bottom-center",
+    "highlight_words": ["baseline", "Sankofa", "precision-informed", "blueprint", "continuity", "history"],
+    "peak_words": ["remembering", "lost", "anchored", "decode"],
+    "safety_zone_note": "Bottom 20% of frame (y=1536-1920) preserved clear across all 6 clips per visual prompt specification. Subtitle overlay places text in this zone."
+  },
+  "music_config": {
+    "description": "Deep clinical sub-bass drone — single sustained tone with architectural gravity. Warm slow-rise harmonic layer enters at 0:15 as the baseline assembly completes. No percussion. No rhythm. Pure structural presence. Hard cut to dead silence at exactly 0:40 — holds through the 0:40-0:45 void tail and the loop seam. Sub-bass re-enters at 0:00 of loop 2 on the first azure eye pulse.",
+    "character": "authoritative, clinical, continuous — not brooding, not aggressive. The sound of a system that has already been running for centuries.",
+    "cut_to_silence_seconds": 40,
+    "loop_seam_note": "Dead silence 0:40 to 0:45. Sub-bass drone re-enters at loop 2 start in exact synchrony with the azure eye first pulse."
+  },
+  "instagram_config": {
+    "caption": "Medicine that remembers. 🦅\n\nTracking a symptom is not the same as remembering the person.\n\nAt Sankofa Family Medicine, we practice precision-informed primary care that maps your unique biological baseline from onset — building a structural foundation that belongs entirely to you.\n\nYour body carries its own deep history. We decode it.\n\nLink in bio to join our founding waitlist.\n\n#SankofaFamilyMedicine #MedicineThatRemembers #PrecisionCare #PreventativeHealth #PrimaryCareDoneRight #SFM",
+    "hashtags": ["#sankofafamilymedicine", "#preventativemedicine", "#primarycare", "#precisioninformed", "#healthcareexcellence", "#sfm"],
+    "alt_text": "A minimalist dark blue and gold clinical blueprint interface with the gold Sankofa bird icon centered, fine white architectural grid lines assembling and dissolving around it — the visual identity of precision-informed primary care."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — first SFM_003 run",
+    "reel_id_note": "Named SFM_000 — this is the origin/foundation piece for Sankofa Family Medicine. Blueprint's original reelId 'SFM_001_PARADIGM_INTRO' collided with existing SFM_001_HYDRAULIC_LOAD_FAST. SFM_000 correctly positions the brand paradigm intro as the catalog anchor.",
+    "schema_version_note": "Blueprint provided as v2.0.0 (voiceoverScriptSegments, keyVisualBeats, elevenLabsConfig.settings). Converted to engine-compatible v1.0.0 using voiceover.script.segments schema with timestamp_start/timestamp_end and per-clip visual_prompts.",
+    "comettrans_replacement": "All 6 visual prompts replace 'COMETTRANS (5).png' references with precise Runway-readable bird descriptions. The asset is described as: gold 3D Sankofa symbol, backward-arcing crescent body, beak holding suspended gold sphere, sapphire blue eye, polished metallic gold with black linear engravings, parallel diagonal wing-bars, short gold legs with flat feet.",
+    "speed_fix": "Blueprint spec speed 0.85 corrected to 1.5. At 0.85, 122 words would generate ~68s — 23s over target. At 1.5: estimated 40.0s voice + 5.0s void tail = 45s total.",
+    "voice_id_fix": "Blueprint spec voiceId 'ErXwobaYiN019PkySvjV' is irrelevant — generate-reel.ts line 211 hardcodes DR_NKRUMAH_VOICE_ID = 'C9Uh5MFptuXa176UlaXE' for all reels.",
+    "anti_drift_enforcement": "All visual prompts include: 'zero fluid simulation', 'structurally locked center-frame', 'subtitle zone bottom 20% clear', 'hard-surface geometry'. Global anti_drift_rules block embedded in global_visual_matrix.",
+    "subtitle_corridor": "Each visual prompt explicitly calls out the bottom 20% subtitle safety zone. Central corridor preservation between outer thirds is specified per-clip.",
+    "logo_path_forward": "To get the exact COMETTRANS logo in every frame: build SFM_HUD_Overlay.tsx compositing it as a locked Remotion overlay, or patch generate-reel.ts with promptImage parameter pointing to the PNG's GitHub raw URL. Both options documented in logo_production_note.",
+    "mobius_seam_verification": "Before dispatch: confirm Clip 6 final frame (pure void + bird + soft azure pulse) visually matches Clip 1 opening frame. Same void depth, same bird position, same azure initiation state. The grid deconstruction should be complete by Clip 6 frame 0."
+  },
+  "cover_frame_timestamp": "0:03"
+}
