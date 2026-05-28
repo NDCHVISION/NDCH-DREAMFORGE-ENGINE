@@ -308,6 +308,7 @@ export interface ResolvedProductionPlan {
     shareToFeed?: boolean;
   };
   subtitles?: unknown;
+  brand?: string;
 }
 
 interface ResolveProductionPlanOptions {
@@ -449,6 +450,8 @@ export function resolveProductionPlan(
     ['engine', 'subtitle_system'],
   ]);
 
+  const brand = pickString(reelSpec, [['brand']]) ?? undefined;
+
   return {
     engineConfigPath: engineConfigPath ? resolve(engineConfigPath) : undefined,
     reelSpecPath: reelSpecPath ? resolve(reelSpecPath) : undefined,
@@ -469,5 +472,6 @@ export function resolveProductionPlan(
       shareToFeed,
     },
     subtitles,
+    brand,
   };
 }
