@@ -554,7 +554,7 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
     // Scale bird to 280×280px, composite centered over video, copy audio stream untouched
     execSync(
       `ffmpeg -y -i "${videoPath}" -i "${birdPath}" ` +
-      `-filter_complex "[1:v]scale=280:280[bird];[0:v][bird]overlay=(W-w)/2:(H-h)/2:format=auto" ` +
+      `-filter_complex "[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto" ` +
       `-c:a copy "${outputPath}"`,
       { stdio: 'inherit' }
     );
