@@ -24,6 +24,17 @@
  *                       under narration for clearer voice-forward playback. Omit
  *                       to skip music.
  *
+ * Subtitles
+ * ─────────
+ *   TTS is requested via the ElevenLabs with-timestamps endpoint, so subtitle
+ *   cues are built from real word-level timings (with graceful fallback to
+ *   estimated timing). When the reel spec carries a subtitle_config, a styled
+ *   .ass file is generated (font/colors/highlight words from the spec) and
+ *   burned into the final video — Instagram ignores sidecar files, so burned
+ *   captions are what muted viewers actually see. An .srt sidecar is still
+ *   uploaded next to the video. Set "burn_in": false in subtitle_config to
+ *   keep sidecar-only behavior.
+ *
  * Writes REEL_VIDEO_URL to $GITHUB_ENV so publish-reel.ts picks it up.
  *
  * Node ≥ 18 + ffmpeg on PATH required.
@@ -52,6 +63,16 @@ import {
   buildFallbackSubtitleCues,
 } from './lib/subtitles.ts';
 import {
+  type ElevenLabsAlignment,
+  type WordTiming,
+  buildWordTimingsFromAlignment,
+  buildCuesFromWordTimings,
+} from './lib/elevenlabs-alignment.ts';
+import {
+  buildAssDocument,
+  parseSubtitleStyle,
+} from './lib/ass-subtitles.ts';
+import {
   buildAdaptiveMusicMixFilter,
   resolveMusicTrackPath,
 } from './lib/audio-mixing.ts';
@@ -71,6 +92,7 @@ const RUNWAY_MAX_TASK_ATTEMPTS   = 4;
 const CLIP_CHECKPOINT_PATH       = process.env.CLIP_CHECKPOINT_PATH ?? join(TMP, 'runway-clip-checkpoint.json');
 const MUSIC_ASSET_RELATIVE_PATH  = 'assets/ambient-drone.mp3';
 const DEFAULT_HTTP_TIMEOUT_MS    = 45_000;
+const ELEVENLABS_TIMESTAMP_TIMEOUT_MS = 120_000; // JSON response carries base64 audio — allow extra time
 const MANAGED_RELEASE_TAG        = 'reel-latest';
 const MANAGED_RELEASE_NAME       = 'NDCH Dreamforge Latest Reel';
 
@@ -110,7 +132,7 @@ function getConfig(): GenerateRuntimeConfig {
 function getMediaDuration(path: string): number {
   try {
     const duration = parseFloat(
-      execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 "${path}"`)
+      execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 \"${path}\"`)
         .toString()
         .trim()
     );
@@ -123,7 +145,7 @@ function getMediaDuration(path: string): number {
   }
 }
 
-// ── Audio post-processing ─────────────────────────────────────────────────────
+// ── Audio post-processing ─────────────────────────────────────────────────
 
 /**
  * Applies cinematic audio post-processing to the raw voiceover:
@@ -139,11 +161,11 @@ function processAudio(inputPath: string): string {
 
   try {
     execSync(
-      `ffmpeg -y -i "${inputPath}" ` +
-      `-af "equalizer=f=80:width_type=o:width=2:g=3,` +
+      `ffmpeg -y -i \"${inputPath}\" ` +
+      `-af \"equalizer=f=80:width_type=o:width=2:g=3,` +
       `equalizer=f=3000:width_type=o:width=2:g=2,` +
-      `loudnorm=I=-14:TP=-1.5:LRA=11" ` +
-      `-ar 44100 -b:a 192k "${outputPath}"`,
+      `loudnorm=I=-14:TP=-1.5:LRA=11\" ` +
+      `-ar 44100 -b:a 192k \"${outputPath}\"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -189,10 +211,10 @@ function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): strin
   try {
     execSync(
       `ffmpeg -y ` +
-      `-stream_loop -1 -i "${musicPath}" ` +
-      `-i "${voicePath}" ` +
-      `-filter_complex "${filterGraph}" ` +
-      `-map "[out]" -ar 44100 -b:a 192k "${mixedPath}"`,
+      `-stream_loop -1 -i \"${musicPath}\" ` +
+      `-i \"${voicePath}\" ` +
+      `-filter_complex \"${filterGraph}\" ` +
+      `-map \"[out]\" -ar 44100 -b:a 192k \"${mixedPath}\"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -203,9 +225,22 @@ function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): strin
   return mixedPath;
 }
 
-// ── Step 1: ElevenLabs voiceover ──────────────────────────────────────────────
+// ── Step 1: ElevenLabs voiceover ──────────────────────────────────────────
 
-async function generateVoiceover(): Promise<string> {
+interface ElevenLabsTimestampResponse {
+  audio_base64: string;
+  alignment?: ElevenLabsAlignment;
+  normalized_alignment?: ElevenLabsAlignment;
+}
+
+interface VoiceoverResult {
+  audioPath: string;
+  /** Word-level timings from the with-timestamps endpoint; empty when the
+   *  endpoint failed and the binary fallback was used. */
+  wordTimings: WordTiming[];
+}
+
+async function generateVoiceover(): Promise<VoiceoverResult> {
   console.log('  [1/4] Generating voiceover via ElevenLabs…');
   const { elevenLabsKey, plan } = getConfig();
   const voiceId      = DR_NKRUMAH_VOICE_ID; // immutable — overrides any spec or engine default
@@ -228,27 +263,70 @@ async function generateVoiceover(): Promise<string> {
     console.log(`         speed : ${speed}`);
   }
 
-  const audioBuffer = await requestBuffer(
-    `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=${outputFormat}`,
-    {
-      method: 'POST',
-      headers: {
-        'xi-api-key': elevenLabsKey,
-        'Content-Type': 'application/json',
-        'Accept': 'audio/mpeg',
-      },
-      body: JSON.stringify({
-        text: plan.script,
-        model_id: plan.elevenLabs.modelId,
-        ...(Object.keys(pureVoiceSettings).length > 0 ? { voice_settings: pureVoiceSettings } : {}),
-        ...(speed !== undefined ? { speed } : {}),
-      }),
-      timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
-      maxRetries: 3,
-    }
-  );
+  const requestBody = JSON.stringify({
+    text: plan.script,
+    model_id: plan.elevenLabs.modelId,
+    ...(Object.keys(pureVoiceSettings).length > 0 ? { voice_settings: pureVoiceSettings } : {}),
+    ...(speed !== undefined ? { speed } : {}),
+  });
 
-  // ── 1a: Save raw TTS output ────────────────────────────────────────────────
+  let audioBuffer: Buffer;
+  let wordTimings: WordTiming[] = [];
+
+  // Preferred path: with-timestamps endpoint — returns base64 audio plus
+  // character-level alignment we collapse into exact word timings for
+  // subtitle cues. Falls back to the plain binary endpoint on any failure
+  // so a timestamps outage can never block a production run.
+  try {
+    console.log('         requesting TTS with word-level timestamps…');
+    const tts = await requestJson<ElevenLabsTimestampResponse>(
+      `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/with-timestamps?output_format=${outputFormat}`,
+      {
+        method: 'POST',
+        headers: {
+          'xi-api-key': elevenLabsKey,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: requestBody,
+        timeoutMs: ELEVENLABS_TIMESTAMP_TIMEOUT_MS,
+        maxRetries: 3,
+      }
+    );
+
+    if (!tts.audio_base64) {
+      throw new Error('with-timestamps response missing audio_base64');
+    }
+
+    audioBuffer = Buffer.from(tts.audio_base64, 'base64');
+    const alignment = tts.normalized_alignment ?? tts.alignment;
+    wordTimings = alignment ? buildWordTimingsFromAlignment(alignment) : [];
+
+    if (wordTimings.length > 0) {
+      console.log(`         timestamps: ${wordTimings.length} word timings captured`);
+    } else {
+      console.warn('         [WARN] no usable alignment in response — subtitles will use estimated timing');
+    }
+  } catch (err) {
+    const reason = err instanceof Error ? err.message : String(err);
+    console.warn(`         [WARN] with-timestamps TTS failed (${reason}) — falling back to binary endpoint`);
+    audioBuffer = await requestBuffer(
+      `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=${outputFormat}`,
+      {
+        method: 'POST',
+        headers: {
+          'xi-api-key': elevenLabsKey,
+          'Content-Type': 'application/json',
+          'Accept': 'audio/mpeg',
+        },
+        body: requestBody,
+        timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
+        maxRetries: 3,
+      }
+    );
+  }
+
+  // ── 1a: Save raw TTS output ──────────────────────────────────────────────
   const rawAudioPath = join(TMP, 'voiceover-raw.mp3');
   writeFileSync(rawAudioPath, audioBuffer);
   const rawDuration = getMediaDuration(rawAudioPath);
@@ -257,7 +335,7 @@ async function generateVoiceover(): Promise<string> {
   // ── 1b: Audio post-processing — EQ + LUFS normalisation ───────────────────
   const processedPath = processAudio(rawAudioPath);
 
-  // ── 1c: Ambient music layer (optional) ────────────────────────────────────
+  // ── 1c: Ambient music layer (optional) ──────────────────────────────────
   const finalAudioSource = mixMusicUnderVoice(processedPath, rawDuration);
 
   // Normalise to the canonical output filename the rest of the pipeline expects.
@@ -267,10 +345,10 @@ async function generateVoiceover(): Promise<string> {
   const finalDuration = getMediaDuration(audioPath);
   console.log(`         final : ${audioPath}  (${finalDuration.toFixed(1)}s)`);
 
-  return audioPath;
+  return { audioPath, wordTimings };
 }
 
-// ── Step 2: Runway Gen-4 video ────────────────────────────────────────────────
+// ── Step 2: Runway Gen-4 video ────────────────────────────────────────────
 
 /** Formats seconds as M:SS for display. */
 function formatTimestamp(secs: number): string {
@@ -286,7 +364,7 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
 
   for (let taskAttempt = 1; taskAttempt <= RUNWAY_MAX_TASK_ATTEMPTS; taskAttempt++) {
     console.log(
-      `         ${clipLabel}: requesting ${scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
+      `         ${clipLabel}: requesting ${scene.clipDuration}s for \"${limitWords(scene.narrationChunk, 14)}\"` +
       ` (attempt ${taskAttempt}/${RUNWAY_MAX_TASK_ATTEMPTS})`
     );
     const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/text_to_video', {
@@ -396,7 +474,7 @@ function stitchVideoClips(clipPaths: string[]): string {
 
   try {
     execSync(
-      `ffmpeg -y -f concat -safe 0 -i "${listPath}" -c copy "${stitchedPath}"`,
+      `ffmpeg -y -f concat -safe 0 -i \"${listPath}\" -c copy \"${stitchedPath}\"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -495,7 +573,7 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
         const segTs = seg.timestampStartSeconds !== undefined && seg.timestampEndSeconds !== undefined
           ? ` (${formatTimestamp(seg.timestampStartSeconds)}–${formatTimestamp(seg.timestampEndSeconds)}${seg.intendedDurationSecs !== undefined ? `, ${seg.intendedDurationSecs.toFixed(1)}s` : ''})`
           : '';
-        return `[${seg.segmentIndex}] "${limitWords(seg.text, 8)}"${segTs}`;
+        return `[${seg.segmentIndex}] \"${limitWords(seg.text, 8)}\"${segTs}`;
       }).join(' · ');
       console.log(`           covers   : ${segSummary}`);
     }
@@ -511,7 +589,7 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
   return { videoPath: stitchedPath, sceneTimeline };
 }
 
-// ── Step 3: FFmpeg merge ──────────────────────────────────────────────────────
+// ── Step 3: FFmpeg merge ──────────────────────────────────────────────────
 
 function mergeAudioVideo(audioPath: string, videoPath: string): string {
   console.log('  [3/4] Merging audio + video…');
@@ -521,8 +599,8 @@ function mergeAudioVideo(audioPath: string, videoPath: string): string {
   // -shortest trims output to whichever stream ends first for clean overlap.
   try {
     execSync(
-      `ffmpeg -y -i "${videoPath}" -i "${audioPath}" ` +
-      `-map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest "${outputPath}"`,
+      `ffmpeg -y -i \"${videoPath}\" -i \"${audioPath}\" ` +
+      `-map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest \"${outputPath}\"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -535,7 +613,7 @@ function mergeAudioVideo(audioPath: string, videoPath: string): string {
 }
 
 
-// ── Step 3b: Brand identity overlay ──────────────────────────────────────────
+// ── Step 3b: Brand identity overlay ──────────────────────────────────────
 
 function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): string {
   if (plan.brand !== 'Sankofa Family Medicine') return videoPath;
@@ -553,9 +631,9 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
   try {
     // Scale bird to 280×280px, composite centered over video, copy audio stream untouched
     execSync(
-      `ffmpeg -y -i "${videoPath}" -i "${birdPath}" ` +
-      `-filter_complex "[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto" ` +
-      `-c:a copy "${outputPath}"`,
+      `ffmpeg -y -i \"${videoPath}\" -i \"${birdPath}\" ` +
+      `-filter_complex \"[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto\" ` +
+      `-c:a copy \"${outputPath}\"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -567,7 +645,60 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
   return outputPath;
 }
 
-// ── Step 4: GitHub Release upload ─────────────────────────────────────────────
+// ── Step 3c: Subtitle burn-in ─────────────────────────────────────────────
+
+/**
+ * Burns the styled .ass subtitles into the video. Instagram ignores sidecar
+ * subtitle files, and the large majority of reels are watched muted — burned
+ * captions are the only ones viewers actually see.
+ *
+ * Re-encodes video once (libx264, crf 18 — visually lossless); audio is
+ * stream-copied. Spec authors can opt out with \"burn_in\": false inside
+ * subtitle_config. Brand fonts can be vendored in assets/fonts/ so libass
+ * resolves the configured font without a system install.
+ */
+function burnSubtitles(videoPath: string, assPath: string | undefined, plan: ResolvedProductionPlan): string {
+  if (!assPath) return videoPath;
+
+  const subtitleConfig = plan.subtitles && typeof plan.subtitles === 'object' && !Array.isArray(plan.subtitles)
+    ? plan.subtitles as Record<string, unknown>
+    : undefined;
+  if (subtitleConfig?.burn_in === false) {
+    console.log('  [3c] Subtitle burn-in disabled by spec (burn_in: false) — sidecar only');
+    return videoPath;
+  }
+
+  console.log('  [3c] Burning subtitles into video…');
+
+  if (/['\r\n]/.test(assPath)) {
+    throw new Error(`Unsafe subtitle path for ffmpeg filter: ${assPath}`);
+  }
+
+  const fontsDir = join(process.cwd(), 'assets', 'fonts');
+  const fontsArg = existsSync(fontsDir) && !/['\r\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
+  if (!fontsArg) {
+    console.log('         no assets/fonts directory — libass will fall back to a system font if the configured font is unavailable');
+  }
+
+  const outputPath = join(TMP, 'final_subtitled.mp4');
+
+  try {
+    execSync(
+      `ffmpeg -y -i \"${videoPath}\" ` +
+      `-vf \"ass='${assPath}'${fontsArg}\" ` +
+      `-c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy \"${outputPath}\"`,
+      { stdio: 'inherit' }
+    );
+  } catch (err) {
+    throw new Error(`Subtitle burn-in failed: ${(err as Error).message}`);
+  }
+
+  const duration = getMediaDuration(outputPath);
+  console.log(`         subtitled: ${outputPath} (${duration.toFixed(1)}s)`);
+  return outputPath;
+}
+
+// ── Step 4: GitHub Release upload ─────────────────────────────────────────
 
 interface GitHubReleaseAsset {
   id: number;
@@ -702,7 +833,18 @@ function formatSrtTimestamp(seconds: number, contextLabel: string): string {
   return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')},${String(millis).padStart(3, '0')}`;
 }
 
-function buildSubtitleCues(plan: ResolvedProductionPlan, sceneTimeline: SceneAllocationEntry[]): SubtitleCue[] {
+function buildSubtitleCues(
+  plan: ResolvedProductionPlan,
+  sceneTimeline: SceneAllocationEntry[],
+  wordTimings: WordTiming[]
+): SubtitleCue[] {
+  // Preferred: exact word timings from the ElevenLabs alignment.
+  if (wordTimings.length > 0) {
+    const timedCues = buildCuesFromWordTimings(wordTimings);
+    if (timedCues.length > 0) return timedCues;
+  }
+
+  // Next: hand-authored segment timestamps from the reel spec.
   const cuesFromSegments = plan.narrationSegments
     .map(segment => ({
       startSeconds: segment.timestampStartSeconds,
@@ -717,28 +859,47 @@ function buildSubtitleCues(plan: ResolvedProductionPlan, sceneTimeline: SceneAll
     );
   if (cuesFromSegments.length > 0) return cuesFromSegments;
 
+  // Last resort: estimated timing from the scene timeline.
   return buildFallbackSubtitleCues(sceneTimeline);
 }
 
-function writeSubtitleSidecar(plan: ResolvedProductionPlan, sceneTimeline: SceneAllocationEntry[]): string | undefined {
-  if (!plan.subtitles || typeof plan.subtitles !== 'object') return undefined;
-  if ((plan.subtitles as Record<string, unknown>).enabled === false) return undefined;
+interface SubtitleArtifacts {
+  srtPath?: string;
+  assPath?: string;
+}
 
-  const cues = buildSubtitleCues(plan, sceneTimeline);
-  if (cues.length === 0) return undefined;
+function writeSubtitleArtifacts(
+  plan: ResolvedProductionPlan,
+  sceneTimeline: SceneAllocationEntry[],
+  wordTimings: WordTiming[]
+): SubtitleArtifacts {
+  if (!plan.subtitles || typeof plan.subtitles !== 'object') return {};
+  if ((plan.subtitles as Record<string, unknown>).enabled === false) return {};
 
-  const subtitlePath = join(TMP, `reel-subtitles-${Date.now()}.srt`);
+  const cues = buildSubtitleCues(plan, sceneTimeline, wordTimings);
+  if (cues.length === 0) return {};
+
+  const timingSource = wordTimings.length > 0 ? 'word-timed' : 'estimated timing';
+  const timestamp = Date.now();
+
+  const srtPath = join(TMP, `reel-subtitles-${timestamp}.srt`);
   const srt = cues
     .map((cue, index) => (
       `${index + 1}\n${formatSrtTimestamp(cue.startSeconds, `cue ${index + 1} start`)} --> ${formatSrtTimestamp(cue.endSeconds, `cue ${index + 1} end`)}\n${cue.text}\n`
     ))
     .join('\n');
-  writeFileSync(subtitlePath, srt);
-  console.log(`  subtitles     : ${subtitlePath}`);
-  return subtitlePath;
+  writeFileSync(srtPath, srt);
+  console.log(`  subtitles srt : ${srtPath} (${cues.length} cues, ${timingSource})`);
+
+  const style = parseSubtitleStyle(plan.subtitles);
+  const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
+  writeFileSync(assPath, buildAssDocument(cues, style));
+  console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
+
+  return { srtPath, assPath };
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
+// ── Main ──────────────────────────────────────────────────────────────────
 
 async function main(): Promise<void> {
   const { plan, releaseRepo, releaseTag, releaseName, runwayConcurrency, musicPath } = getConfig();
@@ -761,13 +922,14 @@ async function main(): Promise<void> {
   }
   console.log('');
 
-  const audioPath = await generateVoiceover();
+  const { audioPath, wordTimings } = await generateVoiceover();
   const durationSecs = getMediaDuration(audioPath);
 
   const { videoPath, sceneTimeline } = await generateVideo(durationSecs);
   const mergedPath  = mergeAudioVideo(audioPath, videoPath);
-  const finalPath   = applyBrandOverlay(mergedPath, plan);
-  const subtitlePath = writeSubtitleSidecar(plan, sceneTimeline);
+  const brandedPath = applyBrandOverlay(mergedPath, plan);
+  const { srtPath: subtitlePath, assPath } = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings);
+  const finalPath   = burnSubtitles(brandedPath, assPath, plan);
   const { videoUrl: publicUrl, subtitleUrl } = await uploadToGitHubRelease(finalPath, subtitlePath);
 
   // Write resolved plan artifact (including scene timeline) after generation completes.
@@ -785,6 +947,8 @@ async function main(): Promise<void> {
     instagram: plan.instagram,
      subtitles: plan.subtitles,
      subtitlePath,
+     subtitleAssPath: assPath,
+     subtitleTimingSource: wordTimings.length > 0 ? 'elevenlabs-word-timestamps' : 'estimated',
      subtitleUrl,
      sceneTimeline,
    }, null, 2));

@@ -2,16 +2,16 @@
 
 Generate and publish motivational Instagram reels via:
 
-- ElevenLabs (voiceover)
+- ElevenLabs (voiceover with word-level timestamps)
 - Runway (video generation)
-- FFmpeg (merge/post-processing)
+- FFmpeg (merge/post-processing + subtitle burn-in)
 - GitHub Releases (artifact hosting)
 - Meta Graph API (Instagram publish)
 
 ## Local prerequisites
 
 - Node.js 20+
-- `ffmpeg` and `ffprobe` on PATH
+- `ffmpeg` and `ffprobe` on PATH (ffmpeg built with libass for subtitle burn-in)
 
 ## Install
 
@@ -43,6 +43,25 @@ npm run generate
 # Publish to Instagram using generated REEL_VIDEO_URL
 npm run publish
 ```
+
+## Subtitles
+
+`generate-reel.ts` requests TTS through the ElevenLabs `with-timestamps` endpoint, so subtitle
+cues are built from real word-level timings instead of estimated speed math. If the endpoint
+fails, the engine falls back to the plain TTS endpoint and estimated cue timing — a timestamps
+outage never blocks a run.
+
+When the reel spec includes a `subtitle_config`, the engine:
+
+- writes an `.srt` sidecar and uploads it next to the video asset
+- writes a styled `.ass` file (font, colors, `highlight_words`, `peak_words` from
+  `subtitle_config`) and burns it into the final video with ffmpeg, positioned inside the
+  bottom-20% safety zone — Instagram ignores sidecar files, so burned-in captions are what
+  muted viewers actually see
+
+Set `"burn_in": false` inside `subtitle_config` to keep sidecar-only behavior. Place brand
+font files (e.g. Cormorant Garamond `.ttf`/`.otf`) in `assets/fonts/` so libass can resolve
+the configured font during burn-in; otherwise it falls back to a system font.
 
 ## Required env vars
 
