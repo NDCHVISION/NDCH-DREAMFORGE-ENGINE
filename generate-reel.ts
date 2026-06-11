@@ -132,7 +132,7 @@ function getConfig(): GenerateRuntimeConfig {
 function getMediaDuration(path: string): number {
   try {
     const duration = parseFloat(
-      execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 \"${path}\"`)
+      execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 "${path}"`)
         .toString()
         .trim()
     );
@@ -161,11 +161,11 @@ function processAudio(inputPath: string): string {
 
   try {
     execSync(
-      `ffmpeg -y -i \"${inputPath}\" ` +
-      `-af \"equalizer=f=80:width_type=o:width=2:g=3,` +
+      `ffmpeg -y -i "${inputPath}" ` +
+      `-af "equalizer=f=80:width_type=o:width=2:g=3,` +
       `equalizer=f=3000:width_type=o:width=2:g=2,` +
-      `loudnorm=I=-14:TP=-1.5:LRA=11\" ` +
-      `-ar 44100 -b:a 192k \"${outputPath}\"`,
+      `loudnorm=I=-14:TP=-1.5:LRA=11" ` +
+      `-ar 44100 -b:a 192k "${outputPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -211,10 +211,10 @@ function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): strin
   try {
     execSync(
       `ffmpeg -y ` +
-      `-stream_loop -1 -i \"${musicPath}\" ` +
-      `-i \"${voicePath}\" ` +
-      `-filter_complex \"${filterGraph}\" ` +
-      `-map \"[out]\" -ar 44100 -b:a 192k \"${mixedPath}\"`,
+      `-stream_loop -1 -i "${musicPath}" ` +
+      `-i "${voicePath}" ` +
+      `-filter_complex "${filterGraph}" ` +
+      `-map "[out]" -ar 44100 -b:a 192k "${mixedPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -364,7 +364,7 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
 
   for (let taskAttempt = 1; taskAttempt <= RUNWAY_MAX_TASK_ATTEMPTS; taskAttempt++) {
     console.log(
-      `         ${clipLabel}: requesting ${scene.clipDuration}s for \"${limitWords(scene.narrationChunk, 14)}\"` +
+      `         ${clipLabel}: requesting ${scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
       ` (attempt ${taskAttempt}/${RUNWAY_MAX_TASK_ATTEMPTS})`
     );
     const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/text_to_video', {
@@ -474,7 +474,7 @@ function stitchVideoClips(clipPaths: string[]): string {
 
   try {
     execSync(
-      `ffmpeg -y -f concat -safe 0 -i \"${listPath}\" -c copy \"${stitchedPath}\"`,
+      `ffmpeg -y -f concat -safe 0 -i "${listPath}" -c copy "${stitchedPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -573,7 +573,7 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
         const segTs = seg.timestampStartSeconds !== undefined && seg.timestampEndSeconds !== undefined
           ? ` (${formatTimestamp(seg.timestampStartSeconds)}–${formatTimestamp(seg.timestampEndSeconds)}${seg.intendedDurationSecs !== undefined ? `, ${seg.intendedDurationSecs.toFixed(1)}s` : ''})`
           : '';
-        return `[${seg.segmentIndex}] \"${limitWords(seg.text, 8)}\"${segTs}`;
+        return `[${seg.segmentIndex}] "${limitWords(seg.text, 8)}"${segTs}`;
       }).join(' · ');
       console.log(`           covers   : ${segSummary}`);
     }
@@ -599,8 +599,8 @@ function mergeAudioVideo(audioPath: string, videoPath: string): string {
   // -shortest trims output to whichever stream ends first for clean overlap.
   try {
     execSync(
-      `ffmpeg -y -i \"${videoPath}\" -i \"${audioPath}\" ` +
-      `-map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest \"${outputPath}\"`,
+      `ffmpeg -y -i "${videoPath}" -i "${audioPath}" ` +
+      `-map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest "${outputPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -631,9 +631,9 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
   try {
     // Scale bird to 280×280px, composite centered over video, copy audio stream untouched
     execSync(
-      `ffmpeg -y -i \"${videoPath}\" -i \"${birdPath}\" ` +
-      `-filter_complex \"[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto\" ` +
-      `-c:a copy \"${outputPath}\"`,
+      `ffmpeg -y -i "${videoPath}" -i "${birdPath}" ` +
+      `-filter_complex "[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto" ` +
+      `-c:a copy "${outputPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
@@ -653,7 +653,7 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
  * captions are the only ones viewers actually see.
  *
  * Re-encodes video once (libx264, crf 18 — visually lossless); audio is
- * stream-copied. Spec authors can opt out with \"burn_in\": false inside
+ * stream-copied. Spec authors can opt out with "burn_in": false inside
  * subtitle_config. Brand fonts can be vendored in assets/fonts/ so libass
  * resolves the configured font without a system install.
  */
@@ -684,9 +684,9 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
 
   try {
     execSync(
-      `ffmpeg -y -i \"${videoPath}\" ` +
-      `-vf \"ass='${assPath}'${fontsArg}\" ` +
-      `-c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy \"${outputPath}\"`,
+      `ffmpeg -y -i "${videoPath}" ` +
+      `-vf "ass='${assPath}'${fontsArg}" ` +
+      `-c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy "${outputPath}"`,
       { stdio: 'inherit' }
     );
   } catch (err) {
