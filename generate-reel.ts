@@ -24,6 +24,15 @@
  *                       under narration for clearer voice-forward playback. Omit
  *                       to skip music.
  *
+ * Clip continuity
+ * ───────────────
+ *   Every Runway clip after the first is generated via image_to_video,
+ *   seeded with the last frame of the previous clip, so the stitched reel
+ *   reads as one continuous camera move instead of a hard cut per clip
+ *   boundary. If Runway rejects a seeded request, the clip falls back to
+ *   plain text_to_video automatically. Set REEL_CLIP_CHAINING=false to
+ *   disable chaining (restores concurrent clip generation).
+ *
  * Subtitles
  * ─────────
  *   TTS is requested via the ElevenLabs with-timestamps endpoint, so subtitle
@@ -72,6 +81,12 @@ import {
   buildAssDocument,
   parseSubtitleStyle,
 } from './lib/ass-subtitles.ts';
+import {
+  isClipChainingEnabled,
+  buildLastFrameExtractionCommand,
+  frameBufferToDataUri,
+  isFrameSizeSafe,
+} from './lib/clip-chaining.ts';
 import {
   buildAdaptiveMusicMixFilter,
   resolveMusicTrackPath,
@@ -357,7 +372,87 @@ function formatTimestamp(secs: number): string {
   return `${m}:${String(s).padStart(2, '0')}`;
 }
 
-async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Promise<string> {
+function runwayHeaders(runwayKey: string): Record<string, string> {
+  return {
+    'Authorization': `Bearer ${runwayKey}`,
+    'Content-Type': 'application/json',
+    'X-Runway-Version': '2024-11-06',
+  };
+}
+
+/**
+ * Extracts the final frame of a completed clip as a JPEG data URI to seed
+ * the next clip's generation. Returns undefined on any failure so the next
+ * clip simply generates without a continuity frame.
+ */
+function extractLastFrameDataUri(videoPath: string, sourceClipIndex: number): string | undefined {
+  try {
+    const framePath = join(TMP, `chain-frame-${String(sourceClipIndex + 1).padStart(2, '0')}.jpg`);
+    execSync(buildLastFrameExtractionCommand(videoPath, framePath), { stdio: 'inherit' });
+    const frame = readFileSync(framePath);
+    if (!isFrameSizeSafe(frame.byteLength)) {
+      console.warn(`         [WARN] continuity frame too large (${frame.byteLength} bytes) — next clip generates without it`);
+      return undefined;
+    }
+    return frameBufferToDataUri(frame);
+  } catch (err) {
+    const reason = err instanceof Error ? err.message : String(err);
+    console.warn(`         [WARN] failed to extract continuity frame from ${videoPath} (${reason}) — next clip generates without it`);
+    return undefined;
+  }
+}
+
+/**
+ * Creates a Runway generation task. When a continuity frame is provided the
+ * clip is requested via image_to_video, seeded with the previous clip's last
+ * frame; if Runway rejects that request for any reason, the clip falls back
+ * to plain text_to_video so chaining can never fail a run.
+ */
+async function createRunwayTask(
+  scene: ReelScenePlan,
+  promptImage: string | undefined,
+  clipLabel: string
+): Promise<string> {
+  const { runwayKey } = getConfig();
+
+  if (promptImage) {
+    try {
+      const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/image_to_video', {
+        method: 'POST',
+        headers: runwayHeaders(runwayKey),
+        body: JSON.stringify({
+          promptImage,
+          promptText: scene.promptText,
+          model: 'gen4.5',
+          ratio: '720:1280',
+          duration: scene.clipDuration,
+        }),
+        timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
+        maxRetries: 3,
+      });
+      return id;
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : String(err);
+      console.warn(`         ${clipLabel}: [WARN] image_to_video rejected (${reason.slice(0, 240)}) — retrying without continuity frame`);
+    }
+  }
+
+  const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/text_to_video', {
+    method: 'POST',
+    headers: runwayHeaders(runwayKey),
+    body: JSON.stringify({
+      promptText: scene.promptText,
+      model: 'gen4.5',
+      ratio: '720:1280',
+      duration: scene.clipDuration,
+    }),
+    timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
+    maxRetries: 3,
+  });
+  return id;
+}
+
+async function generateRunwayClip(scene: ReelScenePlan, totalClips: number, promptImage?: string): Promise<string> {
   const { runwayKey } = getConfig();
   const clipLabel = `clip ${scene.clipIndex + 1}/${totalClips}`;
   let lastReason = `Runway task timed out after ${RUNWAY_TIMEOUT_MS / 1000}s`;
@@ -365,24 +460,10 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
   for (let taskAttempt = 1; taskAttempt <= RUNWAY_MAX_TASK_ATTEMPTS; taskAttempt++) {
     console.log(
       `         ${clipLabel}: requesting ${scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
+      `${promptImage ? ' [continuity frame]' : ''}` +
       ` (attempt ${taskAttempt}/${RUNWAY_MAX_TASK_ATTEMPTS})`
     );
-    const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/text_to_video', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${runwayKey}`,
-        'Content-Type': 'application/json',
-        'X-Runway-Version': '2024-11-06',
-      },
-      body: JSON.stringify({
-        promptText: scene.promptText,
-        model: 'gen4.5',
-        ratio: '720:1280',
-        duration: scene.clipDuration,
-      }),
-      timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
-      maxRetries: 3,
-    });
+    const id = await createRunwayTask(scene, promptImage, clipLabel);
     console.log(`         ${clipLabel}: task id ${id}`);
 
     const deadline = Date.now() + RUNWAY_TIMEOUT_MS;
@@ -487,6 +568,7 @@ function stitchVideoClips(clipPaths: string[]): string {
 
 async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[]): Promise<string[]> {
   const { runwayConcurrency: concurrency } = getConfig();
+  const chainingEnabled = isClipChainingEnabled(process.env) && scenePlan.length > 1;
   const checkpoint = loadClipCheckpoint();
   const clipPaths = new Array<string>(scenePlan.length);
 
@@ -497,6 +579,28 @@ async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[]): Promise<s
       console.log(`         RESUME clip ${idx + 1}/${scenePlan.length}: loaded from checkpoint, skipping Runway`);
       clipPaths[idx] = cachedPath;
     }
+  }
+
+  // Chaining requires sequential generation: clip N+1 is seeded with the
+  // last frame of clip N. Default concurrency is already 1, so this only
+  // changes behavior when REEL_RUNWAY_CONCURRENCY > 1.
+  if (chainingEnabled) {
+    if (concurrency > 1) {
+      console.log('         clip chaining enabled — generating sequentially (overrides REEL_RUNWAY_CONCURRENCY; set REEL_CLIP_CHAINING=false to restore concurrency)');
+    } else {
+      console.log('         clip chaining enabled — each clip is seeded with the previous clip’s last frame');
+    }
+
+    for (let i = 0; i < scenePlan.length; i++) {
+      if (clipPaths[i]) continue; // already loaded from checkpoint
+      const previousClipPath = i > 0 ? clipPaths[i - 1] : undefined;
+      const promptImage = previousClipPath ? extractLastFrameDataUri(previousClipPath, i - 1) : undefined;
+      const path = await generateRunwayClip(scenePlan[i], scenePlan.length, promptImage);
+      saveClipCheckpoint(i, path);
+      clipPaths[i] = path;
+    }
+
+    return clipPaths;
   }
 
   let nextIndex = 0;
@@ -910,6 +1014,7 @@ async function main(): Promise<void> {
   console.log(`  release tag   : ${releaseTag}`);
   console.log(`  release name  : ${releaseName}`);
   console.log(`  runway conc.  : ${runwayConcurrency}`);
+  console.log(`  clip chaining : ${isClipChainingEnabled(process.env) ? 'on (REEL_CLIP_CHAINING=false to disable)' : 'off'}`);
   console.log(`  music path    : ${musicPath ?? '(auto-detect asset or skip)'}`);
   console.log(`  voice         : ${DR_NKRUMAH_VOICE_ID} (hardcoded — Dr. Nkrumah)`);
   console.log(`  model         : ${plan.elevenLabs.modelId}`);
@@ -949,6 +1054,7 @@ async function main(): Promise<void> {
      subtitlePath,
      subtitleAssPath: assPath,
      subtitleTimingSource: wordTimings.length > 0 ? 'elevenlabs-word-timestamps' : 'estimated',
+     clipChaining: isClipChainingEnabled(process.env),
      subtitleUrl,
      sceneTimeline,
    }, null, 2));
