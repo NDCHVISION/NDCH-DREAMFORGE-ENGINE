@@ -135,6 +135,7 @@ test('parseSubtitleStyle picks up reel spec subtitle_config fields', () => {
     peak_words: ['lockout'],
   });
   assert.equal(style.fontName, 'Cormorant Garamond');
+  assert.equal(style.bold, false);
   assert.equal(style.primaryBgr, 'FFFFFF');
   assert.equal(style.highlightBgr, '3398BC');
   assert.equal(style.peakBgr, '6E4305');
@@ -149,6 +150,24 @@ test('parseSubtitleStyle tolerates missing or malformed config', () => {
   assert.equal(style.highlightWords.size, 0);
   assert.equal(style.playResX, 720);
   assert.equal(style.playResY, 1280);
+});
+
+test('parseSubtitleStyle applies brand default font and maps Bold suffix to bold flag', () => {
+  const style = parseSubtitleStyle({}, { fontName: 'Montserrat-Bold' });
+  assert.equal(style.fontName, 'Montserrat');
+  assert.equal(style.bold, true);
+});
+
+test('parseSubtitleStyle spec font wins over brand default', () => {
+  const style = parseSubtitleStyle({ font: 'Cormorant Garamond' }, { fontName: 'Montserrat-Bold' });
+  assert.equal(style.fontName, 'Cormorant Garamond');
+  assert.equal(style.bold, false);
+});
+
+test('buildAssDocument sets the Bold style field from the bold flag', () => {
+  const style = parseSubtitleStyle({}, { fontName: 'Montserrat-Bold' });
+  const doc = buildAssDocument([{ startSeconds: 0, endSeconds: 1, text: 'Go.' }], style);
+  assert.ok(doc.includes('Style: Reel,Montserrat,44,&H00FFFFFF,&H000000FF,&H96000000,&H96000000,-1,'));
 });
 
 test('applyWordColorOverrides wraps highlight and peak words, peak wins', () => {
