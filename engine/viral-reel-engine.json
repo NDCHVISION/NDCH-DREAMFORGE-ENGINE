@@ -2,7 +2,7 @@
   "$schema": "viral-reel-engine/v1.0",
   "engine": {
     "name": "Viral Motivational Reel Engine",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Global configuration for producing viral motivational Instagram Reels using ElevenLabs TTS and Runway Gen-4 video generation.",
     "style_library": {
       "style_1_fractal": {
@@ -142,6 +142,25 @@
         ],
         "emotional_tone": "liminal",
         "camera_notes": "fixed center-frame hold, slow deliberate forward push on confrontation, gold aperture flood on final phase"
+      },
+      "style_8_brutalist_cad": {
+        "id": "style_8_brutalist_cad",
+        "label": "Brutalist CAD Architecture",
+        "description": "Impossible brutalist CAD architecture — obsidian geometric structures etched with gold circuit telemetry, first-person velocity camera, bone-white fragile elements, crimson interference events. Zero fluid, zero organic forms, zero ambient drift.",
+        "base_prompt": "Create a cinematic reel about QUOTE — impossible brutalist CAD architecture, jet-black (#1A1A1A) geometric structures etched with precise gold (#C6A94F) circuit-trace telemetry lines, first-person velocity camera diving and banking through angular 90-degree geometry, bone-white (#F5F2EB) fragile thread elements, crimson (#DC143C) interference flashes, absolute zero fluid simulation, zero organic forms, 4K vertical, no readable text.",
+        "keywords": [
+          "velocity",
+          "distance",
+          "instrument",
+          "telemetry",
+          "navigation",
+          "trajectory",
+          "horizon",
+          "isolation",
+          "altitude"
+        ],
+        "emotional_tone": "sovereign",
+        "camera_notes": "first-person velocity dive, directional banking, zero ambient drift, zero rotation"
       }
     },
     "style_selection_logic": {
@@ -245,6 +264,20 @@
           "select": "style_7_threshold"
         },
         {
+          "priority": 8,
+          "trigger_keywords": [
+            "velocity",
+            "distance",
+            "instrument",
+            "telemetry",
+            "navigation",
+            "trajectory",
+            "horizon",
+            "altitude"
+          ],
+          "select": "style_8_brutalist_cad"
+        },
+        {
           "priority": 99,
           "default": "style_1_fractal"
         }
@@ -253,11 +286,11 @@
     "virality_data": {
       "target_platform": "instagram_reels",
       "duration_strategy": {
-        "engine_default_seconds": 38,
+        "engine_default_seconds": 45,
         "minimum_seconds": 15,
         "maximum_seconds": 90,
-        "sweet_spot_seconds": 38,
-        "rationale": "38s optimises for full watch-through rate on Instagram Reels while allowing complete narration arc."
+        "sweet_spot_seconds": 45,
+        "rationale": "45s matches current production specs — full narration arc plus void/loop tail. Spec-level target_duration_seconds always wins over this default."
       },
       "engagement_hooks": {
         "open_with_tension": true,
@@ -273,14 +306,16 @@
           "eleven_turbo_v2_5",
           "eleven_multilingual_v2"
         ],
-        "default_voice_id": "pNInz6obpgDQGcFmaJgB",
-        "default_voice_name": "Adam"
+        "default_voice_id": "C9Uh5MFptuXa176UlaXE",
+        "default_voice_name": "Dr. Nkrumah",
+        "voice_lock_note": "generate-reel.ts hardcodes DR_NKRUMAH_VOICE_ID (C9Uh5MFptuXa176UlaXE). Spec and engine voice IDs cannot override it — intentional brand voice consistency for both NDCH and SFM."
       },
       "video": {
         "provider": "runway",
-        "model": "gen4_turbo",
+        "model": "gen4.5",
         "ratio": "720:1280",
-        "clip_duration_seconds": 10
+        "clip_duration_seconds": 10,
+        "clip_chaining_note": "Clips after the first are seeded with the previous clip's last frame via image_to_video (REEL_CLIP_CHAINING=false to disable)."
       },
       "merge": {
         "tool": "ffmpeg",
@@ -291,16 +326,14 @@
     },
     "subtitle_system": {
       "enabled": true,
+      "burn_in": true,
       "font": "Montserrat-Bold",
-      "font_size": 56,
-      "font_color": "#FFFFFF",
-      "stroke_color": "#000000",
-      "stroke_width": 3,
-      "position": "bottom_center",
-      "margin_bottom": 120,
-      "word_highlight_color": "#FFD700",
-      "animation": "fade_in",
-      "max_words_per_line": 4
+      "color": "#FFFFFF",
+      "highlight": "#FFD700",
+      "peak": "#DC143C",
+      "highlight_words": [],
+      "peak_words": [],
+      "schema_note": "Keys match reel-spec subtitle_config (rendered by lib/ass-subtitles.ts). This block is the fallback when a spec has no subtitle_config. Brand font defaults applied by the engine when a spec omits 'font': NDCH motivational → Montserrat-Bold, Sankofa Family Medicine → Cormorant Garamond. Vendor matching .ttf files in assets/fonts/ so CI burn-in uses the brand font."
     },
     "instagram_defaults": {
       "cover_frame": "00:03",

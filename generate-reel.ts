@@ -42,7 +42,8 @@
  *   burned into the final video — Instagram ignores sidecar files, so burned
  *   captions are what muted viewers actually see. An .srt sidecar is still
  *   uploaded next to the video. Set "burn_in": false in subtitle_config to
- *   keep sidecar-only behavior.
+ *   keep sidecar-only behavior. Brand font defaults when the spec omits a
+ *   font: SFM → Cormorant Garamond, NDCH motivational → Montserrat-Bold.
  *
  * Writes REEL_VIDEO_URL to $GITHUB_ENV so publish-reel.ts picks it up.
  *
@@ -110,6 +111,10 @@ const DEFAULT_HTTP_TIMEOUT_MS    = 45_000;
 const ELEVENLABS_TIMESTAMP_TIMEOUT_MS = 120_000; // JSON response carries base64 audio — allow extra time
 const MANAGED_RELEASE_TAG        = 'reel-latest';
 const MANAGED_RELEASE_NAME       = 'NDCH Dreamforge Latest Reel';
+
+const SFM_BRAND_NAME             = 'Sankofa Family Medicine';
+const SFM_DEFAULT_SUBTITLE_FONT  = 'Cormorant Garamond';
+const NDCH_DEFAULT_SUBTITLE_FONT = 'Montserrat-Bold';
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
@@ -720,7 +725,7 @@ function mergeAudioVideo(audioPath: string, videoPath: string): string {
 // ── Step 3b: Brand identity overlay ──────────────────────────────────────
 
 function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): string {
-  if (plan.brand !== 'Sankofa Family Medicine') return videoPath;
+  if (plan.brand !== SFM_BRAND_NAME) return videoPath;
 
   console.log('  [3b] Applying SFM brand identity overlay…');
 
@@ -733,7 +738,7 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
   const outputPath = join(TMP, 'final_branded.mp4');
 
   try {
-    // Scale bird to 280×280px, composite centered over video, copy audio stream untouched
+    // Scale bird to 100×100px at 75% opacity, composite bottom-right, copy audio stream untouched
     execSync(
       `ffmpeg -y -i "${videoPath}" -i "${birdPath}" ` +
       `-filter_complex "[1:v]scale=100:100,format=rgba,colorchannelmixer=aa=0.75[bird];[0:v][bird]overlay=(W-w-32):(H-h-160):format=auto" ` +
@@ -995,10 +1000,13 @@ function writeSubtitleArtifacts(
   writeFileSync(srtPath, srt);
   console.log(`  subtitles srt : ${srtPath} (${cues.length} cues, ${timingSource})`);
 
-  const style = parseSubtitleStyle(plan.subtitles);
+  // Brand default font when the spec's subtitle_config omits one:
+  // SFM → Cormorant Garamond (editorial serif), NDCH → Montserrat-Bold.
+  const brandDefaultFont = plan.brand === SFM_BRAND_NAME ? SFM_DEFAULT_SUBTITLE_FONT : NDCH_DEFAULT_SUBTITLE_FONT;
+  const style = parseSubtitleStyle(plan.subtitles, { fontName: brandDefaultFont });
   const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
   writeFileSync(assPath, buildAssDocument(cues, style));
-  console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
+  console.log(`  subtitles ass : ${assPath} (font: ${style.fontName}${style.bold ? ' bold' : ''})`);
 
   return { srtPath, assPath };
 }
@@ -1021,6 +1029,7 @@ async function main(): Promise<void> {
   console.log(`  style         : ${plan.selectedStyleId ?? '(none)'}`);
   console.log(`  target secs   : ${plan.targetDurationSeconds ?? '(audio-driven)'}`);
   console.log(`  segments      : ${plan.narrationSegments.length || '(auto-split from script)'}`);
+  console.log(`  cover frame   : ${plan.instagram.coverFrameOffsetMs !== undefined ? `${plan.instagram.coverFrameOffsetMs}ms` : '(none)'}`);
   console.log(`  prompt        : ${plan.prompt.slice(0, 80)}…`);
   if (plan.instagram.caption) {
     console.log(`  caption       : ${plan.instagram.caption.slice(0, 80)}…`);

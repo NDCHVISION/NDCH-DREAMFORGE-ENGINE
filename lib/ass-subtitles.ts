@@ -4,7 +4,9 @@ import { type SubtitleCue } from './subtitles.ts';
  * ASS (Advanced SubStation Alpha) subtitle generation for ffmpeg burn-in.
  *
  * Styling is sourced from the reel spec's `subtitle_config`:
- *   font            → ASS style font name (provide the .ttf in assets/fonts/)
+ *   font            → ASS style font name (provide the .ttf in assets/fonts/).
+ *                     A '-Bold' / ' Bold' suffix is mapped to the ASS bold
+ *                     flag (e.g. 'Montserrat-Bold' → family Montserrat, bold).
  *   color           → primary text color
  *   highlight       → color for `highlight_words`
  *   peak            → color for `peak_words` (takes precedence over highlight)
@@ -15,6 +17,7 @@ import { type SubtitleCue } from './subtitles.ts';
 
 export interface AssSubtitleStyle {
   fontName: string;
+  bold: boolean;
   fontSizePx: number;
   /** Colors stored as ASS BGR hex strings, e.g. '3398BC' for #BC9833. */
   primaryBgr: string;
@@ -25,6 +28,11 @@ export interface AssSubtitleStyle {
   playResX: number;
   playResY: number;
   marginVPx: number;
+}
+
+export interface SubtitleStyleDefaults {
+  /** Brand default font, used when the spec's subtitle_config has no font. */
+  fontName?: string;
 }
 
 const DEFAULT_FONT = 'Cormorant Garamond';
@@ -66,14 +74,25 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 /** Builds an ASS style from a reel spec `subtitle_config` (or any unknown). */
-export function parseSubtitleStyle(config: unknown): AssSubtitleStyle {
+export function parseSubtitleStyle(config: unknown, defaults?: SubtitleStyleDefaults): AssSubtitleStyle {
   const record = isRecord(config) ? config : {};
   const rawFont = typeof record.font === 'string' ? record.font.trim() : '';
   // Commas would corrupt the ASS style line.
-  const fontName = (rawFont || DEFAULT_FONT).replace(/,/g, ' ');
+  let fontName = (rawFont || defaults?.fontName || DEFAULT_FONT).replace(/,/g, ' ');
+
+  // Map a '-Bold' / ' Bold' suffix to the ASS bold flag — font files like
+  // Montserrat-Bold.ttf register the family name 'Montserrat' with bold
+  // weight, so libass needs family + bold rather than the suffixed name.
+  let bold = false;
+  const boldMatch = /^(.*\S)[\s-][Bb]old$/.exec(fontName);
+  if (boldMatch) {
+    bold = true;
+    fontName = boldMatch[1];
+  }
 
   return {
     fontName,
+    bold,
     fontSizePx: DEFAULT_FONT_SIZE_PX,
     primaryBgr: hexToAssBgr(record.color, 'FFFFFF'),
     highlightBgr: typeof record.highlight === 'string' ? hexToAssBgr(record.highlight) : undefined,
@@ -141,7 +160,7 @@ export function buildAssDocument(cues: SubtitleCue[], style: AssSubtitleStyle): 
     '',
     '[V4+ Styles]',
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,0,0,0,0,100,100,0,0,1,2,1,2,48,48,${style.marginVPx},1`,
+    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,${style.bold ? -1 : 0},0,0,0,100,100,0,0,1,2,1,2,48,48,${style.marginVPx},1`,
     '',
     '[Events]',
     'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',
