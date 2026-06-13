@@ -6,7 +6,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts",
+    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
