@@ -3,7 +3,7 @@
 Generate and publish motivational Instagram reels via:
 
 - ElevenLabs (voiceover with word-level timestamps)
-- Runway (video generation)
+- Runway (video generation with clip-to-clip continuity)
 - FFmpeg (merge/post-processing + subtitle burn-in)
 - GitHub Releases (artifact hosting)
 - Meta Graph API (Instagram publish)
@@ -63,6 +63,18 @@ Set `"burn_in": false` inside `subtitle_config` to keep sidecar-only behavior. P
 font files (e.g. Cormorant Garamond `.ttf`/`.otf`) in `assets/fonts/` so libass can resolve
 the configured font during burn-in; otherwise it falls back to a system font.
 
+## Clip continuity
+
+Every Runway clip after the first is seeded with the last frame of the previous clip
+(`image_to_video`), so the stitched reel plays as one continuous camera move instead of a
+hard visual cut at each clip boundary. If Runway rejects a seeded request, the engine falls
+back to plain `text_to_video` for that clip and continues — chaining can never fail a run.
+
+Chaining generates clips sequentially (clip N+1 needs clip N's last frame). Set
+`REEL_CLIP_CHAINING=false` to disable chaining and restore concurrent generation via
+`REEL_RUNWAY_CONCURRENCY`. Checkpoint resume is fully compatible: chain frames are extracted
+from checkpointed clips on disk.
+
 ## Required env vars
 
 ### Generation (`generate-reel.ts`)
@@ -91,5 +103,6 @@ the configured font during burn-in; otherwise it falls back to a system font.
 - `REEL_THUMB_OFFSET_MS`
 - `REEL_SHARE_TO_FEED`
 - `REEL_RUNWAY_CONCURRENCY` (1-4)
+- `REEL_CLIP_CHAINING` (default `true`; set `false` to disable last-frame continuity)
 
 Use `.env.example` as the reference for the supported generation, release, and publish configuration.
