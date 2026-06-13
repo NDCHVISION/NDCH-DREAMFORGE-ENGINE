@@ -365,18 +365,12 @@ export function resolveProductionPlan(
     [concept, script, env.REEL_PROMPT ?? ''].filter(Boolean).join(' ')
   );
 
-  // Enrich segment prompts with style camera notes for Runway directorial guidance
-  const styleLibrary = pickValue(engineConfig, [['engine', 'style_library']]);
-  const selectedStyle = selectedStyleId && isRecord(styleLibrary) && isRecord((styleLibrary as Record<string, unknown>)[selectedStyleId])
-    ? (styleLibrary as Record<string, unknown>)[selectedStyleId]
-    : undefined;
-  const styleCameraNotes = selectedStyle ? pickString(selectedStyle, [['camera_notes']]) : undefined;
-  const enrichedSegments: ResolvedNarrationSegment[] = styleCameraNotes
-    ? explicitSegments.map(seg => ({
-        ...seg,
-        promptText: seg.promptText ? `${seg.promptText} Camera: ${styleCameraNotes}.` : seg.promptText,
-      }))
-    : explicitSegments;
+  // NOTE: style camera_notes are intentionally NOT injected into segment
+  // prompts. Segments with their own visual_prompt are fully art-directed —
+  // appending generic style camera direction (e.g. "gentle orbital drift")
+  // can directly contradict a spec's anti-drift rules and degrade Runway
+  // output. Style camera notes still influence reels that rely on the
+  // style library base_prompt (no per-segment prompts).
 
   const prompt = buildBasePrompt(
     engineConfig,
@@ -425,12 +419,19 @@ export function resolveProductionPlan(
     ['caption'],
   ]) ?? (env.REEL_CAPTION?.trim() || undefined);
 
+  // Cover frame resolution. Specs author this as `cover_frame_timestamp`
+  // (string clock value, in instagram_config or at the spec root) — these
+  // keys are checked first so the author's chosen hero frame is honored
+  // before any engine default.
   const coverFrameSeconds = pickNumber(reelSpec, [
     ['instagram_config', 'cover_frame_timestamp_seconds'],
     ['instagram_config', 'cover_frame_seconds'],
     ['instagram_config', 'cover_frame', 'timestamp_seconds'],
   ]) ?? parseTimestampSeconds(
     pickValue(reelSpec, [
+      ['instagram_config', 'cover_frame_timestamp'],
+      ['instagram', 'cover_frame_timestamp'],
+      ['cover_frame_timestamp'],
       ['instagram_config', 'cover_frame'],
       ['instagram', 'cover_frame'],
     ]) ?? pickValue(engineConfig, [
@@ -458,7 +459,7 @@ export function resolveProductionPlan(
     concept,
     selectedStyleId,
     script,
-    narrationSegments: enrichedSegments,
+    narrationSegments: explicitSegments,
     prompt,
     targetDurationSeconds,
     elevenLabs: {
