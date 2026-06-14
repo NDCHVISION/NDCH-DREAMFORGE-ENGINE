@@ -1,1 +1,156 @@
-ewogICJyZWVsX2lkIjogIk5EQ0hfMDE1X1RIRV9PWFlHRU5fREVCVCIsCiAgImVuZ2luZV92ZXJzaW9uIjogIjEuMC4wIiwKICAiY29uY2VwdCI6ICJUaGUgT3h5Z2VuIERlYnQiLAogICJ0aGVtZSI6ICJSZWNvZ25pemluZyBzdWZmb2NhdGlvbiBhcyB0aGUgY2F0YWx5c3QgZm9yIGxpYmVyYXRpb24iLAogICJjb3JlX21ldGFwaG9yIjogIk94eWdlbiBkZWJ0IOKAlCB0aGUgcGh5c2lvbG9naWNhbCBjb3N0IG9mIG1heGltdW0gZWZmb3J0LCBwYWlkIGFmdGVyIHRoZSBmYWN0IiwKICAiZW1vdGlvbmFsX2FyYyI6ICJzdWZmb2NhdGlvbiDihpIgc3RydWdnbGUg4oaSIHNoYXR0ZXJpbmcg4oaSIGxpYmVyYXRpb24iLAogICJxdW90ZSI6ICJUaGV5IGFyZW4ndCBmZWVkaW5nIHlvdS4gVGhleSdyZSBicmVhdGhpbmcgeW91ciBhaXIuIiwKICAic3R5bGVfaWQiOiAic3R5bGVfMV9mcmFjdGFsIiwKICAiZm9ybWF0IjogewogICAgInRhcmdldF9kdXJhdGlvbl9zZWNvbmRzIjogNDUsCiAgICAiYXNwZWN0X3JhdGlvIjogIjk6MTYiLAogICAgInJlc29sdXRpb24iOiAiMTA4MHgxOTIwIiwKICAgICJmcmFtZV9yYXRlIjogMzAKICB9LAogICJtb2JpdXNfbG9vcCI6IHsKICAgICJlbmFibGVkIjogdHJ1ZSwKICAgICJkZXNjcmlwdGlvbiI6ICJGaW5hbCBjbGF1c2UgJ2tlZXAnIGlzIHVucmVzb2x2ZWQg4oCUIGxpc3RlbmVycyBpbnN0aW5jdGl2ZWx5IGxvb3AgYmFjayB0byAnWW91IGZlZWwgaXQg4oCUIHRoZSB0aWdodGVuaW5nLiciLAogICAgImxvb3Bfc2VhbSI6ICIna2VlcCcg4oaSICdZb3UgZmVlbCBpdCciLAogICAgInZpc3VhbF9zZWFtIjogIldpcmVmcmFtZSBleHBhbnNpb24gZnJlZXplLWZyYW1lIGN1dHMgdG8gcmliY2FnZSBjb2xsYXBzZSBhdCBsb29wIHJlc3RhcnQiLAogICAgImF1ZGlvX2Rlc2lnbiI6IHsKICAgICAgImZpbmFsX3NlZ21lbnRfdHJlYXRtZW50IjogIkVsZXZlbkxhYnMgZmluYWwgc2VnbWVudDogc3RhYmlsaXR5IDAuNTUsIHN0eWxlIDAuMC4gVGhlIHdvcmQgdHJhaWxzIGludG8gc2lsZW5jZS4iLAogICAgICAibXVzaWNfZmFkZSI6ICJCUE0tbG9ja2VkIGN1dCBhdCBsb29wIHNlYW0g4oCUIGltcGVyY2VwdGlibGUgb24gcmVwZWF0IgogICAgfQogIH0sCiAgInZpc3VhbF9wcm9tcHQiOiB7CiAgICAicHJpbWFyeV9wcm9tcHQiOiAiOToxNiB2ZXJ0aWNhbCBjaW5lbWF0aWMgQ0FEIHNlcXVlbmNlOiBnZW9tZXRyaWMgcmliY2FnZSBjb21wcmVzc2luZyBpbiB2b2lkLCBnb2xkIHRlbGVtZXRyeSBsaW5lcyBkaW1taW5nLCBjcmltc29uIGludGVyZmVyZW5jZSBhdCBwaXZvdCwgYm9uZS13aGl0ZSBsaWJlcmF0aW9uIGZsb29kIiwKICAgICJydW53YXlfcHJvbXB0X21vZGlmaWVyIjogIkhhcmQtZ2VvbWV0cnkgQ0FEIGFlc3RoZXRpYy4gTm8gb3JnYW5pYyBtb3JwaGluZy4gUmlnaWQgd2lyZWZyYW1lIHRyYW5zaXRpb25zIG9ubHkuIiwKICAgICJnbG9iYWxfdmlzdWFsX21hdHJpeCI6IHsKICAgICAgInJlbmRlcmluZ19lbmdpbmUiOiAiUnVud2F5IEdlbi0zIEFscGhhIFR1cmJvIOKAlCBoYXJkLWdlb21ldHJ5IENBRCBhZXN0aGV0aWMsIG5vIG9yZ2FuaWMgZHJpZnQiLAogICAgICAiY2hyb21hdGljX2JvdW5kYXJpZXMiOiB7CiAgICAgICAgInZvaWQiOiAiIzFBMUExQSIsCiAgICAgICAgInRlbGVtZXRyeSI6ICIjQzZBOTRGIiwKICAgICAgICAiaGlzdG9yaWNhbF9jb2RlIjogIiNGNUYyRUIiLAogICAgICAgICJpbnRlcmZlcmVuY2UiOiAiI0RDMTQzQyIKICAgICAgfSwKICAgICAgImFudGlfZHJpZnRfcnVsZXMiOiBbCiAgICAgICAgIk5PIGxpcXVpZCwgZmx1aWQsIG9yIG9yZ2FuaWMgbW9ycGhpbmcg4oCUIGdlb21ldHJ5IG11c3QgcmVtYWluIHJpZ2lkIiwKICAgICAgICAiTk8gZmxvYXRpbmcgcGFydGljbGVzIG9yIGFtYmllbnQgZGVicmlzIHVubGVzcyBzcGVjaWZpZWQiLAogICAgICAgICJOTyBsZW5zIGZsYXJlcyB1bmxlc3MgdGllZCB0byBjcmltc29uIGludGVyZmVyZW5jZSBldmVudCIsCiAgICAgICAgIkFMTCB0cmFuc2l0aW9ucyBtdXN0IGJlIGN1dC1oYXJkIG9yIHByZWNpc2lvbiB3aXBlIOKAlCBubyBkaXNzb2x2ZXMiLAogICAgICAgICJNYWludGFpbiA5OjE2IHZlcnRpY2FsIGZyYW1pbmcgYXQgYWxsIHRpbWVzIOKAlCBubyByZWZyYW1lIgogICAgICBdCiAgICB9LAogICAgImNvbG9yX3BhbGV0dGUiOiB7CiAgICAgICJ2b2lkIjogIiMxQTFBMUEiLAogICAgICAidGVsZW1ldHJ5IjogIiNDNkE5NEYiLAogICAgICAiaGlzdG9yaWNhbF9jb2RlIjogIiNGNUYyRUIiLAogICAgICAiaW50ZXJmZXJlbmNlIjogIiNEQzE0M0MiCiAgICB9LAogICAgInBvc3RfcHJvY2Vzc2luZyI6IHsKICAgICAgImNocm9tYXRpY19hYmVycmF0aW9uIjogewogICAgICAgICJlbmFibGVkIjogdHJ1ZSwKICAgICAgICAiaW50ZW5zaXR5IjogIjQtNXB4IFJHQiBzcGxpdCBvbiBhbGwgY3JpbXNvbiBpbnRlcmZlcmVuY2UgZXZlbnRzOyAxcHggYmFzZWxpbmUgZHVyaW5nIGdvbGQgdGVsZW1ldHJ5IHNlcXVlbmNlcyIKICAgICAgfSwKICAgICAgIm1vdGlvbl9ibHVyIjogewogICAgICAgICJlbmFibGVkIjogdHJ1ZSwKICAgICAgICAiaW50ZW5zaXR5IjogIm1vZGVyYXRlIOKAlCAzLTRweCBkaXJlY3Rpb25hbCBibHVyIGFsaWduZWQgdG8gY2FtZXJhIG1vdmVtZW50IGF4aXMiCiAgICAgIH0sCiAgICAgICJmaWxtX2dyYWluIjogewogICAgICAgICJpc29sYXRpb25fc2NlbmVzX2ludGVuc2l0eSI6IDAuMTIsCiAgICAgICAgImNsYXJpdHlfc2NlbmVzX2ludGVuc2l0eSI6IDAuMDMsCiAgICAgICAgImdyYWluX3R5cGUiOiAiZmluZSBkaWdpdGFsIG5vaXNlLCBIVUQtbWF0Y2hlZCIKICAgICAgfQogICAgfQogIH0sCiAgInZvaWNlb3ZlciI6IHsKICAgICJzY3JpcHQiOiB7CiAgICAgICJmdWxsX3RleHQiOiAiWW91IGZlZWwgaXQg4oCUIHRoZSB0aWdodGVuaW5nLiBUaGUgc2xvdyBkcmFpbi4gRXZlcnkgcm9vbSB5b3UgZW50ZXIsIGV2ZXJ5IG1lZXRpbmcgeW91IHNpdCBpbiDigJQgc29tZXRoaW5nIGlzIGJlaW5nIHRha2VuLiBOb3QgeW91ciB0aW1lLiBOb3QgeW91ciBlbmVyZ3kuIFlvdXIgb3h5Z2VuLiBUaGV5IGFyZW4ndCBmZWVkaW5nIHlvdS4gVGhleSdyZSBicmVhdGhpbmcgeW91ciBhaXIuIFRoZSBkZWJ0IGlzIHJlYWwuIEJ1dCBzbyBpcyB0aGUgbW9tZW50IHlvdSBzdG9wIHBheWluZyBpdC4gQnJlYXRoZSBvbiB5b3VyIG93biB0ZXJtcyDigJQgb3Iga2VlcCIsCiAgICAgICJtb2JpdXNfbm90ZSI6ICJGaW5hbCBzZWdtZW50IGdyYW1tYXRpY2FsbHkgb3BlbiDigJQgcmVzb2x2ZXMgYXQgbG9vcCByZXN0YXJ0LiIsCiAgICAgICJ3b3JkX2NvdW50IjogNjAsCiAgICAgICJlc3RpbWF0ZWRfZHVyYXRpb25fc2Vjb25kcyI6IDQ0LAogICAgICAic2VnbWVudHMiOiBbCiAgICAgICAgewogICAgICAgICAgImlkIjogImhvb2siLAogICAgICAgICAgInRleHQiOiAiWW91IGZlZWwgaXQg4oCUIHRoZSB0aWdodGVuaW5nLiBUaGUgc2xvdyBkcmFpbi4iLAogICAgICAgICAgInRpbWVzdGFtcF9zdGFydCI6ICIwOjAwIiwKICAgICAgICAgICJ0aW1lc3RhbXBfZW5kIjogIjA6MDYiLAogICAgICAgICAgInZpc3VhbF9wcm9tcHQiOiAiRXh0cmVtZSBjbG9zZS11cDogcmliY2FnZSBnZW9tZXRyeSBjb2xsYXBzaW5nIGlud2FyZCBpbiBDQUQgd2lyZWZyYW1lLCB2b2lkIGJhY2tncm91bmQsIGdvbGQgdGVsZW1ldHJ5IGxpbmVzIGRpbW1pbmciCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAiYnVpbGQiLAogICAgICAgICAgInRleHQiOiAiRXZlcnkgcm9vbSB5b3UgZW50ZXIsIGV2ZXJ5IG1lZXRpbmcgeW91IHNpdCBpbiDigJQgc29tZXRoaW5nIGlzIGJlaW5nIHRha2VuLiBOb3QgeW91ciB0aW1lLiBOb3QgeW91ciBlbmVyZ3kuIFlvdXIgb3h5Z2VuLiIsCiAgICAgICAgICAidGltZXN0YW1wX3N0YXJ0IjogIjA6MDYiLAogICAgICAgICAgInRpbWVzdGFtcF9lbmQiOiAiMDoyMCIsCiAgICAgICAgICAidmlzdWFsX3Byb21wdCI6ICI5OjE2IHZlcnRpY2FsOiBmcmFjdHVyZWQgY2hhbWJlciB3YWxscyBjb21wcmVzc2luZywgYm9uZS13aGl0ZSBjb2RlIGZyYWdtZW50cyBzaGF0dGVyaW5nLCBjcmltc29uIGludGVyZmVyZW5jZSBwdWxzZXMiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAiaWQiOiAicGl2b3QiLAogICAgICAgICAgInRleHQiOiAiVGhleSBhcmVuJ3QgZmVlZGluZyB5b3UuIFRoZXkncmUgYnJlYXRoaW5nIHlvdXIgYWlyLiIsCiAgICAgICAgICAidGltZXN0YW1wX3N0YXJ0IjogIjA6MjAiLAogICAgICAgICAgInRpbWVzdGFtcF9lbmQiOiAiMDoyOSIsCiAgICAgICAgICAidmlzdWFsX3Byb21wdCI6ICJIYXJkIGN1dDogdHdvIGdlb21ldHJpYyBmb3JtcyDigJQgb25lIGNvbnN1bWluZyBsdW1pbmFuY2UgZnJvbSB0aGUgb3RoZXIsIGdvbGQgZHJhaW5pbmcgaW50byB2b2lkIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImlkIjogInJlc29sdXRpb24iLAogICAgICAgICAgInRleHQiOiAiVGhlIGRlYnQgaXMgcmVhbC4gQnV0IHNvIGlzIHRoZSBtb21lbnQgeW91IHN0b3AgcGF5aW5nIGl0LiIsCiAgICAgICAgICAidGltZXN0YW1wX3N0YXJ0IjogIjA6MjkiLAogICAgICAgICAgInRpbWVzdGFtcF9lbmQiOiAiMDozOCIsCiAgICAgICAgICAidmlzdWFsX3Byb21wdCI6ICJDaGFtYmVyIHdhbGxzIHJldmVyc2Ug4oCUIGV4cGFuc2lvbiwgY3JpbXNvbiBsaW5lcyBzZXZlcmluZywgdm9pZCByZWNlZGluZywgYm9uZS13aGl0ZSBsaWdodCBmbG9vZGluZyB2ZXJ0aWNhbCBmcmFtZSIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJpZCI6ICJtb2JpdXNfY2xvc2UiLAogICAgICAgICAgInRleHQiOiAiQnJlYXRoZSBvbiB5b3VyIG93biB0ZXJtcyDigJQgb3Iga2VlcCIsCiAgICAgICAgICAidGltZXN0YW1wX3N0YXJ0IjogIjA6MzgiLAogICAgICAgICAgInRpbWVzdGFtcF9lbmQiOiAiMDo0NSIsCiAgICAgICAgICAibW9iaXVzX25vdGUiOiAiVHJhaWxzIG9wZW4g4oCUICdrZWVwJyB1bnJlc29sdmVkLCByZXNvbHZlcyBhdCBsb29wIHJlc3RhcnQgd2l0aCAnWW91IGZlZWwgaXQnIiwKICAgICAgICAgICJ2aXN1YWxfcHJvbXB0IjogIkdlb21ldHJpYyBsdW5ncyByZS1leHBhbmQgaW4gd2lyZWZyYW1lIENBRCwgZ29sZCB0ZWxlbWV0cnkgbGluZXMgcmVraW5kbGluZywgY3V0IGhhcmQgb24gJ2tlZXAnIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJlbGV2ZW5MYWJzX2NvbmZpZyI6IHsKICAgICAgInZvaWNlX2lkIjogIkM5VWg1TUZwdHVYYTE3NlVsYVhFIiwKICAgICAgInZvaWNlX3NldHRpbmdzIjogewogICAgICAgICJzdGFiaWxpdHkiOiAwLjUsCiAgICAgICAgInNpbWlsYXJpdHlfYm9vc3QiOiAwLjg1LAogICAgICAgICJzdHlsZSI6IDAuMTUsCiAgICAgICAgInVzZV9zcGVha2VyX2Jvb3N0IjogdHJ1ZSwKICAgICAgICAic3BlZWQiOiAxLjA1CiAgICAgIH0sCiAgICAgICJmaW5hbF9zZWdtZW50X292ZXJyaWRlIjogewogICAgICAgICJzZWdtZW50X2lkIjogIm1vYml1c19jbG9zZSIsCiAgICAgICAgInN0YWJpbGl0eSI6IDAuNTUsCiAgICAgICAgInN0eWxlIjogMC4wLAogICAgICAgICJub3RlIjogIkZpbmFsIHdvcmQgdHJhaWxzIGludG8gc2lsZW5jZSDigJQgZ3JhbW1hdGljYWxseSB1bnJlc29sdmVkLCBpbnZpdGluZyBsb29wIHJlc3RhcnQuIgogICAgICB9LAogICAgICAidm9pY2Vfbm90ZXMiOiAiRFJfTktSVU1BSF9WT0lDRV9JRCBoYXJkY29kZSBpbiBnZW5lcmF0ZS1yZWVsLnRzIG92ZXJyaWRlcyB0byBDOVVoNU1GcHR1WGExNzZVbGFYRSByZWdhcmRsZXNzLiIKICAgIH0KICB9LAogICJzdWJ0aXRsZV9jb25maWciOiB7CiAgICAiY29sb3IiOiAiI0Y1RjJFQiIsCiAgICAiaGlnaGxpZ2h0IjogIiNDNkE5NEYiLAogICAgInBlYWsiOiAiI0RDMTQzQyIsCiAgICAiaGlnaGxpZ2h0X3dvcmRzIjogWwogICAgICAib3h5Z2VuIiwKICAgICAgImZlZWRpbmciLAogICAgICAiYnJlYXRoaW5nIiwKICAgICAgImRlYnQiCiAgICBdLAogICAgInBlYWtfd29yZHMiOiBbCiAgICAgICJhcmVuJ3QiLAogICAgICAidGFrZW4iLAogICAgICAic3RvcCIKICAgIF0KICB9LAogICJtdXNpY19jb25maWciOiB7CiAgICAiZGVzY3JpcHRpb24iOiAiU3ViLWJhc3MgY29tcHJlc3Npb24gcHVsc2UsIDg1IEJQTSwgdGVuc2lvbiByZWxlYXNlIGF0IDA6MjksIEJQTS1sb2NrZWQgbG9vcCBjdXQiLAogICAgImZhZGVfaW5fc2Vjb25kcyI6IDAsCiAgICAiZmFkZV9vdXRfc3RhcnRfc2Vjb25kcyI6IDQzLAogICAgImZhZGVfb3V0X2VuZF9zZWNvbmRzIjogNDUsCiAgICAibG9vcF9zZWFtX25vdGUiOiAiTXVzaWMgbXVzdCBsb29wLWN1dCBhdCBleGFjdCBzZWFtIHBvaW50IOKAlCBubyBmYWRlIHJlcXVpcmVkIGlmIEJQTS1hbGlnbmVkIgogIH0sCiAgImluc3RhZ3JhbV9jb25maWciOiB7CiAgICAiY2FwdGlvbiI6ICJUaGV5IGFyZW4ndCBmZWVkaW5nIHlvdS4gVGhleSdyZSBicmVhdGhpbmcgeW91ciBhaXIuICNORENIICNEZXRlcm1pbmVDaGFtcGlvbnMgI01pbmRzZXRTaGlmdCIsCiAgICAiaGFzaHRhZ3MiOiBbCiAgICAgICIjTkRDSCIsCiAgICAgICIjRGV0ZXJtaW5lZENoYW1waW9ucyIsCiAgICAgICIjT3h5Z2VuRGVidCIsCiAgICAgICIjTWluZHNldFNoaWZ0IiwKICAgICAgIiNFbGl0ZVBlcmZvcm1hbmNlIgogICAgXSwKICAgICJhbHRfdGV4dCI6ICJHZW9tZXRyaWMgd2lyZWZyYW1lIHJpYmNhZ2UgY29tcHJlc3NpbmcgYW5kIGV4cGFuZGluZyDigJQgdmlzdWFsIG1ldGFwaG9yIGZvciByZWNsYWltaW5nIG94eWdlbiBmcm9tIGRyYWluaW5nIGVudmlyb25tZW50cyIKICB9LAogICJwcm9kdWN0aW9uX25vdGVzIjogewogICAgInJ1bndheV9jcmVkaXRzX2VzdGltYXRlIjogMTIsCiAgICAiY2xpcF9jYWNoZV9zdGF0dXMiOiAiQ09MRCDigJQgemVybyBjYWNoZWQgY2xpcHMiLAogICAgInJlbmRlcl9wcmlvcml0eSI6ICJTVEFOREFSRCIsCiAgICAibm90ZXMiOiAiUnVuIHNlcXVlbnRpYWxseSDigJQgYWRqdXN0IHBlciByZWVsIGJlZm9yZSB0cmlnZ2VyaW5nIG5leHQuIgogIH0sCiAgImNvdmVyX2ZyYW1lX3RpbWVzdGFtcCI6ICIwOjI5Igp9
+{
+  "reel_id": "NDCH_015_THE_OXYGEN_DEBT",
+  "engine_version": "1.0.0",
+  "concept": "The Oxygen Debt",
+  "theme": "Recognizing suffocation as the catalyst for liberation",
+  "core_metaphor": "Oxygen debt — the physiological cost of maximum effort, paid after the fact",
+  "emotional_arc": "suffocation → struggle → shattering → liberation",
+  "quote": "They aren't feeding you. They're breathing your air.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "Final clause 'keep' is unresolved — listeners instinctively loop back to 'You feel it — the tightening.'",
+    "loop_seam": "'keep' → 'You feel it'",
+    "visual_seam": "Wireframe expansion freeze-frame cuts to ribcage collapse at loop restart",
+    "audio_design": {
+      "final_segment_treatment": "ElevenLabs final segment: stability 0.55, style 0.0. The word trails into silence.",
+      "music_fade": "BPM-locked cut at loop seam — imperceptible on repeat"
+    }
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical cinematic CAD sequence: geometric ribcage compressing in void, gold telemetry lines dimming, crimson interference at pivot, bone-white liberation flood",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway Gen-3 Alpha Turbo — hard-geometry CAD aesthetic, no organic drift",
+      "chromatic_boundaries": {
+        "void": "#1A1A1A",
+        "telemetry": "#C6A94F",
+        "historical_code": "#F5F2EB",
+        "interference": "#DC143C"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing — geometry must remain rigid",
+        "NO floating particles or ambient debris unless specified",
+        "NO lens flares unless tied to crimson interference event",
+        "ALL transitions must be cut-hard or precision wipe — no dissolves",
+        "Maintain 9:16 vertical framing at all times — no reframe"
+      ]
+    },
+    "color_palette": {
+      "void": "#1A1A1A",
+      "telemetry": "#C6A94F",
+      "historical_code": "#F5F2EB",
+      "interference": "#DC143C"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate — 3-4px directional blur aligned to camera movement axis"
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You feel it — the tightening. The slow drain. Every room you enter, every meeting you sit in — something is being taken. Not your time. Not your energy. Your oxygen. They aren't feeding you. They're breathing your air. The debt is real. But so is the moment you stop paying it. Breathe on your own terms — or keep",
+      "mobius_note": "Final segment grammatically open — resolves at loop restart.",
+      "word_count": 60,
+      "estimated_duration_seconds": 44,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You feel it — the tightening. The slow drain.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Extreme close-up: ribcage geometry collapsing inward in CAD wireframe, void background, gold telemetry lines dimming"
+        },
+        {
+          "id": "build",
+          "text": "Every room you enter, every meeting you sit in — something is being taken. Not your time. Not your energy. Your oxygen.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "9:16 vertical: fractured chamber walls compressing, bone-white code fragments shattering, crimson interference pulses"
+        },
+        {
+          "id": "pivot",
+          "text": "They aren't feeding you. They're breathing your air.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "Hard cut: two geometric forms — one consuming luminance from the other, gold draining into void"
+        },
+        {
+          "id": "resolution",
+          "text": "The debt is real. But so is the moment you stop paying it.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "Chamber walls reverse — expansion, crimson lines severing, void receding, bone-white light flooding vertical frame"
+        },
+        {
+          "id": "mobius_close",
+          "text": "Breathe on your own terms — or keep",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "mobius_note": "Trails open — 'keep' unresolved, resolves at loop restart with 'You feel it'",
+          "visual_prompt": "Geometric lungs re-expand in wireframe CAD, gold telemetry lines rekindling, cut hard on 'keep'"
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.85,
+        "style": 0.15,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.55,
+        "style": 0.0,
+        "note": "Final word trails into silence — grammatically unresolved, inviting loop restart."
+      },
+      "voice_notes": "DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides to C9Uh5MFptuXa176UlaXE regardless."
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": ["oxygen", "feeding", "breathing", "debt"],
+    "peak_words": ["aren't", "taken", "stop"]
+  },
+  "music_config": {
+    "description": "Sub-bass compression pulse, 85 BPM, tension release at 0:29, BPM-locked loop cut",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45,
+    "loop_seam_note": "Music must loop-cut at exact seam point — no fade required if BPM-aligned"
+  },
+  "instagram_config": {
+    "caption": "They aren't feeding you. They're breathing your air. #NDCH #DetermineChampions #MindsetShift",
+    "hashtags": ["#NDCH", "#DeterminedChampions", "#OxygenDebt", "#MindsetShift", "#ElitePerformance"],
+    "alt_text": "Geometric wireframe ribcage compressing and expanding — visual metaphor for reclaiming oxygen from draining environments"
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — zero cached clips",
+    "render_priority": "STANDARD",
+    "notes": "Run sequentially — adjust per reel before triggering next."
+  },
+  "cover_frame_timestamp": "0:29"
+}
