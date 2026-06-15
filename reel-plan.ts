@@ -288,6 +288,13 @@ export interface ResolvedNarrationSegment {
   timestampEndSeconds?: number;
 }
 
+export interface ResolvedMusicConfig {
+  /** Description of the desired background audio — used as the ElevenLabs SFX prompt. */
+  description?: string;
+  bpm?: number;
+  mood_arc?: string;
+}
+
 export interface ResolvedProductionPlan {
   engineConfigPath?: string;
   reelSpecPath?: string;
@@ -309,6 +316,8 @@ export interface ResolvedProductionPlan {
   };
   subtitles?: unknown;
   brand?: string;
+  /** Resolved from music_config in the reel spec. Drives ElevenLabs SFX background generation. */
+  musicConfig?: ResolvedMusicConfig;
 }
 
 interface ResolveProductionPlanOptions {
@@ -452,6 +461,14 @@ export function resolveProductionPlan(
 
   const brand = pickString(reelSpec, [['brand']]) ?? undefined;
 
+  // Music config — drives ElevenLabs SFX background generation when no local track exists
+  const rawMusicConfig = pickValue(reelSpec, [['music_config']]);
+  const musicConfig: ResolvedMusicConfig | undefined = isRecord(rawMusicConfig) ? {
+    description: pickString(rawMusicConfig, [['description']]),
+    bpm: pickNumber(rawMusicConfig, [['bpm']]),
+    mood_arc: pickString(rawMusicConfig, [['mood_arc']]),
+  } : undefined;
+
   return {
     engineConfigPath: engineConfigPath ? resolve(engineConfigPath) : undefined,
     reelSpecPath: reelSpecPath ? resolve(reelSpecPath) : undefined,
@@ -473,5 +490,6 @@ export function resolveProductionPlan(
     },
     subtitles,
     brand,
+    musicConfig,
   };
 }
