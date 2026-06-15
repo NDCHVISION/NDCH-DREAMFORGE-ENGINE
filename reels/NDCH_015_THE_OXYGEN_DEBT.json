@@ -1,12 +1,37 @@
 {
-  "reel_id": "NDCH_015_THE_OXYGEN_DEBT",
+  "reel_id": "NDCH_015_THE_OXYGEN_DEBT_FINAL",
   "engine_version": "1.0.0",
   "concept": "The Oxygen Debt",
-  "theme": "Recognizing suffocation as the catalyst for liberation",
-  "core_metaphor": "Oxygen debt — the physiological cost of maximum effort, paid after the fact",
-  "emotional_arc": "suffocation → struggle → shattering → liberation",
-  "quote": "They aren't feeding you. They're breathing your air.",
+  "theme": "You did not fail the room. You outgrew it.",
+  "core_metaphor": "A brutalist pressure vault — environmental, architectural, psychological. NOT anatomical. NOT biological.",
+  "emotional_arc": "recognition → compression → reframe → agency → expansion → loop",
+  "quote": "The walls were not your limit. They were your warmup.",
   "style_id": "style_1_fractal",
+  "emotional_ratio_target": {
+    "pressure": "40%",
+    "liberation": "55%",
+    "loop": "5%",
+    "design_note": "Previous versions were 80/20 pressure/liberation. This pivots at breakaway from diagnosis to agency. Supremacy is the emotional PEAK."
+  },
+  "visual_escalation_law": {
+    "rule": "Every 4-6 seconds the environment must visibly and physically evolve.",
+    "forbidden": [
+      "Same room appearance for longer than 6 seconds",
+      "Same lighting state for longer than 6 seconds",
+      "Same pressure state for longer than 6 seconds",
+      "Subtle changes — all evolution must be readable on a phone screen"
+    ],
+    "enforcement": "Each segment visual_prompt contains explicit 3-4 second event blocks. Runway must execute each event in sequence."
+  },
+  "runtime_architecture": {
+    "hook_seconds": "0-6",
+    "entrapment_seconds": "6-16",
+    "strain_seconds": "16-30",
+    "breakaway_seconds": "30-37",
+    "supremacy_seconds": "37-43",
+    "loop_bridge_seconds": "43-45",
+    "notes": "Strain minimum 14 seconds. Breakaway is the emotional PIVOT. Supremacy is the LOUDEST moment — ascending, gold everywhere, expansion not escape."
+  },
   "format": {
     "target_duration_seconds": 45,
     "aspect_ratio": "9:16",
@@ -15,19 +40,28 @@
   },
   "mobius_loop": {
     "enabled": true,
-    "description": "Final clause 'keep' is unresolved — listeners instinctively loop back to 'You feel it — the tightening.'",
-    "loop_seam": "'keep' → 'You feel it'",
-    "visual_seam": "Wireframe expansion freeze-frame cuts to ribcage collapse at loop restart",
+    "loop_seam": "'you call' -> 'suffocation loyalty'",
+    "combined_sentence": "Because every day you stay, you call suffocation loyalty.",
+    "visual_seam": "Camera accelerates forward into absolute #1A1A1A black void node starting at 43s. 100% black frame achieved by 44.5s. Opening frame of hook emerges from this identical void vector. Loop is invisible on repeat.",
     "audio_design": {
-      "final_segment_treatment": "ElevenLabs final segment: stability 0.55, style 0.0. The word trails into silence.",
-      "music_fade": "BPM-locked cut at loop seam — imperceptible on repeat"
+      "final_segment_treatment": "ElevenLabs final segment: stability 0.65, style 0.0. Voice trails on call with flat pitch — NO downward inflection. Grammatically suspended. Resolves at loop restart.",
+      "music_fade": "NO FADE. Hard BPM-locked cut at 45.00s. Zero-cross edit at seam."
     }
   },
   "visual_prompt": {
-    "primary_prompt": "9:16 vertical cinematic CAD sequence: geometric ribcage compressing in void, gold telemetry lines dimming, crimson interference at pivot, bone-white liberation flood",
-    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "primary_prompt": "9:16 vertical cinematic medium shot. Monolithic brutalist cast-concrete containment chamber. Flat matte black #1A1A1A surfaces. Dead center: solid bone-white #F5F2EB human silhouette — human presence only, zero anatomical detail. Heavy volumetric crimson #DC143C light hazes the background. Geometric gold #C6A94F stress lines slice clean vectors through the concrete structure. Central vertical third of frame is an empty dark high-contrast negative space runway — subtitle corridor sacred.",
+    "anatomy_exclusions": [
+      "DO NOT generate ribs",
+      "DO NOT generate lungs",
+      "DO NOT generate a ribcage",
+      "DO NOT generate medical anatomy",
+      "DO NOT generate skeleton or organs",
+      "DO NOT generate any biological tissue or body structure",
+      "Environmental architecture ONLY. Psychological suffocation. Not anatomical."
+    ],
+    "runway_prompt_modifier": "Hard-geometry brutalist aesthetic. Sealed vault, pressure chamber, containment structure. Bone-white silhouette is human presence only — not an anatomical subject. No organic morphing. Rigid geometric transitions only. Single dominant camera vector per clip.",
     "global_visual_matrix": {
-      "rendering_engine": "Runway Gen-3 Alpha Turbo — hard-geometry CAD aesthetic, no organic drift",
+      "rendering_engine": "Runway Gen-3 Alpha Turbo — brutalist pressure vault aesthetic, hard-geometry only, no organic drift, no anatomy",
       "chromatic_boundaries": {
         "void": "#1A1A1A",
         "telemetry": "#C6A94F",
@@ -35,12 +69,20 @@
         "interference": "#DC143C"
       },
       "anti_drift_rules": [
-        "NO liquid, fluid, or organic morphing — geometry must remain rigid",
-        "NO floating particles or ambient debris unless specified",
-        "NO lens flares unless tied to crimson interference event",
-        "ALL transitions must be cut-hard or precision wipe — no dissolves",
-        "Maintain 9:16 vertical framing at all times — no reframe"
+        "NO liquid fluid or organic morphing — geometry must remain rigid",
+        "NO floating particles or debris crossing the central subtitle corridor",
+        "NO lens flares anywhere in the frame",
+        "NO bloom or overexposure effects",
+        "ALL transitions are hard matching cuts or rapid linear wipes — no dissolves",
+        "Single dominant camera vector per clip segment — no multi-vector chaos",
+        "Maintain 9:16 vertical framing at all times",
+        "NO anatomical structures of any kind"
       ]
+    },
+    "subtitle_corridor": {
+      "protection": "SACRED — central vertical corridor must remain clear at all times",
+      "clearance_percent": 40,
+      "notes": "All particles shards HUD elements light planes and geometry must remain outside the central subtitle zone. Non-negotiable for mobile readability."
     },
     "color_palette": {
       "void": "#1A1A1A",
@@ -66,63 +108,93 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You feel it — the tightening. The slow drain. Every room you enter, every meeting you sit in — something is being taken. Not your time. Not your energy. Your oxygen. They aren't feeding you. They're breathing your air. The debt is real. But so is the moment you stop paying it. Breathe on your own terms — or keep",
-      "mobius_note": "Final segment grammatically open — resolves at loop restart.",
-      "word_count": 60,
+      "full_text": "You call suffocation loyalty. You have given years to a room that stopped growing long before you did. Every morning you shrink yourself to fit. Every meeting you trade possibility for familiarity. Not your time. Not your energy. Your oxygen. They've been breathing your air. You did not fail the room. You outgrew it. The debt clears the moment you stop asking permission. Not when it is comfortable. Now. Take back your air. Your pace. Your ambition. The walls were not your limit. They were your warmup. Because every day you stay, you call",
+      "mobius_note": "Final word 'call' is grammatically suspended. Resolves at loop restart as 'suffocation loyalty.' Combined: 'Because every day you stay, you call suffocation loyalty.'",
+      "word_count": 89,
       "estimated_duration_seconds": 44,
+      "pacing_note": "DR_NKRUMAH deliberate cadence. Structural pauses after loyalty / you did / familiarity / your air. CRITICAL REGISTER SHIFT at You did not fail the room — voice drops from observation to declaration. Now is one word with a full beat of silence after it. They were your warmup lands hard and ends clean.",
+      "emotional_register_guide": {
+        "hook_to_strain": "Flat, diagnostic, low energy — reading a verdict",
+        "breakaway_pivot": "You did not fail the room. You outgrew it. — first moment of power. Voice shifts up.",
+        "breakaway_close": "Not when it is comfortable. Now. — urgent, clipped, no softening",
+        "supremacy": "Take back your air. — each phrase is a command. Full stop between each. They were your warmup. — final line, maximum conviction.",
+        "loop": "Flat pitch, voice trails on call — grammatically open"
+      },
       "segments": [
         {
           "id": "hook",
-          "text": "You feel it — the tightening. The slow drain.",
+          "phase": "HOOK",
+          "text": "You call suffocation loyalty.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
-          "visual_prompt": "Extreme close-up: ribcage geometry collapsing inward in CAD wireframe, void background, gold telemetry lines dimming"
+          "visual_prompt": "9:16 vertical cinematic. Camera already in motion at frame zero — no fade-in. Continuous axial push into brutalist black #1A1A1A vault. Bone-white silhouette centered in subtitle corridor. Vault has no visible ceiling. Gold #C6A94F telemetry lines faintly visible on concrete walls. Crimson #DC143C atmospheric pressure barely perceptible at extreme borders.",
+          "camera": "Linear Z-axis push forward — single vector, hypnotic pace"
         },
         {
-          "id": "build",
-          "text": "Every room you enter, every meeting you sit in — something is being taken. Not your time. Not your energy. Your oxygen.",
+          "id": "entrapment",
+          "phase": "ENTRAPMENT",
+          "text": "You have given years to a room that stopped growing long before you did. Every morning you shrink yourself to fit.",
           "timestamp_start": "0:06",
-          "timestamp_end": "0:20",
-          "visual_prompt": "9:16 vertical: fractured chamber walls compressing, bone-white code fragments shattering, crimson interference pulses"
+          "timestamp_end": "0:16",
+          "visual_prompt": "Heavy downward vertical crane descent into monolithic brutalist vault. Concrete wall columns physically step inward every 3 feet — architecture narrows as camera descends. The silhouette does not move. The room closes around it. Crimson pressure rises from the floor. Gold telemetry lines begin dimming. Central subtitle corridor remains clean matte black.",
+          "camera": "Slow heavy downward vertical crane descent — single vector, weight and inevitability"
         },
         {
-          "id": "pivot",
-          "text": "They aren't feeding you. They're breathing your air.",
-          "timestamp_start": "0:20",
-          "timestamp_end": "0:29",
-          "visual_prompt": "Hard cut: two geometric forms — one consuming luminance from the other, gold draining into void"
+          "id": "strain",
+          "phase": "STRAIN",
+          "text": "Every meeting you trade possibility for familiarity. Not your time. Not your energy. Your oxygen. They've been breathing your air. You did not fail the room. You outgrew it.",
+          "timestamp_start": "0:16",
+          "timestamp_end": "0:30",
+          "visual_prompt": "FOUR SEQUENTIAL PHYSICAL TRANSFORMATIONS — execute in order no overlap:\n\n[0:16-0:20] COLUMNS MOVE INWARD: Geometric concrete columns step 2 feet closer in hard mechanical movement. Silhouette flanked by closer walls. Crimson haze intensifies at all borders.\n\n[0:20-0:24] CEILING LOWERS: Heavy concrete ceiling plane descends from above. Slow crushing. Vault becomes a compression chamber. Gold #C6A94F telemetry lines flicker.\n\n[0:24-0:27] TELEMETRY SHUTS OFF: Gold lines extinguish left to right in sequence until all are dark. Only crimson and black remain. Silhouette luminance dropping.\n\n[0:27-0:30] FIRST FRACTURE: A single sharp geometric crack splits the ceiling. Gold light bleeds through it. Crimson still at maximum density at frame edges — but the crack is unmistakable. The fracture appears exactly as You outgrew it hits.",
+          "strain_pivot_note": "You did not fail the room. You outgrew it. lands during the first fracture — visual and reframe land simultaneously.",
+          "camera": "Extremely slow axial push forward — micro-acceleration on You outgrew it"
         },
         {
-          "id": "resolution",
-          "text": "The debt is real. But so is the moment you stop paying it.",
-          "timestamp_start": "0:29",
-          "timestamp_end": "0:38",
-          "visual_prompt": "Chamber walls reverse — expansion, crimson lines severing, void receding, bone-white light flooding vertical frame"
+          "id": "breakaway",
+          "phase": "BREAKAWAY",
+          "text": "The debt clears the moment you stop asking permission. Not when it is comfortable. Now.",
+          "timestamp_start": "0:30",
+          "timestamp_end": "0:37",
+          "visual_prompt": "Hard structural rupture expanding from the first fracture. Geometric cracks expand across all vault walls along precise vector lines — architecture failing outward not inward. Bone-white #F5F2EB geometric light PLANES — not beams not flares — expand horizontally OUTWARD from behind the central silhouette toward the left and right frame edges only. NO LENS FLARE. NO BLOOM. NO OVEREXPOSURE. Central vertical third remains high-contrast dark corridor — silhouette fully readable and ascending. Chromatic aberration peaks at 4-5px.",
+          "camera": "Sudden rapid linear Z-axis push forward — single vector acceleration — velocity signals permission"
+        },
+        {
+          "id": "supremacy",
+          "phase": "SUPREMACY",
+          "text": "Take back your air. Your pace. Your ambition. The walls were not your limit. They were your warmup.",
+          "timestamp_start": "0:37",
+          "timestamp_end": "0:43",
+          "visual_prompt": "Vault walls fragment outward in precise geometric shards — controlled, definitive. Silhouette ascends into open space. Ahead in the far field: gold #C6A94F structural latticework — initially incomplete. FOUR SEQUENTIAL ASSEMBLY EVENTS as silhouette approaches:\n\n[0:37-0:39] LATTICEWORK VISIBLE: Gold structural framework visible in far field — unfinished bridges, open vectors, incomplete towers. Geometry is expansive not enclosing.\n\n[0:39-0:40] FIRST BRIDGE SPAN COMPLETES: A horizontal bridge section clicks into place across a gap in the far-field latticework. Hard geometric connection. No organic morphing — one rigid section snapping into position.\n\n[0:40-0:41] NEAREST TOWER EXTENDS: The closest gold tower rises upward by one geometric floor. Hard vertical extension. Single axis movement only.\n\n[0:41-0:43] FRAMEWORK SECTIONS CLICK INTO PLACE: Two additional latticework sections connect in sequence. Structure is still incomplete — the future is mid-construction, not finished. The silhouette rises toward it. Frame at peak brightness. Subtitle corridor fully open.\n\nCRITICAL: All assembly events are HARD GEOMETRIC CONNECTIONS — rigid sections snapping into fixed positions. NO organic growth. NO fluid morphing. The future responds to movement with precision, not softness.",
+          "supremacy_direction_note": "NOT escape. ARRIVAL. The gold structures ASSEMBLE as the silhouette approaches — the future responds to movement. Four timed geometric events. Each one is a rigid snap-connection, not organic.",
+          "camera": "Smooth powerful upward elevator lift — single ascending vector — destination visible in the far field"
         },
         {
           "id": "mobius_close",
-          "text": "Breathe on your own terms — or keep",
-          "timestamp_start": "0:38",
+          "phase": "LOOP BRIDGE",
+          "text": "Because every day you stay, you call",
+          "timestamp_start": "0:43",
           "timestamp_end": "0:45",
-          "mobius_note": "Trails open — 'keep' unresolved, resolves at loop restart with 'You feel it'",
-          "visual_prompt": "Geometric lungs re-expand in wireframe CAD, gold telemetry lines rekindling, cut hard on 'keep'"
+          "mobius_note": "Grammatically suspended on 'call' — resolves at loop restart with 'suffocation loyalty.' Do not resolve inflection. Do not add completion.",
+          "visual_prompt": "Camera rapidly accelerates forward down a pure black central corridor. All gold and light elements pass behind the lens field. Frame plunges into absolute matte black #1A1A1A by 44.5s. This exact void is the origin point of the opening frame. Loop is invisible on repeat.",
+          "camera": "High-velocity forward tunnel plunge into pure void — single Z-axis vector — no deceleration"
         }
       ]
     },
     "elevenLabs_config": {
       "voice_id": "C9Uh5MFptuXa176UlaXE",
       "voice_settings": {
-        "stability": 0.5,
+        "stability": 0.58,
         "similarity_boost": 0.85,
-        "style": 0.15,
+        "style": 0.1,
         "use_speaker_boost": true,
-        "speed": 1.05
+        "speed": 0.9,
+        "speed_note": "0.90 targets 44s for 89-word script at DR_NKRUMAH cadence. If render lands under 42s reduce to 0.85. If over 46s increase to 0.93."
       },
       "final_segment_override": {
         "segment_id": "mobius_close",
-        "stability": 0.55,
+        "stability": 0.65,
         "style": 0.0,
-        "note": "Final word trails into silence — grammatically unresolved, inviting loop restart."
+        "note": "Flat pitch on call — no downward emotional resolution. Voice suspends. Loop takes over."
       },
       "voice_notes": "DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides to C9Uh5MFptuXa176UlaXE regardless."
     }
@@ -131,26 +203,47 @@
     "color": "#F5F2EB",
     "highlight": "#C6A94F",
     "peak": "#DC143C",
-    "highlight_words": ["oxygen", "feeding", "breathing", "debt"],
-    "peak_words": ["aren't", "taken", "stop"]
+    "highlight_style": "color_only",
+    "box_rendering": false,
+    "position": "center_vertical_corridor",
+    "clearance_percent": 40,
+    "font_weight": "bold",
+    "size_note": "Large, readable without effort on a phone screen. Not decorative. Integrated into the visual.",
+    "highlight_words": ["oxygen", "breathing", "familiarity", "permission", "ambition"],
+    "peak_words": ["suffocation", "outgrew", "Now", "warmup"]
   },
   "music_config": {
-    "description": "Sub-bass compression pulse, 85 BPM, tension release at 0:29, BPM-locked loop cut",
+    "description": "Industrial sub-bass pressure tone at 85 BPM. Heavy sidechain compression pumping 0-30s. Sudden dynamic drop to isolated crystalline pulse at 30s — rupture signal. Music LIFTS at 37s alongside supremacy — upward tonal chord gold register ascending momentum. Hard BPM-locked cut at 45.00s.",
+    "bpm": 85,
     "fade_in_seconds": 0,
-    "fade_out_start_seconds": 43,
-    "fade_out_end_seconds": 45,
-    "loop_seam_note": "Music must loop-cut at exact seam point — no fade required if BPM-aligned"
+    "fade_out_seconds": 0,
+    "loop_seam_note": "Zero-cross edit at 45.00s seam. No fade. No decay. Absolute cut. Imperceptible on infinite repeat.",
+    "mood_arc": "Oppressive compression (0-30s) → Fracture surge (30-37s) → Ascending gold momentum (37-43s) → Void plunge (43-45s)",
+    "music_register_note": "Supremacy music RISES — upward momentum not just pressure release. Should feel like acceleration toward something."
   },
   "instagram_config": {
-    "caption": "They aren't feeding you. They're breathing your air. #NDCH #DetermineChampions #MindsetShift",
+    "caption": "The walls were not your limit. They were your warmup. #NDCH #DeterminedChampions #OxygenDebt #MindsetShift #ElitePerformance",
     "hashtags": ["#NDCH", "#DeterminedChampions", "#OxygenDebt", "#MindsetShift", "#ElitePerformance"],
-    "alt_text": "Geometric wireframe ribcage compressing and expanding — visual metaphor for reclaiming oxygen from draining environments"
+    "alt_text": "Brutalist black pressure vault fracturing open — bone-white silhouette ascending toward gold geometric structures assembling in the distance"
   },
   "production_notes": {
     "runway_credits_estimate": 12,
     "clip_cache_status": "COLD — zero cached clips",
     "render_priority": "STANDARD",
-    "notes": "Run sequentially — adjust per reel before triggering next."
+    "version": "FINAL_v3 — Gemini-approved render candidate",
+    "core_script_changes": [
+      "Theme reframed: You did not fail the room. You outgrew it. is the emotional pivot at breakaway",
+      "Supremacy: Take back your air. Your pace. Your ambition. The walls were not your limit. They were your warmup.",
+      "Removed adverbs Slowly / Methodically — lazy work",
+      "Removed The environment is not attacking you — not-X setup cut",
+      "Breakaway: The debt clears the moment you stop asking permission. Not when it is comfortable. Now.",
+      "Emotional ratio shifted: 80/20 to 40/55 pressure/liberation",
+      "First fracture in strain syncs visually with You outgrew it",
+      "Caption updated to closing line",
+      "They are breathing -> They've been breathing: accusation to realization",
+      "Supremacy: gold structures ASSEMBLE as silhouette approaches — four timed geometric snap events"
+    ],
+    "notes": "Trigger publish-reel.yml with reel_spec_path: reels/NDCH_015_THE_OXYGEN_DEBT.json"
   },
-  "cover_frame_timestamp": "0:29"
+  "cover_frame_timestamp": "0:40"
 }
