@@ -19,10 +19,13 @@
  * ──────────────────────────
  *   REEL_MUSIC_PATH     Absolute path to an ambient music file (mp3/wav/aac).
  *                       If absent, the engine also checks assets/ambient-drone.mp3
- *                       relative to the repo root. Music is mixed at −18 dB with
- *                       a 1.5 s fade-in and 2.0 s fade-out, plus adaptive ducking
- *                       under narration for clearer voice-forward playback. Omit
- *                       to skip music.
+ *                       relative to the repo root. If neither is found AND the reel
+ *                       spec contains a music_config.description field, the engine
+ *                       calls the ElevenLabs Sound Generation API to produce a
+ *                       22-second ambient loop from that description automatically.
+ *                       Music is mixed at −18 dB with a 1.5 s fade-in and 2.0 s
+ *                       fade-out, plus adaptive ducking under narration for clearer
+ *                       voice-forward playback.
  *
  * Subtitles
  * ─────────
@@ -91,6 +94,9 @@ const RUNWAY_TIMEOUT_MS          = 1_500_000; // 25 min — THROTTLED tasks can 
 const RUNWAY_MAX_TASK_ATTEMPTS   = 4;
 const CLIP_CHECKPOINT_PATH       = process.env.CLIP_CHECKPOINT_PATH ?? join(TMP, 'runway-clip-checkpoint.json');
 const MUSIC_ASSET_RELATIVE_PATH  = 'assets/ambient-drone.mp3';
+const AMBIENCE_CACHE_PATH        = join(TMP, 'background-ambience.mp3');
+const ELEVENLABS_SFX_MAX_SECS    = 22;     // hard cap from ElevenLabs sound-generation API
+const ELEVENLABS_SFX_TIMEOUT_MS  = 60_000;
 const DEFAULT_HTTP_TIMEOUT_MS    = 45_000;
 const ELEVENLABS_TIMESTAMP_TIMEOUT_MS = 120_000; // JSON response carries base64 audio — allow extra time
 const MANAGED_RELEASE_TAG        = 'reel-latest';
@@ -177,29 +183,85 @@ function processAudio(inputPath: string): string {
 }
 
 /**
+ * Generates a short ambient background loop via the ElevenLabs Sound Generation API.
+ *
+ * Uses music_config.description from the reel spec as the SFX prompt (first sentence
+ * only — the API works best with concise descriptions). Generates ELEVENLABS_SFX_MAX_SECS
+ * of audio; ffmpeg loops it to cover the full reel duration.
+ *
+ * Called automatically by mixMusicUnderVoice when no local track is found and the
+ * reel spec contains a music_config.description. Every reel with a music_config will
+ * get a contextually appropriate background without manual track management.
+ */
+async function generateElevenLabsAmbience(description: string): Promise<string> {
+  const { elevenLabsKey } = getConfig();
+  // Condense to first sentence — ElevenLabs SFX works best with short, clear prompts.
+  // Split on sentence-ending punctuation or em-dash (common in NDCH specs).
+  const sfxPrompt = description.split(/[.!?—]/).map(s => s.trim()).filter(Boolean)[0]
+    ?? description.slice(0, 120);
+  console.log(`         ElevenLabs SFX prompt: "${sfxPrompt.slice(0, 80)}…"`);
+  console.log(`         requesting ${ELEVENLABS_SFX_MAX_SECS}s ambient loop…`);
+
+  const audioBuffer = await requestBuffer(
+    'https://api.elevenlabs.io/v1/sound-generation',
+    {
+      method: 'POST',
+      headers: {
+        'xi-api-key': elevenLabsKey,
+        'Content-Type': 'application/json',
+        'Accept': 'audio/mpeg',
+      },
+      body: JSON.stringify({
+        text: sfxPrompt,
+        duration_seconds: ELEVENLABS_SFX_MAX_SECS,
+        prompt_influence: 0.3,
+      }),
+      timeoutMs: ELEVENLABS_SFX_TIMEOUT_MS,
+      maxRetries: 2,
+    }
+  );
+
+  writeFileSync(AMBIENCE_CACHE_PATH, audioBuffer);
+  console.log(`         ambience saved: ${AMBIENCE_CACHE_PATH} (will loop to cover full reel)`);
+  return AMBIENCE_CACHE_PATH;
+}
+
+/**
  * Optionally mixes a dark-ambient music track under the processed voiceover.
  *
  * Music source resolution order:
  *   1. REEL_MUSIC_PATH env var (absolute path)
  *   2. assets/ambient-drone.mp3 in the repo root
- *   3. Not found → skip gracefully, return voicePath unchanged
+ *   3. ElevenLabs Sound Generation API (from music_config.description in reel spec)
+ *   → Not found → skip gracefully, return voicePath unchanged
  *
- * Mix settings (per reel_001 spec):
+ * Mix settings:
  *   • Volume: −18 dB (music sits well beneath the voice)
  *   • Fade-in: 1.5 s
  *   • Fade-out: 2.0 s (timed to end of narration)
  *   • Music loops indefinitely to cover any narration length
  *   • Sidechain ducking keeps narration dominant without hard pumping
  */
-function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): string {
-  const { musicPath: musicEnvPath } = getConfig();
+async function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number): Promise<string> {
+  const { musicPath: musicEnvPath, plan } = getConfig();
   const musicAssetPath = join(resolve('.'), MUSIC_ASSET_RELATIVE_PATH);
-  const musicPath = resolveMusicTrackPath(musicEnvPath, musicAssetPath, existsSync(musicAssetPath));
+  let musicPath = resolveMusicTrackPath(musicEnvPath, musicAssetPath, existsSync(musicAssetPath));
+
+  // Resolution path 3: ElevenLabs Sound Generation (auto, from spec music_config)
+  if (!musicPath && plan.musicConfig?.description) {
+    try {
+      musicPath = await generateElevenLabsAmbience(plan.musicConfig.description);
+    } catch (err) {
+      console.warn(
+        `         [WARN] ElevenLabs ambience generation failed (${(err as Error).message}) — skipping music layer`
+      );
+    }
+  }
 
   if (!musicPath) {
     console.log(
       '         no music track found — skipping music layer ' +
-      '(set REEL_MUSIC_PATH or add assets/ambient-drone.mp3 to the repo)'
+      '(set REEL_MUSIC_PATH, add assets/ambient-drone.mp3, or add music_config.description to the reel spec)'
     );
     return voicePath;
   }
@@ -335,8 +397,8 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
   // ── 1b: Audio post-processing — EQ + LUFS normalisation ───────────────────
   const processedPath = processAudio(rawAudioPath);
 
-  // ── 1c: Ambient music layer (optional) ──────────────────────────────────
-  const finalAudioSource = mixMusicUnderVoice(processedPath, rawDuration);
+  // ── 1c: Ambient music layer (ElevenLabs SFX / local file / optional) ──────
+  const finalAudioSource = await mixMusicUnderVoice(processedPath, rawDuration);
 
   // Normalise to the canonical output filename the rest of the pipeline expects.
   const audioPath = join(TMP, 'voiceover.mp3');
@@ -670,12 +732,12 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
 
   console.log('  [3c] Burning subtitles into video…');
 
-  if (/['\r\n]/.test(assPath)) {
+  if (/['\\r\\n]/.test(assPath)) {
     throw new Error(`Unsafe subtitle path for ffmpeg filter: ${assPath}`);
   }
 
   const fontsDir = join(process.cwd(), 'assets', 'fonts');
-  const fontsArg = existsSync(fontsDir) && !/['\r\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
+  const fontsArg = existsSync(fontsDir) && !/['\\r\\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
   if (!fontsArg) {
     console.log('         no assets/fonts directory — libass will fall back to a system font if the configured font is unavailable');
   }
@@ -910,13 +972,16 @@ async function main(): Promise<void> {
   console.log(`  release tag   : ${releaseTag}`);
   console.log(`  release name  : ${releaseName}`);
   console.log(`  runway conc.  : ${runwayConcurrency}`);
-  console.log(`  music path    : ${musicPath ?? '(auto-detect asset or skip)'}`);
+  console.log(`  music path    : ${musicPath ?? '(auto-detect: asset → ElevenLabs SFX → skip)'}`);
   console.log(`  voice         : ${DR_NKRUMAH_VOICE_ID} (hardcoded — Dr. Nkrumah)`);
   console.log(`  model         : ${plan.elevenLabs.modelId}`);
   console.log(`  style         : ${plan.selectedStyleId ?? '(none)'}`);
   console.log(`  target secs   : ${plan.targetDurationSeconds ?? '(audio-driven)'}`);
   console.log(`  segments      : ${plan.narrationSegments.length || '(auto-split from script)'}`);
   console.log(`  prompt        : ${plan.prompt.slice(0, 80)}…`);
+  if (plan.musicConfig?.description) {
+    console.log(`  music config  : ${plan.musicConfig.description.slice(0, 80)}…`);
+  }
   if (plan.instagram.caption) {
     console.log(`  caption       : ${plan.instagram.caption.slice(0, 80)}…`);
   }
