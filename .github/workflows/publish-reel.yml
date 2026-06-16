@@ -140,3 +140,4 @@ jobs:
           REEL_CAPTION:           ${{ env.REEL_CAPTION || inputs.caption }}
           REEL_COVER_URL:         ${{ env.REEL_COVER_URL }}
         run: npm run publish
+# dispatch-reindex: 20260616T001555
