@@ -741,12 +741,12 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
 
   console.log('  [3c] Burning subtitles into video…');
 
-  if (/['\\r\\n]/.test(assPath)) {
+  if (/['\r\n]/.test(assPath)) {
     throw new Error(`Unsafe subtitle path for ffmpeg filter: ${assPath}`);
   }
 
   const fontsDir = join(process.cwd(), 'assets', 'fonts');
-  const fontsArg = existsSync(fontsDir) && !/['\\r\\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
+  const fontsArg = existsSync(fontsDir) && !/['\r\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
   if (!fontsArg) {
     console.log('         no assets/fonts directory — libass will fall back to a system font if the configured font is unavailable');
   }
