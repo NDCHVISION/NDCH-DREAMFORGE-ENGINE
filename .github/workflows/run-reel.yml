@@ -1,4 +1,4 @@
-name: Generate and Publish Instagram Reel
+name: Generate and Publish Reel
 
 on:
   workflow_dispatch:
@@ -61,8 +61,7 @@ jobs:
             /tmp/runway-05.mp4
             /tmp/runway-06.mp4
           key: runway-clips-${{ inputs.reel_spec_path || 'env' }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
-          restore-keys: |
-            runway-clips-${{ inputs.reel_spec_path || 'env' }}-${{ inputs.cache_bust || 'default' }}-
+          restore-keys: "runway-clips-${{ inputs.reel_spec_path }}-${{ inputs.cache_bust }}-"
 
       - name: Generate voiceover + video
         env:
