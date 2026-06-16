@@ -1,0 +1,61 @@
+name: bisect-a
+on:
+  workflow_dispatch:
+    inputs:
+      reel_spec_path:
+        required: false
+        default: "reels/NDCH_010_SIGNAL_NOISE.json"
+      cache_bust:
+        required: false
+        default: ""
+      engine_config_path:
+        required: false
+      script:
+        required: false
+      video_prompt:
+        required: false
+      caption:
+        required: false
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install deps
+        run: npm ci && sudo apt-get install -y ffmpeg
+      - name: Generate
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
+          ENGINE_CONFIG_PATH: ${{ inputs.engine_config_path }}
+          REEL_SCRIPT: ${{ inputs.script }}
+          REEL_PROMPT: ${{ inputs.video_prompt }}
+          REEL_CAPTION: ${{ inputs.caption }}
+          CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
+        run: npm run generate
+      - name: Plan
+        run: npm run plan
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
+          ENGINE_CONFIG_PATH: ${{ inputs.engine_config_path }}
+      - name: Publish
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
+          REEL_CAPTION: ${{ env.REEL_CAPTION || inputs.caption }}
+        run: npm run publish
