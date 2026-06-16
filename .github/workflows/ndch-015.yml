@@ -19,7 +19,7 @@ jobs:
         id: cache-clips
         uses: actions/cache/restore@v4
         with:
-          path: /tmp/runway-clip-checkpoint.json
+          path: "/tmp/runway-clip-checkpoint.json\n/tmp/runway-01.mp4\n/tmp/runway-02.mp4\n/tmp/runway-03.mp4\n/tmp/runway-04.mp4\n/tmp/runway-05.mp4\n/tmp/runway-06.mp4"
           key: "runway-clips-reels/NDCH_015_THE_OXYGEN_DEBT.json-${{ github.run_id }}"
           restore-keys: "runway-clips-reels/NDCH_015_THE_OXYGEN_DEBT.json-"
       - name: Generate voiceover + video
