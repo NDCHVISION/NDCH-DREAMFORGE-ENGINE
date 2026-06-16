@@ -1,4 +1,4 @@
-name: Generate and Publish Reel
+name: Generate and Publish Reel v2
 
 on:
   workflow_dispatch:
@@ -48,20 +48,6 @@ jobs:
       - name: Run reel planning tests
         run: npm test
 
-      - name: Restore Runway clip checkpoint
-        id: cache-clips
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            /tmp/runway-clip-checkpoint.json
-            /tmp/runway-01.mp4
-            /tmp/runway-02.mp4
-            /tmp/runway-03.mp4
-            /tmp/runway-04.mp4
-            /tmp/runway-05.mp4
-            /tmp/runway-06.mp4
-          key: runway-clips-${{ inputs.reel_spec_path || 'env' }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
-          restore-keys: "runway-clips-${{ inputs.reel_spec_path }}-${{ inputs.cache_bust }}-"
 
       - name: Generate voiceover + video
         env:
@@ -77,19 +63,6 @@ jobs:
         run: npm run generate
 
 
-      - name: Save Runway clip checkpoint
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          path: |
-            /tmp/runway-clip-checkpoint.json
-            /tmp/runway-01.mp4
-            /tmp/runway-02.mp4
-            /tmp/runway-03.mp4
-            /tmp/runway-04.mp4
-            /tmp/runway-05.mp4
-            /tmp/runway-06.mp4
-          key: runway-clips-${{ inputs.reel_spec_path || 'env' }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
 
 
       - name: Upload reel cover to release
@@ -139,4 +112,3 @@ jobs:
           REEL_CAPTION:           ${{ env.REEL_CAPTION || inputs.caption }}
           REEL_COVER_URL:         ${{ env.REEL_COVER_URL }}
         run: npm run publish
-# dispatch-reindex: 20260616T001555
