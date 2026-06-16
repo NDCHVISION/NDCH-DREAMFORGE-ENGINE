@@ -1,0 +1,15 @@
+name: reel-dispatch-test
+on:
+  workflow_dispatch:
+    inputs:
+      reel_spec_path:
+        required: false
+        default: "reels/NDCH_010_SIGNAL_NOISE.json"
+      cache_bust:
+        required: false
+        default: ""
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ inputs.reel_spec_path }}"
