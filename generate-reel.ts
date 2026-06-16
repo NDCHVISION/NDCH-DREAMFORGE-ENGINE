@@ -603,14 +603,23 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
   const durations = scenePlan.map(scene => scene.clipDuration);
   const plannedVisualSecs = durations.reduce((sum, d) => sum + d, 0);
 
-  // Preflight Runway credit check — fail fast if the account lacks credits.
+  // Preflight Runway credit check — only for clips not already in checkpoint.
   try {
-    const estimatedCost = estimateRunwayCostCredits(scenePlan);
-    const balance = await checkRunwayCreditBalance(process.env.RUNWAY_API_KEY ?? '');
-    console.log(
-      `   preflight: Runway credits balance=${balance}, estimated cost=${estimatedCost} for ${scenePlan.length} clip(s)`,
-    );
-    assertSufficientRunwayCredits(balance, estimatedCost);
+    const preflightCheckpoint = loadClipCheckpoint();
+    const uncachedScenes = scenePlan.filter((_, idx) => {
+      const cachedPath = preflightCheckpoint[idx];
+      return !cachedPath || !existsSync(cachedPath);
+    });
+    if (uncachedScenes.length === 0) {
+      console.log(`   preflight: all ${scenePlan.length} clips found in checkpoint — skipping Runway credit check`);
+    } else {
+      const estimatedCost = estimateRunwayCostCredits(uncachedScenes);
+      const balance = await checkRunwayCreditBalance(process.env.RUNWAY_API_KEY ?? '');
+      console.log(
+        `   preflight: Runway credits balance=${balance}, estimated cost=${estimatedCost} for ${uncachedScenes.length}/${scenePlan.length} uncached clip(s)`,
+      );
+      assertSufficientRunwayCredits(balance, estimatedCost);
+    }
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     throw new Error(`Runway credit preflight failed: ${msg}`);
