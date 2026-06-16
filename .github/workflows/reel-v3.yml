@@ -1,0 +1,114 @@
+name: Generate and Publish Reel v3
+
+on:
+  workflow_dispatch:
+    inputs:
+      engine_config_path:
+        description: 'Repo-relative path to the engine config JSON for JSON-driven runs'
+        required: false
+      reel_spec_path:
+        description: 'Repo-relative path to the reel spec JSON for JSON-driven runs'
+        required: false
+        default: 'reels/NDCH_010_SIGNAL_NOISE.json'
+      script:
+        description: 'Voiceover script fallback when REEL_SPEC_PATH is not provided'
+        required: false
+      video_prompt:
+        description: 'Visual prompt fallback when JSON inputs do not resolve one'
+        required: false
+      caption:
+        description: 'Instagram caption fallback (max 2200 chars, include hashtags)'
+        required: false
+      cache_bust:
+        description: 'Set to any value (e.g. v3) to force fresh Runway clips. Leave blank to resume a crash.'
+        required: false
+        default: ''
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    permissions:
+      contents: write   # required to create GitHub Releases
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies and tools
+        run: |
+          npm ci
+          sudo apt-get install -y ffmpeg
+
+      - name: Run reel planning tests
+        run: npm test
+
+
+      - name: Generate voiceover + video
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY:     ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN:       ${{ secrets.GITHUB_TOKEN }}
+          ENGINE_CONFIG_PATH: ${{ inputs.engine_config_path }}
+          REEL_SPEC_PATH:     ${{ inputs.reel_spec_path }}
+          REEL_SCRIPT:        ${{ inputs.script }}
+          REEL_PROMPT:        ${{ inputs.video_prompt }}
+          REEL_CAPTION:       ${{ inputs.caption }}
+          CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
+        run: npm run generate
+
+
+
+
+      - name: Upload reel cover to release
+        if: ${{ inputs.reel_spec_path != '' && inputs.reel_spec_path != null }}
+        run: |
+          COVER=$(jq -r '.cover_asset_path // empty' "$REEL_SPEC_PATH" 2>/dev/null || true)
+          if [ -n "$COVER" ] && [ -f "$COVER" ]; then
+            echo "Uploading cover image: $COVER"
+            gh release upload reel-latest "$COVER" --clobber
+            COVER_FILENAME=$(basename "$COVER")
+            COVER_URL=$(gh release view reel-latest --json assets \
+              -q ".assets[] | select(.name == \"$COVER_FILENAME\") | .browserDownloadUrl")
+            echo "REEL_COVER_URL=$COVER_URL" >> "$GITHUB_ENV"
+            echo "Cover URL set: $COVER_URL"
+          else
+            echo "No cover_asset_path in spec or file missing â skipping cover upload"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
+
+      - name: Surface resolved production plan
+        if: ${{ env.REEL_RESOLVED_PLAN_PATH != '' }}
+        run: |
+          echo "Resolved production plan path: $REEL_RESOLVED_PLAN_PATH"
+          echo '## Reel generation debug info' >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          echo "- Engine config: \`${ENGINE_CONFIG_PATH:-'(not provided - using fallback inputs)'}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Reel spec: \`${REEL_SPEC_PATH:-'(not provided - using fallback inputs)'}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Resolved production plan: \`$REEL_RESOLVED_PLAN_PATH\`" >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat "$REEL_RESOLVED_PLAN_PATH" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+        env:
+          ENGINE_CONFIG_PATH: ${{ inputs.engine_config_path }}
+          REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
+
+      - name: Publish to Instagram
+        env:
+          INSTAGRAM_PAGE_TOKEN:   ${{ secrets.INSTAGRAM_PAGE_TOKEN }}
+          IG_BUSINESS_ACCOUNT_ID: "17841463257757058"
+          META_APP_ID:            "1966454147334333"
+          META_APP_SECRET:        ${{ secrets.META_APP_SECRET }}
+          FB_PAGE_ID:             "782632291594234"
+          REEL_VIDEO_URL:         ${{ env.REEL_VIDEO_URL }}
+          REEL_CAPTION:           ${{ env.REEL_CAPTION || inputs.caption }}
+          REEL_COVER_URL:         ${{ env.REEL_COVER_URL }}
+        run: npm run publish
