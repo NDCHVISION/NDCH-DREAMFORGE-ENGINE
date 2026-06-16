@@ -1,0 +1,43 @@
+name: NDCH-015 Oxygen Debt
+on:
+  workflow_dispatch:
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install dependencies and tools
+        run: npm ci && sudo apt-get install -y ffmpeg
+      - name: Restore Runway clip checkpoint
+        id: cache-clips
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/runway-clip-checkpoint.json
+          key: "runway-clips-reels/NDCH_015_THE_OXYGEN_DEBT.json-${{ github.run_id }}"
+          restore-keys: "runway-clips-reels/NDCH_015_THE_OXYGEN_DEBT.json-"
+      - name: Generate voiceover + video
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_SPEC_PATH: reels/NDCH_015_THE_OXYGEN_DEBT.json
+          CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
+        run: npm run generate
+      - name: Publish to Instagram
+        env:
+          INSTAGRAM_PAGE_TOKEN: ${{ secrets.INSTAGRAM_PAGE_TOKEN }}
+          IG_BUSINESS_ACCOUNT_ID: "17841463257757058"
+          META_APP_ID: "1966454147334333"
+          META_APP_SECRET: ${{ secrets.META_APP_SECRET }}
+          FB_PAGE_ID: "782632291594234"
+          REEL_VIDEO_URL: ${{ env.REEL_VIDEO_URL }}
+          REEL_CAPTION: ${{ env.REEL_CAPTION }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run publish
