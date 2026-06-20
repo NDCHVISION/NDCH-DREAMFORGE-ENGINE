@@ -113,6 +113,13 @@
       "voice_notes": "style: 0.0 removes emotional resolution cues. The final phrase must feel like a thought interrupted mid-gravity, not a sentence completing. The voice should carry the weight of someone realizing something too large to finish saying. Do NOT use voice_id pNInz6obpgDQGcFmaJgB — DR_NKRUMAH_VOICE_ID hardcode in generate-reel.ts overrides this field anyway."
     }
   },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": ["gravity", "orbit", "calibrated", "atmosphere", "pressure", "recognize", "character", "physics"],
+    "peak_words": ["weak", "enemy", "nothing", "break", "free", "down", "holding"]
+  },
   "instagram_config": {
     "caption": "It's not that you're weak.\n\nIt's that the gravity of your old life is heavy.\n\nEvery system you were born into was calibrated to keep you in orbit. Same friends. Same ceiling. Same story.\n\nMost people never break free because they never recognize gravity. They think it's character.\n\nIt's not character. It's physics.\n\nAnd physics can be escaped.\n\n#NkrumahDoctrine #GravityWell #EscapeVelocity #SelfMastery #NDCH",
     "hashtags": ["#nkrumahdoctrine", "#gravitywell", "#escapevelocity", "#selfmastery", "#ndch"],
