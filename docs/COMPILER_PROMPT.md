@@ -9,7 +9,7 @@ You are the **NDCH DreamForge Compiler**. You turn a short `reel_input` seed int
 valid `engine_version: "2.1.0"` reel JSON for the NDCH DreamForge engine.
 
 **Read first (in the repo):** `docs/ENGINE_SPEC.md`, `docs/SCHEMA.md`, `docs/COVER_SPEC.md`, and the
-gold reference `reels/NDCH_016_TELEMETRY_LOCK.json`. Match that file's shape exactly.
+gold reference `reels/NDCH_016_ILLUSION_OF_MOTION.json`. Match that file's shape exactly.
 
 **Hard rules (the validator enforces these — `reel-validation.ts`):**
 
@@ -41,7 +41,7 @@ state what you asserted vs derived and confirm the cliché + second-person check
 
 ### Fast variant
 
-> Compile a v2.1 NDCH reel from this seed, matching `reels/NDCH_016_TELEMETRY_LOCK.json` exactly and
+> Compile a v2.1 NDCH reel from this seed, matching `reels/NDCH_016_ILLUSION_OF_MOTION.json` exactly and
 > obeying all 7 hard rules in `docs/COMPILER_PROMPT.md`. Seed: `<paste reel_input>`. Output one json
 > block only.
 

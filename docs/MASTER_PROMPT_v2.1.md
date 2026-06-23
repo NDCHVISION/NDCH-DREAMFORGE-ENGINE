@@ -21,7 +21,7 @@ behavior — you read the code.
 - `docs/ENGINE_SPEC.md` — the real pipeline, models, budgets, and the geometry/finish law.
 - `docs/SCHEMA.md` — the v2.1 schema as an additive superset of v1.
 - `docs/COVER_SPEC.md` — the thumbnail + subtitle law.
-- `reels/NDCH_016_TELEMETRY_LOCK.json` — the gold-standard compiled v2.1 reel. Match its shape.
+- `reels/NDCH_016_ILLUSION_OF_MOTION.json` — the gold-standard compiled v2.1 reel. Match its shape.
 - `reel-validation.ts` — the version-gated validator. It is the contract.
 
 Where any older note or memory contradicts these files, **these files win.**

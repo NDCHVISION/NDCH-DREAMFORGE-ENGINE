@@ -64,4 +64,4 @@ clipped. **The budget is 1000, not 512.** The validator enforces 1000.
 - Resolver paths: `reel-plan.ts` (`pickString`/`pickValue` chains).
 - Runway budget: `lib/scene-planning.ts` `MAX_RUNWAY_PROMPT_CHARS`.
 - Validator: `reel-validation.ts` (`validateCompiledReel`, version-gated).
-- Gold reel: `reels/NDCH_016_TELEMETRY_LOCK.json`.
+- Gold reel: `reels/NDCH_016_ILLUSION_OF_MOTION.json`.

@@ -16,7 +16,11 @@ function loadReel(name: string): unknown {
   return JSON.parse(readFileSync(join(REELS_DIR, name), 'utf8'));
 }
 
-const GOLD = 'NDCH_016_TELEMETRY_LOCK.json';
+const GOLD = 'NDCH_016_ILLUSION_OF_MOTION.json';
+
+// Narration seam of the gold reel (open-clause möbius loop).
+const SEAM_START = 'You think you are preparing,';
+const SEAM_END = 'you validate the drag...';
 
 // ---------------------------------------------------------------------------
 // Non-destructive guarantee: v1 reels are never asserted against.
@@ -150,7 +154,7 @@ test('detects banned cliché', () => {
   const reel = clone();
   setFullText(
     reel,
-    'telling you the truth. You must unlock your true self now. the number was always',
+    `${SEAM_START} You must unlock your true self now, ${SEAM_END}`,
   );
   assert.ok(codes(reel).includes('BANNED_CLICHE'));
 });
@@ -159,7 +163,7 @@ test('detects missing second person', () => {
   const reel = clone();
   setFullText(
     reel,
-    'telling the truth. The system drifts and the lattice ignites. the number was always',
+    'The plan is the cage and the spreadsheet is the bars and the map is never the terrain...',
   );
   assert.ok(codes(reel).includes('SECOND_PERSON'));
 });
@@ -168,16 +172,22 @@ test('detects closed clause (no möbius seam)', () => {
   const reel = clone();
   setFullText(
     reel,
-    'telling you the truth. You drift until the number arrives and corrects you completely.',
+    'You think you are preparing, but you are hiding, and the arena does not care about your map.',
   );
   assert.ok(codes(reel).includes('MOBIUS_OPEN_CLAUSE'));
+});
+
+test('accepts a trailing ellipsis as a valid open clause', () => {
+  const reel = clone();
+  // Same as gold but ensure ellipsis is treated as open, not a sentence-stop.
+  assert.ok(!codes(reel).includes('MOBIUS_OPEN_CLAUSE'));
 });
 
 test('detects loop seam start/end mismatch', () => {
   const reel = clone();
   setFullText(
     reel,
-    'something else entirely. You drift and the lattice ignites and corrects your line',
+    'Something else entirely begins here and the map is never the terrain you must cross...',
   );
   const c = codes(reel);
   assert.ok(c.includes('LOOP_SEAM_START'));

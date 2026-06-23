@@ -4,6 +4,10 @@ A v2.1 reel is a **superset** of a v1 reel. Every v1 path the resolver reads is 
 so `resolveProductionPlan()` behaves identically and the ffmpeg pipeline runs unchanged. The new
 keys are **descriptive metadata** consumed by `reel-validation.ts` and (later) a Remotion compiler.
 
+> **Golden sample:** `reels/NDCH_016_ILLUSION_OF_MOTION.json` is the canonical v2.1 reel, mirrored at
+> `schemas/ndch_reel_v2_template.json`. New reels are instances of this shape with a different
+> concept/script/cover but identical structural fields. It is the regression fixture.
+
 ## v1 paths that MUST be present (resolver reads these)
 
 | Path                                                                                         | Used for                           |
@@ -37,15 +41,18 @@ keys are **descriptive metadata** consumed by `reel-validation.ts` and (later) a
 | `timing_normalization`         | how segment seconds reconcile to exactly 45.0                                                           |
 | `loop_seam_validation`         | text seam must start/end strings; visual seam geometry match                                            |
 | `derivation_audit`             | provenance: what was asserted vs derived; cliché + 2nd-person checks                                    |
+| `voiceover.script.segments[].compiled_outputs` | per-segment `runway_api_prompt_string` (the exact text sent to Runway, ≤1000 chars) + `elevenlabs_payload` |
 
 ## Locked geometry (validated for v2.1.0 only)
 
 - **Segments:** exactly 5, IDs in order `["hook","build","pivot","resolution","mobius_close"]`.
 - **Timestamps:** continuous, first starts `0:00`, monotonic, no gaps.
 - **Total duration:** exactly `45.0s` (and `format.target_duration_seconds === 45`).
-- **Per-segment `visual_prompt`:** ≤ `1000` chars (the real engine budget).
+- **Per-segment `visual_prompt`** and **`compiled_outputs.runway_api_prompt_string`:** ≤ `1000`
+  chars (the real engine budget — `lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS`).
 - **Narration:** second person; no banned clichés (`unlock`, `journey`, `transform`, `potential`);
-  ends on an **open clause** (no terminal `.`/`!`/`?`) to seal the möbius loop.
+  ends on an **open clause** to seal the möbius loop. A trailing ellipsis (`...`/`…`) counts as a
+  valid open clause; a hard single terminal `.`/`!`/`?` does not.
 - **Loop seam:** `full_text` starts with `loop_seam_validation.full_text_must_start_with` and ends
   with `..._must_end_with`.
 

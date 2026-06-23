@@ -192,6 +192,19 @@ export function validateCompiledReel(spec: unknown): ReelValidationResult {
         `Segment "${id}" visual_prompt is ${segPrompt.length} chars; the active engine clips to ${MAX_RUNWAY_PROMPT_CHARS}.`,
       );
     }
+
+    // The compiled Runway string (v2 compiled_outputs) is the text actually
+    // sent to Runway when present — it must also respect the budget.
+    const compiledRunway = pickString(segment, [
+      'compiled_outputs',
+      'runway_api_prompt_string',
+    ]);
+    if (compiledRunway && compiledRunway.length > MAX_RUNWAY_PROMPT_CHARS) {
+      err(
+        'COMPILED_PROMPT_BUDGET',
+        `Segment "${id}" compiled_outputs.runway_api_prompt_string is ${compiledRunway.length} chars; the active engine clips to ${MAX_RUNWAY_PROMPT_CHARS}.`,
+      );
+    }
   });
 
   // --- Total duration locked to 45.0s --------------------------------------
@@ -241,12 +254,15 @@ export function validateCompiledReel(spec: unknown): ReelValidationResult {
       );
     }
 
-    // Möbius loop seam — open clause, no terminal punctuation.
+    // Möbius loop seam — narration must end on an OPEN clause so it flows back
+    // into the hook on loop. A trailing ellipsis ("..." or "…") IS a valid open
+    // clause (a thought left hanging). Only a hard single sentence-stop fails.
     const trimmed = fullText.trim();
-    if (/[.!?]$/.test(trimmed)) {
+    const endsWithEllipsis = /(\.\.\.|…)$/.test(trimmed);
+    if (!endsWithEllipsis && /[.!?]$/.test(trimmed)) {
       err(
         'MOBIUS_OPEN_CLAUSE',
-        'Narration must end on an open clause (no terminal . ! ?) to seal the möbius loop.',
+        'Narration must end on an open clause (a trailing ellipsis, or no terminal . ! ?) to seal the möbius loop.',
       );
     }
 
