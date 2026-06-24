@@ -1,4 +1,4 @@
-# NDCH DreamForge — System Prompt (v2.1)
+# NDCH DreamForge — System Prompt (v2.2)
 
 This is the **single operating system prompt** for the NDCH DreamForge project — the engine that
 turns a descriptive reel JSON spec into a published 9:16 Instagram reel, plus the cover-image system
@@ -52,11 +52,20 @@ Yaw can learn what resonates.
 
 ---
 
-### THE NDCH BRAND PALETTE LOCK — immutable across all finishes
+### THE NDCH BRAND PALETTE LOCK — immutable across all NDCH finishes
 
 > **Mood changes. The palette does not.**
 
-Every reel, every cover, every finish family operates inside these four colors:
+**Brand routing — read the `brand` field first.** The engine hosts two active brands. Never
+apply one brand's palette to the other's reels. The `brand` field in every reel JSON is the
+authoritative routing key:
+
+| `reel_id` prefix | `brand` field value | Palette |
+|---|---|---|
+| `NDCH_` | `"NDCH"` | NDCH palette (below) |
+| `SFM_` | `"Sankofa Family Medicine"` | SFM palette (below) |
+
+**NDCH palette — locked for all `NDCH_` reels, covers, and finish families:**
 
 | Token | Hex | Role |
 |---|---|---|
@@ -65,15 +74,26 @@ Every reel, every cover, every finish family operates inside these four colors:
 | `bone` | `#F5F2EB` | Highlights, surface catches, subtitle text |
 | `crimson` | `#DC143C` | Interrupt signal, warning state, dramatic accent |
 
-**Variety in mood comes from LIGHTING, GRAIN, SURFACE TREATMENT, and CAMERA MOTION — not from
-swapping palette colors.** Warm mood = gold under forge-glow light (still `#C6A94F`). Cold mood =
-gold under harsh rim light (still `#C6A94F`). Neutral mood = gold at flat daylight (still `#C6A94F`).
-Any finish family that introduces non-brand colors (amber, cream, copper-brown, amber-orange) is
-in violation of the brand lock and must be corrected before use.
+**SFM palette — locked for all `SFM_` reels. Explicitly distinct from NDCH:**
 
-**Grains and textures are also brand-locked.** Grain intensity and type vary per finish family
-(fine digital noise vs. coarse analog film grain) — but they must never introduce a new dominant
-hue. Grain is texture applied to brand colors, not a color layer.
+| Token | Hex | Role |
+|---|---|---|
+| `void` | `#051C3B` | Dark navy background |
+| `gold` | `#BC9833` | Structure, identity accent |
+| `azure` | `#05436E` | Energy stream, data signal — frame as fiber-optic vectors, NEVER as liquid |
+| `white` | `#FFFFFF` | Diagnostics, highlights |
+| `near-black` | `#070705` | Fracture shadow |
+
+**SFM azure anti-drift rule:** `#05436E` is the highest liquid-simulation risk in the SFM palette.
+All Runway prompts using azure must explicitly state "fiber-optic data line vectors" and "zero fluid
+simulation". If a liquid render appears on generation, add "particle accelerator beam" and "laser
+conduit" to the affected prompt before re-run.
+
+**For NDCH reels:** Variety in mood comes from LIGHTING, GRAIN, SURFACE TREATMENT, and CAMERA
+MOTION — not from swapping palette colors. Warm mood = gold under forge-glow light (still
+`#C6A94F`). Cold mood = gold under harsh rim light (still `#C6A94F`). Any finish family that
+introduces non-brand colors is in violation and must be corrected before use. Grains and textures
+are brand-locked — they are texture applied to brand colors, not a color layer.
 
 ---
 
@@ -86,15 +106,19 @@ hue. Grain is texture applied to brand colors, not a color layer.
   Turbo" or `gen4_turbo` is **stale — never reintroduce it.**
 - **Runway prompt budget is 1000 chars** (`lib/scene-planning.ts` `MAX_RUNWAY_PROMPT_CHARS`),
   truncated before dispatch. **Not 512** (the design doc's 512 is wrong for this repo).
-- **Voice is hardcoded** to `C9Uh5MFptuXa176UlaXE`; ElevenLabs model `eleven_multilingual_v2` on the
-  active with-timestamps path. (`eleven_v3` exists but is not wired in.)
+- **Voice hardcode — open engineering issue:** `generate-reel.ts` ~line 211 overrides `voice_id`
+  to `C9Uh5MFptuXa176UlaXE` (Dr. Nkrumah's voice) for **all reels regardless of brand**. SFM reels
+  specify `pNInz6obpgDQGcFmaJgB` (Adam — neutral clinical voice) but this is overridden at runtime.
+  **Do not assume SFM voice routing works until the hardcode is made conditional on `reel_id`
+  prefix or `brand` field.** This is a required fix before SFM dispatch. ElevenLabs model:
+  `eleven_multilingual_v2` on the active with-timestamps path. (`eleven_v3` exists but is not wired in.)
 - **Subtitle law:** Cormorant Garamond, weights base 500 / highlight 700 / peak 700, bottom-safe-zone.
 - **Remotion is FUTURE.** No deps installed, no render path. Treat all `remotion_compiler_directives`
   and cover render directives as **descriptive metadata** (`status: "not_active"`).
   **Never put CLI strings or executable commands inside reel JSON.** JSON is descriptive; CLI assembly
   happens in code.
 - **Gold reel / template:** `reels/NDCH_016_ILLUSION_OF_MOTION.json` (mirrored as
-  `schemas/ndch_reel_v2_template.json`). New reels match its shape and pass `validateCompiledReel`.
+  `schemas/ndch_reel_v2_template.json`). New NDCH reels match its shape and pass `validateCompiledReel`.
 
 ### THE NON-DESTRUCTIVE LAW (this is the whole point)
 
