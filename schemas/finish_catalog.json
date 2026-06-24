@@ -1,0 +1,192 @@
+{
+  "version": "1.1.0",
+  "note": "Finish-layer catalog only. Geometry is locked elsewhere (TELEMETRY 014 law). The validator never reads this file. Use finish_family_id in a reel to reference a family here. ALL families must derive from the NDCH brand palette: void #1A1A1A · gold #C6A94F · bone #F5F2EB · crimson #DC143C. Mood variety comes from lighting, grain, surface treatment, and camera motion — NOT from swapping palette colors.",
+  "ndch_brand_palette": {
+    "void": "#1A1A1A",
+    "gold": "#C6A94F",
+    "bone": "#F5F2EB",
+    "crimson": "#DC143C",
+    "note": "These four colors are the immutable brand lock. Every finish family's dominant_palette_lock must use only these values. Tone variation is achieved via lighting temperature, grain intensity, and surface treatment — not palette substitution."
+  },
+  "families": [
+    {
+      "id": "fractal_cad_cold",
+      "label": "Fractal CAD Cold",
+      "description": "Hard-geometry CAD aesthetic, cold-lit brand palette. Gold telemetry reads as cool and precise under harsh rim light. Production reference: NDCH_016_ILLUSION_OF_MOTION.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+        "lighting_direction": "upper-left",
+        "lighting_quality": "harsh cold rim — pushes gold toward platinum, bone toward blue-white",
+        "color_temperature": "cold (below 4000K)",
+        "camera_distance_arc": "wide → medium → extreme-close → wide → medium",
+        "grain_mood_note": "High isolation grain reinforces precision-under-pressure feel.",
+        "anti_drift_rules": [
+          "NO liquid, fluid, or organic morphing — geometry must remain rigid",
+          "NO floating particles or ambient debris unless specified",
+          "NO lens flares unless tied to interference event",
+          "ALL transitions must be cut-hard or precision wipe — no dissolves",
+          "Maintain 9:16 vertical framing at all times — no reframe",
+          "Palette is NDCH brand only — no amber, cream, or non-brand tones"
+        ]
+      },
+      "camera_vocabulary": [
+        "vertical drift downward",
+        "slow push-in",
+        "static locked",
+        "slow pull-back",
+        "orbital drift",
+        "tilt reveal"
+      ],
+      "sound_archetype": "industrial_tension",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      },
+      "post_processing": {
+        "chromatic_aberration": "4-5px RGB split on interference events; 1px baseline during gold sequences",
+        "motion_blur": "moderate — 3-4px directional blur aligned to camera movement axis"
+      }
+    },
+    {
+      "id": "forge_ember_warm",
+      "label": "Forge Ember Warm",
+      "description": "The same brand palette read under warm forge-fire light. Void deepens to charred black, gold becomes molten, bone shifts to ember-lit parchment, crimson intensifies to live coal. Slower cinematic pacing — authority without urgency.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+        "lighting_direction": "top-center",
+        "lighting_quality": "warm forge glow — 4200K–5000K; gold reads as molten, void as charred, bone as ember-lit",
+        "color_temperature": "warm (4200K–5000K)",
+        "camera_distance_arc": "medium → close → medium → wide → medium",
+        "grain_mood_note": "Soft warm analog grain reinforces the forge-material feel without softening edges.",
+        "anti_drift_rules": [
+          "Palette is NDCH brand only — warm mood comes from LIGHTING, not from replacing colors",
+          "No amber, cream, or orange substitutes for gold — use #C6A94F under warm light",
+          "Transitions: slow dissolve or precision wipe only",
+          "NO neon or electric accents",
+          "Maintain 9:16 vertical framing at all times"
+        ]
+      },
+      "camera_vocabulary": [
+        "orbital drift",
+        "tilt reveal",
+        "slow track-in",
+        "static lock",
+        "slow pull-back",
+        "push-in from below"
+      ],
+      "sound_archetype": "embers_drone",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.08,
+        "clarity_scenes_intensity": 0.04,
+        "grain_type": "warm analog grain — coarser than fractal_cad_cold but never muddy"
+      },
+      "post_processing": {
+        "chromatic_aberration": "none — warm light palette does not use RGB split",
+        "motion_blur": "minimal — 1-2px directional blur"
+      }
+    },
+    {
+      "id": "void_spiral_neutral",
+      "label": "Void Spiral Neutral",
+      "description": "Brand palette at neutral daylight — 5500K–6500K. Void reads as pure deep black, gold as clean bullion, bone as stark white, crimson as flat scarlet. Meditative pacing with mandatory rotational camera. Heavy coarse grain for maximum tactile weight.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+        "lighting_direction": "center-top radial",
+        "lighting_quality": "diffuse neutral halo — 5500K–6500K; palette reads at face value",
+        "color_temperature": "neutral (5500K–6500K)",
+        "camera_distance_arc": "extreme-close → wide → medium → extreme-close → wide",
+        "grain_mood_note": "Maximum grain at isolation scenes — the texture IS the mood.",
+        "anti_drift_rules": [
+          "Palette is NDCH brand only — neutral mood comes from LIGHTING, not from replacing colors",
+          "No warm or cool color substitutes — neutral light reveals brand colors at face value",
+          "Camera must always have a rotational component",
+          "Grain is mandatory — minimum isolation intensity 0.15",
+          "Maintain 9:16 vertical framing at all times"
+        ]
+      },
+      "camera_vocabulary": [
+        "slow orbital",
+        "counter-clockwise drift",
+        "vertical pull-back",
+        "static lock",
+        "push-in with slight rotation"
+      ],
+      "sound_archetype": "ambient_drone",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.18,
+        "clarity_scenes_intensity": 0.07,
+        "grain_type": "coarse analog film grain — maximum tactile weight"
+      },
+      "post_processing": {
+        "chromatic_aberration": "subtle — 1-2px baseline throughout",
+        "motion_blur": "heavy rotational — 5-6px circular blur aligned to camera rotation axis"
+      }
+    }
+  ],
+  "sound_archetypes": {
+    "industrial_tension": {
+      "bpm_range": "80–88",
+      "emotional_register": "tense anticipation — pressure building toward fracture",
+      "instrumentation_direction": "metallic percussion, low synth drone, staccato string hits",
+      "energy_arc": "low → rising → peak at pivot → sustained through resolution"
+    },
+    "embers_drone": {
+      "bpm_range": "68–78",
+      "emotional_register": "smoldering gravity — authority without urgency",
+      "instrumentation_direction": "low cello drone, sparse piano, warm sub-bass",
+      "energy_arc": "steady → deepen at pivot → quiet resolution"
+    },
+    "ambient_drone": {
+      "bpm_range": "free / non-metered",
+      "emotional_register": "meditative weight — contemplation before action",
+      "instrumentation_direction": "long sine tones, field recording texture, minimal percussion",
+      "energy_arc": "flat with single swell at resolution"
+    }
+  },
+  "voice_mode_presets": {
+    "note": "Map a named voice_mode to ElevenLabs voice_settings_override values. Assign per segment in the reel. Same voice_id always — only ElevenLabs parameters change. Variety in delivery comes from pacing, pause placement, and intonation cues in the script — not from swapping voice IDs.",
+    "declarative": {
+      "stability": 0.50,
+      "similarity_boost": 0.85,
+      "style": 0.15,
+      "use_speaker_boost": true,
+      "speed": 1.05,
+      "description": "Confident assertion. Default mode for hook and build segments."
+    },
+    "staccato": {
+      "stability": 0.45,
+      "similarity_boost": 0.88,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1.10,
+      "description": "Clipped, percussive delivery. Use for pivot — short declarative sentences."
+    },
+    "weighted": {
+      "stability": 0.60,
+      "similarity_boost": 0.80,
+      "style": 0.08,
+      "use_speaker_boost": true,
+      "speed": 0.95,
+      "description": "Slower, heavier emphasis. Use for resolution — earned gravity after the fracture."
+    },
+    "trailing": {
+      "stability": 0.55,
+      "similarity_boost": 0.80,
+      "style": 0.00,
+      "use_speaker_boost": true,
+      "speed": 0.90,
+      "description": "Voice trails into silence. Use for mobius_close — the open-clause seam."
+    }
+  },
+  "meta_prompt_loop": {
+    "note": "After each reel, answer these questions and log the answers in docs/FINISH_LOG.md to feed the RMP refinement loop.",
+    "questions": [
+      "Did the finish family enhance or compete with the concept?",
+      "Did the voice mode per segment match the emotional arc?",
+      "Which camera vocabulary moves felt fresh vs. repeated from the last reel?",
+      "Did the sound archetype reinforce the brand palette's mood or fight it?",
+      "What variation_seed produced the most distinct Runway output — document it."
+    ]
+  }
+}
