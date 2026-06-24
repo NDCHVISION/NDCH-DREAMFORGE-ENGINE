@@ -1,0 +1,169 @@
+{
+  "version": "1.0.0",
+  "note": "Finish-layer catalog only. Geometry is locked elsewhere (TELEMETRY 014 law). The validator never reads this file. Use finish_family_id in a reel to reference a family here.",
+  "families": [
+    {
+      "id": "fractal_cad_cold",
+      "label": "Fractal CAD Cold",
+      "description": "Hard-geometry CAD aesthetic, cold palette, gold telemetry on matte black. Production reference: NDCH_016_ILLUSION_OF_MOTION.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+        "lighting_direction": "upper-left",
+        "lighting_quality": "harsh rim",
+        "camera_distance_arc": "wide → medium → extreme-close → wide → medium",
+        "color_temperature": "cold (below 4000K)",
+        "anti_drift_rules": [
+          "NO liquid, fluid, or organic morphing — geometry must remain rigid",
+          "NO floating particles or ambient debris unless specified",
+          "NO lens flares unless tied to interference event",
+          "ALL transitions must be cut-hard or precision wipe — no dissolves",
+          "Maintain 9:16 vertical framing at all times — no reframe"
+        ]
+      },
+      "camera_vocabulary": [
+        "vertical drift downward",
+        "slow push-in",
+        "static locked",
+        "slow pull-back",
+        "orbital drift",
+        "tilt reveal"
+      ],
+      "sound_archetype": "industrial_tension",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      },
+      "post_processing": {
+        "chromatic_aberration": "4-5px RGB split on interference events; 1px baseline during gold sequences",
+        "motion_blur": "moderate — 3-4px directional blur aligned to camera movement axis"
+      }
+    },
+    {
+      "id": "oxide_archive_warm",
+      "label": "Oxide Archive Warm",
+      "description": "Warm oxidized tones, smoky amber light, slower cinematic pacing. Contrast to fractal_cad_cold.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#1B1715", "#B86A2E", "#D8B26E", "#F2E6C9"],
+        "lighting_direction": "top-center",
+        "lighting_quality": "smoky amber glow",
+        "camera_distance_arc": "medium → close → medium → wide → medium",
+        "color_temperature": "warm (4200K–5200K)",
+        "anti_drift_rules": [
+          "No cold blue or green tones — palette stays amber-to-cream",
+          "Transitions: slow dissolve or precision wipe only",
+          "NO neon or electric accents",
+          "Maintain 9:16 vertical framing at all times"
+        ]
+      },
+      "camera_vocabulary": [
+        "orbital drift",
+        "tilt reveal",
+        "slow track-in",
+        "static lock",
+        "slow pull-back",
+        "push-in from below"
+      ],
+      "sound_archetype": "embers_drone",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.08,
+        "clarity_scenes_intensity": 0.04,
+        "grain_type": "warm analog grain"
+      },
+      "post_processing": {
+        "chromatic_aberration": "none — warm palette does not use RGB split",
+        "motion_blur": "minimal — 1-2px directional blur"
+      }
+    },
+    {
+      "id": "dust_spiral_neutral",
+      "label": "Dust Spiral Neutral",
+      "description": "Monochrome near-neutral with slow rotational camera, fine particulate texture. Meditative pacing.",
+      "visual_thread": {
+        "dominant_palette_lock": ["#111111", "#D4D0C8", "#888880", "#F5F2EB"],
+        "lighting_direction": "center-top radial",
+        "lighting_quality": "diffuse halo",
+        "camera_distance_arc": "extreme-close → wide → medium → extreme-close → wide",
+        "color_temperature": "neutral (5500K–6500K)",
+        "anti_drift_rules": [
+          "No warm amber or cold blue accent — strictly neutral",
+          "Camera must always have a rotational component",
+          "Grain is mandatory — minimum isolation intensity 0.10",
+          "Maintain 9:16 vertical framing at all times"
+        ]
+      },
+      "camera_vocabulary": [
+        "slow orbital",
+        "counter-clockwise drift",
+        "vertical pull-back",
+        "static lock",
+        "push-in with slight rotation"
+      ],
+      "sound_archetype": "ambient_drone",
+      "film_grain": {
+        "isolation_scenes_intensity": 0.15,
+        "clarity_scenes_intensity": 0.06,
+        "grain_type": "coarse analog film grain"
+      },
+      "post_processing": {
+        "chromatic_aberration": "subtle — 1-2px baseline throughout",
+        "motion_blur": "heavy rotational — 5-6px circular blur aligned to camera rotation axis"
+      }
+    }
+  ],
+  "sound_archetypes": {
+    "industrial_tension": {
+      "bpm_range": "80–88",
+      "emotional_register": "tense anticipation — pressure building toward fracture",
+      "instrumentation_direction": "metallic percussion, low synth drone, staccato string hits",
+      "energy_arc": "low → rising → peak at pivot → sustained through resolution"
+    },
+    "embers_drone": {
+      "bpm_range": "68–78",
+      "emotional_register": "smoldering gravity — authority without urgency",
+      "instrumentation_direction": "low cello drone, sparse piano, warm sub-bass",
+      "energy_arc": "steady → deepen at pivot → quiet resolution"
+    },
+    "ambient_drone": {
+      "bpm_range": "free / non-metered",
+      "emotional_register": "meditative weight — contemplation before action",
+      "instrumentation_direction": "long sine tones, field recording texture, minimal percussion",
+      "energy_arc": "flat with single swell at resolution"
+    }
+  },
+  "voice_mode_presets": {
+    "note": "Map a named voice_mode to ElevenLabs voice_settings_override values. Assign per segment in the reel. Same voice_id always — only ElevenLabs parameters change.",
+    "declarative": {
+      "stability": 0.50,
+      "similarity_boost": 0.85,
+      "style": 0.15,
+      "use_speaker_boost": true,
+      "speed": 1.05,
+      "description": "Confident assertion. Default mode for hook and build segments."
+    },
+    "staccato": {
+      "stability": 0.45,
+      "similarity_boost": 0.88,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1.10,
+      "description": "Clipped, percussive delivery. Use for pivot — short declarative sentences."
+    },
+    "weighted": {
+      "stability": 0.60,
+      "similarity_boost": 0.80,
+      "style": 0.08,
+      "use_speaker_boost": true,
+      "speed": 0.95,
+      "description": "Slower, heavier emphasis. Use for resolution — earned gravity after the fracture."
+    },
+    "trailing": {
+      "stability": 0.55,
+      "similarity_boost": 0.80,
+      "style": 0.00,
+      "use_speaker_boost": true,
+      "speed": 0.90,
+      "description": "Voice trails into silence. Use for mobius_close — the open-clause seam."
+    }
+  }
+}
