@@ -1,0 +1,602 @@
+{
+  "reel_id": "NDCH_016_ILLUSION_OF_MOTION",
+  "engine_version": "2.1.0",
+  "schema_changelog": {
+    "version": "2.1.0",
+    "based_on": "2.0.0 (doc) over 1.0.0 (production reels)",
+    "compatibility": "Additive over v1.0.0: every path reel-plan.ts resolveProductionPlan() reads is preserved (voiceover.script.segments[].{text,visual_prompt,timestamp_start,timestamp_end}, voiceover.elevenLabs_config, subtitle_config, music_config, instagram_config, format.target_duration_seconds). The ffmpeg pipeline runs unchanged. v2.1 fields are descriptive metadata for validate-reel.ts and the future Remotion compiler.",
+    "v2_additions": [
+      "visual_thread",
+      "sound_brief",
+      "seed_frame_strategy",
+      "cover_frame_spec",
+      "remotion_compiler_directives",
+      "frame_geometry",
+      "first_frame_hook",
+      "pacing_lock",
+      "compiled_outputs"
+    ],
+    "critique_corrections": [
+      "Removed the executable `npx remotion render` CLI string from cover_frame_spec.execution_directive; replaced with a descriptive directive. NO CLI strings live in this JSON (executables belong in code).",
+      "engine_version normalized to 2.1.0 so the version-gated validator applies.",
+      "word_count corrected to the actual narration word count.",
+      "Runway model references corrected from 'Gen-3 Alpha Turbo' to the active 'gen4.5'."
+    ],
+    "law": "TELEMETRY 014 controls geometry; RUST REMIX controls finish."
+  },
+  "reel_input": {
+    "note": "Human-authored seed the compiler expands into the full instance below. Descriptive only.",
+    "concept_seed": "The illusion of motion - meticulous planning mistaken for progress; planning as a defensive cage against real execution.",
+    "doctrine_theme": "Your meticulous planning is not progress - it is sophisticated paralysis.",
+    "requested_style_family": "fractal",
+    "target_duration_seconds": 45,
+    "voice_id": "C9Uh5MFptuXa176UlaXE",
+    "must_include": [
+      "second-person address",
+      "open mobius clause at close",
+      "no banned cliches (unlock, journey, transform, potential)"
+    ]
+  },
+  "concept": "The Illusion of Motion",
+  "theme": "Your meticulous planning is not progress—it is sophisticated paralysis.",
+  "core_metaphor": "The Map vs Terrain — Planning as a psychological defensive cage against the raw friction of real execution.",
+  "emotional_arc": "entrapment → strain → break-away point → weightlessness",
+  "quote": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "note": "Locked geometry (TELEMETRY 014 law). validate-reel.ts enforces these for engine_version 2.1.0.",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45.0,
+    "segment_count": 5,
+    "segment_id_order": [
+      "hook",
+      "build",
+      "pivot",
+      "resolution",
+      "mobius_close"
+    ],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars before sending to Runway gen4.5. Keep each segment visual_prompt and compiled runway string <= 1000."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": [
+      "#1A1A1A",
+      "#C6A94F",
+      "#F5F2EB",
+      "#DC143C"
+    ],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "harsh rim",
+    "camera_distance_arc": "wide → medium → extreme-close → wide → medium",
+    "recurring_element": "the dark matte obelisk",
+    "color_temperature": "cold (below 4000K)"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "The final clause leaves an open syntax gap that auto-resolves when the sequence clips instantly back to the first word of the hook.",
+    "loop_seam": "'validate the drag...' → 'You think you are preparing,'",
+    "visual_seam": "Hard cut from baseline solid void back to the direct downward vertical velocity trajectory of scene 1, aligning color matching bounds perfectly.",
+    "audio_design": {
+      "final_segment_treatment": "ElevenLabs final segment: stability 0.55, style 0.0. The word trails into silence.",
+      "music_fade": "BPM-locked cut at loop seam — imperceptible on repeat"
+    }
+  },
+  "loop_seam_validation": {
+    "note": "Contract the validator checks for engine_version 2.1.0.",
+    "text_seam_must_match": true,
+    "expected_text_seam": "...you validate the drag... [LOOP] You think you are preparing,",
+    "full_text_must_start_with": "You think you are preparing,",
+    "full_text_must_end_with": "you validate the drag...",
+    "visual_seam_geometry_match": "mobius_close final frame plunges into the same downward vertical velocity / matte-black void geometry as the hook's first frame (scene 1)."
+  },
+  "timing_normalization": {
+    "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
+    "timeline_total_seconds": 45.0,
+    "tolerance_seconds": 0.5
+  },
+  "audio_sync_validation": {
+    "note": "Descriptive contract. Segment windows the compiled voiceover must align to.",
+    "boundary_tolerance_seconds": 0.5,
+    "expected_segment_boundaries_seconds": [
+      0.0,
+      6.0,
+      20.0,
+      29.0,
+      38.0,
+      45.0
+    ]
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical cinematic CAD sequence: A monolithic sharp-edged matte black obelisk in an expansive void, moving from crushing downward descent to violent radial fracturing, changing from gold telemetry lines to crimson stress sparks, ending in a clean bone-white illumination flood that collapses to zero-weight darkness.",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway gen4.5 — hard-geometry CAD aesthetic, no organic drift",
+      "chromatic_boundaries": {
+        "void": "#1A1A1A",
+        "telemetry": "#C6A94F",
+        "historical_code": "#F5F2EB",
+        "interference": "#DC143C"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing — geometry must remain rigid",
+        "NO floating particles or ambient debris unless specified",
+        "NO lens flares unless tied to crimson interference event",
+        "ALL transitions must be cut-hard or precision wipe — no dissolves",
+        "Maintain 9:16 vertical framing at all times — no reframe"
+      ]
+    },
+    "color_palette": {
+      "void": "#1A1A1A",
+      "telemetry": "#C6A94F",
+      "historical_code": "#F5F2EB",
+      "interference": "#DC143C"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate — 3-4px directional blur aligned to camera movement axis"
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You think you are preparing, but you are actually just hiding. Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism. The market does not reward a perfect map. It rewards the capacity to bleed against the terrain. Shatter the plan. Step into the arena. Endure the raw impact of action. Because every hour you spend optimizing your stance in the dark, you validate the drag...",
+      "mobius_note": "Final segment grammatically open — resolves at loop restart.",
+      "word_count": 75,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You think you are preparing, but you are actually just hiding.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Wide shot: A monolithic, sharp-edged obelisk rendered in matte black #1A1A1A isolated against an expansive void. The camera begins in immediate downward vertical descent along the face of the stone. Intricate gold #C6A94F telemetry lines outline its geometric profile.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A massive matte-black geometric boundary cutting sharply through the exact center column of the frame against a total dark void.",
+            "motion_onset": "hard cut from black to full subject accompanied by an immediate downward vertical velocity sweep",
+            "hook_type": "hard-cut-from-void"
+          },
+          "pacing_lock": {
+            "word_count": 11,
+            "target_wpm": 135,
+            "calculated_duration_seconds": 4.9,
+            "buffer_seconds": 0.3,
+            "total_scene_seconds": 5.2,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 5.2,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of A massive matte-black geometric boundary cutting sharply through the exact center column of the frame against a total dark void with immediate hard cut from black to full subject accompanied by an immediate downward vertical velocity sweep. Subject framed at center-frame with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "elevenlabs_payload": {
+              "text": "You think you are preparing, but you are actually just hiding.",
+              "voice_settings_override": {
+                "stability": 0.5,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.05
+              }
+            }
+          }
+        },
+        {
+          "id": "build",
+          "text": "Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "Medium shot: The camera tracks closer to the obelisk face. Complex geometric blueprints and data lattices are etched into the surface in glowing gold #C6A94F, constantly recalculating and tight-locking like an intricate structural cage.",
+          "frame_geometry": {
+            "subject_position": "lower-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Fine-line gold telemetry matrixes flashing instantly into view along the margins of the dark central obelisk.",
+            "motion_onset": "gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout",
+            "hook_type": "compression"
+          },
+          "pacing_lock": {
+            "word_count": 20,
+            "target_wpm": 125,
+            "calculated_duration_seconds": 9.6,
+            "buffer_seconds": 0.5,
+            "total_scene_seconds": 10.1,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 10.1,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of Fine-line gold telemetry matrixes flashing instantly into view along the margins of the dark central obelisk with immediate gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout. Subject framed at lower-center with compressed darkness behind subject and shallow foreground/background split. Camera path executes a slow push-in path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "elevenlabs_payload": {
+              "text": "Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism.",
+              "voice_settings_override": {
+                "stability": 0.5,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.05
+              }
+            }
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "Extreme close-up: Hard cut. Microscopic crimson #DC143C stress sparks bleed out aggressively from the channels of the gold lines. The geometric lines constrict violently, showing systemic micro-fractures across the CAD architecture.",
+          "frame_geometry": {
+            "subject_position": "upper-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "flat 2D plane",
+            "camera_movement": "static locked"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A massive structural fracture splitting open down the primary axis of the gold geometric telemetry wireframe.",
+            "motion_onset": "crimson stress vectors blast outward from the fracture core toward the screen corners",
+            "hook_type": "fracture-onset"
+          },
+          "pacing_lock": {
+            "word_count": 17,
+            "target_wpm": 135,
+            "calculated_duration_seconds": 7.6,
+            "buffer_seconds": 0.3,
+            "total_scene_seconds": 7.9,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 7.9,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of A massive structural fracture splitting open down the primary axis of the gold geometric telemetry wireframe with immediate crimson stress vectors blast outward from the fracture core toward the screen corners. Subject framed at upper-center with compressed darkness behind subject and flat 2D plane. Camera path executes a static locked path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "elevenlabs_payload": {
+              "text": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
+              "voice_settings_override": {
+                "stability": 0.5,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.05
+              }
+            }
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "Shatter the plan. Step into the arena. Endure the raw impact of action.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "Wide shot: The gold CAD architecture violently shatters, exploding outward toward the frame boundaries. The obelisk fragments clear the central corridor, allowing a sudden burst of brilliant bone-white #F5F2EB illumination to flood the space.",
+          "frame_geometry": {
+            "subject_position": "lower-left-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Structural obelisk boundaries bursting into hyper-reflective geometric shrapnel moving radially outward.",
+            "motion_onset": "bone-white light emerges from behind the central fracture plane, washing out the surrounding void",
+            "hook_type": "light-emergence"
+          },
+          "pacing_lock": {
+            "word_count": 11,
+            "target_wpm": 115,
+            "calculated_duration_seconds": 5.7,
+            "buffer_seconds": 0.5,
+            "total_scene_seconds": 6.2,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 6.2,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of Structural obelisk boundaries bursting into hyper-reflective geometric shrapnel moving radially outward with immediate bone-white light emerges from behind the central fracture plane, washing out the surrounding void. Subject framed at lower-left-third with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a slow pull-back path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "elevenlabs_payload": {
+              "text": "Shatter the plan. Step into the arena. Endure the raw impact of action.",
+              "voice_settings_override": {
+                "stability": 0.5,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.05
+              }
+            }
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "Because every hour you spend optimizing your stance in the dark, you validate the drag...",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "mobius_note": "Trails open — 'validate the drag...' unresolved, resolves at loop restart with 'You think you are preparing,'",
+          "visual_prompt": "Medium shot: The bone-white light recedes instantly back into a dense, solid matte black #1A1A1A void. The camera plunges straight down, locking into zero-point visual weightlessness matching the exact velocity and frame value of scene one.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light.",
+            "motion_onset": "the screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin",
+            "hook_type": "expansion"
+          },
+          "pacing_lock": {
+            "word_count": 15,
+            "target_wpm": 115,
+            "calculated_duration_seconds": 7.8,
+            "buffer_seconds": 0.5,
+            "total_scene_seconds": 8.3,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 8.3,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light with immediate the screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin. Subject framed at lower-right-third with compressed darkness behind subject and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "elevenlabs_payload": {
+              "text": "Because every hour you spend optimizing your stance in the dark, you validate the drag...",
+              "voice_settings_override": {
+                "stability": 0.55,
+                "style": 0.0,
+                "use_speaker_boost": true,
+                "speed": 1.05
+              }
+            }
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.85,
+        "style": 0.15,
+        "use_speaker_boost": true,
+        "speed": 1.05
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.55,
+        "style": 0.0,
+        "note": "Final word trails into silence — grammatically unresolved, inviting loop restart."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": [
+      "preparing",
+      "spreadsheets",
+      "optimization",
+      "map",
+      "arena",
+      "action"
+    ],
+    "peak_words": [
+      "hiding",
+      "defense",
+      "shatter",
+      "drag"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone — no subtitle content below 18% from bottom",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only — never break mid-phrase",
+      "animation": "word-by-word-appear"
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "80–88",
+    "bpm_lock_point": 85,
+    "emotional_register": "tense anticipation",
+    "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
+    "energy_arc": "Constant low mechanical tension through hook and build → sub-bass distortion surge at 20s pivot mark → immediate cut to absolute silence with deep echoing sub-bass hit on final word 'drag' at loop seam.",
+    "suno_search_string": "dark cinematic industrial sub-bass drone minimal tension mechanical 85bpm",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano"
+    ]
+  },
+  "music_config": {
+    "description": "Heavy, resonant low-end industrial bass drone pulsing rhythmically at 85 BPM. Metallic distortion surge at 20 seconds, cutting into a sparse, echoing sub-bass hit on the final word 'drag.'",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45,
+    "loop_seam_note": "Music must loop-cut at exact seam point — no fade required if BPM-aligned"
+  },
+  "cover_frame_spec": {
+    "engine_mode": "native_remotion_composition_render",
+    "source_timestamp_seconds": 20.0,
+    "output_dimensions": {
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG"
+    },
+    "master_normalization_template": "NDCH_COVER_014_TELEMETRY_UPDATE_2026-20-06.png",
+    "style_reference_finish": "NDCH_LOGO_COVER_013_RUST_REMIX",
+    "layout_geometry": {
+      "series_header": {
+        "text": "NDCH • DREAMFORGE",
+        "font_family": "Cormorant Garamond",
+        "font_weight": "300",
+        "font_style": "uppercase",
+        "tracking": "0.25em",
+        "y_position_percent": 5.0,
+        "alignment": "center"
+      },
+      "background_numerals": {
+        "text": "016",
+        "style": "metallic-outline-only",
+        "opacity": 0.04,
+        "canvas_width_ratio": 0.9,
+        "alignment": "perfect-symmetrical-center"
+      },
+      "central_artwork_pass": {
+        "preserve_aspect_ratio": true,
+        "crop_override": false,
+        "focal_emblem_alignment": "center",
+        "allowed_scale_variance": "±5%"
+      },
+      "title_block_system": {
+        "is_locked_unit": true,
+        "top_divider": {
+          "thickness_px": 2,
+          "style": "luxury-engraved",
+          "margin_left_right_px": 108
+        },
+        "title_text": {
+          "text": "ILLUSION OF MOTION",
+          "font_family": "Cormorant Garamond",
+          "font_size_fixed_px": 72,
+          "font_style": "uppercase-serif",
+          "font_color": "#C6A94F",
+          "alignment": "center"
+        },
+        "release_number": {
+          "text": "0 1 6",
+          "font_family": "Cormorant Garamond",
+          "font_size_px": 32,
+          "font_color": "#C6A94F",
+          "alignment": "center",
+          "padding_top_bottom_px": 16,
+          "contained_inside_dividers": true
+        },
+        "bottom_divider": {
+          "thickness_px": 2,
+          "style": "luxury-engraved",
+          "margin_left_right_px": 108
+        },
+        "y_position_anchor_percent": 28.0
+      }
+    },
+    "title_tracking_compensation": {
+      "mode": "dynamic_fit_to_visual_width_equilibrium",
+      "target_width_ratio": 0.65
+    },
+    "execution_directive": {
+      "status": "descriptive_only",
+      "note": "The cover is rendered by code, not by a command embedded in JSON. When the future Remotion compiler is wired in, it will render composition 'CoverFrameOverlay' at the frame matching source_timestamp_seconds with props {title, number, frame}. Today no Remotion deps are installed and the cover is captured from the ffmpeg-rendered reel. NO CLI strings here by design.",
+      "target_composition_id": "CoverFrameOverlay",
+      "props": {
+        "title": "ILLUSION OF MOTION",
+        "number": "016"
+      }
+    },
+    "validation_pass_criteria": "Confirm output geometry centerline directly correlates to transparent template overlay matching TELEMETRY 014 with texture finish matching RUST REMIX depth."
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "cover_export_directive": "remotion render src/Root.tsx CoverFrameOverlay public/cover.png --frame=600",
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": [
+          "300",
+          "500",
+          "700"
+        ],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "Planning is the ultimate hiding place. Stop optimizing the theory and start enduring the execution. The arena doesn’t care about your spreadsheet. Step out. #execution #identity #mindset #performance #ndch #strategy",
+    "hashtags": [
+      "#NDCH",
+      "#DetermineChampions",
+      "#ThePrepTrap",
+      "#MindsetShift",
+      "#ElitePerformance"
+    ],
+    "alt_text": "A minimalist black monolithic structure etched with glowing gold geometric designs fracturing outward into a clean dark void."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 12,
+    "clip_cache_status": "COLD — zero cached clips",
+    "render_priority": "HIGH",
+    "notes": "Verify structural alignment to version 2.0.0 pipeline interfaces before firing Remotion layers."
+  },
+  "cover_frame_timestamp": "0:20"
+}

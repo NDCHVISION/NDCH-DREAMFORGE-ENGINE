@@ -50,6 +50,7 @@ import { tmpdir }                                                   from 'node:o
 import { join, resolve }                                            from 'node:path';
 import { fileURLToPath }                                            from 'node:url';
 import { type ResolvedProductionPlan } from './reel-plan.ts';
+import { validateCompiledReel } from './reel-validation.ts';
 import { requestBuffer, requestJson, requestText } from './http-client.ts';
 import { ENGINE_DEFAULTS } from './engine-defaults.ts';
 import { loadGenerateRuntimeConfig, type GenerateRuntimeConfig } from './config/env.ts';
@@ -972,6 +973,39 @@ function writeSubtitleArtifacts(
 
 // ── Main ──────────────────────────────────────────────────────────────────
 
+/**
+ * Optional, additive v2.1 pre-flight gate.
+ *
+ * NON-DESTRUCTIVE: the validator is version-gated — it returns `skipped: true`
+ * for every non-v2.1 reel, so v1 reels are never affected. This function only
+ * runs when REEL_SPEC_PATH points at a file, only reports for v2.1 reels, and
+ * only HARD-FAILS when REEL_VALIDATE_STRICT=1 is explicitly set. By default it
+ * is advisory (prints warnings/errors and continues), so it can never block an
+ * existing pipeline run that previously worked.
+ */
+function runOptionalV2Preflight(reelSpecPath: string | undefined): void {
+  if (!reelSpecPath || !existsSync(reelSpecPath)) return;
+
+  let spec: unknown;
+  try {
+    spec = JSON.parse(readFileSync(reelSpecPath, 'utf-8'));
+  } catch {
+    return; // unparseable spec is handled by the resolver; don't double-report.
+  }
+
+  const result = validateCompiledReel(spec);
+  if (result.skipped) return; // not a v2.1 reel — say nothing, change nothing.
+
+  const strict = process.env.REEL_VALIDATE_STRICT === '1';
+  console.log(`  v2.1 preflight: engine ${result.engineVersion} — ${result.valid ? 'PASS' : 'FAIL'}${strict ? ' (strict)' : ' (advisory)'}`);
+  for (const w of result.warnings) console.log(`    ⚠ [${w.code}] ${w.message}`);
+  for (const e of result.errors) console.log(`    ✗ [${e.code}] ${e.message}`);
+
+  if (!result.valid && strict) {
+    throw new Error(`v2.1 validation failed for ${reelSpecPath} (REEL_VALIDATE_STRICT=1). See errors above.`);
+  }
+}
+
 async function main(): Promise<void> {
   const { plan, releaseRepo, releaseTag, releaseName, runwayConcurrency, musicPath } = getConfig();
   console.log('NDCH Vision — Reel Generator');
@@ -994,6 +1028,9 @@ async function main(): Promise<void> {
   if (plan.instagram.caption) {
     console.log(`  caption       : ${plan.instagram.caption.slice(0, 80)}…`);
   }
+
+  // Optional, version-gated v2.1 pre-flight (advisory unless REEL_VALIDATE_STRICT=1).
+  runOptionalV2Preflight(plan.reelSpecPath);
   console.log('');
 
   const { audioPath, wordTimings } = await generateVoiceover();
