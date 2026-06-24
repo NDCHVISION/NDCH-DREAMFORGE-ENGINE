@@ -93,7 +93,7 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause leaves an open syntax gap that auto-resolves when the sequence clips instantly back to the first word of the hook.",
-    "loop_seam": "'validate the drag...' → 'You think you are preparing,'",
+    "loop_seam": "'you are—' → 'You are not preparing.'",
     "visual_seam": "Hard cut from baseline solid void back to the direct downward vertical velocity trajectory of scene 1, aligning color matching bounds perfectly.",
     "audio_design": {
       "final_segment_treatment": "ElevenLabs final segment: stability 0.55, style 0.0. The word trails into silence.",
@@ -175,7 +175,7 @@
       "segments": [
         {
           "id": "hook",
-          "text": "You think you are preparing, but you are actually just hiding.",
+          "text": "You are not preparing. You are building a cage out of certainty.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
           "visual_prompt": "Wide shot: A monolithic, sharp-edged obelisk rendered in matte black #1A1A1A isolated against an expansive void. The camera begins in immediate downward vertical descent along the face of the stone. Intricate gold #C6A94F telemetry lines outline its geometric profile.",
@@ -207,20 +207,20 @@
           "compiled_outputs": {
             "runway_api_prompt_string": "A high-contrast frame initialization of A massive matte-black geometric boundary cutting sharply through the exact center column of the frame against a total dark void with immediate hard cut from black to full subject accompanied by an immediate downward vertical velocity sweep. Subject framed at center-frame with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "You think you are preparing, but you are actually just hiding.",
+              "text": "You are not preparing. You are building a cage out of certainty.",
               "voice_settings_override": {
-                "stability": 0.5,
+                "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.15,
+                "style": 0.1,
                 "use_speaker_boost": true,
-                "speed": 1.05
+                "speed": 0.9
               }
             }
           }
         },
         {
           "id": "build",
-          "text": "Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism.",
+          "text": "Every spreadsheet, every research tab, every optimization pass — it produces real dopamine. Your nervous system cannot tell the difference between planning and progress. That is the trap.",
           "timestamp_start": "0:06",
           "timestamp_end": "0:20",
           "visual_prompt": "Medium shot: The camera tracks closer to the obelisk face. Complex geometric blueprints and data lattices are etched into the surface in glowing gold #C6A94F, constantly recalculating and tight-locking like an intricate structural cage.",
@@ -252,13 +252,13 @@
           "compiled_outputs": {
             "runway_api_prompt_string": "A high-contrast frame initialization of Fine-line gold telemetry matrixes flashing instantly into view along the margins of the dark central obelisk with immediate gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout. Subject framed at lower-center with compressed darkness behind subject and shallow foreground/background split. Camera path executes a slow push-in path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism.",
+              "text": "Every spreadsheet, every research tab, every optimization pass — it produces real dopamine. Your nervous system cannot tell the difference between planning and progress. That is the trap.",
               "voice_settings_override": {
-                "stability": 0.5,
+                "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.15,
+                "style": 0.1,
                 "use_speaker_boost": true,
-                "speed": 1.05
+                "speed": 0.9
               }
             }
           }
@@ -299,18 +299,18 @@
             "elevenlabs_payload": {
               "text": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
               "voice_settings_override": {
-                "stability": 0.5,
+                "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.15,
+                "style": 0.1,
                 "use_speaker_boost": true,
-                "speed": 1.05
+                "speed": 0.9
               }
             }
           }
         },
         {
           "id": "resolution",
-          "text": "Shatter the plan. Step into the arena. Endure the raw impact of action.",
+          "text": "Close the map. Enter the arena. The friction is not the obstacle — it is the data. Let the terrain correct you. Move.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
           "visual_prompt": "Wide shot: The gold CAD architecture violently shatters, exploding outward toward the frame boundaries. The obelisk fragments clear the central corridor, allowing a sudden burst of brilliant bone-white #F5F2EB illumination to flood the space.",
@@ -342,23 +342,23 @@
           "compiled_outputs": {
             "runway_api_prompt_string": "A high-contrast frame initialization of Structural obelisk boundaries bursting into hyper-reflective geometric shrapnel moving radially outward with immediate bone-white light emerges from behind the central fracture plane, washing out the surrounding void. Subject framed at lower-left-third with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a slow pull-back path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Shatter the plan. Step into the arena. Endure the raw impact of action.",
+              "text": "Close the map. Enter the arena. The friction is not the obstacle — it is the data. Let the terrain correct you. Move.",
               "voice_settings_override": {
-                "stability": 0.5,
+                "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.15,
+                "style": 0.1,
                 "use_speaker_boost": true,
-                "speed": 1.05
+                "speed": 0.9
               }
             }
           }
         },
         {
           "id": "mobius_close",
-          "text": "Because every hour you spend optimizing your stance in the dark, you validate the drag...",
+          "text": "Because every hour you spend mapping is an hour you are—",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "mobius_note": "Trails open — 'validate the drag...' unresolved, resolves at loop restart with 'You think you are preparing,'",
+          "mobius_note": "Trails open — \"you are—\" resolves at loop restart with \"You are not preparing.\"",
           "visual_prompt": "Medium shot: The bone-white light recedes instantly back into a dense, solid matte black #1A1A1A void. The camera plunges straight down, locking into zero-point visual weightlessness matching the exact velocity and frame value of scene one.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
@@ -388,12 +388,12 @@
           "compiled_outputs": {
             "runway_api_prompt_string": "A high-contrast frame initialization of A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light with immediate the screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin. Subject framed at lower-right-third with compressed darkness behind subject and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Because every hour you spend optimizing your stance in the dark, you validate the drag...",
+              "text": "Because every hour you spend mapping is an hour you are—",
               "voice_settings_override": {
-                "stability": 0.55,
+                "stability": 0.65,
                 "style": 0.0,
                 "use_speaker_boost": true,
-                "speed": 1.05
+                "speed": 0.9
               }
             }
           }
@@ -422,18 +422,17 @@
     "highlight": "#C6A94F",
     "peak": "#DC143C",
     "highlight_words": [
-      "preparing",
       "spreadsheets",
-      "optimization",
+      "dopamine",
+      "planning",
       "map",
-      "arena",
-      "action"
+      "terrain",
+      "data"
     ],
     "peak_words": [
-      "hiding",
-      "defense",
-      "shatter",
-      "drag"
+      "not",
+      "bleed",
+      "obstacle"
     ],
     "subtitle_position": {
       "font_family": "Cormorant Garamond",
