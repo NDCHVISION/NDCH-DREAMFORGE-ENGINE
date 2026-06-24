@@ -1,26 +1,34 @@
 {
   "$schema": "viral-reel-engine/v1.0",
   "engine": {
-    "name": "Viral Motivational Reel Engine",
-    "version": "1.0.0",
-    "description": "Global configuration for producing viral motivational Instagram Reels using ElevenLabs TTS and Runway Gen-4 video generation.",
+    "name": "NDCH DreamForge Engine",
+    "version": "2.0.0",
+    "description": "Production engine for NDCH (Determine Champions) Instagram Reels. ElevenLabs TTS (DR_NKRUMAH voice) → Runway Gen-4 → FFmpeg merge → subtitle burn-in → GitHub Release.",
     "style_library": {
       "style_1_fractal": {
         "id": "style_1_fractal",
-        "label": "Fractal Gold Architecture",
-        "description": "Surreal, looping fractal visuals with liquid gold tones, sacred geometry, and cinematic depth.",
-        "base_prompt": "Create a surreal looping reel about QUOTE — liquid gold fractal geometry, sacred architecture dissolving into light, hyper-detailed cinematic motion, 4K, slow zoom, spiritual aesthetic, no text overlays.",
+        "label": "NDCH Brutalist CAD",
+        "description": "Hard-geometry brutalist aesthetic. Monolithic containment structures rendered in 4-color system: void #1A1A1A / telemetry #C6A94F / historical_code #F5F2EB / interference #DC143C. Single dominant camera vector per clip. No organic morphing, no dissolves, no lens flares. Central vertical corridor is subtitle-safe sacred space.",
+        "base_prompt": "9:16 vertical cinematic. QUOTE — brutalist concrete containment chamber, flat matte black #1A1A1A surfaces, bone-white #F5F2EB human silhouette centered in subtitle corridor, geometric gold #C6A94F stress lines on structure, crimson #DC143C pressure at frame edges. Hard-geometry CAD aesthetic, no organic morphing, single dominant camera vector, no text overlays.",
         "keywords": [
-          "water",
-          "flow",
-          "adapt",
-          "resilience",
-          "nature",
-          "universe",
-          "cosmos"
+          "pressure",
+          "vault",
+          "oxygen",
+          "debt",
+          "suffocation",
+          "breathing",
+          "execution",
+          "friction",
+          "wall",
+          "limit",
+          "warmup",
+          "compression",
+          "trap",
+          "loyalty",
+          "permission"
         ],
-        "emotional_tone": "transcendent",
-        "camera_notes": "slow push-in, gentle orbital drift, depth-of-field shifts"
+        "emotional_tone": "surgical",
+        "camera_notes": ""
       },
       "style_2_identity": {
         "id": "style_2_identity",
@@ -253,11 +261,11 @@
     "virality_data": {
       "target_platform": "instagram_reels",
       "duration_strategy": {
-        "engine_default_seconds": 38,
+        "engine_default_seconds": 45,
         "minimum_seconds": 15,
         "maximum_seconds": 90,
-        "sweet_spot_seconds": 38,
-        "rationale": "38s optimises for full watch-through rate on Instagram Reels while allowing complete narration arc."
+        "sweet_spot_seconds": 45,
+        "rationale": "45s is the NDCH gold standard — accommodates the 6-beat arc (hook/entrapment/strain/breakaway/supremacy/mobius_close) with the Möbius loop seam at the end."
       },
       "engagement_hooks": {
         "open_with_tension": true,
@@ -273,8 +281,8 @@
           "eleven_turbo_v2_5",
           "eleven_multilingual_v2"
         ],
-        "default_voice_id": "pNInz6obpgDQGcFmaJgB",
-        "default_voice_name": "Adam"
+        "default_voice_id": "C9Uh5MFptuXa176UlaXE",
+        "default_voice_name": "DR_NKRUMAH"
       },
       "video": {
         "provider": "runway",
@@ -293,13 +301,14 @@
       "enabled": true,
       "font": "Montserrat-Bold",
       "font_size": 56,
-      "font_color": "#FFFFFF",
-      "stroke_color": "#000000",
-      "stroke_width": 3,
-      "position": "bottom_center",
-      "margin_bottom": 120,
-      "word_highlight_color": "#FFD700",
-      "animation": "fade_in",
+      "font_color": "#F5F2EB",
+      "highlight": "#C6A94F",
+      "peak": "#DC143C",
+      "stroke_color": "#1A1A1A",
+      "stroke_width": 2,
+      "position": "center_vertical_corridor",
+      "clearance_percent": 40,
+      "box_rendering": false,
       "max_words_per_line": 4
     },
     "instagram_defaults": {
