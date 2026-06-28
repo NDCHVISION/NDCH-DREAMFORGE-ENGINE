@@ -170,7 +170,7 @@
     "script": {
       "full_text": "You are not preparing. You are building a cage out of certainty. Every spreadsheet, every research tab, every optimization pass — it produces real dopamine. Your nervous system cannot tell the difference between planning and progress. That is the trap. The market does not reward a perfect map. It rewards the capacity to bleed against the terrain. Close the map. Enter the arena. The friction is not the obstacle — it is the data. Let the terrain correct you. Move. Because every hour you spend mapping is an hour you are—",
       "mobius_note": "Final segment grammatically open — resolves at loop restart.",
-      "word_count": 75,
+      "word_count": 91,
       "estimated_duration_seconds": 45,
       "segments": [
         {
@@ -191,7 +191,7 @@
             "hook_type": "hard-cut-from-void"
           },
           "pacing_lock": {
-            "word_count": 11,
+            "word_count": 12,
             "target_wpm": 135,
             "calculated_duration_seconds": 4.9,
             "buffer_seconds": 0.3,
@@ -236,7 +236,7 @@
             "hook_type": "compression"
           },
           "pacing_lock": {
-            "word_count": 20,
+            "word_count": 27,
             "target_wpm": 125,
             "calculated_duration_seconds": 9.6,
             "buffer_seconds": 0.5,
@@ -326,7 +326,7 @@
             "hook_type": "light-emergence"
           },
           "pacing_lock": {
-            "word_count": 11,
+            "word_count": 22,
             "target_wpm": 115,
             "calculated_duration_seconds": 5.7,
             "buffer_seconds": 0.5,
@@ -372,7 +372,7 @@
             "hook_type": "expansion"
           },
           "pacing_lock": {
-            "word_count": 15,
+            "word_count": 11,
             "target_wpm": 115,
             "calculated_duration_seconds": 7.8,
             "buffer_seconds": 0.5,
@@ -403,11 +403,11 @@
     "elevenLabs_config": {
       "voice_id": "C9Uh5MFptuXa176UlaXE",
       "voice_settings": {
-        "stability": 0.5,
+        "stability": 0.58,
         "similarity_boost": 0.85,
-        "style": 0.15,
+        "style": 0.1,
         "use_speaker_boost": true,
-        "speed": 1.05
+        "speed": 0.9
       },
       "final_segment_override": {
         "segment_id": "mobius_close",
