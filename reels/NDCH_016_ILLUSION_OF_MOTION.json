@@ -103,9 +103,9 @@
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...you validate the drag... [LOOP] You think you are preparing,",
-    "full_text_must_start_with": "You think you are preparing,",
-    "full_text_must_end_with": "you validate the drag...",
+    "expected_text_seam": "...you are— [LOOP] You are not preparing.",
+    "full_text_must_start_with": "You are not preparing.",
+    "full_text_must_end_with": "you are—",
     "visual_seam_geometry_match": "mobius_close final frame plunges into the same downward vertical velocity / matte-black void geometry as the hook's first frame (scene 1)."
   },
   "timing_normalization": {
