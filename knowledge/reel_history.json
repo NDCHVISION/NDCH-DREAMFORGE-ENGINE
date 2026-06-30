@@ -1,0 +1,45 @@
+{
+  "_version": "1.0.0",
+  "_law": "Data Portability Law — reel history is memory, not documentation. This is a machine-readable data source, not a markdown log.",
+  "_note": "This file is read by the Thinker when scoring semantic_divergence. It is written after each reel renders and is evaluated. It is never modified retroactively.",
+  "reels": [
+    {
+      "reel_id": "NDCH_016",
+      "title": "The Illusion of Motion",
+      "concept_seed": "The illusion of motion",
+      "render_date": "2026-06-29",
+      "engine_version": "2.1.0",
+      "pipeline_version": "compiler_only",
+      "derivation_path": [
+        { "node": "illusion_of_motion",  "type": "concept_seed" },
+        { "node": "agency_trap",         "type": "psychological_domain" },
+        { "node": "pressure",            "type": "physics_domain" },
+        { "node": "obelisk",             "type": "symbol" },
+        { "node": "obelisk_monolith",    "type": "geometry" }
+      ],
+      "primary_symbol": "obelisk",
+      "geometry": "obelisk_monolith",
+      "physics_domains": [
+        { "domain": "pressure", "strength": 0.9 },
+        { "domain": "gravity",  "strength": 0.7 },
+        { "domain": "fracture", "strength": 0.6 }
+      ],
+      "psychological_domains": ["agency_trap", "paralysis"],
+      "emotional_arc": ["entrapment", "pressure", "rupture", "release", "suspension"],
+      "perceptual_anchor": {
+        "type": "image",
+        "description": "Monolithic obelisk fracturing under pressure in void — templated, not derived from concept reasoning",
+        "derived": false
+      },
+      "environments_used": ["void", "industrial_interior"],
+      "camera_movements_used": [
+        "descending_orbit", "tracking_push", "locked_static", "macro_compression", "ascending_spiral"
+      ],
+      "palette": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+      "word_count": 91,
+      "duration_seconds": 43.0,
+      "evaluation": null,
+      "production_notes": "Phase 0 pipeline proof. Prompts were compiler-generated templates, not derived from concept analysis. Primary symbol was not scored against candidates — obelisk was the engine default. Serves as baseline for measuring 3.0 pipeline improvement."
+    }
+  ]
+}

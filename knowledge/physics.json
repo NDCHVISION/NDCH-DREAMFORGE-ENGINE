@@ -1,0 +1,203 @@
+{
+  "_version": "1.0.0",
+  "_law": "Data Portability Law — knowledge lives here, not inside prompts.",
+  "_note": "Relationships are proto-edges. strength is 0.0–1.0. When a graph exists, these become traversable edges. Until then, they are weighted lookups.",
+  "domains": [
+    {
+      "id": "gravity",
+      "label": "Gravity",
+      "description": "Downward force. Mass attracts mass. Things fall unless held.",
+      "co_occurs_with": [
+        { "domain": "pressure", "strength": 0.8 },
+        { "domain": "rigidity", "strength": 0.6 },
+        { "domain": "oscillation", "strength": 0.5 }
+      ],
+      "psychological_resonances": [
+        { "domain": "inevitability", "strength": 0.9 },
+        { "domain": "weight", "strength": 0.9 },
+        { "domain": "descent", "strength": 0.85 },
+        { "domain": "surrender", "strength": 0.7 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "descending_orbit", "strength": 0.95 },
+        { "movement": "macro_compression", "strength": 0.7 },
+        { "movement": "locked_static", "strength": 0.6 }
+      ]
+    },
+    {
+      "id": "pressure",
+      "label": "Pressure",
+      "description": "Force distributed across a surface or volume. Builds until rupture or release.",
+      "co_occurs_with": [
+        { "domain": "gravity", "strength": 0.8 },
+        { "domain": "fracture", "strength": 0.85 },
+        { "domain": "oscillation", "strength": 0.6 },
+        { "domain": "heat", "strength": 0.5 }
+      ],
+      "psychological_resonances": [
+        { "domain": "constraint", "strength": 0.95 },
+        { "domain": "claustrophobia", "strength": 0.85 },
+        { "domain": "agency_trap", "strength": 0.9 },
+        { "domain": "paralysis", "strength": 0.8 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "macro_compression", "strength": 0.95 },
+        { "movement": "tracking_push", "strength": 0.85 },
+        { "movement": "descending_orbit", "strength": 0.7 }
+      ]
+    },
+    {
+      "id": "oscillation",
+      "label": "Oscillation",
+      "description": "Rhythmic movement between two states. Neither resolves. Neither rests.",
+      "co_occurs_with": [
+        { "domain": "gravity", "strength": 0.5 },
+        { "domain": "pressure", "strength": 0.6 },
+        { "domain": "magnetism", "strength": 0.7 }
+      ],
+      "psychological_resonances": [
+        { "domain": "indecision", "strength": 0.95 },
+        { "domain": "rhythm", "strength": 0.9 },
+        { "domain": "time_distortion", "strength": 0.8 },
+        { "domain": "suspended_agency", "strength": 0.85 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "pendulum_drift", "strength": 0.95 },
+        { "movement": "ascending_spiral", "strength": 0.6 },
+        { "movement": "tracking_push", "strength": 0.55 }
+      ]
+    },
+    {
+      "id": "fracture",
+      "label": "Fracture",
+      "description": "Structural failure under accumulated stress. The moment a system can no longer hold.",
+      "co_occurs_with": [
+        { "domain": "pressure", "strength": 0.85 },
+        { "domain": "entropy", "strength": 0.8 },
+        { "domain": "heat", "strength": 0.5 }
+      ],
+      "psychological_resonances": [
+        { "domain": "breaking_point", "strength": 0.95 },
+        { "domain": "rupture", "strength": 0.9 },
+        { "domain": "forced_exit", "strength": 0.85 },
+        { "domain": "revelation", "strength": 0.75 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "micro_shake", "strength": 0.9 },
+        { "movement": "whip_cut", "strength": 0.85 },
+        { "movement": "locked_static", "strength": 0.7 }
+      ]
+    },
+    {
+      "id": "entropy",
+      "label": "Entropy",
+      "description": "Tendency toward disorder. Systems decay without energy input.",
+      "co_occurs_with": [
+        { "domain": "fracture", "strength": 0.8 },
+        { "domain": "heat", "strength": 0.65 },
+        { "domain": "vacuum", "strength": 0.5 }
+      ],
+      "psychological_resonances": [
+        { "domain": "decay", "strength": 0.9 },
+        { "domain": "loss_of_control", "strength": 0.85 },
+        { "domain": "impermanence", "strength": 0.8 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "micro_shake", "strength": 0.85 },
+        { "movement": "whip_cut", "strength": 0.7 }
+      ]
+    },
+    {
+      "id": "magnetism",
+      "label": "Magnetism",
+      "description": "Invisible force of attraction and repulsion. Action at a distance.",
+      "co_occurs_with": [
+        { "domain": "oscillation", "strength": 0.7 },
+        { "domain": "pressure", "strength": 0.5 }
+      ],
+      "psychological_resonances": [
+        { "domain": "attraction", "strength": 0.9 },
+        { "domain": "compulsion", "strength": 0.85 },
+        { "domain": "invisible_force", "strength": 0.8 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "tracking_push", "strength": 0.9 },
+        { "movement": "ascending_spiral", "strength": 0.7 }
+      ]
+    },
+    {
+      "id": "vacuum",
+      "label": "Vacuum",
+      "description": "Absence of matter. Space defined by what it does not contain.",
+      "co_occurs_with": [
+        { "domain": "entropy", "strength": 0.5 },
+        { "domain": "gravity", "strength": 0.4 }
+      ],
+      "psychological_resonances": [
+        { "domain": "absence", "strength": 0.95 },
+        { "domain": "potential", "strength": 0.8 },
+        { "domain": "isolation", "strength": 0.85 },
+        { "domain": "clarity", "strength": 0.7 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "ascending_spiral", "strength": 0.85 },
+        { "movement": "locked_static", "strength": 0.75 }
+      ]
+    },
+    {
+      "id": "rigidity",
+      "label": "Rigidity",
+      "description": "Resistance to deformation. Structure that holds its form under force.",
+      "co_occurs_with": [
+        { "domain": "gravity", "strength": 0.6 },
+        { "domain": "pressure", "strength": 0.7 }
+      ],
+      "psychological_resonances": [
+        { "domain": "authority", "strength": 0.9 },
+        { "domain": "permanence", "strength": 0.85 },
+        { "domain": "inflexibility", "strength": 0.8 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "locked_static", "strength": 0.95 },
+        { "movement": "descending_orbit", "strength": 0.7 }
+      ]
+    },
+    {
+      "id": "heat",
+      "label": "Heat",
+      "description": "Thermal energy. Accelerates, transforms, and eventually destroys structure.",
+      "co_occurs_with": [
+        { "domain": "pressure", "strength": 0.5 },
+        { "domain": "fracture", "strength": 0.5 },
+        { "domain": "entropy", "strength": 0.65 }
+      ],
+      "psychological_resonances": [
+        { "domain": "urgency", "strength": 0.85 },
+        { "domain": "transformation", "strength": 0.8 },
+        { "domain": "danger", "strength": 0.75 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "tracking_push", "strength": 0.8 },
+        { "movement": "micro_shake", "strength": 0.65 }
+      ]
+    },
+    {
+      "id": "fluid",
+      "label": "Fluid",
+      "description": "Matter that adapts to its container. Takes the shape of whatever holds it.",
+      "co_occurs_with": [
+        { "domain": "vacuum", "strength": 0.4 },
+        { "domain": "pressure", "strength": 0.6 }
+      ],
+      "psychological_resonances": [
+        { "domain": "adaptability", "strength": 0.9 },
+        { "domain": "formlessness", "strength": 0.85 },
+        { "domain": "surrender", "strength": 0.7 }
+      ],
+      "camera_language_affinities": [
+        { "movement": "ascending_spiral", "strength": 0.8 },
+        { "movement": "pendulum_drift", "strength": 0.65 }
+      ]
+    }
+  ]
+}
