@@ -1,0 +1,194 @@
+{
+  "_version": "1.0.0",
+  "_law": "Data Portability Law — symbol knowledge lives here, not inside prompts.",
+  "_note": "identity_coherence measures fit with the NDCH philosophical and aesthetic universe (0.0–1.0). Symbols with identity_coherence < 0.6 require explicit justification before use.",
+  "symbols": [
+    {
+      "id": "pendulum",
+      "label": "Pendulum",
+      "description": "A mass suspended from a fixed point. Oscillates without progressing. Rhythm without destination.",
+      "physics_affinities": [
+        { "domain": "oscillation", "strength": 0.95 },
+        { "domain": "gravity", "strength": 0.8 },
+        { "domain": "pressure", "strength": 0.5 }
+      ],
+      "psychological_affinities": [
+        { "domain": "indecision", "strength": 0.95 },
+        { "domain": "time_distortion", "strength": 0.85 },
+        { "domain": "suspended_agency", "strength": 0.9 },
+        { "domain": "rhythm", "strength": 0.8 }
+      ],
+      "geometry_families": ["pendulum_suspension", "oscillating_arc", "arrested_motion"],
+      "identity_coherence": 0.88,
+      "ndch_usage_count": 1,
+      "last_used_reel": "NDCH_016"
+    },
+    {
+      "id": "map",
+      "label": "Map",
+      "description": "A representation of terrain that is not the terrain. Knowledge that substitutes for experience.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.7 },
+        { "domain": "rigidity", "strength": 0.6 }
+      ],
+      "psychological_affinities": [
+        { "domain": "agency_trap", "strength": 0.95 },
+        { "domain": "illusion_of_control", "strength": 0.9 },
+        { "domain": "preparation_vs_action", "strength": 0.95 }
+      ],
+      "geometry_families": ["lattice_grid", "fracture_cartography", "document_plane"],
+      "identity_coherence": 0.85,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "cage",
+      "label": "Cage",
+      "description": "A structure that imprisons through its own logic. Often built by the one inside it.",
+      "physics_affinities": [
+        { "domain": "rigidity", "strength": 0.9 },
+        { "domain": "pressure", "strength": 0.8 },
+        { "domain": "magnetism", "strength": 0.5 }
+      ],
+      "psychological_affinities": [
+        { "domain": "agency_trap", "strength": 0.95 },
+        { "domain": "self_constructed_limitation", "strength": 0.9 },
+        { "domain": "constraint", "strength": 0.85 }
+      ],
+      "geometry_families": ["lattice_cage", "grid_enclosure", "compressed_architecture"],
+      "identity_coherence": 0.82,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "obelisk",
+      "label": "Obelisk / Monolith",
+      "description": "A vertical structure of permanence. Authority made solid. Timeless and unmoved.",
+      "physics_affinities": [
+        { "domain": "gravity", "strength": 0.9 },
+        { "domain": "rigidity", "strength": 0.95 }
+      ],
+      "psychological_affinities": [
+        { "domain": "authority", "strength": 0.9 },
+        { "domain": "permanence", "strength": 0.85 },
+        { "domain": "time", "strength": 0.8 }
+      ],
+      "geometry_families": ["obelisk_monolith", "vertical_mass", "standing_form"],
+      "identity_coherence": 0.9,
+      "ndch_usage_count": 1,
+      "last_used_reel": "NDCH_016",
+      "_note": "Law 4: Used in NDCH_016. Any future use requires justification in concept_dna.symbol_candidates[].selection_rationale."
+    },
+    {
+      "id": "threshold",
+      "label": "Threshold",
+      "description": "The boundary between two states. Not a wall. A crossing point.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.7 },
+        { "domain": "gravity", "strength": 0.5 }
+      ],
+      "psychological_affinities": [
+        { "domain": "transition", "strength": 0.95 },
+        { "domain": "commitment", "strength": 0.9 },
+        { "domain": "irreversibility", "strength": 0.85 }
+      ],
+      "geometry_families": ["cathedral_arch", "threshold_plane", "vertical_gate"],
+      "identity_coherence": 0.84,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "compass",
+      "label": "Compass",
+      "description": "An instrument for orientation. Always knowing where north is does not mean moving toward it.",
+      "physics_affinities": [
+        { "domain": "magnetism", "strength": 0.95 },
+        { "domain": "oscillation", "strength": 0.6 }
+      ],
+      "psychological_affinities": [
+        { "domain": "orientation", "strength": 0.9 },
+        { "domain": "direction_without_motion", "strength": 0.85 },
+        { "domain": "agency_trap", "strength": 0.75 }
+      ],
+      "geometry_families": ["compass_rose", "radial_form", "circular_axis"],
+      "identity_coherence": 0.8,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "wire",
+      "label": "Wire / Tension Line",
+      "description": "Structural element under tension. Invisible until it snaps.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.85 },
+        { "domain": "oscillation", "strength": 0.7 },
+        { "domain": "fracture", "strength": 0.75 }
+      ],
+      "psychological_affinities": [
+        { "domain": "sustained_pressure", "strength": 0.9 },
+        { "domain": "breaking_point", "strength": 0.85 },
+        { "domain": "invisible_load", "strength": 0.8 }
+      ],
+      "geometry_families": ["tension_lattice", "wire_frame", "taut_network"],
+      "identity_coherence": 0.83,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "mirror",
+      "label": "Mirror / Mirror Plane",
+      "description": "A surface that returns what it receives. Identity is what you see in what reflects back.",
+      "physics_affinities": [
+        { "domain": "vacuum", "strength": 0.6 },
+        { "domain": "rigidity", "strength": 0.5 }
+      ],
+      "psychological_affinities": [
+        { "domain": "identity_dynamics", "strength": 0.95 },
+        { "domain": "self_perception", "strength": 0.9 },
+        { "domain": "distortion", "strength": 0.75 }
+      ],
+      "geometry_families": ["mirror_plane", "reflective_surface", "bilateral_form"],
+      "identity_coherence": 0.78,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "vein_network",
+      "label": "Vein Network",
+      "description": "A branching system that distributes or drains. Everything connects to everything else.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.8 },
+        { "domain": "fluid", "strength": 0.9 },
+        { "domain": "entropy", "strength": 0.5 }
+      ],
+      "psychological_affinities": [
+        { "domain": "interconnection", "strength": 0.9 },
+        { "domain": "systemic_thinking", "strength": 0.85 },
+        { "domain": "dependency", "strength": 0.8 }
+      ],
+      "geometry_families": ["vein_network", "branching_lattice", "organic_circuit"],
+      "identity_coherence": 0.76,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "fracture_plane",
+      "label": "Fracture Plane",
+      "description": "The surface along which a structure fails. Not random — the weakest path under maximum load.",
+      "physics_affinities": [
+        { "domain": "fracture", "strength": 0.95 },
+        { "domain": "pressure", "strength": 0.85 },
+        { "domain": "entropy", "strength": 0.7 }
+      ],
+      "psychological_affinities": [
+        { "domain": "rupture", "strength": 0.95 },
+        { "domain": "forced_exit", "strength": 0.9 },
+        { "domain": "revelation", "strength": 0.8 }
+      ],
+      "geometry_families": ["fracture_plane", "shatter_lattice", "stress_line"],
+      "identity_coherence": 0.87,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    }
+  ]
+}

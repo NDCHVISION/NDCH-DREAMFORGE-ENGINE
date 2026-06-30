@@ -519,11 +519,11 @@ function stitchVideoClips(clipPaths: string[]): string {
   const resolvedTmpPrefix = `${resolve(TMP)}/`;
 
   const listFile = clipPaths.map(path => {
-    const resolvedPath = resolve(path);
+    const resolvedPath = resolve(path).replace(/\\/g, '/');
     const safePathPattern = /^[A-Za-z0-9._/:-]+$/;
     if (
       /[\r\n]/.test(resolvedPath) ||
-      !resolvedPath.startsWith(resolvedTmpPrefix) ||
+      !resolvedPath.startsWith(resolvedTmpPrefix.replace(/\\/g, '/')) ||
       !resolvedPath.endsWith('.mp4') ||
       !safePathPattern.test(resolvedPath)
     ) {
@@ -746,8 +746,15 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
     throw new Error(`Unsafe subtitle path for ffmpeg filter: ${assPath}`);
   }
 
+  // ffmpeg filtergraph on Windows: backslashes are escape chars and ':' is a delimiter.
+  // Convert to forward slashes and escape the drive letter colon (C: → C\:).
+  const toFfmpegFilterPath = (p: string) =>
+    p.replace(/\\/g, '/').replace(/^([A-Za-z]):/, '$1\\:');
+
   const fontsDir = join(process.cwd(), 'assets', 'fonts');
-  const fontsArg = existsSync(fontsDir) && !/['\r\n]/.test(fontsDir) ? `:fontsdir='${fontsDir}'` : '';
+  const fontsArg = existsSync(fontsDir) && !/['\r\n]/.test(fontsDir)
+    ? `:fontsdir='${toFfmpegFilterPath(fontsDir)}'`
+    : '';
   if (!fontsArg) {
     console.log('         no assets/fonts directory — libass will fall back to a system font if the configured font is unavailable');
   }
@@ -757,7 +764,7 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
   try {
     execSync(
       `ffmpeg -y -i "${videoPath}" ` +
-      `-vf "ass='${assPath}'${fontsArg}" ` +
+      `-vf "ass='${toFfmpegFilterPath(assPath)}'${fontsArg}" ` +
       `-c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy "${outputPath}"`,
       { stdio: 'inherit' }
     );
