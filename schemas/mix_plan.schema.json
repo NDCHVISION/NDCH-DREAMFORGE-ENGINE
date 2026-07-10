@@ -1,0 +1,57 @@
+{
+  "_schema_version": "1.0",
+  "_status": "stable — Music Intelligence subsystem v1.0",
+  "_description": "Machine-readable mix plan produced by lib/audio/build-mix-plan.ts. Consumed by render-final-mix.ts and validate-final-mix.ts.",
+
+  "schema": {
+    "MixPlan": {
+      "schema_version": "string",
+      "reel_id": "string",
+      "music_file": { "type": "string", "description": "Filename only — not an absolute path. Runtime resolves the full path from --music arg." },
+      "music_extraction_start_seconds": "number",
+      "music_extraction_end_seconds": "number",
+      "voice_occupancy_intervals": {
+        "type": "array",
+        "items": { "start": "number", "end": "number" },
+        "description": "Seconds where narration voice is expected. Ducking is applied in these regions."
+      },
+      "intentional_silence_intervals": {
+        "type": "array",
+        "items": { "start": "number", "end": "number", "function": "string" },
+        "description": "Declared silence windows. Music may surface slightly. Not accidental gaps."
+      },
+      "music_gain_envelope": {
+        "type": "array",
+        "items": { "time_seconds": "number", "gain_db": "number" },
+        "description": "Gain automation relative to music_initial_gain_db. Stored for documentation and manual mixing. FFmpeg render uses the sidechain ducking approach from lib/audio-mixing.ts."
+      },
+      "mastering_preset_id": "string",
+      "loudness_target_lufs": "number",
+      "true_peak_target_dbfs": "number",
+      "music_initial_gain_db": { "type": "number", "default": -18, "description": "Layer 2 under Layer 1 voice per NDCH_017_MASTERING_PRESET." },
+      "music_fade_in_seconds": "number",
+      "music_fade_out_seconds": "number",
+      "ducking_filter": { "type": "string", "description": "FFmpeg sidechaincompress parameters for voice-aware music ducking." },
+      "ending_behavior": {
+        "type": "enum",
+        "values": ["hard_cut", "fade_out", "bpm_cut"],
+        "note": "Möbius law requires hard_cut. Do not change to fade_out without explicit doctrinal reason."
+      },
+      "ending_fade_duration_seconds": "number",
+      "validation_expectations": {
+        "duration_tolerance_seconds": "number",
+        "min_voice_intelligibility_db": "number",
+        "max_true_peak_dbfs": "number",
+        "min_integrated_lufs": "number",
+        "max_integrated_lufs": "number"
+      },
+      "created_timestamp": "string (ISO8601)"
+    }
+  },
+
+  "non_destructive_law": {
+    "music_file": "Contains filename only. Absolute path is never stored in committed artifacts.",
+    "do_not_commit": ["Rendered preview files", "Source MP3 candidates", "Absolute local paths"],
+    "safe_to_commit": ["mix_plan.json", "selection_report.json", "analysis/*.json", "validation_report.json"]
+  }
+}
