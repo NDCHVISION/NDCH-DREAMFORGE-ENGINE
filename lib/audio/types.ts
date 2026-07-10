@@ -179,6 +179,7 @@ export interface MixPlan {
   music_file: string;
   music_extraction_start_seconds: number;
   music_extraction_end_seconds: number;
+  segment_boundaries_seconds?: number[];
   voice_occupancy_intervals: Array<{ start: number; end: number }>;
   intentional_silence_intervals: Array<{ start: number; end: number; function: string }>;
   music_gain_envelope: GainEnvelopePoint[];

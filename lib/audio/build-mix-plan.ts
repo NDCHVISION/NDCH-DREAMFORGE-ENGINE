@@ -122,6 +122,7 @@ export function buildMixPlan(
     music_file: basename(selection.selected_track_path), // relative — runtime resolves full path
     music_extraction_start_seconds: selection.selected_window.start_seconds,
     music_extraction_end_seconds: selection.selected_window.end_seconds,
+    segment_boundaries_seconds: segBounds,
     voice_occupancy_intervals: deriveVoiceOccupancy(segBounds),
     intentional_silence_intervals: deriveIntentionalSilence(segBounds),
     music_gain_envelope: buildGainEnvelope(segBounds, reelSpec.duration_seconds),
