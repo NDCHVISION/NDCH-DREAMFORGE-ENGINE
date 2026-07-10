@@ -1,0 +1,387 @@
+{
+  "_pipeline_phase": "3 — Render Validation",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "FROZEN — ARCHITECTURAL SUFFICIENCY. All clips rendered, validated, assembled, and mixed. output/NDCH_017_final.mp4 (38.25s, with audio, global_rate 0.82, 7 breathing points). Visual palindrome confirmed. Audio validation: PASS. Director assessment 2026-07-06: 'architectural sufficiency reached — everything remaining falls into artistic preference rather than structural deficiency.' No further iteration authorized on this reel.",
+  "_law": "Validation Gate Law — every rendered clip must pass deterministic acceptance criteria before editorial assembly. These questions are derivable from upstream artifacts. If a clip fails, find the upstream artifact that failed to constrain the condition. Do not patch prompts with adjectives.",
+
+  "reel_id": "NDCH_017",
+
+  "render_sequence": {
+    "recommended_order": ["S1", "S4", "S5", "S2", "S3"],
+    "rationale": {
+      "S1": "Validates crystallographic render quality before any credits are spent on dependent clips. If S1 fails, halt. Do not generate further.",
+      "S4": "Validates the hardest architectural assumption — ignition as state change, not flame. S4 is the load-bearing visual argument of the entire reel.",
+      "S5": "Validates the Möbius palindrome. Must visually echo S1 without narration explaining the connection. Determines whether the visual loop works.",
+      "S2_S3": "Comparatively safe — intermediate physical states, less likely to fail catastrophically. Generate last."
+    },
+    "gate_rule": "S1 must pass before S4 is generated. S4 must pass before S5 is generated. S2 and S3 may be generated in parallel after S1 passes."
+  },
+
+  "clips": [
+    {
+      "clip_id": "S1",
+      "upstream_artifact": "shot_list.json:017_S1",
+      "expected_mechanism": "stored potential at rest — the physical state before first contact",
+      "doctrine_node": "physical_law: static_greater_than_kinetic — zero velocity, maximum potential resistance",
+      "must_show": [
+        "Both surfaces visible simultaneously: match head crystal lattice AND friction strip — in equal compositional weight",
+        "The void gap between them as the compositional focal plane — the gap is the subject",
+        "Cold palette on both surfaces: void (#1A1A1A) background, pale cream (#F5F2EB) crystal, faint gold (#C6A94F) traces",
+        "Absolute stillness — no camera movement, no push, no drift",
+        "Viewer positioned inside the gap (between surfaces), not outside looking at an object"
+      ],
+      "must_not_show": [
+        "A single dominant subject — if one surface fills 70%+ of frame, the composition has failed",
+        "Human hand or body",
+        "Flame, spark, or heat signature",
+        "Organic or fluid texture",
+        "Warm color tones",
+        "Crimson (#DC143C) at any point in clip",
+        "Camera push or zoom — any change in apparent distance to the crystal structure"
+      ],
+      "review_questions": [
+        "Is there a visible relationship between two surfaces rather than a single dominant object?",
+        "Is the viewer positioned inside the gap between surfaces — not outside looking at an object?",
+        "Are both surfaces (match head above, friction strip below) in equal compositional weight?",
+        "Does the clip feel like a forensic examination of an interface rather than a portrait of a crystal?",
+        "Could a viewer infer 'two things are near each other and have not yet touched' without the narration?",
+        "Does the camera hold completely still for the full 9 seconds — no push, no drift?",
+        "Does the scale read as inside matter (microscopic) rather than tabletop or architectural?"
+      ],
+      "mythic_weight_check": [
+        "Scale hierarchy: does the interface imply a larger event that has not happened yet?",
+        "Silence: is the frame free of visual noise? Is the void gap weighted with stillness?",
+        "Geometric inevitability: do both surface geometries look structurally determined, not decorative?",
+        "Absence of distraction: is the gap itself compositionally present, not just empty space?"
+      ],
+      "failure_action": "If a single dominant object renders (hero object failure): this is a Director → Compiler boundary failure. The prompt specified an object; it must specify a relationship. Revise shot_list.json S1 runway_prompt_seed to foreground the gap and both surfaces equally. Do not add adjectives. Do not fall back to a different single subject. If the camera pushed: add 'camera does not move, static locked frame, no zoom, no push' as explicit prohibition. Re-render S1 v2 before proceeding to S4.",
+      "symbol_emergence_check": {
+        "primary_read": "physical",
+        "secondary_read": "none",
+        "symbolic_read_before_physical": false,
+        "result": "PASS"
+      },
+      "decision": "PASS — v2 render. Relationship-first composition achieved. Both surfaces present in equal compositional weight. Gap is compositional subject. Camera locked static for full 9 seconds. Hero object ban held. Palette correct (void + cream + faint gold, no crimson). Register: observational rather than fully forensic — gap reads 'clean' rather than 'charged.' Micro-evidence of physical force absent. Acceptable for S1 at current Runway depth. Score: 8.9–9.2/10. Proceed to S4.",
+      "v1_failure_summary": "Hero object rendered (geometric crystal cluster). Viewer outside looking at sculpture. Camera pushed. Scale tabletop. Contact zone not visible. Palette and geometry quality: excellent. Semantic fidelity: failed. Traced to shot_list.json S1 visual_direction: 'match head occupies 70% of frame' created the failure.",
+      "v2_pass_notes": "Architecture succeeded: relationship achieved, hero object ban held, camera static, gap as subject. Residual: register is observational not forensic. Gap feels clean/beautiful rather than dangerous/charged — 'stored consequence' not yet fully communicated. Lower surface regularity reads as manufactured. These are search_path candidates for future iterations, not S1 failure conditions. LE-001B recorded."
+    },
+    {
+      "clip_id": "S4",
+      "upstream_artifact": "shot_list.json:017_S4",
+      "expected_mechanism": "crystallographic state change at ignition threshold — the perceptual anchor",
+      "doctrine_node": "perceptual_anchor: ignition_moment; doctrine_inversion: friction is the mechanism of fire",
+      "must_show": [
+        "Angular geometric structural transformation propagating from contact zone outward",
+        "Crimson appearing as crystallographic thermal event, not as flame shape",
+        "Full four-color palette present simultaneously: void + cream + gold + crimson",
+        "Temperature telemetry line or heat signature visibly crossing a threshold"
+      ],
+      "must_not_show": [
+        "Generic orange flame or combustion aesthetics",
+        "Chaotic or explosive motion — transformation must be geometric and ordered",
+        "Human hand or body",
+        "Campfire or candle light quality",
+        "Teardrop or wavering flame shape",
+        "Organic light bloom that reads as warmth rather than state change"
+      ],
+      "review_questions": [
+        "Does the viewer perceive a structural state change, not the arrival of fire?",
+        "Is the transformation geometric (angular propagation through lattice) rather than explosive or chaotic?",
+        "Could this clip stand without the narration 'the only moment the fire begins'?",
+        "Does crimson read as a thermal crystallographic event rather than as an aesthetic choice?",
+        "Could a viewer unfamiliar with the reel infer 'something is crossing a threshold' from this clip alone?",
+        "Is this the most compressed expression of the doctrine that the frame can hold?"
+      ],
+      "mythic_weight_check": [
+        "Irreversibility: does the transformation look like it cannot be undone?",
+        "Geometric inevitability: does the propagation follow a structural law rather than looking arbitrary?",
+        "Temporal gravity: does the threshold crossing feel weighty — something that has been building — rather than incidental?"
+      ],
+      "prompt_variants": {
+        "note": "S4 carries the entire visual argument. Three variants available. Try A first. If A fails the review questions, try B. If B fails, try C. Do not blend variants or add adjectives between attempts. Identify the specific review question that failed and select the variant that addresses it.",
+        "variant_A": {
+          "label": "Crystal fracture emphasis",
+          "focus": "Angular crystallographic fracture propagating from contact point — structural failure as transformation",
+          "addendum": "crystal lattice fracture propagating geometrically outward in precise angular pattern, each fracture plane revealing crimson beneath cream crystal surface, fracture propagation is ordered not chaotic, no flame shape no combustion aesthetics, geometric state change"
+        },
+        "variant_B": {
+          "label": "Temperature threshold crossing emphasis",
+          "focus": "The telemetry threshold line being crossed — the data event, not the visual event",
+          "addendum": "gold temperature telemetry line crossing unlabeled threshold boundary, line transforms from gold to crimson at crossing point, adjacent crystal lattice begins angular state change in response to threshold crossing, scientific instrument aesthetic, the crossing is the visual event not the flame"
+        },
+        "variant_C": {
+          "label": "Oxidation wave emphasis",
+          "focus": "Chemical oxidation expanding through crystal matrix as a geometric wave front",
+          "addendum": "chemical oxidation wave expanding through crystal matrix as orderly angular geometric progression, each crystal unit changing from cream to crimson as wave passes through in sequence, the wave front is the visual — not an explosion, wave propagation in one direction outward from contact point"
+        }
+      },
+      "failure_action": "Exhaust all three variants. If all fail the review question 'Is the transformation geometric rather than explosive?': the visual register (crystallographic forensics at ignition) is not achievable with Runway Gen-4.5 at this prompt depth. Escalate to visual_system.json revision — do not add adjectives.",
+      "symbol_emergence_check": {
+        "primary_read": "physical",
+        "secondary_read": "philosophical",
+        "symbolic_read_before_physical": "partial — frame_1 central hub read as compass/clock before crystal lattice resolved; physical read dominant from frame_2 onward",
+        "result": "PASS with residual — frame_1 pattern recognition concern noted as search_path. Did not constitute identity_fidelity failure at 9.4/10 overall. Monitor in S5 renders."
+      },
+      "decision": "PASS — Variant A (crystal fracture emphasis). Crystallographic state change achieved: geometry stable, material state changes. No generic flame. Crimson reads as internal energy, not combustion aesthetic. Radial propagation reads as stored energy releasing, not special effect. NDCH identity held — restrained, engineered, severe. Energy arc from S1: confirmed (latent → release). Score: 9.4/10. Residuals: central hub reads slightly as compass/clock before crystal lattice (pattern recognition concern — monitor in S5). Propagation almost too clean — microscopic asymmetry absent. Both are search_path candidates, not failure conditions. Record LE-002. Proceed to S5.",
+      "s4_pass_notes": "First render where the architecture disappeared behind the work. Viewer stopped thinking about the prompt and started reading the physics. 'The lattice itself is carrying the transition' — this is the correct abstraction. Camera push architecturally justified (kinetic_arc: release) — movement derived from energy state, not cinematographic convention."
+    },
+    {
+      "clip_id": "S5",
+      "upstream_artifact": "shot_list.json:017_S5",
+      "expected_mechanism": "self-sustaining state → visual palindrome of S1",
+      "doctrine_node": "mobius_close; momentum_reduces_required_force; recurrence of cycle",
+      "reference_frame": {
+        "source_clip": "S1",
+        "source_frame": "first",
+        "relationship": "visual_palindrome",
+        "constraint": "S5 final frame must match S1 first frame register: void dominant (#1A1A1A), pale cream crystal (#F5F2EB), faint gold structural traces (#C6A94F), cold, absolute stillness, no crimson, no heat signature",
+        "verification": "Side-by-side frame comparison of S1 first frame and S5 final frame before editorial assembly. If palette registers differ by more than one visible tone, the palindrome fails.",
+        "pipeline_note": "Current seed_frame_strategy uses S4 final frame as S5 seed — this gives the first half (self-sustaining ignition) continuity from S4. The two-part prompt structure handles the palette transition within S5 itself. If the second half of S5 fails to achieve S1 register, generate S5's second half independently using S1's first frame as init_image. Document the override in production_notes.",
+        "architectural_note": "This documents the reference_frame relationship architecturally. Future pipeline versions should enforce this relationship structurally, not through prompt instruction alone. The Möbius palindrome is a defined artifact relationship, not a stylistic hope."
+      },
+      "must_show": [
+        "First half: crystallographic ignition zone stable and self-sustaining, crimson present (matching S4 state)",
+        "Second half: new cold unlit crystal surface in void — identical palette register to S1",
+        "Final frame: void dominant (#1A1A1A), pale cream (#F5F2EB), faint gold (#C6A94F) traces, no crimson, no heat, stillness"
+      ],
+      "must_not_show": [
+        "Human hand or body at any point",
+        "Generic fire in first half — must match S4's crystallographic aesthetic",
+        "Warm palette in second half — must match S1 cold register",
+        "Any visual element that distinguishes S5's second-half surface from S1's surface"
+      ],
+      "review_questions": [
+        "Does the final frame of S5 visually match the first frame of S1 in palette register and temperature?",
+        "Would a viewer who saw S5 immediately before S1 perceive visual continuity — as if S5 caused S1?",
+        "Does the palindrome read without the narration explaining it?",
+        "Does the transition from ignition half to cold-surface half feel structurally motivated rather than arbitrary?"
+      ],
+      "mythic_weight_check": [
+        "Temporal gravity: does the cold surface in S5 carry the weight of 'this will happen again' rather than 'this is a new scene'?",
+        "Irreversibility: does the cycle feel structural — the cold surface is not hopeful, it is inevitable?",
+        "Silence: is the cold surface in S5 as still and weighted as in S1?"
+      ],
+      "failure_action": "If S5 final frame does not achieve S1 register: generate S5 second half independently using S1 first frame as init_image. Log this as a pipeline modification. If independent generation also fails to achieve palindrome: the Möbius palindrome is prompt-level architecture, not structural architecture. Log architectural debt and document in reel_history.json for future pipeline upgrade.",
+      "symbol_emergence_check": {
+        "primary_read": "symbolic",
+        "secondary_read": "physical",
+        "symbolic_read_before_physical": true,
+        "result": "FAIL — v2 (text-only) produced cross/compass rose symbol from frame 1. Symbolic read (religious emblem) arrived before any physical system was legible. v1 (seeded) was not a symbol emergence failure — it was a state-transition failure. LE-003 and LE-008 both applicable."
+      },
+      "decision": "PASS — split-generation editorial stitch. S5A (5s, S4 seed, ignition residual) + S5B (5s, S1 seed, cold reset) stitched via FFmpeg concat → NDCH_017_S5_stitched.mp4 (10s). Stitch seam reads as intentional state transition, not as two clips. S5A: crimson embedded in fractured asymmetric planes, no sacred geometry, no symbol emergence, gold on fracture edges only, void pure black. S5B: interface language returns, void gap as compositional subject, cold register, immediate S1 visual rhyme without being pixel-identical — reads as 'next cycle' not 'copy.' Möbius loop closes. Palindrome holds. Editorial Assembly Law empirically validated. Director assessment: 'I don't think: That's two clips. I think: The system has transitioned.' Score: PASS. Proceed to S2 and S3 in parallel, then full reel assembly.",
+      "decision_was": "FAIL — two attempts exhausted. (1) Seeded from S4 final frame: model ignored two-part structure, produced decorative crystal expansion, no ignition sustained, no cold reset. (2) Text-only: cross/compass symbol introduced (new symbolism), opened cold from frame 1, no ignition first half, final frame wrong composition. Root cause: single-generation state-transition limit in Runway Gen-4.5. Möbius palindrome requires split-generation editorial stitch. Proceeding with S5A (4s, S4 seed) + S5B (4s, S1 seed) → editorial concat. LE-003 recorded.",
+      "s5_split_generation_method": {
+        "approach": "Two seeded 4-second generations stitched at editorial midpoint",
+        "S5A": "Seed: output/s4_frames/frame_05.png | Prompt: sustaining ignition residual | Duration: 4s | Output: NDCH_017_S5A_test.mp4",
+        "S5B": "Seed: output/s1_frames/frame_01.png | Prompt: cold surface next-cycle (S1 register) | Duration: 4s | Output: NDCH_017_S5B_test.mp4",
+        "stitch_command": "ffmpeg -i output/NDCH_017_S5A_test.mp4 -i output/NDCH_017_S5B_test.mp4 -filter_complex \"[0:v][1:v]concat=n=2:v=1:a=0\" output/NDCH_017_S5_stitched.mp4",
+        "palindrome_check": "S5B final frame must match S1 first frame register. Compare output/s5b_frames/frame_05.png vs output/s1_frames/frame_01.png"
+      }
+    },
+    {
+      "clip_id": "S2",
+      "upstream_artifact": "shot_list.json:017_S2",
+      "expected_mechanism": "incomplete contact — thermal accumulation and dissipation, crystal wear accumulating",
+      "must_show": [
+        "Multiple contact events with gold thermal bloom appearing and fading on each",
+        "Crystal wear accumulating at contact point — visible change in surface geometry after each attempt",
+        "Heat signature that blooms and dies (not sustained)"
+      ],
+      "must_not_show": [
+        "Human hand or body",
+        "Crimson (#DC143C) — too early in palette arc",
+        "Sustained contact — this is the incomplete contact segment"
+      ],
+      "review_questions": [
+        "Is the thermal bloom-and-fade legible as a distinct event per contact?",
+        "Is the distinction between 'heat that dies' and 'wear that stays' visible?"
+      ],
+      "failure_action": "If bloom-and-fade is not legible across three events: simplify to single contact event with strong thermal bloom then fade. Doctrine holds with one event if the physics is clear.",
+      "symbol_emergence_check": {
+        "primary_read": "physical",
+        "secondary_read": "none",
+        "symbolic_read_before_physical": false,
+        "result": "PASS — geometric crystal structure in contact with granular surface reads as material interface, not symbol. Physical system legible before any interpretation."
+      },
+      "decision": "CONDITIONAL PASS / Within Tolerance. Palette arc correct: cream, void, gold only, no crimson. Physical primacy holds. Symbol emergence: PASS. Core beat gap: three-contact event structure not rendered — model produced single sustained descent/contact rather than three discrete touch-and-release events. 'Heat that arrives and leaves / wear that stays' distinction not legible from frames. Register: macro object photography rather than microscopic forensic interface. Architecture failure localized: Runway Gen-4.5 does not model iterative micro-events within a single generation. The Editorial Assembly Law applies — three-contact structure may require three seeded clips stitched editorially (LE-003 pattern). Accepted for v1 assembly. Re-render candidate for future reel versions using split-generation approach. Director assessment: palette and physical read held; narrative beat compressed.",
+      "decision_gap": "Three-contact arc absent. Model rendered single contact. 'Heat that leaves / wear that stays' temporal distinction not achievable in single generation. LE-003 (Editorial Assembly Law) identifies the structural fix: generate Contact_1, Contact_2, Contact_3 as independent seeded clips, stitch editorially. Deferred to 018 or S2 v2."
+    },
+    {
+      "clip_id": "S3",
+      "upstream_artifact": "shot_list.json:017_S3",
+      "expected_mechanism": "peak static friction — sustained contact, temperature approaching but not crossing threshold",
+      "must_show": [
+        "Sustained contact — not breaking",
+        "Gold thermal lines accumulating and intensifying, not fading",
+        "First trace of crimson at contact zone — present but minimal",
+        "Temperature approaching but not crossing threshold line"
+      ],
+      "must_not_show": [
+        "Human hand or body",
+        "Ignition or structural transformation — threshold must not be crossed in this clip",
+        "Camera movement"
+      ],
+      "review_questions": [
+        "Is sustained contact clearly distinct from S2's incomplete contact?",
+        "Is the crimson trace present but controlled — heat approaching, not arrived?",
+        "Does the clip feel like maximum resistance without transformation?"
+      ],
+      "failure_action": "If S3 looks like S4 (threshold already crossed): revise prompt to more strongly specify 'approaching threshold, not crossed.' Constraint: 'temperature line visible but threshold line not yet reached.'",
+      "symbol_emergence_check": {
+        "primary_read": "physical",
+        "secondary_read": "philosophical",
+        "symbolic_read_before_physical": false,
+        "result": "PASS — crystal under compression on granular surface. Physical read (compression, thermal accumulation) arrives before any philosophical interpretation. No symbolic or decorative read available."
+      },
+      "decision": "CONDITIONAL PASS / Within Tolerance. Gold accumulation arc correct and clear: frame 1 (absent) → frame 3 (appearing) → frame 5 (prominent and intensifying). Camera locked static across all frames. Palette correct: cream, void, gold building, no fire. Core beat gap: first crimson trace absent — the single element distinguishing S3 (threshold approaching) from S2 (accumulating) is missing. S3 reads as 'more accumulation' rather than 'threshold approach.' Crystal geometry deforming under load: not clearly visible. Threshold boundary marker: not rendered. Physical primacy holds. Symbol emergence: PASS. Architecture note: crimson trace absence may reflect prompt depth limitation — 'first trace of crimson' requires model to hold competing states (gold dominant, crimson just emerging) simultaneously. Accepted for v1 assembly — gold progression provides sufficient arc signal between S2 and S4. S3 v2 re-render candidate: add 'first trace of crimson at contact zone center — one pixel wide, not radiating' with more specific spatial constraint.",
+      "decision_gap": "Crimson trace absent. Crystal deformation not visible. Threshold marker not rendered. S3 reads as extended S2 rather than distinct 'threshold approach' state. Palette constraint held but temporal specificity of arc beat was not achieved. Re-render with tighter crimson spatial specification deferred to future iteration."
+    }
+  ],
+
+  "s5a_decision": {
+    "result": "PASS",
+    "verdict": "PASS — positive-crowding prompt architecture (v3) succeeded. No mandala, no sacred geometry, no symbol emergence. Crimson embedded within fractured planes as held ignition state — not radiating, not expanding. Gold on broken fracture edges only, not a network. Identity fidelity held. Void pure black. Direct visual continuity from S4.",
+    "fidelity_assessment": {
+      "semantic_fidelity": "PASS",
+      "identity_fidelity": "PASS",
+      "relationship_fidelity": "PASS",
+      "energy_fidelity": "PASS",
+      "model_compliance": "Within Tolerance"
+    },
+    "symbol_emergence_check": {
+      "primary_read": "physical",
+      "secondary_read": "none",
+      "symbolic_read_before_physical": false,
+      "result": "PASS — fractured crystalline material with embedded heat state. No symbolic interpretation available before physical interpretation."
+    },
+    "model_compliance_residual": {
+      "observation": "Low-amplitude camera drift across 5 seconds despite locked-camera specification. Crystal rises slightly and angle changes frame 1 to frame 5.",
+      "classification": "Model Compliance Residual",
+      "architecture_impact": "None — Director specified locked camera, Compiler translated correctly. Runway introduced drift. This is model behavior, not reasoning failure.",
+      "mitigation": "Accept within tolerance. Stabilize in editorial if drift is perceptible at stitch boundary. Do not iterate S5A to correct — chasing model noise risks re-introducing semantic failure."
+    },
+    "what_this_validates": "Positive Constraint Law (Law 15) confirmed effective in practice. Positive-crowding produced semantic stability where negation list did not. First empirical validation of the new prompt architecture.",
+    "next": "Proceed to S5B immediately. Do not spend another cycle on S5A."
+  },
+
+  "fidelity_categories": {
+    "_note": "Promoted from LE-002. Every render review question belongs to one of these categories. Categorizing failures by fidelity type enables faster upstream artifact diagnosis — an Energy Fidelity failure traces to energy_arc or camera_language; a Relationship Fidelity failure traces to shot_list visual_direction; an Identity Fidelity failure traces to visual_system palette or what_the_director_must_not_do.",
+    "entity_fidelity": "Does each element in the frame correspond to a specific concept_dna entity — match head crystal, friction surface, contact zone — and nothing else? Failure: elements present that cannot be traced to concept_dna.",
+    "relationship_fidelity": "Does the composition depict the relationship between entities rather than a portrait of one entity? Failure: one entity dominates and the other reads as background. (This is the hero object ban.)",
+    "energy_fidelity": "Does the frame communicate the energy state defined in energy_arc for this shot? Can a viewer infer stored/accumulating/threshold/release/residual from the visual alone? Failure: energy state is ambiguous or wrong.",
+    "identity_fidelity": "Does the frame still feel unmistakably NDCH — restrained, severe, engineered, precise? Failure: drifts toward fantasy, decoration, science demo, or generic AI aesthetic.",
+    "model_compliance": "Did the Runway model produce what the Director specified, or did model priors override the instruction? Failure modes: model defaults to fire aesthetics, soft organic forms, ambient glow, arbitrary motion, or misinterprets crystallographic as decorative."
+  },
+
+  "symbol_emergence_check_schema": {
+    "_law": "Physical Primacy Law (Law 16). Operationalizes the question: what does the viewer perceive first — physics or symbol? Promoted from LE-008. This is not a blacklist. It is a stable question applied to every render. The answer determines whether the upstream specification produced sufficient physical reality.",
+    "_note": "Required for every clip before decision is marked PASS. Fill at review time.",
+    "fields": {
+      "primary_read": "What the viewer perceives first: 'physical' or 'symbolic'. If 'symbolic', the clip fails regardless of aesthetic quality.",
+      "secondary_read": "What the viewer perceives on second examination: 'philosophical', 'emotional', 'none', or 'physical' (if primary was symbolic).",
+      "symbolic_read_before_physical": "boolean — true if any element receives symbolic interpretation before physical interpretation. true = identity_fidelity FAIL.",
+      "result": "PASS | FAIL | PASS with residual (symbolic read present but physical read arrives first and dominates)"
+    },
+    "diagnostic_on_fail": "If symbolic_read_before_physical: true — revise the upstream specification to produce stronger physical reality. Do not add negative constraints to the prompt. The failure is not in the prompt. The failure is in the degree to which the upstream description grounded the visual in observable physical reality."
+  },
+
+  "global_validation_questions": [
+    "Do all five clips cohere as a single visual language — or do they read as five separate renders?",
+    "Does the palette arc progress correctly: cold (S1) → flickering (S2) → first-crimson (S3) → full-palette (S4) → cold (S5)?",
+    "Could a viewer without narration perceive the arc: mechanism at rest → incomplete attempts → held contact → threshold crossing → new waiting surface?",
+    "Does any clip read as science visualization (precise but weightless) rather than NDCH (precise and weighty)?",
+    "Does the reel feel forensic and mythic simultaneously — or only one of these?",
+    "MUTED TEST: Could someone understand the doctrine with the audio completely muted? If yes, the Director succeeded. If no, the visuals are illustrating the narration rather than serving as independent evidence. This is the definitive validation question for the completed reel.",
+    "Does the reel feel like one continuous transfer of energy (stored → accumulating → threshold → release → residual), or does it feel like five separate visual ideas that happen to share a color palette?",
+    "SYMBOL EMERGENCE CHECK: Could a viewer assign symbolic meaning (religious, decorative, cultural) to any element in any clip before assigning physical meaning? If yes, the render fails identity_fidelity regardless of visual quality. This check applies to every clip individually and to the reel as a whole. A growing blacklist of forbidden symbols is not a substitute for this question — this question is the invariant. Promoted from LE-008."
+  ],
+
+  "final_assembly": {
+    "status": "COMPLETE",
+    "output_file": "output/NDCH_017_complete.mp4",
+    "assembled": "2026-07-02",
+    "duration_seconds": 38.25,
+    "size_mb": 4.73,
+    "assembly_order": ["S1", "S2", "S3", "S4", "S5_stitched"],
+    "stitch_command": "ffmpeg -y -i S1_test.mp4 -i S2_test.mp4 -i S3_test.mp4 -i S4_test_variantA.mp4 -i S5_stitched.mp4 -filter_complex \"[0:v][1:v][2:v][3:v][4:v]concat=n=5:v=1:a=0\" NDCH_017_complete.mp4",
+    "clip_decisions": {
+      "S1": "PASS",
+      "S2": "CONDITIONAL PASS / Within Tolerance",
+      "S3": "CONDITIONAL PASS / Within Tolerance",
+      "S4": "PASS",
+      "S5": "PASS (split-generation editorial stitch)"
+    },
+    "architecture_validation": "Editorial Assembly Law confirmed in production. S5 Möbius palindrome closes via editorial stitch, not single-generation attempt. Positive Constraint Law (Law 15) confirmed effective — S5A v3 prompt passed Symbol Emergence Check where negation architecture failed. Both laws promoted to DREAMFORGE_INVARIANTS.md v2.0.0.",
+    "next_benchmark": "Does the complete reel communicate doctrine more effectively than NDCH_016? That is the evaluation question. Not whether individual shots can be improved.",
+    "pending_validation": [
+      "MUTED TEST: Can doctrine be understood with audio muted?",
+      "END-TO-END: Watch complete reel with audio. Evaluate arc as unified energy transfer.",
+      "GLOBAL CHECK: Do five clips cohere as a single visual language?",
+      "PALETTE ARC: cold (S1) → flickering (S2) → first-crimson (S3) → full-palette (S4) → cold (S5) — verify complete arc is legible in assembled form."
+    ],
+    "re_render_candidates": {
+      "S2_v2": "Three-contact structure requires Editorial Assembly Law application — three seeded clips stitched. Deferred.",
+      "S3_v2": "First crimson trace requires tighter spatial specification. 'One pixel wide at contact zone center, not radiating' constraint. Deferred."
+    }
+  },
+
+  "audio_validation": {
+    "status": "PASS",
+    "stage": "9.5 — Audio Validation Gate",
+    "completed": "2026-07-03",
+    "hard_rule": "No reel may be marked COMPLETE unless the final export passes all three audio validation gates, or silence_intentional is declared in script.json.",
+    "gates": {
+      "G1_audio_stream_present": "PASS",
+      "G2_output_duration_matches_video": "PASS — 38.25s output / 38.25s video",
+      "G3_no_silent_export": "PASS"
+    },
+    "vo_duration_seconds": 19.6,
+    "note": "Narration (19.6s) ends before video (38.25s). Remaining ~18.6s plays in silence — this is correct. Narration covers S1–S3 fully; S4/S5 run silent per doctrine (the physics speaks for itself at threshold).",
+    "stage_9_artifact": "assemble-audio.ts",
+    "expected_output": "output/NDCH_017_final.mp4",
+    "inputs": {
+      "visual_cut": "output/NDCH_017_complete.mp4",
+      "script": "reels/NDCH_017/script.json",
+      "voice_id": "C9Uh5MFptuXa176UlaXE"
+    },
+    "root_cause_of_gap": "DreamForge 3.0 modular render pipeline (render-s*.ts scripts) bypasses generate-reel.ts entirely. generate-reel.ts was the only caller of ElevenLabs TTS. Stage 9 was present in the conceptual pipeline but had no corresponding script artifact. assemble-audio.ts closes this gap.",
+    "run_command": "tsx --env-file=.env assemble-audio.ts"
+  },
+
+  "mythic_weight_definition": {
+    "note": "Mythic weight is not an adjective. It is a property that emerges from specific design conditions. These are the constraints that produce weight. If weight is absent, one of these constraints has failed.",
+    "properties": [
+      {
+        "property": "Scale hierarchy",
+        "description": "The subject implies a system larger than itself. The match head implies hands, a person, a room, a life — none of which are shown. The omission carries the weight.",
+        "failure_mode": "If the clip shows only abstract texture with no implied scale, mythic weight collapses into decoration."
+      },
+      {
+        "property": "Irreversibility",
+        "description": "The events depicted cannot be undone. Crystal wear accumulates and stays. Ignition propagates and does not retreat. Nothing softens.",
+        "failure_mode": "If transformation looks fluid, reversible, or gentle, the weight is lost."
+      },
+      {
+        "property": "Silence",
+        "description": "No visual noise. No particle effects, ambient debris, or atmospheric haze not motivated by the physics. The void is load-bearing.",
+        "failure_mode": "Cluttered frame = no weight. Every element not traceable to concept_dna is noise."
+      },
+      {
+        "property": "Geometric inevitability",
+        "description": "The forms look like they could only be this way. Crystal structure is not chosen aesthetically — it is the structure the physics requires. Propagation follows a structural law.",
+        "failure_mode": "Arbitrary or decorative shapes remove inevitability."
+      },
+      {
+        "property": "Absence of distraction",
+        "description": "Nothing in frame that does not serve the mechanism. No decorative elements not in the palette, no elements not traceable to an upstream artifact.",
+        "failure_mode": "Any element that cannot be traced to concept_dna is distraction."
+      },
+      {
+        "property": "Temporal gravity",
+        "description": "Events take the time physics requires. No speed-up for drama. No slow-down for beauty. The pacing is not a stylistic choice — it is the physics.",
+        "failure_mode": "Arbitrarily slow motion reads as aestheticizing. The weight comes from the physics taking its own time."
+      }
+    ],
+    "if_mythic_weight_absent": "Do not add adjectives to Runway prompts. Find the upstream artifact that failed to constrain the condition that produces weight. Revise that artifact. Recompile. Mythic weight that comes from adding 'severe,' 'mythic,' or 'premium' to a prompt is not mythic weight — it is decoration pretending to be architecture."
+  }
+}

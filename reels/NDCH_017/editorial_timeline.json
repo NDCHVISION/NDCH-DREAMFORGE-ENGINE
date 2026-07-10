@@ -1,0 +1,322 @@
+{
+  "_pipeline_phase": "Stage 9 — Editorial Mix",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "READY — FFmpeg command in implementation_plan below",
+  "_law": "Semantic absorption over loudness. Music is not decoration. It occupies the cognitive space that narration has vacated.",
+
+  "reel_id": "NDCH_017_FRICTION",
+  "duration_seconds": 38.25,
+  "music_track": "Hidden Law mine.mp3",
+  "music_track_duration_seconds": 118.56,
+  "music_track_mean_db": -15.7,
+  "music_start_offset_seconds": 0.0,
+  "mix_philosophy": "semantic absorption over loudness — music sub-perceptual under narration, surfaces during intentional silence, claims the visual tail",
+
+  "_timing_source": "Derived from last assemble-audio.ts run (2026-07-06). ElevenLabs timestamps are TTS-synthesis-specific — re-derive from breathing_points if VO is re-synthesized.",
+
+  "narration_envelope": {
+    "narration_start": 0.0,
+    "narration_end": 28.24,
+    "breathed_audio_end": 31.2,
+    "visual_tail_start": 31.2,
+    "visual_tail_end": 38.25,
+    "note": "Narration occupies 0-28.24s (words) + breathing silence distributed within that window. Breathed audio track ends at 31.2s. 31.2-38.25s is pure visual."
+  },
+
+  "regions": [
+    {
+      "start": 0.00,
+      "end": 2.00,
+      "beat": "S1_hook_open",
+      "narration": "You do not choose against yourself.",
+      "voice_priority": 0.90,
+      "music_priority": 0.10,
+      "music_volume_db": -30,
+      "note": "Track intro is near-silent by nature (RMS ~-63 dB at s0). Music barely audible — correct. Void establishes itself."
+    },
+    {
+      "start": 2.00,
+      "end": 2.70,
+      "beat": "S1_breath_1",
+      "narration": "[silence — 700ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -22,
+      "note": "First breath. Viewer receives 'You do not choose against yourself.' Music surfaces briefly."
+    },
+    {
+      "start": 2.70,
+      "end": 3.75,
+      "beat": "S1_accumulate",
+      "narration": "You accumulate.",
+      "voice_priority": 0.90,
+      "music_priority": 0.10,
+      "music_volume_db": -30,
+      "note": "Two-word sentence. Heaviest semantic weight of S1. Duck music — nothing competes."
+    },
+    {
+      "start": 3.75,
+      "end": 4.65,
+      "beat": "S1_breath_2",
+      "narration": "[silence — 900ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -20,
+      "note": "Longest S1 silence. Track is now entering its -50 dB RMS range (s8-s10). Music audible but ambient."
+    },
+    {
+      "start": 4.65,
+      "end": 7.43,
+      "beat": "S2_resistance",
+      "narration": "Each point of resistance — minor.",
+      "voice_priority": 0.88,
+      "music_priority": 0.12,
+      "music_volume_db": -30,
+      "note": "Accumulation beat. Fragmentation structure carries semantic weight — music stays quiet."
+    },
+    {
+      "start": 7.43,
+      "end": 7.71,
+      "beat": "S2_frag_minor",
+      "narration": "[fragmentation pause — 280ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -25,
+      "note": "Brief rise between 'minor.' and 'Rational.' Mirrors fragmentation rhythm in music."
+    },
+    {
+      "start": 7.71,
+      "end": 8.60,
+      "beat": "S2_rational",
+      "narration": "Rational.",
+      "voice_priority": 0.90,
+      "music_priority": 0.10,
+      "music_volume_db": -30
+    },
+    {
+      "start": 8.60,
+      "end": 8.88,
+      "beat": "S2_frag_rational",
+      "narration": "[fragmentation pause — 280ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -25
+    },
+    {
+      "start": 8.88,
+      "end": 16.47,
+      "beat": "S2_S3_approach",
+      "narration": "Survivable. Until surrender feels rational. You are not wrong to feel it. You are wrong about what it means.",
+      "voice_priority": 0.92,
+      "music_priority": 0.08,
+      "music_volume_db": -32,
+      "note": "S3 pivot area. Music at lowest level — this section demands maximum cognitive attention. 'You are wrong about what it means.' requires nothing competing with it."
+    },
+    {
+      "start": 16.47,
+      "end": 17.32,
+      "beat": "S3_pivot_reflection",
+      "narration": "[pivot reflection — 850ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -18,
+      "note": "PRIMARY RISE EVENT. The correction has landed. This is where cognition begins. Music emerges to hold the space while the viewer processes. Track is now at ~-43 dB RMS naturally — music audibly present for the first time."
+    },
+    {
+      "start": 17.32,
+      "end": 19.31,
+      "beat": "S4_impossible_fragment",
+      "narration": "The moment that feels impossible",
+      "voice_priority": 0.88,
+      "music_priority": 0.12,
+      "music_volume_db": -28,
+      "note": "Slightly less ducked than S3 — energy state has shifted post-pivot. Ignition is approaching."
+    },
+    {
+      "start": 19.31,
+      "end": 19.91,
+      "beat": "S4_mid_silence",
+      "narration": "[silence — 600ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -22,
+      "note": "Fragment held. Music rises to maintain tension before resolution."
+    },
+    {
+      "start": 19.91,
+      "end": 22.65,
+      "beat": "S4_ignition",
+      "narration": "is the only moment the fire begins.",
+      "voice_priority": 0.85,
+      "music_priority": 0.15,
+      "music_volume_db": -26,
+      "note": "Resolution line. Music slightly more present — the doctrine's central claim deserves the music to have already arrived."
+    },
+    {
+      "start": 22.65,
+      "end": 23.85,
+      "beat": "S4_ignition_dwell",
+      "narration": "[ignition dwell — 1200ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -18,
+      "note": "SECONDARY RISE EVENT. The reel's central claim has landed. 1.2 seconds of music-supported space. Track energy is building (approaching -35 dB RMS). Music audible and emotional."
+    },
+    {
+      "start": 23.85,
+      "end": 25.87,
+      "beat": "S5_friction",
+      "narration": "You do not overcome friction.",
+      "voice_priority": 0.90,
+      "music_priority": 0.10,
+      "music_volume_db": -30
+    },
+    {
+      "start": 25.87,
+      "end": 26.22,
+      "beat": "S5_reflective_pause",
+      "narration": "[reflective pause — 350ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -24
+    },
+    {
+      "start": 26.22,
+      "end": 27.10,
+      "beat": "S5_next_surface",
+      "narration": "The next surface",
+      "voice_priority": 0.88,
+      "music_priority": 0.12,
+      "music_volume_db": -28
+    },
+    {
+      "start": 27.10,
+      "end": 27.38,
+      "beat": "S5_emphasis_pause",
+      "narration": "[emphasis pause — 275ms]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -24
+    },
+    {
+      "start": 27.38,
+      "end": 28.24,
+      "beat": "S5_waiting",
+      "narration": "is already waiting.",
+      "voice_priority": 0.80,
+      "music_priority": 0.20,
+      "music_volume_db": -24,
+      "note": "Final line. Music slightly more present — voice is completing, music is taking over."
+    },
+    {
+      "start": 28.24,
+      "end": 31.20,
+      "beat": "S5_final_decay",
+      "narration": "[final decay — narration ends, breathing audio fades]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -18,
+      "note": "Voice has ended. Music surfaces. Track is now at its most energetic section (~-35 dB RMS). Appropriate — the doctrine has been delivered, music owns the emotional residue."
+    },
+    {
+      "start": 31.20,
+      "end": 34.50,
+      "beat": "visual_tail_rise",
+      "narration": "[pure visual — Möbius close]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -16,
+      "note": "Visual tail. New cold surface appears. Music is the only signal — this is the highest music presence in the reel. Track is at peak natural energy here."
+    },
+    {
+      "start": 34.50,
+      "end": 37.00,
+      "beat": "final_dissolve",
+      "narration": "[visual holds — next cycle begins]",
+      "voice_priority": 0.0,
+      "music_priority": 1.0,
+      "music_volume_db": -28,
+      "note": "Begin fade. The cold surface is waiting. Music recedes — viewer exits into silence."
+    },
+    {
+      "start": 37.00,
+      "end": 38.25,
+      "beat": "reel_end",
+      "narration": "[end]",
+      "voice_priority": 0.0,
+      "music_priority": 0.0,
+      "music_volume_db": -48,
+      "note": "Near silence. Reel ends into void."
+    }
+  ],
+
+  "key_events": {
+    "primary_rise": {
+      "timestamp": 16.47,
+      "duration": 0.85,
+      "music_volume_db": -18,
+      "reason": "Post-pivot reflection window. Correction has landed. This is where the viewer's cognition begins. Music holds the space."
+    },
+    "secondary_rise": {
+      "timestamp": 22.65,
+      "duration": 1.20,
+      "music_volume_db": -18,
+      "reason": "Post-ignition dwell. The reel's central claim has landed. 1.2 seconds of music-supported emotional space."
+    },
+    "visual_tail_claim": {
+      "timestamp": 31.20,
+      "duration": 6.80,
+      "music_volume_db_peak": -16,
+      "reason": "Narration has ended. Visuals are the only storytellers. Music is at its most prominent."
+    },
+    "final_dissolve": {
+      "start": 34.50,
+      "end": 38.25,
+      "music_volume_db_start": -28,
+      "music_volume_db_end": -48,
+      "reason": "Möbius close. The next surface is already waiting. Music dissolves as the visual does."
+    }
+  },
+
+  "attention_allocation": {
+    "note": "Attention is a finite resource. The mix allocates it using music_priority as the inverse of voice_priority.",
+    "max_voice_priority": 0.92,
+    "at": "S3 pivot approach — 'You are wrong about what it means.' demands 92% of attention",
+    "max_music_priority": 1.0,
+    "at": "Visual tail — narration has ended, music owns 100%",
+    "philosophy": "Music never competes for cognitive resources that narration needs. Music fills cognitive space that narration has vacated."
+  },
+
+  "implementation_plan": {
+    "recommended_path": "A — FFmpeg automation (immediate)",
+    "path_a_ffmpeg": {
+      "description": "Add music to existing NDCH_017_final.mp4 using FFmpeg volume automation. Volume envelope derived directly from this editorial_timeline.",
+      "output_file": "output/NDCH_017_final_music.mp4",
+      "command": "ffmpeg -y -i \"output/NDCH_017_final.mp4\" -i \"C:/Users/nkrum/Downloads/Hidden Law mine.mp3\" -filter_complex \"[1:a]atrim=duration=38.25,asetpts=PTS-STARTPTS,volume=eval=frame:volume='if(lt(t,2.00),0.032,if(lt(t,2.70),0.079,if(lt(t,3.75),0.032,if(lt(t,4.65),0.100,if(lt(t,7.43),0.032,if(lt(t,7.71),0.056,if(lt(t,8.60),0.032,if(lt(t,8.88),0.056,if(lt(t,16.47),0.025,if(lt(t,17.32),0.126,if(lt(t,19.31),0.040,if(lt(t,19.91),0.079,if(lt(t,22.65),0.050,if(lt(t,23.85),0.126,if(lt(t,25.87),0.032,if(lt(t,26.22),0.063,if(lt(t,27.10),0.040,if(lt(t,27.38),0.063,if(lt(t,28.24),0.063,if(lt(t,31.20),0.126,if(lt(t,34.50),0.158,if(lt(t,37.00),0.040,0.010))))))))))))))))))))))'[music_vol];[0:a][music_vol]amix=inputs=2:duration=first:normalize=0[out_a]\" -map 0:v -map \"[out_a]\" -c:v copy -c:a aac -b:a 192k \"output/NDCH_017_final_music.mp4\"",
+      "volume_map": {
+        "note": "dB to amplitude: -18dB=0.126, -20dB=0.100, -22dB=0.079, -24dB=0.063, -25dB=0.056, -26dB=0.050, -28dB=0.040, -30dB=0.032, -32dB=0.025, -48dB=0.010"
+      }
+    },
+    "path_b_capcut": {
+      "description": "Manual guide for CapCut if FFmpeg output needs refinement",
+      "steps": [
+        "Import NDCH_017_final.mp4 as base track",
+        "Import Hidden Law mine.mp3 as audio track 2",
+        "Set global music volume to -30dB as base",
+        "Add volume keyframes at: 2.00s→-22dB, 2.70s→-30dB, 3.75s→-20dB, 4.65s→-30dB",
+        "At 16.47s: rise to -18dB over 0.3s. Hold until 17.32s. Return to -32dB at 17.32s",
+        "At 22.65s: rise to -18dB over 0.3s. Hold until 23.85s. Return to -30dB at 23.85s",
+        "At 28.24s: rise to -18dB gradually",
+        "At 31.20s: rise to -16dB",
+        "At 34.50s: begin fade to -28dB by 37.00s",
+        "At 37.00s: fade to silence (-48dB) by 38.25s"
+      ]
+    },
+    "path_c_automation": {
+      "description": "Future: extend assemble-audio.ts to read editorial_timeline.json and generate volume automation during mixMusicUnderVO step",
+      "function_to_modify": "mixMusicUnderVO()",
+      "approach": "Parse editorial_timeline.json regions, build FFmpeg volume expression programmatically from region timestamps and music_volume_db values, apply as filter before amix",
+      "priority": "implement before 018 if music is used in 018"
+    }
+  }
+}
