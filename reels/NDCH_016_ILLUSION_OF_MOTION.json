@@ -2,9 +2,9 @@
   "reel_id": "NDCH_016_ILLUSION_OF_MOTION",
   "engine_version": "2.1.0",
   "schema_changelog": {
-    "version": "2.1.0",
-    "based_on": "2.0.0 (doc) over 1.0.0 (production reels)",
-    "compatibility": "Additive over v1.0.0: every path reel-plan.ts resolveProductionPlan() reads is preserved (voiceover.script.segments[].{text,visual_prompt,timestamp_start,timestamp_end}, voiceover.elevenLabs_config, subtitle_config, music_config, instagram_config, format.target_duration_seconds). The ffmpeg pipeline runs unchanged. v2.1 fields are descriptive metadata for validate-reel.ts and the future Remotion compiler.",
+    "version": "2.1.5",
+    "based_on": "2.1.0 (production) -> 2.1.1 -> 2.1.2 -> 2.1.3 -> 2.1.4 -> 2.1.5",
+    "compatibility": "Additive over v1.0.0 and v2.1.0: every path reel-plan.ts resolveProductionPlan() reads is preserved (voiceover.script.segments[].{text,visual_prompt,timestamp_start,timestamp_end}, voiceover.elevenLabs_config, subtitle_config, music_config, instagram_config, format.target_duration_seconds). The ffmpeg pipeline runs unchanged. v2.1 fields are descriptive metadata for validate-reel.ts and the future Remotion compiler.",
     "v2_additions": [
       "visual_thread",
       "sound_brief",
@@ -15,6 +15,38 @@
       "first_frame_hook",
       "pacing_lock",
       "compiled_outputs"
+    ],
+    "v2_1_2_corrections": [
+      "word_count corrected from 91 to 89 (segment word counts: 12+27+17+22+11=89). Further revised to 82 in v2.1.3/v2.1.4 (see those entries).",
+      "sound_brief.energy_arc: removed erroneous 'drag' reference. Final word is 'are...', not 'drag'. 'Drag' is not in the script.",
+      "Global voice speed updated from 0.9 to 0.82 across all segments. NDCH_017 validated that 0.82 produces the documentary-narrator character (intimate, calm, observational) vs 0.9 which reads as slightly compressed. Doctrine should breathe.",
+      "subtitle_config.highlight_words: 'spreadsheets' corrected to 'spreadsheet' (singular -- matches actual script text).",
+      "subtitle_config.peak_words: removed 'not'. 'Not' appears 5 times in the script -- highlighting all occurrences saturates the crimson effect and dilutes the peak signal. Retain 'bleed' and 'obstacle' as true peak moments.",
+      "instagram_config.caption: hashtag #ndch corrected to #NDCH for consistency.",
+      "Added voice_direction block (advisory -- for future assemble-audio.ts Stage 9 integration).",
+      "Added sound_direction block (v0.1-provisional -- inherits NDCH_017_MASTERING_PRESET).",
+      "critique_corrections preserved from 2.1.1: no CLI strings in JSON; engine_version normalized; Runway model corrected to gen4.5."
+    ],
+    "v2_1_3_corrections": [
+      "Language audit applied (philosopher's register evaluation). Two surgical edits to the narration.",
+      "Build segment: compressed two-step proof (dopamine + nervous system) into single declaration. 'Every spreadsheet, every research tab, every optimization pass -- it produces real dopamine. Your nervous system cannot tell the difference between planning and progress.' revised to 'Every spreadsheet, every research tab, every optimization pass. Real dopamine, every time.' Removes explanatory redundancy. The two sentences were stating the same claim twice. Now the observation is singular.",
+      "Resolution segment: 'The friction is not the obstacle -- it is the data.' split into two declarative sentences: 'The friction is not the obstacle. It is the data.' Removes the rhetorical pivot construction (is not X -- it is Y) which carries AI-slop risk. Both declarations now land flat.",
+      "All em-dashes removed from narration text and ElevenLabs payload fields. Sentence-internal em-dashes replaced with periods. Mobius trailing 'you are--' replaced with 'you are...' (ellipsis signals the grammatical trail-off for TTS and caption rendering without using an em-dash).",
+      "word_count updated: 89 -> 78 (nervous system sentence removed: -11 words). Further revised to 82 in v2.1.4.",
+      "build pacing_lock updated: word_count 27->16, calculated_duration_seconds 9.6->7.7, total_scene_seconds 10.1->8.2. Further revised in v2.1.4.",
+      "timing_normalization.note sum updated: ~37.7s -> ~35.8s. Returned to ~37.7s in v2.1.4.",
+      "All seam validator fields updated to reflect 'you are...' (was 'you are--')."
+    ],
+    "v2_1_4_corrections": [
+      "Director rejected 'Real dopamine, every time.' on grounds of advertising cadence. The line had rhythm and punch but not inevitability. It named the neurochemical mechanism (dopamine) rather than observing the underlying temporal inversion (reward preceding effort).",
+      "Build segment revised: 'Every spreadsheet, every research tab, every optimization pass. Real dopamine, every time.' replaced with 'Every spreadsheet. Every research tab. Every optimization pass. You experience the reward before you earn it.' The comma-separated list is also broken into separate declarative sentences -- each item now lands as its own statement rather than as an accumulation. The replacement line names the mechanism as temporal inversion: reward arrives before it is earned. That is the trap. The viewer infers dopamine; the script does not name it.",
+      "word_count updated: 78 -> 82. Segment counts: 12+20+17+22+11=82.",
+      "build pacing_lock updated: word_count 16->20, calculated_duration_seconds 7.7->9.6, total_scene_seconds 8.2->10.1, audio_sync_validation.expected_audio_duration_seconds 8.2->10.1.",
+      "timing_normalization.note sum updated: ~35.8s -> ~37.7s (5.2+10.1+7.9+6.2+8.3)."
+    ],
+    "v2_1_5_corrections": [
+      "subtitle_config.highlight_words: removed 'dopamine' (no longer in script), 'planning' (too abstract, not a doctrine word in this script). Updated to one word per doctrine beat: certainty / reward / map / terrain / data. Added highlight_words_rationale field.",
+      "build segment: added render_test_alt and render_test_note fields. Documents 'The reward arrives before the work.' as an alternate for the current 'You experience the reward before you earn it.' Director wants both rendered before deciding. The alt removes 'you' and makes the observation impersonal. Decision deferred to post-render."
     ],
     "critique_corrections": [
       "Removed the executable `npx remotion render` CLI string from cover_frame_spec.execution_directive; replaced with a descriptive directive. NO CLI strings live in this JSON (executables belong in code).",
@@ -38,9 +70,9 @@
     ]
   },
   "concept": "The Illusion of Motion",
-  "theme": "Your meticulous planning is not progress—it is sophisticated paralysis.",
-  "core_metaphor": "The Map vs Terrain — Planning as a psychological defensive cage against the raw friction of real execution.",
-  "emotional_arc": "entrapment → strain → break-away point → weightlessness",
+  "theme": "Your meticulous planning is not progress. It is sophisticated paralysis.",
+  "core_metaphor": "The Map vs Terrain -- Planning as a psychological defensive cage against the raw friction of real execution.",
+  "emotional_arc": "entrapment -> strain -> break-away point -> weightlessness",
   "quote": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
   "style_id": "style_1_fractal",
   "format": {
@@ -76,7 +108,7 @@
     ],
     "lighting_direction": "upper-left",
     "lighting_quality": "harsh rim",
-    "camera_distance_arc": "wide → medium → extreme-close → wide → medium",
+    "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
     "recurring_element": "the dark matte obelisk",
     "color_temperature": "cold (below 4000K)"
   },
@@ -93,19 +125,19 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause leaves an open syntax gap that auto-resolves when the sequence clips instantly back to the first word of the hook.",
-    "loop_seam": "'you are—' → 'You are not preparing.'",
+    "loop_seam": "'you are...' -> 'You are not preparing.'",
     "visual_seam": "Hard cut from baseline solid void back to the direct downward vertical velocity trajectory of scene 1, aligning color matching bounds perfectly.",
     "audio_design": {
-      "final_segment_treatment": "ElevenLabs final segment: stability 0.55, style 0.0. The word trails into silence.",
-      "music_fade": "BPM-locked cut at loop seam — imperceptible on repeat"
+      "final_segment_treatment": "ElevenLabs final segment: stability 0.65, style 0.0. The word trails into silence. Ellipsis signals TTS decay without an em-dash.",
+      "music_fade": "BPM-locked cut at loop seam. Imperceptible on repeat."
     }
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...you validate the drag... [LOOP] You think you are preparing,",
-    "full_text_must_start_with": "You think you are preparing,",
-    "full_text_must_end_with": "you validate the drag...",
+    "expected_text_seam": "...you are... [LOOP] You are not preparing.",
+    "full_text_must_start_with": "You are not preparing.",
+    "full_text_must_end_with": "you are...",
     "visual_seam_geometry_match": "mobius_close final frame plunges into the same downward vertical velocity / matte-black void geometry as the hook's first frame (scene 1)."
   },
   "timing_normalization": {
@@ -125,11 +157,95 @@
       45.0
     ]
   },
+  "voice_direction": {
+    "_status": "ADVISORY -- for future assemble-audio.ts Stage 9 integration. Current pipeline uses per-segment elevenlabs_payload overrides.",
+    "_law": "Orator Law: silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "global_rate": 0.82,
+    "character": "Documentary narrator. Not trailer narrator. Intimate, calm, observational. The doctrine is delivered as observation, not instruction.",
+    "breathing_points": [
+      {
+        "after": "You are building a cage out of certainty.",
+        "silence_ms": 600,
+        "visual_state": "Hook lands. The viewer is inside the cage before they know it. Give the line room."
+      },
+      {
+        "after": "That is the trap.",
+        "silence_ms": 850,
+        "visual_state": "Pivot diagnosis complete. The trap has been named. Viewer needs a beat before the doctrine arrives."
+      },
+      {
+        "after": "It rewards the capacity to bleed against the terrain.",
+        "silence_ms": 700,
+        "visual_state": "Central claim delivered. Terrain vs map. Let it sit before the directive begins."
+      },
+      {
+        "after": "Move.",
+        "silence_ms": 400,
+        "visual_state": "Single-word directive. The shortest sentence in the script. It must not be rushed past."
+      }
+    ],
+    "final_decay_ms": 2000,
+    "fragmentation_directive": "Resolution segment: 'Close the map. Enter the arena.' These are separate directives, not a flowing list. Each lands as a command. Hard stop between each."
+  },
+  "sound_direction": {
+    "_status": "v0.1-provisional -- 017-derived defaults. Override if this doctrine's emotional temperature requires it.",
+    "music_role": "tension",
+    "emotional_temperature": {
+      "primary": "cold",
+      "secondary": "mechanical",
+      "tertiary": "inevitable",
+      "anti_descriptors": ["triumphant", "inspirational", "warm", "melodic"]
+    },
+    "cinematic_layers": {
+      "layer_1_philosophy": "Voice. Documentary narrator. The doctrine is the intellectual foreground. Always forward.",
+      "layer_2_atmosphere": "Music. Sub-bass industrial drone. Answers: what emotional temperature does this doctrine exist in? Answer: cold machinery. Not pressure. Not urgency. The machine that doesn't care.",
+      "layer_3_space": "Silence. Between 'That is the trap.' and the pivot line, that silence is doing work. It is not empty."
+    },
+    "dynamic_profile": [
+      {
+        "section": "hook",
+        "music_directive": "restrained. Reference level, drone only.",
+        "voice_directive": "forward. Declarative, no warmth.",
+        "relationship": "Voice makes the accusation. Music confirms the cold."
+      },
+      {
+        "section": "build",
+        "music_directive": "slow mechanical rise. Sub-bass tightens incrementally.",
+        "voice_directive": "integrated. Accumulating rhythm mirrors the dopamine trap.",
+        "relationship": "Music and voice accelerate together toward the trap's reveal."
+      },
+      {
+        "section": "pivot",
+        "music_directive": "distortion surge at pivot onset, then duck to maximum clarity.",
+        "voice_directive": "unchanged. Maximum clarity. This is the terrain line.",
+        "relationship": "The surge marks the pivot. Then music recedes completely. Nothing competes with 'bleed against the terrain.'"
+      },
+      {
+        "section": "resolution",
+        "music_directive": "recover to reference level. Mechanical pulse returns.",
+        "voice_directive": "directive mode. Each sentence a separate command.",
+        "relationship": "Music confirms the directive is real. Not emotional. Operational."
+      },
+      {
+        "section": "mobius",
+        "music_directive": "BPM-locked cut at loop seam. No fade, no decay.",
+        "voice_directive": "decay. 'you are...' trails into silence.",
+        "relationship": "Voice exits. Music cuts at seam. Silence holds for the loop."
+      }
+    ],
+    "silence_function": {
+      "post_hook": "Cage is built. Viewer hasn't yet realized they're inside it.",
+      "post_trap": "Trap named. Nothing more is said. The diagnosis is complete.",
+      "post_directive": "'Move.' is a full stop. Not a transition.",
+      "loop_seam": "Grammatical and musical void. The loop resolves into 'You are not preparing.' which is not a resolution. It is a restart."
+    },
+    "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+  },
   "visual_prompt": {
     "primary_prompt": "9:16 vertical cinematic CAD sequence: A monolithic sharp-edged matte black obelisk in an expansive void, moving from crushing downward descent to violent radial fracturing, changing from gold telemetry lines to crimson stress sparks, ending in a clean bone-white illumination flood that collapses to zero-weight darkness.",
     "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
     "global_visual_matrix": {
-      "rendering_engine": "Runway gen4.5 — hard-geometry CAD aesthetic, no organic drift",
+      "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
       "chromatic_boundaries": {
         "void": "#1A1A1A",
         "telemetry": "#C6A94F",
@@ -137,11 +253,11 @@
         "interference": "#DC143C"
       },
       "anti_drift_rules": [
-        "NO liquid, fluid, or organic morphing — geometry must remain rigid",
-        "NO floating particles or ambient debris unless specified",
-        "NO lens flares unless tied to crimson interference event",
-        "ALL transitions must be cut-hard or precision wipe — no dissolves",
-        "Maintain 9:16 vertical framing at all times — no reframe"
+        "NO liquid, fluid, or organic morphing. Geometry must remain rigid.",
+        "NO floating particles or ambient debris unless specified.",
+        "NO lens flares unless tied to crimson interference event.",
+        "ALL transitions must be cut-hard or precision wipe. No dissolves.",
+        "Maintain 9:16 vertical framing at all times. No reframe."
       ]
     },
     "color_palette": {
@@ -157,7 +273,7 @@
       },
       "motion_blur": {
         "enabled": true,
-        "intensity": "moderate — 3-4px directional blur aligned to camera movement axis"
+        "intensity": "moderate. 3-4px directional blur aligned to camera movement axis."
       },
       "film_grain": {
         "isolation_scenes_intensity": 0.12,
@@ -168,9 +284,9 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You think you are preparing, but you are actually just hiding. Your endless research, your spreadsheets, your obsession with optimization—it feels like momentum. But it is a sophisticated defense mechanism. The market does not reward a perfect map. It rewards the capacity to bleed against the terrain. Shatter the plan. Step into the arena. Endure the raw impact of action. Because every hour you spend optimizing your stance in the dark, you validate the drag...",
-      "mobius_note": "Final segment grammatically open — resolves at loop restart.",
-      "word_count": 75,
+      "full_text": "You are not preparing. You are building a cage out of certainty. Every spreadsheet. Every research tab. Every optimization pass. You experience the reward before you earn it. That is the trap. The market does not reward a perfect map. It rewards the capacity to bleed against the terrain. Close the map. Enter the arena. The friction is not the obstacle. It is the data. Let the terrain correct you. Move. Because every hour you spend mapping is an hour you are...",
+      "mobius_note": "Final segment grammatically open. 'you are...' resolves at loop restart with 'You are not preparing.'",
+      "word_count": 82,
       "estimated_duration_seconds": 45,
       "segments": [
         {
@@ -191,7 +307,7 @@
             "hook_type": "hard-cut-from-void"
           },
           "pacing_lock": {
-            "word_count": 11,
+            "word_count": 12,
             "target_wpm": 135,
             "calculated_duration_seconds": 4.9,
             "buffer_seconds": 0.3,
@@ -205,22 +321,24 @@
             }
           },
           "compiled_outputs": {
-            "runway_api_prompt_string": "A high-contrast frame initialization of A massive matte-black geometric boundary cutting sharply through the exact center column of the frame against a total dark void with immediate hard cut from black to full subject accompanied by an immediate downward vertical velocity sweep. Subject framed at center-frame with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "runway_api_prompt_string": "A massive matte-black geometric boundary cutting sharply through the exact center column of the frame against a total dark void. Hard cut from black to full subject with immediate downward vertical velocity sweep. Subject at center-frame, vast void in upper two-thirds, deep z-axis recession. Camera: vertical drift downward. Global style: the dark matte obelisk, upper-left harsh rim, cold below 4000K, absolute palette #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD, rigid wireframe transitions, zero organic drift.",
             "elevenlabs_payload": {
               "text": "You are not preparing. You are building a cage out of certainty.",
               "voice_settings_override": {
                 "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.1,
+                "style": 0.05,
                 "use_speaker_boost": true,
-                "speed": 0.9
+                "speed": 0.82
               }
             }
           }
         },
         {
           "id": "build",
-          "text": "Every spreadsheet, every research tab, every optimization pass — it produces real dopamine. Your nervous system cannot tell the difference between planning and progress. That is the trap.",
+          "text": "Every spreadsheet. Every research tab. Every optimization pass. You experience the reward before you earn it. That is the trap.",
+          "render_test_alt": "Every spreadsheet. Every research tab. Every optimization pass. The reward arrives before the work. That is the trap.",
+          "render_test_note": "Director note (v2.1.5): test 'The reward arrives before the work.' against current line before freezing. The alt removes 'you' -- makes the observation impersonal, almost physical, like gravity rather than narration. The current line diagnoses the viewer; the alt describes a law. Decide after render, not before. If the alt wins, update text and elevenlabs_payload.text accordingly.",
           "timestamp_start": "0:06",
           "timestamp_end": "0:20",
           "visual_prompt": "Medium shot: The camera tracks closer to the obelisk face. Complex geometric blueprints and data lattices are etched into the surface in glowing gold #C6A94F, constantly recalculating and tight-locking like an intricate structural cage.",
@@ -233,7 +351,7 @@
           "first_frame_hook": {
             "immediate_visual": "Fine-line gold telemetry matrixes flashing instantly into view along the margins of the dark central obelisk.",
             "motion_onset": "gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout",
-            "hook_type": "compression"
+            "hook_type": "telemetry-reveal"
           },
           "pacing_lock": {
             "word_count": 20,
@@ -250,15 +368,15 @@
             }
           },
           "compiled_outputs": {
-            "runway_api_prompt_string": "A high-contrast frame initialization of Fine-line gold telemetry matrixes flashing instantly into view along the margins of the dark central obelisk with immediate gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout. Subject framed at lower-center with compressed darkness behind subject and shallow foreground/background split. Camera path executes a slow push-in path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "runway_api_prompt_string": "Fine-line gold telemetry matrixes flashing into view along the margins of the dark central obelisk. Gold telemetry line sparks from lower-left corner trailing straight upward into the matrix layout. Subject at lower-center, compressed darkness behind, shallow foreground/background split. Camera: slow push-in. Global style: the dark matte obelisk, upper-left harsh rim, cold below 4000K, absolute palette #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD, rigid wireframe transitions, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Every spreadsheet, every research tab, every optimization pass — it produces real dopamine. Your nervous system cannot tell the difference between planning and progress. That is the trap.",
+              "text": "Every spreadsheet. Every research tab. Every optimization pass. You experience the reward before you earn it. That is the trap.",
               "voice_settings_override": {
                 "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.1,
+                "style": 0.05,
                 "use_speaker_boost": true,
-                "speed": 0.9
+                "speed": 0.82
               }
             }
           }
@@ -295,22 +413,22 @@
             }
           },
           "compiled_outputs": {
-            "runway_api_prompt_string": "A high-contrast frame initialization of A massive structural fracture splitting open down the primary axis of the gold geometric telemetry wireframe with immediate crimson stress vectors blast outward from the fracture core toward the screen corners. Subject framed at upper-center with compressed darkness behind subject and flat 2D plane. Camera path executes a static locked path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "runway_api_prompt_string": "A massive structural fracture splitting open down the primary axis of the gold geometric telemetry wireframe. Crimson stress vectors blast outward from the fracture core toward the screen corners. Subject at upper-center, compressed darkness behind, flat 2D plane. Camera: static locked. Global style: the dark matte obelisk, upper-left harsh rim, cold below 4000K, absolute palette #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD, rigid wireframe transitions, zero organic drift.",
             "elevenlabs_payload": {
               "text": "The market does not reward a perfect map. It rewards the capacity to bleed against the terrain.",
               "voice_settings_override": {
-                "stability": 0.58,
+                "stability": 0.60,
                 "similarity_boost": 0.85,
-                "style": 0.1,
+                "style": 0.05,
                 "use_speaker_boost": true,
-                "speed": 0.9
+                "speed": 0.82
               }
             }
           }
         },
         {
           "id": "resolution",
-          "text": "Close the map. Enter the arena. The friction is not the obstacle — it is the data. Let the terrain correct you. Move.",
+          "text": "Close the map. Enter the arena. The friction is not the obstacle. It is the data. Let the terrain correct you. Move.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
           "visual_prompt": "Wide shot: The gold CAD architecture violently shatters, exploding outward toward the frame boundaries. The obelisk fragments clear the central corridor, allowing a sudden burst of brilliant bone-white #F5F2EB illumination to flood the space.",
@@ -326,7 +444,7 @@
             "hook_type": "light-emergence"
           },
           "pacing_lock": {
-            "word_count": 11,
+            "word_count": 22,
             "target_wpm": 115,
             "calculated_duration_seconds": 5.7,
             "buffer_seconds": 0.5,
@@ -340,25 +458,25 @@
             }
           },
           "compiled_outputs": {
-            "runway_api_prompt_string": "A high-contrast frame initialization of Structural obelisk boundaries bursting into hyper-reflective geometric shrapnel moving radially outward with immediate bone-white light emerges from behind the central fracture plane, washing out the surrounding void. Subject framed at lower-left-third with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a slow pull-back path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "runway_api_prompt_string": "Structural obelisk boundaries bursting into hyper-reflective geometric shrapnel moving radially outward. Bone-white light emerges from behind the central fracture plane, washing out the surrounding void. Subject at lower-left-third, vast void in upper two-thirds, deep z-axis recession. Camera: slow pull-back. Global style: the dark matte obelisk, upper-left harsh rim, cold below 4000K, absolute palette #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD, rigid wireframe transitions, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Close the map. Enter the arena. The friction is not the obstacle — it is the data. Let the terrain correct you. Move.",
+              "text": "Close the map. Enter the arena. The friction is not the obstacle. It is the data. Let the terrain correct you. Move.",
               "voice_settings_override": {
                 "stability": 0.58,
                 "similarity_boost": 0.85,
-                "style": 0.1,
+                "style": 0.05,
                 "use_speaker_boost": true,
-                "speed": 0.9
+                "speed": 0.82
               }
             }
           }
         },
         {
           "id": "mobius_close",
-          "text": "Because every hour you spend mapping is an hour you are—",
+          "text": "Because every hour you spend mapping is an hour you are...",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "mobius_note": "Trails open — \"you are—\" resolves at loop restart with \"You are not preparing.\"",
+          "mobius_note": "Trails open. 'you are...' resolves at loop restart with 'You are not preparing.'",
           "visual_prompt": "Medium shot: The bone-white light recedes instantly back into a dense, solid matte black #1A1A1A void. The camera plunges straight down, locking into zero-point visual weightlessness matching the exact velocity and frame value of scene one.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
@@ -369,10 +487,10 @@
           "first_frame_hook": {
             "immediate_visual": "A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light.",
             "motion_onset": "the screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin",
-            "hook_type": "expansion"
+            "hook_type": "void-return"
           },
           "pacing_lock": {
-            "word_count": 15,
+            "word_count": 11,
             "target_wpm": 115,
             "calculated_duration_seconds": 7.8,
             "buffer_seconds": 0.5,
@@ -386,14 +504,15 @@
             }
           },
           "compiled_outputs": {
-            "runway_api_prompt_string": "A high-contrast frame initialization of A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light with immediate the screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin. Subject framed at lower-right-third with compressed darkness behind subject and deep z-axis recession. Camera path executes a vertical drift downward path. Global style matrix: the dark matte obelisk, lit by upper-left, harsh rim, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD aesthetic, rigid wireframe transitions, clean edges, zero organic drift.",
+            "runway_api_prompt_string": "A deep matte-black frame threshold swallowing the remnants of the bone-white fracture light. The screen center plunges into absolute darkness while a singular gold telemetry baseline begins re-drawing on the margin. Subject at lower-right-third, compressed darkness behind, deep z-axis recession. Camera: vertical drift downward. Global style: the dark matte obelisk, upper-left harsh rim, cold below 4000K, absolute palette #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Hard-geometry CAD, rigid wireframe transitions, zero organic drift.",
             "elevenlabs_payload": {
-              "text": "Because every hour you spend mapping is an hour you are—",
+              "text": "Because every hour you spend mapping is an hour you are...",
               "voice_settings_override": {
                 "stability": 0.65,
+                "similarity_boost": 0.85,
                 "style": 0.0,
                 "use_speaker_boost": true,
-                "speed": 0.9
+                "speed": 0.82
               }
             }
           }
@@ -403,17 +522,17 @@
     "elevenLabs_config": {
       "voice_id": "C9Uh5MFptuXa176UlaXE",
       "voice_settings": {
-        "stability": 0.5,
+        "stability": 0.58,
         "similarity_boost": 0.85,
-        "style": 0.15,
+        "style": 0.05,
         "use_speaker_boost": true,
-        "speed": 1.05
+        "speed": 0.82
       },
       "final_segment_override": {
         "segment_id": "mobius_close",
-        "stability": 0.55,
+        "stability": 0.65,
         "style": 0.0,
-        "note": "Final word trails into silence — grammatically unresolved, inviting loop restart."
+        "note": "Final word trails into silence. Grammatically unresolved, inviting loop restart. Ellipsis drives the TTS decay."
       }
     }
   },
@@ -422,15 +541,14 @@
     "highlight": "#C6A94F",
     "peak": "#DC143C",
     "highlight_words": [
-      "spreadsheets",
-      "dopamine",
-      "planning",
+      "certainty",
+      "reward",
       "map",
       "terrain",
       "data"
     ],
+    "highlight_words_rationale": "One word per doctrine beat. 'certainty' = cage material (hook). 'reward' = temporal inversion mechanism (build). 'map' = planning object, appears at pivot and resolution. 'terrain' = the real vs the map (pivot). 'data' = forensic reframe (resolution). 'dopamine' removed -- no longer in script. 'spreadsheet' removed -- concrete example, not doctrine.",
     "peak_words": [
-      "not",
       "bleed",
       "obstacle"
     ],
@@ -444,17 +562,19 @@
       "letter_spacing": "0.06em",
       "vertical_anchor": "28% from bottom of frame",
       "horizontal_align": "center",
-      "safe_zone_compliance": "Instagram Reels UI safe zone — no subtitle content below 18% from bottom",
-      "line_break_rule": "Max 5 words per line. Semantic breaks only — never break mid-phrase",
-      "animation": "word-by-word-appear"
+      "safe_zone_compliance": "Instagram Reels UI safe zone. No subtitle content below 18% from bottom.",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
+      "animation": "word-by-word-appear",
+      "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
     }
   },
   "sound_brief": {
-    "bpm_range": "80–88",
+    "bpm_range": "80-88",
     "bpm_lock_point": 85,
     "emotional_register": "tense anticipation",
+    "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
     "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
-    "energy_arc": "Constant low mechanical tension through hook and build → sub-bass distortion surge at 20s pivot mark → immediate cut to absolute silence with deep echoing sub-bass hit on final word 'drag' at loop seam.",
+    "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
     "suno_search_string": "dark cinematic industrial sub-bass drone minimal tension mechanical 85bpm",
     "explicit_exclusions": [
       "no melody",
@@ -464,11 +584,11 @@
     ]
   },
   "music_config": {
-    "description": "Heavy, resonant low-end industrial bass drone pulsing rhythmically at 85 BPM. Metallic distortion surge at 20 seconds, cutting into a sparse, echoing sub-bass hit on the final word 'drag.'",
+    "description": "Heavy, resonant low-end industrial bass drone pulsing rhythmically at 85 BPM. Metallic distortion surge at 20 seconds. BPM-locked hard cut at loop seam. No fade.",
     "fade_in_seconds": 0,
     "fade_out_start_seconds": 43,
     "fade_out_end_seconds": 45,
-    "loop_seam_note": "Music must loop-cut at exact seam point — no fade required if BPM-aligned"
+    "loop_seam_note": "Music must loop-cut at exact seam point. No fade required if BPM-aligned."
   },
   "cover_frame_spec": {
     "engine_mode": "native_remotion_composition_render",
@@ -482,7 +602,7 @@
     "style_reference_finish": "NDCH_LOGO_COVER_013_RUST_REMIX",
     "layout_geometry": {
       "series_header": {
-        "text": "NDCH • DREAMFORGE",
+        "text": "NDCH - DREAMFORGE",
         "font_family": "Cormorant Garamond",
         "font_weight": "300",
         "font_style": "uppercase",
@@ -501,7 +621,7 @@
         "preserve_aspect_ratio": true,
         "crop_override": false,
         "focal_emblem_alignment": "center",
-        "allowed_scale_variance": "±5%"
+        "allowed_scale_variance": "+-5%"
       },
       "title_block_system": {
         "is_locked_unit": true,
@@ -581,7 +701,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "Planning is the ultimate hiding place. Stop optimizing the theory and start enduring the execution. The arena doesn’t care about your spreadsheet. Step out. #execution #identity #mindset #performance #ndch #strategy",
+    "caption": "Planning is the ultimate hiding place. Stop optimizing the theory and start enduring the execution. The arena doesn't care about your spreadsheet. Step out. #execution #identity #mindset #performance #NDCH #strategy",
     "hashtags": [
       "#NDCH",
       "#DetermineChampions",
@@ -593,7 +713,7 @@
   },
   "production_notes": {
     "runway_credits_estimate": 12,
-    "clip_cache_status": "COLD — zero cached clips",
+    "clip_cache_status": "COLD. Zero cached clips.",
     "render_priority": "HIGH",
     "notes": "Verify structural alignment to version 2.0.0 pipeline interfaces before firing Remotion layers."
   },

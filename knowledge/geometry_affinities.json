@@ -1,0 +1,205 @@
+{
+  "_version": "1.0.0",
+  "_law": "Data Portability Law — geometry knowledge lives here, not inside prompts.",
+  "_note": "Geometry is not a lookup table. Symbol → geometry is many-to-many, evaluated by scoring. These are affinities, not assignments.",
+  "geometries": [
+    {
+      "id": "obelisk_monolith",
+      "label": "Obelisk / Monolith",
+      "description": "Vertical mass of permanence. Gravity made solid. Presence without motion.",
+      "physics_affinities": [
+        { "domain": "gravity", "strength": 0.9 },
+        { "domain": "rigidity", "strength": 0.95 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "obelisk", "strength": 0.95 },
+        { "symbol": "threshold", "strength": 0.6 }
+      ],
+      "camera_affinities": [
+        { "movement": "descending_orbit", "strength": 0.9 },
+        { "movement": "locked_static", "strength": 0.85 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.95 },
+        { "environment": "industrial_interior", "strength": 0.6 }
+      ],
+      "identity_coherence": 0.9,
+      "ndch_usage_count": 1,
+      "last_used_reel": "NDCH_016",
+      "_note": "Separation Law applies: used in 016. Next use requires justification."
+    },
+    {
+      "id": "pendulum_suspension",
+      "label": "Pendulum Suspension",
+      "description": "Mass arrested at apex or in arc. Neither at rest nor in free motion. The geometry of indecision.",
+      "physics_affinities": [
+        { "domain": "oscillation", "strength": 0.95 },
+        { "domain": "gravity", "strength": 0.8 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "pendulum", "strength": 0.95 },
+        { "symbol": "compass", "strength": 0.65 }
+      ],
+      "camera_affinities": [
+        { "movement": "pendulum_drift", "strength": 0.9 },
+        { "movement": "descending_orbit", "strength": 0.7 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.9 },
+        { "environment": "industrial_interior", "strength": 0.65 }
+      ],
+      "identity_coherence": 0.87,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "lattice_cage",
+      "label": "Lattice / Cage",
+      "description": "Geometric grid structure. Order enforced. The architecture of constraint.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.85 },
+        { "domain": "rigidity", "strength": 0.8 },
+        { "domain": "magnetism", "strength": 0.55 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "cage", "strength": 0.95 },
+        { "symbol": "map", "strength": 0.75 },
+        { "symbol": "wire", "strength": 0.8 }
+      ],
+      "camera_affinities": [
+        { "movement": "macro_compression", "strength": 0.9 },
+        { "movement": "tracking_push", "strength": 0.8 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.7 },
+        { "environment": "industrial_interior", "strength": 0.85 }
+      ],
+      "identity_coherence": 0.82,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "fracture_plane",
+      "label": "Fracture Plane",
+      "description": "The surface of structural failure. Clean break under accumulated load.",
+      "physics_affinities": [
+        { "domain": "fracture", "strength": 0.95 },
+        { "domain": "pressure", "strength": 0.8 },
+        { "domain": "entropy", "strength": 0.7 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "fracture_plane", "strength": 0.95 },
+        { "symbol": "wire", "strength": 0.75 }
+      ],
+      "camera_affinities": [
+        { "movement": "micro_shake", "strength": 0.9 },
+        { "movement": "whip_cut", "strength": 0.85 },
+        { "movement": "locked_static", "strength": 0.7 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.8 },
+        { "environment": "industrial_interior", "strength": 0.75 }
+      ],
+      "identity_coherence": 0.86,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "cathedral_arch",
+      "label": "Cathedral Arch",
+      "description": "Structural arch that converts downward force into outward thrust. Weight borne by geometry.",
+      "physics_affinities": [
+        { "domain": "gravity", "strength": 0.85 },
+        { "domain": "pressure", "strength": 0.75 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "threshold", "strength": 0.9 },
+        { "symbol": "obelisk", "strength": 0.5 }
+      ],
+      "camera_affinities": [
+        { "movement": "ascending_spiral", "strength": 0.85 },
+        { "movement": "locked_static", "strength": 0.8 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.75 },
+        { "environment": "cathedral_space", "strength": 0.95 }
+      ],
+      "identity_coherence": 0.8,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "compass_rose",
+      "label": "Compass Rose",
+      "description": "Radial form centered on orientation. All directions visible. No direction taken.",
+      "physics_affinities": [
+        { "domain": "magnetism", "strength": 0.9 },
+        { "domain": "oscillation", "strength": 0.6 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "compass", "strength": 0.95 },
+        { "symbol": "map", "strength": 0.7 }
+      ],
+      "camera_affinities": [
+        { "movement": "pendulum_drift", "strength": 0.75 },
+        { "movement": "locked_static", "strength": 0.8 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.85 },
+        { "environment": "cartographic_space", "strength": 0.9 }
+      ],
+      "identity_coherence": 0.79,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "tension_lattice",
+      "label": "Tension Lattice / Wire Frame",
+      "description": "Network of structural members under tension. Stability maintained by opposing forces.",
+      "physics_affinities": [
+        { "domain": "pressure", "strength": 0.88 },
+        { "domain": "oscillation", "strength": 0.65 },
+        { "domain": "fracture", "strength": 0.7 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "wire", "strength": 0.95 },
+        { "symbol": "cage", "strength": 0.75 },
+        { "symbol": "vein_network", "strength": 0.65 }
+      ],
+      "camera_affinities": [
+        { "movement": "macro_compression", "strength": 0.85 },
+        { "movement": "micro_shake", "strength": 0.75 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.75 },
+        { "environment": "industrial_interior", "strength": 0.9 }
+      ],
+      "identity_coherence": 0.84,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    },
+    {
+      "id": "mirror_plane",
+      "label": "Mirror Plane",
+      "description": "Infinite reflective surface. Everything present is doubled. Identity is uncertain.",
+      "physics_affinities": [
+        { "domain": "vacuum", "strength": 0.6 },
+        { "domain": "rigidity", "strength": 0.5 }
+      ],
+      "symbol_affinities": [
+        { "symbol": "mirror", "strength": 0.95 }
+      ],
+      "camera_affinities": [
+        { "movement": "locked_static", "strength": 0.85 },
+        { "movement": "ascending_spiral", "strength": 0.65 }
+      ],
+      "environment_affinities": [
+        { "environment": "void", "strength": 0.8 },
+        { "environment": "reflective_space", "strength": 0.95 }
+      ],
+      "identity_coherence": 0.77,
+      "ndch_usage_count": 0,
+      "last_used_reel": null
+    }
+  ]
+}

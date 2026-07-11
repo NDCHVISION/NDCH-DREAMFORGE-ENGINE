@@ -1,0 +1,402 @@
+{
+  "_pipeline_phase": "1A — Concept Derivation",
+  "_pipeline_version": "dreamforge_3.0",
+  "_law": "Semantic Before Visual Law — meaning precedes imagery. This file must be approved before script.json is written.",
+  "_status": "APPROVED",
+
+  "concept_seed": "FRICTION",
+
+  "doctrine": "People rarely choose against themselves. They accumulate tiny points of resistance until surrender feels rational.",
+
+  "doctrine_statement": "The peak of friction is the edge of ignition. What feels like maximum resistance is the minimum force required to generate the heat. Most people interpret this as a reason to stop.",
+
+  "doctrine_inversion": "Friction is not the enemy of the fire. Friction is the mechanism of the fire. The contact you release right before it works is the contact that would have changed everything.",
+
+  "psychological_mechanism": {
+    "label": "Agency erosion through accumulation",
+    "description": "The nervous system habituates to the cost of action until the cost itself becomes the new baseline. Each small surrender raises the perceived cost of the next action. After sufficient accumulation, the cognitive system generates justifications — not lies, but perceptions genuinely altered by accumulated friction. The person is not choosing against themselves. They are choosing what the accumulated resistance has made feel rational.",
+    "sub_mechanisms": [
+      {
+        "id": "habituation",
+        "description": "The nervous system stops registering accumulated resistance as unusual. What was once friction becomes the felt weight of reality.",
+        "strength": 0.9
+      },
+      {
+        "id": "threshold_creep",
+        "description": "Each micro-surrender raises the perceived cost of the next attempt. The starting point of effort moves upward with each incomplete attempt.",
+        "strength": 0.95
+      },
+      {
+        "id": "rationalization_cascade",
+        "description": "Once friction has accumulated sufficiently, the cognitive system generates reasons why the resistance is evidence rather than obstacle. Surrender is reframed as wisdom.",
+        "strength": 0.85
+      },
+      {
+        "id": "kinetic_ignorance",
+        "description": "The person has only ever experienced static friction — the maximum resistance state. They have never experienced kinetic friction — the reduced resistance state that follows initiation. They assume maximum resistance is permanent because they have never sustained contact long enough to discover otherwise.",
+        "strength": 0.92
+      }
+    ]
+  },
+
+  "physical_laws": [
+    {
+      "id": "static_greater_than_kinetic",
+      "label": "Static friction coefficient exceeds kinetic friction coefficient",
+      "description": "The force required to initiate movement from rest is always greater than the force required to sustain movement. Maximum resistance is always at zero velocity — at the beginning. This is universally true. Once movement begins, friction decreases.",
+      "doctrine_mapping": "Most people interpret peak static friction as proof that movement is impossible. They are experiencing maximum resistance and reading it as permanent. They release at the exact moment where sustained contact would have decreased resistance and built heat.",
+      "strength": 0.98
+    },
+    {
+      "id": "friction_generates_heat",
+      "label": "Friction converts kinetic energy to thermal energy",
+      "description": "Sustained contact between surfaces converts mechanical energy to heat. Friction is not waste — it is the process. The heat is what enables transformation.",
+      "doctrine_mapping": "The resistance accumulates as heat. If contact is sustained long enough, the heat crosses a threshold. Below threshold: no transformation. Above threshold: self-sustaining ignition.",
+      "strength": 0.94
+    },
+    {
+      "id": "ignition_threshold",
+      "label": "Threshold temperature for ignition is fixed",
+      "description": "The match head contains chemical potential. The friction surface provides initiation energy. Temperature rises continuously with sustained contact. At threshold temperature: ignition — self-sustaining, irreversible.",
+      "doctrine_mapping": "The doctrine's 'tiny points of resistance' are the match head cooling between incomplete strikes. Each incomplete attempt wears the mechanism slightly. The threshold is fixed. The question is only whether contact is sustained.",
+      "strength": 0.96
+    },
+    {
+      "id": "momentum_reduces_required_force",
+      "label": "After initiation, momentum reduces required force",
+      "description": "Once movement has begun and static friction is overcome, inertia works in the mover's favor. After ignition, the flame sustains itself. The same force that was barely enough to initiate now produces acceleration.",
+      "doctrine_mapping": "This is what people never discover when they release at peak static friction — that the next moment would have required less, not more.",
+      "strength": 0.88
+    }
+  ],
+
+  "physics_domains": [
+    { "domain": "pressure",    "strength": 0.88 },
+    { "domain": "heat",        "strength": 0.95 },
+    { "domain": "fracture",    "strength": 0.72 },
+    { "domain": "oscillation", "strength": 0.55 },
+    { "domain": "rigidity",    "strength": 0.60 }
+  ],
+
+  "psychological_domain": "agency_erosion_through_accumulation",
+
+  "body_domain": "The hand. The arm. The point of contact. Friction is always felt at the surface of the body that sustains contact with the resistant surface.",
+
+  "symbol_candidates": [
+    {
+      "symbol": "match_strike",
+      "label": "Match Strike / Ignition Threshold",
+      "description": "Maximum static friction applied at a precise point, converting to heat, converting to ignition. The friction creates the fire. The fire is not despite the friction — it is because of the friction.",
+      "scores": {
+        "concept_fidelity":          96,
+        "novelty":                   91,
+        "emotional_weight":          93,
+        "identity_coherence":        84,
+        "semantic_divergence":       97,
+        "perceptual_anchor_potential": 96
+      },
+      "total": 557,
+      "selection_rationale": "The match strike is the physical instantiation of the doctrine. It maps all four physical laws. It inverts the assumption: friction is not the obstacle — it is the mechanism. The ignition moment is universally legible. Microscopic rather than monolithic — completely different symbolic territory from NDCH_016."
+    },
+    {
+      "symbol": "rope_burning_through",
+      "label": "Rope Under Sustained Friction",
+      "description": "Rope under tension at a fixed contact point. Friction generates heat. Heat degrades the constraint. The thing holding you is destroyed by the same force that holds you.",
+      "scores": {
+        "concept_fidelity":          91,
+        "novelty":                   93,
+        "emotional_weight":          89,
+        "identity_coherence":        82,
+        "semantic_divergence":       96,
+        "perceptual_anchor_potential": 90
+      },
+      "total": 541,
+      "rejection_rationale": "Strong symbol but the perceptual anchor is diffuse — the rope severing is a process, not an instant. The match strike is sharper and more precisely maps to the doctrine's 'instant of threshold crossing.' Rope is the alternate symbol."
+    },
+    {
+      "symbol": "fault_line",
+      "label": "Fault Line Under Accumulated Stress",
+      "description": "Geological friction. Accumulated stress below the surface, invisible until the moment of seismic release. The breakthrough is proportional to the accumulated stress.",
+      "scores": {
+        "concept_fidelity":          89,
+        "novelty":                   86,
+        "emotional_weight":          85,
+        "identity_coherence":        87,
+        "semantic_divergence":       90,
+        "perceptual_anchor_potential": 83
+      },
+      "total": 520,
+      "rejection_rationale": "High concept fidelity and identity coherence, but the geological scale works against the intimacy of the doctrine. The doctrine is about individual micro-surrenders — a geological fault is too vast and too slow. Also: still in the structural/architectural register that risks proximity to NDCH_016 territory."
+    },
+    {
+      "symbol": "seized_bearing",
+      "label": "Seized Bearing",
+      "description": "A bearing that has seized from insufficient lubrication. Friction has destroyed the very mechanism designed to reduce friction. The resistance has consumed the system designed to manage resistance.",
+      "scores": {
+        "concept_fidelity":          87,
+        "novelty":                   88,
+        "emotional_weight":          79,
+        "identity_coherence":        83,
+        "semantic_divergence":       95,
+        "perceptual_anchor_potential": 76
+      },
+      "total": 508,
+      "rejection_rationale": "Excellent concept but weak perceptual anchor. A seized bearing cross-section is not universally legible. The doctrine requires an image everyone has felt — the match strike achieves this; a seized bearing requires technical literacy to land emotionally."
+    },
+    {
+      "symbol": "worn_stone_step",
+      "label": "Worn Stone Step",
+      "description": "Centuries of accumulated friction have carved a depression into stone. The path of least resistance becomes physically inscribed into the world by the accumulated weight of all who chose it.",
+      "scores": {
+        "concept_fidelity":          82,
+        "novelty":                   84,
+        "emotional_weight":          77,
+        "identity_coherence":        78,
+        "semantic_divergence":       93,
+        "perceptual_anchor_potential": 74
+      },
+      "total": 488,
+      "rejection_rationale": "Powerful metaphor for accumulated choice but too passive. There is no agent — the stone is shaped by others. The doctrine requires an agent who chooses to sustain or release. Also: the perceptual anchor is a gradual erosion, not a threshold moment."
+    }
+  ],
+
+  "primary_symbol": "match_strike",
+  "alternate_symbol": "rope_burning_through",
+
+  "perceptual_anchor": {
+    "type": "transformation",
+    "description": "The precise microsecond when the match head crosses ignition temperature: the surface that was generating resistance is now generating light. The friction has not stopped — it has become something else entirely. Maximum resistance and maximum energy release are not opposites. They are the same point on the curve, separated by one more second of contact.",
+    "why_memorable": "Every human has struck a match. No one has ever seen the ignition moment at the scale and speed that makes the physics visible. At NDCH's CAD resolution — crystalline, geometric, precise — the match head at ignition becomes something the viewer has never seen in a form they have always known. The moment is universally experienced and visually unknown.",
+    "sensory_register": "thermal_threshold",
+    "emotional_resonance": "threshold_crossed — the recognition that what felt like maximum resistance was the minimum force required to generate the fire",
+    "derived": true
+  },
+
+  "emotional_arc": [
+    {
+      "beat": "hook",
+      "label": "Entrapment",
+      "description": "The friction is present but indistinguishable from the weight of reality. Cold match head. The first contact. The viewer doesn't yet know what they're watching."
+    },
+    {
+      "beat": "build",
+      "label": "Compound accumulation",
+      "description": "Each incomplete attempt leaves the mechanism slightly more worn. The accumulated resistance is becoming visible — not as a wall but as degradation. The window is narrowing."
+    },
+    {
+      "beat": "pivot",
+      "label": "Maximum resistance",
+      "description": "Peak static friction. This is the exact moment most people interpret as evidence of impossibility. The match head is at the edge of ignition temperature. One more second of contact separates surrender from transformation."
+    },
+    {
+      "beat": "resolution",
+      "label": "Ignition",
+      "description": "Sustained contact crosses the threshold. The mechanism that was resisting is now generating. The resistance was always the fuel. The fire is made entirely of friction."
+    },
+    {
+      "beat": "mobius_close",
+      "label": "The next point of friction",
+      "description": "The flame holds. Then the question: what is the next surface of resistance? The Möbius opens."
+    }
+  ],
+
+  "conflict_type": "internal_vs_accumulated_history",
+
+  "resolution_type": "threshold_sustained",
+
+  "visual_intent": "Friction is not what stops the fire. Friction is what makes the fire. The viewer has always known this with matches. They have never applied it to themselves.",
+
+  "derivation_path": [
+    { "node": "friction",                              "type": "concept_seed" },
+    { "node": "agency_erosion_through_accumulation",   "type": "psychological_mechanism" },
+    { "node": "static_greater_than_kinetic",           "type": "physical_law" },
+    { "node": "friction_generates_heat",               "type": "physical_law" },
+    { "node": "ignition_threshold",                    "type": "physical_law" },
+    { "node": "match_strike",                          "type": "primary_symbol" },
+    { "node": "ignition_moment",                       "type": "perceptual_anchor" }
+  ],
+
+  "identity_coherence_assessment": {
+    "score": 0.86,
+    "rationale": "The match strike rendered in NDCH's brutalist CAD aesthetic — crystalline geometry, gold telemetry tracing temperature rise, crimson interference at ignition threshold — is unmistakably NDCH while being completely unlike any previous reel. The palette holds. The precision holds. The philosophical register holds. The visual family is entirely new.",
+    "risk": "The match head is microscopic. NDCH has primarily used vast or architectural scale. The intimacy of scale is a deliberate expansion of vocabulary — not a departure from identity.",
+    "verdict": "Approved"
+  },
+
+  "semantic_divergence_from_history": {
+    "score": 0.97,
+    "compared_against": ["NDCH_016"],
+    "rationale": "NDCH_016 primary symbol was obelisk (monolithic, architectural, vast, static). NDCH_017 primary symbol is match strike (microscopic, chemical, intimate, dynamic). Physics domains differ: 016 used gravity/fracture/pressure from a structural register; 017 uses heat/friction/threshold from a thermal/chemical register. Derivation paths share no nodes except concept_seed type.",
+    "verdict": "Maximum divergence within identity envelope"
+  },
+
+  "counterfactual_winner_analysis": {
+    "question": "Why did match_strike win over rope_burning_through specifically?",
+    "note": "This is not a rejection record — it is a comparative advantage analysis. Both symbols are strong. The margin was 16 points. That margin requires explanation, not just the score.",
+    "match_strike_advantages": [
+      {
+        "dimension": "Perceptual compression",
+        "explanation": "The ignition microsecond is a single instant — not a process. The doctrine points to a threshold, not a duration. Maximum compression of the threshold concept requires an event with near-zero temporal width. Match strike has it. Rope burning does not.",
+        "advantage_over_rope": "Critical"
+      },
+      {
+        "dimension": "The symbol IS the mechanism",
+        "explanation": "In the match strike, the friction and the ignition are the same object. The match head is both the source of friction and the site of transformation. In the rope scenario, friction generates the heat, but the heat acts on the rope — the friction and the outcome are in separate objects. The doctrine requires the friction to BE the fire, not cause it.",
+        "advantage_over_rope": "Critical"
+      },
+      {
+        "dimension": "Universal legibility",
+        "explanation": "Every human has struck a match. The rope-under-capstan is structurally elegant but requires technical literacy about capstan mechanics or sustained friction-burning scenarios. The match strike needs no context. Recognition is immediate.",
+        "advantage_over_rope": "Significant"
+      },
+      {
+        "dimension": "Intimacy of scale",
+        "explanation": "The doctrine is about individual micro-decisions — a personal accumulation of tiny surrenders. Match strike is hand-scale. Rope systems are industrial-scale. The intimacy of the match maps to the intimacy of the doctrine. The rope introduces a scale mismatch.",
+        "advantage_over_rope": "Moderate"
+      }
+    ],
+    "rope_burning_advantages": [
+      {
+        "dimension": "Sustained friction visibility",
+        "explanation": "Rope burning makes the friction-to-heat conversion visible over time — you can see the process. Match ignition is so fast the physics is invisible. Rope gives the viewer more time to register what's happening.",
+        "why_insufficient": "Duration works against the doctrine. The doctrine is about a threshold crossed in an instant. Showing the process slows the moment."
+      },
+      {
+        "dimension": "Constraint as symbol",
+        "explanation": "The rope-under-tension carries an additional layer: the rope constrains, and then the friction-generated heat destroys the constraint. This is 'the thing holding you destroyed by the force that holds you.' Powerful.",
+        "why_insufficient": "This is a stronger symbol for a different doctrine — one about constraint and liberation. FRICTION's doctrine is about initiation and threshold, not liberation from constraint. The constraint framing pulls the concept in the wrong direction."
+      }
+    ],
+    "verdict": "match_strike wins on the two critical dimensions: perceptual compression (the threshold must be an instant, not a process) and mechanical unity (friction and fire must be the same object, not cause-and-effect between separate objects). rope_burning_through is the correct symbol for a doctrine about constraint. It is the wrong symbol for a doctrine about initiation.",
+    "future_application": "rope_burning_through should be reconsidered for a future reel about constraint that destroys itself — a different psychological mechanism. Flag in reel_history when it renders."
+  },
+
+  "confidence_decomposition": {
+    "note": "Overall confidence 0.93 is a weighted composite of five components. The uncertainty lives in specific places. Knowing where prevents false certainty about the whole derivation.",
+    "components": [
+      {
+        "dimension": "Concept certainty — psychological mechanism",
+        "score": 0.95,
+        "rationale": "The doctrine maps cleanly to agency_erosion_through_accumulation. All four sub-mechanisms (habituation, threshold_creep, rationalization_cascade, kinetic_ignorance) are internally consistent and derivable from the doctrine text. No significant competing interpretation was found.",
+        "uncertainty_source": "The doctrine says 'people rarely choose against themselves.' There is an edge case: the person who consciously self-sabotages. The mechanism described here does not apply to them. The 0.05 uncertainty reflects that edge case."
+      },
+      {
+        "dimension": "Physics certainty — law selection",
+        "score": 0.98,
+        "rationale": "Static friction > kinetic friction is a hard physical law. It is not a metaphor — it is incontrovertible physics. The threshold model is precise. The four physical laws selected all hold without qualification.",
+        "uncertainty_source": "The 0.02 reflects that the match head's ignition involves chemistry as well as physics (the match head coating chemistry varies by brand/type). The physical law is correct; the specific chemical instantiation introduces minor implementation variance."
+      },
+      {
+        "dimension": "Symbol certainty — primary symbol selection",
+        "score": 0.84,
+        "rationale": "match_strike is the right symbol. Score lowered by one risk: NDCH's visual vocabulary has been monumental/architectural in scale. The match head is microscopic. This is a deliberate expansion of vocabulary — not wrong, but untested in NDCH's production pipeline.",
+        "uncertainty_source": "The scale shift is the risk. If execution at microscopic scale reads as clinical rather than philosophical, the identity_coherence drops. This is execution risk, not concept risk."
+      },
+      {
+        "dimension": "Perceptual anchor certainty",
+        "score": 0.94,
+        "rationale": "The ignition microsecond is the correct anchor. It is the precise physical event that embodies the doctrine inversion. The derivation path from concept to anchor is clean.",
+        "uncertainty_source": "The 0.06 reflects production risk: can Runway Gen-4.5 render the crystallographic structure of a match head at ignition at sufficient fidelity to carry the weight the anchor requires? This is a Compiler-phase risk, not a Thinker-phase risk."
+      },
+      {
+        "dimension": "Derivation integrity — chain completeness",
+        "score": 0.96,
+        "rationale": "The chain from concept_seed → psychological_mechanism → physical_law → primary_symbol → perceptual_anchor has no breaks. Every node is derivable from the previous node. The provenance is clean.",
+        "uncertainty_source": "The 0.04 reflects that geometry is not yet derived. The geometry for match_strike (ignition_crystallography) does not exist in geometry_affinities.json — it must be created. Geometry selection will introduce a small additional uncertainty at production phase."
+      }
+    ],
+    "overall_confidence": 0.93,
+    "weighted_rationale": "Two low-uncertainty components (physics at 0.98, derivation at 0.96) anchor the derivation. The primary risk vector is production execution on symbol scale (0.84) — specifically whether microscopic crystallographic rendering lands as NDCH or as science visualization. This risk is addressable at the Director phase; it does not warrant re-derivation of the concept."
+  },
+
+  "identity_justification": {
+    "question": "Why is this still NDCH?",
+    "note": "Not because of the aesthetic palette (void, telemetry gold, interference crimson). Not because of the voice. Not because of the brutalist CAD treatment. Those are surface. The identity lives in the philosophical register.",
+    "core_claim": "NDCH reels are not motivational content. They are forensic content about agency. The function is diagnostic, not inspirational.",
+    "how_match_strike_serves_this": [
+      {
+        "element": "Diagnostic, not instructional",
+        "explanation": "The match_strike doctrine does not say 'try harder.' It says: the maximum resistance you felt was real — and it was the minimum force required to generate the fire. That is a forensic statement. It explains the mechanism of the failure. NDCH does not tell you what to do. It tells you what happened.",
+        "alignment": "Perfect"
+      },
+      {
+        "element": "Truth over comfort",
+        "explanation": "The inversion is uncomfortable: the person who surrendered at peak static friction made a reasonable interpretation of incorrect data. They were not weak. They were wrong about physics. The reel's job is to correct the physics error, not to validate the feeling. This is NDCH's register: honest before reassuring.",
+        "alignment": "Perfect"
+      },
+      {
+        "element": "Agency as the philosophical axis",
+        "explanation": "Every NDCH reel orbits agency. NDCH_016 was about the illusion of agency (appearing to move while stationary). NDCH_017 is about the erosion of felt agency through accumulated friction. Both are analyses of agency failure — different mechanisms, same philosophical territory.",
+        "alignment": "High — extends the series coherently"
+      },
+      {
+        "element": "Discipline and personal responsibility without moralism",
+        "explanation": "The match_strike doesn't blame the person. It corrects a physics misunderstanding. Blame requires a moral frame. Correction requires an accurate frame. NDCH does not moralize — it clarifies. 'You were wrong about what maximum resistance means' is not a moral statement. It is a physical one.",
+        "alignment": "Perfect"
+      }
+    ],
+    "what_would_break_identity": "If the script uses the match_strike to say 'push through the friction' or 'don't give up' — that would be motivational content, not forensic content. The identity requires the reel to explain the mechanism, not exhort the behavior. The Compiler must be constrained by this during script generation.",
+    "identity_verdict": "NDCH. The philosophical register is correct. The match_strike serves the diagnostic function that defines the series. Surface aesthetic is secondary — the register is primary."
+  },
+
+  "knowledge_contributions": {
+    "note": "What this reel teaches DreamForge. These entries must be written to knowledge/*.json when production renders and is evaluated. Not before — the reel earns its place in the knowledge layer by existing.",
+    "contributions": [
+      {
+        "type": "symbol",
+        "file": "knowledge/symbols.json",
+        "value": "match_strike",
+        "label": "Match Strike / Ignition Threshold",
+        "identity_coherence": 0.84,
+        "reel_origin": "NDCH_017",
+        "physics_affinities": [
+          { "domain": "heat",     "strength": 0.98 },
+          { "domain": "pressure", "strength": 0.82 },
+          { "domain": "fracture", "strength": 0.55 }
+        ],
+        "psychological_affinities": [
+          { "domain": "agency_erosion_through_accumulation", "strength": 0.96 },
+          { "domain": "threshold_crossing",                  "strength": 0.94 },
+          { "domain": "kinetic_ignorance",                   "strength": 0.90 }
+        ]
+      },
+      {
+        "type": "geometry",
+        "file": "knowledge/geometry_affinities.json",
+        "value": "ignition_crystallography",
+        "label": "Ignition Crystallography",
+        "description": "Microscopic crystalline structure at the moment of threshold crossing. The geometry of initiation — the surface between resistance and generation. Intimate scale, maximum precision. Distinct from monumental or architectural geometries.",
+        "identity_coherence": 0.82,
+        "reel_origin": "NDCH_017"
+      },
+      {
+        "type": "physics_mapping",
+        "file": "knowledge/physics.json",
+        "domain": "heat",
+        "new_edges": [
+          { "edge_type": "co_occurs_with",           "target": "friction_threshold", "strength": 0.92 },
+          { "edge_type": "psychological_resonance",  "target": "threshold_crossed",  "strength": 0.90 },
+          { "edge_type": "psychological_resonance",  "target": "transformation",     "strength": 0.88 }
+        ]
+      },
+      {
+        "type": "perceptual_anchor",
+        "value": "ignition_moment",
+        "sensory_register": "thermal_threshold",
+        "emotional_resonance": "threshold_crossed",
+        "description": "The microsecond when a surface crosses ignition temperature — the transition point between resistance and generation. Universally experienced (match strike), visually unknown at crystallographic scale."
+      },
+      {
+        "type": "psychological_mechanism",
+        "value": "agency_erosion_through_accumulation",
+        "description": "The nervous system habituates to the cost of action until the cost becomes the new baseline. Distinct from motivation loss (acute), willpower failure (volitional), and fear (object-specific). Mechanism: habituation → threshold_creep → rationalization_cascade → kinetic_ignorance.",
+        "doctrine_origin": "NDCH_017"
+      },
+      {
+        "type": "future_search_path",
+        "paths_banked": 7,
+        "note": "Seven unexplored or partially explored paths banked in creative_trace.future_search_paths. Each maps to a doctrine that does not yet exist. This is the return on the reasoning investment."
+      }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "_pipeline_phase": "2B — Shot List (Director)",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "PENDING_APPROVAL",
+  "_depends_on": "visual_system._status === APPROVED",
+  "_director_constraint": "Each shot describes the invisible physical system, not the narration. The Compiler will translate shot direction into Runway prompts. The Director's language is spatial, geometric, and physical — not emotional or narrative.",
+
+  "reel_id": "NDCH_017",
+
+  "shots": [
+    {
+      "shot_id": "017_S1",
+      "segment": "S1",
+      "beat": "hook",
+      "narration_reference": "You do not choose against yourself. You accumulate.",
+      "what_the_shot_reveals": "The microscopic interface between two surfaces that have not yet made contact. Not a single object at rest — a relationship at rest. The viewer is placed inside the gap between match head and friction surface, witnessing the potential energy held in the space between two geometries that have not yet interacted. The relationship is the subject. Neither surface is the subject.",
+      "visual_direction": "Camera positioned inside the microscopic void gap between two facing surfaces — equidistant from each, looking across the interface. Match head crystal lattice above: potassium chlorate and antimony sulfide geometry, angular crystal faces, pale cream (#F5F2EB), faint gold (#C6A94F) edge traces. Phosphorus friction strip below: ruled crystalline rows, same cold palette. Both surfaces occupy equal compositional weight. Neither dominates. The gap between them — void (#1A1A1A), sharp, charged — is the focal plane. Upper-left analytical lighting illuminates both surface geometries simultaneously. The viewer is not outside looking at an object. The viewer is inside the interface. The surfaces have not touched. No motion. No drift. The gap communicates stored potential not through what is happening but through what has not happened yet.",
+      "camera": "locked_static — extreme macro. No movement. No push. No drift. The stillness and the gap between surfaces are the only visual statements.",
+      "duration_seconds": 9,
+      "palette": ["#1A1A1A", "#F5F2EB", "#C6A94F faint"],
+      "runway_prompt_seed": "extreme macro view from inside the microscopic gap between two crystal surfaces: angular crystallographic match head lattice above and ruled phosphorus friction strip below, both surfaces in equal compositional weight neither dominant, void #1A1A1A gap space in sharpest focus between them, pale cream #F5F2EB crystal material on both surfaces, faint gold #C6A94F edge traces, no contact between surfaces, upper-left analytical lighting illuminating both surface geometries simultaneously, absolute stillness no motion no camera movement, scientific instrument aesthetic, the gap is the subject not either surface",
+      "compression_note": "Shot does not show a match head. It shows the interface — the gap between two geometries that have not yet made contact. The relationship is the compositional subject. Both surfaces are equal witnesses to stored potential. The viewer exists inside the gap, not outside it."
+    },
+    {
+      "shot_id": "017_S2",
+      "segment": "S2",
+      "beat": "build",
+      "narration_reference": "Each point of resistance — minor. Rational. Survivable. Until surrender feels rational.",
+      "what_the_shot_reveals": "The thermal signature of incomplete contact. Not the decision to stop — the physical evidence of what stopping costs. Each incomplete attempt is visible as crystalline wear and heat that fails to hold.",
+      "visual_direction": "Three contact events in sequence. Each shows the match head making contact with the friction surface — a brief crystallographic collision — and releasing. On contact: telemetry gold lines bloom at the contact zone, showing heat accumulating. On release: gold lines fade immediately. Between contacts: the crystal surface at the contact zone shows microscopic geometry change — a trace of wear that was not there before. By the third contact event, the geometry at the contact zone is visibly different from S1. The mechanism is degrading. The heat never holds. The viewer sees the cost without seeing the decision.",
+      "camera": "slow tracking_push between contact events — the camera approaches the contact zone incrementally. Each approach is slightly closer than the last. The camera never arrives.",
+      "duration_seconds": 9,
+      "palette": ["#1A1A1A", "#F5F2EB", "#C6A94F flickering"],
+      "runway_prompt_seed": "macro crystallographic match head surface making contact with phosphorus friction strip, three contact events, gold thermal bloom at contact zone fading on release, microscopic crystal wear accumulating at contact point, CAD brutalist precision, cool void background, no fire, no hand, heat that never holds",
+      "compression_note": "Shot does not show someone giving up. It shows what giving up looks like from inside the mechanism — heat that accumulates and dies, wear that accumulates and stays."
+    },
+    {
+      "shot_id": "017_S3",
+      "segment": "S3",
+      "beat": "pivot",
+      "narration_reference": "You are not wrong to feel it. You are wrong about what it means.",
+      "what_the_shot_reveals": "The physical reality of peak static friction — the actual evidence. Maximum load on the crystal structure. Temperature rising. The data the viewer has been reading correctly — resistance is real — and the data they have been reading incorrectly: that this is the permanent state.",
+      "visual_direction": "Sustained contact. The match head pressed against the friction surface and held. The crystal lattice at the contact zone deforms visibly under load — structural bending is legible at this scale. Telemetry gold lines at the contact zone intensify and hold — unlike S2 where they faded, here they accumulate. Temperature is rising continuously. A telemetry readout line (gold) approaches a threshold line that is not labeled — just visible as a boundary the temperature has not yet crossed. Interference crimson (#DC143C) appears as the first trace at the contact zone — not flame, but the thermal signature of heat accumulating above ambient. The frame holds. The stillness is deliberate — the viewer sits inside maximum resistance.",
+      "camera": "locked_static — held longer than any other shot. The camera does not move. After the pivot sentence lands, the frame continues to hold for a full visual beat before the narration continues.",
+      "duration_seconds": 10,
+      "palette": ["#1A1A1A", "#F5F2EB", "#C6A94F intense", "#DC143C trace"],
+      "runway_prompt_seed": "extreme macro match head crystal lattice under compression against friction surface, crystal deformation visible at contact zone, gold thermal gradient lines accumulating not fading, first trace of crimson heat signature at contact point, temperature approaching unlabeled threshold line, brutalist CAD precision, scientific stillness, no fire yet, sustained contact held",
+      "compression_note": "Shot reveals: the resistance is real (crystal deformation visible), the temperature is rising (gold lines hold and intensify), and the threshold is close (crimson trace appearing). The narration says 'you are not wrong to feel it' — the shot shows the physics that makes the feeling accurate. The narration says 'you are wrong about what it means' — the shot shows the threshold that has not yet been crossed, which the viewer can see but the person in the doctrine cannot."
+    },
+    {
+      "shot_id": "017_S4",
+      "segment": "S4",
+      "beat": "resolution",
+      "narration_reference": "The moment that feels impossible is the only moment the fire begins.",
+      "what_the_shot_reveals": "The crystallographic event of ignition — not fire as an emotional outcome but fire as a physical state change. The structure that was generating resistance becomes the structure generating energy. This is the perceptual anchor: the microsecond when the surface changes state.",
+      "visual_direction": "Sustained contact from S3 continues. The temperature line crosses the threshold — visible as the gold telemetry line meeting the threshold marker and passing it. At the contact zone: the crystal structure begins to transform. The lattice that was bending under pressure begins to fracture and oxidize — at this scale, this is a geometric event, not a chaotic one. Angular crystalline fragments. Interference crimson (#DC143C) expands from the contact zone — not as flame but as structural transformation made visible. The gold telemetry becomes crimson as temperature exceeds threshold. The full palette appears simultaneously for the first time: void, telemetry gold, historical code, interference crimson — all present at once. The transformation propagates outward from the contact zone through the crystal matrix. This is ignition from the inside.",
+      "camera": "slow ascending movement through the contact zone — the camera travels through the threshold crossing. This is the only shot where the camera moves significantly. The movement is not dramatic — it is precise, like a microscope adjusting focus through a moment.",
+      "duration_seconds": 9,
+      "palette": ["#1A1A1A", "#F5F2EB", "#C6A94F", "#DC143C dominant"],
+      "runway_prompt_seed": "extreme macro match head crystal lattice at ignition threshold, crystallographic fracture and oxidation at contact zone, crimson thermal transformation expanding through crystal matrix, gold temperature telemetry lines crossing threshold, full CAD palette void black cream gold crimson, geometric precision at the moment of ignition, not fire but the structure that becomes fire, the contact zone generating light",
+      "compression_note": "Shot does not show 'impossible becoming possible.' It shows the physics of what was always possible — the crystallographic transformation that was waiting for sustained contact. The viewer sees the inevitability of ignition given sustained contact. The doctrine arrives as physical evidence.",
+      "render_variants": "S4 is the load-bearing shot. Three prompt variants defined in render_validation.json:017_S4.prompt_variants. Try Variant A (crystal fracture) first. If review questions fail, try B (threshold crossing), then C (oxidation wave). Do not blend variants."
+    },
+    {
+      "shot_id": "017_S5",
+      "segment": "S5",
+      "beat": "mobius_close",
+      "narration_reference": "You do not overcome friction. The next surface is already waiting.",
+      "what_the_shot_reveals": "The self-sustaining state — and immediately, the next unlit surface. The cycle is not over. The viewer sees that the doctrine applies forward infinitely. The visual palindrome closes the Möbius.",
+      "visual_direction": "Two-part shot. First: the ignition zone from S4 holds — the crystalline transformation is stable, self-sustaining. The telemetry shows temperature holding at above-threshold without additional contact. The mechanism is now autonomous. Second: camera slowly reveals a new surface in void. Cold. Unlit. Geometric. Structurally identical to the surface we saw in S1 — the beginning. This new surface is in the same visual register as S1: void dominant, faint telemetry gold traces, historical code material. No heat. No interference. Waiting. The viewer recognizes the visual language of S1 applied to a new object. The cycle is visible without being stated.",
+      "camera": "locked_static on the self-sustaining ignition — then slow reveal (pan or pull back) to the new cold surface. Final frame: the new surface, alone in void, echoing S1 exactly.",
+      "duration_seconds": 8,
+      "palette_arc": "Transitions from full crimson-dominant (S4 state) → void dominant with faint telemetry gold (S1 state). The palette itself narrates the cycle resetting.",
+      "palette": ["#1A1A1A dominant", "#F5F2EB", "#C6A94F faint"],
+      "runway_prompt_seed": "two-part shot: first crystallographic ignition zone self-sustaining stable geometric, then void space revealing new cold unlit match head surface identical register to opening shot, pale cream crystal geometry faint gold traces void black background, no heat no crimson, beginning state of a new cycle, waiting",
+      "compression_note": "Shot does not show 'starting again' as an emotional beat. It shows the physics: a new surface with the same potential as the first one. The cycle is a physical fact, not a motivational observation. 'The next surface is already waiting' — the shot is the evidence.",
+      "reference_frame": {
+        "source_clip": "S1",
+        "source_frame": "first",
+        "relationship": "visual_palindrome",
+        "constraint": "S5 final frame must match S1 first frame palette register: void dominant (#1A1A1A), pale cream crystal (#F5F2EB), faint gold traces (#C6A94F), cold, absolute stillness, no crimson.",
+        "current_seed_strategy": "REVISED — split-generation editorial stitch (LE-003). Single-generation approach failed on both seeded and text-only attempts. S5A: 4s seeded from S4 final frame → sustaining ignition residual. S5B: 4s seeded from S1 first frame → cold surface next-cycle in S1 register. Stitched at editorial midpoint. This is now the required method for any loop-critical shot requiring hard state reset.",
+        "fallback": "If S5B final frame fails S1 register after split-generation: re-render S5B with stronger S1 visual constraint. Do not revert to single-generation — that limit is confirmed.",
+        "architectural_note": "The reference_frame relationship is documented here as an architectural fact, not merely a prompt instruction. Future pipeline versions should enforce this structurally — S5 is not independently generated; it is generated relative to S1. The Möbius palindrome is a defined artifact relationship."
+      }
+    }
+  ],
+
+  "visual_palindrome_note": "S1 and S5 share the same palette register, camera posture, and subject type (cold unlit surface in void). A viewer who watches the reel twice will recognize the visual rhyme. On first view: the S5 surface feels like continuation. On second view: they realize S1 was itself a next surface. The Möbius is visible in the structure of the shots, not just the narration.",
+
+  "runway_execution_notes": {
+    "model": "gen4.5",
+    "resolution": "768:1280",
+    "critical_rendering_challenge": "Crystallographic precision at extreme macro. Runway's default macro rendering may drift toward organic/fluid aesthetics. Prompts must specify: geometric, angular, lattice structure, crystal faces, CAD precision. Avoid: soft, organic, fluid, smoke, diffuse.",
+    "fallback_if_crystallography_fails": "If Runway cannot maintain crystallographic geometry, fall back to the friction surface geometry (the phosphorus strip) which has a more regular, ruled pattern that may render more reliably. The doctrine still holds — the friction surface is the other side of the contact zone.",
+    "clip_sequence": ["017_S1", "017_S2", "017_S3", "017_S4", "017_S5"],
+    "credits_estimate_12_per_second": "5 clips × 9 seconds average × 12 credits = 540 credits"
+  },
+
+  "compression_from_visual_system": {
+    "visual_system_ideas_explicit": 12,
+    "shot_list_ideas_explicit": 5,
+    "compression_ratio": "~15%",
+    "law_12_compliance": "Shot list encodes 15% of explicit ideas in the visual system. Each shot direction compresses the visual system into a specific frame — all system-level knowledge is present but most is implicit in the geometry and palette choices."
+  }
+}

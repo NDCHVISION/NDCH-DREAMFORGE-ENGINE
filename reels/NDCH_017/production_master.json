@@ -1,0 +1,56 @@
+{
+  "_pipeline_phase": "Stage 10 — Production Master",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "FROZEN",
+  "_frozen_date": "2026-07-06",
+  "_note": "This file is the official close of NDCH_017. No further iterations. No 'FINAL FINAL v6.' The discipline of freezing is part of the architecture.",
+
+  "reel_id": "NDCH_017",
+  "concept_seed": "FRICTION",
+  "designation": "NDCH_017 Production Master",
+
+  "production_master_file": "output/NDCH_017_final_music.mp4",
+  "audio_spec": {
+    "vo_level_relative_to_loudnorm_target": "-2.75 dB applied post-loudnorm",
+    "music_volume_map": "editorial_timeline.json regions (unchanged)",
+    "integrated_loudness_target": "-16 LUFS",
+    "true_peak_ceiling": "-1.0 dBFS",
+    "actual_max_peak": "-1.4 dBFS",
+    "actual_mean_volume": "-18.5 dB"
+  },
+
+  "director_review": {
+    "verdict": "APPROVED — production master",
+    "voice": "Integrated into the environment. Retains authority. No longer sitting on top of the soundtrack.",
+    "music": "Providing continuity between philosophical beats. Not competing. Doing exactly what ambient scoring should do.",
+    "audio_balance": "Much improved. Remaining adjustments are taste decisions, not architectural ones.",
+    "cadence": "Narration now has enough room that visuals don't feel interrupted.",
+    "ending": "Lands. Music carries the last image. Doctrine has time to settle.",
+    "opening_note": "First 5-7 seconds carry dense information. Not wrong — just an area to refine in future reels for scroll behavior.",
+    "psychological_milestone": "First version where I stopped evaluating DreamForge and simply watched it. That's the strongest endorsement I can give."
+  },
+
+  "architecture_stability_index": {
+    "_law": "H-018 — zero new laws. The ASI is demonstrated by what is NOT here.",
+    "new_thinker_laws": 0,
+    "new_director_changes": 0,
+    "new_compiler_changes": 0,
+    "new_architectural_laws": 0,
+    "interpretation": "017 completed without requiring any architectural change to reach production quality. The pipeline was sufficient. Remaining refinements are personal taste, not DreamForge."
+  },
+
+  "known_future_improvements": {
+    "_note": "These are banked observations, not blockers. None required before publication.",
+    "items": [
+      "Continue refining Orator timing.",
+      "Experiment with slightly lower opening information density.",
+      "Continue developing audio performance model in future reels."
+    ]
+  },
+
+  "open_experiment": {
+    "question": "Can 018 achieve this level of cohesion without requiring any new architectural laws?",
+    "significance": "This is the test of whether DreamForge has become a true creative operating system or whether 017 was an exceptional case.",
+    "hypothesis": "Ready to run the experiment."
+  }
+}
