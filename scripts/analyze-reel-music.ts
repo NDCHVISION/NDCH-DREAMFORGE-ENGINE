@@ -279,13 +279,19 @@ async function main(): Promise<void> {
     resolvedMusicPaths.push(rp);
   }
 
-  // Deduplicate by file size (identical files)
+  // Deduplicate by SHA-256 hash (byte-identical files).
+  // Size is checked first as a fast pre-filter; hash confirms byte identity.
+  // This is collision-safe for byte-identical copies. It does NOT detect equivalent
+  // re-encodes; perceptual fingerprinting would be required for that and is deferred.
   const seen = new Set<string>();
-  const { statSync } = await import('node:fs');
+  const { statSync, readFileSync } = await import('node:fs');
+  const { createHash } = await import('node:crypto');
   const uniqueMusicPaths = resolvedMusicPaths.filter((p) => {
-    const key = `${statSync(p).size}`;
+    const size = statSync(p).size;
+    const hash = createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 16);
+    const key = `${size}:${hash}`;
     if (seen.has(key)) {
-      console.log(`  [dedup] Skipping duplicate: ${basename(p)} (same size as another candidate)`);
+      console.log(`  [dedup] Skipping probable duplicate: ${basename(p)} (byte-identical SHA-256 prefix match)`);
       return false;
     }
     seen.add(key);

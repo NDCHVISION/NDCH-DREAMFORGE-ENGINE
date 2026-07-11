@@ -12,7 +12,7 @@
  * Soft gates (failure = WITHIN_TOLERANCE):
  *   V4  True peak within ceiling
  *   V5  Integrated loudness within target range
- *   V6  Voice present in pivot window
+ *   V6  Pivot audio present at level floor (machine check only — intelligibility and ducking require human review)
  *   V7  Music present in visual tail
  *   V8  Music extraction within source track bounds
  *   V9  Output file exists and is non-empty
@@ -185,22 +185,24 @@ export function validateFinalMix(
     checks.push(skip('V5', 'Integrated loudness within target', 'loudnorm analysis failed'));
   }
 
-  // V6: voice intelligible at the actual pivot segment (segment index 2).
+  // V6: audio present at level floor in the actual pivot segment (segment index 2).
+  // Proves audio is not missing or silent; does NOT prove speech intelligibility,
+  // voice/music separation, or absence of masking — those require human review.
   // Use segment_boundaries_seconds[2]→[3] when available; fall back to resolutionEnd midpoint.
   const segBounds = mixPlan.segment_boundaries_seconds;
   const pivotStart = segBounds && segBounds.length >= 4 ? segBounds[2] : Math.round(resolutionEnd * 0.53);
   const pivotEnd = segBounds && segBounds.length >= 4 ? segBounds[3] : Math.min(pivotStart + 9, resolutionEnd);
   const pivotMax = getMaxVolume(finalPath, `${pivotStart.toFixed(1)}`, `${pivotEnd.toFixed(1)}`);
-  const minIntel = mixPlan.validation_expectations.min_voice_intelligibility_db;
+  const minLevelFloor = mixPlan.validation_expectations.min_voice_intelligibility_db;
   if (pivotMax !== null) {
-    const detail = `pivot_window=${pivotStart}s–${pivotEnd}s max_volume=${pivotMax.toFixed(1)}dB floor=${minIntel}dB`;
+    const detail = `pivot_window=${pivotStart}s–${pivotEnd}s max_volume=${pivotMax.toFixed(1)}dB floor=${minLevelFloor}dB`;
     checks.push(
-      pivotMax > minIntel
-        ? pass('V6', 'Voice intelligible at pivot', detail, pivotMax.toFixed(1), `>${minIntel}dB`)
-        : withinTolerance('V6', 'Voice intelligible at pivot', detail + ' — HUMAN REVIEW: check pivot clarity', pivotMax.toFixed(1), `>${minIntel}dB`),
+      pivotMax > minLevelFloor
+        ? pass('V6', 'Pivot audio present at level floor', detail, pivotMax.toFixed(1), `>${minLevelFloor}dB`)
+        : withinTolerance('V6', 'Pivot audio present at level floor', detail + ' — HUMAN REVIEW: confirm pivot intelligibility and ducking', pivotMax.toFixed(1), `>${minLevelFloor}dB`),
     );
   } else {
-    checks.push(skip('V6', 'Voice intelligible at pivot', 'Could not measure'));
+    checks.push(skip('V6', 'Pivot audio present at level floor', 'Could not measure'));
   }
 
   // V7: music present in visual tail

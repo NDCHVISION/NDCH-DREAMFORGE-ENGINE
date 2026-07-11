@@ -66,7 +66,9 @@ npm run music:analyze -- \
 
 ### Deduplication
 
-Tracks with identical file sizes are treated as duplicates before analysis. Only the first occurrence is analyzed. This handles the known case where `Glass Threshold.mp3` and `Glass Threshold (2).mp3` are byte-identical.
+Tracks are deduplicated using SHA-256 (size pre-filter + full hash). A matching hash is treated as a probable byte-identical duplicate; only the first occurrence is analyzed. This is collision-safe for identical copies and handles the known case where `Glass Threshold.mp3` and `Glass Threshold (2).mp3` are byte-identical.
+
+**What this does not catch:** equivalent re-encodes at different bitrates or by different encoders will produce different hashes and will both be analyzed. Perceptual fingerprinting (e.g., acoustid/chromaprint) would be required to detect those — deferred as a future hardening step.
 
 ---
 
@@ -157,7 +159,7 @@ output/music_intelligence/
 | V3 No unexpected silence | HARD (FAIL) | Silent sections < 20% of reel |
 | V4 True peak | SOFT | ≤ −1.0 dBFS |
 | V5 Loudness | SOFT | −18 to −14 LUFS |
-| V6 Pivot voice clarity | SOFT | Voice audible at pivot (20–29 s) |
+| V6 Pivot audio presence | SOFT | Audio at level floor in pivot segment (20–29 s). Machine check: proves audio is not absent or silent. Does **not** prove speech intelligibility, voice/music separation, or absence of masking — those require human review. |
 | V7 Tail music | SOFT | Music present at 38–45 s |
 | V8 Extraction bounds | SOFT | Window fits within source duration |
 | V9 File exists | HARD (FAIL) | Output path exists and has size > 0 |
