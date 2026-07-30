@@ -141,6 +141,23 @@ async function ensureRelease(): Promise<number> {
 }
 
 async function uploadAsset(releaseId: number, data: Buffer, filename: string): Promise<string> {
+  // Delete existing asset with same name if present
+  const listRes = await fetch(
+    `https://api.github.com/repos/${REPO}/releases/${releaseId}/assets`,
+    { headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'User-Agent': 'ndch-dreamforge', 'Accept': 'application/vnd.github+json' } }
+  );
+  if (listRes.ok) {
+    const existingAssets = await listRes.json() as { id: number; name: string }[];
+    for (const asset of existingAssets) {
+      if (asset.name === filename) {
+        console.log(`[GitHub] Deleting existing asset id=${asset.id} (${filename})`);
+        await fetch(`https://api.github.com/repos/${REPO}/releases/assets/${asset.id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'User-Agent': 'ndch-dreamforge' }
+        });
+      }
+    }
+  }
   const res = await fetch(
     `https://uploads.github.com/repos/${REPO}/releases/${releaseId}/assets?name=${filename}`,
     {
