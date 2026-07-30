@@ -22,6 +22,6 @@ jobs:
         env:
           RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: tsx generate-017-anchor.ts
+        run: npx tsx generate-017-anchor.ts
       - name: Report anchor URL
-        run: echo "Anchor URL ${{ steps.anchor.outputs.anchor_url }}"
+        run: echo "Anchor uploaded to ${{ steps.anchor.outputs.anchor_url }}"
