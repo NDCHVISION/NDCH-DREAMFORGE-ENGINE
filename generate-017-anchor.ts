@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v11
+ * Anchor v12
  *
  * Route A: text_to_image (gen4_image model) — 0 credits
  * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v11.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v12.jpg';
 
-// ── Anchor v11 prompt (~635 chars — within 1000-char Runway hard limit) ───────
-const ANCHOR_PROMPT = `Laboratory macro photograph. Two flat polished dark grey alumina test tiles, viewed face-on against pure black background. The left tile fills the left half of the frame, its right inner polished face visible at center-left. The right tile fills the right half of the frame, its left inner polished face visible at center-right. The tiles are close together: a narrow gap between the inner faces tapers from wide at the top of the frame to near-contact at the bottom center. At the near-contact point, a thin horizontal gold calibration mark #C6A94F spans the separation. Smooth polished ceramic surfaces. Black background. 9:16 portrait.`;
+// ── Anchor v12 prompt (~616 chars — within 1000-char Runway hard limit) ───────
+const ANCHOR_PROMPT = `Laboratory macro photograph. Pure black background. Two dark grey polished ceramic specimens, face-on view. The left specimen is a flat rectangular tile, its right face vertical and smooth. The right specimen is a wedge — wide at the top, tapering to a thin edge at the bottom — its flat left face angled toward the left tile, creating a gap between them: wide at the top of the frame, closing to a near-contact line at the bottom center. The near-contact line is the visual focal point. A thin horizontal gold line #C6A94F marks the near-contact line, touching both inner faces. Pristine smooth surfaces. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
@@ -158,6 +158,6 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
     appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
     console.log('[actions] wrote outputs to $GITHUB_OUTPUT');
   }
-  console.log('\n✓ Anchor v11 complete');
+  console.log('\n✓ Anchor v12 complete');
   console.log(`  download: ${downloadUrl}`);
 })();
