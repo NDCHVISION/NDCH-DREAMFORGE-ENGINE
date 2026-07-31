@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v5.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v6.jpg';
 
-// ── Anchor v5 prompt (983 chars — within 1000-char Runway hard limit) ─────────
-const ANCHOR_PROMPT = `One crystallographic stress field expressed through two opposing planar interfaces. The compressed space between them varies continuously in width: open at the top, bending and narrowing toward a single off-center throat. The near-field interface is dominant — its body partially exits the left and lower frame edges; only the loaded inner boundary remains visible, sharply articulated at the throat. The far interface is fully in frame, smaller and receding into the upper right. Both loaded edges converge toward the throat. Articulation simplifies away from the throat and concentrates where load accumulates — the throat carries maximum structural density. Near-black #1A1A1A void and dark crystalline grey #3A3A3A dominate. A single gold #C6A94F stress filament traces the loaded edge of the near-field interface, oriented toward force accumulation, terminating at the throat — the point of expected contact. Rectilinear planes. Scientific macro imaging. 9:16 vertical portrait.`;
+// ── Anchor v6 prompt (970 chars — within 1000-char Runway hard limit) ─────────
+const ANCHOR_PROMPT = `Macro photography on a pure near-black background. Two precision-machined boron carbide ceramic inserts, dark grey #3A3A3A, occupy the frame. The dominant insert is large — its left and lower edges exit the frame; only its right inner face is visible, close, with sharp rectilinear facets. The secondary insert is fully in frame, positioned upper-right, smaller, its left face angled toward the dominant insert. Between them: a compressed gap that varies continuously — wide at the top of the frame, bending and narrowing toward a single minimum-clearance throat at the lower center. The throat is the visual destination of the image. A single thin gold stress trace #C6A94F runs along the inner edge of the dominant insert, oriented directly toward the throat, terminating at the point of minimum clearance. Background remains pure near-black #1A1A1A throughout. Hard edges. Flat polished surfaces. Surfaces are clean. Scientific precision macro imaging. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
