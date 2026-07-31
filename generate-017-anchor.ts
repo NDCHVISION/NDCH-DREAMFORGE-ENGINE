@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v10
+ * Anchor v11
  *
  * Route A: text_to_image (gen4_image model) — 0 credits
  * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v10.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v11.jpg';
 
-// ── Anchor v10 prompt (~663 chars — within 1000-char Runway hard limit) ───────
-const ANCHOR_PROMPT = `Pure black background. Two massive precision-milled dark grey aluminum plates fill the frame. The left plate — its left edge exits the frame — its right face: a smooth flat vertical surface. The right plate — its right edge exits the frame — its left face: a smooth flat vertical surface. The gap between the two smooth faces is a dark wedge: wide at the top of the frame, tapering to a single near-contact line at the bottom center. The near-contact line is the focal point of the image. At the near-contact line, a single thin horizontal gold mark #C6A94F bridges the gap, touching both smooth faces. Matte smooth surfaces throughout. Hard precise edges. 9:16 portrait.`;
+// ── Anchor v11 prompt (~635 chars — within 1000-char Runway hard limit) ───────
+const ANCHOR_PROMPT = `Laboratory macro photograph. Two flat polished dark grey alumina test tiles, viewed face-on against pure black background. The left tile fills the left half of the frame, its right inner polished face visible at center-left. The right tile fills the right half of the frame, its left inner polished face visible at center-right. The tiles are close together: a narrow gap between the inner faces tapers from wide at the top of the frame to near-contact at the bottom center. At the near-contact point, a thin horizontal gold calibration mark #C6A94F spans the separation. Smooth polished ceramic surfaces. Black background. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
@@ -158,6 +158,6 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
     appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
     console.log('[actions] wrote outputs to $GITHUB_OUTPUT');
   }
-  console.log('\n✓ Anchor v10 complete');
+  console.log('\n✓ Anchor v11 complete');
   console.log(`  download: ${downloadUrl}`);
 })();
