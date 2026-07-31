@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v7
+ * Anchor v8
  *
  * Route A: text_to_image (gen4_image model) — 0 credits
  * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v7.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v8.jpg';
 
-// ── Anchor v7 prompt (~881 chars — within 1000-char Runway hard limit) ────────
-const ANCHOR_PROMPT = `Black velvet background fills the entire frame. Two dark grey ceramic blocks, flat-faced and rectilinear, face each other across a tapering gap. The left block is large, dominant — its left edge exits the frame; its flat right face runs vertically through the left side of the image. The right block is smaller, positioned upper-right, fully contained in frame; its flat left face runs vertically through the right side of the image. The gap between the two flat faces is widest at the top and narrows to a near-contact point at lower center — a visible wedge of darkness that terminates in a single minimum-clearance line. This minimum-clearance point is the visual focus of the image. A thin gold stress mark #C6A94F runs horizontally along the right face of the left block, terminating at the near-contact point. Hard flat surfaces, machined precision. Scientific macro. 9:16 portrait.`;
+// ── Anchor v8 prompt (~759 chars — within 1000-char Runway hard limit) ────────
+const ANCHOR_PROMPT = `Black velvet background. Extreme close-up: the frame is filled by two large dark grey ceramic blocks with flat matte surfaces, square corners, and hard sharp edges. The left block occupies the left two-thirds of the frame width; its right inner face (facing the gap) is vertical and visible. The right block occupies the remaining right portion; its left inner face angles toward the left block from top to bottom. Between them: a dark triangular gap, wide at the top of the frame, converging to a single near-contact line at the bottom center. The near-contact line is the focal point. A single horizontal gold line #C6A94F runs across the inner face of the left block — the face that faces the gap — at the level of the near-contact line. Flat surfaces. Scientific precision macro. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
@@ -158,6 +158,6 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
     appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
     console.log('[actions] wrote outputs to $GITHUB_OUTPUT');
   }
-  console.log('\n✓ Anchor v7 complete');
+  console.log('\n✓ Anchor v8 complete');
   console.log(`  download: ${downloadUrl}`);
 })();
