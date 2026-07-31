@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v3
+ * Anchor v7
  *
  * Route A: text_to_image (gen4_image model) — 0 credits
  * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v6.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v7.jpg';
 
-// ── Anchor v6 prompt (970 chars — within 1000-char Runway hard limit) ─────────
-const ANCHOR_PROMPT = `Macro photography on a pure near-black background. Two precision-machined boron carbide ceramic inserts, dark grey #3A3A3A, occupy the frame. The dominant insert is large — its left and lower edges exit the frame; only its right inner face is visible, close, with sharp rectilinear facets. The secondary insert is fully in frame, positioned upper-right, smaller, its left face angled toward the dominant insert. Between them: a compressed gap that varies continuously — wide at the top of the frame, bending and narrowing toward a single minimum-clearance throat at the lower center. The throat is the visual destination of the image. A single thin gold stress trace #C6A94F runs along the inner edge of the dominant insert, oriented directly toward the throat, terminating at the point of minimum clearance. Background remains pure near-black #1A1A1A throughout. Hard edges. Flat polished surfaces. Surfaces are clean. Scientific precision macro imaging. 9:16 portrait.`;
+// ── Anchor v7 prompt (~881 chars — within 1000-char Runway hard limit) ────────
+const ANCHOR_PROMPT = `Black velvet background fills the entire frame. Two dark grey ceramic blocks, flat-faced and rectilinear, face each other across a tapering gap. The left block is large, dominant — its left edge exits the frame; its flat right face runs vertically through the left side of the image. The right block is smaller, positioned upper-right, fully contained in frame; its flat left face runs vertically through the right side of the image. The gap between the two flat faces is widest at the top and narrows to a near-contact point at lower center — a visible wedge of darkness that terminates in a single minimum-clearance line. This minimum-clearance point is the visual focus of the image. A thin gold stress mark #C6A94F runs horizontally along the right face of the left block, terminating at the near-contact point. Hard flat surfaces, machined precision. Scientific macro. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
@@ -158,6 +158,6 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
     appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
     console.log('[actions] wrote outputs to $GITHUB_OUTPUT');
   }
-  console.log('\n✓ Anchor v3 complete');
+  console.log('\n✓ Anchor v7 complete');
   console.log(`  download: ${downloadUrl}`);
 })();
