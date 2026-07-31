@@ -1,0 +1,349 @@
+{
+  "stage": 10,
+  "artifact_type": "pipeline_learning",
+  "pipeline_version": "dreamforge_3.0",
+  "_status": "OPEN — pre-declared, awaiting render outcomes",
+  "_note": "Learning events are pre-declared before rendering begins. This is not a retrospective notes file. Every event must be filled in at its capture_timing. Every accepted event must mutate a target artifact or be explicitly rejected with rationale.",
+
+  "source_project": "NDCH_017_FRICTION",
+  "concept_seed": "FRICTION",
+
+  "capture_timing": [
+    "after_each_failed_render",
+    "after_each_passed_render",
+    "after_final_assembly",
+    "after_publication_review"
+  ],
+
+  "learning_events": [
+    {
+      "id": "LE-001",
+      "source_stage": "render_validation",
+      "trigger": "S1 render result — FAIL: object rendered instead of interaction",
+      "capture_timing": "after_S1_render",
+      "observation": "Runway rendered a pile of geometric crystal blocks (a hero object) instead of the microscopic contact zone between two surfaces. The Director specified 'viewer placed inside the contact zone.' The render placed the viewer outside, looking at an isolated sculptural object. The prompt instruction 'match head occupies 70% of frame' created the failure — it designated a single dominant subject. The friction surface became compositional background, not a co-equal surface in a relationship. Camera also pushed in slowly; should have been locked static. Scale read as tabletop, not microscopic. Palette and geometry quality: excellent. Semantic fidelity: failed.",
+      "lesson_candidate": "Diffusion models optimize for entities, not relationships. A prompt that designates a primary subject will produce a hero object, regardless of secondary elements mentioned. The Director must specify relationships as the compositional subject — not single objects. 'Crystal A interacting with Crystal B through contact interface' renders differently than 'Crystal A, with Crystal B visible.' The frame must depict a relationship. If the viewer can identify one dominant object, the composition has failed.",
+      "evidence": "S1 render frames 1-5: geometric crystal cluster on surface, no contact zone visible, camera pushing in, scale ambiguous. Materials 10/10, Palette 10/10, Geometry 10/10. Contact zone: 2/10. Semantic fidelity: 4/10. Overall as Director's intent: FAIL.",
+      "promotion_decision": "accept",
+      "promotion_type": ["visual_constraint", "shot_rule", "prompt_rule"],
+      "target_artifact": "visual_system.json (what_the_director_must_not_do), shot_list.json (S1 complete revision), render_validation.json (new review question), NDCH_017_FRICTION.json (S1 prompt revision)",
+      "mutation_required": true,
+      "mutation_text": "Add to visual_system.json what_the_director_must_not_do: 'Do not designate a hero object. The frame must depict a relationship between surfaces, not a portrait of one surface. If the viewer can identify a single dominant subject, the composition has failed.' Revise S1 shot_list.json: new objective is to reveal the microscopic interface where stored potential exists — both surfaces equal, viewer inside the gap. Revise S1 prompt in NDCH_017_FRICTION.json: specify camera positioned inside gap, both surfaces equal weight, no dominant subject. Add to render_validation.json S1: 'Is there a visible relationship between two surfaces rather than a single dominant object?'",
+      "review_status": "closed",
+      "pipeline_version_impact": "v1.4.0 → v1.5.0 (visual_constraint + shot_rule promoted)"
+    },
+    {
+      "id": "LE-001B",
+      "source_stage": "render_validation",
+      "trigger": "S1 v2 render result — PASS: relationship composition achieved, observational vs forensic gap identified",
+      "capture_timing": "after_S1_v2_render",
+      "observation": "S1 v2 rendered correctly at the architectural level: two surfaces in equal compositional weight, gap as compositional subject, camera locked static, hero object ban held, palette correct. Score 8.9–9.2/10. However, the render is 'observational' not 'forensic.' The gap is clean and beautiful. It reads as space between two finished objects, not as stored consequence between two systems under potential force. Everything is pristine and static. Nothing hints that something enormous is about to happen. The lower friction surface reads as manufactured (regular ruled geometry) vs. physical (a surface that has absorbed force history). Director review also identified: (1) movement was being decided shot by shot with no reel-level kinetic architecture; (2) audio is a missing pipeline layer — the reel has no Composer/Audio Director brain yet; (3) 'observational' vs 'forensic' is a psychologically distinct viewer state that must be targeted explicitly.",
+      "lesson_candidate": "Restraint without evidence produces aesthetic distance, not investigation. A forensic composition requires micro-traces of physical forces at work — not decorative particles, but physics-grounded artifacts: stress whitening from crystal compression, lattice distortion from applied force, pressure lines at contact edges. These are subliminal; the viewer should not consciously notice them, but subconsciously register 'something happened here.' Separately: kinetic arc must be designed as reel-level architecture — five states (latent / accumulating / threshold / release / equilibrium) — not as shot-by-shot adjective decisions. A reel where every shot is equally restrained produces monotony.",
+      "evidence": "S1 v2 frames 1–5: two surfaces facing each other, void gap as subject, camera static. Relationship achieved. Palette correct. Missing: any trace of physical force — the surfaces look as if they have never been near each other. 'The gap isn't space. It's stored consequence.' That is not yet visible.",
+      "promotion_decision": "accept",
+      "promotion_type": ["visual_constraint", "search_path"],
+      "target_artifact": "visual_system.json (kinetic_arc field + forensic_register_constraint field)",
+      "mutation_required": true,
+      "mutation_text": "Add kinetic_arc to visual_system.json: five states across S1–S5 (latent, accumulating, threshold, release, equilibrium). Add forensic_register_constraint to visual_system.json: defines observational vs forensic register, what produces each, and what must not happen (decorative noise substituting for evidence). Note: Audio Director / Composer brain is a future pipeline addition (deferred — not yet architectural). Log as search_path for DreamForge 4.0.",
+      "review_status": "closed",
+      "pipeline_version_impact": "v1.5.0 → v1.6.0 (visual_constraint + kinetic_arc promoted)"
+    },
+    {
+      "id": "LE-002",
+      "source_stage": "render_validation",
+      "trigger": "S4 variant strategy — which prompt approach succeeded for ignition-as-state-change",
+      "capture_timing": "after_S4_render",
+      "observation": "Variant A (crystal fracture emphasis) PASSED on first attempt. The key: 'each fracture plane revealing crimson beneath cream crystal surface' kept the geometry structurally stable while allowing the material state to change. The viewer perceived physics, not visual effects. No flame appeared. Crimson behaved as a material property, not an effect. Radial propagation from contact zone read as stored energy releasing, not explosion. Gold telemetry traces maintained throughout. Camera push was correct for the release energy state. Two residuals: (1) central hub in frame 1 read slightly as compass/clock before crystal lattice — first symbolic read preceded physical read; (2) propagation wave front was extremely orderly — real physical wave fronts carry microscopic asymmetry and delay. Neither was a failure condition for this render.",
+      "lesson_candidate": "For threshold-crossing shots: keep the geometry architecturally stable and change only the material state. The viewer will infer 'crossing a threshold' from the propagating state change without being shown fire. The crimson must read as an internal material property, not an arriving effect — this requires: (1) the color change to occur within existing geometric faces, not as light arriving from outside; (2) the propagation to follow the lattice structure, not expand as an ambient glow. Separately: microscopic asymmetry is physical realism. A perfectly orderly wave front reads as engineered, not natural. Future threshold shots should introduce tiny irregularities in propagation timing without losing geometric discipline.",
+      "evidence": "S4 Variant A frames 1–5: cream crystallographic lattice → crimson propagates radially from center through crystal faces → full crimson dominance with cream periphery still holding at frame 5. Gold traces maintained. No flame shape. No orange. Score: 9.4/10 Director assessment. Pattern recognition concern: frame 1 central hub read as compass before lattice. Wave front concern: propagation extremely orderly.",
+      "promotion_decision": "accept",
+      "promotion_type": ["visual_constraint", "validation_rule", "search_path"],
+      "target_artifact": "visual_system.json (cinematic_grammar_constraint, fidelity_categories), render_validation.json (fidelity_categories global section)",
+      "mutation_required": true,
+      "mutation_text": "Add cinematic_grammar_constraint to visual_system.json: camera movement derives from energy_arc state, not cinematographic convention. Multiple camera grammars defined (compression, expansion, rotation, fracture, stillness). Add fidelity_categories to render_validation.json as a structural validation framework: Entity Fidelity, Relationship Fidelity, Energy Fidelity, Identity Fidelity, Model Compliance. Add to search_paths: microscopic wave asymmetry for future threshold shots.",
+      "review_status": "closed",
+      "pipeline_version_impact": "v1.6.0 → v1.7.0"
+    },
+    {
+      "id": "LE-003",
+      "source_stage": "render_validation",
+      "trigger": "S5 Möbius palindrome — prompt vs reference frame seed override",
+      "capture_timing": "after_S5_render",
+      "observation": "S5 v1 (seeded from S4 final frame, 8s): model animated from S4's crystallographic form into decorative crystal expansion — ignored the two-part prompt structure entirely. No ignition sustained. No cold reset. S5 v2 (text-only, 8s): model produced a cross/compass rose symbol — new symbolism introduced, model never entered the ignition first-half, opened cold from frame 1. Final frame was cold and void-dominant but showed a cross emblem, not the S1 two-surface-gap composition. Both attempts confirm: a two-part narrative requiring hard state change (hot crimson ignition → cold void reset) cannot reliably be executed in a single Runway generation. The model collapses multi-state prompts to a single visual register.",
+      "lesson_candidate": "Möbius close requiring hard state reset (from ignition state to cold void) cannot be executed as one Runway generation. The palindrome requires editorial architecture: two separate 4-second generations seeded independently, stitched at editorial midpoint. S5A: seeded from S4 final frame → 4s sustaining ignition residual. S5B: seeded from S1 first frame → 4s cold surface next-cycle. Generalizable rule: any shot requiring a hard state transition across a single clip should be split into two seeded generations and stitched in editorial. This is not a prompt failure — it is a single-generation state-transition limit of Runway Gen-4.5.",
+      "evidence": "S5 v1 frames: decorative crystal expansion from S4 seed form, no crimson sustained, no cold reset, palindrome absent. S5 v2 frames: cross/compass rose from frame 1 (new symbolism), cold from opening (no ignition first half), final frame shows cross contraction — not S1 register. FAIL on both attempts.",
+      "promotion_decision": "accept",
+      "promotion_type": ["assembly_rule", "shot_rule"],
+      "target_artifact": "shot_list.json (S5 current_seed_strategy → split-generation stitch), render_validation.json (S5 decision + split-generation method), PIPELINE_CHANGELOG.md (v1.8.0)",
+      "mutation_required": true,
+      "mutation_text": "S5 generation strategy revised from single-generation to split-generation editorial stitch: S5A (4s, seeded from S4 final frame, sustaining ignition) + S5B (4s, seeded from S1 first frame, cold surface reset) → FFmpeg concat. Update shot_list.json S5 current_seed_strategy. Create render-s5a-test.ts and render-s5b-test.ts. Generalizable: any loop-critical ending requiring state reset should be split-generation. This is an assembly_rule.",
+      "review_status": "closed",
+      "pipeline_version_impact": "v1.7.0 → v1.8.0 (assembly_rule: split-generation for state-reset shots)",
+      "empirical_validation": "CONFIRMED in production. S5 stitched S5A + S5B passes Director review. Stitch reads as intentional state transition, not as two clips. Director: 'I don't think: That’s two clips. I think: The system has transitioned.' Editorial Assembly Law promoted to Layer 3 of DREAMFORGE_INVARIANTS.md v2.0.0. First law to be confirmed empirically within the project that produced it."
+    },
+    {
+      "id": "LE-008",
+      "source_stage": "prompt_construction",
+      "trigger": "S5A FAIL — prompt negation architecture produced symbol emergence; Director identified positive-crowding principle",
+      "capture_timing": "after_S5A_failed_render",
+      "observation": "S5A v2 prompt used extensive negation (~40% of token budget): NO mandala, NOT centered, NO compass, NO six-point, NO radial symmetry, etc. Despite explicit blacklist, Runway produced hexagonal mandala with radial symmetry, bokeh orbs, radial gold network, subtle rotation. Post-failure analysis identified the root cause as insufficient positive signal, not insufficient negation. When half the prompt is negation, the model reduces its signal field and fills the remainder with highest-probability priors for 'crystallographic at post-ignition state' — which defaults to radial symmetry. Separately, the most important artistic instruction ('physical residue of ignition event not a symbol') was placed at the end of the prompt; diffusion models weight early context more heavily. Prompt structure was: object description → color specification → negation blacklist. This is fighting the model instead of directing it.",
+      "lesson_candidate": "Two learnings promoted together. (1) POSITIVE-CROWDING PRINCIPLE: Do not fight model priors with negation lists — describe the desired physics so completely that no signal space remains for model priors to fill. Unwanted behavior (radial symmetry, symbolism) becomes improbable when desired behavior (irregular fracture topology, forensic evidence of physical stress) dominates the semantic field. Prompt structure should follow: Purpose → Physical state → Composition → Geometry → Camera → Palette → Minimal negation (last resort only). The opening sentence should answer: 'What is this image?' — not 'What does this image look like?' (2) SYMBOL EMERGENCE CHECK: Before accepting any render, ask: 'Could a viewer assign symbolic meaning (religious, decorative, cultural) to any element before assigning physical meaning?' If yes: identity_fidelity failure, regardless of visual quality. This question is more robust than any blacklist. A blacklist always grows and never closes; this question is the invariant.",
+      "evidence": "S5A v2 prompt (776 chars, ~40% negation terms): hexagonal mandala produced, bokeh orbs, radial gold network, subtle rotation — exact failures the negation list was intended to prevent. S5A v3 prompt (positive-crowding, <5% negation): opens with 'Physical evidence of a completed ignition threshold preserved inside fractured crystalline material, viewed as forensic residue rather than an object.' Pending render — credits required. Director instruction verbatim: 'DreamForge shouldn't sound like it's arguing with Runway. It should sound like it's describing an inevitable physical reality.'",
+      "promotion_decision": "accept",
+      "promotion_type": ["prompt_rule", "validation_rule"],
+      "target_artifact": "render_validation.json (global_validation_questions: Symbol Emergence Check), DREAMFORGE_INVARIANTS.md (positive-crowding prompt_rule), PIPELINE_CHANGELOG.md (v1.8.1)",
+      "mutation_required": true,
+      "mutation_text": "Add Symbol Emergence Check to render_validation.json global_validation_questions (done). Document positive-crowding prompt_rule in PIPELINE_CHANGELOG.md v1.8.1 (done). Add to DREAMFORGE_INVARIANTS.md: positive-crowding principle and Symbol Emergence Check as named invariants. Prompt structure order is now law: Purpose → Physical state → Composition → Geometry → Camera → Palette → Minimal negation.",
+      "review_status": "closed",
+      "pipeline_version_impact": "v1.8.0 → v1.8.1 (prompt_rule: positive-crowding; validation_rule: Symbol Emergence Check)"
+    },
+    {
+      "id": "LE-004",
+      "source_stage": "render_validation + editorial_assembly",
+      "trigger": "Crystallographic Forensics as a visual register — overall verdict",
+      "capture_timing": "after_final_assembly",
+      "observation": "Crystallographic Forensics is a proven register at Runway Gen-4.5 depth, with three conditions required for the register to hold: (1) interface-as-subject rather than object-as-subject — relationship-first composition is the prerequisite; (2) scale where crystal lattice geometry is individually legible, not a texture field; (3) temporal anchoring — the prompt must answer 'what physical event is preserved here?' rather than 'what does this object look like?' When all three conditions are met, the register is stable. S1, S4, and S5A achieved it. S2 and S3 achieved physical realism but not forensic register — both rendered as macro objects rather than microscopic interfaces. The forensic register requires specificity of physical event, not just specificity of palette.",
+      "lesson_candidate": "Crystallographic Forensics is the proven visual register for NDCH reels at current renderer depth. It is achievable but not automatic. The three enabling conditions are structural prerequisites, not stylistic suggestions. A render that achieves palette + geometry without achieving interface-as-subject and event-specificity will be physically real but not forensic. For future reels using different physical vocabularies (fluid mechanics, erosion, phase change), the same three conditions apply — the register is medium-agnostic. 'Physical Forensics' is the generalizable name; 'Crystallographic' is the 017 instance.",
+      "evidence": "S1 PASS (relationship-first, interface as subject), S4 PASS (material state change within stable geometry), S5A PASS (ignition residue preserved in fractured planes). S2 CONDITIONAL (macro object photography — crystallographic scale not achieved), S3 CONDITIONAL (sustained contact but more 'accumulation' than 'forensic threshold'). The register was most complete when the prompt answered: 'What physical event is this the evidence of?'",
+      "promotion_decision": "accept",
+      "promotion_type": ["visual_constraint", "search_path"],
+      "target_artifact": "docs/DREAMFORGE_INVARIANTS.md (Physical Forensics Register as a named concept), future visual_system.json templates",
+      "mutation_required": true,
+      "mutation_text": "Add Physical Forensics Register to DREAMFORGE_INVARIANTS.md documentation in the next architecture revision (post-018-020 observation period). Three enabling conditions: (1) interface-as-subject, (2) legible lattice scale, (3) event-anchored description. Generalizable: future physical vocabularies should be specified as 'forensic evidence of [event]' not 'visual representation of [concept].'",
+      "review_status": "closed",
+      "pipeline_version_impact": "none — filed for inclusion in next architecture revision"
+    },
+    {
+      "id": "LE-005",
+      "source_stage": "render_validation",
+      "trigger": "Mythic weight properties — did design constraints produce properties or did renderer ignore them?",
+      "capture_timing": "after_all_renders",
+      "observation": "Property-by-property audit across the assembled reel: (1) Scale Hierarchy — ACHIEVED in S1 and S4. Interface geometry implies a larger system (hands, ignition, purpose). S2 and S3 achieve it less — S2's macro object scale doesn't imply scale hierarchy as strongly as a pure interface would. (2) Irreversibility — STRONG in S4 (propagation visibly does not retreat) and S5A (embedded crimson in fractured planes reads as permanent). S3 moderate (thermal accumulation, but no permanent change yet by design). S2 weakest (wear accumulation not visibly irreversible in static frames). (3) Silence — ACHIEVED in S1, S4, S5. Void is load-bearing. S2's textured granular strip introduces the most visual complexity but is physically motivated. (4) Geometric Inevitability — STRONGEST in S4 (fracture propagation follows lattice axes; looks structurally determined). All clips maintain this through crystallographic geometry. (5) Absence of Distraction — HELD across all clips. No elements not traceable to concept_dna. (6) Temporal Gravity — Strongest in S4 (propagation takes physics time). S2 compressed the three-contact arc into one, which collapsed temporal gravity for that shot.",
+      "lesson_candidate": "Geometric Inevitability and Absence of Distraction are the most reliably achievable mythic weight properties through prompt architecture alone. Scale Hierarchy and Irreversibility depend on what physical event is depicted — threshold-crossing shots produce them naturally; intermediate accumulation shots require more deliberate constraint. Temporal Gravity is the hardest to preserve: compression of multi-event sequences into single-generation clips kills it. Editorial Assembly Law is the structural solution (don't compress — stitch). The key insight: mythic weight is not an effect added on top of composition. It emerges when temporal, geometric, and scalar specificity are all simultaneously correct.",
+      "evidence": "S4 scored highest on all six properties. S1 strong on silence and geometric inevitability. S2 weakest on temporal gravity (events compressed) and irreversibility (wear accumulation not yet visible as permanent). S5A strong on irreversibility (embedded ignition). See render_validation.json mythic_weight_definition for property definitions and failure modes.",
+      "promotion_decision": "accept",
+      "promotion_type": ["validation_rule", "search_path"],
+      "target_artifact": "render_validation.json template (add per-property mythic weight scoring to future validation templates)",
+      "mutation_required": true,
+      "mutation_text": "Add per-property mythic weight check to render_validation.json template for future reels. Each property rated independently: STRONG / PARTIAL / ABSENT. Temporal Gravity: flag single-generation multi-event sequences as highest risk for collapse — recommend Editorial Assembly Law application preemptively.",
+      "review_status": "closed",
+      "pipeline_version_impact": "none — filed for inclusion in next validation template revision"
+    },
+    {
+      "id": "LE-006",
+      "source_stage": "render_validation",
+      "trigger": "render_validation.json itself — were review questions answerable as yes/no?",
+      "capture_timing": "after_all_renders",
+      "observation": "Most review questions were answerable as binary yes/no. Three patterns of undecidable questions identified: (1) Register questions using 'feel like' — 'Does the clip feel like forensic examination rather than portrait?' This requires a subjective judgment about viewer psychology that cannot be made deterministically from frames alone. (2) Implied behavior questions — 'Did the gold thermal bloom appear and fade?' — answerable for a video clip but not from 5 extracted frames; the frames capture states, not transitions. (3) Comparison questions requiring reference — 'Does the final frame match S1 first frame register?' — answerable only when both frames are held simultaneously. The Symbol Emergence Check was the most consistently decidable question across all clips — binary output, no ambiguity. Negative list questions ('Is there crimson?') were consistently decidable. Positive state questions ('Is the transformation geometric?') were mostly decidable.",
+      "lesson_candidate": "Review question construction rule: replace 'feel like' with 'does the frame contain' or 'could a viewer identify.' Replace experience-based questions with frame-observable criteria. For transition-dependent questions (bloom-and-fade), require 3+ frame comparison not 1. Add a 'frame count required' field to each question — some questions require frame 1 vs. frame 5 comparison; some require the full video; some can be answered from any single frame. Future render_validation templates should classify questions by minimum evidence required.",
+      "evidence": "Symbol Emergence Check: consistent binary across all clips. 'Does crimson appear at contact zone?' consistent binary. 'Does the clip feel like forensic examination?' — inconsistently decided; different reviewers would likely land differently. 'Did three contact events occur?' — undecidable from static frames; required video scrubbing.",
+      "promotion_decision": "accept",
+      "promotion_type": ["validation_rule"],
+      "target_artifact": "render_validation.json template (future versions)",
+      "mutation_required": true,
+      "mutation_text": "Add question construction rules to render_validation.json template: (1) no 'feel like' language — replace with observable criteria; (2) each question must specify minimum evidence required (single frame / frame comparison / full video); (3) questions whose answer depends on transition behavior must flag 'video required — not decidable from extracted frames.'",
+      "review_status": "closed",
+      "pipeline_version_impact": "none — filed for inclusion in next validation template revision"
+    },
+    {
+      "id": "LE-007",
+      "source_stage": "editorial_assembly + publication_review",
+      "trigger": "Visual palindrome legibility — does the Möbius close read without narration?",
+      "capture_timing": "after_publication_review",
+      "observation": "Director review of stitched S5 (S5A + S5B): 'S5B final frame reads as next cycle not copy. The Editorial Assembly Law has been validated.' Director additionally noted: 'I immediately recognized [S5B] as belonging to the same visual language as S1. Not identical. Related.' The palindrome lands without narration — but the mechanism is visual rhyme, not visual identity. The cold palette, gap-as-subject, and void dominant composition carry the rhyme; pixel-identical frames were not required and would have been architecturally weaker ('feels like a copy, not a cycle').",
+      "lesson_candidate": "Visual palindrome requires visual rhyme, not visual identity. The closing frame should carry the same compositional logic (gap as subject, cold palette, void dominant) without reproducing the exact geometry. This is philosophically stronger — 'this will happen again' rather than 'this is the same moment.' Future Möbius-close reels should specify the closing frame as 'same compositional logic, different instance' not 'same image.' The palindrome lands without narration when three conditions hold: (1) palette register matches opening (cold / warm / warm / hot / cold arc closes); (2) compositional grammar matches opening (same subject relationship, same camera distance logic); (3) the physical state is recognizably distinct from the opening (residue vs. pristine) so the cycle concept is implied, not repeated.",
+      "evidence": "Director verbatim: 'I'm actually glad the final frame isn't pixel-identical to S1. If it were identical, it would feel like a copy. Instead it feels like the next cycle. That's philosophically stronger.' S5B seeded from S1 first frame and prompted to achieve S1 register while reading as 'next cycle' — both achieved simultaneously.",
+      "promotion_decision": "accept",
+      "promotion_type": ["shot_rule", "visual_constraint"],
+      "target_artifact": "shot_list schema (Möbius close specification), docs/DREAMFORGE_INVARIANTS.md (next architecture revision)",
+      "mutation_required": true,
+      "mutation_text": "Add to shot_list schema Möbius close requirements: (1) closing frame must achieve same compositional logic as opening, not same geometry; (2) specify as 'visual rhyme' not 'visual identity'; (3) closing frame must be distinguishable as 'next instance' not 'repeat.' Three enabling conditions: matching palette register, matching compositional grammar, physically distinct state (cycle implied not repeated). Add to future DREAMFORGE_INVARIANTS.md revision.",
+      "review_status": "closed",
+      "pipeline_version_impact": "none — filed for inclusion in next architecture revision"
+    },
+    {
+      "id": "LE-009",
+      "source_stage": "milestone_retrospective",
+      "trigger": "017 production complete — Director architectural retrospective and DreamForge 4.0 vision",
+      "capture_timing": "after_final_assembly",
+      "observation": "Director retrospective on the complete 017 production cycle identified five hypotheses that were tested and resolved, three genuinely novel innovations, and a vision statement for the next architectural leap. This is the most significant architectural learning event of the 017 cycle — not because it changed a specific artifact, but because it changed the optimization target of the entire system. The master insight: DreamForge 3.0 optimizes for producing one excellent reel. DreamForge 4.0 should optimize for producing an evolving body of work. The reel becomes a byproduct. The knowledge base becomes the product.\n\nFive hypotheses resolved by 017:\n1. Does layered reasoning outperform direct prompting? CONFIRMED — improvements traced to reasoning layer changes, not prompt hacks.\n2. Can DreamForge learn architectural lessons instead of prompt tricks? CONFIRMED — Relationships Precede Entities, Editorial Assembly Law, Positive Constraint Law, Symbol Emergence Check, Physical Primacy are all transferable to future models.\n3. Is validation actually useful? CONFIRMED — validation evolved from surface checks (prompt length, colors, camera) to structural questions (did symbolic meaning emerge before physical? did editorial become necessary because of state transition?).\n4. Can failures be localized? CONFIRMED — every failure became attributable to one layer; S1 v1 traced to Director not Compiler; S5 traced to model limitation resolved by Editorial not prompt.\n5. Does the architecture generalize? OPEN — 017 proves one doctrine. 018-025 will test generalization.\n\nThree novel innovations identified:\n1. Failure Localization — structural failure diagnosis (Thinker? Director? Compiler? Model? Editorial? Validation?) applied to creative output. Treats creative failure with software engineering discipline.\n2. Physical Primacy — most AI art asks 'What image represents this idea?' DreamForge asks 'What physical law makes this idea inevitable?' Produces forensic evidence of physics, not illustration of concepts.\n3. Editorial Assembly Law — recognized a model limitation as an architectural problem and changed the system rather than the prompt. Discipline of knowing when to stop prompting.\n\nDreamForge 4.0 seven-leap roadmap:\n1. Knowledge Graph — corpus-level reasoning across reels, not just within reels. 'We've explored threshold through ignition; not yet through fatigue.'\n2. Novelty Optimization — Thinker searches for least explored valid symbol, not highest-scoring symbol. Objective: high quality + maximum novelty relative to corpus.\n3. Doctrine Distance — measurable conceptual diversity metric. Future concepts maximize distance from completed reel locations in conceptual space while remaining inside NDCH identity.\n4. Predictive Validation — pre-generation failure prediction. 'High risk of symbolic emergence' identified before render, not after. Requires 50+ failure data points — a 018-050 capability.\n5. Creative Coverage Dashboard — tracked taxonomy of physics domains, psychological mechanisms, perceptual anchors explored vs. unexplored. Immediately implementable.\n6. Quantitative Validation — per-category scoring (Identity Fidelity: 9.8, Physical Primacy: 9.7, Novelty: 8.2, etc.) to make trends visible across reel corpus.\n7. Corpus-Updating Architecture — load-bearing piece. Each completed reel updates the knowledge graph, which changes the starting state for the next reel. Prerequisite for leaps 2, 3, 4, 5, 6.",
+      "lesson_candidate": "The single most important architectural shift: from optimizing for renders to optimizing for the architecture itself. Director roadmap sentence verbatim: 'The goal of DreamForge is not to generate increasingly impressive reels. The goal is to build an increasingly intelligent creative system whose reels become evidence of that intelligence.' This changes every architectural decision going forward. Competitive moat: prompts and schemas can be copied; a system that continuously improves its own reasoning, measures corpus diversity, and deliberately expands its creative search space while preserving philosophical identity cannot be copied because it requires the full history of its own learning.",
+      "evidence": "017 production: 5-clip reel, 6 laws discovered or promoted, Editorial Assembly Law empirically validated, Positive Constraint Law empirically validated, Symbol Emergence Check first-class artifact. Runtime: 38.25s vs. 45s target — open design decision (Option A: update standard to 38-40s; Option B: maintain 45s and add breathing room deliberately).",
+      "promotion_decision": "accept",
+      "promotion_type": ["search_path", "invariant"],
+      "target_artifact": "docs/PIPELINE_CHANGELOG.md (v3.0 Vision entry), docs/DREAMFORGE_INVARIANTS.md (master principle update, next architecture revision post 018-020)",
+      "mutation_required": true,
+      "mutation_text": "Add DreamForge 4.0 roadmap to PIPELINE_CHANGELOG.md as v3.0 Vision entry. Master principle candidate for DREAMFORGE_INVARIANTS.md next revision: 'The goal of DreamForge is not to generate increasingly impressive reels. The goal is to build an increasingly intelligent creative system whose reels become evidence of that intelligence.' Immediate implementation candidate: Creative Coverage Dashboard (Leap 5) — no architecture change required, only discipline. Begin at 018 concept selection phase.",
+      "review_status": "closed",
+      "pipeline_version_impact": "vision — no immediate version bump. Architecture frozen at v2.0.0 pending 018-020 observation period."
+    },
+
+    {
+      "id": "LE-010",
+      "source_stage": "editorial_assembly",
+      "trigger": "S1/S5 visual palindrome — Director confirmation",
+      "capture_timing": "after_final_assembly",
+      "observation": "The S1 first frame / S5B final frame visual palindrome succeeded. The loop closes. S5B (seeded from S1 first frame, prompted as 'next cycle not copy') reads as the beginning of the next ignition cycle rather than as a repeat of S1. The palindrome lands without narration.",
+      "lesson_candidate": "Visual palindrome is achievable through seeded generation + compositional grammar matching, without requiring pixel-identical frames. The loop concept is stronger when the closing frame reads as 'this will happen again' rather than 'this already happened.' Seed from the opening frame; prompt for the same compositional logic in a new instance.",
+      "evidence": "Director confirmation: 'S5B final frame reads as next cycle not copy.' S1 first frame and S5B final frame share cold palette, void dominant, gap-as-subject register. Visual rhyme confirmed without narration.",
+      "promotion_decision": "accept",
+      "promotion_type": ["shot_rule"],
+      "target_artifact": "shot_list schema (Möbius close specification — already recorded in LE-007)",
+      "mutation_required": false,
+      "mutation_text": "Covered by LE-007. This entry records Director PASS confirmation.",
+      "review_status": "closed",
+      "pipeline_version_impact": "none"
+    },
+    {
+      "id": "LE-011",
+      "source_stage": "post_publication_review",
+      "trigger": "Director retrospective — 017 narration performance analysis",
+      "capture_timing": "after_publication_review",
+      "observation": "017's narration is temporally insufficient — not because the writing is wrong, but because the words occupy time continuously rather than architecturally. Sentences speak while visuals speak. The correct model: narration conducts the visuals, not competes with them. Silence is not emptiness — it is visual dwell time. The viewer needs space to receive the physical state before the next line arrives. Specific 017 diagnosis: 5-8% too fast overall; 30-50% too little intentional silence; the pivot line (S3) needs silence before it, not after; S4 needs an additional held beat after the narration lands.",
+      "lesson_candidate": "Temporal authority is a separate design problem from writing. A script can be correct in every word and still fail as a performance. The pipeline currently produces narration as prose delivered at speech rate. It should produce narration as cinematic performance — where silence is a first-class structural element with duration, placement, and semantic function. This requires a fifth brain: the Orator.",
+      "orator_definition": {
+        "role": "Performance director. Not a writer. Does not add words. Does not change philosophy. Changes how words occupy time.",
+        "distinct_from": "Script (what is said), Director (what is shown), Compiler (how it is encoded). Orator governs: when silence occurs, where emphasis falls, which line deserves the longest decay, where to leave the viewer alone with the imagery.",
+        "questions_it_answers": [
+          "Where should silence occur — and for how long?",
+          "Where should the voice slow, fractured, or pause within a sentence?",
+          "Which line deserves the longest post-utterance decay?",
+          "Where should the viewer be left alone with the visual before the next word arrives?",
+          "Does the narration follow the cinematic grammar of the visual state it accompanies?"
+        ],
+        "register": "performance — temporal authority, breathing architecture, silence as semantic unit",
+        "output_artifact": "voice_direction block in script.json"
+      },
+      "voice_direction_schema": {
+        "global_rate": 0.93,
+        "breathing_points": [
+          {
+            "after": "You do not choose against yourself.",
+            "silence_ms": 700,
+            "rationale": "S1 is absolute stillness. The line must land, then the frame breathes before the next assertion."
+          },
+          {
+            "after": "You accumulate.",
+            "silence_ms": 900,
+            "rationale": "Heaviest word in the reel. It must sit alone. The viewer needs time to understand what is being accumulated before S2 begins."
+          },
+          {
+            "before": "You are wrong about what it means.",
+            "silence_ms": 1100,
+            "rationale": "The pivot. Silence before the correction — not after. The viewer must be left with 'You are not wrong to feel it' long enough to accept the exoneration before the correction arrives."
+          },
+          {
+            "after": "The moment that feels impossible",
+            "silence_ms": 600,
+            "rationale": "Fragment held before resolution. 'Is the only moment the fire begins' must arrive after a beat — not immediately."
+          },
+          {
+            "after": "The moment that feels impossible\nis the only moment the fire begins.",
+            "silence_ms": 1200,
+            "rationale": "S4 is the ignition. After the line lands, the visual should hold at ignition for over a second before S5 begins. The reel's central claim needs this dwell time."
+          }
+        ],
+        "fragmentation_directive": "S2 narration ('minor. Rational. Survivable.') — perform as three separate beats with micro-pauses between each word, not as a flowing list. The fragmentation mirrors the accumulation mechanism.",
+        "final_decay_directive": "S5 final sentence: 'The next surface is already waiting.' — maximum decay. This line should trail into silence for at least 1.5 seconds before the audio track ends. The viewer exits with the question, not the answer."
+      },
+      "evidence": "017 VO duration: 19.6s against 38.25s video. Narration ends at 51% of visual duration, leaving ~18.6s of silence. This is not a length problem — it is a distribution problem. The silence is at the end when it should be distributed throughout.",
+      "promotion_decision": "accept",
+      "promotion_type": ["invariant", "search_path"],
+      "target_artifact": "DREAMFORGE_INVARIANTS.md (Orator Law — Layer 2 candidate), script.json schema (voice_direction block), assemble-audio.ts (breathing point implementation)",
+      "mutation_required": true,
+      "mutation_text": "1. Add Orator to pipeline architecture as fifth brain between Script and Compiler. 2. Add voice_direction block to script.json schema as required field. 3. Add breathing point injection to assemble-audio.ts (SSML pause tags or silence file concatenation). 4. Add Orator Law to DREAMFORGE_INVARIANTS.md Layer 2.",
+      "review_status": "closed",
+      "pipeline_version_impact": "major — new pipeline stage; version bump on implementation"
+    },
+
+    {
+      "id": "LE-012",
+      "source_stage": "post_publication_review",
+      "trigger": "Director freeze assessment — doctrine-specific cadence as Orator evolution",
+      "capture_timing": "after_publication_review",
+      "observation": "017 is declared architecturally sufficient. Director assessment 2026-07-06: the pauses now have purpose (they felt like performance, not leftover runtime); the ending is the strongest produced so far; visuals became first-class storytellers (narration interprets; visuals carry the doctrine — this is the correct inversion). One remaining gap: consecutive sentences carry similar energy — a performance polish gap (whispered / firmer / linger contrast), not an architectural issue. Not worth iterating 017 to chase. The audience insight: founders, physicians, operators, engineers are accustomed to slower cognitive pacing than short-form entertainment consumers; 017's pace matches the brand promise. Key directive for the Orator going forward: cadence should be doctrine-specific, not uniform.",
+      "lesson_candidate": "The Orator's cadence should derive from the physical law of the doctrine, not from a universal speech-rate setting. Each physical law has a natural temporal signature:\n- Pressure (friction, compression, threshold) → longer held pauses; the weight of resistance takes time\n- Resonance (wave, frequency, amplitude) → rhythmic repetition; cadence mirrors the oscillation\n- Erosion (wearing, gradual, persistence) → almost meditative; nothing hurries erosion\n- Fracture (brittle failure, sudden release) → progressively compressed pacing until the break, then silence\nThis makes the Orator's voice_direction a derivative of the Thinker's physical law selection, not an independent aesthetic preference. The physical law that chose the concept DNA also constrains the vocal performance. This is the next integration of the five-brain architecture.",
+      "evidence": "Director verbatim: 'Don't make 018 faster. Instead, make the cadence doctrine-specific. A doctrine about pressure might naturally have longer held pauses. A doctrine about resonance might have rhythmic repetition. A doctrine about erosion might almost feel meditative. A doctrine about fracture might become progressively more compressed until the break. In other words, let the physical law influence the vocal performance, just as it influences the cinematography. That would make the Orator even more integrated with the Thinker and Director.' NDCH_017 frozen at global_rate 0.82, 7 breathing points, final_decay_ms 2500.",
+      "promotion_decision": "accept",
+      "promotion_type": ["invariant", "search_path"],
+      "target_artifact": "DREAMFORGE_INVARIANTS.md (Orator Law update — doctrine-specific cadence), script.json schema (voice_direction: add cadence_law field derived from concept_seed physical_law)",
+      "mutation_required": true,
+      "mutation_text": "Update Orator Law in DREAMFORGE_INVARIANTS.md: voice_direction.cadence_law is derived from the concept_seed's physical_law, not chosen independently. Add cadence_law field to voice_direction schema with four archetypal patterns: pressure (longer pauses, weight), resonance (rhythmic repetition), erosion (meditative, slow), fracture (compressed until break, then silence). The Thinker's physical law selection now constrains the Orator's temporal architecture. This is the deepest integration yet between the five brains.",
+      "review_status": "closed",
+      "pipeline_version_impact": "minor — Orator schema extension, no structural change"
+    },
+
+    {
+      "id": "LE-013",
+      "source_stage": "stage_9_audio_assembly",
+      "trigger": "breathing injection producing breaks in wrong positions — alignment index offset bug",
+      "capture_timing": "after_stage_9_revision",
+      "observation": "The findPhraseEndTime and findPhraseStartTime functions used indexOf on a normalized flatText (\\n+ collapsed to single space) to get a character position, then used that position directly as an index into alignment.characters. ElevenLabs returns alignment.characters for the original input text, which includes \\n characters (or at minimum does not collapse \\n\\n to one character). The full_narration_text contains 8 double-newlines (\\n\\n) between segments. Each \\n\\n normalizes to one space, removing 1 character from flatText compared to alignment.characters. By the time we reach 'You are wrong' (after 5 \\n\\n segments), the flatText index was 5 positions lower than the alignment index — pointing to a character 5 positions earlier in the audio, producing a break in the middle of a prior phrase. The breaks WERE firing (9 injections confirmed) but at measurably wrong timestamps: minor. (5.46s vs correct 5.03s), Rational. (6.38s vs 5.83s), all later anchors proportionally drifted.",
+      "lesson_candidate": "Character alignment arrays from TTS APIs must be searched using their own character set, not a normalized derivative. The correct pattern: strip ALL whitespace from alignment.characters to build a search string; strip ALL whitespace from the anchor; find position in the stripped text; map back to original alignment index. This is whitespace-agnostic and works regardless of whether the TTS API includes \\n, \\r, or other whitespace in its character array. Never use a normalized text length to index into an alignment array built from a different normalization scheme.",
+      "evidence": "Timestamps before fix vs after fix: 'You do not choose against yourself.' 1.85s → 2.03s; 'You accumulate.' 2.89s → 2.96s; 'minor.' 5.46s → 5.03s; 'Rational.' 6.38s → 5.83s; 'You are wrong' 11.46s → 11.37s; 'about what it means.' 12.46s → 12.21s. Shifts up to 430ms confirmed — significant enough to land breaks mid-word rather than at phrase ends.",
+      "fix_implemented": "buildAlignmentIndex() — strips all whitespace from alignment.characters and builds a parallel index map (strippedToOriginal). Both findPhraseEndTime and findPhraseStartTime now search the stripped text, then use the map to recover the original alignment array index before reading timestamps.",
+      "promotion_decision": "accept",
+      "promotion_type": ["prompt_rule"],
+      "target_artifact": "assemble-audio.ts (fix already implemented), future audio assembly tools",
+      "mutation_required": false,
+      "mutation_text": "Fix already applied in assemble-audio.ts (buildAlignmentIndex function). Record as invariant for any future TTS timestamp lookup: always search alignment.characters using the alignment's own character set, not a derived normalized text.",
+      "review_status": "closed",
+      "pipeline_version_impact": "patch — bug fix in Stage 9 injection logic"
+    },
+    {
+      "id": "LE-014",
+      "source_stage": "stage_9_editorial_mix",
+      "trigger": "First music mix on NDCH_017 — establishing architecture for music-over-narration control",
+      "capture_timing": "after_editorial_mix_design",
+      "observation": "Adding music to a narration-driven reel requires a non-trivial volume automation strategy. A fixed duck level produces a flat, undramatic underscore. The meaningful design decision is where to SURFACE the music — not how much to duck it. Music should surface into cognitive space that narration has vacated (intentional silence windows), not compete with narration for attention. Three classes of silence windows exist: (1) breathing pauses (sub-1s, ambient level), (2) pivot/ignition dwells (850ms-1.2s, primary rise events), (3) visual tail (7s+, full music prominence). The reel ends with a final dissolve where music returns to near-silence — the Möbius close requires musical emptiness, not musical resolution.",
+      "lesson_candidate": "Every reel that carries music needs an editorial_timeline.json as a Stage 9 artifact. This file is separate from voice_direction (which controls vocal performance) and from visual prompts (which control Runway input). It controls the Compiler's mix decisions: where music ducks, where it rises, where it claims the frame. The key editorial law: music occupies cognitive space that narration has vacated. It does not compete. The volume envelope is derived from the narration's silence architecture — every breathing_point in voice_direction has a corresponding music_volume_db entry in editorial_timeline.json. The final dissolve always begins at the visual tail start and ends at -48dB or below.",
+      "evidence": "editorial_timeline.json produced for NDCH_017 (2026-07-06). 22 regions, two primary rise events (post-pivot 16.47s, post-ignition 22.65s), visual tail claim (31.2-38.25s), final dissolve (34.5-38.25s). FFmpeg volume automation expression built from region timestamps. Track: Hidden Law (ndch, Suno), 118.56s, mean -15.7 dB, max -0.5 dBFS.",
+      "fix_implemented": "editorial_timeline.json created at reels/NDCH_017/editorial_timeline.json. FFmpeg command embedded in implementation_plan.path_a_ffmpeg.command. Output: output/NDCH_017_final_music.mp4.",
+      "promotion_decision": "accept",
+      "promotion_type": ["assembly_rule"],
+      "target_artifact": "editorial_timeline schema template (to be created for 018), assemble-audio.ts mixMusicUnderVO() function (Path C: parse editorial_timeline.json to generate volume automation)",
+      "mutation_required": true,
+      "mutation_text": "For all future reels using music: (1) produce editorial_timeline.json as a required Stage 9 artifact before rendering final mix. (2) editorial_timeline.regions must cover the full reel duration. (3) Each breathing_point in voice_direction must map to a corresponding music rise/duck event. (4) The final dissolve region (last 3-4s before reel end) must end at music_volume_db <= -42. (5) Future assemble-audio.ts upgrade: mixMusicUnderVO() reads editorial_timeline.json and builds the FFmpeg volume expression programmatically from region timestamps and music_volume_db values.",
+      "review_status": "closed",
+      "pipeline_version_impact": "minor — new required Stage 9 artifact class (editorial_timeline)"
+    },
+    {
+      "id": "LE-015",
+      "source_stage": "stage_10_production_master",
+      "trigger": "Director designates NDCH_017 as production master. First reel frozen under DreamForge 3.0.",
+      "capture_timing": "after_publication_review",
+      "observation": "NDCH_017 reached production quality without requiring any new Thinker laws, Director changes, or Compiler changes in the final production phase. The pipeline was sufficient. The remaining refinements at freeze time were personal taste decisions (fractions of a dB), not architectural ones. The director reported a psychological milestone: first version where evaluation of the pipeline stopped and the piece was simply watched. This is the first ASI (Architecture Stability Index) reading for DreamForge 3.0.",
+      "lesson_candidate": "Architecture stability is demonstrated by what is NOT required, not by what is built. A production master that closes with zero new laws is a stronger signal than one that closes with ten improvements. The H-018 zero-new-laws constraint is now empirically grounded: 017 proved the existing architecture is sufficient to reach this level. Opening information density (first 5-7 seconds) is a future refinement target for scroll behavior — not a blocker, but a known area where the Orator timing will continue to develop.",
+      "evidence": "production_master.json frozen 2026-07-06. ASI reading: 0 new laws, 0 Director changes, 0 Compiler changes, 0 Thinker changes. Director verdict: APPROVED. Psychological milestone: 'first reel where I stopped evaluating DreamForge and simply watched it.'",
+      "fix_implemented": "reels/NDCH_017/production_master.json created. NDCH_017 status: FROZEN.",
+      "promotion_decision": "accept",
+      "promotion_type": ["invariant"],
+      "target_artifact": "DREAMFORGE_INVARIANTS.md (future), pipeline_learning global template",
+      "mutation_required": true,
+      "mutation_text": "Add to DreamForge operating doctrine: A reel is production-ready when the remaining changes are personal taste, not architecture. Freeze at that moment. Do not iterate past the architecture boundary. The ASI for each reel must be recorded at freeze time: count of new laws, Director changes, Compiler changes, Thinker changes introduced in the final production phase. Target for mature pipeline: zero across all categories.",
+      "review_status": "closed",
+      "pipeline_version_impact": "none — confirmation of stability, not a change"
+    }
+  ],
+
+  "promotion_types": {
+    "invariant": "Promote only if the lesson applies beyond the current reel and failure would recur across projects. A new invariant requires explicit naming and addition to DREAMFORGE_INVARIANTS.md with a version bump.",
+    "visual_constraint": "Promote if the lesson changes how future visual systems must be designed. Mutates visual_system schema or template defaults.",
+    "shot_rule": "Promote if the lesson affects shot construction, ordering, or required fields. Mutates shot_list schema.",
+    "prompt_rule": "Promote if the lesson affects the structural logic of prompt construction — not wording, logic. A better word is not a prompt rule. A better constraint structure is.",
+    "validation_rule": "Promote if the lesson improves deterministic pass/fail review. Mutates render_validation template.",
+    "assembly_rule": "Promote if the lesson affects editorial sequencing, pacing, or continuity across clips.",
+    "search_path": "Promote if the lesson identifies a fruitful future design or research direction without yet becoming law. Banked in creative_trace.future_search_paths for future reels.",
+    "reject": "Use when the observation is local, taste-based, non-repeatable, reel-specific, or unsupported by reproducible evidence. Rejection must include explicit rationale — not 'it was fine' but 'this only applies to match-strike geometry and does not generalize.'"
+  },
+
+
+  "mutation_gate": {
+    "required_question": "Should this learning change the pipeline, or only this reel?",
+    "no_orphan_rule": "Every accepted learning event must either mutate a target_artifact or be explicitly rejected with rationale. A learning event with promotion_decision: 'accept' and no mutation_text is a violation of Law 14.",
+    "versioning_required": true,
+    "versioning_rule": "Minor mutations (constraint additions, validation improvements) → pipeline minor version bump. Structural mutations (new stage, new required field, new law) → major version bump."
+  },
+
+  "pipeline_version_after_mutations": "2.0.0 — architecture frozen. Next version bump contingent on 018-020 observation period and corpus-architecture implementation decisions."
+}

@@ -1,0 +1,126 @@
+{
+  "_preset_version": "0.1-provisional",
+  "_status": "PROVISIONAL — source reel: NDCH_017_FRICTION. Do not treat as universal law until tested across at least 3 reels.",
+  "_source_reel": "NDCH_017_FRICTION",
+  "_frozen_date": "2026-07-06",
+  "_law": "This preset is the default starting position. Override only if the doctrine's emotional temperature requires it. Document the override and the reason.",
+
+  "preset_id": "NDCH_017_MASTERING_PRESET",
+  "description": "Audio mastering chain derived from NDCH_017. Defines the full technical stack from raw TTS to final MP4: VO processing, music hierarchy, final mix normalization, ending decay, and limiter settings. Every future reel inherits this as its default. 018 runs with this preset unless the doctrine requires a different emotional temperature.",
+
+  "stage_1_vo_processing": {
+    "_maps_to": "assemble-audio.ts processAudio()",
+    "description": "EQ + loudness normalization applied to the breathed VO before music mixing.",
+    "eq": {
+      "low_shelf": {
+        "frequency_hz": 80,
+        "gain_db": 3,
+        "width_type": "octave",
+        "width": 2,
+        "purpose": "Body and warmth. Narration should have physical presence, not phone-call thinness.",
+        "ffmpeg_filter": "equalizer=f=80:width_type=o:width=2:g=3"
+      },
+      "presence_boost": {
+        "frequency_hz": 3000,
+        "gain_db": 2,
+        "width_type": "octave",
+        "width": 2,
+        "purpose": "Intelligibility. Consonants and articulation carry doctrine — they must be audible.",
+        "ffmpeg_filter": "equalizer=f=3000:width_type=o:width=2:g=2"
+      }
+    },
+    "loudness_normalization": {
+      "integrated_lufs": -14,
+      "true_peak_dbfs": -1.5,
+      "lra": 11,
+      "purpose": "VO reference level. Music ducking ratios and final mix level are relative to this.",
+      "ffmpeg_filter": "loudnorm=I=-14:TP=-1.5:LRA=11"
+    }
+  },
+
+  "stage_2_music_hierarchy": {
+    "_maps_to": "assemble-audio.ts mixMusicUnderVO() + editorial_timeline.json",
+    "description": "Music level rules relative to the VO reference. Levels are derived from the cinematic hierarchy, not from listening.",
+    "vo_role": "reference — Layer 1 (Philosophy). Always forward.",
+    "music_role": "Layer 2 (Atmosphere). Never competes.",
+    "narration_sections": {
+      "music_db_relative_to_vo": "-30 to -32 dB below VO",
+      "music_amplitude_range": "0.025 to 0.032",
+      "purpose": "Sub-perceptual. Music marks presence only. Cognitive load belongs to the voice."
+    },
+    "breathing_pause_sections": {
+      "short_pause_ms_range": "275-600ms",
+      "music_db_relative_to_narration": "+6 to +8 dB above narration music level",
+      "music_amplitude_range": "0.050 to 0.079",
+      "purpose": "Ambient rise. Music fills the cognitive space the voice just vacated."
+    },
+    "pivot_dwell": {
+      "duration_ms_range": "850-1200ms",
+      "music_db_relative_to_narration": "+12 dB above narration music level",
+      "music_amplitude": "0.126",
+      "purpose": "Primary rise event. Doctrine has landed. Music holds the space for processing."
+    },
+    "visual_tail": {
+      "duration_s_minimum": 6,
+      "music_db_absolute": -16,
+      "music_amplitude": "0.158",
+      "purpose": "Music owns the frame. Voice has exited. Highest music prominence in the reel."
+    }
+  },
+
+  "stage_3_final_mix": {
+    "_maps_to": "The remix step in assemble-audio.ts (future: integrate into mixMusicUnderVO)",
+    "description": "Applied to the combined VO+music mix after mixing. This is the mastering chain that produces the deliverable.",
+    "vo_level_adjustment": {
+      "value_db": -2.75,
+      "purpose": "Shifts VO from 'on top of' to 'integrated into' the environment. Retains authority without straining.",
+      "do_not_exceed_db": -3.5,
+      "do_not_go_above_db": -2.0,
+      "note": "This is a taste-sensitive range. The ±0.5 dB tolerance is real. Document changes."
+    },
+    "integrated_loudness": {
+      "target_lufs": -16,
+      "tolerance_lufs": 0.5,
+      "purpose": "Platform-appropriate loudness. Conversational, not compressed.",
+      "ffmpeg_filter": "loudnorm=I=-16:TP=-1.0:LRA=11"
+    },
+    "true_peak_ceiling": {
+      "ceiling_dbfs": -1.0,
+      "purpose": "Headroom for inter-sample peaks in streaming delivery.",
+      "ffmpeg_flag": "TP=-1.0"
+    },
+    "lra": {
+      "value": 11,
+      "purpose": "Natural dynamic range. Doctrine should breathe — not compressed flat."
+    }
+  },
+
+  "ending_decay": {
+    "_maps_to": "editorial_timeline.json final regions",
+    "description": "The Möbius close. Music recedes as the doctrine settles.",
+    "visual_tail_start_music_db": -16,
+    "final_dissolve_start_music_db": -28,
+    "reel_end_music_db": -48,
+    "final_dissolve_duration_s": 3.5,
+    "purpose": "Viewer exits into silence, not into music. The doctrine ends — the music confirms it.",
+    "law": "The final dissolve region must always end at music_volume_db <= -42. Never let the reel end while music is audible."
+  },
+
+  "compression": {
+    "approach": "loudnorm handles dynamic range management via integrated loudness normalization. No additional compression compressor required at this time.",
+    "note": "If a future doctrine requires dramatic dynamic contrast (e.g., silence followed by sudden impact), revisit with a dedicated compressor stage."
+  },
+
+  "override_protocol": {
+    "when_to_override": "When the doctrine's emotional temperature is demonstrably different from 'cold, restrained, inevitable.' Example: a doctrine about urgency or rupture may require different VO level, music hierarchy, or LRA.",
+    "how_to_override": "Create a new preset file in assets/mastering/ with a new preset_id. Reference it in sound_direction.mastering_preset_id in script.json. Document the delta from this preset and the doctrinal reason.",
+    "do_not": "Do not modify this file to accommodate a single reel. Override, don't mutate the default."
+  },
+
+  "promotion_status": {
+    "current": "v0.1-provisional — 017-derived",
+    "promote_to_invariant_after": "3 reels minimum",
+    "promotion_condition": "The preset produces an approved production master on 018 and 019 without requiring the override protocol. If both reels complete without overrides, the preset is a stable default.",
+    "018_instruction": "Inherit this preset. Run without modification. Report any point where the doctrine demands a different chain."
+  }
+}

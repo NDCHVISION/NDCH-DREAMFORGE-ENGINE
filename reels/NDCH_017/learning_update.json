@@ -1,0 +1,133 @@
+{
+  "_superseded_by": "pipeline_learning.json",
+  "_status": "DEPRECATED — predates the Observation → Lesson → Promotion → Mutation model. Use pipeline_learning.json as the authoritative Stage 10 artifact for NDCH_017.",
+  "_pipeline_phase": "10 — Learning Update (superseded)",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "PENDING — complete after all render_validation.json decisions are filled in",
+  "_law": "Learning Law (Law 8) + Validation Gate Law (Law 13). A system that only records winners cannot learn from its reasoning. A pipeline that does not mutate from completed projects is relying on memory.",
+  "_note": "This is not a notes file. Every finding must trace to a specific permanent mutation — a file change, a schema addition, a law update, a pipeline version bump. Observations without mutations are not learning. They are archaeology.",
+
+  "reel_id": "NDCH_017",
+  "concept_seed": "FRICTION",
+
+  "render_outcomes": {
+    "S1": {
+      "decision": "pending",
+      "passed_review_questions": [],
+      "failed_review_questions": [],
+      "unexpected_failures": [],
+      "unexpected_successes": [],
+      "prompt_variant_used": "primary"
+    },
+    "S4": {
+      "decision": "pending",
+      "passed_review_questions": [],
+      "failed_review_questions": [],
+      "prompt_variant_used": "pending",
+      "unexpected_failures": [],
+      "unexpected_successes": []
+    },
+    "S5": {
+      "decision": "pending",
+      "palindrome_achieved": "pending",
+      "reference_frame_method_used": "pending",
+      "unexpected_failures": [],
+      "unexpected_successes": []
+    },
+    "S2": {
+      "decision": "pending",
+      "passed_review_questions": [],
+      "failed_review_questions": []
+    },
+    "S3": {
+      "decision": "pending",
+      "passed_review_questions": [],
+      "failed_review_questions": []
+    }
+  },
+
+  "global_validation_outcome": {
+    "visual_coherence": "pending",
+    "palette_arc_legible": "pending",
+    "mechanism_legible_without_narration": "pending",
+    "mythic_weight_achieved": "pending",
+    "notes": ""
+  },
+
+  "failure_trace": {
+    "_instruction": "For every failed review question: trace to the upstream artifact that failed to constrain the condition. Do not record the failure as a prompt problem unless the prompt is the actual source. Most failures trace higher.",
+    "failures": []
+  },
+
+  "pipeline_mutations": {
+    "_instruction": "Every finding that should change the pipeline permanently goes here as an explicit file edit. Not an observation — an edit. If you are recording something without a corresponding file_path and change, it is not a mutation.",
+    "knowledge_files": [
+      {
+        "file": "knowledge/symbols.json",
+        "mutation": "pending — add match_strike with final rendering performance data after clips are approved",
+        "fields_to_update": [
+          "match_strike.crystallographic_render_achievable: true/false",
+          "match_strike.runway_prompt_strategy: [winning strategy from S1/S4 renders]",
+          "match_strike.failure_modes_confirmed: [list from render outcomes]"
+        ]
+      },
+      {
+        "file": "knowledge/geometry_affinities.json",
+        "mutation": "pending — crystallographic geometry performance at extreme macro in Runway Gen-4.5",
+        "fields_to_update": [
+          "ignition_crystallography.renderer_performance: [result]",
+          "ignition_crystallography.prompt_strategy_that_worked: [result]",
+          "ignition_crystallography.failure_modes: [result]"
+        ]
+      },
+      {
+        "file": "knowledge/physics.json",
+        "mutation": "pending — static_greater_than_kinetic confirmed as visually compelling doctrine hook",
+        "fields_to_update": [
+          "static_greater_than_kinetic.reel_deployment: NDCH_017",
+          "static_greater_than_kinetic.viewer_legibility_without_narration: [result]"
+        ]
+      }
+    ],
+    "pipeline_schema_mutations": [],
+    "render_validation_template_mutations": {
+      "_instruction": "If any review questions in render_validation.json proved unanswerable (not yes/no), mutate the template to be more deterministic. If any must_not_show constraint was insufficient, strengthen it here for future reels.",
+      "mutations": []
+    },
+    "invariant_mutations": {
+      "_instruction": "If a render outcome reveals that an existing law needs clarification, or that a new law is required, record it here. A law is only added when a failure mode appears that no existing law would have prevented.",
+      "mutations": []
+    }
+  },
+
+  "S4_strategy_learning": {
+    "_instruction": "S4 is the load-bearing shot and the most likely to fail. Document exactly which variant worked, why, and what this teaches about generating crystallographic state change at ignition threshold in future reels.",
+    "variant_that_succeeded": "pending",
+    "why_it_succeeded": "pending",
+    "variants_that_failed": [],
+    "why_they_failed": [],
+    "generalizable_prompt_principle": "pending",
+    "permanent_mutation": "pending — add to render_validation template as S4-class shot guidance for any future reel with ignition threshold as perceptual anchor"
+  },
+
+  "mobius_palindrome_learning": {
+    "_instruction": "S5/S1 palindrome is the first Möbius palindrome in the NDCH pipeline. Document whether it was achieved through prompt alone or required reference frame override. This determines the architectural path for future palindrome structures.",
+    "method_used": "pending",
+    "palindrome_legible_without_narration": "pending",
+    "architectural_debt_confirmed": "pending",
+    "permanent_mutation": "pending — if reference_frame seed override was required, add reference_frame as a standard shot_list field and update pipeline documentation"
+  },
+
+  "pipeline_version": {
+    "current": "3.0.0",
+    "next": "pending — bump to 3.1.0 if any schema mutations are made; bump to 4.0.0 if a structural pipeline stage changes"
+  },
+
+  "crystallographic_register_verdict": {
+    "_instruction": "After renders: is Crystallographic Forensics a proven visual register for NDCH, or does it require a renderer upgrade before deployment? This determines whether it can be reused for future reels or must be held as experimental.",
+    "verdict": "pending",
+    "conditions_for_proven": "S1 and S4 both pass all review questions without fallback",
+    "conditions_for_experimental": "S4 required variant B or C, or S1 required fallback to friction surface geometry",
+    "conditions_for_unavailable": "All S4 variants failed — crystallographic forensics is not achievable at this prompt depth with Runway Gen-4.5"
+  }
+}

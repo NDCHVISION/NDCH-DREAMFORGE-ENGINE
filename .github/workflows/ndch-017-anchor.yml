@@ -7,6 +7,8 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+    outputs:
+      anchor_url: ${{ steps.anchor.outputs.anchor_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,14 +17,11 @@ jobs:
           cache: npm
       - name: Install dependencies and tools
         run: npm ci && sudo apt-get install -y ffmpeg
-      - name: Generate S1 anchor still (v3)
+      - name: Generate S1 anchor still
         id: anchor
         env:
           RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx tsx generate-017-anchor.ts
-      - name: Summary
-        if: always()
-        run: |
-          echo "### Anchor v3 Result" >> $GITHUB_STEP_SUMMARY
-          echo "- URL: ${{ steps.anchor.outputs.anchor_url }}" >> $GITHUB_STEP_SUMMARY
+      - name: Report anchor URL
+        run: echo "Anchor uploaded to ${{ steps.anchor.outputs.anchor_url }}"

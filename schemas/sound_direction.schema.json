@@ -1,0 +1,152 @@
+{
+  "_schema_version": "0.1-provisional",
+  "_status": "PROVISIONAL — derived from NDCH_017. Do not promote to invariant until tested across at least 3 reels.",
+  "_source_reel": "NDCH_017_FRICTION",
+  "_frozen_date": "2026-07-06",
+  "_law": "Levels derive from rules. Rules derive from the doctrine's emotional temperature. Never mix by ear alone — mix until the audio satisfies the same validation philosophy as every other artifact.",
+
+  "description": "sound_direction is a first-class artifact in script.json. It defines the audio architecture for a reel: the music's role, the cinematic hierarchy of layers, the dynamic profile per narrative section, and the function of silence. The Compiler reads this alongside voice_direction to generate the editorial_timeline and configure the mastering chain.",
+
+  "schema": {
+    "sound_direction": {
+
+      "_required_fields": ["music_role", "emotional_temperature", "dynamic_profile", "silence_function", "mastering_preset_id"],
+
+      "music_role": {
+        "type": "string",
+        "enum": ["continuity", "tension", "atmosphere", "counter-melody", "punctuation"],
+        "description": "The music's single primary function. Determines how it is mixed against the voice. 'continuity' = music provides thread between beats; 'tension' = music escalates toward pivot; 'atmosphere' = music sets emotional temperature only; 'counter-melody' = music has independent melodic identity; 'punctuation' = music marks structural beats only.",
+        "017_value": "continuity"
+      },
+
+      "emotional_temperature": {
+        "type": "object",
+        "description": "Qualitative descriptors for the sonic identity of the reel. These constrain track selection and EQ choices. Not levels — temperature.",
+        "fields": {
+          "primary": { "type": "string", "017_example": "cold" },
+          "secondary": { "type": "string", "017_example": "restrained" },
+          "tertiary": { "type": "string", "017_example": "inevitable" },
+          "anti_descriptors": {
+            "type": "array",
+            "description": "What this reel must NOT sound like. Enforced during track selection.",
+            "017_example": ["triumphant", "inspirational", "urgent"]
+          }
+        }
+      },
+
+      "cinematic_layers": {
+        "type": "object",
+        "description": "The three-layer hierarchy. Levels are relative, not absolute. Absolute levels are resolved by the mastering preset.",
+        "layer_1_philosophy": {
+          "role": "Voice — the intellectual focus",
+          "character": "Never strained. Never shouting. Almost conversational. Documentary narrator, not trailer narrator.",
+          "priority": "always forward",
+          "017_character": "intimate, calm, observational"
+        },
+        "layer_2_atmosphere": {
+          "role": "Music — the emotional temperature",
+          "character": "Answers one question: what emotional temperature does this doctrine exist in?",
+          "priority": "secondary — never competes with layer 1",
+          "017_character": "restrained, cold, inevitable, patient"
+        },
+        "layer_3_space": {
+          "role": "Silence — the third instrument",
+          "character": "Silence between voice and music is not empty. It is carrying meaning. Each silence window must have a declared function.",
+          "priority": "structural — must be intentional, never accidental"
+        }
+      },
+
+      "dynamic_profile": {
+        "type": "array",
+        "description": "Per-section rules. Levels derive from these rules, not the other way around. The Compiler maps these to editorial_timeline.json regions.",
+        "item_schema": {
+          "section": "string — matches segment beat_label in script.json segments",
+          "music_directive": "string — qualitative + optional relative dB adjustment",
+          "voice_directive": "string — qualitative",
+          "relationship": "string — describes how voice and music coexist in this section"
+        },
+        "017_instance": [
+          {
+            "section": "hook",
+            "music_directive": "restrained — reference level",
+            "voice_directive": "forward",
+            "relationship": "voice establishes doctrine; music marks entry only"
+          },
+          {
+            "section": "build",
+            "music_directive": "slightly rising — +0 to +1 dB on breathing pauses",
+            "voice_directive": "integrated",
+            "relationship": "music surfaces into silence windows between accumulated beats"
+          },
+          {
+            "section": "pivot",
+            "music_directive": "duck — 2.5 dB below reference",
+            "voice_directive": "unchanged — maximum clarity",
+            "relationship": "voice receives maximum cognitive space; music recedes completely"
+          },
+          {
+            "section": "resolution",
+            "music_directive": "recover — return to reference level over ignition dwell",
+            "voice_directive": "slightly integrated",
+            "relationship": "music has arrived before resolution is spoken; doctrine and atmosphere are now unified"
+          },
+          {
+            "section": "mobius",
+            "music_directive": "carry ending — rise +1 dB into visual tail, decay to near-silence at reel end",
+            "voice_directive": "decay — voice exits, music holds the final image",
+            "relationship": "music owns the visual tail; doctrine settles into silence"
+          }
+        ]
+      },
+
+      "silence_function": {
+        "type": "object",
+        "description": "Declares the function of each class of silence window. Silence is never empty — it is a scored beat.",
+        "017_instance": {
+          "breath_pause": "Viewer receives the previous line. Music surfaces at ambient level. Duration: 600-900ms.",
+          "pivot_dwell": "Correction has landed. Viewer processes the cognitive shift. Music holds the space. Duration: 850ms.",
+          "ignition_dwell": "Central claim has landed. Emotional transfer. Music is at its most present before the voice returns. Duration: 1200ms.",
+          "fragmentation_pause": "Between accumulated fragments — mirrors the accumulation mechanism. Music barely audible. Duration: 275-350ms.",
+          "visual_tail": "Narration has ended. Music owns the frame. Doctrine settles. Duration: 7s+.",
+          "final_decay": "Möbius close. Music recedes with the visual. Viewer exits into silence."
+        }
+      },
+
+      "mastering_preset_id": {
+        "type": "string",
+        "description": "Reference to a named preset in assets/mastering/. The preset defines the full technical chain. Override only if the doctrine's emotional temperature requires a different chain.",
+        "017_value": "NDCH_017_MASTERING_PRESET",
+        "default_for_future_reels": "NDCH_017_MASTERING_PRESET"
+      }
+
+    }
+  },
+
+  "usage_in_script_json": {
+    "placement": "Top-level block in script.json, alongside voice_direction",
+    "example_minimal": {
+      "sound_direction": {
+        "music_role": "continuity",
+        "emotional_temperature": {
+          "primary": "cold",
+          "secondary": "restrained",
+          "anti_descriptors": ["triumphant", "inspirational"]
+        },
+        "dynamic_profile": [
+          { "section": "hook", "music_directive": "restrained", "voice_directive": "forward" },
+          { "section": "pivot", "music_directive": "duck 2.5 dB", "voice_directive": "unchanged" },
+          { "section": "mobius", "music_directive": "carry ending", "voice_directive": "decay" }
+        ],
+        "silence_function": "restrained — each pause receives music at ambient level only",
+        "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+      }
+    }
+  },
+
+  "promotion_status": {
+    "current": "v0.1-provisional — 017-derived default",
+    "promote_to_invariant_after": "3 reels minimum",
+    "promotion_condition": "Schema fields are stable across reels with different physical vocabularies and emotional temperatures. No field needs to be added or removed for 018, 019.",
+    "do_not_promote_if": "A reel requires adding fields that don't generalize — that means the schema needs expansion, not freezing."
+  }
+}

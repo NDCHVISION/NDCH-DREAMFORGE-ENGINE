@@ -1,0 +1,519 @@
+{
+  "reel_id": "NDCH_017_FRICTION",
+  "engine_version": "2.1.0",
+  "dreamforge_pipeline_version": "3.0.0",
+  "dreamforge_provenance": {
+    "concept_dna": "reels/NDCH_017/concept_dna.json",
+    "creative_trace": "reels/NDCH_017/creative_trace.json",
+    "script": "reels/NDCH_017/script.json",
+    "visual_system": "reels/NDCH_017/visual_system.json",
+    "shot_list": "reels/NDCH_017/shot_list.json",
+    "render_validation": "reels/NDCH_017/render_validation.json",
+    "note": "Every field in this production JSON is traceable to an upstream DreamForge artifact. Provenance Law applies. Render validation must pass per-clip acceptance criteria before editorial assembly begins."
+  },
+  "schema_changelog": {
+    "version": "2.1.0",
+    "based_on": "2.1.0 (NDCH_016 schema)",
+    "compatibility": "Fully compatible with reel-plan.ts resolveProductionPlan(). All required paths preserved: voiceover.script.segments[].{text,visual_prompt,timestamp_start,timestamp_end}, voiceover.elevenLabs_config, subtitle_config, music_config, instagram_config, format.target_duration_seconds.",
+    "dreamforge_3_additions": [
+      "dreamforge_pipeline_version",
+      "dreamforge_provenance",
+      "concept field populated from concept_dna",
+      "visual_register from visual_system.json"
+    ]
+  },
+  "reel_input": {
+    "concept_seed": "FRICTION",
+    "doctrine": "People rarely choose against themselves. They accumulate tiny points of resistance until surrender feels rational.",
+    "doctrine_statement": "The peak of friction is the edge of ignition. What feels like maximum resistance is the minimum force required to generate the heat.",
+    "primary_symbol": "match_strike",
+    "perceptual_anchor": "ignition_moment — the microsecond when crystallographic structure crosses ignition temperature",
+    "pipeline": "dreamforge_3.0 — full Thinker → Designer → Director → Compiler derivation",
+    "target_duration_seconds": 45,
+    "voice_id": "C9Uh5MFptuXa176UlaXE"
+  },
+  "concept": "FRICTION",
+  "theme": "The peak of friction is the edge of ignition. What feels like maximum resistance is the minimum force required to generate the heat.",
+  "core_metaphor": "Static friction exceeds kinetic friction — maximum resistance is always at initiation, never permanent. The person who stops at peak static friction has stopped at the only moment the fire was possible.",
+  "emotional_arc": "entrapment → compound accumulation → maximum resistance → ignition → recurrence",
+  "visual_register": "Crystallographic Forensics — extreme macro on match head crystal lattice and friction surface contact zone. The viewer is placed inside the mechanism, watching the physics that produces the doctrine. No hands. No bodies. Evidence only.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45.0,
+    "segment_count": 5,
+    "segment_id_order": ["hook", "build", "pivot", "resolution", "mobius_close"],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars. Keep each visual_prompt <= 1000 chars."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "analytical — reveals crystalline structure, not atmosphere",
+    "camera_distance_arc": "extreme-macro → extreme-macro → extreme-macro → through → extreme-macro",
+    "recurring_element": "match head crystal lattice and friction surface contact zone",
+    "color_temperature": "cold (below 4000K)",
+    "palette_arc": "void+telemetry-faint (S1) → telemetry-flickering (S2) → interference-trace (S3) → full-four-color (S4) → void+telemetry-faint (S5)",
+    "scale": "microscopic — crystallographic, sub-millimeter throughout"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "type": "visual_palindrome",
+    "description": "The Möbius is structural rather than grammatical. S1 opens on a cold unlit surface in void. S5 closes on a new cold unlit surface in void — visually identical register. On loop restart, the viewer sees the S5 surface cut to S1, and the narration 'You do not choose against yourself. You accumulate.' applies retroactively to the surface they just watched in S5. The cycle is visible.",
+    "loop_seam": "'The next surface is already waiting.' → [cut] → 'You do not choose against yourself.'",
+    "visual_seam": "S5 locked-static on cold unlit crystal surface → hard cut to S1 locked-static on cold unlit crystal surface. Identical palette register. The viewer cannot tell which surface is which.",
+    "audio_design": {
+      "final_segment_treatment": "Final segment: stability 0.55, style 0.0. 'Waiting.' — the word holds, then silence before loop.",
+      "music_fade": "Sub-bass sustained tone fades over final 2s, cut at loop seam"
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You do not choose against yourself.\n\nYou accumulate.\n\nEach point of resistance —\nminor. Rational. Survivable.\n\nUntil surrender feels rational.\n\nYou are not wrong to feel it.\n\nYou are wrong about what it means.\n\nThe moment that feels impossible\nis the only moment the fire begins.\n\nYou do not overcome friction.\n\nThe next surface is already waiting.",
+      "word_count": 60,
+      "estimated_duration_seconds": 43,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You do not choose against yourself.\n\nYou accumulate.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:09",
+          "visual_prompt": "Extreme macro view positioned inside the microscopic gap between two crystal surfaces: angular match head crystal lattice above and ruled phosphorus friction strip below, both surfaces in equal compositional weight, the void gap between them in sharpest focus, neither surface dominant, pale cream #F5F2EB crystal material on both surfaces, faint gold #C6A94F edge traces, void #1A1A1A gap space, no contact between surfaces, upper-left analytical lighting illuminating both simultaneously, absolute stillness no camera movement, viewer inside the interface not outside looking at an object",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "void surrounding crystalline form",
+            "depth_plane": "extreme macro flat plane",
+            "camera_movement": "locked_static"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Match head crystal lattice at extreme macro — dense angular geometry filling frame, unlit, cold, absolute precision.",
+            "motion_onset": "Hard cut from void to crystal structure — no motion after cut. The stillness is the opening statement.",
+            "hook_type": "hard-cut-from-void"
+          },
+          "pacing_lock": {
+            "word_count": 9,
+            "target_wpm": 80,
+            "calculated_duration_seconds": 6.75,
+            "buffer_seconds": 2.25,
+            "total_scene_seconds": 9.0,
+            "override_note": "Slow delivery. Both sentences are weighted. Silence between them is intentional — the viewer sits with 'accumulate' before the next segment begins.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before assembly.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "Extreme macro view from inside the microscopic gap between two surfaces: angular crystallographic match head lattice above and ruled phosphorus friction strip below, both surfaces equal compositional weight neither dominant, void #1A1A1A gap space between them in sharpest focus, pale cream #F5F2EB crystal material on both surfaces, faint gold #C6A94F edge traces on both surfaces, no contact between surfaces, upper-left analytical lighting illuminating both surface geometries simultaneously, absolute stillness no motion no camera movement no zoom no push, camera locked static, the gap is the subject not either surface, scientific instrument perspective looking across the interface",
+            "elevenlabs_payload": {
+              "text": "You do not choose against yourself.\n\nYou accumulate.",
+              "voice_settings_override": {
+                "stability": 0.62,
+                "similarity_boost": 0.85,
+                "style": 0.05,
+                "use_speaker_boost": true,
+                "speed": 0.85
+              }
+            }
+          }
+        },
+        {
+          "id": "build",
+          "text": "Each point of resistance —\nminor. Rational. Survivable.\n\nUntil surrender feels rational.",
+          "timestamp_start": "0:09",
+          "timestamp_end": "0:18",
+          "visual_prompt": "Extreme macro match head crystal lattice making contact with friction surface: three brief contact events in sequence, on each contact gold #C6A94F thermal lines bloom at contact zone then fade as contact breaks, crystal surface shows accumulating microscopic geometric wear at contact point after each release, pale cream #F5F2EB crystal lattice, gold thermal signature flickering and dissipating with each incomplete attempt, void #1A1A1A background, slow incremental camera approach toward contact zone between events, heat accumulating then dying, crystal structure showing wear that remains, brutalist CAD precision no organic drift, no hand no flame, analytical cold lighting",
+          "frame_geometry": {
+            "subject_position": "center — contact zone",
+            "negative_space": "void around contact geometry",
+            "depth_plane": "extreme macro, contact zone in focus",
+            "camera_movement": "slow tracking push toward contact zone"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "First contact event — crystal lattice meets friction surface, gold thermal bloom appears at contact zone.",
+            "motion_onset": "Contact event — brief crystallographic collision then release. Heat blooms and dies.",
+            "hook_type": "thermal-bloom-and-fade"
+          },
+          "pacing_lock": {
+            "word_count": 12,
+            "target_wpm": 95,
+            "calculated_duration_seconds": 7.6,
+            "buffer_seconds": 1.4,
+            "total_scene_seconds": 9.0,
+            "override_note": "'Minor. Rational. Survivable.' — three words delivered as separate beats with space between each. The rhythm mirrors the accumulation.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before assembly.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "Extreme macro match head crystal lattice making and breaking contact with friction surface in sequence, gold #C6A94F thermal gradient lines blooming at contact zone on each contact then fading on release, microscopic geometric crystal wear accumulating at contact point, pale cream #F5F2EB crystal structure, void #1A1A1A background, slow camera approach toward contact zone, heat that accumulates and dies, structure showing wear that stays, brutalist CAD precision zero organic drift, analytical cold upper-left lighting, no hand no flame, three contact events thermal bloom fade thermal bloom fade thermal bloom fade",
+            "elevenlabs_payload": {
+              "text": "Each point of resistance — minor. Rational. Survivable.\n\nUntil surrender feels rational.",
+              "voice_settings_override": {
+                "stability": 0.60,
+                "similarity_boost": 0.85,
+                "style": 0.08,
+                "use_speaker_boost": true,
+                "speed": 0.88
+              }
+            }
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "You are not wrong to feel it.\n\nYou are wrong about what it means.",
+          "timestamp_start": "0:18",
+          "timestamp_end": "0:28",
+          "visual_prompt": "Extreme macro match head crystal lattice under sustained compression against friction surface — held, not released, gold #C6A94F thermal lines accumulating and intensifying at contact zone not fading, crystal lattice deformation visible under load at contact point, first trace of crimson #DC143C heat signature at contact zone, pale cream #F5F2EB structural material bending under sustained pressure, gold temperature telemetry line approaching unlabeled threshold boundary, void #1A1A1A surround, camera absolutely locked static, stillness of maximum resistance, no motion except thermal accumulation, brutalist CAD precision, no flame yet, hard-geometry analytical lighting, heat is building",
+          "frame_geometry": {
+            "subject_position": "center — contact zone at full compression",
+            "negative_space": "void framing the contact geometry",
+            "depth_plane": "extreme macro, crystal deformation in sharp focus",
+            "camera_movement": "locked_static — held through entire segment including post-sentence visual beat"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Contact sustained — gold thermal lines present and holding, not fading. Crystal deformation visible under load.",
+            "motion_onset": "Static — no motion onset. The held contact is the visual event.",
+            "hook_type": "sustained-static"
+          },
+          "pacing_lock": {
+            "word_count": 16,
+            "target_wpm": 110,
+            "calculated_duration_seconds": 8.7,
+            "buffer_seconds": 1.3,
+            "total_scene_seconds": 10.0,
+            "override_note": "After 'You are wrong about what it means.' — visual holds for approximately 1.5s before next segment. The sentence breathes. The viewer sits inside the correction.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 10.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before assembly.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "Extreme macro match head crystal lattice under maximum sustained compression against friction surface, crystal lattice deformation visible at contact zone under load, gold #C6A94F thermal gradient lines accumulating and intensifying — not fading — held, first trace of crimson #DC143C heat signature appearing at contact point, pale cream #F5F2EB structural material under pressure, unlabeled temperature threshold line in telemetry gold visible in frame, void #1A1A1A background, camera absolutely locked static, thermal accumulation visible but no ignition, brutalist CAD precision hard-geometry no organic drift, maximum static friction state, stillness",
+            "elevenlabs_payload": {
+              "text": "You are not wrong to feel it.\n\nYou are wrong about what it means.",
+              "voice_settings_override": {
+                "stability": 0.65,
+                "similarity_boost": 0.85,
+                "style": 0.05,
+                "use_speaker_boost": true,
+                "speed": 0.85
+              }
+            }
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "The moment that feels impossible\nis the only moment the fire begins.",
+          "timestamp_start": "0:28",
+          "timestamp_end": "0:37",
+          "visual_prompt": "Extreme macro match head crystal lattice at ignition threshold: temperature telemetry line crossing threshold, crystal structure at contact zone beginning angular crystallographic fracture and oxidation propagating geometrically outward, crimson #DC143C thermal transformation expanding through crystal matrix from contact point, gold #C6A94F telemetry lines transitioning to crimson as temperature exceeds threshold, full palette present simultaneously void #1A1A1A cream #F5F2EB gold #C6A94F crimson #DC143C, slow ascending camera movement through contact zone at moment of transformation, crystal lattice that was generating resistance now generating light, geometric precision at ignition microsecond, brutalist CAD hard-geometry, not flame but the structure that becomes fire",
+          "frame_geometry": {
+            "subject_position": "contact zone — transformation propagating outward",
+            "negative_space": "void receiving the expanding thermal transformation",
+            "depth_plane": "extreme macro, transformation at contact point in sharp focus",
+            "camera_movement": "slow ascending — only segment with significant camera movement"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Temperature telemetry line crossing threshold — crimson first appearing at contact zone as structural transformation begins.",
+            "motion_onset": "Crystallographic transformation expanding geometrically from contact point outward through crystal matrix.",
+            "hook_type": "threshold-crossing"
+          },
+          "pacing_lock": {
+            "word_count": 13,
+            "target_wpm": 100,
+            "calculated_duration_seconds": 7.8,
+            "buffer_seconds": 1.2,
+            "total_scene_seconds": 9.0,
+            "override_note": "Deliberate pace. 'The moment that feels impossible' — pause — 'is the only moment the fire begins.' The line break in the text is a breath mark.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before assembly.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "Extreme macro match head crystal lattice at ignition threshold: angular crystallographic fracture and oxidation propagating geometrically outward from contact point, crimson #DC143C thermal transformation expanding through crystal matrix, gold #C6A94F telemetry lines transitioning to crimson as temperature exceeds threshold, full palette void #1A1A1A cream #F5F2EB gold #C6A94F crimson #DC143C all present, slow ascending camera movement through transformation, crystalline geometry fracturing in precise angular patterns not organic chaos, the structure generating light at the contact zone, brutalist CAD precision hard-geometry, ignition as crystallographic state change not as flame, geometric precision maximum",
+            "elevenlabs_payload": {
+              "text": "The moment that feels impossible\nis the only moment the fire begins.",
+              "voice_settings_override": {
+                "stability": 0.58,
+                "similarity_boost": 0.85,
+                "style": 0.1,
+                "use_speaker_boost": true,
+                "speed": 0.88
+              }
+            }
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "You do not overcome friction.\n\nThe next surface is already waiting.",
+          "timestamp_start": "0:37",
+          "timestamp_end": "0:45",
+          "mobius_note": "Visual Möbius — S5 closes on a cold unlit surface in void, identical register to S1. On loop restart, the viewer sees the same surface and hears 'You do not choose against yourself. You accumulate.' The next surface was always the first surface.",
+          "visual_prompt": "Two-part crystallographic shot: first the ignition zone from resolution holding self-sustaining stable — crimson geometric transformation held, no longer requiring input; then slow camera reveal to new cold unlit match head crystal surface in void identical visual register as opening shot, pale cream #F5F2EB crystal geometry, faint gold #C6A94F structural traces, void #1A1A1A background, no crimson no heat, cold crystal lattice at rest waiting for contact, camera locked static on new surface echoing opening shot exactly, brutalist CAD precision zero organic drift, analytical lighting, the beginning state of a new cycle, stillness",
+          "frame_geometry": {
+            "subject_position": "center — new cold surface echoing S1 exactly",
+            "negative_space": "void dominant — returning to opening register",
+            "depth_plane": "extreme macro flat plane — matching S1",
+            "camera_movement": "locked_static on new surface — visual palindrome of S1"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "Self-sustaining ignition zone — stable, geometric, held without input.",
+            "motion_onset": "Slow camera reveal to new cold surface. Palette returns to opening register.",
+            "hook_type": "cycle-reset"
+          },
+          "pacing_lock": {
+            "word_count": 10,
+            "target_wpm": 85,
+            "calculated_duration_seconds": 7.1,
+            "buffer_seconds": 0.9,
+            "total_scene_seconds": 8.0,
+            "override_note": "Final segment. Slow, deliberate delivery. 'Waiting.' — the word holds before silence. The music fades over the final 2 seconds.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 8.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before assembly.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "Two-part shot: first crystallographic ignition zone self-sustaining stable geometric transformation held, then slow camera reveal to new cold unlit match head crystal surface, identical register to opening — pale cream #F5F2EB crystal lattice geometry, faint gold #C6A94F structural traces, void #1A1A1A background, no crimson no heat, crystal structure cold and at rest, camera locked static on new surface, visual palindrome of opening shot, brutalist CAD precision zero organic drift, analytical cold lighting, beginning state of a new cycle, absolute stillness waiting",
+            "elevenlabs_payload": {
+              "text": "You do not overcome friction.\n\nThe next surface is already waiting.",
+              "voice_settings_override": {
+                "stability": 0.55,
+                "similarity_boost": 0.85,
+                "style": 0.0,
+                "use_speaker_boost": true,
+                "speed": 0.82
+              }
+            }
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.62,
+        "similarity_boost": 0.85,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.85
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.55,
+        "style": 0.0,
+        "note": "'Waiting.' — delivered with full weight, then silence before loop restart."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": [
+      "accumulate",
+      "resistance",
+      "rational",
+      "fire",
+      "friction"
+    ],
+    "peak_words": [
+      "wrong",
+      "impossible",
+      "surrender"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone — no subtitle content below 18% from bottom",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only — never break mid-phrase",
+      "animation": "word-by-word-appear"
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "72-80",
+    "bpm_lock_point": 76,
+    "emotional_register": "thermal pressure building toward ignition — not anxiety, sustained heat",
+    "instrumentation_direction": "Sub-bass sustained tone that rises in frequency imperceptibly from S1 to S4. Sparse single low-frequency percussion strike on S3 pivot. Minimal metallic overtone on S4 ignition. Sub-bass fades to silence in S5.",
+    "energy_arc": "Near-silence in S1-S2 (cold, before contact) → sustained bass tone building through S3 (heat accumulating) → single resonant metallic strike at ignition S4 → sustained tone fades in S5 (new cold surface, cycle resets to near-silence)",
+    "suno_search_string": "dark minimal sub-bass sustained drone crystallographic tension 76bpm cold precision",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano",
+      "no fire/combustion sound design — this is physics, not metaphor"
+    ]
+  },
+  "music_config": {
+    "description": "Sub-bass sustained tone rising from near-silence (S1) through accumulated heat (S3) to single resonant metallic strike at ignition (S4), fading to near-silence again (S5). The music mirrors the thermal arc of the visual system.",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 42,
+    "fade_out_end_seconds": 45,
+    "loop_seam_note": "Near-silence at seam — loop restart begins at the same near-silence register."
+  },
+  "cover_frame_spec": {
+    "engine_mode": "native_remotion_composition_render",
+    "source_timestamp_seconds": 32.0,
+    "rationale": "S4 resolution at approximately 0:32 — full four-color palette present, crystallographic ignition at maximum visual weight. The perceptual anchor frame.",
+    "output_dimensions": {
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG"
+    },
+    "master_normalization_template": "NDCH_COVER_014_TELEMETRY_UPDATE_2026-20-06.png",
+    "style_reference_finish": "NDCH_LOGO_COVER_013_RUST_REMIX",
+    "layout_geometry": {
+      "series_header": {
+        "text": "NDCH • DREAMFORGE",
+        "font_family": "Cormorant Garamond",
+        "font_weight": "300",
+        "font_style": "uppercase",
+        "tracking": "0.25em",
+        "y_position_percent": 5.0,
+        "alignment": "center"
+      },
+      "background_numerals": {
+        "text": "017",
+        "style": "metallic-outline-only",
+        "opacity": 0.04,
+        "canvas_width_ratio": 0.9,
+        "alignment": "perfect-symmetrical-center"
+      },
+      "central_artwork_pass": {
+        "preserve_aspect_ratio": true,
+        "crop_override": false,
+        "focal_emblem_alignment": "center",
+        "allowed_scale_variance": "±5%"
+      },
+      "title_block_system": {
+        "is_locked_unit": true,
+        "top_divider": {
+          "thickness_px": 2,
+          "style": "luxury-engraved",
+          "margin_left_right_px": 108
+        },
+        "title_text": {
+          "text": "FRICTION",
+          "font_family": "Cormorant Garamond",
+          "font_size_fixed_px": 72,
+          "font_style": "uppercase-serif",
+          "font_color": "#C6A94F",
+          "alignment": "center"
+        },
+        "release_number": {
+          "text": "0 1 7",
+          "font_family": "Cormorant Garamond",
+          "font_size_px": 32,
+          "font_color": "#C6A94F",
+          "alignment": "center",
+          "padding_top_bottom_px": 16,
+          "contained_inside_dividers": true
+        },
+        "bottom_divider": {
+          "thickness_px": 2,
+          "style": "luxury-engraved",
+          "margin_left_right_px": 108
+        },
+        "y_position_anchor_percent": 28.0
+      }
+    },
+    "title_tracking_compensation": {
+      "mode": "dynamic_fit_to_visual_width_equilibrium",
+      "target_width_ratio": 0.65
+    },
+    "execution_directive": {
+      "status": "descriptive_only",
+      "note": "Cover rendered by code. No CLI strings in JSON by design.",
+      "target_composition_id": "CoverFrameOverlay",
+      "props": {
+        "title": "FRICTION",
+        "number": "017"
+      }
+    }
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": ["300", "500", "700"],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "The resistance you felt was real. You were not wrong to feel it.\n\nYou were wrong about what it means.\n\nMaximum resistance is the minimum condition for fire. #NDCH #friction #threshold #agency #performance",
+    "hashtags": [
+      "#NDCH",
+      "#DreamForge",
+      "#Friction",
+      "#Threshold",
+      "#ElitePerformance"
+    ],
+    "alt_text": "Extreme macro crystallographic visualization of a match head at the moment of ignition — gold thermal lines crossing threshold, crimson transformation propagating through crystal lattice, brutalist CAD precision."
+  },
+  "production_notes": {
+    "runway_credits_estimate": 540,
+    "credits_calculation": "5 clips × 9 seconds average × 12 credits/second = 540",
+    "clip_cache_status": "COLD — zero cached clips",
+    "render_priority": "HIGH",
+    "critical_rendering_risk": "Crystallographic precision at extreme macro. Runway may default to organic/fluid aesthetics. Prompts specify: geometric, angular, lattice structure, crystal faces, CAD precision. Anti-drift: no soft, organic, fluid, smoke, diffuse.",
+    "fallback_strategy": "If crystallographic geometry fails to hold across clips, fall back to friction surface geometry (phosphorus strip ruled pattern) — the other side of the contact zone. Doctrine still holds.",
+    "dreamforge_generation": "First reel produced by full DreamForge 3.0 pipeline — Thinker → Designer → Director → Compiler. All decisions traceable to upstream artifacts. Provenance Law verified."
+  },
+  "cover_frame_timestamp": "0:32"
+}

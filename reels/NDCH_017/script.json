@@ -1,0 +1,212 @@
+{
+  "_pipeline_phase": "1B — Script (Semantic Translation)",
+  "_pipeline_version": "dreamforge_3.0",
+  "_version": "2",
+  "_law_10": "Translation Compression Law — every sentence must express the greatest possible amount of Concept DNA using the fewest possible words. The script is not permitted to restate — it must compress.",
+  "_law_11": "Emotional Before Technical Law — when a concept can be expressed through technical terminology or human experience, the script favors human experience. Technical precision belongs to Concept DNA. Emotional precision belongs here.",
+  "_separation_law": "The Thinker thinks like a scientist. The Script speaks like a philosopher. If a script line sounds like Concept DNA, it has not changed layers.",
+  "_status": "APPROVED",
+  "_depends_on": "concept_dna._status === APPROVED",
+  "_revision_note": "v1 rejected: too literal, spoke in the Thinker's vocabulary, 108 words. v2 rewrite: compressed to 60 words, no technical vocabulary, pivot preserved and given breathing room, resolution translated into human experience.",
+
+  "concept_seed": "FRICTION",
+  "reel_id": "NDCH_017",
+  "voice_id": "C9Uh5MFptuXa176UlaXE",
+  "target_duration_seconds": 45,
+
+  "segments": [
+    {
+      "segment_id": "S1",
+      "beat": "hook",
+      "beat_label": "Entrapment",
+      "narration": "You do not choose against yourself.\n\nYou accumulate.",
+      "word_count": 9,
+      "duration_hint_seconds": 9,
+      "traceability": {
+        "concept_dna_nodes": [
+          "doctrine: 'People rarely choose against themselves'",
+          "mechanism: threshold_creep — the starting point of effort moves upward with each incomplete attempt"
+        ],
+        "compression_note": "Nine words encode the entire psychological mechanism. 'Choose against yourself' is the doctrine's foundational claim. 'Accumulate' is the mechanism in one word. The viewer does not yet know what they're accumulating.",
+        "what_must_not_happen": "Must not name what is being accumulated. Must not reveal the inversion. The opening is the state before the physics is understood."
+      },
+      "visual_intent": "Cold match head. Static. First contact between match head and friction surface — barely visible crystalline geometry at extreme macro. No motion. The viewer does not know yet they are watching a match. They are watching resistance.",
+      "camera_hint": "locked_static — extreme macro, crystallographic scale",
+      "palette_notes": "void dominant (#1A1A1A). Telemetry gold (#C6A94F) as faint crystal structure traces. No interference yet."
+    },
+    {
+      "segment_id": "S2",
+      "beat": "build",
+      "beat_label": "Compound Accumulation",
+      "narration": "Each point of resistance —\nminor. Rational. Survivable.\n\nUntil surrender feels rational.",
+      "word_count": 12,
+      "duration_hint_seconds": 9,
+      "traceability": {
+        "concept_dna_nodes": [
+          "mechanism: habituation — 'the nervous system stops registering accumulated resistance as unusual'",
+          "mechanism: threshold_creep — 'each micro-surrender raises the perceived cost of the next attempt'",
+          "mechanism: rationalization_cascade — 'surrender is reframed as wisdom'",
+          "doctrine verbatim: 'until surrender feels rational'"
+        ],
+        "compression_note": "'Minor. Rational. Survivable.' — three adjectives compress four sub-mechanisms without naming any. 'Until surrender feels rational' is the doctrine's endpoint expressed in the doctrine's own language, which is already emotional rather than technical.",
+        "law_compliance": {
+          "technical_vocabulary": "none",
+          "human_experience_register": "yes — the viewer has felt each of these three adjectives applied to a moment of stopping"
+        }
+      },
+      "visual_intent": "Multiple incomplete strikes. The match head contacts the friction surface and releases before temperature builds. Gold telemetry lines flicker — heat accumulating and dissipating with each release. The crystalline structure shows microscopic wear from each incomplete attempt. The mechanism is degrading.",
+      "camera_hint": "tracking_push — slow approach mirroring accumulation",
+      "palette_notes": "Telemetry gold flickers with each incomplete attempt — heat that never holds. Historical code (#F5F2EB) surface shows wear accumulating."
+    },
+    {
+      "segment_id": "S3",
+      "beat": "pivot",
+      "beat_label": "Maximum Resistance",
+      "narration": "You are not wrong to feel it.\n\nYou are wrong about what it means.",
+      "word_count": 16,
+      "duration_hint_seconds": 10,
+      "traceability": {
+        "concept_dna_nodes": [
+          "mechanism: kinetic_ignorance — 'the person has only ever experienced static friction and assumes it is permanent'",
+          "physical_law: static_greater_than_kinetic — 'maximum resistance is always at initiation; once movement begins, friction decreases'",
+          "identity_justification: 'you were wrong about what maximum resistance means — this is a physics correction, not a moral statement'"
+        ],
+        "compression_note": "First sentence exonerates. Second sentence corrects. Together they perform the entire forensic function of the reel in 16 words. 'Not wrong to feel it' = the resistance is real, not imagined. 'Wrong about what it means' = the misinterpretation is about physics, not character.",
+        "breathing_room": "After 'You are wrong about what it means' — the visual holds. No narration. The viewer sits with the correction before receiving the physics. The explanation is withheld for a full beat. This is the pivot; it must not be followed immediately by resolution.",
+        "law_compliance": {
+          "technical_vocabulary": "none — 'feel it' not 'static friction'; 'what it means' not 'kinetic coefficient'",
+          "human_experience_register": "yes — every viewer has felt resistance and made meaning from it"
+        }
+      },
+      "visual_intent": "The match held at the friction surface — not released. Crystalline structure under full load. Gold telemetry lines showing heat accumulating, approaching but not crossing the ignition threshold. Interference crimson (#DC143C) appears for the first time at the contact point. The camera holds. Stillness at maximum resistance.",
+      "camera_hint": "locked_static — the stillness of maximum resistance. Do not move the camera here. Let the frame hold with the sentence.",
+      "palette_notes": "First appearance of interference crimson at contact zone. Telemetry gold intensifies. This frame is the pivot — it must be carried visually for longer than any other segment."
+    },
+    {
+      "segment_id": "S4",
+      "beat": "resolution",
+      "beat_label": "Ignition",
+      "narration": "The moment that feels impossible\nis the only moment the fire begins.",
+      "word_count": 13,
+      "duration_hint_seconds": 9,
+      "traceability": {
+        "concept_dna_nodes": [
+          "physical_law: static_greater_than_kinetic — peak resistance is always at initiation; what 'feels impossible' is the physics peak",
+          "physical_law: ignition_threshold — temperature crosses threshold at sustained contact; the fire 'begins' at this exact moment",
+          "doctrine_inversion: 'friction is not the enemy of the fire; friction is the mechanism of the fire'",
+          "perceptual_anchor: ignition_moment — 'the microsecond when the match head crosses ignition temperature'"
+        ],
+        "compression_note": "Thirteen words encode four concept_dna nodes. 'Feels impossible' = peak static friction in emotional language. 'The only moment the fire begins' = ignition threshold + doctrine inversion. The viewer realizes: the moment they interpreted as stop was the condition for ignition.",
+        "law_compliance": {
+          "technical_vocabulary": "none — 'impossible' not 'peak static friction'; 'fire' not 'ignition threshold'; 'begins' not 'self-sustaining exothermic reaction'",
+          "human_experience_register": "yes — the viewer has felt both 'impossible' and 'fire' as lived experiences"
+        },
+        "what_must_not_happen": "Must not explain the physics. The realization must arrive as recognition, not instruction. The viewer should feel 'yes' before they can articulate why."
+      },
+      "visual_intent": "Sustained contact held past threshold. Temperature crosses ignition — the crystalline structure transforms at the contact point. Gold telemetry lines become crimson as heat exceeds threshold. The perceptual anchor: at crystallographic resolution, the surface generating resistance is now generating light. The friction has not stopped — it has become something else.",
+      "camera_hint": "ascending_spiral or tracking_push — movement mirrors the threshold being crossed. The camera does not hold still at ignition.",
+      "palette_notes": "Full interference crimson at ignition. Complete palette for the first time: void (#1A1A1A) + telemetry (#C6A94F) + historical code (#F5F2EB) + interference (#DC143C) all present simultaneously."
+    },
+    {
+      "segment_id": "S5",
+      "beat": "mobius_close",
+      "beat_label": "The Next Point of Friction",
+      "narration": "You do not overcome friction.\n\nThe next surface is already waiting.",
+      "word_count": 10,
+      "duration_hint_seconds": 8,
+      "traceability": {
+        "concept_dna_nodes": [
+          "doctrine_inversion: 'You do not overcome friction. You sustain it.' — first sentence is an observation, not an instruction",
+          "physical_law: momentum_reduces_required_force — after ignition the flame sustains itself; the Möbius opens to the next threshold",
+          "emotional_arc: mobius_close — 'the flame holds; then: what is the next surface of resistance?'"
+        ],
+        "compression_note": "'You do not overcome friction' — this is an observation about the nature of friction, not a command. Friction is never overcome; it is the permanent condition. 'The next surface is already waiting' — the Möbius opens. The cycle does not end with the fire; it continues at the next threshold.",
+        "mobius_logic": "The close does not celebrate. It does not instruct. It observes that the doctrine repeats infinitely forward. The viewer exits with the question, not the answer.",
+        "cut_from_v1": "'You sustain it until it becomes something else' — removed. Identified as drifting toward instruction. Replaced with observation.",
+        "law_compliance": {
+          "technical_vocabulary": "none",
+          "human_experience_register": "yes — 'overcome' and 'waiting' are lived-experience words"
+        }
+      },
+      "visual_intent": "The flame holds — self-sustaining, no longer requiring input. Then: a new surface appears in the void. Cold. Unlit. Waiting for contact. The reel ends not with the fire but with the next point of friction. The viewer exits with the question.",
+      "camera_hint": "locked_static on the new cold surface, echoing S1. The visual rhyme closes the loop.",
+      "palette_notes": "Return to void dominant with telemetry gold traces on the new surface. Crimson fades — ignition completed. The next surface is cold. The cycle is visible in the palette."
+    }
+  ],
+
+  "full_narration_text": "You do not choose against yourself.\n\nYou accumulate.\n\nEach point of resistance —\nminor. Rational. Survivable.\n\nUntil surrender feels rational.\n\nYou are not wrong to feel it.\n\nYou are wrong about what it means.\n\nThe moment that feels impossible\nis the only moment the fire begins.\n\nYou do not overcome friction.\n\nThe next surface is already waiting.",
+
+  "voice_direction": {
+    "_law": "Orator Law — silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "_status": "ACTIVE — implemented via FFmpeg breathing injection in assemble-audio.ts.",
+    "global_rate": 0.82,
+    "breathing_points": [
+      {
+        "after": "You do not choose against yourself.",
+        "silence_ms": 700,
+        "visual_state": "S1 absolute stillness — line must land before frame breathes"
+      },
+      {
+        "after": "You accumulate.",
+        "silence_ms": 900,
+        "visual_state": "Heaviest word. Must sit alone. Viewer needs time to understand what they're accumulating."
+      },
+      {
+        "after": "about what it means.",
+        "silence_ms": 850,
+        "visual_state": "Post-pivot silence. Complete thought has landed — viewer processes the correction before resolution arrives."
+      },
+      {
+        "after": "The moment that feels impossible",
+        "silence_ms": 600,
+        "visual_state": "Fragment held before resolution. Resolution must arrive after a beat."
+      },
+      {
+        "after": "The moment that feels impossible\nis the only moment the fire begins.",
+        "silence_ms": 1200,
+        "visual_state": "S4 ignition dwell. The reel's central claim — needs over a second before S5 begins."
+      },
+      {
+        "after": "You do not overcome friction.",
+        "silence_ms": 350,
+        "visual_state": "Short reflective pause between the two S5 sentences. Ideas stay connected — reflection, not disconnection."
+      },
+      {
+        "after": "The next surface",
+        "silence_ms": 275,
+        "visual_state": "Brief emphasis pause. Weight falls on 'waiting' — not on the gap between sentences."
+      }
+    ],
+    "final_decay_ms": 2500,
+    "fragmentation_directive": "S2: 'minor. Rational. Survivable.' — three separate beats with micro-pauses between each word, not a flowing list. Fragmentation mirrors the accumulation mechanism.",
+    "narration_visual_grammar": {
+      "S1_observation": "one sentence — then silence",
+      "S2_accumulation": "fragmented phrases with micro-pauses between each",
+      "S3_threshold": "intra-sentence break at the pivot — 'You are wrong' [pause] 'about what it means.' [1s]",
+      "S4_transformation": "single decisive statement — then long dwell",
+      "S5_mobius": "quiet close with final line split and 2.5s decay"
+    }
+  },
+
+  "word_count_total": 60,
+  "estimated_duration_seconds": 43,
+
+  "translation_audit": {
+    "new_metaphors_introduced": 0,
+    "new_physics_introduced": 0,
+    "new_psychological_mechanisms_introduced": 0,
+    "new_symbols_introduced": 0,
+    "technical_vocabulary_instances": 0,
+    "lines_without_concept_dna_traceability": 0,
+    "motivational_language_present": false,
+    "instructional_language_present": false,
+    "word_count_vs_v1": "60 vs 108 — 44% reduction",
+    "verdict": "Clean compression. Every line traces to concept_dna. No technical vocabulary. Pivot preserved and given breathing room. Resolution delivered as realization, not explanation. Möbius close is observation, not instruction."
+  },
+
+  "blocking_conditions_for_production_json": [
+    "script._status must be set to APPROVED by user",
+    "No production JSON may be compiled until this file is approved",
+    "Director phase (visual prompts) begins after script approval — not before"
+  ]
+}

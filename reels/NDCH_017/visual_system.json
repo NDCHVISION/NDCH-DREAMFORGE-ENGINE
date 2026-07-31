@@ -1,0 +1,191 @@
+{
+  "_pipeline_phase": "2A — Visual System (Director)",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "PENDING_APPROVAL",
+  "_depends_on": "script._status === APPROVED",
+  "_director_constraint": "The Director is forbidden from illustrating the narration. The Director's job is to reveal the invisible physical system that makes the narration true. If a visual merely depicts what the words already say, the Director has failed. The viewer should occasionally understand the visual before they understand the sentence. Visuals are evidence, not decoration.",
+
+  "reel_id": "NDCH_017",
+  "concept_seed": "FRICTION",
+  "primary_symbol": "match_strike",
+  "perceptual_anchor": "ignition_moment — the microsecond when crystallographic structure crosses ignition temperature",
+
+  "visual_register": {
+    "label": "Crystallographic Forensics",
+    "description": "The visual system operates at the scale where physics is visible but human experience is absent. No hands. No faces. No bodies. The viewer is placed inside the mechanism — at the contact zone between match head and friction surface — watching the physics that produces the doctrine. The viewer becomes a witness to the evidence before they receive the argument.",
+    "scale": "microscopic — crystallographic, sub-millimeter",
+    "rationale": "The doctrine is about a moment most people have experienced but never seen at the scale that makes the physics legible. NDCH_016 operated at architectural/monumental scale. NDCH_017 operates at the opposite extreme — intimate, microscopic, precise. The scale shift is the semantic divergence made visual.",
+    "what_this_is_not": "This is not fire photography. This is not slow-motion combustion. This is not abstract particles. This is the geometry of a chemical reaction rendered with CAD precision — crystalline, structural, exact."
+  },
+
+  "geometry": {
+    "primary": "ignition_crystallography",
+    "description": "The crystalline structure of a match head — potassium chlorate and antimony sulfide compressed into geometric lattice formations. At the contact zone with the friction surface, these crystals deform under pressure, release heat, and transform. The geometry is precise: hexagonal lattice structures, angular crystal faces, interlocking geometric formations. Nothing organic. Nothing soft.",
+    "secondary": "friction_surface_texture",
+    "description_secondary": "The phosphorus-coated friction surface has its own crystalline geometry — rows of red phosphorus particles embedded in a binder matrix. Under macro render, this surface reads as a ruled, geometric field — almost architectural.",
+    "visual_rhyme": "Both surfaces — match head and friction strip — have complementary geometric structures. When they meet, it is geometry meeting geometry. The contact zone is where two crystalline systems interact. This is the physical site of the entire doctrine."
+  },
+
+  "environment": {
+    "primary": "void_with_contact_zone",
+    "description": "The void is not empty space — it is the absence of everything except the mechanism. The match head and friction surface exist in isolation, as if extracted from context and placed under analytical light. No hand holding the match. No box. No room. Just the crystalline geometry of two surfaces and the physics between them.",
+    "lighting_character": "Analytical — the light reveals structure, not atmosphere. No warm fill. Telemetry-style illumination: precise, directional, revealing crystal faces and contact zones. The light behaves like a scientist's instrument, not a cinematographer's mood.",
+    "depth": "shallow — the viewer cannot look away from the contact zone. Everything in the far field is void. All visual weight is at the point of contact."
+  },
+
+  "palette_application": {
+    "void": {
+      "hex": "#1A1A1A",
+      "role": "The environment. The absence of everything except the mechanism. Dominant in S1, returns in S5."
+    },
+    "telemetry": {
+      "hex": "#C6A94F",
+      "role": "The thermal signature. Gold lines trace heat accumulation — visible as temperature-mapped overlays on the crystalline structure. Intensifies as temperature rises. Flickers and fades when contact breaks in S2. Rises continuously from S3 through S4."
+    },
+    "historical_code": {
+      "hex": "#F5F2EB",
+      "role": "The structural material — the surfaces themselves. The match head crystal matrix and friction surface material render in this register. It is the 'body' of the mechanism."
+    },
+    "interference": {
+      "hex": "#DC143C",
+      "role": "The threshold event. First appears at the contact zone in S3 as heat approaches ignition threshold. Becomes dominant at the moment of ignition in S4. Fades in S5 as the flame stabilizes. Interference signals: something is changing state."
+    },
+    "palette_arc": "S1: void + telemetry faint / S2: telemetry flickering, historical_code showing wear / S3: interference appearing at contact zone / S4: full palette at ignition / S5: void + telemetry returns, crimson fading — the cycle resets"
+  },
+
+  "cinematic_grammar_constraint": {
+    "_note": "Promoted from LE-002. Camera movement, lighting behavior, and motion must derive from the energy_arc state at each beat — not from cinematographic convention. The camera is not a creative choice; it is a physics instrument. Movement that is architecturally derived from the energy state reads as inevitable. Movement that is cinematographically motivated reads as stylistic. The viewer can feel the difference.",
+    "principle": "Do not let any single camera grammar become the default. Each doctrine may require a different grammar. The grammar must be chosen because it is the physical behavior of a camera witnessing this specific energy state — not because it looks dramatic.",
+    "available_grammars": {
+      "compression": "Camera moves toward the subject. Appropriate for accumulating or threshold states — increasing proximity mirrors increasing intensity.",
+      "expansion": "Camera moves away from or reveals beyond the subject. Appropriate for residual or reset states — release of frame constraint mirrors release of energy.",
+      "rotation": "Camera orbits the subject. Appropriate for sustained contact states — circular motion mirrors the cyclical structure of the doctrine.",
+      "fracture": "Camera movement is interrupted or discontinuous. Appropriate for state-change moments where continuity itself breaks.",
+      "stillness": "Camera does not move. Appropriate for stored and threshold states — the physics is the motion; the camera watches."
+    },
+    "derivation_rule": "Before specifying camera movement in any shot: (1) identify the energy_arc state for that shot; (2) ask which grammar is the physical behavior of a camera witnessing that energy state; (3) specify that grammar. Do not ask 'what would look good here.'"
+  },
+
+  "camera_language": {
+    "primary_movement": "locked_static",
+    "rationale": "The mechanism does not need the camera to move to be dramatic. The physics is the motion. The camera stays with the mechanism and lets the crystallography carry the visual weight. Movement is used sparingly — only when the physics itself crosses a threshold.",
+    "movements_by_beat": [
+      {
+        "beat": "hook",
+        "movement": "locked_static",
+        "description": "The cold match head in void. Absolute stillness. The camera is an instrument watching, not a presence feeling."
+      },
+      {
+        "beat": "build",
+        "movement": "tracking_push — slow, incremental",
+        "description": "The camera approaches the contact zone with each incomplete attempt. The approach mirrors accumulation — getting closer without arriving. The camera never fully arrives in S2."
+      },
+      {
+        "beat": "pivot",
+        "movement": "locked_static — held longer than any other beat",
+        "description": "The camera holds at the point of maximum static friction. The stillness of the camera IS the maximum resistance. The frame must hold after 'You are wrong about what it means.' The visual holds while the viewer processes."
+      },
+      {
+        "beat": "resolution",
+        "movement": "ascending_spiral or slow push through contact zone",
+        "description": "The only beat where the camera crosses a threshold. The movement mirrors the ignition threshold being crossed. The camera travels through the moment."
+      },
+      {
+        "beat": "mobius_close",
+        "movement": "locked_static — echoing S1",
+        "description": "The camera returns to the posture of S1. A new cold surface. The visual rhyme tells the viewer: the cycle repeats. What the camera did at the beginning, it does again at the end."
+      }
+    ]
+  },
+
+  "visual_rhymes": [
+    {
+      "rhyme": "S1 ↔ S5",
+      "description": "Both open on a cold, unlit surface in void with locked_static camera. S1 is the match head before contact. S5 is a new surface waiting for contact. The visual palindrome closes the Möbius."
+    },
+    {
+      "rhyme": "S2 incomplete contact ↔ S4 sustained contact",
+      "description": "Both show the match head meeting the friction surface. S2 breaks contact repeatedly — heat dissipates. S4 holds contact — heat crosses threshold. The same physical event, opposite outcomes based on one variable: duration of contact."
+    },
+    {
+      "rhyme": "palette arc",
+      "description": "The palette begins at void+telemetry-faint (cold), expands to full four-color at ignition (S4), and contracts back to void+telemetry (S5). The viewer watches the palette breathe: cold → accumulation → threshold → ignition → reset."
+    }
+  ],
+
+  "what_the_director_must_not_do": [
+    "Do not show a human hand, face, or body at any point. The mechanism is not embodied in this visual system.",
+    "Do not show fire as orange chaotic flame. Ignition at this scale is a crystallographic event — precise, geometric, structured before it becomes visible combustion.",
+    "Do not use slow-motion as a generic 'dramatic' tool. Every speed choice must be motivated by what physics looks like at that moment.",
+    "Do not illustrate the narration. 'You accumulate' should not produce an image of accumulation. It should produce the physical evidence of what accumulation looks like in this mechanism.",
+    "Do not use abstract particle effects as a substitute for crystallographic precision. The visual must be grounded in the actual chemistry and physics of the match strike.",
+    "Do not designate a hero object. The frame must depict a relationship between surfaces, not a portrait of one surface. If a single subject dominates the frame and the other elements read as background, the composition has failed — regardless of how beautiful the dominant object is. Diffusion models optimize for entities. The Director must specify relationships as the compositional subject. 'Crystal A interacting with Crystal B through contact interface' is a Director instruction. 'Crystal A, with Crystal B visible nearby' is a Compiler failure."
+  ],
+
+  "mythic_weight_constraints": {
+    "_note": "Mythic weight is not an adjective. It is a property that emerges from these design conditions. If weight is absent from a rendered clip, one of these constraints has failed. Revise the constraint. Do not add adjectives to prompts.",
+    "scale_hierarchy": {
+      "constraint": "Every shot subject implies a larger system that is entirely absent from frame. The match head implies hands, a person, a consequence. The absence is structural — nothing that implies human scale may appear.",
+      "implementation": "No hand. No box. No room. The crystal matrix floats in void. The viewer's brain supplies the context the frame withholds."
+    },
+    "irreversibility": {
+      "constraint": "Every event depicted must look like it cannot be undone. Crystal wear accumulates and stays. Ignition propagates and does not retreat. The palette arc does not reverse mid-clip.",
+      "implementation": "No reversible animations. No bloom that retreats. No color that fades back to earlier state except the controlled palette reset in S5."
+    },
+    "silence": {
+      "constraint": "No visual noise. No particle effects, ambient debris, or atmospheric haze not derived from a concept_dna physical law. The void is load-bearing.",
+      "implementation": "Every element in every frame must trace to concept_dna. Anything not traceable is noise and must be removed at the prompt level."
+    },
+    "geometric_inevitability": {
+      "constraint": "The forms must look like they could only be this way. Crystal structure is not chosen aesthetically — it is the structure the physics of potassium chlorate and antimony sulfide requires. Propagation must follow a structural law.",
+      "implementation": "Angular, precise, lattice-based geometry. Hexagonal crystal faces. No organic curves, no soft forms, no decorative geometry. The physics determines the form."
+    },
+    "absence_of_distraction": {
+      "constraint": "Nothing in frame that does not serve the mechanism. No decorative elements, no atmospheric particles, no color outside the four-color palette.",
+      "implementation": "Every shot direction specifies only what is present. If something appears in a render that has no upstream artifact justification, it is distraction and the prompt failed."
+    },
+    "temporal_gravity": {
+      "constraint": "Events take the time the physics requires. No speed-up for drama. No slow-down for beauty. The pacing is not a stylistic choice.",
+      "implementation": "Runway prompt must not specify slow-motion or time-ramping as a stylistic preference. If a shot needs to show detail, the shot_list direction specifies what must be visible — the timing emerges from the render, not from a stylistic instruction."
+    }
+  },
+
+  "compression_from_concept_dna": {
+    "concept_dna_ideas_explicit": 47,
+    "visual_system_ideas_explicit": 12,
+    "compression_ratio": "~25%",
+    "law_12_compliance": "The visual system encodes 25% of the explicit ideas in concept_dna while preserving 100% of the meaning. The remaining 75% is carried by the imagery itself — the viewer infers what is not stated."
+  },
+
+  "energy_arc": {
+    "_note": "The reel is not five clips. It is one continuous transfer of energy. Camera, lighting, motion, and particles must all derive from the energy state — not be designed independently of it. If each of these is designed shot by shot without reference to the energy arc, the reel will feel like five separate renders sharing a color palette. If they derive from the energy arc, the reel will feel like one physical event unfolding across time. The viewer should be able to feel energy accumulating, crossing a threshold, releasing, and settling without consciously noticing why.",
+    "muted_test": "Could someone understand the doctrine with the audio muted? If yes, the Director succeeded. If no, the visuals are illustrating the narration rather than serving as independent evidence. This is the single most important validation question for the completed reel.",
+    "S1": "stored — all energy is potential. The mechanism exists in its highest-resistance state. Nothing has been released. Nothing has been spent. The void gap is full of consequence that has not yet occurred.",
+    "S2": "accumulating — energy is being deposited but not held. Each contact event adds to the system, but the threshold is not sustained. The viewer sees investment without return.",
+    "S3": "threshold — maximum stored energy. The system is at the boundary condition. Nothing in the frame can hold this state indefinitely. The camera does not move because the energy has nowhere to go yet.",
+    "S4": "release — the stored energy converts. The camera moves because the physics pulled it forward. This is the only shot where movement is not a cinematographic choice — it is the physics expressing itself through the camera.",
+    "S5": "residual — energy has transferred, the mechanism has changed state, and a new surface exists with the same stored potential as S1. The residual is not exhaustion; it is the cycle having completed one iteration."
+  },
+
+  "kinetic_arc": {
+    "_note": "Movement intensity derived from energy_arc. Camera, motion, and pacing must be consistent with the energy state at each beat. Do not design these independently — derive them from energy_arc.",
+    "S1": "latent — absolute stillness. Camera does not move.",
+    "S2": "accumulating — micro-motion only. Camera approaches incrementally but never arrives.",
+    "S3": "threshold — camera holds perfectly still. The stillness IS the maximum resistance.",
+    "S4": "release — the only shot where the camera moves significantly. Movement is physics, not cinematography.",
+    "S5": "equilibrium — camera locks static, echoing S1."
+  },
+
+  "forensic_register_constraint": {
+    "_note": "Promoted from LE-001B after S1 v2 PASS. The render was observational — architecturally correct, aesthetically clean. The target register is forensic. These are psychologically different states for the viewer.",
+    "observational": "I am watching something. The frame is beautiful. The subject is composed. I am outside the event.",
+    "forensic": "I am examining evidence. Something happened here. I am inside the investigation. The frame contains traces of force.",
+    "what_produces_forensic_register": [
+      "Micro-evidence of physical forces at work — stress whitening, lattice distortion, pressure lines, infinitesimal fractures at the contact zone edge.",
+      "A gap that reads as 'charged' or 'dangerous' rather than 'clean' or 'beautiful.' The void is stored consequence, not empty space.",
+      "Surface irregularity on the friction strip — the lower surface should not look manufactured. Slight irregularity without losing identity. Crystalline geometry with physical history.",
+      "Visual tension that the viewer cannot consciously identify but subconsciously registers as 'something is about to happen.'"
+    ],
+    "what_must_not_happen": "Do not add visual noise, particles, or atmosphere as a substitute for evidence. Every micro-detail must trace to concept_dna physics. Stress whitening traces to crystal compression. Lattice distortion traces to applied force. These are not decorative — they are the physical record of the doctrine."
+  }
+}

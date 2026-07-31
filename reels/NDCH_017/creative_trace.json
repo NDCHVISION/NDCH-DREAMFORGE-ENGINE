@@ -1,0 +1,352 @@
+{
+  "_pipeline_phase": "1A — Concept Derivation",
+  "_pipeline_version": "dreamforge_3.0",
+  "_role": "Learning Law artifact — this file documents why, not just what. Every rejected path is recorded so the engine learns from non-selection.",
+  "_status": "PENDING_APPROVAL",
+
+  "concept_seed": "FRICTION",
+  "thinker_run_id": "NDCH_017_1A",
+
+  "step_1_psychological_derivation": {
+    "question": "What is the actual psychological mechanism the doctrine describes?",
+    "candidates_considered": [
+      {
+        "mechanism": "Motivation loss",
+        "description": "Acute drop in drive or desire. Common framing for why people stop.",
+        "rejected": true,
+        "rejection_reason": "Motivation loss is episodic and acute. The doctrine says 'accumulate tiny points of resistance' — this is structural, not episodic. A motivationally de-energized person feels low energy. The person the doctrine describes feels rational. These are different failure modes."
+      },
+      {
+        "mechanism": "Discipline failure / willpower depletion",
+        "description": "The person lacks the willpower to sustain action against desire.",
+        "rejected": true,
+        "rejection_reason": "The doctrine explicitly rejects this framing: 'People rarely choose against themselves.' The willpower model implies a conscious choice in the wrong direction. The doctrine says there is no such conscious choice — the surrender feels rational, not like a failure of willpower. The mechanism is perceptual, not volitional."
+      },
+      {
+        "mechanism": "Fear / threat response",
+        "description": "The person stops because they are afraid of what action might produce.",
+        "rejected": true,
+        "rejection_reason": "Fear is acute. Fear has a specific object. The doctrine describes something ambient and accumulated — not a specific threat but a general heaviness. Fear is a different phenomenology than the rationalized surrender the doctrine describes."
+      },
+      {
+        "mechanism": "Agency erosion through accumulation",
+        "description": "The nervous system habituates to the cost of action until the cost itself becomes the new baseline. Each micro-surrender raises the perceived cost of the next attempt. After sufficient accumulation, the cognitive system generates justifications that feel accurate because they are accurate to the altered perception — not to the actual possibility space.",
+        "rejected": false,
+        "selected": true,
+        "selection_reason": "This is the mechanism that matches all three components of the doctrine: (1) 'rarely choose against themselves' — the choice is always toward what feels rational, never against the self; (2) 'accumulate tiny points of resistance' — the mechanism is additive and structural; (3) 'until surrender feels rational' — rationalization is the endpoint, not a side effect. The mechanism is perceptual deformation caused by accumulated micro-surrenders."
+      }
+    ]
+  },
+
+  "step_2_physical_law_derivation": {
+    "question": "What physical law most precisely maps to the psychological mechanism?",
+    "candidates_considered": [
+      {
+        "law": "Gravity / weight",
+        "description": "Things fall without energy input. Maintenance requires effort; release is natural.",
+        "rejected": true,
+        "rejection_reason": "Gravity maps well to entropy and decline, but it doesn't capture the key feature of friction: that maximum resistance is at initiation, not throughout. Gravity is always present with constant force. Friction's defining property is that it changes: highest at rest, lower once moving. That differential is what the doctrine requires."
+      },
+      {
+        "law": "Inertia / momentum",
+        "description": "Objects at rest stay at rest; objects in motion stay in motion. Resistance to state change is proportional to mass.",
+        "rejected": true,
+        "rejection_reason": "Inertia is related to friction but distinct. Pure inertia doesn't capture the threshold — it describes resistance to all state change equally. The doctrine requires a specific threshold dynamic: resistance is maximum right before motion begins, then drops. Inertia alone doesn't model that."
+      },
+      {
+        "law": "Entropy / decay",
+        "description": "Systems tend toward disorder without energy input. Maintenance requires effort.",
+        "rejected": true,
+        "rejection_reason": "Entropy maps to the degradation of incomplete attempts — wearing down the mechanism. But entropy is not the primary law. Entropy is a downstream consequence of friction, not friction itself. The doctrine is about the peak resistance before threshold, not about decay over time."
+      },
+      {
+        "law": "Static friction > kinetic friction (friction threshold law)",
+        "description": "The force required to initiate movement from rest is always greater than the force required to sustain movement. Maximum resistance is always at zero velocity. Once movement begins, friction decreases.",
+        "rejected": false,
+        "selected": true,
+        "selection_reason": "This is the precise physical law the doctrine is built on. The doctrine inversion is: 'People interpret peak static friction as proof that movement is impossible.' This is physically false but experientially true for people who have never sustained contact long enough to discover kinetic friction. The law maps exactly: (1) maximum resistance at initiation → the moment most people quit; (2) friction decreases once moving → what people never discover; (3) sustained contact generates heat → transformation is a product of the friction, not despite it."
+      }
+    ],
+    "secondary_laws_selected": [
+      "friction_generates_heat — sustained contact converts energy to heat; heat enables transformation",
+      "ignition_threshold — temperature rises continuously; above threshold, transformation is self-sustaining",
+      "momentum_reduces_required_force — after initiation, inertia works in the mover's favor"
+    ]
+  },
+
+  "step_3_symbol_family_search": {
+    "question": "Which symbolic families carry the physical law and psychological mechanism most precisely?",
+    "search_law": "Search Before Commit Law — must explore at minimum three symbolic families before selecting a primary symbol.",
+    "families_searched": 6,
+    "families": [
+      {
+        "family": "Mechanical / Industrial",
+        "members_explored": ["seized_bearing", "frozen_gear", "brake_rotor_always_engaged"],
+        "family_assessment": "High concept fidelity for 'friction destroying mechanism.' But all three symbols are weak on perceptual anchor — not universally legible without technical literacy. Seized bearing requires understanding of lubrication mechanics. Strong conceptually, weak emotionally.",
+        "selected_from_family": "seized_bearing (as candidate 4, not winner)"
+      },
+      {
+        "family": "Ignition / Thermal",
+        "members_explored": ["match_strike", "fire_from_friction_two_sticks", "grinding_wheel_sparks"],
+        "family_assessment": "Highest concept fidelity. Match strike is the physical instantiation of all four friction laws. Universally legible — every person has struck a match. Perceptual anchor is the sharpest possible: the microsecond of ignition. CAD rendering of match head crystallography in NDCH aesthetic is entirely novel.",
+        "selected_from_family": "match_strike (PRIMARY SYMBOL)"
+      },
+      {
+        "family": "Geological / Natural",
+        "members_explored": ["fault_line_under_stress", "glacier_grinding_bedrock", "river_stone_shaped_by_friction"],
+        "family_assessment": "Good concept fidelity but wrong scale for the doctrine. Doctrine is about individual micro-surrenders — intimacy of scale matters. Glacier moves over centuries; fault line ruptures are geological not personal; river stone has no agent. Scale mismatch makes these symbols intellectually correct but emotionally distant.",
+        "selected_from_family": "fault_line (as candidate 3, rejected for scale)"
+      },
+      {
+        "family": "Rope / Tension",
+        "members_explored": ["rope_burning_through_at_fixed_point", "rope_under_capstan_friction_multiplies"],
+        "family_assessment": "Strong concept for 'constraint destroyed by the force that sustains it.' The capstan is particularly elegant: friction multiplies holding force, so more tension creates more resistance. But the perceptual anchor is diffuse — rope burning is a process, not an instant. Match strike's ignition moment is sharper.",
+        "selected_from_family": "rope_burning_through (ALTERNATE SYMBOL, score 541)"
+      },
+      {
+        "family": "Human / Somatic",
+        "members_explored": ["callus_formation", "worn_groove_in_stone_steps"],
+        "family_assessment": "Interesting but passive. Callus represents protection through numbing — conceptually relevant (habituation). Worn stone step represents accumulated choice made literal — very NDCH. But both lack an agent and lack a threshold moment. The doctrine requires a moment of choice; these symbols show the aftermath, not the moment.",
+        "selected_from_family": "worn_stone_step (as candidate 5, rejected for passivity)"
+      },
+      {
+        "family": "Default / Immediately Rejected",
+        "members_explored": ["obelisk", "monolith", "void_space"],
+        "family_assessment": "NDCH_016 territory. Separation Law (Law 4) applies immediately. Obelisk: ndch_usage_count 1, last_used_reel NDCH_016. No justification for reuse.",
+        "selected_from_family": "none"
+      }
+    ]
+  },
+
+  "step_4_primary_symbol_scoring": {
+    "scoring_dimensions": [
+      "concept_fidelity — how precisely does this symbol map to the psychological mechanism and physical law?",
+      "novelty — how surprising / non-obvious is this symbol for NDCH?",
+      "emotional_weight — visceral impact; does this require technical literacy or is it universally legible?",
+      "identity_coherence — does this feel unmistakably NDCH?",
+      "semantic_divergence — how different is this from NDCH_016 (Law 4: Separation)?",
+      "perceptual_anchor_potential — can this produce one image the viewer cannot forget?"
+    ],
+    "winner": "match_strike",
+    "winner_score": 557,
+    "runner_up": "rope_burning_through",
+    "runner_up_score": 541,
+    "margin": 16,
+    "why_margin_matters": "16-point margin is meaningful but not commanding. The rope_burning_through symbol was a serious alternative. Selection rationale: the ignition moment is a more precise threshold event than rope severing. The doctrine is about the instant of transformation — ignition has that; rope severing has it less sharply. Also: match_strike perceptual anchor is more intimate (hand-scale) which matches the doctrine's focus on individual micro-decision, not systemic constraint."
+  },
+
+  "step_5_perceptual_anchor_derivation": {
+    "question": "What is the one image this reel must make the viewer carry?",
+    "derivation_method": "Derived from physical law + symbol intersection, not assigned from a template.",
+    "anchor_derivation_steps": [
+      {
+        "step": 1,
+        "reasoning": "The primary symbol is match_strike. The primary physical law is ignition threshold. These converge on a single physical event: the moment the match head crosses ignition temperature.",
+        "output": "The microsecond of ignition."
+      },
+      {
+        "step": 2,
+        "reasoning": "Why is this the right moment to make unforgettable? Because it is the exact moment the doctrine is built around: the threshold where sustained contact becomes transformation. This is not 'the fire' — the fire is after. This is not 'the friction' — the friction is before. This is the boundary between them.",
+        "output": "The surface that was generating resistance is now generating light. The friction hasn't stopped — it has become something else entirely."
+      },
+      {
+        "step": 3,
+        "reasoning": "Why will the viewer remember this specific image? Because they have struck thousands of matches. They have never seen the ignition microsecond at crystallographic resolution. The familiar experience becomes the unfamiliar image. This is the NDCH formula: known concept, unknown visual form.",
+        "output": "Universally experienced, visually unknown. At NDCH's CAD precision, the match head at ignition becomes something the viewer recognizes and has never seen."
+      }
+    ],
+    "anchor_type": "transformation",
+    "anchor_sensory_register": "thermal_threshold",
+    "anchor_emotional_register": "threshold_crossed",
+    "anchor_description": "The precise microsecond when the match head crosses ignition temperature: the surface that was generating resistance is now generating light. Maximum resistance and maximum energy release are not opposites. They are the same point on the curve, separated by one more second of contact.",
+    "derived": true
+  },
+
+  "step_6_concept_seeds_rejected": {
+    "note": "User provided five alternative concept seeds before selecting FRICTION. Each was seriously evaluated before FRICTION was confirmed. Recording rejections here per Law 8 (Learning).",
+    "rejected_seeds": [
+      {
+        "seed": "ARCHITECTURE",
+        "rejection_reason": "Too close to NDCH_016's visual territory (obelisk, structure, void). The semantic divergence score would be low. The doctrine of 'you built the thing that constrains you' is powerful but risks visual repetition. FRICTION achieves a similar psychological theme (self-created resistance) with entirely different visual vocabulary."
+      },
+      {
+        "seed": "INHERITANCE",
+        "rejection_reason": "The psychological mechanism (you move within the inherited structure) is strong, but the physical law mapping is weak. Inheritance doesn't have a precise physical analogue that carries the doctrine. Without a clean physical law, the Compiler has no derivation path for imagery — it defaults to metaphor, which is weaker than physics."
+      },
+      {
+        "seed": "PERMISSION",
+        "rejection_reason": "Concept is strong (people wait for external authorization to act), but the mechanism is social/political, not physical. The doctrine for PERMISSION would be hard to ground in physics without forcing the mapping. FRICTION has a genuine, precise physical law. PERMISSION would require inventing one."
+      },
+      {
+        "seed": "VELOCITY",
+        "rejection_reason": "Good concept but the doctrine would be motivational ('speed creates momentum') rather than analytical ('here is the specific mechanism by which you stop yourself'). NDCH reels work best when the doctrine is a critique or inversion, not an instruction. VELOCITY is more exhortation than insight."
+      },
+      {
+        "seed": "THRESHOLD",
+        "rejection_reason": "THRESHOLD is actually embedded within FRICTION — the ignition threshold is the perceptual anchor for NDCH_017. Using THRESHOLD as the seed would have been less specific. FRICTION generates THRESHOLD as a sub-concept; THRESHOLD alone would have been shallower. FRICTION is the more general and generative seed."
+      }
+    ]
+  },
+
+  "step_7_reel_history_check": {
+    "law": "Search Before Commit Law — check reel_history.json before committing to any symbol.",
+    "reels_reviewed": ["NDCH_016"],
+    "overlap_check": {
+      "primary_symbol": "match_strike — not used in any prior reel. Clear.",
+      "physics_domains_overlap": "heat domain overlap: heat co_occurs_with pressure in physics.json (strength 0.5). NDCH_016 used pressure. Acceptable — domains can share co-occurrence edges. The primary physics domain for NDCH_017 is heat/friction, which is novel.",
+      "geometry_overlap": "None. NDCH_016 used obelisk_monolith. NDCH_017 will use a geometry derived from match_strike — ignition_crystallography is a new geometry not present in geometry_affinities.json. This file will need to be updated when production JSON is compiled.",
+      "psychological_domain_overlap": "NDCH_016 used agency_trap. NDCH_017 uses agency_erosion_through_accumulation. These are related but distinct. agency_trap = you are trapped by the structure; agency_erosion = you believe movement is impossible because you have only known maximum resistance. Different failure modes within the broader theme of constrained agency.",
+      "semantic_divergence_score": 0.97,
+      "verdict": "Clear to proceed"
+    }
+  },
+
+  "viewer_assumptions": {
+    "note": "The concept_dna makes claims about the viewer. Those claims are assumptions. Recording them here surfaces the risk: if any assumption is wrong, the perceptual anchor loses force.",
+    "assumptions": [
+      {
+        "assumption": "The viewer has struck a match",
+        "confidence": 0.92,
+        "risk_if_wrong": "The ignition microsecond becomes a scientific image, not a personal one. The universal legibility that gives match_strike its emotional weight depends on recognition, not education.",
+        "mitigation": "The hook segment must establish the visceral, hand-scale experience before the crystallographic reveal. Recognition before abstraction."
+      },
+      {
+        "assumption": "The viewer has experienced maximum resistance and interpreted it as impossibility",
+        "confidence": 0.97,
+        "risk_if_wrong": "The doctrine has no audience. If the viewer has never surrendered at peak static friction, the forensic analysis has no subject to diagnose.",
+        "mitigation": "No mitigation needed. This assumption is near-universal. Adults have accumulated friction. The doctrine does not fail if some viewers haven't — it fails only if most haven't."
+      },
+      {
+        "assumption": "The viewer does not know that static friction > kinetic friction as a personal truth",
+        "confidence": 0.94,
+        "risk_if_wrong": "The doctrine loses its revelation function. If the viewer already knows this, the reel is a reminder, not an insight. Less powerful.",
+        "mitigation": "The doctrine lands as insight even for those who know the physics intellectually, because they may not have applied it personally. Intellectual knowledge ≠ embodied understanding."
+      },
+      {
+        "assumption": "The viewer can receive forensic analysis without experiencing it as blame",
+        "confidence": 0.88,
+        "risk_if_wrong": "The reel reads as 'you failed because you quit.' That is the motivational register NDCH explicitly rejects. If the forensic clarity reads as judgment, the identity breaks.",
+        "mitigation": "The script must frame the physics error as a reasonable misinterpretation of real data — not a character failure. 'You read the friction correctly. You misread what friction means.' The Compiler must hold this frame."
+      },
+      {
+        "assumption": "Runway Gen-4.5 can render crystallographic match head geometry at sufficient fidelity",
+        "confidence": 0.78,
+        "risk_if_wrong": "The perceptual anchor collapses. If the ignition microsecond cannot be rendered at crystallographic precision, the image becomes a generic fire visual. The distinction between 'match head at ignition threshold' and 'fire' is everything.",
+        "mitigation": "The Director phase must write Runway prompts that describe the structural geometry precisely, not the visual outcome. Prompts that describe chemistry and crystal structure will produce different results than prompts that describe fire and light."
+      }
+    ]
+  },
+
+  "future_search_paths": {
+    "note": "Paths explored in this run but not selected, recorded for reuse in future derivation runs. These are not rejected concepts — they are concepts that belong to different doctrines. The engine should find them when those doctrines are seeded.",
+    "paths": [
+      {
+        "path_id": "rope_burning_constraint",
+        "symbol": "rope_burning_through",
+        "doctrine_it_belongs_to": "Constraint that is destroyed by the force that sustains it — the architecture of a system that consumes itself.",
+        "trigger_concepts": ["CONSTRAINT", "LIBERATION", "SELF_DESTRUCTION", "TENSION"],
+        "score_in_this_run": 541,
+        "note": "Serious alternative. 16-point margin. Should surface immediately when a doctrine about self-consuming constraint is seeded."
+      },
+      {
+        "path_id": "bearing_failure_self_management",
+        "symbol": "seized_bearing",
+        "doctrine_it_belongs_to": "The mechanism designed to manage friction is destroyed by the friction it could not manage. Systems that collapse under their own management overhead.",
+        "trigger_concepts": ["MANAGEMENT", "OVERHEAD", "SYSTEM_FAILURE", "BUREAUCRACY"],
+        "score_in_this_run": 508,
+        "note": "Requires technical literacy but has very high concept fidelity for organizational dysfunction doctrines."
+      },
+      {
+        "path_id": "glacier_collective_friction",
+        "symbol": "glacier_grinding_bedrock",
+        "doctrine_it_belongs_to": "Geological patience — friction applied across centuries reshaping what resists it. Collective or generational accumulation.",
+        "trigger_concepts": ["LEGACY", "GENERATION", "INSTITUTIONAL_CHANGE", "PATIENCE"],
+        "score_in_this_run": null,
+        "note": "Not scored in this run — eliminated at family level due to scale mismatch. Re-evaluate when doctrine involves collective or institutional time scale."
+      },
+      {
+        "path_id": "worn_step_accumulated_choice",
+        "symbol": "worn_stone_step",
+        "doctrine_it_belongs_to": "The path of least resistance physically inscribed by accumulated collective choice — how defaults form.",
+        "trigger_concepts": ["DEFAULT", "HABIT", "SYSTEM", "PATH_DEPENDENCE"],
+        "score_in_this_run": 488,
+        "note": "Too passive for an agent-focused doctrine. Correct for a doctrine about how systems create grooves that pull individuals."
+      },
+      {
+        "path_id": "sandpaper_refinement",
+        "symbol": "sandpaper_progressive_grit",
+        "doctrine_it_belongs_to": "Friction as refinement — the instrument that produces precision by removing excess. Friction as the process of becoming, not the obstacle to it.",
+        "trigger_concepts": ["REFINEMENT", "CRAFT", "MASTERY", "POLISH"],
+        "score_in_this_run": null,
+        "note": "Not explored in this run. Different doctrine register — generative rather than threshold. High potential for a mastery or craft doctrine."
+      },
+      {
+        "path_id": "callus_habituation",
+        "symbol": "callus_formation",
+        "doctrine_it_belongs_to": "The body's protection against friction comes at the cost of sensation. Habituation that enables endurance also reduces feedback. You survive the friction but stop feeling the world.",
+        "trigger_concepts": ["NUMBNESS", "HABITUATION", "PROTECTION", "COST_OF_ENDURANCE"],
+        "score_in_this_run": null,
+        "note": "Not scored. High concept value for a doctrine about the secondary costs of adaptation."
+      },
+      {
+        "path_id": "fault_line_seismic_release",
+        "symbol": "fault_line",
+        "doctrine_it_belongs_to": "Accumulated stress below the surface, invisible until rupture. Breakthrough proportional to accumulated suppression.",
+        "trigger_concepts": ["SUPPRESSION", "RUPTURE", "ACCUMULATED_STRESS", "REVELATION"],
+        "score_in_this_run": 520,
+        "note": "Score 520 — strong but eliminated for scale mismatch and proximity to NDCH_016's structural register. Re-evaluate when doctrine involves invisible accumulation at systemic rather than personal scale."
+      }
+    ]
+  },
+
+  "step_8_knowledge_layer_gaps": {
+    "note": "The following knowledge layer entries need to be created or updated when this concept_dna is approved. These are not blocking Phase 1A but must be addressed before production JSON is compiled.",
+    "gaps": [
+      {
+        "file": "knowledge/symbols.json",
+        "action": "add",
+        "symbol_id": "match_strike",
+        "label": "Match Strike / Ignition Threshold",
+        "description": "The moment of initiation — maximum static friction converting to heat converting to ignition. The friction is not the obstacle; it is the mechanism. Used in NDCH_017."
+      },
+      {
+        "file": "knowledge/geometry_affinities.json",
+        "action": "add",
+        "geometry_id": "ignition_crystallography",
+        "label": "Ignition Crystallography",
+        "description": "Microscopic crystalline structure at the point of initiation. The geometry of threshold — the surface between resistance and generation. Intimate scale, maximum precision."
+      },
+      {
+        "file": "knowledge/physics.json",
+        "action": "update",
+        "domain": "heat",
+        "update": "Add co_occurs_with: friction (strength 0.92); add psychological_resonance: threshold_crossed (strength 0.90)"
+      },
+      {
+        "file": "knowledge/reel_history.json",
+        "action": "add_entry",
+        "note": "Add NDCH_017 entry after production renders and is evaluated. Do not pre-fill."
+      }
+    ]
+  },
+
+  "step_9_confidence_assessment": {
+    "note": "Confidence is decomposed into five components in concept_dna.confidence_decomposition. The overall score is a weighted composite, not an average. Uncertainty is localized — see components for where the risk actually lives.",
+    "components_summary": {
+      "concept_certainty_psychological_mechanism": 0.95,
+      "physics_certainty_law_selection":           0.98,
+      "symbol_certainty_primary_symbol":           0.84,
+      "perceptual_anchor_certainty":               0.94,
+      "derivation_integrity_chain_completeness":   0.96
+    },
+    "overall_phase_1a_confidence": 0.93,
+    "primary_risk_vector": "Symbol execution at microscopic scale (0.84). All other components are high confidence. The risk is not in the reasoning — it is in the production question: whether crystallographic match head geometry at ignition fidelity renders as philosophical rather than clinical in Runway Gen-4.5.",
+    "risk_addressability": "Addressable at Director phase. Does not warrant re-derivation. The Compiler prompt for Runway must describe crystal structure and chemical potential precisely — not fire and light. If early Runway test clips read as science visualization rather than NDCH, the prompt strategy adjusts before all 5 clips are generated."
+  },
+
+  "blocking_conditions_for_script_json": [
+    "concept_dna._status must be set to APPROVED by user",
+    "No script segments may be written until approval is received",
+    "No production JSON may be compiled until script.json is approved separately"
+  ]
+}

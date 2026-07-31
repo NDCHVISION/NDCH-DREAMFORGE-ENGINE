@@ -1,0 +1,59 @@
+{
+  "_schema_version": "1.0",
+  "_status": "stable — Music Intelligence subsystem v1.0",
+  "_description": "Final track and window selection result from lib/audio/select-music-window.ts.",
+
+  "schema": {
+    "SelectionResult": {
+      "schema_version": "string",
+      "reel_id": "string",
+      "selected_track": { "type": "string", "description": "track_id of winning track (filename without extension)" },
+      "selected_track_path": { "type": "string", "description": "Absolute path at time of analysis. Runtime may differ." },
+      "selected_window": {
+        "start_seconds": "number",
+        "end_seconds": "number",
+        "duration_seconds": "number"
+      },
+      "total_score": { "type": "number", "range": [0, 1] },
+      "confidence": { "type": "number", "range": [0, 1] },
+      "reason_selected": {
+        "type": "string[]",
+        "description": "Measured and inferred reasons the winner was chosen. Each reason references a scored feature."
+      },
+      "alternatives_considered": {
+        "type": "array",
+        "items": {
+          "track_id": "string",
+          "track_path": "string",
+          "best_window_start_seconds": "number",
+          "best_window_total_score": "number",
+          "rank": "number"
+        }
+      },
+      "reason_rejected": {
+        "type": "Record<string, string[]>",
+        "description": "Per-track rejection reasons. Key = track_id. Values = measured score comparisons."
+      },
+      "manual_review_flags": {
+        "type": "string[]",
+        "description": "Items requiring human review before locking the selection. Empty = safe to proceed without review."
+      },
+      "human_preference_assessment": {
+        "human_preferred": "string",
+        "system_agrees": "boolean",
+        "agreement_explanation": {
+          "type": "string",
+          "note": "If system_agrees=false, HUMAN REVIEW REQUIRED is included in the explanation. The disagreement is based on measured scores, not Claude's subjective opinion."
+        }
+      },
+      "selection_timestamp": "string (ISO8601)"
+    }
+  },
+
+  "selection_invariants": {
+    "deterministic": "Given the same input files and reel spec, selection is deterministic. Two runs with identical inputs produce identical output.",
+    "auditable": "All score components are stored in the analysis files. The selection can be reproduced from the analysis files alone.",
+    "no_subjective_selector": "Claude may annotate or explain the selection result but does not determine the winner. The scoring function is the selector.",
+    "human_override": "Human may override the system selection. If overriding, document the reason and update mix_plan.json accordingly."
+  }
+}

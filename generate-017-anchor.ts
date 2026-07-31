@@ -1,174 +1,200 @@
-#!/usr/bin/env npx tsx
 /**
- * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v3
+ * generate-017-anchor.ts
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Generates the S1 anchor still for NDCH_017 Director's Cut.
  *
- * Route A: text_to_image (gen4_image model) — 0 credits
- * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
+ * Route A: Runway text_to_image (tries first, 0 video credits if available)
+ * Route B: 5s text_to_video + frame-0 extraction (fallback, 60 credits)
  *
- * Uploads to GitHub Release id=362630583, tag=reel-017-directors-cut
- * Deletes any existing asset with same name before uploading (collision-safe)
- * Writes anchor_url + anchor_path to $GITHUB_OUTPUT
+ * The anchor seeds both the S1 replacement clip (10s) and the S5B clip (5s).
+ * No video generation runs until Director approves this anchor.
  */
 
-import { writeFileSync, appendFileSync } from 'fs';
-import { join } from 'path';
-import { execSync } from 'child_process';
+import { execSync }                        from 'node:child_process';
+import { writeFileSync, readFileSync,
+         appendFileSync }                  from 'node:fs';
+import { join }                            from 'node:path';
 
-const RUNWAY_API_KEY = process.env.RUNWAY_API_KEY!;
-const GITHUB_TOKEN   = process.env.GITHUB_TOKEN!;
+const RUNWAY_KEY     = process.env.RUNWAY_API_KEY ?? '';
+const GITHUB_TOKEN   = process.env.GITHUB_TOKEN   ?? '';
+const RUNWAY_BASE    = 'https://api.dev.runwayml.com/v1';
+const RUNWAY_VERSION = '2024-11-06';
 const REPO           = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
-const RELEASE_ID     = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v3.jpg';
+const RELEASE_TAG    = 'reel-017-directors-cut';
+const TMP            = '/tmp';
+const POLL_MS        = 15_000;
+const TIMEOUT_MS     = 900_000;
 
-// ── Anchor v3 prompt (972 chars, within 1000-char Runway hard limit) ──────────
-const ANCHOR_PROMPT = `Dark diagonal void in near-black #1A1A1A extends through the frame. Two unequal crystallographic surfaces converge toward one off-center compressed throat where clearance is measurably reduced. The near-field surface — larger, angular polyhedral facets — dominates the foreground. The far surface — ruled crystalline geometry, smaller through perspective — recedes into the void. Both surfaces point geometrically toward the same contact zone at the throat. Gold stress filaments #C6A94F run from loaded facet edges directly into the throat, concentrated at the contact zone, terminating at the point of imminent contact — active stress indicators, not decorative traces. Crystallographic articulation sharpens near the loaded zone. Compression before contact, not fracture after separation. Restrained upper-left illumination. CAD-level crystalline precision, forensic macro imaging, scientific instrument register. Clean void region for captions. 9:16 vertical portrait.`;
+if (!RUNWAY_KEY)   { console.error('RUNWAY_API_KEY not set'); process.exit(1); }
+if (!GITHUB_TOKEN) { console.error('GITHUB_TOKEN not set');   process.exit(1); }
 
-if (ANCHOR_PROMPT.length > 1000) {
-  throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
+const ANCHOR_PROMPT = `Deep angular void cavity in near-black #1A1A1A occupies the primary visual field, extending diagonally with visible recession and a compressed throat near the contact zone. A large pale-cream crystallographic plane intrudes from the near foreground, cropped, angular facets carrying sparse hairline gold #C6A94F seams. A second ruled crystalline surface appears farther across the cavity, smaller through perspective, receding into darkness. Two surfaces form an unequal converging relationship, not parallel horizontal layers. At the throat, one gold stress filament runs from a loaded facet edge toward imminent contact. Geometry shows pressure applied: facet compression, directional alignment, reduced clearance. Cavity dark, deep, continuous. Upper-left illumination touches only selected edges, leaving most void unlit. CAD-level crystalline precision, forensic macro imaging, scientific instrument register, severe dimensional depth. Clean void region for captions. 9:16 vertical portrait.`;
+
+function runwayHeaders(): Record<string,string> {
+  return {
+    'Authorization':    `Bearer ${RUNWAY_KEY}`,
+    'X-Runway-Version': RUNWAY_VERSION,
+    'Content-Type':     'application/json',
+  };
 }
-console.log(`[preflight] prompt length: ${ANCHOR_PROMPT.length} chars ✓`);
 
-const RUNWAY_BASE = 'https://api.dev.runwayml.com/v1';
-const RUNWAY_HEADERS: Record<string, string> = {
-  'Authorization':    `Bearer ${RUNWAY_API_KEY}`,
-  'X-Runway-Version': '2024-11-06',
-  'Content-Type':     'application/json',
-};
+function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
 
-// ── Polling helper ────────────────────────────────────────────────────────────
-async function pollTask(taskId: string, maxWaitMs = 300_000): Promise<any> {
-  const start = Date.now();
-  while (Date.now() - start < maxWaitMs) {
-    await new Promise(r => setTimeout(r, 6000));
-    const res  = await fetch(`${RUNWAY_BASE}/tasks/${taskId}`, { headers: RUNWAY_HEADERS });
-    const data = await res.json() as any;
-    console.log(`  [poll] ${data.status}`);
-    if (data.status === 'SUCCEEDED') return data;
-    if (data.status === 'FAILED')
-      throw new Error(`Runway task FAILED: ${JSON.stringify(data.failure ?? data)}`);
+async function tryImageRoute(): Promise<Buffer | null> {
+  console.log('[Route A] Attempting Runway text_to_image...');
+  try {
+    const res = await fetch(`${RUNWAY_BASE}/text_to_image`, {
+      method:  'POST',
+      headers: runwayHeaders(),
+      body:    JSON.stringify({ promptText: ANCHOR_PROMPT, model: 'gen4_image', ratio: '720:1280' }),
+    });
+    if (!res.ok) {
+      const body = await res.text();
+      console.log(`[Route A] text_to_image ${res.status}: ${body.slice(0,300)}`);
+      return null;
+    }
+    const task = await res.json() as { id: string };
+    console.log(`[Route A] task id: ${task.id}`);
+    const deadline = Date.now() + TIMEOUT_MS;
+    while (Date.now() < deadline) {
+      await sleep(POLL_MS);
+      const poll = await fetch(`${RUNWAY_BASE}/tasks/${task.id}`, { headers: runwayHeaders() });
+      const s = await poll.json() as { status: string; output?: string[]; failure?: string };
+      console.log(`[Route A] ${s.status}`);
+      if (s.status === 'SUCCEEDED') {
+        const url = s.output?.[0];
+        if (!url) throw new Error('No output URL');
+        const imgRes = await fetch(url);
+        return Buffer.from(await imgRes.arrayBuffer());
+      }
+      if (s.status === 'FAILED' || s.status === 'CANCELLED') {
+        console.log(`[Route A] Failed: ${s.failure}`); return null;
+      }
+    }
+    console.log('[Route A] Timed out'); return null;
+  } catch (err) {
+    console.log(`[Route A] Error: ${err}`); return null;
   }
-  throw new Error(`Runway task timed out after ${maxWaitMs / 1000}s`);
 }
 
-// ── Route A: text_to_image (gen4_image) — 0 credits ──────────────────────────
-async function routeA(): Promise<Buffer> {
-  console.log('\n[Route A] text_to_image — 0 credits');
-  const res = await fetch(`${RUNWAY_BASE}/text_to_image`, {
+async function videoProbeRoute(): Promise<Buffer> {
+  console.log('[Route B] 5s text_to_video probe (60 credits)...');
+  const res = await fetch(`${RUNWAY_BASE}/text_to_video`, {
     method:  'POST',
-    headers: RUNWAY_HEADERS,
-    body: JSON.stringify({
-      model:        'gen4_image',
-      promptText:   ANCHOR_PROMPT,
-      ratio:        '720:1280',
-      outputFormat: 'jpeg',
-    }),
+    headers: runwayHeaders(),
+    body:    JSON.stringify({ promptText: ANCHOR_PROMPT, model: 'gen4.5', ratio: '720:1280', duration: 5 }),
   });
-  if (!res.ok) throw new Error(`text_to_image ${res.status}: ${await res.text()}`);
-  const task = await res.json() as any;
-  console.log(`  task id: ${task.id}`);
-  const done     = await pollTask(task.id);
-  const imageUrl = done.output?.[0] ?? done.artifacts?.[0]?.url;
-  if (!imageUrl) throw new Error(`No image URL in response: ${JSON.stringify(done)}`);
-  console.log(`  image url: ${imageUrl}`);
-  const imgRes = await fetch(imageUrl);
-  return Buffer.from(await imgRes.arrayBuffer());
+  if (!res.ok) throw new Error(`Route B submit: ${res.status} ${await res.text()}`);
+  const { id } = await res.json() as { id: string };
+  console.log(`[Route B] task id: ${id}`);
+
+  const deadline = Date.now() + TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    await sleep(POLL_MS);
+    const poll = await fetch(`${RUNWAY_BASE}/tasks/${id}`, { headers: runwayHeaders() });
+    const s = await poll.json() as { status: string; output?: string[]; failure?: string };
+    console.log(`[Route B] ${s.status}`);
+    if (s.status === 'SUCCEEDED') {
+      const videoUrl = s.output?.[0];
+      if (!videoUrl) throw new Error('No video URL');
+      const videoRes = await fetch(videoUrl);
+      const videoPath = join(TMP, 'anchor-probe.mp4');
+      writeFileSync(videoPath, Buffer.from(await videoRes.arrayBuffer()));
+      const anchorPath = join(TMP, '017-anchor.jpg');
+      execSync(`ffmpeg -ss 0 -i "${videoPath}" -frames:v 1 -q:v 1 "${anchorPath}" -y`, { stdio: 'inherit' });
+      return readFileSync(anchorPath);
+    }
+    if (s.status === 'FAILED' || s.status === 'CANCELLED')
+      throw new Error(`Route B failed: ${s.failure}`);
+  }
+  throw new Error('Route B timed out');
 }
 
-// ── Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback) ──────
-async function routeB(): Promise<Buffer> {
-  console.log('\n[Route B] text_to_video 5s → frame 0 — 60 credits (fallback)');
-  const res = await fetch(`${RUNWAY_BASE}/image_to_video`, {
-    method:  'POST',
-    headers: RUNWAY_HEADERS,
-    body: JSON.stringify({
-      model:      'gen4_turbo',
-      promptText: ANCHOR_PROMPT,
-      duration:   5,
-      ratio:      '720:1280',
-    }),
-  });
-  if (!res.ok) throw new Error(`text_to_video ${res.status}: ${await res.text()}`);
-  const task = await res.json() as any;
-  console.log(`  task id: ${task.id}`);
-  const done     = await pollTask(task.id, 600_000);
-  const videoUrl = done.output?.[0] ?? done.artifacts?.[0]?.url;
-  if (!videoUrl) throw new Error(`No video URL: ${JSON.stringify(done)}`);
-  const tmpVideo = '/tmp/anchor_probe.mp4';
-  const tmpFrame = '/tmp/anchor_frame0.jpg';
-  execSync(`curl -fsSL "${videoUrl}" -o "${tmpVideo}"`);
-  execSync(`ffmpeg -y -i "${tmpVideo}" -frames:v 1 -q:v 2 "${tmpFrame}"`);
-  const { readFileSync } = await import('fs');
-  return readFileSync(tmpFrame);
-}
-
-// ── GitHub Release upload (delete-before-upload, collision-safe) ──────────────
-async function uploadAsset(data: Buffer, filename: string): Promise<string> {
+async function ensureRelease(): Promise<number> {
   const ghHeaders = {
     'Authorization': `Bearer ${GITHUB_TOKEN}`,
     'User-Agent':    'ndch-dreamforge',
     'Accept':        'application/vnd.github+json',
   };
-  // Delete any existing asset with same name
+  const getRes = await fetch(
+    `https://api.github.com/repos/${REPO}/releases/tags/${RELEASE_TAG}`,
+    { headers: ghHeaders }
+  );
+  if (getRes.ok) {
+    const rel = await getRes.json() as { id: number };
+    console.log(`[GitHub] Existing release id=${rel.id}`);
+    return rel.id;
+  }
+  const createRes = await fetch(`https://api.github.com/repos/${REPO}/releases`, {
+    method:  'POST',
+    headers: { ...ghHeaders, 'Content-Type': 'application/json' },
+    body:    JSON.stringify({
+      tag_name: RELEASE_TAG,
+      name:     "NDCH_017 Director's Cut — Work In Progress",
+      body:     'Anchor stills and replacement clips for NDCH_017 surgical revision.',
+      draft:    false, prerelease: true,
+    }),
+  });
+  const rel = await createRes.json() as { id: number };
+  console.log(`[GitHub] Created release id=${rel.id}`);
+  return rel.id;
+}
+
+async function uploadAsset(releaseId: number, data: Buffer, filename: string): Promise<string> {
+  // Delete existing asset with same name if present
   const listRes = await fetch(
-    `https://api.github.com/repos/${REPO}/releases/${RELEASE_ID}/assets`,
-    { headers: ghHeaders },
+    `https://api.github.com/repos/${REPO}/releases/${releaseId}/assets`,
+    { headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'User-Agent': 'ndch-dreamforge', 'Accept': 'application/vnd.github+json' } }
   );
   if (listRes.ok) {
-    const assets = await listRes.json() as { id: number; name: string }[];
-    for (const asset of assets) {
+    const existingAssets = await listRes.json() as { id: number; name: string }[];
+    for (const asset of existingAssets) {
       if (asset.name === filename) {
-        console.log(`  [upload] deleting existing asset: ${asset.name} (id=${asset.id})`);
+        console.log(`[GitHub] Deleting existing asset id=${asset.id} (${filename})`);
         await fetch(`https://api.github.com/repos/${REPO}/releases/assets/${asset.id}`, {
-          method: 'DELETE', headers: ghHeaders,
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${GITHUB_TOKEN}`, 'User-Agent': 'ndch-dreamforge' }
         });
       }
     }
   }
-  // Upload new asset
-  const uploadUrl = `https://uploads.github.com/repos/${REPO}/releases/${RELEASE_ID}/assets?name=${encodeURIComponent(filename)}`;
-  const upRes = await fetch(uploadUrl, {
-    method:  'POST',
-    headers: { ...ghHeaders, 'Content-Type': 'image/jpeg', 'Content-Length': String(data.length) },
-    body:    data,
-  });
-  if (!upRes.ok) throw new Error(`Upload failed ${upRes.status}: ${await upRes.text()}`);
-  const uploaded = await upRes.json() as { browser_download_url: string };
-  return uploaded.browser_download_url;
+  const res = await fetch(
+    `https://uploads.github.com/repos/${REPO}/releases/${releaseId}/assets?name=${filename}`,
+    {
+      method:  'POST',
+      headers: {
+        'Authorization': `Bearer ${GITHUB_TOKEN}`,
+        'Content-Type':  'image/jpeg',
+        'User-Agent':    'ndch-dreamforge',
+      },
+      body: data,
+    }
+  );
+  if (!res.ok) throw new Error(`Asset upload failed: ${res.status} ${await res.text()}`);
+  const asset = await res.json() as { browser_download_url: string };
+  return asset.browser_download_url;
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
-(async () => {
-  let imageBuffer: Buffer;
+async function main() {
+  console.log("=== NDCH_017 Director's Cut — S1 Anchor Generation ===");
 
-  try {
-    imageBuffer = await routeA();
-    console.log('[Route A] ✓ succeeded');
-  } catch (errA) {
-    console.warn(`[Route A] failed: ${errA}\n  → falling back to Route B`);
-    imageBuffer = await routeB();
-    console.log('[Route B] ✓ succeeded');
+  let anchorData = await tryImageRoute();
+  if (!anchorData) anchorData = await videoProbeRoute();
+
+  const localPath = join(TMP, '017-anchor.jpg');
+  writeFileSync(localPath, anchorData);
+  console.log(`Anchor saved: ${localPath} (${anchorData.length} bytes)`);
+
+  const releaseId  = await ensureRelease();
+  const downloadUrl = await uploadAsset(releaseId, anchorData, 'NDCH_017_S1_anchor.jpg');
+
+  console.log(`\nANCHOR_URL=${downloadUrl}`);
+
+  const outputFile = process.env.GITHUB_OUTPUT;
+  if (outputFile) {
+    appendFileSync(outputFile, `anchor_url=${downloadUrl}\n`);
+    appendFileSync(outputFile, `anchor_path=${localPath}\n`);
   }
+}
 
-  // Save locally in the workspace
-  const localPath = join(process.cwd(), ANCHOR_FILENAME);
-  writeFileSync(localPath, imageBuffer);
-  console.log(`\n[local] saved: ${localPath}`);
-
-  // Upload to GitHub Release
-  console.log('[github] uploading to release...');
-  const downloadUrl = await uploadAsset(imageBuffer, ANCHOR_FILENAME);
-  console.log(`[github] uploaded: ${downloadUrl}`);
-
-  // Write GitHub Actions outputs
-  const githubOutput = process.env.GITHUB_OUTPUT;
-  if (githubOutput) {
-    appendFileSync(githubOutput, `anchor_url=${downloadUrl}\n`);
-    appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
-    console.log(`[actions] wrote outputs to $GITHUB_OUTPUT`);
-  }
-
-  console.log('\n✓ Anchor v3 complete');
-  console.log(`  download: ${downloadUrl}`);
-  console.log(`  local:    ${localPath}`);
-})();
+main().catch(err => { console.error(err); process.exit(1); });

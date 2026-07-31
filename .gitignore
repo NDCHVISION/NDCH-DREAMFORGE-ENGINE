@@ -6,3 +6,7 @@ npm-debug.log*
 # Playwright
 test-results/
 playwright-report/
+# Rendered output files (not committed — large video/audio)
+output/
+# Windows temp files
+~$*

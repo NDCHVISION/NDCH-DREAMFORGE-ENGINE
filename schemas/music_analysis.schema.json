@@ -1,0 +1,131 @@
+{
+  "_schema_version": "1.0",
+  "_status": "stable — Music Intelligence subsystem v1.0",
+  "_description": "Per-track analysis result from lib/audio/analyze-music.ts. Saved per candidate track.",
+
+  "schema": {
+    "TrackAnalysis": {
+      "schema_version": { "type": "string", "value": "1.0" },
+      "track_id": { "type": "string", "description": "Derived from filename without extension" },
+      "file_info": {
+        "path": { "type": "string" },
+        "filename": { "type": "string" },
+        "duration_seconds": { "type": "number", "feature_type": "MEASURED" },
+        "codec": { "type": "string", "feature_type": "MEASURED" },
+        "sample_rate_hz": { "type": "number", "feature_type": "MEASURED" },
+        "channels": { "type": "number", "feature_type": "MEASURED" },
+        "bit_rate_kbps": { "type": "number", "feature_type": "MEASURED" },
+        "file_size_bytes": { "type": "number", "feature_type": "MEASURED" }
+      },
+      "full_track_features": {
+        "loudness": {
+          "integrated_lufs": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg loudnorm" },
+          "true_peak_dbfs": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg loudnorm" },
+          "loudness_range_lu": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg loudnorm" },
+          "mean_volume_db": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg volumedetect" },
+          "max_volume_db": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg volumedetect" },
+          "confidence": { "type": "enum", "values": ["high", "medium", "low"] }
+        },
+        "frequency_bands": {
+          "low_hz_range": { "type": "[number,number]", "value": [20, 250] },
+          "mid_hz_range": { "type": "[number,number]", "value": [250, 4000] },
+          "high_hz_range": { "type": "[number,number]", "value": [4000, 20000] },
+          "low_mean_db": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg lowpass+volumedetect" },
+          "mid_mean_db": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg bandpass+volumedetect" },
+          "high_mean_db": { "type": "number|null", "feature_type": "MEASURED", "tool": "ffmpeg highpass+volumedetect" },
+          "low_energy_weight": { "type": "number", "feature_type": "INFERRED", "range": [0, 1] },
+          "mid_energy_weight": { "type": "number", "feature_type": "INFERRED", "range": [0, 1] },
+          "high_energy_weight": { "type": "number", "feature_type": "INFERRED", "range": [0, 1] },
+          "brightness_ratio": { "type": "number", "feature_type": "INFERRED", "note": "high_energy_weight as brightness proxy. Low = dark." },
+          "confidence": { "type": "enum", "values": ["high", "medium", "low"] }
+        },
+        "silence": {
+          "silence_ratio": { "type": "number", "feature_type": "MEASURED", "range": [0, 1] },
+          "silence_events": { "type": "number", "feature_type": "MEASURED" },
+          "confidence": { "type": "enum", "values": ["high", "medium", "low"] }
+        },
+        "tempo": {
+          "estimated_bpm": { "type": "number|null", "feature_type": "NOT_AVAILABLE", "note": "Requires beat-tracking library (e.g. librosa). Not available with FFmpeg alone." },
+          "bpm_confidence": { "type": "number", "value": 0 },
+          "bpm_method": { "type": "string" }
+        },
+        "dynamics": {
+          "dynamic_range_db": { "type": "number", "feature_type": "MEASURED" },
+          "onset_density_per_second": { "type": "number", "feature_type": "INFERRED", "note": "Energy delta > 3dB/sec counted as onset. Heuristic proxy for transient density." },
+          "energy_profile_db": { "type": "number[]", "feature_type": "MEASURED", "tool": "ffmpeg ebur128 momentary", "description": "Per-second mean momentary loudness in dBFS. Length = floor(duration_seconds)." },
+          "energy_transitions": {
+            "type": "array",
+            "items": {
+              "time_seconds": "number",
+              "delta_db": "number",
+              "direction": "rise|fall"
+            }
+          },
+          "clean_entry_points": { "type": "number[]", "feature_type": "HEURISTIC", "description": "Seconds where a stable low-energy 3s window begins. Candidates for window start." },
+          "clean_exit_points": { "type": "number[]", "feature_type": "HEURISTIC", "description": "Seconds where energy is declining. Candidates for Möbius seam." }
+        },
+        "analysis_notes": { "type": "string[]" }
+      },
+      "candidate_windows": {
+        "type": "array",
+        "max_items": 5,
+        "description": "Top 5 windows ranked by total_score descending.",
+        "item_schema": {
+          "rank": "number",
+          "start_seconds": "number",
+          "end_seconds": "number",
+          "duration_seconds": "number",
+          "total_score": { "type": "number", "range": [0, 1] },
+          "section_scores": {
+            "hook": "SectionScore",
+            "build": "SectionScore",
+            "pivot": "SectionScore",
+            "resolution": "SectionScore",
+            "mobius": "SectionScore",
+            "doctrine_alignment": "SectionScore",
+            "headroom": "SectionScore",
+            "narration_compatibility": "SectionScore"
+          },
+          "confidence": { "type": "number", "range": [0, 1] },
+          "strengths": "string[]",
+          "risks": "string[]",
+          "feature_snapshot": {
+            "mean_rms_db": "number",
+            "peak_rms_db": "number",
+            "min_rms_db": "number",
+            "hook_mean_rms_db": "number",
+            "build_slope_db_per_sec": "number",
+            "pivot_range_db": "number",
+            "mobius_final_rms_db": "number",
+            "onset_count": "number"
+          }
+        }
+      },
+      "SectionScore": {
+        "score": { "type": "number", "range": [0, 1] },
+        "details": { "type": "string[]", "description": "Each detail line prefixed with feature_type: MEASURED / INFERRED / HEURISTIC" }
+      },
+      "analysis_timestamp": "string (ISO8601)",
+      "analysis_duration_ms": "number"
+    }
+  },
+
+  "scoring_weights": {
+    "hook": 0.20,
+    "build": 0.20,
+    "pivot": 0.20,
+    "resolution": 0.15,
+    "mobius": 0.15,
+    "doctrine_alignment": 0.05,
+    "headroom": 0.03,
+    "narration_compatibility": 0.02,
+    "note": "Weights are explicit and documented here. Changing weights changes selection. Document any override and its doctrinal reason."
+  },
+
+  "feature_type_legend": {
+    "MEASURED": "Directly from FFmpeg/FFprobe output. Highest confidence.",
+    "INFERRED": "Computed from measured values via a deterministic formula. Medium confidence.",
+    "HEURISTIC": "Rule-based estimate. Confidence depends on assumptions. Flagged in detail strings.",
+    "NOT_AVAILABLE": "Requires a dependency not present. Field is null. Confidence = 0."
+  }
+}
