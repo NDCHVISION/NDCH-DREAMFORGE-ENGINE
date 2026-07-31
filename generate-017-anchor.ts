@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
- * Anchor v13
+ * Anchor v14
  *
  * Route A: text_to_image (gen4_image model) — 0 credits
  * Route B: text_to_video 5s → extract frame 0 — 60 credits (fallback only)
@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v13.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v14.jpg';
 
-// ── Anchor v13 prompt (~425 chars — within 1000-char Runway hard limit) ───────
-const ANCHOR_PROMPT = `Face-on laboratory macro photograph. Two smooth polished dark grey alumina tiles face each other on a pure black background. Their inner faces are nearly parallel but angled so the gap between them is wide at the top of the frame and closes to near-zero at the bottom. At the point of minimum gap — at the bottom of the frame — a single horizontal gold line #C6A94F spans both inner faces. Pristine flat surfaces. 9:16 portrait.`;
+// ── Anchor v14 prompt (~442 chars — within 1000-char Runway hard limit) ───────
+const ANCHOR_PROMPT = `Cross-section macro photograph showing two dark grey polished ceramic surfaces meeting at an angle. The left surface is horizontal, filling the bottom of the frame. The right surface descends diagonally from the upper right, meeting the left surface at the bottom center — where the two surfaces touch, there is a thin gold line #C6A94F. The gap between the surfaces above the contact point is open and dark. Black background. Studio macro. 9:16 portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
@@ -158,6 +158,6 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
     appendFileSync(githubOutput, `anchor_path=${localPath}\n`);
     console.log('[actions] wrote outputs to $GITHUB_OUTPUT');
   }
-  console.log('\n✓ Anchor v13 complete');
+  console.log('\n✓ Anchor v14 complete');
   console.log(`  download: ${downloadUrl}`);
 })();
