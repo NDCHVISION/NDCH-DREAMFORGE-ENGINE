@@ -19,10 +19,10 @@ const RUNWAY_API_KEY  = process.env.RUNWAY_API_KEY!;
 const GITHUB_TOKEN    = process.env.GITHUB_TOKEN!;
 const REPO            = 'NDCHVISION/NDCH-DREAMFORGE-ENGINE';
 const RELEASE_ID      = 362630583;
-const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v3.jpg';
+const ANCHOR_FILENAME = 'NDCH_017_S1_anchor_v4.jpg';
 
-// ── Anchor v3 prompt (972 chars — within 1000-char Runway hard limit) ─────────
-const ANCHOR_PROMPT = `Dark diagonal void in near-black #1A1A1A extends through the frame. Two unequal crystallographic surfaces converge toward one off-center compressed throat where clearance is measurably reduced. The near-field surface — larger, angular polyhedral facets — dominates the foreground. The far surface — ruled crystalline geometry, smaller through perspective — recedes into the void. Both surfaces point geometrically toward the same contact zone at the throat. Gold stress filaments #C6A94F run from loaded facet edges directly into the throat, concentrated at the contact zone, terminating at the point of imminent contact — active stress indicators, not decorative traces. Crystallographic articulation sharpens near the loaded zone. Compression before contact, not fracture after separation. Restrained upper-left illumination. CAD-level crystalline precision, forensic macro imaging, scientific instrument register. Clean void region for captions. 9:16 vertical portrait.`;
+// ── Anchor v4 prompt (967 chars — within 1000-char Runway hard limit) ─────────
+const ANCHOR_PROMPT = `Two angular dark-quartz crystal blocks, each with hard polyhedral facets, face each other across a compressed air gap. The gap narrows to a single off-center throat — the point of minimum clearance — where the opposing facets are measurably closest, gap still open. Near-black #1A1A1A void dominates the field; the blocks are dark chromatic grey #3A3A3A with sharp rectilinear crystalline edges. The near-field block — larger, occupying the left two-thirds — thrusts a loaded corner directly toward the throat. The far block recedes into the upper-right void, smaller through depth. A thin luminescent filament, gold #C6A94F, traces the stressed edge of the near-field block's loaded facet and terminates exactly at the throat point. Gold is confined entirely to block surface edges. The void between the blocks remains pure near-black. All geometry is rectilinear: hard planes, sharp corners, flat facets. Scientific instrument macro imaging. 9:16 vertical portrait.`;
 
 if (ANCHOR_PROMPT.length > 1000) {
   throw new Error(`ABORT: prompt exceeds 1000 chars (${ANCHOR_PROMPT.length}). Do not dispatch.`);
