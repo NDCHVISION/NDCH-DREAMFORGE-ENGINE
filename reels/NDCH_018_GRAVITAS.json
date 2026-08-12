@@ -1,0 +1,354 @@
+{
+  "reel_id": "NDCH_018_GRAVITAS",
+  "engine_version": "2.1.0",
+  "dreamforge_pipeline_version": "3.0.0",
+  "dreamforge_provenance": {
+    "concept_dna": "reels/NDCH_018/concept_dna.json",
+    "creative_trace": "reels/NDCH_018/creative_trace.json",
+    "script": "reels/NDCH_018/script.json",
+    "visual_system": "reels/NDCH_018/visual_system.json",
+    "shot_list": "reels/NDCH_018/shot_list.json",
+    "render_validation": "reels/NDCH_018/render_validation.json",
+    "note": "render_validation.json exists (bookend still-image provenance only). concept_dna, creative_trace, script, visual_system, and shot_list have NOT been derived through the dreamforge_3.0 Thinker->Designer->Director->Compiler pipeline for this reel yet -- this production JSON was hand-authored directly from Director conversation and reconciled against the real v2.1 schema/validator, not compiler-derived. Per the Provenance Law (docs/DREAMFORGE_INVARIANTS.md), that means the segments below are diagnosable but not yet fully upstream-traceable. Render validation must pass per-clip acceptance criteria before editorial assembly begins."
+  },
+  "schema_changelog": {
+    "version": "2.1.0",
+    "based_on": "2.1.0 (NDCH_017 schema, golden template schemas/ndch_reel_v2_template.json)",
+    "compatibility": "Fully compatible with reel-plan.ts resolveProductionPlan(). All required paths preserved: voiceover.script.segments[].{text,visual_prompt,timestamp_start,timestamp_end}, voiceover.elevenLabs_config, subtitle_config, music_config, instagram_config, format.target_duration_seconds.",
+    "dreamforge_3_additions": [
+      "dreamforge_pipeline_version",
+      "dreamforge_provenance",
+      "concept field populated from concept_dna (draft: not yet derived, hand-authored)",
+      "visual_register from visual_system.json (draft: not yet derived, hand-authored)"
+    ]
+  },
+  "reel_input": {
+    "concept_seed": "GRAVITAS",
+    "doctrine": "Internal coherence becomes an organizing force.",
+    "doctrine_statement": "Most people enter a room and become part of its atmosphere. A few arrive carrying one of their own.",
+    "primary_symbol": "field_of_independent_fragments",
+    "perceptual_anchor": "coherence_onset — the moment scattered material behavior begins organizing around an unstated center",
+    "pipeline": "dreamforge_3.0 — full Thinker -> Designer -> Director -> Compiler derivation (NOT YET RUN for this draft; segments below are hand-authored from Director conversation, not compiler-derived)",
+    "target_duration_seconds": 45,
+    "voice_id": "C9Uh5MFptuXa176UlaXE"
+  },
+  "concept": "GRAVITAS",
+  "theme": "Internal coherence becomes an organizing force.",
+  "core_metaphor": "A field of independent fragments in a void, responding to an influence that is never itself depicted — only inferred from the changing behavior of matter around it.",
+  "emotional_arc": "disorder -> local alignment -> earned weight -> broader organization -> established field -> quiet expansion",
+  "visual_register": "Field-Effect Forensics — dark engineered fragments in a void, evidence-only. No hero object, no visible source, no bodies. The organizing influence is never shown; it is read through material response only.",
+  "style_id": "style_1_fractal",
+  "finish_family_id": "fractal_cad_cold",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45.0,
+    "segment_count": 5,
+    "segment_id_order": ["hook", "build", "pivot", "resolution", "mobius_close"],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars. Keep each visual_prompt <= 1000 chars."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": ["#1A1A1A", "#C6A94F", "#F5F2EB", "#DC143C"],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "cold analytical — reveals material response, not atmosphere",
+    "camera_distance_arc": "wide -> medium -> close -> wide -> wide",
+    "recurring_element": "field of independent dark engineered fragments with thin gold edge evidence",
+    "color_temperature": "cold (below 4000K)",
+    "scale": "editorial macro — fragment-scale throughout, never full-body"
+  },
+  "sound_brief": {
+    "sound_archetype": "industrial_tension",
+    "bpm_range": "80-88",
+    "emotional_register": "controlled, quietly inevitable — not tense-toward-fracture like FRICTION; tense-toward-order",
+    "instrumentation_direction": "low sustained drone, sparse metallic ticks, no percussion build",
+    "energy_arc": "low -> settling -> weighted at pivot -> broad and steady through resolution -> sustained calm at close",
+    "suno_search_string": "cold minimal cinematic drone controlled inevitability sparse metallic ticks"
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "Most people enter a room and become part of its atmosphere. A few arrive carrying one of their own. They do not chase attention. They do not negotiate their center. Their discipline has weight. Their clarity changes distance. Their presence gives disorder something to organize around. Build enough structure inside that the room stops being the main variable. You are not here to absorb the room. You are here to alter its gravity...",
+      "mobius_note": "Final segment grammatically open — resolves at loop restart. NOTE: no loop_seam_validation.full_text_must_start_with/end_with is declared in this draft (unlike NDCH_016) because the literal loop-seam phrase pairing has not been Director-authored yet; the validator only checks this contract if declared, so its absence is not an error.",
+      "word_count": 73,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Most people enter a room and become part of its atmosphere.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:07",
+          "visual_prompt": "Wide shot: a field of rigid dark engineered fragments (#1A1A1A) at rest in a void, oriented on conflicting axes with no shared direction. Selected broken edges expose Bone White (#F5F2EB). No gold response yet visible. Cold upper-left analytical light.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "static locked"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A dense cluster of dark angular fragments already mid-disorder, no shared trajectory, catching cold rim light at their broken edges.",
+            "motion_onset": "fragments hold their conflicting orientations with only faint independent micro-drift",
+            "hook_type": "hard-cut-from-void"
+          },
+          "pacing_lock": {
+            "word_count": 11,
+            "target_wpm": 130,
+            "calculated_duration_seconds": 5.1,
+            "buffer_seconds": 0.3,
+            "total_scene_seconds": 5.4,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 5.4,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of a dense cluster of dark angular fragments already mid-disorder, no shared trajectory, catching cold rim light at their broken edges, with fragments holding their conflicting orientations under only faint independent micro-drift. Subject framed at lower-right-third with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a static locked path. Global style matrix: field of independent dark engineered fragments, lit by upper-left, cold analytical, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. No hero object, no visible source, no bodies.",
+            "elevenlabs_payload": {
+              "text": "Most people enter a room and become part of its atmosphere.",
+              "voice_mode": "declarative",
+              "voice_settings_override": {
+                "stability": 0.50,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.00
+              }
+            }
+          }
+        },
+        {
+          "id": "build",
+          "text": "A few arrive carrying one of their own. They do not chase attention. They do not negotiate their center.",
+          "timestamp_start": "0:07",
+          "timestamp_end": "0:16",
+          "visual_prompt": "Medium shot: within the same fragment field, a small subset in the lower-right begins showing thin, discontinuous Telemetry Gold (#C6A94F) edge highlights -- short, isolated, attached to individual surfaces, never connecting fragment to fragment. No visible source for the gold. Two small restrained Interference Crimson (#DC143C) glints at unstable contact points.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "generous void, upper third clear",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "The first thin gold edge-trace appearing on a single fragment surface, isolated, with no line connecting it to anything else.",
+            "motion_onset": "a second, then third fragment nearby begin showing their own separate short gold highlights at varying intensity",
+            "hook_type": "compression"
+          },
+          "pacing_lock": {
+            "word_count": 18,
+            "target_wpm": 125,
+            "calculated_duration_seconds": 8.6,
+            "buffer_seconds": 0.4,
+            "total_scene_seconds": 9.0,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.0,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of the first thin gold edge-trace appearing on a single fragment surface, isolated, with no line connecting it to anything else, with a second and third fragment nearby beginning their own separate short gold highlights at varying intensity. Subject framed at lower-right-third with generous void (upper third clear) and shallow foreground/background split. Camera path executes a slow push-in path. Global style matrix: field of independent dark engineered fragments, lit by upper-left, cold analytical, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Gold is discontinuous, surface-attached, never a connecting line.",
+            "elevenlabs_payload": {
+              "text": "A few arrive carrying one of their own. They do not chase attention. They do not negotiate their center.",
+              "voice_mode": "declarative",
+              "voice_settings_override": {
+                "stability": 0.50,
+                "similarity_boost": 0.85,
+                "style": 0.15,
+                "use_speaker_boost": true,
+                "speed": 1.00
+              }
+            }
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "Their discipline has weight. Their clarity changes distance. Their presence gives disorder something to organize around.",
+          "timestamp_start": "0:16",
+          "timestamp_end": "0:27",
+          "visual_prompt": "Close shot transitioning to medium: fragments nearest the responding cluster visibly redirect their trajectories -- weight and clarity read through material behavior, not through any visible force. Gold highlights remain short and separated, varying in length and intensity, several fragments carrying none. No convergence point, no shared curve, no fan or spoke geometry. Crimson remains at exactly two small glints, unchanged from build.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "compressed darkness surrounding subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A fragment mid-reorientation, its trajectory visibly bending toward the responding cluster while its surface shows only a short isolated gold trace.",
+            "motion_onset": "several more distant fragments begin the same slow directional correction, each independently, none touching",
+            "hook_type": "fracture-onset"
+          },
+          "pacing_lock": {
+            "word_count": 17,
+            "target_wpm": 110,
+            "calculated_duration_seconds": 9.3,
+            "buffer_seconds": 0.4,
+            "total_scene_seconds": 9.7,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.7,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of a fragment mid-reorientation, its trajectory visibly bending toward the responding cluster while its surface shows only a short isolated gold trace, with several more distant fragments beginning the same slow directional correction, each independently, none touching. Subject framed at center-frame with compressed darkness surrounding subject and deep z-axis recession. Camera path executes a slow pull-back path. Global style matrix: field of independent dark engineered fragments, lit by upper-left, cold analytical, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. No convergence point, no connected gold geometry, no visible organizing source.",
+            "elevenlabs_payload": {
+              "text": "Their discipline has weight. Their clarity changes distance. Their presence gives disorder something to organize around.",
+              "voice_mode": "weighted",
+              "voice_settings_override": {
+                "stability": 0.60,
+                "similarity_boost": 0.80,
+                "style": 0.08,
+                "use_speaker_boost": true,
+                "speed": 0.92
+              }
+            }
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "Build enough structure inside that the room stops being the main variable.",
+          "timestamp_start": "0:27",
+          "timestamp_end": "0:36",
+          "visual_prompt": "Wide shot: the field now reads calmer and more ordered -- most fragments show some alignment toward a shared direction, spacing more regular, conflicting motion largely settled. Gold remains thin and discontinuous across many separate surfaces, several fragments still bare. Crimson has faded to at most one faint peripheral trace. No solid gold surfaces, no fill, no orb, no source object.",
+          "frame_geometry": {
+            "subject_position": "lower-right, extending toward frame edges",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "A visibly calmer field -- fragments no longer catching light at random angles but along a loose common register.",
+            "motion_onset": "a few sparse fragments near the frame edges begin the same subtle alignment, implying the field continues past what is visible",
+            "hook_type": "light-emergence"
+          },
+          "pacing_lock": {
+            "word_count": 13,
+            "target_wpm": 105,
+            "calculated_duration_seconds": 7.4,
+            "buffer_seconds": 0.4,
+            "total_scene_seconds": 7.8,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 7.8,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of a visibly calmer field -- fragments no longer catching light at random angles but along a loose common register, with a few sparse fragments near the frame edges beginning the same subtle alignment, implying the field continues past what is visible. Subject framed at lower-right extending toward frame edges with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a slow pull-back path. Global style matrix: field of independent dark engineered fragments, lit by upper-left, cold analytical, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. Gold remains thin surface evidence only, never a fill.",
+            "elevenlabs_payload": {
+              "text": "Build enough structure inside that the room stops being the main variable.",
+              "voice_mode": "weighted",
+              "voice_settings_override": {
+                "stability": 0.60,
+                "similarity_boost": 0.80,
+                "style": 0.08,
+                "use_speaker_boost": true,
+                "speed": 0.92
+              }
+            }
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "You are not here to absorb the room. You are here to alter its gravity...",
+          "timestamp_start": "0:36",
+          "timestamp_end": "0:45",
+          "mobius_note": "Trails open -- 'alter its gravity...' unresolved, resolves at loop restart with 'Most people enter a room...'",
+          "visual_prompt": "Wide static shot: the established, ordered field holds -- stable, expansive, quietly inevitable. Same thin discontinuous gold ontology as the opening lock. Crimson nearly absent. The organizing influence remains completely invisible throughout. No triumphant reveal, no fade to black, no hero object.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "static locked"
+          },
+          "first_frame_hook": {
+            "immediate_visual": "The field at rest in its new, ordered state -- the same dark material, now legibly organized, still no visible cause.",
+            "motion_onset": "held static; only the faintest continued micro-drift at the field's furthest edges",
+            "hook_type": "void-collapse"
+          },
+          "pacing_lock": {
+            "word_count": 14,
+            "target_wpm": 96,
+            "calculated_duration_seconds": 8.75,
+            "buffer_seconds": 0.4,
+            "total_scene_seconds": 9.15,
+            "override_note": "Duration field must equal total_scene_seconds. If mismatched, total_scene_seconds takes precedence.",
+            "audio_sync_validation": {
+              "expected_audio_duration_seconds": 9.15,
+              "tolerance_ms": 150,
+              "sync_method": "Validate ElevenLabs output against pacing_lock total_scene_seconds before Remotion assembly. If delta > 150ms, regenerate with speed correction.",
+              "speed_correction_formula": "new_speed = current_speed * (actual_duration / expected_duration)"
+            }
+          },
+          "compiled_outputs": {
+            "runway_api_prompt_string": "A high-contrast frame initialization of the field at rest in its new, ordered state -- the same dark material, now legibly organized, still no visible cause, held static with only the faintest continued micro-drift at the field's furthest edges. Subject framed at lower-right-third with vast void occupying upper two-thirds and deep z-axis recession. Camera path executes a static locked path. Global style matrix: field of independent dark engineered fragments, lit by upper-left, cold analytical, color temperature cold (below 4000K), absolute palette lock #1A1A1A / #C6A94F / #F5F2EB / #DC143C. No orb, no halo, no hero object, no visible source.",
+            "elevenlabs_payload": {
+              "text": "You are not here to absorb the room. You are here to alter its gravity...",
+              "voice_mode": "trailing",
+              "voice_settings_override": {
+                "stability": 0.55,
+                "similarity_boost": 0.80,
+                "style": 0.00,
+                "use_speaker_boost": true,
+                "speed": 0.90
+              }
+            }
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.55,
+        "similarity_boost": 0.82,
+        "style": 0.08,
+        "use_speaker_boost": true,
+        "speed": 0.95
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.55,
+        "style": 0.00,
+        "note": "'...alter its gravity...' delivered with full weight, then silence before loop restart."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": ["discipline", "clarity", "presence", "structure"],
+    "peak_words": ["gravity"]
+  },
+  "music_config": {
+    "description": "Cold minimal drone, controlled inevitability, no percussion build -- see sound_brief.",
+    "bpm": 84,
+    "fade_in_seconds": 1.0,
+    "fade_out_start_seconds": 42.0,
+    "fade_out_end_seconds": 45.0
+  },
+  "instagram_config": {
+    "caption": "DRAFT -- not yet authored.",
+    "hashtags": [],
+    "alt_text": "DRAFT -- not yet authored.",
+    "cover_frame_timestamp_seconds": 36.0
+  },
+  "cover_frame_timestamp": 36.0
+}

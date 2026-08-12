@@ -1,0 +1,92 @@
+{
+  "_pipeline_phase": "3 — Render Validation (bookend stills, pre-video)",
+  "_pipeline_version": "dreamforge_3.0",
+  "_status": "BOOKEND_REFERENCES_LOCKED — not yet rendered as reel video clips",
+  "_law": "Validation Gate Law — every rendered asset must pass deterministic acceptance criteria. If a clip fails, find the upstream artifact that failed to constrain the condition.",
+  "reel_id": "NDCH_018_GRAVITAS",
+  "note": "These two entries document still-image bookend development conducted via Runway's consumer Agent workflow (Nano Banana Pro, reference-conditioned), not the five segment video renders defined in reels/NDCH_018_GRAVITAS.json (those have not been generated -- the v2.1 Runway adapter in generate-reel.ts has not been called for this reel). They exist as CREATIVE_REFERENCE + PROVENANCE for the hook and mobius_close visual direction only.",
+  "clips": [
+    {
+      "clip_id": "OPENING_BOOKEND",
+      "role": "creative reference for hook / early field-state, not a literal segment render",
+      "must_show": [
+        "disorder still dominant",
+        "local field response beginning",
+        "strong asymmetry",
+        "invisible organizing source",
+        "restrained crimson",
+        "discontinuous surface-attached gold"
+      ],
+      "must_not_show": [
+        "orbification",
+        "symbolic gold geometry",
+        "continuous gold path"
+      ],
+      "iteration_history": [
+        {
+          "version": "V1",
+          "decision": "TARGETED_REVISION",
+          "named_failure": "CONTINUOUS_GOLD_STROKE",
+          "diagnosis": "Gold rendered as one continuous arc rather than distributed independent edge highlights -- prompt-execution level (category A), Nano Banana Pro rendered curvature as a single stroke."
+        },
+        {
+          "version": "V2",
+          "decision": "TARGETED_REVISION",
+          "named_failure": "CRIMSON_SPARK_BURST",
+          "diagnosis": "Crimson clause unchanged from V1 yet rendered as radiating spark bursts instead of small glints -- same-input/different-output, provider stochastic behavior (category D), not a prompt defect."
+        },
+        {
+          "version": "V3",
+          "decision": "TARGETED_REVISION",
+          "named_failure": "FAN_SPOKE_GOLD_GEOMETRY (residual)",
+          "diagnosis": "Reference-conditioned from V1; gold discontinuity achieved but tightly-packed adjacent fragments chained into a near-continuous seam -- geometry-adjacency side effect, not a recurrence of the drawn-line failure."
+        },
+        {
+          "version": "V4",
+          "decision": "PASS — OPENING_SEED_LOCK",
+          "diagnosis": "Reference-conditioned from V3, targeted correction of FAN_SPOKE_GOLD_GEOMETRY only. Composition preserved, gold distributed and discontinuous, crimson restrained."
+        }
+      ]
+    },
+    {
+      "clip_id": "ENDING_BOOKEND",
+      "role": "creative reference for mobius_close / established-field state, not a literal segment render",
+      "must_show": [
+        "same material universe as opening",
+        "greater alignment",
+        "lower interference",
+        "broader field reach",
+        "nearly absent crimson",
+        "same thin surface-attached gold ontology"
+      ],
+      "must_not_show": [
+        "GOLD_SURFACE_FILL",
+        "solid gold fragment faces",
+        "explosion/detonation read"
+      ],
+      "iteration_history": [
+        {
+          "version": "Ending V1",
+          "decision": "TARGETED_REVISION",
+          "named_failure": "GOLD_SURFACE_FILL",
+          "diagnosis": "Several fragment faces rendered as large solid gold surfaces instead of thin edge highlights -- gold ontology drifted from evidence-on-material to gold-as-bulk-material during the unconstrained later-state prompt."
+        },
+        {
+          "version": "Ending V2",
+          "decision": "PASS — ENDING_SEED_LOCK",
+          "diagnosis": "Reference-conditioned from Ending V1, targeted correction of GOLD_SURFACE_FILL only. Composition, crimson, and negative space preserved; gold returned to thin discontinuous surface evidence."
+        }
+      ]
+    }
+  ],
+  "provider_observation": {
+    "finding": "Reference-conditioned Nano Banana Pro generations preserved composition, lighting, palette hierarchy, and visual continuity materially better than unconstrained full-scene regeneration.",
+    "classification": "provider-adapter observation, not a universal DreamForge law, not a schema requirement",
+    "status": "logged for postmortem review, not yet promoted to any engine policy"
+  },
+  "future_provider_capability_proposal": {
+    "classification": "provider-adapter enhancement (not universal law, not schema requirement, not GRAVITAS-specific workaround)",
+    "proposal": "Add an optional image-reference parameter to the Runway text_to_video call in generate-reel.ts, so a Director-approved still can literally seed a segment's video generation.",
+    "status": "NOT IMPLEMENTED — proposal only, out of scope for NDCH_018_GRAVITAS's first landing"
+  }
+}
