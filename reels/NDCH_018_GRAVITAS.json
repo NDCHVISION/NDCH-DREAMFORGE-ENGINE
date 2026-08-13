@@ -39,6 +39,9 @@
   "visual_register": "Field-Effect Forensics — dark engineered fragments in a void, evidence-only. No hero object, no visible source, no bodies. The organizing influence is never shown; it is read through material response only.",
   "style_id": "style_1_fractal",
   "finish_family_id": "fractal_cad_cold",
+  "visual_prompt": {
+    "primary_prompt": "NDCH DreamForge field-effect: palette lock #1A1A1A/#C6A94F/#F5F2EB/#DC143C only. Telemetry Gold is discontinuous surface-attached edge evidence only -- never a connecting line, solid fill, or visible source. No hero object, orb, halo, emblem, sacred geometry, or cosmic imagery. The organizing influence stays invisible, inferred only through material behavior. Interference Crimson restrained to rare small traces. Cold upper-left analytical light on a scattered field of rigid dark engineered fragments in a void."
+  },
   "format": {
     "target_duration_seconds": 45,
     "aspect_ratio": "9:16",
