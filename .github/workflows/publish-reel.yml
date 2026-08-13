@@ -106,7 +106,7 @@ jobs:
             echo "REEL_COVER_URL=$COVER_URL" >> "$GITHUB_ENV"
             echo "Cover URL set: $COVER_URL"
           else
-            echo "No cover_asset_path in spec or file missing â skipping cover upload"
+            echo "No cover_asset_path in spec or file missing - skipping cover upload"
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
