@@ -23,6 +23,10 @@ on:
         description: 'Set to any value (e.g. v3) to force fresh Runway clips. Leave blank to resume a crash.'
         required: false
         default: ''
+      skip_publish:
+        description: 'Generate only and hold for Director review -- do not publish to Instagram. Set to false to allow publish.'
+        required: false
+        default: 'true'
 
 jobs:
   generate-and-publish:
@@ -130,6 +134,7 @@ jobs:
           REEL_SPEC_PATH: ${{ inputs.reel_spec_path }}
 
       - name: Publish to Instagram
+        if: ${{ inputs.skip_publish != 'true' }}
         env:
           INSTAGRAM_PAGE_TOKEN:   ${{ secrets.INSTAGRAM_PAGE_TOKEN }}
           IG_BUSINESS_ACCOUNT_ID: "17841463257757058"
