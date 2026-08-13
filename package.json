@@ -7,13 +7,13 @@
   },
   "scripts": {
     "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts reel-validation.test.ts music-analysis.test.ts",
-    "music:analyze": "tsx --env-file=.env scripts/analyze-reel-music.ts",
+    "music:analyze": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env scripts/analyze-reel-music.ts; else exec tsx scripts/analyze-reel-music.ts; fi'",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "generate": "tsx --env-file=.env generate-reel.ts",
-    "publish": "tsx --env-file=.env publish-reel.ts"
+    "generate": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env generate-reel.ts; else exec tsx generate-reel.ts; fi'",
+    "publish": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env publish-reel.ts; else exec tsx publish-reel.ts; fi'"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
