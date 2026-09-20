@@ -22,7 +22,7 @@ jobs:
       ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       VOICE_ID: "C9Uh5MFptuXa176UlaXE"
-      MODEL_ID: "eleven_monolingual_v1"
+      MODEL_ID: "eleven_multilingual_v2"
       TTS_SPEED: "0.82"
 
     steps:
