@@ -49,10 +49,11 @@ jobs:
           synth_line () {
             local idx="$1"
             local text="$2"
+            local speed="${3:-$TTS_SPEED}"
             local raw="line${idx}_raw.mp3"
             local processed="line${idx}.mp3"
 
-            echo "Synthesizing line ${idx}: ${text}"
+            echo "Synthesizing line ${idx} (speed ${speed}): ${text}"
             HTTP_STATUS=$(curl -s -w "%{http_code}" -o "$raw" \
               -X POST "https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}?output_format=mp3_44100_192" \
               -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
@@ -65,7 +66,7 @@ jobs:
                   \"similarity_boost\": 0.8,
                   \"style\": 0.3,
                   \"use_speaker_boost\": true,
-                  \"speed\": ${TTS_SPEED}
+                  \"speed\": ${speed}
                 }
               }")
             if [ "$HTTP_STATUS" != "200" ]; then
@@ -86,7 +87,11 @@ jobs:
           synth_line 1 "Faith begins before certainty."
           synth_line 2 "Preparation gives possibility somewhere to land."
           synth_line 3 "What is built for one future may become capacity for another."
-          synth_line 4 "Not every preparation meets the future it imagined. It may still meet the future that comes."
+          # VO_04 at the restrained 0.82 rate runs ~8.8s but only ~6.0s remains before the
+          # 33.21s picture lock (start 27.2s). Speed raised to the minimum needed to fit the
+          # full canonical text without cutting it — reported as a deviation from the
+          # restrained rate used on lines 1-3.
+          synth_line 4 "Not every preparation meets the future it imagined. It may still meet the future that comes." 1.2
 
       - name: Place lines at canonical timecodes and build full VO track
         run: |
@@ -173,14 +178,29 @@ jobs:
           set -e
           ffmpeg -y -i original.mp4 -vn -acodec pcm_s16le -ar 44100 original_audio.wav
 
+          VO_TRACK_DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 vo_track.mp3)
+          echo "vo_track.mp3 duration before normalization: ${VO_TRACK_DUR}s (video: ${VIDEO_DUR}s)"
+          OVERRUN=$(echo "$VO_TRACK_DUR - $VIDEO_DUR" | bc)
+          if (( $(echo "$OVERRUN > 0.01" | bc -l) )); then
+            echo "WARNING: vo_track.mp3 still exceeds picture lock by ${OVERRUN}s after speed adjustment — this amount of speech will be trimmed from the very end of the final line to hold the 33.21s lock. This should be at or near zero; if not, the line needs a further speed increase, not a silent truncation."
+          fi
+
+          # Force the VO track to EXACTLY the video's duration before mixing — pad with
+          # silence if short (normal case), trim if long (only hits if speed correction
+          # above wasn't sufficient). Previously this used amix's duration=first against
+          # an ambient track that already matched the video, which silently discarded
+          # any VO tail past the video length with no warning. Both mix inputs are now
+          # guaranteed equal-length by construction, so amix cannot truncate either one.
+          ffmpeg -y -i vo_track.mp3 -af "apad,atrim=0:${VIDEO_DUR}" -ar 44100 -b:a 192k vo_track_locked.mp3
+
           DUCK_EXPR="between(t,${T1},${E1})+between(t,${T2},${E2})+between(t,${T3},${E3})+between(t,${T4},${E4})"
 
-          ffmpeg -y -i original_audio.wav -i vo_track.mp3 -filter_complex \
+          ffmpeg -y -i original_audio.wav -i vo_track_locked.mp3 -filter_complex \
             "[0:a]volume=0.5:enable='${DUCK_EXPR}'[amb]; \
-             [amb][1:a]amix=inputs=2:duration=first:normalize=0[mixed]" \
-            -map "[mixed]" -ar 44100 -b:a 192k mixed_audio.mp3
+             [amb][1:a]amix=inputs=2:duration=longest:normalize=0[mixed]" \
+            -map "[mixed]" -t "${VIDEO_DUR}" -ar 44100 -b:a 192k mixed_audio.mp3
 
-          echo "Mixed audio duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 mixed_audio.mp3)"
+          echo "Mixed audio duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 mixed_audio.mp3) (target: ${VIDEO_DUR}s)"
 
       - name: Mux VO-integrated audio onto the untouched picture lock
         run: |
