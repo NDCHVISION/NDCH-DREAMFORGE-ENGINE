@@ -85,7 +85,7 @@ jobs:
           }
 
           synth_line 1 "Faith begins before certainty."
-          synth_line 2 "Preparation gives possibility somewhere to land."
+          synth_line 2 "The work comes before the reason."
           synth_line 3 "What is built for one future may become capacity for another."
           # VO_04 now enters at 24.4s (moved earlier per direction) so it can run at the
           # same restrained 0.82 rate as lines 1-3 instead of being sped up to fit.
@@ -163,7 +163,7 @@ jobs:
               vo_track_duration: ($vodur|tonumber),
               lines: [
                 {id:"VO_01", start:($t1|tonumber), end:($e1|tonumber), duration:($d1|tonumber), text:"Faith begins before certainty."},
-                {id:"VO_02", start:($t2|tonumber), end:($e2|tonumber), duration:($d2|tonumber), text:"Preparation gives possibility somewhere to land."},
+                {id:"VO_02", start:($t2|tonumber), end:($e2|tonumber), duration:($d2|tonumber), text:"The work comes before the reason."},
                 {id:"VO_03", start:($t3|tonumber), end:($e3|tonumber), duration:($d3|tonumber), text:"What is built for one future may become capacity for another."},
                 {id:"VO_04", start:($t4|tonumber), end:($e4|tonumber), duration:($d4|tonumber), text:"Not every preparation meets the future it imagined. It may still meet the future that comes."}
               ]
@@ -208,14 +208,14 @@ jobs:
           ffmpeg -y -i original.mp4 -i mixed_audio.mp3 \
             -c:v copy -c:a aac -b:a 192k \
             -map 0:v:0 -map 1:a:0 \
-            NDCH_021_FAITH_VO_MASTER_V1.mp4
+            NDCH_021_FAITH_VO_MASTER_V2.mp4
 
-          echo "Final video duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 NDCH_021_FAITH_VO_MASTER_V1.mp4)"
+          echo "Final video duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 NDCH_021_FAITH_VO_MASTER_V2.mp4)"
           echo "Source video duration was: ${VIDEO_DUR}"
 
       - name: Upload VO master + timing report to release
         run: |
           TAG="${{ inputs.output_release_tag }}"
           gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "NDCH_021 FAITH — VO Master" --notes "VO-integrated working master. Picture lock preserved from ndch-021-vo-source."
-          gh release upload "$TAG" NDCH_021_FAITH_VO_MASTER_V1.mp4 vo_timing_report.json --clobber
+          gh release upload "$TAG" NDCH_021_FAITH_VO_MASTER_V2.mp4 vo_timing_report.json --clobber
           echo "Uploaded to release: ${TAG}"
