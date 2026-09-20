@@ -127,7 +127,10 @@ jobs:
             TAIL=0
           fi
 
-          floor () { awk -v v="$1" 'BEGIN { print (v < 0.05) ? 0.05 : v }'; }
+          # awk (not bc's raw string) does the final formatting: bc prints
+          # sub-1 values without a leading zero (".91" not "0.91"), which ffmpeg's
+          # -t parser rejects outright.
+          floor () { awk -v v="$1" 'BEGIN { printf "%.6f", (v < 0.05) ? 0.05 : v }'; }
           mksil () { ffmpeg -y -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t "$(floor "$1")" -ar 44100 -b:a 192k "$2"; }
 
           mksil "$T1" sil0.mp3
