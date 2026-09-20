@@ -87,11 +87,9 @@ jobs:
           synth_line 1 "Faith begins before certainty."
           synth_line 2 "Preparation gives possibility somewhere to land."
           synth_line 3 "What is built for one future may become capacity for another."
-          # VO_04 at the restrained 0.82 rate runs ~8.8s but only ~6.0s remains before the
-          # 33.21s picture lock (start 27.2s). Speed raised to the minimum needed to fit the
-          # full canonical text without cutting it — reported as a deviation from the
-          # restrained rate used on lines 1-3.
-          synth_line 4 "Not every preparation meets the future it imagined. It may still meet the future that comes." 1.2
+          # VO_04 now enters at 24.4s (moved earlier per direction) so it can run at the
+          # same restrained 0.82 rate as lines 1-3 instead of being sped up to fit.
+          synth_line 4 "Not every preparation meets the future it imagined. It may still meet the future that comes."
 
       - name: Place lines at canonical timecodes and build full VO track
         run: |
@@ -101,7 +99,7 @@ jobs:
           VIDEO_DUR="${VIDEO_DUR}"
           D1=$(dur line1.mp3); D2=$(dur line2.mp3); D3=$(dur line3.mp3); D4=$(dur line4.mp3)
 
-          T1=1.8; T2=6.8; T3=12.5; T4=27.2
+          T1=1.8; T2=6.8; T3=12.5; T4=24.4
 
           # Cascade: if a line overruns its target next-entry point, push the next
           # entry to (previous end + 0.1s) instead and log the deviation.
