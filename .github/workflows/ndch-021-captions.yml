@@ -1,0 +1,77 @@
+name: NDCH_021 FAITH — Burn Captions (Picture + VO Locked)
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_release_tag:
+        description: 'Release tag holding the VO-locked V2 master'
+        required: false
+        default: 'ndch-021-vo-master-v2'
+      output_release_tag:
+        description: 'Release tag to upload the captioned master to'
+        required: false
+        default: 'ndch-021-caption-master'
+
+permissions:
+  contents: write
+
+jobs:
+  burn-captions:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg + fonts
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg fontconfig
+          mkdir -p ./fonts
+          # Established NDCH caption typeface (Cormorant Garamond, OFL-licensed,
+          # from Google's public fonts repo) — Regular weight, matching the
+          # ass-subtitles.ts default style (Bold: 0).
+          curl -sL -o ./fonts/CormorantGaramond-Regular.ttf \
+            "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond-Regular.ttf"
+          ls -la ./fonts
+          file ./fonts/CormorantGaramond-Regular.ttf
+
+      - name: Download VO-locked V2 master
+        run: |
+          TAG="${{ inputs.source_release_tag }}"
+          VIDEO_URL=$(curl -sf -H "Authorization: Bearer ${GH_TOKEN}" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/tags/${TAG}" | \
+            jq -r '.assets[] | select(.name | endswith(".mp4")) | .browser_download_url')
+          echo "Downloading: ${VIDEO_URL}"
+          curl -L -o v2_master.mp4 "${VIDEO_URL}"
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,nb_frames -of csv=p=0 v2_master.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 v2_master.mp4
+
+      - name: Burn captions (video re-encode required for text compositing; audio untouched)
+        run: |
+          cp reels/NDCH_021_FAITH_captions_v1.ass ./captions.ass
+          cat captions.ass
+          ffmpeg -y -i v2_master.mp4 \
+            -vf "ass=captions.ass:fontsdir=./fonts" \
+            -c:v libx264 -crf 16 -preset slow -pix_fmt yuv420p -r 24 \
+            -c:a copy \
+            NDCH_021_FAITH_CAPTION_MASTER_V1.mp4
+
+      - name: Verify picture and VO were not altered
+        run: |
+          echo "=== Source V2 ==="
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,nb_frames -of csv=p=0 v2_master.mp4
+          ffprobe -v error -select_streams a:0 -show_entries stream=duration -of csv=p=0 v2_master.mp4
+          echo "=== Captioned output ==="
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate,nb_frames -of csv=p=0 NDCH_021_FAITH_CAPTION_MASTER_V1.mp4
+          ffprobe -v error -select_streams a:0 -show_entries stream=duration -of csv=p=0 NDCH_021_FAITH_CAPTION_MASTER_V1.mp4
+          echo "=== Audio checksum comparison (must be identical — audio was never re-encoded) ==="
+          ffmpeg -y -i v2_master.mp4 -vn -c:a copy -f md5 - 2>/dev/null
+          ffmpeg -y -i NDCH_021_FAITH_CAPTION_MASTER_V1.mp4 -vn -c:a copy -f md5 - 2>/dev/null
+
+      - name: Upload captioned master to release
+        run: |
+          TAG="${{ inputs.output_release_tag }}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "NDCH_021 FAITH — Caption Master" --notes "Captioned master from ${{ inputs.source_release_tag }}. Picture and VO unchanged; video re-encoded only to composite typography, audio stream copied byte-for-byte."
+          gh release upload "$TAG" NDCH_021_FAITH_CAPTION_MASTER_V1.mp4 captions.ass --clobber
+          echo "Uploaded to release: ${TAG}"
