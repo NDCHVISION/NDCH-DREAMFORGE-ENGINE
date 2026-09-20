@@ -1,0 +1,200 @@
+name: NDCH_021 FAITH — VO Insert (Picture-Locked)
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_release_tag:
+        description: 'Release tag holding the picture-locked source video'
+        required: false
+        default: 'ndch-021-vo-source'
+      output_release_tag:
+        description: 'Release tag to upload the VO-integrated master to'
+        required: false
+        default: 'ndch-021-vo-master'
+
+permissions:
+  contents: write
+
+jobs:
+  insert-vo:
+    runs-on: ubuntu-latest
+    env:
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      VOICE_ID: "C9Uh5MFptuXa176UlaXE"
+      MODEL_ID: "eleven_monolingual_v1"
+      TTS_SPEED: "0.82"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg bc
+
+      - name: Download picture-locked source video
+        run: |
+          TAG="${{ inputs.source_release_tag }}"
+          VIDEO_URL=$(curl -sf -H "Authorization: Bearer ${GH_TOKEN}" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/tags/${TAG}" | \
+            jq -r '.assets[] | select(.name | endswith(".mp4")) | .browser_download_url')
+          echo "Downloading: ${VIDEO_URL}"
+          curl -L -o original.mp4 "${VIDEO_URL}"
+          VIDEO_DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 original.mp4)
+          echo "VIDEO_DUR=${VIDEO_DUR}" >> "$GITHUB_ENV"
+          echo "Source video duration: ${VIDEO_DUR}s"
+
+      - name: Generate the 4 canonical VO lines via ElevenLabs
+        run: |
+          set -e
+          synth_line () {
+            local idx="$1"
+            local text="$2"
+            local raw="line${idx}_raw.mp3"
+            local processed="line${idx}.mp3"
+
+            echo "Synthesizing line ${idx}: ${text}"
+            HTTP_STATUS=$(curl -s -w "%{http_code}" -o "$raw" \
+              -X POST "https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}?output_format=mp3_44100_192" \
+              -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
+              -H "Content-Type: application/json" \
+              -d "{
+                \"text\": $(echo "$text" | jq -Rs .),
+                \"model_id\": \"${MODEL_ID}\",
+                \"voice_settings\": {
+                  \"stability\": 0.42,
+                  \"similarity_boost\": 0.8,
+                  \"style\": 0.3,
+                  \"use_speaker_boost\": true,
+                  \"speed\": ${TTS_SPEED}
+                }
+              }")
+            if [ "$HTTP_STATUS" != "200" ]; then
+              echo "ElevenLabs error (line ${idx}), HTTP ${HTTP_STATUS}:"
+              cat "$raw"
+              exit 1
+            fi
+
+            # Established NDCH post-processing chain: EQ (80Hz +3dB, 3kHz +2dB) + loudnorm -14 LUFS / -1.5 TP
+            ffmpeg -y -i "$raw" -af \
+              "equalizer=f=80:width_type=o:width=2:g=3,equalizer=f=3000:width_type=o:width=2:g=2,loudnorm=I=-14:TP=-1.5:LRA=11" \
+              -ar 44100 -b:a 192k "$processed"
+
+            local dur=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$processed")
+            echo "  -> ${processed}: ${dur}s"
+          }
+
+          synth_line 1 "Faith begins before certainty."
+          synth_line 2 "Preparation gives possibility somewhere to land."
+          synth_line 3 "What is built for one future may become capacity for another."
+          synth_line 4 "Not every preparation meets the future it imagined. It may still meet the future that comes."
+
+      - name: Place lines at canonical timecodes and build full VO track
+        run: |
+          set -e
+          dur () { ffprobe -v error -show_entries format=duration -of csv=p=0 "$1"; }
+
+          VIDEO_DUR="${VIDEO_DUR}"
+          D1=$(dur line1.mp3); D2=$(dur line2.mp3); D3=$(dur line3.mp3); D4=$(dur line4.mp3)
+
+          T1=1.8; T2=6.8; T3=12.5; T4=27.2
+
+          # Cascade: if a line overruns its target next-entry point, push the next
+          # entry to (previous end + 0.1s) instead and log the deviation.
+          E1=$(echo "$T1 + $D1" | bc)
+          if (( $(echo "$E1 > $T2" | bc -l) )); then
+            echo "ADJUST: line2 target ${T2}s pushed -> $(echo "$E1 + 0.1" | bc)s (line1 overran by $(echo "$E1 - $T2" | bc)s)"
+            T2=$(echo "$E1 + 0.1" | bc)
+          fi
+          E2=$(echo "$T2 + $D2" | bc)
+          if (( $(echo "$E2 > $T3" | bc -l) )); then
+            echo "ADJUST: line3 target ${T3}s pushed -> $(echo "$E2 + 0.1" | bc)s (line2 overran by $(echo "$E2 - $T3" | bc)s)"
+            T3=$(echo "$E2 + 0.1" | bc)
+          fi
+          E3=$(echo "$T3 + $D3" | bc)
+          if (( $(echo "$E3 > $T4" | bc -l) )); then
+            echo "ADJUST: line4 target ${T4}s pushed -> $(echo "$E3 + 0.1" | bc)s (line3 overran by $(echo "$E3 - $T4" | bc)s)"
+            T4=$(echo "$E3 + 0.1" | bc)
+          fi
+          E4=$(echo "$T4 + $D4" | bc)
+          TAIL=$(echo "$VIDEO_DUR - $E4" | bc)
+          if (( $(echo "$TAIL < 0" | bc -l) )); then
+            echo "WARNING: line4 end (${E4}s) exceeds picture lock (${VIDEO_DUR}s) — clamping tail silence to 0"
+            TAIL=0
+          fi
+
+          floor () { awk -v v="$1" 'BEGIN { print (v < 0.05) ? 0.05 : v }'; }
+          mksil () { ffmpeg -y -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t "$(floor "$1")" -ar 44100 -b:a 192k "$2"; }
+
+          mksil "$T1" sil0.mp3
+          mksil "$(echo "$T2 - $E1" | bc)" sil1.mp3
+          mksil "$(echo "$T3 - $E2" | bc)" sil2.mp3
+          mksil "$(echo "$T4 - $E3" | bc)" sil3.mp3
+          mksil "$TAIL" sil4.mp3
+
+          rm -f concat.txt
+          printf "file 'sil0.mp3'\n"  >> concat.txt
+          printf "file 'line1.mp3'\n" >> concat.txt
+          printf "file 'sil1.mp3'\n"  >> concat.txt
+          printf "file 'line2.mp3'\n" >> concat.txt
+          printf "file 'sil2.mp3'\n"  >> concat.txt
+          printf "file 'line3.mp3'\n" >> concat.txt
+          printf "file 'sil3.mp3'\n"  >> concat.txt
+          printf "file 'line4.mp3'\n" >> concat.txt
+          printf "file 'sil4.mp3'\n"  >> concat.txt
+          cat concat.txt
+
+          ffmpeg -y -f concat -safe 0 -i concat.txt -ar 44100 -b:a 192k vo_track.mp3
+          VO_DUR=$(dur vo_track.mp3)
+
+          jq -n \
+            --arg vdur "$VIDEO_DUR" --arg vodur "$VO_DUR" \
+            --arg t1 "$T1" --arg e1 "$E1" --arg d1 "$D1" \
+            --arg t2 "$T2" --arg e2 "$E2" --arg d2 "$D2" \
+            --arg t3 "$T3" --arg e3 "$E3" --arg d3 "$D3" \
+            --arg t4 "$T4" --arg e4 "$E4" --arg d4 "$D4" \
+            '{
+              video_duration: ($vdur|tonumber),
+              vo_track_duration: ($vodur|tonumber),
+              lines: [
+                {id:"VO_01", start:($t1|tonumber), end:($e1|tonumber), duration:($d1|tonumber), text:"Faith begins before certainty."},
+                {id:"VO_02", start:($t2|tonumber), end:($e2|tonumber), duration:($d2|tonumber), text:"Preparation gives possibility somewhere to land."},
+                {id:"VO_03", start:($t3|tonumber), end:($e3|tonumber), duration:($d3|tonumber), text:"What is built for one future may become capacity for another."},
+                {id:"VO_04", start:($t4|tonumber), end:($e4|tonumber), duration:($d4|tonumber), text:"Not every preparation meets the future it imagined. It may still meet the future that comes."}
+              ]
+            }' > vo_timing_report.json
+          cat vo_timing_report.json
+          echo "T1=$T1" >> "$GITHUB_ENV"; echo "E1=$E1" >> "$GITHUB_ENV"
+          echo "T2=$T2" >> "$GITHUB_ENV"; echo "E2=$E2" >> "$GITHUB_ENV"
+          echo "T3=$T3" >> "$GITHUB_ENV"; echo "E3=$E3" >> "$GITHUB_ENV"
+          echo "T4=$T4" >> "$GITHUB_ENV"; echo "E4=$E4" >> "$GITHUB_ENV"
+
+      - name: Duck native ambient audio under VO windows and mix
+        run: |
+          set -e
+          ffmpeg -y -i original.mp4 -vn -acodec pcm_s16le -ar 44100 original_audio.wav
+
+          DUCK_EXPR="between(t,${T1},${E1})+between(t,${T2},${E2})+between(t,${T3},${E3})+between(t,${T4},${E4})"
+
+          ffmpeg -y -i original_audio.wav -i vo_track.mp3 -filter_complex \
+            "[0:a]volume=0.5:enable='${DUCK_EXPR}'[amb]; \
+             [amb][1:a]amix=inputs=2:duration=first:normalize=0[mixed]" \
+            -map "[mixed]" -ar 44100 -b:a 192k mixed_audio.mp3
+
+          echo "Mixed audio duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 mixed_audio.mp3)"
+
+      - name: Mux VO-integrated audio onto the untouched picture lock
+        run: |
+          ffmpeg -y -i original.mp4 -i mixed_audio.mp3 \
+            -c:v copy -c:a aac -b:a 192k \
+            -map 0:v:0 -map 1:a:0 \
+            NDCH_021_FAITH_VO_MASTER_V1.mp4
+
+          echo "Final video duration: $(ffprobe -v error -show_entries format=duration -of csv=p=0 NDCH_021_FAITH_VO_MASTER_V1.mp4)"
+          echo "Source video duration was: ${VIDEO_DUR}"
+
+      - name: Upload VO master + timing report to release
+        run: |
+          TAG="${{ inputs.output_release_tag }}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "NDCH_021 FAITH — VO Master" --notes "VO-integrated working master. Picture lock preserved from ndch-021-vo-source."
+          gh release upload "$TAG" NDCH_021_FAITH_VO_MASTER_V1.mp4 vo_timing_report.json --clobber
+          echo "Uploaded to release: ${TAG}"
