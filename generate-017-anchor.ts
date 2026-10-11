@@ -1,4 +1,5 @@
 #!/usr/bin/env npx tsx
+/* eslint-disable @typescript-eslint/no-explicit-any -- one-off NDCH_017 anchor script; Runway task payloads are untyped */
 /**
  * NDCH-017 Director's Cut — S1 Anchor Still Generator
  * Anchor v14
@@ -128,7 +129,7 @@ async function uploadAsset(data: Buffer, filename: string): Promise<string> {
   const upRes = await fetch(uploadUrl, {
     method:  'POST',
     headers: { ...ghHeaders, 'Content-Type': 'image/jpeg', 'Content-Length': String(data.length) },
-    body:    data,
+    body:    new Uint8Array(data),
   });
   if (!upRes.ok) throw new Error(`Upload failed ${upRes.status}: ${await upRes.text()}`);
   const uploaded = await upRes.json() as { browser_download_url: string };

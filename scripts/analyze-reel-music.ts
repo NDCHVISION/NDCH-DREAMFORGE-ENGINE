@@ -110,7 +110,6 @@ function extractReelMusicSpec(reelPath: string): ReelMusicSpec {
   const segNames = (frameGeom?.['segment_id_order'] as string[] | undefined) ?? ['hook', 'build', 'pivot', 'resolution', 'mobius_close'];
 
   const soundDir = raw['sound_direction'] as Record<string, unknown> | undefined;
-  const voiceDir = raw['voice_direction'] as Record<string, unknown> | undefined;
   const emTemp = soundDir?.['emotional_temperature'] as Record<string, unknown> | undefined;
   const antiDesc = (emTemp?.['anti_descriptors'] as string[] | undefined) ?? [];
 

@@ -379,9 +379,9 @@ function burnCaptions(videoPath: string, srtPath: string): void {
   );
   // Replace original with captioned version
   if (existsSync(tmp)) {
-    try { unlinkSync(videoPath); } catch {}
+    try { unlinkSync(videoPath); } catch { /* already gone */ }
     execSync(`ffmpeg -y -i "${tmp}" -c copy "${videoPath}"`, { stdio: 'pipe' });
-    try { unlinkSync(tmp); } catch {}
+    try { unlinkSync(tmp); } catch { /* best-effort cleanup */ }
   }
 }
 

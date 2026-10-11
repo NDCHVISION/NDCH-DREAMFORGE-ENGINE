@@ -9,7 +9,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execSync } from 'node:child_process';
-import { writeFileSync, unlinkSync, existsSync, mkdirSync } from 'node:fs';
+import { unlinkSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
@@ -29,7 +29,6 @@ import {
 
 import { selectMusicWindow } from './lib/audio/select-music-window.ts';
 import { buildMixPlan } from './lib/audio/build-mix-plan.ts';
-import { validateFinalMix } from './lib/audio/validate-final-mix.ts';
 
 import type { ReelMusicSpec, TrackAnalysis, DoctrineProfile } from './lib/audio/types.ts';
 
