@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_028_ECLIPSE",
+  "episode_name": "ECLIPSE",
+  "title_hook": "Being overshadowed isn't disappearing.",
+  "concept": "The eclipse - only in the dark can the corona be seen",
+  "theme": "Obscurity reveals what you are made of.",
+  "quote": "The shadow passes. The fire does not.",
+  "core_metaphor": "Total solar eclipse: the corona invisible until the light is covered.",
+  "emotional_arc": "eclipse -> revelation -> endurance -> return",
+  "music_mood": "electronica",
+  "palette": {
+    "base": "#050508",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the black lunar disc",
+  "primary_prompt": "9:16 vertical cinematic sequence: a moon sliding across a blazing gold sun in deep space, totality revealing a delicate bone-white corona and crimson prominences, holding in the dark, then a diamond-ring flash as the light returns.",
+  "segments": {
+    "hook": {
+      "text": "You think being overshadowed means you disappeared. Look closer.",
+      "visual": "9:16 vertical, deep space black (#050508): a blazing gold (#C6A94F) sun, the dark disc of a moon sliding slowly across it. The light dims frame by frame. Camera static, center frame, symmetrical."
+    },
+    "build": {
+      "text": "When the moon covers the sun, the world goes dark. Only then can you see the corona. The fire that was always there.",
+      "visual": "Totality: the sun fully covered and a delicate bone-white (#F5F2EB) corona erupting outward in fine filaments around the black disc, flickering with slow plasma motion. Awe, silence, extreme detail."
+    },
+    "pivot": {
+      "text": "The season that hides you is the season that shows you what you are made of.",
+      "visual": "Slow push-in on the corona's edge: a solar prominence arcs outward in crimson (#DC143C) and gold, enormous and alive, visible only because of the darkness. Cosmic scale, high contrast."
+    },
+    "resolution": {
+      "text": "Stay lit in the dark. Keep burning while nobody is looking. The shadow passes. The fire does not.",
+      "visual": "Medium shot: the corona holds steady and bright around the dark disc as stars appear around it. Camera holds, then drifts a few degrees. Calm, powerful, patient."
+    },
+    "mobius_close": {
+      "text": "Because one day the light comes back, and everyone will finally see what you...",
+      "visual": "The moon begins to slide away and a diamond-ring flash of gold light breaks out at the edge, flooding the frame, returning toward the opening geometry. Unresolved."
+    }
+  },
+  "highlight_words": [
+    "light",
+    "corona",
+    "fire",
+    "shadow"
+  ],
+  "peak_words": [
+    "dark",
+    "burning"
+  ],
+  "caption": "Only in the dark can you see the corona. Keep burning while nobody's looking. The shadow passes.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#perseverance"
+  ]
+}

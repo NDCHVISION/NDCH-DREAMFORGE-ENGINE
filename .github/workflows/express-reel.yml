@@ -1,0 +1,204 @@
+name: Express Reel (render only, no publish)
+
+# One click → one finished reel to download. Never publishes anywhere.
+#
+#   Actions → "Express Reel" → Run workflow
+#     seed:  leave blank to render the next unrendered seed in reels/express/seeds/
+#     music: auto  = pick the best 45s window from the Suno tracks in the
+#                    "suno-library" release (falls back to ElevenLabs ambience if empty)
+#            ambient = ElevenLabs ambience only
+#            none    = voice only
+#
+# Output: a release named express-<REEL_ID> with
+#   <REEL_ID>_FINAL.mp4   (with Suno music when available)
+#   <REEL_ID>_caption.txt (title + caption + hashtags, ready to paste)
+# and the reel is logged in reels/express/rendered.json so it isn't rendered twice.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: 'Seed path (blank = next unrendered seed)'
+        required: false
+        default: ''
+      music:
+        description: 'auto | ambient | none'
+        required: false
+        default: 'auto'
+      cache_bust:
+        description: 'Any value forces fresh Runway clips (blank = resume a crashed run)'
+        required: false
+        default: ''
+
+concurrency:
+  group: express-reel
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies and tools
+        run: |
+          npm ci
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg jq
+          # Brand subtitle font (Cormorant Garamond) for libass burn-in.
+          mkdir -p assets/fonts
+          for w in Regular Medium Bold; do
+            curl -fsSL -o "assets/fonts/CormorantGaramond-$w.ttf" \
+              "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond-$w.ttf" \
+              || rm -f "assets/fonts/CormorantGaramond-$w.ttf"
+          done
+          ls -la assets/fonts
+
+      - name: Pick and build the seed
+        id: seed
+        run: |
+          SEED="${{ inputs.seed }}"
+          if [ -z "$SEED" ]; then
+            SEED=$(npx tsx scripts/express-build.ts --next)
+          fi
+          SPEC=$(npx tsx scripts/express-build.ts "$SEED" | tail -1)
+          REEL_ID=$(jq -r .reel_id "$SPEC")
+          TITLE=$(jq -r .express.title "$SPEC")
+          echo "seed=$SEED"       >> "$GITHUB_OUTPUT"
+          echo "spec=$SPEC"       >> "$GITHUB_OUTPUT"
+          echo "reel_id=$REEL_ID" >> "$GITHUB_OUTPUT"
+          echo "title=$TITLE"     >> "$GITHUB_OUTPUT"
+          echo "Rendering $REEL_ID — $TITLE"
+
+      - name: Fetch Suno library
+        id: suno
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/suno
+          COUNT=0
+          if [ "${{ inputs.music }}" = "auto" ]; then
+            gh release download suno-library -p "*.mp3" -D /tmp/suno 2>/dev/null || true
+            COUNT=$(ls /tmp/suno/*.mp3 2>/dev/null | wc -l)
+          fi
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Suno tracks available: $COUNT"
+
+      - name: Prepare render spec
+        id: render_spec
+        run: |
+          SPEC="${{ steps.seed.outputs.spec }}"
+          OUT=/tmp/render-spec.json
+          if [ "${{ steps.suno.outputs.count }}" != "0" ] || [ "${{ inputs.music }}" = "none" ]; then
+            # Suno is mixed afterwards (or no music wanted): stop the generator adding ambience.
+            jq 'del(.music_config.description)' "$SPEC" > "$OUT"
+          else
+            cp "$SPEC" "$OUT"
+          fi
+          echo "path=$OUT" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Runway clip checkpoint
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            /tmp/runway-clip-checkpoint.json
+            /tmp/runway-0*.mp4
+          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
+          restore-keys: |
+            express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-
+
+      - name: Generate voiceover + video
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          RUNWAY_API_KEY:     ${{ secrets.RUNWAY_API_KEY }}
+          GITHUB_TOKEN:       ${{ secrets.GITHUB_TOKEN }}
+          REEL_SPEC_PATH:     ${{ steps.render_spec.outputs.path }}
+          REEL_RELEASE_TAG:   express-${{ steps.seed.outputs.reel_id }}
+          REEL_RELEASE_NAME:  'Express ${{ steps.seed.outputs.reel_id }}'
+          CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
+        run: npm run generate
+
+      - name: Save Runway clip checkpoint
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            /tmp/runway-clip-checkpoint.json
+            /tmp/runway-0*.mp4
+          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
+
+      - name: Mix best Suno window (music intelligence)
+        id: mix
+        if: ${{ steps.suno.outputs.count != '0' }}
+        run: |
+          FINAL=$(ls -t /tmp/final_subtitled.mp4 /tmp/final_branded.mp4 /tmp/final.mp4 2>/dev/null | head -1)
+          ARGS=""
+          for f in /tmp/suno/*.mp3; do ARGS="$ARGS --music $f"; done
+          OUTDIR="output/music_intelligence/${{ steps.seed.outputs.reel_id }}"
+          npx tsx scripts/analyze-reel-music.ts \
+            --reel "${{ steps.seed.outputs.spec }}" \
+            --video "$FINAL" \
+            --voice /tmp/voiceover.mp3 \
+            --output "$OUTDIR" $ARGS
+          MIXED=$(ls "$OUTDIR"/*_final_mixed.mp4 | head -1)
+          echo "mixed=$MIXED" >> "$GITHUB_OUTPUT"
+          echo "## Music selection" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          head -40 "$OUTDIR/MUSIC_REPORT.txt" >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload final video + caption
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ID="${{ steps.seed.outputs.reel_id }}"
+          SPEC="${{ steps.seed.outputs.spec }}"
+          TAG="express-$ID"
+          MIXED="${{ steps.mix.outputs.mixed }}"
+          if [ -n "$MIXED" ] && [ -f "$MIXED" ]; then
+            SRC="$MIXED"
+          else
+            SRC=$(ls -t /tmp/final_subtitled.mp4 /tmp/final_branded.mp4 /tmp/final.mp4 2>/dev/null | head -1)
+          fi
+          cp "$SRC" "/tmp/${ID}_FINAL.mp4"
+          {
+            echo "TITLE (YouTube):"
+            jq -r .express.title "$SPEC"
+            echo
+            echo "CAPTION (Instagram / YouTube description):"
+            jq -r .instagram_config.caption "$SPEC"
+          } > "/tmp/${ID}_caption.txt"
+          gh release upload "$TAG" "/tmp/${ID}_FINAL.mp4" "/tmp/${ID}_caption.txt" --clobber
+          URL=$(gh release view "$TAG" --json url -q .url)
+          {
+            echo "## ✅ $ID ready to post"
+            echo "**Title:** ${{ steps.seed.outputs.title }}"
+            echo ""
+            echo "Download the video and caption here: $URL"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Log rendered reel
+        run: |
+          LOG=reels/express/rendered.json
+          [ -f "$LOG" ] || echo '[]' > "$LOG"
+          jq --arg id "${{ steps.seed.outputs.reel_id }}" \
+             --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+             --arg run "${{ github.run_id }}" \
+             --arg music "${{ steps.mix.outputs.mixed != '' && 'suno' || inputs.music }}" \
+             '. + [{reel_id: $id, rendered_at: $at, run_id: $run, music: $music}]' "$LOG" > /tmp/log.json
+          mv /tmp/log.json "$LOG"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$LOG"
+          git commit -m "express: rendered ${{ steps.seed.outputs.reel_id }} [skip ci]"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push

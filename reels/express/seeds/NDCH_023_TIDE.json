@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_023_TIDE",
+  "episode_name": "TIDE",
+  "title_hook": "Stone doesn't lose to force. It loses to return.",
+  "concept": "The tide - stone yields not to the biggest wave but to the one that keeps returning",
+  "theme": "Return beats intensity.",
+  "quote": "Stone does not lose to force. It loses to return.",
+  "core_metaphor": "Ocean tide versus basalt cliff: erosion by repetition, not impact.",
+  "emotional_arc": "frustration -> recognition -> patience -> quiet inevitability",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#0B1A24",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the black basalt cliff",
+  "primary_prompt": "9:16 vertical cinematic sequence: a towering black basalt cliff at night struck by a colossal wave that changes nothing, then tide cycles returning again and again, microscopic fractures yielding, ending with a carved sea arch in gold dawn light.",
+  "segments": {
+    "hook": {
+      "text": "You keep trying to break the wall in one wave. That is not how stone moves.",
+      "visual": "Extreme wide, 9:16 vertical: a single colossal wave rising in slow motion against a towering black basalt cliff (#0B1A24) at night. Bone-white (#F5F2EB) moonlight rims the crest. The wave detonates against the stone in hyper-detailed spray; the cliff does not move. Camera static, low angle."
+    },
+    "build": {
+      "text": "One wave is noise. The shore does not remember it. But the tide comes back. Twice a day. Every day. Without asking permission.",
+      "visual": "Time-lapse from a fixed vertical frame: the tide advancing and retreating across the cliff base again and again, day and night cycles flickering, gold (#C6A94F) sun glints on wet basalt each cycle. Fine mist, rhythmic, inevitable. No people."
+    },
+    "pivot": {
+      "text": "Stone does not lose to force. It loses to return. The ocean wins by refusing to stop arriving.",
+      "visual": "Macro slow push-in on the cliff face: microscopic fractures in the basalt glowing faint crimson (#DC143C) as seawater seeps in and withdraws. Grain by grain the stone gives way. Forensic detail, wet texture, cold light."
+    },
+    "resolution": {
+      "text": "So stop measuring the wave. Measure the return. Show up again tomorrow. Smaller if you must. But show up.",
+      "visual": "Medium shot rising slowly: a carved sea arch now stands where the cliff was solid, gold (#C6A94F) dawn light pouring through the opening onto calm water. Still, monumental, earned."
+    },
+    "mobius_close": {
+      "text": "Because the cliff is not waiting for your strongest day. It is waiting to see if you...",
+      "visual": "Wide shot, camera drifting forward over dark water toward a new unbroken basalt cliff at night, the next wave beginning to rise, bone-white (#F5F2EB) moonlight on the crest. Matches the opening geometry."
+    }
+  },
+  "highlight_words": [
+    "wave",
+    "tide",
+    "return",
+    "shore"
+  ],
+  "peak_words": [
+    "stop",
+    "again"
+  ],
+  "caption": "Intensity gets applause. Return gets results. The cliff doesn't fall to one wave. It falls to the tide that keeps coming back.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#consistency"
+  ]
+}

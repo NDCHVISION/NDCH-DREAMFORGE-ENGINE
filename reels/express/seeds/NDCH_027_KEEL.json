@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_027_KEEL",
+  "episode_name": "KEEL",
+  "title_hook": "Everyone admires the sail. The storm tests the keel.",
+  "concept": "The keel - what is below the waterline keeps you upright",
+  "theme": "Depth before speed.",
+  "quote": "Everyone admires the sail. The storm only tests the keel.",
+  "core_metaphor": "Sailboat in a storm: visible sail versus unseen keel.",
+  "emotional_arc": "exposure -> descent -> test -> steadiness",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#0A1418",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the bone-white sail",
+  "primary_prompt": "9:16 vertical cinematic sequence: a lone sailboat in a night storm, the camera descending below the chaotic surface to a deep heavy keel in calm dark water, a larger-sailed boat capsizing while the deep-keeled boat rights itself.",
+  "segments": {
+    "hook": {
+      "text": "Everyone admires the sail. The storm only tests the keel.",
+      "visual": "9:16 vertical, night storm at sea: a lone sailboat with a vast bone-white (#F5F2EB) sail lit by lightning, heeling hard in black water (#0A1418). Rain streaks, heavy swell. Camera low at water level, static."
+    },
+    "build": {
+      "text": "The part of you nobody sees is the part that keeps you upright. Your habits. Your word. What you do when the cameras are off.",
+      "visual": "Camera descends below the waterline in one continuous move: beneath the chaotic surface the water is calm and dark, and a long heavy keel extends deep, edged in thin gold (#C6A94F) light. Silent contrast between chaos above and stillness below."
+    },
+    "pivot": {
+      "text": "When the wind hits sideways, the boat with the bigger sail goes over first. The deeper keel stays.",
+      "visual": "Wide split-depth shot: a second boat with a larger sail capsizes in the background as a wave strikes, while the first boat leans and rights itself, its keel pivoting slowly underwater. Dramatic, physical, slow motion."
+    },
+    "resolution": {
+      "text": "So build down before you build up. Weight below the waterline. Character before attention. Depth before speed.",
+      "visual": "Underwater medium shot: the keel holding steady as currents stream past it, fine crimson (#DC143C) stress lines along its edge but no movement. Gold light filtering down from the surface. Calm, monumental."
+    },
+    "mobius_close": {
+      "text": "Because the storm is coming either way. The only question is what you have under...",
+      "visual": "Camera rises from the deep back toward the surface and the storm, breaking through into rain and the bone-white sail, matching the opening geometry. Unresolved."
+    }
+  },
+  "highlight_words": [
+    "keel",
+    "sail",
+    "storm",
+    "waterline"
+  ],
+  "peak_words": [
+    "stays",
+    "depth"
+  ],
+  "caption": "The part of you nobody sees is the part that keeps you upright. Build down before you build up.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#character"
+  ]
+}
