@@ -1,0 +1,416 @@
+{
+  "reel_id": "NDCH_028_ECLIPSE",
+  "engine_version": "2.1.0",
+  "reel_input": {
+    "note": "Express seed (reels/express/seeds). Descriptive only.",
+    "concept_seed": "The eclipse - only in the dark can the corona be seen",
+    "doctrine_theme": "Obscurity reveals what you are made of.",
+    "target_duration_seconds": 45
+  },
+  "concept": "The eclipse - only in the dark can the corona be seen",
+  "theme": "Obscurity reveals what you are made of.",
+  "core_metaphor": "Total solar eclipse: the corona invisible until the light is covered.",
+  "emotional_arc": "eclipse -> revelation -> endurance -> return",
+  "quote": "The shadow passes. The fire does not.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "note": "Locked geometry (TELEMETRY 014 law). validate-reel.ts enforces these for engine_version 2.1.0.",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45,
+    "segment_count": 5,
+    "segment_id_order": [
+      "hook",
+      "build",
+      "pivot",
+      "resolution",
+      "mobius_close"
+    ],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars before sending to Runway gen4.5. Keep each segment visual_prompt and compiled runway string <= 1000."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": [
+      "#050508",
+      "#C6A94F",
+      "#F5F2EB",
+      "#DC143C"
+    ],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "harsh rim",
+    "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
+    "recurring_element": "the black lunar disc",
+    "color_temperature": "cold (below 4000K)"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "The final clause stays open and resolves when the reel loops back to the hook.",
+    "loop_seam": "'see what you...' -> 'You think being overshadowed means you disappeared.'"
+  },
+  "loop_seam_validation": {
+    "note": "Contract the validator checks for engine_version 2.1.0.",
+    "text_seam_must_match": true,
+    "expected_text_seam": "...see what you... [LOOP] You think being overshadowed means you disappeared.",
+    "full_text_must_start_with": "You think being overshadowed means you disappeared.",
+    "full_text_must_end_with": "see what you..."
+  },
+  "timing_normalization": {
+    "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
+    "timeline_total_seconds": 45,
+    "tolerance_seconds": 0.5
+  },
+  "audio_sync_validation": {
+    "note": "Descriptive contract. Segment windows the compiled voiceover must align to.",
+    "boundary_tolerance_seconds": 0.5,
+    "expected_segment_boundaries_seconds": [
+      0,
+      6,
+      20,
+      29,
+      38,
+      45
+    ]
+  },
+  "voice_direction": {
+    "_status": "ADVISORY -- for future assemble-audio.ts Stage 9 integration. Current pipeline uses per-segment elevenlabs_payload overrides.",
+    "_law": "Orator Law: silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "global_rate": 0.82,
+    "character": "Documentary narrator. Not trailer narrator. Intimate, calm, observational. The doctrine is delivered as observation, not instruction.",
+    "breathing_points": [
+      {
+        "after": "You are building a cage out of certainty.",
+        "silence_ms": 600,
+        "visual_state": "Hook lands. The viewer is inside the cage before they know it. Give the line room."
+      },
+      {
+        "after": "That is the trap.",
+        "silence_ms": 850,
+        "visual_state": "Pivot diagnosis complete. The trap has been named. Viewer needs a beat before the doctrine arrives."
+      },
+      {
+        "after": "It rewards the capacity to bleed against the terrain.",
+        "silence_ms": 700,
+        "visual_state": "Central claim delivered. Terrain vs map. Let it sit before the directive begins."
+      },
+      {
+        "after": "Move.",
+        "silence_ms": 400,
+        "visual_state": "Single-word directive. The shortest sentence in the script. It must not be rushed past."
+      }
+    ],
+    "final_decay_ms": 2000,
+    "fragmentation_directive": "Resolution segment: 'Close the map. Enter the arena.' These are separate directives, not a flowing list. Each lands as a command. Hard stop between each."
+  },
+  "sound_direction": {
+    "_status": "v0.1-provisional -- 017-derived defaults. Override if this doctrine's emotional temperature requires it.",
+    "music_role": "tension",
+    "emotional_temperature": {
+      "primary": "cold",
+      "secondary": "mechanical",
+      "tertiary": "inevitable",
+      "anti_descriptors": [
+        "triumphant",
+        "inspirational",
+        "warm",
+        "melodic"
+      ]
+    },
+    "cinematic_layers": {
+      "layer_1_philosophy": "Voice. Documentary narrator. The doctrine is the intellectual foreground. Always forward.",
+      "layer_2_atmosphere": "Music. Sub-bass industrial drone. Answers: what emotional temperature does this doctrine exist in? Answer: cold machinery. Not pressure. Not urgency. The machine that doesn't care.",
+      "layer_3_space": "Silence. Between 'That is the trap.' and the pivot line, that silence is doing work. It is not empty."
+    },
+    "dynamic_profile": [
+      {
+        "section": "hook",
+        "music_directive": "restrained. Reference level, drone only.",
+        "voice_directive": "forward. Declarative, no warmth.",
+        "relationship": "Voice makes the accusation. Music confirms the cold."
+      },
+      {
+        "section": "build",
+        "music_directive": "slow mechanical rise. Sub-bass tightens incrementally.",
+        "voice_directive": "integrated. Accumulating rhythm mirrors the dopamine trap.",
+        "relationship": "Music and voice accelerate together toward the trap's reveal."
+      },
+      {
+        "section": "pivot",
+        "music_directive": "distortion surge at pivot onset, then duck to maximum clarity.",
+        "voice_directive": "unchanged. Maximum clarity. This is the terrain line.",
+        "relationship": "The surge marks the pivot. Then music recedes completely. Nothing competes with 'bleed against the terrain.'"
+      },
+      {
+        "section": "resolution",
+        "music_directive": "recover to reference level. Mechanical pulse returns.",
+        "voice_directive": "directive mode. Each sentence a separate command.",
+        "relationship": "Music confirms the directive is real. Not emotional. Operational."
+      },
+      {
+        "section": "mobius",
+        "music_directive": "BPM-locked cut at loop seam. No fade, no decay.",
+        "voice_directive": "decay. 'you are...' trails into silence.",
+        "relationship": "Voice exits. Music cuts at seam. Silence holds for the loop."
+      }
+    ],
+    "silence_function": {
+      "post_hook": "Cage is built. Viewer hasn't yet realized they're inside it.",
+      "post_trap": "Trap named. Nothing more is said. The diagnosis is complete.",
+      "post_directive": "'Move.' is a full stop. Not a transition.",
+      "loop_seam": "Grammatical and musical void. The loop resolves into 'You are not preparing.' which is not a resolution. It is a restart."
+    },
+    "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+  },
+  "visual_prompt": {
+    "primary_prompt": "9:16 vertical cinematic sequence: a moon sliding across a blazing gold sun in deep space, totality revealing a delicate bone-white corona and crimson prominences, holding in the dark, then a diamond-ring flash as the light returns.",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
+      "chromatic_boundaries": {
+        "base": "#050508",
+        "accent": "#C6A94F",
+        "light": "#F5F2EB",
+        "peak": "#DC143C"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing. Geometry must remain rigid.",
+        "NO floating particles or ambient debris unless specified.",
+        "NO lens flares unless tied to crimson interference event.",
+        "ALL transitions must be cut-hard or precision wipe. No dissolves.",
+        "Maintain 9:16 vertical framing at all times. No reframe."
+      ]
+    },
+    "color_palette": {
+      "base": "#050508",
+      "accent": "#C6A94F",
+      "light": "#F5F2EB",
+      "peak": "#DC143C"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate. 3-4px directional blur aligned to camera movement axis."
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    }
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You think being overshadowed means you disappeared. Look closer. When the moon covers the sun, the world goes dark. Only then can you see the corona. The fire that was always there. The season that hides you is the season that shows you what you are made of. Stay lit in the dark. Keep burning while nobody is looking. The shadow passes. The fire does not. Because one day the light comes back, and everyone will finally see what you...",
+      "mobius_note": "Final segment stays open: 'see what you...' resolves at loop restart with 'You think being overshadowed means you disappeared.'.",
+      "word_count": 80,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You think being overshadowed means you disappeared. Look closer.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "9:16 vertical, deep space black (#050508): a blazing gold (#C6A94F) sun, the dark disc of a moon sliding slowly across it. The light dims frame by frame. Camera static, center frame, symmetrical.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        },
+        {
+          "id": "build",
+          "text": "When the moon covers the sun, the world goes dark. Only then can you see the corona. The fire that was always there.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "Totality: the sun fully covered and a delicate bone-white (#F5F2EB) corona erupting outward in fine filaments around the black disc, flickering with slow plasma motion. Awe, silence, extreme detail.",
+          "frame_geometry": {
+            "subject_position": "lower-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "The season that hides you is the season that shows you what you are made of.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "Slow push-in on the corona's edge: a solar prominence arcs outward in crimson (#DC143C) and gold, enormous and alive, visible only because of the darkness. Cosmic scale, high contrast.",
+          "frame_geometry": {
+            "subject_position": "upper-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "flat 2D plane",
+            "camera_movement": "static locked"
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "Stay lit in the dark. Keep burning while nobody is looking. The shadow passes. The fire does not.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "Medium shot: the corona holds steady and bright around the dark disc as stars appear around it. Camera holds, then drifts a few degrees. Calm, powerful, patient.",
+          "frame_geometry": {
+            "subject_position": "lower-left-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "Because one day the light comes back, and everyone will finally see what you...",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "visual_prompt": "The moon begins to slide away and a diamond-ring flash of gold light breaks out at the edge, flooding the frame, returning toward the opening geometry. Unresolved.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.58,
+        "similarity_boost": 0.85,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.82
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0,
+        "note": "Final word trails into silence. Grammatically unresolved, inviting loop restart. Ellipsis drives the TTS decay."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#DC143C",
+    "highlight_words": [
+      "light",
+      "corona",
+      "fire",
+      "shadow"
+    ],
+    "peak_words": [
+      "dark",
+      "burning"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone. No subtitle content below 18% from bottom.",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
+      "animation": "word-by-word-appear",
+      "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "80-88",
+    "bpm_lock_point": 85,
+    "emotional_register": "tense anticipation",
+    "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
+    "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
+    "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
+    "suno_search_string": "dark minimal electronica instrumental sub-bass pulse analog synth 90bpm no vocals",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano"
+    ]
+  },
+  "music_config": {
+    "description": "Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. Low and steady for the hook, rising through the build, one clear lift at the 20s pivot, settling for the resolution, decaying into the loop. No vocals.",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "cover_export_directive": "remotion render src/Root.tsx CoverFrameOverlay public/cover.png --frame=600",
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": [
+          "300",
+          "500",
+          "700"
+        ],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "Only in the dark can you see the corona. Keep burning while nobody's looking. The shadow passes.\n\n#NDCH #NVSSeries #discipline #stoicism #mindset #selfimprovement #perseverance",
+    "hashtags": [
+      "#NDCH",
+      "#NVSSeries",
+      "#discipline",
+      "#stoicism",
+      "#mindset",
+      "#selfimprovement",
+      "#perseverance"
+    ],
+    "alt_text": "9:16 vertical cinematic sequence: a moon sliding across a blazing gold sun in deep space, totality revealing a delicate bone-white corona and crimson prominences, holding in the dark, then a diamond-r"
+  },
+  "cover_frame_timestamp": "0:20",
+  "express": {
+    "built_by": "scripts/express-build.ts",
+    "template": "NDCH_016_ILLUSION_OF_MOTION.json",
+    "episode_name": "ECLIPSE",
+    "title": "Being overshadowed isn't disappearing. | ECLIPSE",
+    "music_mood": "electronica",
+    "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
+  }
+}

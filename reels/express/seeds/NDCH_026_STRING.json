@@ -1,0 +1,60 @@
+{
+  "reel_id": "NDCH_026_STRING",
+  "episode_name": "STRING",
+  "title_hook": "Without tension, you make no sound.",
+  "concept": "The string - slack is free and silent, tension is what sings",
+  "theme": "Tension is the source of resonance.",
+  "quote": "The pressure you are begging to remove is the reason you resonate.",
+  "core_metaphor": "An instrument string: slack equals silence, tuned tension equals sound.",
+  "emotional_arc": "resistance -> stillness -> resonance -> controlled tension",
+  "music_mood": "electronica",
+  "palette": {
+    "base": "#0D0B12",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the single gold string",
+  "primary_prompt": "9:16 vertical cinematic sequence: a slack gold string lying silent in a black void snaps taut between two black geometric pegs and vibrates with visible standing waves, emitting rings of gold light, holding tension without breaking.",
+  "segments": {
+    "hook": {
+      "text": "You keep asking for less tension. Without it, you make no sound.",
+      "visual": "9:16 vertical, black void (#0D0B12): a single gold (#C6A94F) instrument string lying slack and curled on a dark matte surface, motionless. Thin bone-white (#F5F2EB) rim light from the upper left. Absolute stillness. Camera static, top-down."
+    },
+    "build": {
+      "text": "A string lying slack on the floor is free. It is also silent. It cannot carry a single note no matter how gently you touch it.",
+      "visual": "Slow macro tracking shot along the slack string: dull, unpolished, coiled. Dust settles on it. A band of light passes over it with no reflection and no vibration. Cold and inert."
+    },
+    "pivot": {
+      "text": "Pull it tight, and the same string sings. The pressure you are begging to remove is the reason you resonate.",
+      "visual": "The string snaps taut between two black geometric pegs and visible standing waves ripple along its length as it vibrates, emitting rings of gold light into the void. High-speed macro, crisp, electric."
+    },
+    "resolution": {
+      "text": "Do not loosen. Tune. Find the tension that holds without snapping, and play inside it.",
+      "visual": "Medium shot: the vibrating string glows evenly, tension visible as fine crimson (#DC143C) stress lines near the pegs, but holding. Camera drifts slowly along its length. Controlled, resonant, steady."
+    },
+    "mobius_close": {
+      "text": "Because a life with no pull on it is not peace. It is a string that never...",
+      "visual": "Wide shot: the vibration fades and the frame darkens until the string lies slack again on the dark surface, matching the opening geometry. Silent, unresolved."
+    }
+  },
+  "highlight_words": [
+    "tension",
+    "string",
+    "sound"
+  ],
+  "peak_words": [
+    "sings",
+    "resonate"
+  ],
+  "caption": "A slack string is free. It's also silent. Don't ask for less tension. Learn to tune it.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#resilience"
+  ]
+}

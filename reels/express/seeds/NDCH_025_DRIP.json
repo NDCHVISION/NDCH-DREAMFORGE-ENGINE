@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_025_DRIP",
+  "episode_name": "DRIP",
+  "title_hook": "Nobody sees the stone grow. Keep dripping.",
+  "concept": "The stalactite - pillars built one drop at a time in the dark",
+  "theme": "Invisible accumulation.",
+  "quote": "The pillar is not built on the day it is finished.",
+  "core_metaphor": "Cave water building stone columns: unmeasurable increments, inevitable structure.",
+  "emotional_arc": "doubt -> patience -> contact -> structure",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#14110F",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the single falling droplet",
+  "primary_prompt": "9:16 vertical cinematic sequence: a single droplet falling in a dark limestone cavern, thousands of drops stacking mineral in the same spot, stalactite and stalagmite fusing into one column, ending in a cathedral of finished pillars in gold light.",
+  "segments": {
+    "hook": {
+      "text": "Nobody sees the stone grow. That is why most people quit.",
+      "visual": "9:16 vertical, deep limestone cavern in near darkness (#14110F). A single droplet forms at the tip of a long stalactite, lit by one thin shaft of bone-white (#F5F2EB) light from above. Extreme slow motion as it falls. Camera static, low angle."
+    },
+    "build": {
+      "text": "A cave builds its pillars one drop at a time. One drop does nothing you can measure. Ten thousand drops do nothing you can see.",
+      "visual": "Macro: the droplet strikes a stalagmite tip and bursts into a crown of water, leaving a microscopic ring of gold (#C6A94F) mineral. Time-lapse of thousands of drops landing in the exact same spot, mineral layers stacking. Rhythmic, patient."
+    },
+    "pivot": {
+      "text": "Then one day the column touches the floor, and the cave has a spine it did not have before.",
+      "visual": "Slow upward tilt: stalactite and stalagmite meeting and fusing into a single continuous column, the joint glowing faint crimson (#DC143C) at the moment of contact. Monumental scale, wet stone texture, dust in the light shaft."
+    },
+    "resolution": {
+      "text": "Your reps are drops. Your pages are drops. Your quiet mornings are drops. Keep falling in the same place.",
+      "visual": "Wide shot: a cathedral-like cavern filled with finished stone columns, each catching gold (#C6A94F) light. Camera glides slowly between them. Silent, ancient, inevitable."
+    },
+    "mobius_close": {
+      "text": "Because the pillar is not built on the day it is finished. It is built every day you...",
+      "visual": "Camera rises back up to a single new droplet forming at the tip of a young stalactite in darkness, the bone-white (#F5F2EB) light shaft returning. Matches the opening frame."
+    }
+  },
+  "highlight_words": [
+    "drop",
+    "pillar",
+    "column",
+    "stone"
+  ],
+  "peak_words": [
+    "quit",
+    "same"
+  ],
+  "caption": "One drop does nothing you can measure. Ten thousand do nothing you can see. Then the column touches the floor.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#consistency"
+  ]
+}

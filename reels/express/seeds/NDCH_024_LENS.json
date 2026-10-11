@@ -1,0 +1,60 @@
+{
+  "reel_id": "NDCH_024_LENS",
+  "episode_name": "LENS",
+  "title_hook": "You're not short on energy. You're spread too thin.",
+  "concept": "The lens - scattered light warms, gathered light burns",
+  "theme": "Aperture, not effort.",
+  "quote": "Scattered, you feel busy. Focused, you become dangerous.",
+  "core_metaphor": "Sunlight through a lens: nothing added, everything gathered.",
+  "emotional_arc": "diffusion -> convergence -> ignition -> controlled fire",
+  "music_mood": "electronica",
+  "palette": {
+    "base": "#0A0A0F",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "the precision glass lens",
+  "primary_prompt": "9:16 vertical cinematic sequence: thousands of scattered gold light rays drifting in a black void converge through a flawless glass lens into one blazing point that smokes, ignites, and holds as a controlled flame.",
+  "segments": {
+    "hook": {
+      "text": "You are not short on energy. You are spread too thin to burn.",
+      "visual": "9:16 vertical, black void (#0A0A0F): thousands of thin gold (#C6A94F) light rays drifting in every direction like scattered filaments, weak and diffuse, none touching. Slow drift, cold, directionless. Camera static, center frame empty."
+    },
+    "build": {
+      "text": "The same sunlight that warms a field can set a single point on fire. Nothing was added. Nothing got stronger. It was gathered.",
+      "visual": "A precision glass lens rises into frame from below, flawless optical geometry. The scattered gold rays bend toward it one by one, converging through the glass. Clean refractions, bone-white (#F5F2EB) caustics on the lens rim. Smooth slow motion."
+    },
+    "pivot": {
+      "text": "Scattered, you feel busy. Focused, you become dangerous. The difference is not effort. It is aperture.",
+      "visual": "Extreme close-up of the focal point: all light compressed into a single blazing pinpoint on a dark matte surface. The surface begins to glow crimson (#DC143C), then a thin thread of smoke rises straight up. Macro, forensic, high contrast."
+    },
+    "resolution": {
+      "text": "Close the tabs. Drop the side quests. Pick the one point that matters and hold the light there until it smokes.",
+      "visual": "Medium shot: the pinpoint ignites into a small controlled flame on the black surface, steady and intense, gold light reflecting in the lens above. Camera slowly orbits a quarter turn. Calm, deliberate."
+    },
+    "mobius_close": {
+      "text": "Because the world does not reward how much light you have. It rewards where you...",
+      "visual": "Wide shot pulling back: the lens tilts and the light begins to scatter again into drifting gold filaments across the void, returning to the opening geometry. Cold, quiet, unresolved."
+    }
+  },
+  "highlight_words": [
+    "light",
+    "aperture",
+    "point"
+  ],
+  "peak_words": [
+    "burn",
+    "dangerous"
+  ],
+  "caption": "Same sunlight. Different result. Energy isn't your problem. Aperture is. Pick the point and hold the light there.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#discipline",
+    "#stoicism",
+    "#mindset",
+    "#selfimprovement",
+    "#focus"
+  ]
+}
