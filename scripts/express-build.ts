@@ -68,6 +68,8 @@ export interface ExpressSeed {
   peak_words: string[];
   caption: string;
   hashtags: string[];
+  /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
+  voice?: { voice_id?: string; stability?: number; speed?: number };
 }
 
 type Json = Record<string, unknown>;
@@ -240,6 +242,17 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
       segments,
     },
   };
+  if (seed.voice) {
+    const v = spec.voiceover as Json;
+    const cfg = structuredClone((v.elevenLabs_config as Json) ?? {});
+    const settings = { ...((cfg.voice_settings as Json) ?? {}) };
+    if (seed.voice.voice_id) cfg.voice_id = seed.voice.voice_id;
+    if (seed.voice.stability !== undefined)
+      settings.stability = seed.voice.stability;
+    if (seed.voice.speed !== undefined) settings.speed = seed.voice.speed;
+    cfg.voice_settings = settings;
+    v.elevenLabs_config = cfg;
+  }
 
   spec.subtitle_config = {
     ...((template.subtitle_config as Json) ?? {}),

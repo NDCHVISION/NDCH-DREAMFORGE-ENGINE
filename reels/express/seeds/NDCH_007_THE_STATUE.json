@@ -1,0 +1,56 @@
+{
+  "reel_id": "NDCH_007_THE_STATUE",
+  "episode_name": "THE STATUE",
+  "title_hook": "Not everything you carry belongs to you.",
+  "concept": "Michelangelo's David: carving away everything that isn't the masterpiece",
+  "theme": "The Art of Subtraction",
+  "quote": "Not everything you carry belongs to you. And not everything you lose is a loss.",
+  "core_metaphor": "You are not constructing a better self. You are removing what obscures the self that was already there.",
+  "emotional_arc": "burden -> fracture -> exposure -> recognition -> deliberate release",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "a single human figure in a nearly black sculpture gallery, emerging from charcoal-black granite",
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in a monumental, nearly black sculpture gallery: one adult human figure, natural proportions, relaxed arms, chin slightly lowered, encased in rough charcoal-black granite (#1A1A1A), lit by a narrow ivory beam. Physically plausible fractures release heavy granite under real gravity, revealing living human skin beneath. Antique-gold (#C6A94F) glints only inside fresh fractures; brief crimson (#DC143C) stress light precedes each break, never like blood or lava. The figure never becomes a gold statue. Ends with a fully living person who looks into the lens and takes one step forward. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose.",
+  "segments": {
+    "hook": {
+      "text": "You were told to become more. More disciplined. More impressive. More complete.",
+      "visual": "Absolute darkness, then a narrow shaft of ivory (#F5F2EB) light reveals one adult human figure, natural proportions, relaxed arms, chin slightly lowered, encased in rough charcoal-black granite (#1A1A1A), standing motionless in a monumental black gallery. Slow dolly forward. Three restrained impacts chip the forehead and cheek; a fleeting crimson (#DC143C) stress line precedes the last break and one living human eye appears, catching a muted antique-gold (#C6A94F) reflection. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose."
+    },
+    "build": {
+      "text": "So you kept adding. Until you could no longer recognize what was underneath. But a sculptor does not add the figure to the stone.",
+      "visual": "Intimate camera drift across heavy granite strata, scratches and mineral lines on one adult human figure, natural proportions, relaxed arms, chin slightly lowered, encased in rough charcoal-black granite (#1A1A1A); the stone feels oppressive and the person beneath is hard to see. Then front-facing: most of the face still stone, one living eye looking into the lens, a tiny fragment falling from the lips, a first breath disturbing suspended bone-white (#F5F2EB) dust. A shoulder fractures and a heavy slab drops to the floor, warm skin beneath a fading gold seam. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose."
+    },
+    "pivot": {
+      "text": "He removes what conceals it. The expectations. The performances. The identities you inherited without choosing.",
+      "visual": "Continuous push-in on one adult human figure, natural proportions, relaxed arms, chin slightly lowered, encased in rough charcoal-black granite (#1A1A1A), now cracking without any visible strike. A fracture travels across the chest and stone separates along its own weakness in a slow bloom of ivory dust. A section falls from the upper back, then the jaw: human lips emerge and the figure inhales. Granite slides off both shoulders like an unwanted garment; muted gold (#C6A94F) lights the fracture edges, then fades. Silhouette now unmistakably human. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose."
+    },
+    "resolution": {
+      "text": "Not everything you carry belongs to you. And not everything you lose is a loss.",
+      "visual": "Close on one living human hand holding a rough charcoal-black (#1A1A1A) stone fragment. The fingers deliberately open and release it; the fragment strikes the black floor in silence. Cut to the ankles: the last granite collars crack and fall, bare living feet settle onto the stone floor, ivory dust drifting down. Camera begins a slow, restrained rise. First act of choice, not force. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose."
+    },
+    "mobius_close": {
+      "text": "Some things have to fall away before you can finally become...",
+      "visual": "Intimate portrait of the fully revealed living person: real warm skin, subtle asymmetry, residual ivory (#F5F2EB) stone dust, no gold on the skin, granite rubble at their feet in the dark gallery. They take one quiet breath, look directly into the lens without smiling, and take exactly one deliberate step toward camera. The narrow ivory light beam narrows toward darkness, matching the opening frame. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose."
+    }
+  },
+  "highlight_words": ["stone", "sculptor", "removes", "carry"],
+  "peak_words": ["loss", "fall"],
+  "caption": "Some growth looks like addition.\n\nSome looks like removal.\n\nNot everything you carry belongs to you.\n\nAnd not everything you lose is a loss.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#SelfMastery",
+    "#Identity",
+    "#PersonalGrowth",
+    "#TheArtOfSubtraction"
+  ],
+  "voice": {
+    "voice_id": "ErXwobaYiN019PkySvjV",
+    "stability": 0.48
+  }
+}
