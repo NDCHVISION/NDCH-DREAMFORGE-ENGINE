@@ -56,11 +56,10 @@ jobs:
           sudo apt-get install -y ffmpeg jq
           # Brand subtitle font (Cormorant Garamond) for libass burn-in.
           mkdir -p assets/fonts
-          for w in Regular Medium Bold; do
-            curl -fsSL -o "assets/fonts/CormorantGaramond-$w.ttf" \
-              "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond-$w.ttf" \
-              || rm -f "assets/fonts/CormorantGaramond-$w.ttf"
-          done
+          # Google Fonts ships Cormorant Garamond as one variable font (all weights).
+          curl -fsSL -o "assets/fonts/CormorantGaramond-Variable.ttf" \
+            "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf" \
+            || rm -f "assets/fonts/CormorantGaramond-Variable.ttf"
           ls -la assets/fonts
 
       - name: Pick and build the seed
