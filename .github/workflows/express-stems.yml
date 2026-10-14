@@ -6,6 +6,11 @@ name: Express Stems (clean clips for post, no generation)
 # costs no credits and leaves the published voiceover untouched.
 
 on:
+  # Also runs when reels/express/stems-request.txt changes on main (one reel ID
+  # per file), so stems can be requested without the Actions UI.
+  push:
+    branches: [main]
+    paths: ['reels/express/stems-request.txt']
   workflow_dispatch:
     inputs:
       reel_id:
@@ -23,14 +28,32 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Validate reel id
+      - uses: actions/checkout@v4
+        if: github.event_name == 'push'
+
+      - name: Resolve and validate reel id
+        id: req
         env:
-          REEL_ID: ${{ inputs.reel_id }}
+          INPUT_REEL_ID: ${{ inputs.reel_id }}
+          INPUT_CACHE_BUST: ${{ inputs.cache_bust }}
         run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            REEL_ID=$(head -1 reels/express/stems-request.txt | tr -d '[:space:]')
+            CACHE_BUST=$(sed -n 2p reels/express/stems-request.txt | tr -d '[:space:]')
+          else
+            REEL_ID="$INPUT_REEL_ID"
+            CACHE_BUST="$INPUT_CACHE_BUST"
+          fi
           if ! printf '%s' "$REEL_ID" | grep -Eq '^[A-Za-z0-9_]+$'; then
             echo "reel_id must be letters, digits and underscores" >&2
             exit 1
           fi
+          if [ -n "$CACHE_BUST" ] && ! printf '%s' "$CACHE_BUST" | grep -Eq '^[A-Za-z0-9_.-]+$'; then
+            echo "cache_bust must be letters, digits, dot, dash or underscore" >&2
+            exit 1
+          fi
+          echo "reel_id=$REEL_ID" >> "$GITHUB_OUTPUT"
+          echo "cache_bust=${CACHE_BUST:-default}" >> "$GITHUB_OUTPUT"
 
       - name: Restore Runway clip checkpoint
         uses: actions/cache/restore@v4
@@ -38,16 +61,16 @@ jobs:
           path: |
             /tmp/runway-clip-checkpoint.json
             /tmp/runway-0*.mp4
-          key: express-clips-${{ inputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-stems-${{ github.run_id }}
+          key: express-clips-${{ steps.req.outputs.reel_id }}-${{ steps.req.outputs.cache_bust }}-stems-${{ github.run_id }}
           restore-keys: |
-            express-clips-${{ inputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-
+            express-clips-${{ steps.req.outputs.reel_id }}-${{ steps.req.outputs.cache_bust }}-
           fail-on-cache-miss: true
 
       - name: Upload clean clips to the reel's release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          REEL_ID: ${{ inputs.reel_id }}
+          REEL_ID: ${{ steps.req.outputs.reel_id }}
         run: |
           mkdir -p /tmp/stems
           i=0
