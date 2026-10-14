@@ -10,6 +10,7 @@ import {
 } from './scripts/express-build.ts';
 import { validateCompiledReel } from './reel-validation.ts';
 import { resolveProductionPlan } from './reel-plan.ts';
+import { planNarrationScenes } from './lib/scene-planning.ts';
 
 const TEMPLATE = JSON.parse(
   readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'),
@@ -25,6 +26,28 @@ function loadSeed(file: string): ExpressSeed {
 
 test('express: there is at least one seed queued', () => {
   assert.ok(seedFiles.length > 0);
+});
+
+test('express: THE STATUE keeps the adult clothed in every Runway scene', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  const clothing = 'fully clothed adult in a charcoal long-sleeved shirt and trousers';
+  assert.ok(seed.primary_prompt.includes(clothing));
+  assert.ok(seed.recurring_element.includes(clothing));
+
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_022_THE_STATUE.json') },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  const scenes = planNarrationScenes(plan.script, plan.prompt, 45, {
+    targetDurationSecs: plan.targetDurationSeconds,
+    narrationSegments: plan.narrationSegments,
+  });
+  assert.equal(scenes.length, 5);
+  for (const scene of scenes) {
+    assert.ok(scene.promptText.includes(clothing), `clip ${scene.clipIndex + 1}`);
+  }
+  assert.match(scenes[4].promptText, /Head-and-shoulders portrait/);
+  assert.doesNotMatch(scenes[4].promptText, /fully revealed|real warm skin/);
 });
 
 for (const file of seedFiles) {
