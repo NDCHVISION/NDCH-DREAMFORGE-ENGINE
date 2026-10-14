@@ -54,12 +54,8 @@ jobs:
           npm ci
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg jq
-          # Brand subtitle font (Cormorant Garamond) for libass burn-in.
-          mkdir -p assets/fonts
-          # Google Fonts ships Cormorant Garamond as one variable font (all weights).
-          curl -fsSL -o "assets/fonts/CormorantGaramond-Variable.ttf" \
-            "https://raw.githubusercontent.com/google/fonts/main/ofl/cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf" \
-            || rm -f "assets/fonts/CormorantGaramond-Variable.ttf"
+          # Brand subtitle font (Cormorant Garamond, static Regular, OFL) is vendored
+          # in assets/fonts: libass can't select the upstream variable font by family.
           ls -la assets/fonts
 
       - name: Pick and build the seed
