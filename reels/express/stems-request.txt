@@ -1,1 +1,2 @@
 NDCH_022_THE_STATUE
+# 2026-10-15: clips 2,4,5 regenerated with the locked character
