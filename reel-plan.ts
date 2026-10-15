@@ -303,6 +303,8 @@ export interface ResolvedProductionPlan {
   script: string;
   narrationSegments: ResolvedNarrationSegment[];
   prompt: string;
+  /** Locked on-screen person, prepended to every scene prompt (see scene-planning). */
+  character?: string;
   targetDurationSeconds?: number;
   elevenLabs: {
     voiceId?: string;
@@ -477,6 +479,7 @@ export function resolveProductionPlan(
     script,
     narrationSegments: enrichedSegments,
     prompt,
+    character: pickString(reelSpec, [['visual_prompt', 'character'], ['character']]),
     targetDurationSeconds,
     elevenLabs: {
       voiceId,

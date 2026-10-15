@@ -143,3 +143,32 @@ test('express: optional voice override replaces only the fields it names', () =>
   ).elevenLabs_config;
   assert.equal(plain.voice_id, 'C9Uh5MFptuXa176UlaXE');
 });
+
+test('express: a seed character line leads every Runway scene prompt', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  assert.ok(seed.character, 'THE STATUE locks its on-screen person');
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_022_THE_STATUE.json') },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  assert.equal(plan.character, seed.character);
+  const scenes = planNarrationScenes(plan.script, plan.prompt, 45, {
+    targetDurationSecs: plan.targetDurationSeconds,
+    narrationSegments: plan.narrationSegments,
+    character: plan.character,
+  });
+  for (const scene of scenes) {
+    assert.ok(
+      scene.promptText.startsWith(seed.character!),
+      `clip ${scene.clipIndex + 1} starts with the character line`,
+    );
+    assert.ok(scene.promptText.length <= 1000, `clip ${scene.clipIndex + 1} fits Runway's limit`);
+  }
+});
+
+test('express: seeds without a character line keep their prompts unchanged', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  delete seed.character;
+  const spec = buildReel(seed, TEMPLATE) as { visual_prompt: Record<string, unknown> };
+  assert.equal('character' in spec.visual_prompt, false);
+});

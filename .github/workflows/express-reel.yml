@@ -29,6 +29,10 @@ on:
         description: 'Any value forces fresh Runway clips (blank = resume a crashed run)'
         required: false
         default: ''
+      regen_clips:
+        description: 'Clip numbers to regenerate, keeping the other cached clips (e.g. 2,4,5)'
+        required: false
+        default: ''
 
 concurrency:
   group: express-reel
@@ -110,6 +114,30 @@ jobs:
           key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
           restore-keys: |
             express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-
+
+      - name: Drop clips marked for regeneration
+        if: ${{ inputs.regen_clips != '' }}
+        env:
+          REGEN_CLIPS: ${{ inputs.regen_clips }}
+        run: |
+          if ! printf '%s' "$REGEN_CLIPS" | grep -Eq '^[0-9]+(,[0-9]+)*$'; then
+            echo "regen_clips must be clip numbers separated by commas, e.g. 2,4,5" >&2
+            exit 1
+          fi
+          CP=/tmp/runway-clip-checkpoint.json
+          if [ ! -f "$CP" ]; then
+            echo "No cached clips found; every clip will be generated."
+            exit 0
+          fi
+          for n in $(printf '%s' "$REGEN_CLIPS" | tr ',' ' '); do
+            # Checkpoint keys are 0-based clip indexes; inputs are 1-based clip numbers.
+            idx=$((n - 1))
+            path=$(jq -r --arg k "$idx" '.[$k] // empty' "$CP")
+            [ -n "$path" ] && rm -f "$path"
+            jq --arg k "$idx" 'del(.[$k])' "$CP" > "$CP.tmp" && mv "$CP.tmp" "$CP"
+            echo "clip $n will be regenerated"
+          done
+          cat "$CP"
 
       - name: Generate voiceover + video
         env:

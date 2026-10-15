@@ -54,6 +54,11 @@ export interface SceneAllocationEntry {
 export interface ScenePlanningOptions {
   targetDurationSecs?: number;
   narrationSegments?: ResolvedNarrationSegment[];
+  /**
+   * Fixed description of the on-screen person, prepended verbatim to every
+   * scene prompt so separately generated clips cast the same person.
+   */
+  character?: string;
 }
 
 /**
@@ -584,6 +589,7 @@ export function buildSegmentPrompt(
   totalClips: number,
   promptOverride?: string,
   continuityMemory?: SceneContinuityMemory,
+  character?: string,
 ): string {
   const role = sceneRoleForIndex(clipIndex, totalClips);
   const directives = rolePromptDirectives(role);
@@ -614,11 +620,19 @@ export function buildSegmentPrompt(
     `Tone: ${combineDirective(directives.tone, contentDirectives.tone)}`,
     `Visual focus: ${sceneFocus}`,
   ].join(' ');
+  // The character line goes first and is never truncated by the base prompt:
+  // it is the only thing that keeps the same person across separate clips.
+  const characterLine = character
+    ? `${normalizeWhitespace(character).replace(/[.?!,;:\s]+$/, '')}. `
+    : '';
   const normalizedAnchor = normalizeWhitespace(basePrompt).replace(/[.?!,;:\s]+$/, '');
-  const maxAnchorLength = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - promptSuffix.length - 2);
+  const maxAnchorLength = Math.max(
+    0,
+    MAX_RUNWAY_PROMPT_CHARS - characterLine.length - promptSuffix.length - 2,
+  );
   const promptAnchor = normalizedAnchor.slice(0, maxAnchorLength);
   const assembled = promptAnchor ? `${promptAnchor}. ${promptSuffix}` : promptSuffix;
-  return assembled.slice(0, MAX_RUNWAY_PROMPT_CHARS);
+  return `${characterLine}${assembled}`.slice(0, MAX_RUNWAY_PROMPT_CHARS);
 }
 
 export function planClipDurations(audioDurationSecs: number, targetDurationSecs = audioDurationSecs): Array<5 | 10> {
@@ -854,6 +868,7 @@ export function planNarrationScenes(
       totalClips,
       promptOverride || undefined,
       priorContinuityMemory,
+      options.character,
     );
 
     // Update continuity memory so the next scene can reference this one.
