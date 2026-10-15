@@ -63,6 +63,11 @@ export interface ExpressSeed {
   palette: { base: string; accent: string; light: string; peak: string };
   primary_prompt: string;
   recurring_element: string;
+  /**
+   * Optional fixed description of the on-screen person (features, age,
+   * wardrobe), prepended to every clip prompt so all clips cast the same person.
+   */
+  character?: string;
   segments: Record<SegmentId, { text: string; visual: string }>;
   highlight_words: string[];
   peak_words: string[];
@@ -214,6 +219,7 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   spec.visual_prompt = {
     ...tmplVisual,
     primary_prompt: seed.primary_prompt.trim(),
+    ...(seed.character?.trim() ? { character: seed.character.trim() } : {}),
     color_palette: palette,
     global_visual_matrix: { ...tmplMatrix, chromatic_boundaries: palette },
   };

@@ -599,6 +599,7 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
   const scenePlan = planNarrationScenes(plan.script, plan.prompt, audioDurationSecs, {
     targetDurationSecs: plan.targetDurationSeconds,
     narrationSegments: plan.narrationSegments,
+    character: plan.character,
   });
   const sceneTimeline = buildSceneTimeline(scenePlan, plan.narrationSegments);
   const durations = scenePlan.map(scene => scene.clipDuration);
