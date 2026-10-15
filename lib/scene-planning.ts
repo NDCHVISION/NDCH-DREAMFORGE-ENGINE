@@ -582,6 +582,40 @@ export function extractContinuityMemory(
   return { visualFocus, ...(subject ? { primarySubject: subject } : {}) };
 }
 
+/** Cuts text to at most maxChars, ending on a word boundary. */
+function clipToWords(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  const cut = text.slice(0, maxChars);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > maxChars * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.?!,;:\s]+$/, '');
+}
+
+const CHARACTER_SCENE_MAX_CHARS = 420;
+
+/**
+ * Prompt layout when a seed locks its on-screen person. The generic
+ * composition/motion boilerplate is dropped so the budget goes to what each
+ * clip must show, in priority order: who (character), what happens (this
+ * scene's visual), where (the reel's base prompt, which carries the setting),
+ * then the scene cue.
+ */
+function buildCharacterLockedPrompt(
+  character: string,
+  sceneVisual: string,
+  baseAnchor: string,
+  cue: string,
+): string {
+  const strip = (t: string) => normalizeWhitespace(t).replace(/[.?!,;:\s]+$/, '');
+  const who = strip(character);
+  const what = clipToWords(strip(sceneVisual), CHARACTER_SCENE_MAX_CHARS);
+  const tail = ` ${cue}`;
+  const head = `${who}. Scene: ${what}. Setting: `;
+  const whereBudget = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - head.length - tail.length - 1);
+  const where = clipToWords(strip(baseAnchor), whereBudget);
+  const assembled = where ? `${head}${where}.${tail}` : `${who}. Scene: ${what}.${tail}`;
+  return assembled.slice(0, MAX_RUNWAY_PROMPT_CHARS);
+}
+
 export function buildSegmentPrompt(
   basePrompt: string,
   narrationChunk: string,
@@ -620,19 +654,21 @@ export function buildSegmentPrompt(
     `Tone: ${combineDirective(directives.tone, contentDirectives.tone)}`,
     `Visual focus: ${sceneFocus}`,
   ].join(' ');
-  // The character line goes first and is never truncated by the base prompt:
-  // it is the only thing that keeps the same person across separate clips.
-  const characterLine = character
-    ? `${normalizeWhitespace(character).replace(/[.?!,;:\s]+$/, '')}. `
-    : '';
   const normalizedAnchor = normalizeWhitespace(basePrompt).replace(/[.?!,;:\s]+$/, '');
-  const maxAnchorLength = Math.max(
-    0,
-    MAX_RUNWAY_PROMPT_CHARS - characterLine.length - promptSuffix.length - 2,
-  );
+
+  if (character) {
+    return buildCharacterLockedPrompt(
+      character,
+      promptOverride ?? narrationChunk,
+      normalizedAnchor,
+      `${sceneCue(clipIndex, totalClips)}. ${directives.roleLine}`,
+    );
+  }
+
+  const maxAnchorLength = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - promptSuffix.length - 2);
   const promptAnchor = normalizedAnchor.slice(0, maxAnchorLength);
   const assembled = promptAnchor ? `${promptAnchor}. ${promptSuffix}` : promptSuffix;
-  return `${characterLine}${assembled}`.slice(0, MAX_RUNWAY_PROMPT_CHARS);
+  return assembled.slice(0, MAX_RUNWAY_PROMPT_CHARS);
 }
 
 export function planClipDurations(audioDurationSecs: number, targetDurationSecs = audioDurationSecs): Array<5 | 10> {

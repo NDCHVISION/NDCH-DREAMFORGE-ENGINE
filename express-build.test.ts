@@ -163,7 +163,12 @@ test('express: a seed character line leads every Runway scene prompt', () => {
       `clip ${scene.clipIndex + 1} starts with the character line`,
     );
     assert.ok(scene.promptText.length <= 1000, `clip ${scene.clipIndex + 1} fits Runway's limit`);
+    // The setting and the scene's own action must survive alongside the character.
+    assert.match(scene.promptText, /sculpture gallery/, `clip ${scene.clipIndex + 1} keeps the setting`);
+    assert.match(scene.promptText, / Scene: /, `clip ${scene.clipIndex + 1} keeps its scene visual`);
   }
+  assert.match(scenes[3].promptText, /holding a rough charcoal-black \(#1A1A1A\) stone fragment/);
+  assert.match(scenes[1].promptText, /encased in rough charcoal-black granite/);
 });
 
 test('express: seeds without a character line keep their prompts unchanged', () => {
