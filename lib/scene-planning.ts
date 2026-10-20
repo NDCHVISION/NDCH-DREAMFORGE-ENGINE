@@ -59,6 +59,13 @@ export interface ScenePlanningOptions {
    * scene prompt so separately generated clips cast the same person.
    */
   character?: string;
+  /**
+   * Fixed description of the reel's recurring material and its light (colour,
+   * surface grain, light direction), prepended to every scene prompt so
+   * separately generated clips show the same physical stuff, e.g. shed stone
+   * that matches the monolith it came from.
+   */
+  material?: string;
 }
 
 /**
@@ -591,6 +598,16 @@ function clipToWords(text: string, maxChars: number): string {
 }
 
 const CHARACTER_SCENE_MAX_CHARS = 420;
+/** Room always left for the setting (base prompt) in the character layout. */
+const SETTING_MIN_CHARS = 160;
+/** The material line may not crowd out the scene or setting (see PR #57). */
+export const MATERIAL_MAX_CHARS = 220;
+
+function materialLead(material?: string): string {
+  if (!material?.trim()) return '';
+  const m = clipToWords(normalizeWhitespace(material).replace(/[.?!,;:\s]+$/, ''), MATERIAL_MAX_CHARS);
+  return m ? `Material: ${m}.` : '';
+}
 
 /**
  * Prompt layout when a seed locks its on-screen person. The generic
@@ -604,15 +621,21 @@ function buildCharacterLockedPrompt(
   sceneVisual: string,
   baseAnchor: string,
   cue: string,
+  material?: string,
 ): string {
   const strip = (t: string) => normalizeWhitespace(t).replace(/[.?!,;:\s]+$/, '');
   const who = strip(character);
-  const what = clipToWords(strip(sceneVisual), CHARACTER_SCENE_MAX_CHARS);
+  const mat = materialLead(material);
   const tail = ` ${cue}`;
-  const head = `${who}. Scene: ${what}. Setting: `;
+  const lead = mat ? `${who}. ${mat}` : `${who}.`;
+  // The setting always keeps SETTING_MIN_CHARS; the scene visual gives up room first.
+  const fixed = `${lead} Scene: . Setting: `.length + tail.length + 1;
+  const whatBudget = Math.max(120, Math.min(CHARACTER_SCENE_MAX_CHARS, MAX_RUNWAY_PROMPT_CHARS - fixed - SETTING_MIN_CHARS));
+  const what = clipToWords(strip(sceneVisual), whatBudget);
+  const head = `${lead} Scene: ${what}. Setting: `;
   const whereBudget = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - head.length - tail.length - 1);
   const where = clipToWords(strip(baseAnchor), whereBudget);
-  const assembled = where ? `${head}${where}.${tail}` : `${who}. Scene: ${what}.${tail}`;
+  const assembled = where ? `${head}${where}.${tail}` : `${lead} Scene: ${what}.${tail}`;
   return assembled.slice(0, MAX_RUNWAY_PROMPT_CHARS);
 }
 
@@ -624,6 +647,7 @@ export function buildSegmentPrompt(
   promptOverride?: string,
   continuityMemory?: SceneContinuityMemory,
   character?: string,
+  material?: string,
 ): string {
   const role = sceneRoleForIndex(clipIndex, totalClips);
   const directives = rolePromptDirectives(role);
@@ -662,12 +686,24 @@ export function buildSegmentPrompt(
       promptOverride ?? narrationChunk,
       normalizedAnchor,
       `${sceneCue(clipIndex, totalClips)}. ${directives.roleLine}`,
+      material,
     );
   }
 
-  const maxAnchorLength = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - promptSuffix.length - 2);
+  // Without a character, the material line takes the place of the generic
+  // lighting/atmosphere directive (same subject) and is clipped to the room
+  // that frees, so the setting anchor never shrinks.
+  let suffix = promptSuffix;
+  const lightingLine = `Lighting/atmosphere: ${combineDirective(directives.atmosphere, contentDirectives.atmosphere)}`;
+  if (material?.trim()) {
+    const label = 'Material and light: ';
+    const room = lightingLine.length - label.length;
+    const m = clipToWords(normalizeWhitespace(material).replace(/[.?!,;:\s]+$/, ''), Math.min(MATERIAL_MAX_CHARS, room));
+    if (m) suffix = promptSuffix.replace(lightingLine, `${label}${m}.`);
+  }
+  const maxAnchorLength = Math.max(0, MAX_RUNWAY_PROMPT_CHARS - suffix.length - 2);
   const promptAnchor = normalizedAnchor.slice(0, maxAnchorLength);
-  const assembled = promptAnchor ? `${promptAnchor}. ${promptSuffix}` : promptSuffix;
+  const assembled = promptAnchor ? `${promptAnchor}. ${suffix}` : suffix;
   return assembled.slice(0, MAX_RUNWAY_PROMPT_CHARS);
 }
 
@@ -905,6 +941,7 @@ export function planNarrationScenes(
       promptOverride || undefined,
       priorContinuityMemory,
       options.character,
+      options.material,
     );
 
     // Update continuity memory so the next scene can reference this one.

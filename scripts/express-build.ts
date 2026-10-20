@@ -68,6 +68,12 @@ export interface ExpressSeed {
    * wardrobe), prepended to every clip prompt so all clips cast the same person.
    */
   character?: string;
+  /**
+   * Optional fixed description of the recurring material and its light
+   * (colour, grain, light direction), prepended to every clip prompt so
+   * shed or broken pieces match their source across clips.
+   */
+  material?: string;
   segments: Record<SegmentId, { text: string; visual: string }>;
   highlight_words: string[];
   peak_words: string[];
@@ -220,6 +226,7 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     ...tmplVisual,
     primary_prompt: seed.primary_prompt.trim(),
     ...(seed.character?.trim() ? { character: seed.character.trim() } : {}),
+    ...(seed.material?.trim() ? { material: seed.material.trim() } : {}),
     color_palette: palette,
     global_visual_matrix: { ...tmplMatrix, chromatic_boundaries: palette },
   };

@@ -16,6 +16,7 @@
   },
   "recurring_element": "a single fully clothed adult in a charcoal long-sleeved shirt and trousers in a nearly black sculpture gallery, emerging from charcoal-black granite",
   "character": "The same person in every shot: a fully clothed adult in a charcoal long-sleeved shirt and trousers, a man in his early thirties with warm light-brown skin, dark brown eyes, short dark curly hair and a neatly trimmed short beard",
+  "material": "All stone is the same charcoal-black granite (#1A1A1A): matte, coarse mineral grain, sharp fractured edges, lit by one narrow overhead ivory beam with cool blue-grey shadows",
   "primary_prompt": "Restrained photorealistic 9:16 sequence in a monumental, nearly black sculpture gallery: one fully clothed adult in a charcoal long-sleeved shirt and trousers, natural proportions, relaxed arms, chin slightly lowered, encased in rough charcoal-black granite (#1A1A1A), lit by a narrow ivory beam. Physically plausible fractures release heavy granite under real gravity, revealing intact charcoal clothing beneath. Antique-gold (#C6A94F) glints only inside fresh fractures; brief crimson (#DC143C) stress light precedes each break, never like blood or lava. The figure never becomes a gold statue. Ends with a fully clothed living person who looks into the lens and takes one step forward. Photoreal, cinematic chiaroscuro, tactile mineral grain. No metallic skin, no glowing lava, no exploding debris, no superhero pose.",
   "segments": {
     "hook": {
