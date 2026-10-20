@@ -218,7 +218,8 @@
         "grain_type": "fine digital noise, HUD-matched"
       }
     },
-    "character": "The same person in every shot: a fully clothed adult in a charcoal long-sleeved shirt and trousers, a man in his early thirties with warm light-brown skin, dark brown eyes, short dark curly hair and a neatly trimmed short beard"
+    "character": "The same person in every shot: a fully clothed adult in a charcoal long-sleeved shirt and trousers, a man in his early thirties with warm light-brown skin, dark brown eyes, short dark curly hair and a neatly trimmed short beard",
+    "material": "All stone is the same charcoal-black granite (#1A1A1A): matte, coarse mineral grain, sharp fractured edges, lit by one narrow overhead ivory beam with cool blue-grey shadows"
   },
   "voiceover": {
     "script": {

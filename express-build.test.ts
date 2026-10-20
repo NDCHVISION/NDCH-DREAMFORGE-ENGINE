@@ -171,6 +171,68 @@ test('express: a seed character line leads every Runway scene prompt', () => {
   assert.match(scenes[1].promptText, /encased in rough charcoal-black granite/);
 });
 
+test('express: a seed material line follows the character in every Runway scene prompt', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  assert.ok(seed.material, 'THE STATUE locks its stone and light');
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_022_THE_STATUE.json') },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  assert.equal(plan.material, seed.material);
+  const scenes = planNarrationScenes(plan.script, plan.prompt, 45, {
+    targetDurationSecs: plan.targetDurationSeconds,
+    narrationSegments: plan.narrationSegments,
+    character: plan.character,
+    material: plan.material,
+  });
+  for (const scene of scenes) {
+    const n = scene.clipIndex + 1;
+    assert.ok(scene.promptText.startsWith(`${seed.character!}. Material: ${seed.material!}.`), `clip ${n} leads with who, then what it is made of`);
+    assert.ok(scene.promptText.length <= 1000, `clip ${n} fits Runway's limit`);
+    assert.match(scene.promptText, /sculpture gallery/, `clip ${n} keeps the setting`);
+    assert.match(scene.promptText, / Scene: /, `clip ${n} keeps its scene visual`);
+  }
+  assert.match(scenes[3].promptText, /holding a rough charcoal-black \(#1A1A1A\) stone fragment/);
+});
+
+test('express: an overlong material line is capped so the scene and setting survive', () => {
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_022_THE_STATUE.json') },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  const long = Array(120).fill('granite').join(' ');
+  for (const character of [plan.character, undefined]) {
+    const scenes = planNarrationScenes(plan.script, plan.prompt, 45, {
+      targetDurationSecs: plan.targetDurationSeconds,
+      narrationSegments: plan.narrationSegments,
+      character,
+      material: long,
+    });
+    for (const scene of scenes) {
+      const mat = /Material(?: and light)?: ([^.]*)\./.exec(scene.promptText);
+      assert.ok(mat && mat[1].length <= 220, 'material capped');
+      assert.ok(scene.promptText.length <= 1000);
+      assert.match(scene.promptText, /sculpture gallery/, 'setting survives');
+    }
+  }
+});
+
+test('express: seeds without a material line keep their prompts unchanged', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  delete seed.material;
+  const spec = buildReel(seed, TEMPLATE) as { visual_prompt: Record<string, unknown> };
+  assert.equal('material' in spec.visual_prompt, false);
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_022_THE_STATUE.json') },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  const opts = { targetDurationSecs: plan.targetDurationSeconds, narrationSegments: plan.narrationSegments, character: plan.character };
+  const a = planNarrationScenes(plan.script, plan.prompt, 45, opts);
+  const b = planNarrationScenes(plan.script, plan.prompt, 45, { ...opts, material: '' });
+  assert.deepEqual(a.map((s) => s.promptText), b.map((s) => s.promptText));
+  assert.doesNotMatch(a[0].promptText, /Material:/);
+});
+
 test('express: seeds without a character line keep their prompts unchanged', () => {
   const seed = loadSeed('NDCH_022_THE_STATUE.json');
   delete seed.character;
