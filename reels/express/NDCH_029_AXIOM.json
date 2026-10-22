@@ -272,7 +272,7 @@
           "text": "A story can shape what you see. It does not determine what is true. An axiom does not need permission to be true.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
-          "visual_prompt": "Clean lateral wide shot in a monumental circular hall of black veined marble and bronze: one fully clothed adult in a charcoal long-sleeved shirt and trousers stands upright on the marble floor beside a dark forged-iron plumb bob that hangs on one thin steel wire, a clear arm's length of empty space between him and the wire, both of his feet visible; his posture is as vertical as the line. He glances at it once, then walks out of frame at an unhurried pace without touching it. The plumb line stays perfectly still behind him. Narrow ivory beam. Photoreal, cinematic chiaroscuro. No rope, no noose, no hanging body, no superhero pose.",
+          "visual_prompt": "Lateral wide: he stands upright beside a slim dark iron plumb bob, a long tapered cone hanging dead still on a thin vertical wire two metres to his right; he looks at it, then walks out of frame left, unhurried. The wire never swings. No round ball, no pendulum, no rope.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
             "negative_space": "vast void occupying upper two-thirds",
