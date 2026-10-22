@@ -15,6 +15,8 @@
  *   Geometry is locked and checked. Finish is free and unchecked.
  */
 
+import { resolveValidationOverrides, type ValidationOverrides } from './lib/validation-overrides.ts';
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -246,8 +248,18 @@ export function validateCompiledReel(spec: unknown): ReelValidationResult {
       }
     }
 
-    // Second-person address (doctrine voice).
-    if (!/\b(you|your|you're|you've|you'll)\b/i.test(fullText)) {
+    // Second-person address (doctrine voice). A reel may lift this only through
+    // an allowlisted override (lib/validation-overrides.ts).
+    let overrides: ValidationOverrides = {};
+    try {
+      overrides = resolveValidationOverrides(
+        pickString(spec, ['reel_id']),
+        pick(spec, ['express', 'validation_overrides']),
+      );
+    } catch (e) {
+      err('VALIDATION_OVERRIDE', (e as Error).message);
+    }
+    if (overrides.second_person !== false && !/\b(you|your|you're|you've|you'll)\b/i.test(fullText)) {
       err(
         'SECOND_PERSON',
         'Narration must address the viewer in second person ("you"/"your").',

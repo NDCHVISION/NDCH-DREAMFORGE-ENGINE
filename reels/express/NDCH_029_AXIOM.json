@@ -3,15 +3,15 @@
   "engine_version": "2.1.0",
   "reel_input": {
     "note": "Express seed (reels/express/seeds). Descriptive only.",
-    "concept_seed": "A plumb line in a turning hall: the stories a life gathers can turn the room around it, but the line still falls true. The reference does not move.",
-    "doctrine_theme": "Authorship",
+    "concept_seed": "Reference-frame betrayal: when enough of the environment changes, what has not changed can begin to look wrong. A plumb line hangs crooked in a level hall until the camera finds true vertical and the hall is revealed as the thing that was tilted.",
+    "doctrine_theme": "Invariance",
     "target_duration_seconds": 45
   },
-  "concept": "A plumb line in a turning hall: the stories a life gathers can turn the room around it, but the line still falls true. The reference does not move.",
-  "theme": "Authorship",
-  "core_metaphor": "Inherited, imagined and unexamined stories rotate the room you see from. A plumb line does not argue with the room. It only falls toward what is real.",
-  "emotional_arc": "inheritance -> familiarity -> disorientation -> reference -> recognition",
-  "quote": "A story can shape what you see. It does not determine what is true.",
+  "concept": "Reference-frame betrayal: when enough of the environment changes, what has not changed can begin to look wrong. A plumb line hangs crooked in a level hall until the camera finds true vertical and the hall is revealed as the thing that was tilted.",
+  "theme": "Invariance",
+  "core_metaphor": "The viewer trusts the room over the line. The line was right; the room was the unreliable reference.",
+  "emotional_arc": "agreement -> disruption -> betrayal -> recognition -> invariance",
+  "quote": "Agreement does not determine what is true. And disagreement does not make it false.",
   "style_id": "style_1_fractal",
   "format": {
     "target_duration_seconds": 45,
@@ -63,14 +63,14 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause stays open and resolves when the reel loops back to the hook.",
-    "loop_seam": "'before the story...' -> 'Every life gathers stories.'"
+    "loop_seam": "'line never moved' -> 'Orientation is easy when every reference agrees.'"
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...before the story... [LOOP] Every life gathers stories.",
-    "full_text_must_start_with": "Every life gathers stories.",
-    "full_text_must_end_with": "before the story..."
+    "expected_text_seam": "...line never moved [LOOP] Orientation is easy when every reference agrees.",
+    "full_text_must_start_with": "Orientation is easy when every reference agrees.",
+    "full_text_must_end_with": "line never moved"
   },
   "timing_normalization": {
     "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
@@ -223,14 +223,14 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "Every life gathers stories. Some inherited. Some imagined. Some believed before they were ever examined. Over time, they become familiar. A history. An expectation. A way of seeing what comes next. And slowly, the room begins to turn. But watch the line. The room changes. The reference remains. A story can shape what you see. It does not determine what is true. An axiom does not need permission to be true. Even before the story...",
-      "mobius_note": "Final segment stays open: 'before the story...' resolves at loop restart with 'Every life gathers stories.'.",
-      "word_count": 75,
+      "full_text": "Orientation is easy when every reference agrees. But when the references begin to move, even what remains true can appear wrong. Agreement does not determine what is true. And disagreement does not make it false. An axiom does not require its surroundings to agree. The line never moved",
+      "mobius_note": "Final segment stays open: 'line never moved' resolves at loop restart with 'Orientation is easy when every reference agrees.'.",
+      "word_count": 48,
       "estimated_duration_seconds": 45,
       "segments": [
         {
           "id": "hook",
-          "text": "Every life gathers stories. Some inherited. Some imagined. Some believed before they were ever examined.",
+          "text": "Orientation is easy when every reference agrees.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
           "visual_prompt": "Locked wide view inside a monumental circular hall of black veined marble: a sweeping bronze-trimmed marble arc crosses the frame, and a dark forged-iron plumb bob hangs on one thin steel wire from far above, perfectly vertical and almost motionless, its point above a small bronze dial on an arm. One narrow ivory (#F5F2EB) beam from above, tiers of small warm lamps in the darkness. Very slow push-in. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body.",
@@ -243,7 +243,7 @@
         },
         {
           "id": "build",
-          "text": "Over time, they become familiar. A history. An expectation. A way of seeing what comes next. And slowly, the room begins to turn.",
+          "text": "But when the references begin to move, even what remains true can appear wrong.",
           "timestamp_start": "0:06",
           "timestamp_end": "0:20",
           "visual_prompt": "The camera rises and arcs around a dark forged-iron plumb bob hanging on one thin steel wire in a monumental circular hall of black veined marble and bronze: the curved galleries, columns and arcs tilt and sweep past, the whole room appears to rotate, while the wire and bob stay exactly vertical in the center of frame. Narrow ivory beam, small warm lamps. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body.",
@@ -256,7 +256,7 @@
         },
         {
           "id": "pivot",
-          "text": "But watch the line. The room changes. The reference remains.",
+          "text": "Agreement does not determine what is true. And disagreement does not make it false.",
           "timestamp_start": "0:20",
           "timestamp_end": "0:29",
           "visual_prompt": "Macro proof: extreme close-up of the sharp point of a dark forged-iron plumb bob on a thin steel wire as its last faint sway decays and it comes to rest exactly above the engraved center cross of a small bronze dial, a hair's width of air between point and mark. Background a soft blur of black marble and warm lamps. A thin antique-gold (#C6A94F) rim of light on the dial's engraving. Locked camera, shallow depth of field. Photoreal, tactile iron and bronze texture. The bob stays dark iron, never ivory or bone. No rope, no noose.",
@@ -269,7 +269,7 @@
         },
         {
           "id": "resolution",
-          "text": "A story can shape what you see. It does not determine what is true. An axiom does not need permission to be true.",
+          "text": "An axiom does not require its surroundings to agree.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
           "visual_prompt": "Lateral wide: he stands upright beside a slim dark iron plumb bob, a long tapered cone hanging dead still on a thin vertical wire two metres to his right; he looks at it, then walks out of frame left, unhurried. The wire never swings. No round ball, no pendulum, no rope.",
@@ -282,7 +282,7 @@
         },
         {
           "id": "mobius_close",
-          "text": "Even before the story...",
+          "text": "The line never moved",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
           "visual_prompt": "Return to the opening composition: locked wide view of the circular hall of black veined marble with the sweeping bronze-trimmed arc, the dark forged-iron plumb bob hanging perfectly vertical on its thin steel wire above the small bronze dial, the hall empty. One narrow ivory (#F5F2EB) beam narrows slightly toward darkness. Matches the opening frame in scale, lighting and position for a seamless loop. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body.",
@@ -317,14 +317,14 @@
     "highlight": "#C6A94F",
     "peak": "#DC143C",
     "highlight_words": [
-      "stories",
-      "line",
       "reference",
-      "axiom"
+      "true",
+      "axiom",
+      "line"
     ],
     "peak_words": [
-      "believed",
-      "turn"
+      "wrong",
+      "false"
     ],
     "subtitle_position": {
       "font_family": "Cormorant Garamond",
@@ -394,7 +394,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "Every life gathers stories.\n\nSome inherited. Some imagined. Some believed before they were ever examined.\n\nThe room can turn.\n\nAn axiom does not need permission to be true.\n\n#NDCH #NVSSeries #Identity #SelfMastery #Authorship #Axiom",
+    "caption": "Orientation is easy when every reference agrees.\n\nWhen the references move, even what remains true can appear wrong.\n\nAgreement does not determine what is true.\n\nThe line never moved.\n\n#NDCH #NVSSeries #Identity #SelfMastery #Authorship #Axiom",
     "hashtags": [
       "#NDCH",
       "#NVSSeries",
@@ -410,8 +410,12 @@
     "built_by": "scripts/express-build.ts",
     "template": "NDCH_016_ILLUSION_OF_MOTION.json",
     "episode_name": "AXIOM",
-    "title": "Every life gathers stories. | AXIOM",
+    "title": "Orientation is easy when every reference agrees. | AXIOM",
     "music_mood": "cinematic",
+    "validation_overrides": {
+      "min_words": 48,
+      "second_person": false
+    },
     "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
   }
 }

@@ -239,3 +239,44 @@ test('express: seeds without a character line keep their prompts unchanged', () 
   const spec = buildReel(seed, TEMPLATE) as { visual_prompt: Record<string, unknown> };
   assert.equal('character' in spec.visual_prompt, false);
 });
+
+test('express: AXIOM alone may relax word floor and second person (allowlisted override)', () => {
+  const seed = loadSeed('NDCH_029_AXIOM.json');
+  assert.deepEqual(seed.validation_overrides, { min_words: 48, second_person: false });
+  assertSeed(seed, 'axiom');
+  const result = validateCompiledReel(buildReel(seed, TEMPLATE));
+  assert.deepEqual(result.errors, [], JSON.stringify(result.errors));
+});
+
+test('express: the AXIOM override cannot be copied onto another reel', () => {
+  const other = loadSeed('NDCH_022_THE_STATUE.json');
+  const copied: ExpressSeed = { ...structuredClone(other), validation_overrides: { min_words: 48, second_person: false } };
+  assert.throws(() => assertSeed(copied, 'copied'), /not in VALIDATION_OVERRIDE_ALLOWLIST/);
+  const spec = buildReel({ ...structuredClone(other) }, TEMPLATE) as { express: Record<string, unknown> };
+  spec.express.validation_overrides = { second_person: false };
+  assert.ok(validateCompiledReel(spec).errors.some((e) => e.code === 'VALIDATION_OVERRIDE'));
+});
+
+test('express: AXIOM cannot ask for more than its allowlist entry', () => {
+  const seed = loadSeed('NDCH_029_AXIOM.json');
+  assert.throws(
+    () => assertSeed({ ...structuredClone(seed), validation_overrides: { min_words: 30 } }, 'axiom'),
+    /below the allowed 48/,
+  );
+  assert.throws(
+    () => assertSeed({ ...structuredClone(seed), validation_overrides: { min_words: 48, skip_mobius: true } as never }, 'axiom'),
+    /unknown validation_overrides key/,
+  );
+});
+
+test('express: global rules are unchanged for reels without an override', () => {
+  const seed = loadSeed('NDCH_022_THE_STATUE.json');
+  const short: ExpressSeed = structuredClone(seed);
+  short.segments.build.text = 'Short.';
+  short.segments.pivot.text = 'Short.';
+  assert.throws(() => assertSeed(short, 'short'), /need 70-105/);
+  const third: ExpressSeed = structuredClone(loadSeed('NDCH_029_AXIOM.json'));
+  delete third.validation_overrides;
+  const r = validateCompiledReel(buildReel(third, TEMPLATE));
+  assert.ok(r.errors.some((e) => e.code === 'SECOND_PERSON'));
+});

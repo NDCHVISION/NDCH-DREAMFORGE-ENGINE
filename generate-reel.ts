@@ -606,6 +606,20 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
   const durations = scenePlan.map(scene => scene.clipDuration);
   const plannedVisualSecs = durations.reduce((sum, d) => sum + d, 0);
 
+  // VOICE_ONLY=1: never call Runway. Every clip must already be cached (or
+  // preset); otherwise stop before spending anything.
+  if (process.env.VOICE_ONLY === '1') {
+    const cp = loadClipCheckpoint();
+    const missing = scenePlan
+      .map((_, idx) => idx)
+      .filter((idx) => !cp[idx] || !existsSync(cp[idx]));
+    if (missing.length) {
+      throw new Error(
+        `VOICE_ONLY: clip(s) ${missing.map((i) => i + 1).join(', ')} are not cached; refusing to generate video.`,
+      );
+    }
+  }
+
   // Preflight Runway credit check — only for clips not already in checkpoint.
   try {
     const preflightCheckpoint = loadClipCheckpoint();
