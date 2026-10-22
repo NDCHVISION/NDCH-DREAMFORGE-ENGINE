@@ -1,12 +1,12 @@
 {
   "reel_id": "NDCH_029_AXIOM",
   "episode_name": "AXIOM",
-  "title_hook": "Every life gathers stories.",
-  "concept": "A plumb line in a turning hall: the stories a life gathers can turn the room around it, but the line still falls true. The reference does not move.",
-  "theme": "Authorship",
-  "quote": "A story can shape what you see. It does not determine what is true.",
-  "core_metaphor": "Inherited, imagined and unexamined stories rotate the room you see from. A plumb line does not argue with the room. It only falls toward what is real.",
-  "emotional_arc": "inheritance -> familiarity -> disorientation -> reference -> recognition",
+  "title_hook": "Orientation is easy when every reference agrees.",
+  "concept": "Reference-frame betrayal: when enough of the environment changes, what has not changed can begin to look wrong. A plumb line hangs crooked in a level hall until the camera finds true vertical and the hall is revealed as the thing that was tilted.",
+  "theme": "Invariance",
+  "quote": "Agreement does not determine what is true. And disagreement does not make it false.",
+  "core_metaphor": "The viewer trusts the room over the line. The line was right; the room was the unreliable reference.",
+  "emotional_arc": "agreement -> disruption -> betrayal -> recognition -> invariance",
   "music_mood": "cinematic",
   "palette": {
     "base": "#1A1A1A",
@@ -17,32 +17,33 @@
   "recurring_element": "a dark forged-iron plumb bob on a thin steel wire hanging perfectly vertical in a monumental circular hall of black veined marble and bronze, while the architecture curves and turns around it",
   "character": "The same person in every shot: a fully clothed adult in a charcoal long-sleeved shirt and trousers, a man in his early thirties with warm light-brown skin, dark brown eyes, short dark curly hair and a neatly trimmed short beard",
   "material": "The plumb bob is dark forged iron with a bronze collar on one thin taut steel wire; the hall is black marble with pale veins, bronze rails and trim, lit by one narrow overhead ivory beam and small warm lamps",
+  "validation_overrides": {"min_words": 48, "second_person": false},
   "primary_prompt": "Restrained photorealistic 9:16 sequence in a monumental circular hall of black veined marble with bronze rails and tiers of small warm lamps: one dark forged-iron plumb bob with a bronze collar hangs on a single thin steel wire from far above, perfectly vertical and almost still, lit by one narrow ivory (#F5F2EB) beam. The architecture may curve, tilt and turn around it; the wire never leaves true vertical. The bob stays dark iron, never ivory, bone or gold. When the person appears he is upright and floor-supported, standing or walking naturally, always clear of the wire. Antique-gold (#C6A94F) only as thin rim light on bronze edges. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no knots, no hanging body, no chains, no superhero pose.",
   "segments": {
     "hook": {
-      "text": "Every life gathers stories. Some inherited. Some imagined. Some believed before they were ever examined.",
+      "text": "Orientation is easy when every reference agrees.",
       "visual": "Locked wide view inside a monumental circular hall of black veined marble: a sweeping bronze-trimmed marble arc crosses the frame, and a dark forged-iron plumb bob hangs on one thin steel wire from far above, perfectly vertical and almost motionless, its point above a small bronze dial on an arm. One narrow ivory (#F5F2EB) beam from above, tiers of small warm lamps in the darkness. Very slow push-in. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body."
     },
     "build": {
-      "text": "Over time, they become familiar. A history. An expectation. A way of seeing what comes next. And slowly, the room begins to turn.",
+      "text": "But when the references begin to move, even what remains true can appear wrong.",
       "visual": "The camera rises and arcs around a dark forged-iron plumb bob hanging on one thin steel wire in a monumental circular hall of black veined marble and bronze: the curved galleries, columns and arcs tilt and sweep past, the whole room appears to rotate, while the wire and bob stay exactly vertical in the center of frame. Narrow ivory beam, small warm lamps. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body."
     },
     "pivot": {
-      "text": "But watch the line. The room changes. The reference remains.",
+      "text": "Agreement does not determine what is true. And disagreement does not make it false.",
       "visual": "Macro proof: extreme close-up of the sharp point of a dark forged-iron plumb bob on a thin steel wire as its last faint sway decays and it comes to rest exactly above the engraved center cross of a small bronze dial, a hair's width of air between point and mark. Background a soft blur of black marble and warm lamps. A thin antique-gold (#C6A94F) rim of light on the dial's engraving. Locked camera, shallow depth of field. Photoreal, tactile iron and bronze texture. The bob stays dark iron, never ivory or bone. No rope, no noose."
     },
     "resolution": {
-      "text": "A story can shape what you see. It does not determine what is true. An axiom does not need permission to be true.",
+      "text": "An axiom does not require its surroundings to agree.",
       "visual": "Lateral wide: he stands upright beside a slim dark iron plumb bob, a long tapered cone hanging dead still on a thin vertical wire two metres to his right; he looks at it, then walks out of frame left, unhurried. The wire never swings. No round ball, no pendulum, no rope."
     },
     "mobius_close": {
-      "text": "Even before the story...",
+      "text": "The line never moved",
       "visual": "Return to the opening composition: locked wide view of the circular hall of black veined marble with the sweeping bronze-trimmed arc, the dark forged-iron plumb bob hanging perfectly vertical on its thin steel wire above the small bronze dial, the hall empty. One narrow ivory (#F5F2EB) beam narrows slightly toward darkness. Matches the opening frame in scale, lighting and position for a seamless loop. Photoreal, cinematic chiaroscuro, tactile marble and iron texture. No rope, no noose, no hanging body."
     }
   },
-  "highlight_words": ["stories", "line", "reference", "axiom"],
-  "peak_words": ["believed", "turn"],
-  "caption": "Every life gathers stories.\n\nSome inherited. Some imagined. Some believed before they were ever examined.\n\nThe room can turn.\n\nAn axiom does not need permission to be true.",
+  "highlight_words": ["reference", "true", "axiom", "line"],
+  "peak_words": ["wrong", "false"],
+  "caption": "Orientation is easy when every reference agrees.\n\nWhen the references move, even what remains true can appear wrong.\n\nAgreement does not determine what is true.\n\nThe line never moved.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",

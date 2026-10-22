@@ -19,6 +19,7 @@
  * the build fails loudly if the validator reports any error).
  */
 
+import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -68,6 +69,11 @@ export interface ExpressSeed {
    * wardrobe), prepended to every clip prompt so all clips cast the same person.
    */
   character?: string;
+  /**
+   * Narrow per-reel exceptions to validation rules. Honoured only for reels
+   * listed in lib/validation-overrides.ts; anything else is an error.
+   */
+  validation_overrides?: ValidationOverrides;
   /**
    * Optional fixed description of the recurring material and its light
    * (colour, grain, light direction), prepended to every clip prompt so
@@ -138,9 +144,11 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   }
   const words = SEGMENT_IDS.map((id) => seed.segments[id].text).join(' ');
   const n = wordCount(words);
-  if (n < WORD_RANGE.min || n > WORD_RANGE.max) {
+  const overrides = resolveValidationOverrides(seed.reel_id, seed.validation_overrides);
+  const min = overrides.min_words ?? WORD_RANGE.min;
+  if (n < min || n > WORD_RANGE.max) {
     throw new Error(
-      `${source}: narration is ${n} words; express reels need ${WORD_RANGE.min}-${WORD_RANGE.max} to fit 45s at the 016 pace`,
+      `${source}: narration is ${n} words; express reels need ${min}-${WORD_RANGE.max} to fit 45s at the 016 pace`,
     );
   }
 }
@@ -183,6 +191,7 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
       episode_name: seed.episode_name,
       title: `${seed.title_hook} | ${seed.episode_name}`,
       music_mood: seed.music_mood ?? 'cinematic',
+      ...(seed.validation_overrides ? { validation_overrides: seed.validation_overrides } : {}),
       note: 'Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016.',
     },
     reel_input: {

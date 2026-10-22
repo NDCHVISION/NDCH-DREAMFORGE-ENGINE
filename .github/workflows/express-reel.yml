@@ -18,6 +18,7 @@ on:
   # Also runs when reels/express/render-request.txt changes on main, so a render
   # can be requested without the Actions UI. File format, one value per line:
   #   1 seed path   2 music (auto|ambient|none)   3 cache_bust   4 regen_clips
+  #   5 voice_only (1 = never call Runway; fail if any clip is not cached)
   push:
     branches: [main]
     paths: ['reels/express/render-request.txt']
@@ -68,6 +69,7 @@ jobs:
             IN_MUSIC=$(sed -n 2p "$F" | tr -d '[:space:]')
             IN_CACHE_BUST=$(sed -n 3p "$F" | tr -d '[:space:]')
             IN_REGEN=$(sed -n 4p "$F" | tr -d '[:space:]')
+            IN_VOICE_ONLY=$(sed -n 5p "$F" | tr -d '[:space:]')
           fi
           IN_MUSIC=${IN_MUSIC:-auto}
           # bash regex tests: an empty value must pass where the pattern allows it
@@ -76,9 +78,10 @@ jobs:
           [[ "$IN_MUSIC" =~ ^(auto|ambient|none)$ ]] || { echo "music must be auto, ambient or none" >&2; exit 1; }
           [[ "$IN_CACHE_BUST" =~ ^[A-Za-z0-9_.-]*$ ]] || { echo "bad cache_bust" >&2; exit 1; }
           [[ "$IN_REGEN" =~ ^([0-9]+(,[0-9]+)*)?$ ]] || { echo "bad regen_clips" >&2; exit 1; }
+          [[ "${IN_VOICE_ONLY:-}" =~ ^(1)?$ ]] || { echo "voice_only must be 1 or blank" >&2; exit 1; }
           {
             echo "seed=$IN_SEED"; echo "music=$IN_MUSIC"
-            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"
+            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"; echo "voice_only=${IN_VOICE_ONLY:-}"
           } >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
@@ -203,6 +206,7 @@ jobs:
           REEL_RELEASE_TAG:   express-${{ steps.seed.outputs.reel_id }}
           REEL_RELEASE_NAME:  'Express ${{ steps.seed.outputs.reel_id }}'
           CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
+          VOICE_ONLY: ${{ steps.in.outputs.voice_only }}
         run: npm run generate
 
       - name: Save Runway clip checkpoint
