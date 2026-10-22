@@ -15,6 +15,12 @@ name: Express Reel (render only, no publish)
 # and the reel is logged in reels/express/rendered.json so it isn't rendered twice.
 
 on:
+  # Also runs when reels/express/render-request.txt changes on main, so a render
+  # can be requested without the Actions UI. File format, one value per line:
+  #   1 seed path   2 music (auto|ambient|none)   3 cache_bust   4 regen_clips
+  push:
+    branches: [main]
+    paths: ['reels/express/render-request.txt']
   workflow_dispatch:
     inputs:
       seed:
@@ -48,6 +54,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve inputs
+        id: in
+        env:
+          IN_SEED: ${{ inputs.seed }}
+          IN_MUSIC: ${{ inputs.music }}
+          IN_CACHE_BUST: ${{ inputs.cache_bust }}
+          IN_REGEN: ${{ inputs.regen_clips }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            F=reels/express/render-request.txt
+            IN_SEED=$(sed -n 1p "$F" | tr -d '[:space:]')
+            IN_MUSIC=$(sed -n 2p "$F" | tr -d '[:space:]')
+            IN_CACHE_BUST=$(sed -n 3p "$F" | tr -d '[:space:]')
+            IN_REGEN=$(sed -n 4p "$F" | tr -d '[:space:]')
+          fi
+          IN_MUSIC=${IN_MUSIC:-auto}
+          { printf '%s' "$IN_SEED" | grep -Eq '^[A-Za-z0-9_./-]*$' && ! printf '%s' "$IN_SEED" | grep -q '\.\.'; } || { echo "bad seed path" >&2; exit 1; }
+          printf '%s' "$IN_MUSIC" | grep -Eq '^(auto|ambient|none)$' || { echo "music must be auto, ambient or none" >&2; exit 1; }
+          printf '%s' "$IN_CACHE_BUST" | grep -Eq '^[A-Za-z0-9_.-]*$' || { echo "bad cache_bust" >&2; exit 1; }
+          printf '%s' "$IN_REGEN" | grep -Eq '^([0-9]+(,[0-9]+)*)?$' || { echo "bad regen_clips" >&2; exit 1; }
+          {
+            echo "seed=$IN_SEED"; echo "music=$IN_MUSIC"
+            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"
+          } >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -65,7 +96,7 @@ jobs:
       - name: Pick and build the seed
         id: seed
         run: |
-          SEED="${{ inputs.seed }}"
+          SEED="${{ steps.in.outputs.seed }}"
           if [ -z "$SEED" ]; then
             SEED=$(npx tsx scripts/express-build.ts --next)
           fi
@@ -85,7 +116,7 @@ jobs:
         run: |
           mkdir -p /tmp/suno
           COUNT=0
-          if [ "${{ inputs.music }}" = "auto" ]; then
+          if [ "${{ steps.in.outputs.music }}" = "auto" ]; then
             gh release download suno-library -p "*.mp3" -D /tmp/suno 2>/dev/null || true
             COUNT=$(ls /tmp/suno/*.mp3 2>/dev/null | wc -l)
           fi
@@ -97,7 +128,7 @@ jobs:
         run: |
           SPEC="${{ steps.seed.outputs.spec }}"
           OUT=/tmp/render-spec.json
-          if [ "${{ steps.suno.outputs.count }}" != "0" ] || [ "${{ inputs.music }}" = "none" ]; then
+          if [ "${{ steps.suno.outputs.count }}" != "0" ] || [ "${{ steps.in.outputs.music }}" = "none" ]; then
             # Suno is mixed afterwards (or no music wanted): stop the generator adding ambience.
             jq 'del(.music_config.description)' "$SPEC" > "$OUT"
           else
@@ -111,14 +142,36 @@ jobs:
           path: |
             /tmp/runway-clip-checkpoint.json
             /tmp/runway-0*.mp4
-          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
+          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ steps.in.outputs.cache_bust || 'default' }}-${{ github.run_id }}
           restore-keys: |
-            express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-
+            express-clips-${{ steps.seed.outputs.reel_id }}-${{ steps.in.outputs.cache_bust || 'default' }}-
+
+      - name: Load preset clips
+        # Footage made outside the engine can stand in for planned clips. Commit it as
+        # reels/express/presets/<REEL_ID>/clipNN.mp4 (NN = 1-based clip number). Those
+        # clips are marked done in the checkpoint, so Runway only generates (and
+        # charges for) the rest.
+        env:
+          REEL_ID: ${{ steps.seed.outputs.reel_id }}
+        run: |
+          DIR="reels/express/presets/$REEL_ID"
+          CP=/tmp/runway-clip-checkpoint.json
+          [ -f "$CP" ] || echo '{}' > "$CP"
+          for f in "$DIR"/clip*.mp4; do
+            [ -e "$f" ] || { echo "No preset clips for $REEL_ID."; break; }
+            n=$(basename "$f" .mp4 | sed -E 's/^clip0*([0-9]+)$/\1/')
+            printf '%s' "$n" | grep -Eq '^[0-9]+$' || { echo "skipping $f"; continue; }
+            dest="/tmp/runway-0preset-$n.mp4"
+            cp "$f" "$dest"
+            jq --arg k "$((n - 1))" --arg v "$dest" '.[$k] = $v' "$CP" > "$CP.tmp" && mv "$CP.tmp" "$CP"
+            echo "clip $n preset from $f"
+          done
+          cat "$CP"
 
       - name: Drop clips marked for regeneration
-        if: ${{ inputs.regen_clips != '' }}
+        if: ${{ steps.in.outputs.regen_clips != '' }}
         env:
-          REGEN_CLIPS: ${{ inputs.regen_clips }}
+          REGEN_CLIPS: ${{ steps.in.outputs.regen_clips }}
         run: |
           if ! printf '%s' "$REGEN_CLIPS" | grep -Eq '^[0-9]+(,[0-9]+)*$'; then
             echo "regen_clips must be clip numbers separated by commas, e.g. 2,4,5" >&2
@@ -157,7 +210,7 @@ jobs:
           path: |
             /tmp/runway-clip-checkpoint.json
             /tmp/runway-0*.mp4
-          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ inputs.cache_bust || 'default' }}-${{ github.run_id }}
+          key: express-clips-${{ steps.seed.outputs.reel_id }}-${{ steps.in.outputs.cache_bust || 'default' }}-${{ github.run_id }}
 
       - name: Mix best Suno window (music intelligence)
         id: mix
@@ -216,7 +269,7 @@ jobs:
           jq --arg id "${{ steps.seed.outputs.reel_id }}" \
              --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
              --arg run "${{ github.run_id }}" \
-             --arg music "${{ steps.mix.outputs.mixed != '' && 'suno' || inputs.music }}" \
+             --arg music "${{ steps.mix.outputs.mixed != '' && 'suno' || steps.in.outputs.music }}" \
              '. + [{reel_id: $id, rendered_at: $at, run_id: $run, music: $music}]' "$LOG" > /tmp/log.json
           mv /tmp/log.json "$LOG"
           git config user.name  "github-actions[bot]"
