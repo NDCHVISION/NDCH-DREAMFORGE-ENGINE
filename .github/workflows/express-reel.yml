@@ -70,10 +70,12 @@ jobs:
             IN_REGEN=$(sed -n 4p "$F" | tr -d '[:space:]')
           fi
           IN_MUSIC=${IN_MUSIC:-auto}
-          { printf '%s' "$IN_SEED" | grep -Eq '^[A-Za-z0-9_./-]*$' && ! printf '%s' "$IN_SEED" | grep -q '\.\.'; } || { echo "bad seed path" >&2; exit 1; }
-          printf '%s' "$IN_MUSIC" | grep -Eq '^(auto|ambient|none)$' || { echo "music must be auto, ambient or none" >&2; exit 1; }
-          printf '%s' "$IN_CACHE_BUST" | grep -Eq '^[A-Za-z0-9_.-]*$' || { echo "bad cache_bust" >&2; exit 1; }
-          printf '%s' "$IN_REGEN" | grep -Eq '^([0-9]+(,[0-9]+)*)?$' || { echo "bad regen_clips" >&2; exit 1; }
+          # bash regex tests: an empty value must pass where the pattern allows it
+          # (piping an empty string into grep matches no line and would fail).
+          [[ "$IN_SEED" =~ ^[A-Za-z0-9_./-]*$ && "$IN_SEED" != *..* ]] || { echo "bad seed path" >&2; exit 1; }
+          [[ "$IN_MUSIC" =~ ^(auto|ambient|none)$ ]] || { echo "music must be auto, ambient or none" >&2; exit 1; }
+          [[ "$IN_CACHE_BUST" =~ ^[A-Za-z0-9_.-]*$ ]] || { echo "bad cache_bust" >&2; exit 1; }
+          [[ "$IN_REGEN" =~ ^([0-9]+(,[0-9]+)*)?$ ]] || { echo "bad regen_clips" >&2; exit 1; }
           {
             echo "seed=$IN_SEED"; echo "music=$IN_MUSIC"
             echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"
