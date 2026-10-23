@@ -84,6 +84,7 @@ import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
+import { parseOnlyClips, clipsToGenerate } from './lib/clip-selection.ts';
 
 const DR_NKRUMAH_VOICE_ID        = 'C9Uh5MFptuXa176UlaXE'; // Dr. Nkrumah's voice — always takes precedence over any spec or engine default
 const DEFAULT_VOICE_ID           = ENGINE_DEFAULTS.defaultVoiceId;
@@ -548,7 +549,7 @@ function stitchVideoClips(clipPaths: string[]): string {
   return stitchedPath;
 }
 
-async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[]): Promise<string[]> {
+async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[], only?: number[]): Promise<string[]> {
   const { runwayConcurrency: concurrency } = getConfig();
   const checkpoint = loadClipCheckpoint();
   const clipPaths = new Array<string>(scenePlan.length);
@@ -571,6 +572,7 @@ async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[]): Promise<s
       nextIndex += 1;
       if (currentIndex >= scenePlan.length) return;
       if (clipPaths[currentIndex]) continue; // already loaded from checkpoint
+      if (only && !only.includes(currentIndex)) continue; // ONLY_CLIPS: not selected, never sent to Runway
       const scene = scenePlan[currentIndex];
       const path = await generateRunwayClip(scene, scenePlan.length);
       saveClipCheckpoint(currentIndex, path);
@@ -587,7 +589,9 @@ async function generateRunwayClipsBounded(scenePlan: ReelScenePlan[]): Promise<s
   return clipPaths;
 }
 
-async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: string; sceneTimeline: SceneAllocationEntry[] }> {
+async function generateVideo(
+  audioDurationSecs: number,
+): Promise<{ videoPath: string; sceneTimeline: SceneAllocationEntry[]; selectionOnly?: boolean }> {
   console.log('  [2/4] Generating video via Runway Gen-4 Turbo…');
   const { plan } = getConfig();
   if (plan.targetDurationSeconds !== undefined && plan.targetDurationSeconds < audioDurationSecs) {
@@ -620,13 +624,23 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
     }
   }
 
-  // Preflight Runway credit check — only for clips not already in checkpoint.
+  // ONLY_CLIPS=2 (or 2,5): generate just those clips, then stop (see lib/clip-selection.ts).
+  const only = parseOnlyClips(process.env.ONLY_CLIPS, scenePlan.length);
+  if (only && process.env.VOICE_ONLY === '1') {
+    throw new Error('ONLY_CLIPS and VOICE_ONLY cannot be combined');
+  }
+  if (only) {
+    console.log(`   ONLY_CLIPS: generating clip(s) ${only.map((i) => i + 1).join(', ')} only; the run stops after generation`);
+  }
+
+  // Preflight Runway credit check — only for clips that will actually be generated.
   try {
     const preflightCheckpoint = loadClipCheckpoint();
-    const uncachedScenes = scenePlan.filter((_, idx) => {
-      const cachedPath = preflightCheckpoint[idx];
-      return !cachedPath || !existsSync(cachedPath);
-    });
+    const uncachedScenes = clipsToGenerate(
+      scenePlan.length,
+      (idx) => Boolean(preflightCheckpoint[idx]) && existsSync(preflightCheckpoint[idx]),
+      only,
+    ).map((idx) => scenePlan[idx]);
     if (uncachedScenes.length === 0) {
       console.log(`   preflight: all ${scenePlan.length} clips found in checkpoint — skipping Runway credit check`);
     } else {
@@ -669,7 +683,11 @@ async function generateVideo(audioDurationSecs: number): Promise<{ videoPath: st
     console.log(`           prompt   : ${entry.promptText}`);
   });
 
-  const clipPaths = await generateRunwayClipsBounded(scenePlan);
+  const clipPaths = await generateRunwayClipsBounded(scenePlan, only);
+  if (only) {
+    console.log(`   ONLY_CLIPS: done; clip(s) ${only.map((i) => i + 1).join(', ')} saved to the checkpoint (no stitch, no final upload)`);
+    return { videoPath: '', sceneTimeline, selectionOnly: true };
+  }
 
   const stitchedPath = stitchVideoClips(clipPaths);
   const stitchedDuration = getMediaDuration(stitchedPath);
@@ -1059,7 +1077,11 @@ async function main(): Promise<void> {
   const { audioPath, wordTimings } = await generateVoiceover();
   const durationSecs = getMediaDuration(audioPath);
 
-  const { videoPath, sceneTimeline } = await generateVideo(durationSecs);
+  const { videoPath, sceneTimeline, selectionOnly } = await generateVideo(durationSecs);
+  if (selectionOnly) {
+    console.log(`   voiceover kept at ${audioPath} for timing; selected clips are in the checkpoint`);
+    return;
+  }
   const mergedPath  = mergeAudioVideo(audioPath, videoPath);
   const brandedPath = applyBrandOverlay(mergedPath, plan);
   const { srtPath: subtitlePath, assPath } = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings);

@@ -19,6 +19,8 @@ on:
   # can be requested without the Actions UI. File format, one value per line:
   #   1 seed path   2 music (auto|ambient|none)   3 cache_bust   4 regen_clips
   #   5 voice_only (1 = never call Runway; fail if any clip is not cached)
+  #   6 only_clips (e.g. 2 or 2,5 = generate just those clips, then stop: no final
+  #     video; review them with Express Stems before paying for the rest)
   push:
     branches: [main]
     paths: ['reels/express/render-request.txt']
@@ -38,6 +40,10 @@ on:
         default: ''
       regen_clips:
         description: 'Clip numbers to regenerate, keeping the other cached clips (e.g. 2,4,5)'
+        required: false
+        default: ''
+      only_clips:
+        description: 'Generate ONLY these clip numbers, then stop (e.g. 2). Blank = full render'
         required: false
         default: ''
 
@@ -62,6 +68,7 @@ jobs:
           IN_MUSIC: ${{ inputs.music }}
           IN_CACHE_BUST: ${{ inputs.cache_bust }}
           IN_REGEN: ${{ inputs.regen_clips }}
+          IN_ONLY: ${{ inputs.only_clips }}
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             F=reels/express/render-request.txt
@@ -70,6 +77,7 @@ jobs:
             IN_CACHE_BUST=$(sed -n 3p "$F" | tr -d '[:space:]')
             IN_REGEN=$(sed -n 4p "$F" | tr -d '[:space:]')
             IN_VOICE_ONLY=$(sed -n 5p "$F" | tr -d '[:space:]')
+            IN_ONLY=$(sed -n 6p "$F" | tr -d '[:space:]')
           fi
           IN_MUSIC=${IN_MUSIC:-auto}
           # bash regex tests: an empty value must pass where the pattern allows it
@@ -79,9 +87,11 @@ jobs:
           [[ "$IN_CACHE_BUST" =~ ^[A-Za-z0-9_.-]*$ ]] || { echo "bad cache_bust" >&2; exit 1; }
           [[ "$IN_REGEN" =~ ^([0-9]+(,[0-9]+)*)?$ ]] || { echo "bad regen_clips" >&2; exit 1; }
           [[ "${IN_VOICE_ONLY:-}" =~ ^(1)?$ ]] || { echo "voice_only must be 1 or blank" >&2; exit 1; }
+          [[ "${IN_ONLY:-}" =~ ^([0-9]+(,[0-9]+)*)?$ ]] || { echo "only_clips must be clip numbers, e.g. 2 or 2,5" >&2; exit 1; }
+          if [ -n "${IN_ONLY:-}" ] && [ -n "${IN_VOICE_ONLY:-}" ]; then echo "only_clips and voice_only cannot be combined" >&2; exit 1; fi
           {
             echo "seed=$IN_SEED"; echo "music=$IN_MUSIC"
-            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"; echo "voice_only=${IN_VOICE_ONLY:-}"
+            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"; echo "voice_only=${IN_VOICE_ONLY:-}"; echo "only_clips=${IN_ONLY:-}"
           } >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
@@ -207,7 +217,24 @@ jobs:
           REEL_RELEASE_NAME:  'Express ${{ steps.seed.outputs.reel_id }}'
           CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
           VOICE_ONLY: ${{ steps.in.outputs.voice_only }}
+          ONLY_CLIPS: ${{ steps.in.outputs.only_clips }}
         run: npm run generate
+
+      - name: Keep the voiceover for timing (only_clips run)
+        if: ${{ steps.in.outputs.only_clips != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_ID: ${{ steps.seed.outputs.reel_id }}
+          ONLY: ${{ steps.in.outputs.only_clips }}
+        run: |
+          TAG="express-$REEL_ID"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Express $REEL_ID" --notes "Express render assets for $REEL_ID."
+          cp /tmp/voiceover.mp3 "/tmp/${REEL_ID}_voiceover.mp3"
+          gh release upload "$TAG" "/tmp/${REEL_ID}_voiceover.mp3" --clobber
+          {
+            echo "## Clip(s) $ONLY generated for review"
+            echo "No final video was made. Run Express Stems to download the clip(s)."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save Runway clip checkpoint
         if: always()
@@ -220,7 +247,7 @@ jobs:
 
       - name: Mix best Suno window (music intelligence)
         id: mix
-        if: ${{ steps.suno.outputs.count != '0' }}
+        if: ${{ steps.suno.outputs.count != '0' && steps.in.outputs.only_clips == '' }}
         run: |
           FINAL=$(ls -t /tmp/final_subtitled.mp4 /tmp/final_branded.mp4 /tmp/final.mp4 2>/dev/null | head -1)
           ARGS=""
@@ -239,6 +266,7 @@ jobs:
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload final video + caption
+        if: ${{ steps.in.outputs.only_clips == '' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -269,6 +297,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Log rendered reel
+        if: ${{ steps.in.outputs.only_clips == '' }}
         run: |
           LOG=reels/express/rendered.json
           [ -f "$LOG" ] || echo '[]' > "$LOG"

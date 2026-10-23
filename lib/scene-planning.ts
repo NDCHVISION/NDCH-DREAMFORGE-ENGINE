@@ -622,12 +622,14 @@ function buildCharacterLockedPrompt(
   baseAnchor: string,
   cue: string,
   material?: string,
+  castInFrame = true,
 ): string {
   const strip = (t: string) => normalizeWhitespace(t).replace(/[.?!,;:\s]+$/, '');
-  const who = strip(character);
+  // Object-only / point-of-view shots drop the person but keep the material lock and layout.
+  const who = castInFrame ? strip(character) : '';
   const mat = materialLead(material);
   const tail = ` ${cue}`;
-  const lead = mat ? `${who}. ${mat}` : `${who}.`;
+  const lead = [who ? `${who}.` : '', mat].filter(Boolean).join(' ');
   // The setting always keeps SETTING_MIN_CHARS; the scene visual gives up room first.
   const fixed = `${lead} Scene: . Setting: `.length + tail.length + 1;
   const whatBudget = Math.max(120, Math.min(CHARACTER_SCENE_MAX_CHARS, MAX_RUNWAY_PROMPT_CHARS - fixed - SETTING_MIN_CHARS));
@@ -648,6 +650,7 @@ export function buildSegmentPrompt(
   continuityMemory?: SceneContinuityMemory,
   character?: string,
   material?: string,
+  castInFrame = true,
 ): string {
   const role = sceneRoleForIndex(clipIndex, totalClips);
   const directives = rolePromptDirectives(role);
@@ -687,6 +690,7 @@ export function buildSegmentPrompt(
       normalizedAnchor,
       `${sceneCue(clipIndex, totalClips)}. ${directives.roleLine}`,
       material,
+      castInFrame,
     );
   }
 
@@ -933,6 +937,12 @@ export function planNarrationScenes(
       }
     }
 
+    // A clip leaves the character out only when every segment it covers says cast: false.
+    const castInFrame = !(
+      coveredSegmentIndices.length > 0 &&
+      coveredSegmentIndices.every(i => narrationSegments[i]?.cast === false)
+    );
+
     const promptText = buildSegmentPrompt(
       basePrompt,
       narrationChunk,
@@ -942,6 +952,7 @@ export function planNarrationScenes(
       priorContinuityMemory,
       options.character,
       options.material,
+      castInFrame,
     );
 
     // Update continuity memory so the next scene can reference this one.

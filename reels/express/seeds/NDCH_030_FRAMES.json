@@ -1,0 +1,58 @@
+{
+  "reel_id": "NDCH_030_FRAMES",
+  "episode_name": "FRAMES",
+  "title_hook": "They can copy the frames.",
+  "concept": "Clarity was never lost. Attention was. His cobalt glasses are copied exactly; watching the copies pulls his focus off the light he was looking at. He takes the glasses off, nothing in the world changes, and his focus returns to the light that never moved.",
+  "theme": "Attention",
+  "quote": "They can copy the frames. The lenses were always clear.",
+  "core_metaphor": "His point of view is seen through thick cobalt rims. When he takes the glasses off the view is optically identical; only the border is gone, and his focus returns to the lit step. The frame was the only copyable thing in the picture.",
+  "emotional_arc": "recognition -> unease -> fixation -> decision -> returned attention",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#245BDB"
+  },
+  "recurring_element": "one master design of thick rectangular cobalt-blue acetate glasses with clear lenses, and one blade of ivory light that lies across a worn stone step in a near-black hall for the whole film",
+  "character": "The same person in every shot: a first-generation Ghanaian American man in his late twenties, deep-brown skin, short tapered natural hair, a neatly trimmed short beard, calm attentive expression, in a charcoal fine-knit turtleneck",
+  "material": "One eyewear design: thick rectangular cobalt-blue (#245BDB) acetate frames, clear lenses; every copy is a separate pair of that exact design. Near-black worn stone hall, one fixed narrow ivory beam",
+  "validation_overrides": {"min_words": 36},
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in a quiet near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight lies across a worn stone step and never moves. Thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses are the only saturated colour; every pair is the identical design. Locked or unhurried camera, real focus behaviour, natural skin texture, real fabric, physically credible reflections. No glowing eyes, no magic, no particles, no lens flares, no villains, no superhero pose.",
+  "segments": {
+    "hook": {
+      "text": "They can copy the frames.",
+      "visual": "Macro on the lit worn stone step, no face in frame: thick rectangular cobalt-blue acetate glasses with clear lenses lie folded in the ivory beam. A second hand sets an identical pair beside them, aligned exactly, then withdraws. Locked camera, shallow focus.",
+      "cast": false
+    },
+    "build": {
+      "text": "The color. The weight. The exact angle. And you start watching them do it.",
+      "visual": "Locked first-person view, nobody in the foreground: the lit worn step sharp in the near ground. A soft figure in identical cobalt glasses steps in beyond the step and stands still; two more stand behind. Focus slowly racks from the lit step to the still figures.",
+      "cast": false
+    },
+    "pivot": {
+      "text": "Long enough to forget what you were looking at.",
+      "visual": "He stands in the dark hall wearing the cobalt glasses, watching beyond camera, face calm and still. Behind him, out of focus and backlit, two silhouettes wear the same frame shape. Slow rack focus from him to them and back."
+    },
+    "resolution": {
+      "text": "Take them off.",
+      "visual": "Over his right shoulder toward the lit step and the soft standing figures beyond: his hands take off the cobalt glasses and fold them, the hinges closing; he holds them low at his side. His face stays mostly out of frame. Locked camera."
+    },
+    "mobius_close": {
+      "text": "The lenses were always clear",
+      "visual": "Close on the worn stone step in the same narrow ivory beam, nobody in frame: the empty lit stone, dust in the air, the beam unchanged. Locked camera, very slow push-in, shallow focus.",
+      "cast": false
+    }
+  },
+  "highlight_words": ["frames", "clear"],
+  "peak_words": ["forget"],
+  "caption": "They can copy the frames.\n\nThe color. The weight. The exact angle.\n\nWatch them long enough and you forget what you were looking at.\n\nThe lenses were always clear.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Attention",
+    "#Originality",
+    "#SelfMastery",
+    "#Frames"
+  ]
+}

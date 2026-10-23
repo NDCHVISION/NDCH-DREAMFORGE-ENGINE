@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import {
@@ -279,4 +280,56 @@ test('express: global rules are unchanged for reels without an override', () => 
   delete third.validation_overrides;
   const r = validateCompiledReel(buildReel(third, TEMPLATE));
   assert.ok(r.errors.some((e) => e.code === 'SECOND_PERSON'));
+});
+
+function framesScenes(seed: ExpressSeed) {
+  const spec = buildReel(seed, TEMPLATE);
+  const dir = mkdtempSync(join(tmpdir(), 'frames-'));
+  const path = join(dir, 'spec.json');
+  writeFileSync(path, JSON.stringify(spec));
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: path },
+    { defaultVoiceId: 'voice-default', defaultModelId: 'model-default' },
+  );
+  return planNarrationScenes(plan.script, plan.prompt, 35, {
+    targetDurationSecs: plan.targetDurationSeconds,
+    narrationSegments: plan.narrationSegments,
+    character: plan.character,
+    material: plan.material,
+  });
+}
+
+test('express: cast:false keeps the character out of object and POV clips only (FRAMES)', () => {
+  const seed = loadSeed('NDCH_030_FRAMES.json');
+  const scenes = framesScenes(seed);
+  assert.equal(scenes.length, 5);
+  const ids = ['hook', 'build', 'pivot', 'resolution', 'mobius_close'] as const;
+  scenes.forEach((scene, i) => {
+    const off = seed.segments[ids[i]].cast === false;
+    const n = i + 1;
+    assert.equal(scene.promptText.includes(seed.character!), !off, `clip ${n} character presence`);
+    assert.ok(scene.promptText.length <= 1000, `clip ${n} fits Runway's limit`);
+    assert.match(scene.promptText, /Material: One eyewear design/, `clip ${n} keeps the material lock`);
+    assert.ok(scene.promptText.includes(seed.segments[ids[i]].visual.replace(/[.]$/, '')), `clip ${n} keeps its full scene`);
+    if (off) assert.ok(scene.promptText.startsWith('Material: '), `clip ${n} leads with the material lock`);
+    else assert.ok(scene.promptText.startsWith(seed.character!), `clip ${n} leads with the character`);
+  });
+});
+
+test('express: without cast:false every clip keeps the character (unchanged behaviour)', () => {
+  const seed = structuredClone(loadSeed('NDCH_030_FRAMES.json'));
+  for (const id of ['hook', 'build', 'mobius_close'] as const) delete seed.segments[id].cast;
+  for (const scene of framesScenes(seed)) {
+    assert.ok(scene.promptText.startsWith(seed.character!));
+  }
+});
+
+test('express: cast accepts only false, and only with a character line', () => {
+  const seed = loadSeed('NDCH_030_FRAMES.json');
+  const yes = structuredClone(seed) as unknown as { segments: Record<string, { cast?: unknown }> };
+  yes.segments.pivot.cast = true;
+  assert.throws(() => assertSeed(yes as unknown as ExpressSeed, 'cast-true'), /may only be false/);
+  const noChar = structuredClone(seed);
+  delete noChar.character;
+  assert.throws(() => assertSeed(noChar, 'no-character'), /no character line/);
 });
