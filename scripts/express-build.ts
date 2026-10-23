@@ -80,7 +80,15 @@ export interface ExpressSeed {
    * shed or broken pieces match their source across clips.
    */
   material?: string;
-  segments: Record<SegmentId, { text: string; visual: string }>;
+  segments: Record<
+    SegmentId,
+    {
+      text: string;
+      visual: string;
+      /** false = object-only / point-of-view shot: the character line is left out of this clip's prompt. */
+      cast?: false;
+    }
+  >;
   highlight_words: string[];
   peak_words: string[];
   caption: string;
@@ -136,6 +144,15 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   if (missing.length)
     throw new Error(`${source}: missing ${missing.join(', ')}`);
   for (const id of SEGMENT_IDS) {
+    const cast = (seed.segments[id] as { cast?: unknown }).cast;
+    if (cast !== undefined && cast !== false) {
+      throw new Error(`${source}: segments.${id}.cast may only be false (omit it to include the character)`);
+    }
+    if (cast === false && !seed.character?.trim()) {
+      throw new Error(`${source}: segments.${id}.cast is false but the seed has no character line`);
+    }
+  }
+  for (const id of SEGMENT_IDS) {
     if (seed.segments[id].visual.length > MAX_PROMPT) {
       throw new Error(
         `${source}: segments.${id}.visual is ${seed.segments[id].visual.length} chars (max ${MAX_PROMPT})`,
@@ -167,6 +184,7 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
       timestamp_start: fmt(BOUNDARIES[i]),
       timestamp_end: fmt(BOUNDARIES[i + 1]),
       visual_prompt: seed.segments[id].visual.trim(),
+      ...(seed.segments[id].cast === false ? { cast: false } : {}),
       ...(base.frame_geometry ? { frame_geometry: base.frame_geometry } : {}),
     };
   });

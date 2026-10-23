@@ -139,7 +139,11 @@ function extractSegments(source: unknown): ResolvedNarrationSegment[] {
       ['end_time'],
     ]));
 
-    return [{ text, promptText, timestampStartSeconds, timestampEndSeconds }];
+    // cast: false marks an object-only or point-of-view shot: the locked
+    // character is not written into that clip's prompt (see scene-planning).
+    const castOff = pickValue(segment, [['cast']]) === false;
+
+    return [{ text, promptText, timestampStartSeconds, timestampEndSeconds, ...(castOff ? { cast: false as const } : {}) }];
   });
 }
 
@@ -286,6 +290,8 @@ export interface ResolvedNarrationSegment {
   promptText?: string;
   timestampStartSeconds?: number;
   timestampEndSeconds?: number;
+  /** false = keep the locked character out of this shot's prompt (object-only / POV shots). */
+  cast?: false;
 }
 
 export interface ResolvedMusicConfig {
