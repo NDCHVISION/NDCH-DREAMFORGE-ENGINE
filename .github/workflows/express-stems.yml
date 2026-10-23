@@ -73,11 +73,13 @@ jobs:
           REEL_ID: ${{ steps.req.outputs.reel_id }}
         run: |
           mkdir -p /tmp/stems
-          i=0
-          # Checkpoint maps clip index -> path; keep timeline order.
-          for f in $(jq -r 'to_entries | sort_by(.key | tonumber) | .[].value' /tmp/runway-clip-checkpoint.json); do
-            i=$((i + 1))
-            cp "$f" "/tmp/stems/${REEL_ID}_stem_clip$(printf '%02d' "$i").mp4"
+          # Checkpoint maps 0-based clip index -> path. Name each file by its real
+          # clip number, so a partial cache (e.g. only clip 2) is labelled correctly.
+          jq -r 'to_entries | sort_by(.key | tonumber) | .[] | "\(.key) \(.value)"' /tmp/runway-clip-checkpoint.json |
+          while read -r k f; do
+            [ -f "$f" ] || continue
+            cp "$f" "/tmp/stems/${REEL_ID}_stem_clip$(printf '%02d' "$((k + 1))").mp4"
           done
           ls -la /tmp/stems
+          gh release view "express-${REEL_ID}" >/dev/null 2>&1 || gh release create "express-${REEL_ID}" --title "Express ${REEL_ID}" --notes "Express render assets for ${REEL_ID}."
           gh release upload "express-${REEL_ID}" /tmp/stems/*.mp4 --clobber
