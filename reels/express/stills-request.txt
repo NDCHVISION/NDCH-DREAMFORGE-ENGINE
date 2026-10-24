@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_030_FRAMES.json
-1,2,3,5
-request 2: references + dark hall
+4,5
+request 3: clip 4 + clip 5 from approved stills
