@@ -4,14 +4,26 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 91,
+      "clip": 2,
       "variants": 2,
-      "prompt": "Wide frontal view, at standing eye level, down a long monumental chamber of worn charcoal stone toward its far end wall. The end wall is solid except for one narrow, person-width vertical passage cut cleanly through it just right of centre, its edges sharp and squared; faint cool light falls through it from beyond. The floor is dark polished stone, nearly black, with a soft reflection. Plain stone pillars recede on both sides. The chamber is empty: nothing stands on the floor. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
+      "references": [
+        {
+          "tag": "block",
+          "path": "reels/express/stills/refs/NDCH_031_block.jpg"
+        }
+      ],
+      "prompt": "Close view of the face of the stone survey post from @block, filling the frame: worn charcoal stone, chisel marks, a chamfered edge, fine cracks, and the small round aged-gold (#C6A94F) survey benchmark disc set flush into the stone near its top. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
     },
     {
-      "clip": 92,
+      "clip": 4,
       "variants": 2,
-      "prompt": "A single massive monolithic block of worn charcoal stone, squared with chamfered edges, chisel marks and fine cracks, standing upright, twice the height of a person, seen straight on at standing eye level from about fifteen metres away. A small round aged-gold (#C6A94F) survey benchmark disc is set flush into its face. Lit only by one cool bone-white (#F5F2EB) light from high left. Isolated against a flat, even, mid-grey studio backdrop with no shadow on the backdrop and no floor visible, so it can be cut out cleanly. Photorealistic, natural film grain."
+      "references": [
+        {
+          "tag": "hall",
+          "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
+        }
+      ],
+      "prompt": "The chamber from @hall, seen from the same position: in the near foreground, low in the frame, a bronze surveyor's alidade, a straight aged-gold (#C6A94F) sighting bar with an upright slotted sight vane at each end and a fine engraved scale, rests on a worn charcoal stone plinth; its two vanes line up exactly with the narrow passage in the far wall. The stone survey post stands at the left edge of the frame. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
     }
   ]
 }
