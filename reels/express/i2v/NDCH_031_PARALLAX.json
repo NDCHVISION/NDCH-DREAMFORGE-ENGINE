@@ -1,16 +1,6 @@
 {
   "reel_id": "NDCH_031_PARALLAX",
   "clips": {
-    "2": {
-      "image": "reels/express/stills/approved/NDCH_031_clip02.jpg",
-      "model": "gen4.5",
-      "prompt": "Locked camera, no camera movement except a very slow, steady push-in toward the gold benchmark disc. Fine dust drifts through the raking light. The stone and the light do not change."
-    },
-    "4": {
-      "image": "reels/express/stills/approved/NDCH_031_clip04.jpg",
-      "model": "gen4.5",
-      "prompt": "Locked camera, no camera movement. The brass alidade stays perfectly still on the plinth. Faint cool light in the narrow passage beyond stays constant. Fine dust drifts. Nothing else moves."
-    },
     "5": {
       "image": "reels/express/stills/approved/NDCH_031_clip05.jpg",
       "model": "gen4.5",

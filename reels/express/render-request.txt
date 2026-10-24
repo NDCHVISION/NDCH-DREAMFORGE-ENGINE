@@ -1,6 +1,6 @@
-reels/express/seeds/NDCH_030_FRAMES.json
+reels/express/seeds/NDCH_031_PARALLAX.json
 none
-frames2
+parallax1
 
 
 
