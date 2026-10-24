@@ -1,3 +1,3 @@
-NDCH_030_FRAMES
-frames2
-request 2: five clips from approved stills
+NDCH_031_PARALLAX
+parallax1
+request 1: clip 5
