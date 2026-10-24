@@ -218,7 +218,12 @@ jobs:
           CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
           VOICE_ONLY: ${{ steps.in.outputs.voice_only }}
           ONLY_CLIPS: ${{ steps.in.outputs.only_clips }}
-        run: npm run generate
+          REEL_ID: ${{ steps.seed.outputs.reel_id }}
+        run: |
+          # Clips listed in reels/express/i2v/<REEL_ID>.json start from approved stills.
+          I2V="reels/express/i2v/${REEL_ID}.json"
+          if [ -f "$I2V" ]; then export I2V_PLAN="$I2V"; echo "image-to-video plan: $I2V"; fi
+          npm run generate
 
       - name: Keep the voiceover for timing (only_clips run)
         if: ${{ steps.in.outputs.only_clips != '' }}

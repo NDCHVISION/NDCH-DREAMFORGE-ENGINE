@@ -1,0 +1,30 @@
+{
+  "reel_id": "NDCH_030_FRAMES",
+  "clips": {
+    "1": {
+      "image": "reels/express/stills/approved/NDCH_030_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "Locked camera, no camera movement. After a moment, a hand enters slowly from the right and sets a second, identical pair of cobalt-blue glasses on the step beside the first pair, aligned exactly, then withdraws out of frame. The light and everything else stay still."
+    },
+    "2": {
+      "image": "reels/express/stills/approved/NDCH_030_clip02.jpg",
+      "model": "gen4_turbo",
+      "prompt": "Locked camera, no camera movement. The three figures stand completely still and do not walk. Only faint dust drifts slowly through the light."
+    },
+    "3": {
+      "image": "reels/express/stills/approved/NDCH_030_clip03.jpg",
+      "model": "gen4.5",
+      "prompt": "Locked camera, no camera movement. He stays still and watches, breathing calmly, blinking once. The figures behind him do not move. The light does not change."
+    },
+    "4": {
+      "image": "reels/express/stills/approved/NDCH_030_clip04.jpg",
+      "model": "gen4.5",
+      "prompt": "Locked camera, no camera movement. He slowly takes off the cobalt-blue glasses with his right hand, folds them, and lowers them to his side. His face stays turned away. The figures beyond do not move. The light does not change."
+    },
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_030_clip05.jpg",
+      "model": "gen4_turbo",
+      "prompt": "Very slow, steady push-in toward the lit step. A few fine dust motes drift through the light. Nothing else moves."
+    }
+  }
+}
