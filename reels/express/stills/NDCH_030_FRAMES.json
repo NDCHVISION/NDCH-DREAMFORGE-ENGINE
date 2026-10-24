@@ -4,46 +4,34 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 1,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "frames",
-          "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
-        }
-      ],
-      "prompt": "Macro at eye level with a worn charcoal stone step. The exact glasses from @frames, deep cobalt-blue acetate with clear lenses, lie folded alone in the narrow light shaft, centred; the rest of the step falls into black. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
-    },
-    {
-      "clip": 2,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "frames",
-          "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
-        }
-      ],
-      "prompt": "Fixed composition at eye level with a worn charcoal stone step that fills the lower third, sharply detailed, lit by the single narrow light shaft, the brightest area of the image. Deep in the black background, three fully clothed people in long dark coats stand motionless, evenly spaced, small, soft and out of focus, faces lost in shadow. Each wears the exact glasses from @frames; only their faint cobalt rims separate them from the darkness. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
-    },
-    {
-      "clip": 3,
+      "clip": 4,
       "variants": 2,
       "references": [
         {
           "tag": "him",
-          "path": "reels/express/stills/refs/NDCH_030_him.jpg"
+          "path": "reels/express/stills/refs/NDCH_030_him2.jpg"
+        },
+        {
+          "tag": "hall",
+          "path": "reels/express/stills/refs/NDCH_030_hall.jpg"
         },
         {
           "tag": "frames",
           "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
         }
       ],
-      "prompt": "Medium close-up of @him wearing the exact deep cobalt-blue glasses from @frames and a charcoal fine-knit turtleneck, looking past the camera, face sharp, lit softly from one side by the narrow light shaft. Far behind him in the black, two soft dark silhouettes in long coats stand still, the same glasses shape faintly catching light. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
+      "prompt": "Over-the-shoulder view from just behind the right shoulder of @him: his face is turned away and out of frame, only the back of his head, his shoulder in the charcoal fine-knit turtleneck, and the side of the exact deep cobalt-blue glasses from @frames at his temple. Beyond him, the scene from @hall: the worn step in the narrow light shaft and, far back in the black, three soft motionless figures in long dark coats. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     },
     {
       "clip": 5,
       "variants": 2,
-      "prompt": "Close on an empty worn charcoal stone step in the single narrow light shaft. The step is bare: no objects, no glasses, no people. Fine dust motes drift in the light. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
+      "references": [
+        {
+          "tag": "hall",
+          "path": "reels/express/stills/refs/NDCH_030_hall.jpg"
+        }
+      ],
+      "prompt": "The same worn charcoal stone step and narrow ivory light shaft as @hall, seen much closer, at eye level with the step. The step is empty and bare: no people, no figures, no objects, no glasses. Only a few fine dust motes catch the light; no smoke, no haze cloud. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     }
   ]
 }
