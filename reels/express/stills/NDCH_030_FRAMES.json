@@ -6,22 +6,44 @@
     {
       "clip": 1,
       "variants": 2,
-      "prompt": "Macro, eye level with a worn stone step lit by the narrow ivory beam. One pair of thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses lies folded in the light, centred, nothing else on the step. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+      "references": [
+        {
+          "tag": "frames",
+          "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
+        }
+      ],
+      "prompt": "Macro at eye level with a worn charcoal stone step. The exact glasses from @frames, deep cobalt-blue acetate with clear lenses, lie folded alone in the narrow light shaft, centred; the rest of the step falls into black. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     },
     {
       "clip": 2,
       "variants": 2,
-      "prompt": "Vertical photorealistic cinematic still. Fixed composition at eye level with a worn stone step inside a near-black hall of weathered stone. The worn step occupies the lower third of the frame. A narrow ivory (#F5F2EB) shaft of daylight illuminates its rough surface, creating the brightest area of the image. Deep in the background, three human figures stand motionless, evenly spaced, partially swallowed by shadow. Each wears thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses. Their faces remain indistinct and heavily defocused. Only faint cobalt rims separate them from the darkness. The foreground step is sharply detailed. Background figures are small, soft silhouettes. Deep shadows, restrained contrast, subtle atmospheric dust, natural film grain. Architectural stillness, precise spatial separation, no additional saturated colors."
+      "references": [
+        {
+          "tag": "frames",
+          "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
+        }
+      ],
+      "prompt": "Fixed composition at eye level with a worn charcoal stone step that fills the lower third, sharply detailed, lit by the single narrow light shaft, the brightest area of the image. Deep in the black background, three fully clothed people in long dark coats stand motionless, evenly spaced, small, soft and out of focus, faces lost in shadow. Each wears the exact glasses from @frames; only their faint cobalt rims separate them from the darkness. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     },
     {
       "clip": 3,
       "variants": 2,
-      "prompt": "Medium close-up. A first-generation Ghanaian American man in his late twenties, deep-brown skin, short tapered natural hair, a neatly trimmed short beard, calm attentive expression, charcoal fine-knit turtleneck. He wears thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses and looks past the camera, face sharp, lit softly from the side by the beam. Far behind him, two soft dark silhouettes stand still, the same glasses shape faintly catching light. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+      "references": [
+        {
+          "tag": "him",
+          "path": "reels/express/stills/refs/NDCH_030_him.jpg"
+        },
+        {
+          "tag": "frames",
+          "path": "reels/express/stills/refs/NDCH_030_frames.jpg"
+        }
+      ],
+      "prompt": "Medium close-up of @him wearing the exact deep cobalt-blue glasses from @frames and a charcoal fine-knit turtleneck, looking past the camera, face sharp, lit softly from one side by the narrow light shaft. Far behind him in the black, two soft dark silhouettes in long coats stand still, the same glasses shape faintly catching light. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     },
     {
       "clip": 5,
       "variants": 2,
-      "prompt": "Close on the empty worn stone step in the narrow ivory beam, nobody in frame, dust visible in the light. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+      "prompt": "Close on an empty worn charcoal stone step in the single narrow light shaft. The step is bare: no objects, no glasses, no people. Fine dust motes drift in the light. Low-key interior: a near-black hall of dark charcoal stone with almost no ambient light. A single narrow shaft of cool ivory (#F5F2EB) light falls on one worn step; everything else falls off into black. No sunlight, no warm sandstone. Photorealistic vertical cinematic film still, restrained, natural film grain."
     }
   ]
 }
