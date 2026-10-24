@@ -1,3 +1,3 @@
 NDCH_030_FRAMES
-frames1
-request 1: clip 2 only
+frames2
+request 2: five clips from approved stills
