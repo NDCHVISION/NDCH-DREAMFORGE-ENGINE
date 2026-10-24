@@ -1,0 +1,27 @@
+{
+  "reel_id": "NDCH_030_FRAMES",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "stills": [
+    {
+      "clip": 1,
+      "variants": 2,
+      "prompt": "Macro, eye level with a worn stone step lit by the narrow ivory beam. One pair of thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses lies folded in the light, centred, nothing else on the step. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+    },
+    {
+      "clip": 2,
+      "variants": 2,
+      "prompt": "Vertical photorealistic cinematic still. Fixed composition at eye level with a worn stone step inside a near-black hall of weathered stone. The worn step occupies the lower third of the frame. A narrow ivory (#F5F2EB) shaft of daylight illuminates its rough surface, creating the brightest area of the image. Deep in the background, three human figures stand motionless, evenly spaced, partially swallowed by shadow. Each wears thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses. Their faces remain indistinct and heavily defocused. Only faint cobalt rims separate them from the darkness. The foreground step is sharply detailed. Background figures are small, soft silhouettes. Deep shadows, restrained contrast, subtle atmospheric dust, natural film grain. Architectural stillness, precise spatial separation, no additional saturated colors."
+    },
+    {
+      "clip": 3,
+      "variants": 2,
+      "prompt": "Medium close-up. A first-generation Ghanaian American man in his late twenties, deep-brown skin, short tapered natural hair, a neatly trimmed short beard, calm attentive expression, charcoal fine-knit turtleneck. He wears thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses and looks past the camera, face sharp, lit softly from the side by the beam. Far behind him, two soft dark silhouettes stand still, the same glasses shape faintly catching light. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+    },
+    {
+      "clip": 5,
+      "variants": 2,
+      "prompt": "Close on the empty worn stone step in the narrow ivory beam, nobody in frame, dust visible in the light. Photorealistic vertical cinematic film still. Near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight falls across a worn stone step. The cobalt-blue glasses are the only saturated colour. Quiet, restrained, natural film grain, shallow depth of field."
+    }
+  ]
+}

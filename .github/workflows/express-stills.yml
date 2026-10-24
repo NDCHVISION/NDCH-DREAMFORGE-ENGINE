@@ -1,0 +1,80 @@
+name: Express Stills (first-frame images, no video)
+
+# Makes the first-frame stills listed in a stills plan
+# (reels/express/stills/<REEL_ID>.json) with Runway text-to-image, and uploads
+# them to the reel's release (express-<REEL_ID>) for review before any video
+# is generated. Costs about 8 credits per 1080p image; never calls video.
+#
+# Runs when reels/express/stills-request.txt changes on main. One value per line:
+#   1 plan path   2 clips (blank = every still in the plan, e.g. 2 or 1,2,3)
+#   3 free text (ignored; change it to request the same stills again)
+
+on:
+  push:
+    branches: [main]
+    paths: ['reels/express/stills-request.txt']
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: 'Stills plan path, e.g. reels/express/stills/NDCH_030_FRAMES.json'
+        required: true
+      clips:
+        description: 'Clip numbers (blank = all in the plan)'
+        required: false
+        default: ''
+
+concurrency:
+  group: express-stills
+  cancel-in-progress: false
+
+jobs:
+  stills:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve inputs
+        id: in
+        env:
+          IN_PLAN: ${{ inputs.plan }}
+          IN_CLIPS: ${{ inputs.clips }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            F=reels/express/stills-request.txt
+            IN_PLAN=$(sed -n 1p "$F" | tr -d '[:space:]')
+            IN_CLIPS=$(sed -n 2p "$F" | tr -d '[:space:]')
+          fi
+          [[ "$IN_PLAN" =~ ^reels/express/stills/[A-Za-z0-9_]+\.json$ ]] || { echo "plan must be reels/express/stills/<ID>.json" >&2; exit 1; }
+          [[ "${IN_CLIPS:-}" =~ ^([0-9]+(,[0-9]+)*)?$ ]] || { echo "clips must be clip numbers, e.g. 2 or 1,2,3" >&2; exit 1; }
+          [ -f "$IN_PLAN" ] || { echo "no plan at $IN_PLAN" >&2; exit 1; }
+          REEL_ID=$(jq -r .reel_id "$IN_PLAN")
+          [[ "$REEL_ID" =~ ^[A-Za-z0-9_]+$ ]] || { echo "bad reel_id in plan" >&2; exit 1; }
+          { echo "plan=$IN_PLAN"; echo "clips=${IN_CLIPS:-}"; echo "reel_id=$REEL_ID"; } >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Make stills
+        env:
+          RUNWAY_API_KEY: ${{ secrets.RUNWAY_API_KEY }}
+        run: npx tsx scripts/runway-stills.ts "${{ steps.in.outputs.plan }}" "${{ steps.in.outputs.clips }}" /tmp/stills
+
+      - name: Upload stills to the reel's release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REEL_ID: ${{ steps.in.outputs.reel_id }}
+        run: |
+          TAG="express-$REEL_ID"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "Express $REEL_ID" --notes "Express render assets for $REEL_ID."
+          ls -la /tmp/stills
+          gh release upload "$TAG" /tmp/stills/*.png --clobber
+          echo "## Stills ready for review in $TAG" >> "$GITHUB_STEP_SUMMARY"
+          ls /tmp/stills >> "$GITHUB_STEP_SUMMARY"
