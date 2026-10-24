@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_031_PARALLAX.json
-2,4
-PARALLAX round 2: clip 2 (benchmark disc) + clip 4 (alidade on the passage)
+4
+PARALLAX round 3: clip 4 retry (alidade lying flat, aimed at the passage)
