@@ -85,6 +85,10 @@ import {
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
 import { parseOnlyClips, clipsToGenerate } from './lib/clip-selection.ts';
+import { parseI2vPlan, clipCostCredits, imageDataUri, type I2vClip } from './lib/i2v-plan.ts';
+
+/** Clips that start from an approved still (image-to-video), by 0-based index. Set from I2V_PLAN. */
+let i2vClips = new Map<number, I2vClip>();
 
 const DR_NKRUMAH_VOICE_ID        = 'C9Uh5MFptuXa176UlaXE'; // Dr. Nkrumah's voice — always takes precedence over any spec or engine default
 const DEFAULT_VOICE_ID           = ENGINE_DEFAULTS.defaultVoiceId;
@@ -431,7 +435,9 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
       `         ${clipLabel}: requesting ${scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
       ` (attempt ${taskAttempt}/${RUNWAY_MAX_TASK_ATTEMPTS})`
     );
-    const { id } = await requestJson<{ id: string }>('https://api.dev.runwayml.com/v1/text_to_video', {
+    const i2v = i2vClips.get(scene.clipIndex);
+    if (i2v) console.log(`         ${clipLabel}: image-to-video (${i2v.model}) from ${i2v.image}`);
+    const { id } = await requestJson<{ id: string }>(`https://api.dev.runwayml.com/v1/${i2v ? 'image_to_video' : 'text_to_video'}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${runwayKey}`,
@@ -440,9 +446,10 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
       },
       body: JSON.stringify({
         promptText: scene.promptText,
-        model: 'gen4.5',
+        model: i2v ? i2v.model : 'gen4.5',
         ratio: '720:1280',
         duration: scene.clipDuration,
+        ...(i2v ? { promptImage: imageDataUri(i2v.image, readFileSync(i2v.image)) } : {}),
       }),
       timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,
       maxRetries: 3,
@@ -606,6 +613,15 @@ async function generateVideo(
     character: plan.character,
     material: plan.material,
   });
+  // I2V_PLAN: listed clips start from an approved still; their prompt is motion only.
+  if (process.env.I2V_PLAN) {
+    i2vClips = parseI2vPlan(JSON.parse(readFileSync(process.env.I2V_PLAN, 'utf8')), process.env.REEL_ID ?? '', scenePlan.length);
+    for (const [idx, c] of i2vClips) {
+      if (!existsSync(c.image)) throw new Error(`I2V_PLAN: clip ${idx + 1} image ${c.image} not found`);
+      scenePlan[idx] = { ...scenePlan[idx], promptText: c.prompt };
+    }
+    console.log(`   I2V_PLAN: clip(s) ${[...i2vClips.keys()].map((i) => i + 1).join(', ')} start from approved stills`);
+  }
   const sceneTimeline = buildSceneTimeline(scenePlan, plan.narrationSegments);
   const durations = scenePlan.map(scene => scene.clipDuration);
   const plannedVisualSecs = durations.reduce((sum, d) => sum + d, 0);
@@ -644,7 +660,9 @@ async function generateVideo(
     if (uncachedScenes.length === 0) {
       console.log(`   preflight: all ${scenePlan.length} clips found in checkpoint — skipping Runway credit check`);
     } else {
-      const estimatedCost = estimateRunwayCostCredits(uncachedScenes);
+      const estimatedCost = i2vClips.size
+        ? uncachedScenes.reduce((n, sc) => n + clipCostCredits(sc.clipDuration, i2vClips.get(sc.clipIndex)), 0)
+        : estimateRunwayCostCredits(uncachedScenes);
       const balance = await checkRunwayCreditBalance(process.env.RUNWAY_API_KEY ?? '');
       console.log(
         `   preflight: Runway credits balance=${balance}, estimated cost=${estimatedCost} for ${uncachedScenes.length}/${scenePlan.length} uncached clip(s)`,
