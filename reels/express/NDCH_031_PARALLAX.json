@@ -1,0 +1,416 @@
+{
+  "reel_id": "NDCH_031_PARALLAX",
+  "engine_version": "2.1.0",
+  "reel_input": {
+    "note": "Express seed (reels/express/seeds). Descriptive only.",
+    "concept_seed": "A massive stone block seems to close the far end of a dark chamber. One deliberate step to the side reveals a narrow passage that was always there, hidden by the angle. Nothing in the room changes; only where you stand.",
+    "doctrine_theme": "Intentional perception",
+    "target_duration_seconds": 45
+  },
+  "concept": "A massive stone block seems to close the far end of a dark chamber. One deliberate step to the side reveals a narrow passage that was always there, hidden by the angle. Nothing in the room changes; only where you stand.",
+  "theme": "Intentional perception",
+  "core_metaphor": "Parallax: near things shift more than far things when you move. The block is real and stays; the passage behind it was present from the first frame.",
+  "emotional_arc": "acceptance -> fact -> reassessment -> recognition -> grounded direction",
+  "quote": "You don't have to change the facts to change where you look.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "note": "Locked geometry (TELEMETRY 014 law). validate-reel.ts enforces these for engine_version 2.1.0.",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45,
+    "segment_count": 5,
+    "segment_id_order": [
+      "hook",
+      "build",
+      "pivot",
+      "resolution",
+      "mobius_close"
+    ],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars before sending to Runway gen4.5. Keep each segment visual_prompt and compiled runway string <= 1000."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": [
+      "#1A1A1A",
+      "#C6A94F",
+      "#F5F2EB",
+      "#C6A94F"
+    ],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "harsh rim",
+    "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
+    "recurring_element": "one monolithic charcoal stone block in front of the far wall of a near-black chamber, one narrow passage in that wall, and one cool bone-white raking light that never moves",
+    "color_temperature": "cold (below 4000K)"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "The final clause stays open and resolves when the reel loops back to the hook.",
+    "loop_seam": "'miss it either' -> 'Never negative.'"
+  },
+  "loop_seam_validation": {
+    "note": "Contract the validator checks for engine_version 2.1.0.",
+    "text_seam_must_match": true,
+    "expected_text_seam": "...miss it either [LOOP] Never negative.",
+    "full_text_must_start_with": "Never negative.",
+    "full_text_must_end_with": "miss it either"
+  },
+  "timing_normalization": {
+    "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
+    "timeline_total_seconds": 45,
+    "tolerance_seconds": 0.5
+  },
+  "audio_sync_validation": {
+    "note": "Descriptive contract. Segment windows the compiled voiceover must align to.",
+    "boundary_tolerance_seconds": 0.5,
+    "expected_segment_boundaries_seconds": [
+      0,
+      6,
+      20,
+      29,
+      38,
+      45
+    ]
+  },
+  "voice_direction": {
+    "_status": "ADVISORY -- for future assemble-audio.ts Stage 9 integration. Current pipeline uses per-segment elevenlabs_payload overrides.",
+    "_law": "Orator Law: silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "global_rate": 0.82,
+    "character": "Documentary narrator. Not trailer narrator. Intimate, calm, observational. The doctrine is delivered as observation, not instruction.",
+    "breathing_points": [
+      {
+        "after": "You are building a cage out of certainty.",
+        "silence_ms": 600,
+        "visual_state": "Hook lands. The viewer is inside the cage before they know it. Give the line room."
+      },
+      {
+        "after": "That is the trap.",
+        "silence_ms": 850,
+        "visual_state": "Pivot diagnosis complete. The trap has been named. Viewer needs a beat before the doctrine arrives."
+      },
+      {
+        "after": "It rewards the capacity to bleed against the terrain.",
+        "silence_ms": 700,
+        "visual_state": "Central claim delivered. Terrain vs map. Let it sit before the directive begins."
+      },
+      {
+        "after": "Move.",
+        "silence_ms": 400,
+        "visual_state": "Single-word directive. The shortest sentence in the script. It must not be rushed past."
+      }
+    ],
+    "final_decay_ms": 2000,
+    "fragmentation_directive": "Resolution segment: 'Close the map. Enter the arena.' These are separate directives, not a flowing list. Each lands as a command. Hard stop between each."
+  },
+  "sound_direction": {
+    "_status": "v0.1-provisional -- 017-derived defaults. Override if this doctrine's emotional temperature requires it.",
+    "music_role": "tension",
+    "emotional_temperature": {
+      "primary": "cold",
+      "secondary": "mechanical",
+      "tertiary": "inevitable",
+      "anti_descriptors": [
+        "triumphant",
+        "inspirational",
+        "warm",
+        "melodic"
+      ]
+    },
+    "cinematic_layers": {
+      "layer_1_philosophy": "Voice. Documentary narrator. The doctrine is the intellectual foreground. Always forward.",
+      "layer_2_atmosphere": "Music. Sub-bass industrial drone. Answers: what emotional temperature does this doctrine exist in? Answer: cold machinery. Not pressure. Not urgency. The machine that doesn't care.",
+      "layer_3_space": "Silence. Between 'That is the trap.' and the pivot line, that silence is doing work. It is not empty."
+    },
+    "dynamic_profile": [
+      {
+        "section": "hook",
+        "music_directive": "restrained. Reference level, drone only.",
+        "voice_directive": "forward. Declarative, no warmth.",
+        "relationship": "Voice makes the accusation. Music confirms the cold."
+      },
+      {
+        "section": "build",
+        "music_directive": "slow mechanical rise. Sub-bass tightens incrementally.",
+        "voice_directive": "integrated. Accumulating rhythm mirrors the dopamine trap.",
+        "relationship": "Music and voice accelerate together toward the trap's reveal."
+      },
+      {
+        "section": "pivot",
+        "music_directive": "distortion surge at pivot onset, then duck to maximum clarity.",
+        "voice_directive": "unchanged. Maximum clarity. This is the terrain line.",
+        "relationship": "The surge marks the pivot. Then music recedes completely. Nothing competes with 'bleed against the terrain.'"
+      },
+      {
+        "section": "resolution",
+        "music_directive": "recover to reference level. Mechanical pulse returns.",
+        "voice_directive": "directive mode. Each sentence a separate command.",
+        "relationship": "Music confirms the directive is real. Not emotional. Operational."
+      },
+      {
+        "section": "mobius",
+        "music_directive": "BPM-locked cut at loop seam. No fade, no decay.",
+        "voice_directive": "decay. 'you are...' trails into silence.",
+        "relationship": "Voice exits. Music cuts at seam. Silence holds for the loop."
+      }
+    ],
+    "silence_function": {
+      "post_hook": "Cage is built. Viewer hasn't yet realized they're inside it.",
+      "post_trap": "Trap named. Nothing more is said. The diagnosis is complete.",
+      "post_directive": "'Move.' is a full stop. Not a transition.",
+      "loop_seam": "Grammatical and musical void. The loop resolves into 'You are not preparing.' which is not a resolution. It is a restart."
+    },
+    "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+  },
+  "visual_prompt": {
+    "primary_prompt": "Restrained photorealistic 9:16 sequence in one monumental near-black chamber of worn charcoal stone. A monolithic stone block stands before the far wall; a narrow passage in that wall lies behind it. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Aged-gold (#C6A94F) appears only on survey brass. Locked or slow camera, physically credible light and reflection. No glow, no portals, no particles, no lens flares, no floating objects.",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
+      "chromatic_boundaries": {
+        "base": "#1A1A1A",
+        "accent": "#C6A94F",
+        "light": "#F5F2EB",
+        "peak": "#C6A94F"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing. Geometry must remain rigid.",
+        "NO floating particles or ambient debris unless specified.",
+        "NO lens flares unless tied to crimson interference event.",
+        "ALL transitions must be cut-hard or precision wipe. No dissolves.",
+        "Maintain 9:16 vertical framing at all times. No reframe."
+      ]
+    },
+    "color_palette": {
+      "base": "#1A1A1A",
+      "accent": "#C6A94F",
+      "light": "#F5F2EB",
+      "peak": "#C6A94F"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate. 3-4px directional blur aligned to camera movement axis."
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    },
+    "material": "Worn charcoal stone, dark polished stone floor, aged-gold (#C6A94F) survey brass used only on real instruments and markers; one cool bone-white raking light"
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "Never negative. Never make-believe. The wall is real. So is the opening you haven't noticed. You don't have to change the facts to change where you look. Do not invent the good. Do not miss it either",
+      "mobius_note": "Final segment stays open: 'miss it either' resolves at loop restart with 'Never negative.'.",
+      "word_count": 37,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Never negative. Never make-believe.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Frontal view down the dark chamber: the monolithic stone block fills the far end and appears to close the route completely. Locked camera.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        },
+        {
+          "id": "build",
+          "text": "The wall is real. So is the opening you haven't noticed.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "Close on the face of the stone block: chisel marks, fine cracks, a small aged-gold survey benchmark disc set flush into the stone. Very slow push-in.",
+          "frame_geometry": {
+            "subject_position": "lower-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "You don't have to change the facts to change where you look.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "One slow sideways camera move to the right: the near block slides across the far wall and a narrow passage appears behind its right edge. The room does not change.",
+          "frame_geometry": {
+            "subject_position": "upper-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "flat 2D plane",
+            "camera_movement": "static locked"
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "Do not invent the good.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "From the new position: a bronze surveyor's alidade on a stone plinth in the foreground, its sight vanes aligned with the narrow passage beyond. The block stays at the left edge. Near-static.",
+          "frame_geometry": {
+            "subject_position": "lower-left-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "Do not miss it either",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "visual_prompt": "Slow forward movement toward the narrow passage, stopping before it. The stone block remains at the left edge of the frame.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.58,
+        "similarity_boost": 0.85,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.82
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0,
+        "note": "Final word trails into silence. Grammatically unresolved, inviting loop restart. Ellipsis drives the TTS decay."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#C6A94F",
+    "highlight_words": [
+      "real",
+      "look"
+    ],
+    "peak_words": [
+      "opening"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone. No subtitle content below 18% from bottom.",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
+      "animation": "word-by-word-appear",
+      "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "80-88",
+    "bpm_lock_point": 85,
+    "emotional_register": "tense anticipation",
+    "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
+    "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
+    "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
+    "suno_search_string": "dark cinematic ambient instrumental drone low-end hits 80bpm no vocals",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano"
+    ]
+  },
+  "music_config": {
+    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Restrained hook, rising build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "cover_export_directive": "remotion render src/Root.tsx CoverFrameOverlay public/cover.png --frame=600",
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": [
+          "300",
+          "500",
+          "700"
+        ],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "Never negative. Never make-believe.\n\nThe wall is real. So is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look.\n\nDo not invent the good. Do not miss it either.\n\n#NDCH #NVSSeries #Perspective #Mindset #Clarity #Parallax",
+    "hashtags": [
+      "#NDCH",
+      "#NVSSeries",
+      "#Perspective",
+      "#Mindset",
+      "#Clarity",
+      "#Parallax"
+    ],
+    "alt_text": "Restrained photorealistic 9:16 sequence in one monumental near-black chamber of worn charcoal stone. A monolithic stone block stands before the far wall; a narrow passage in that wall lies behind it. "
+  },
+  "cover_frame_timestamp": "0:20",
+  "express": {
+    "built_by": "scripts/express-build.ts",
+    "template": "NDCH_016_ILLUSION_OF_MOTION.json",
+    "episode_name": "PARALLAX",
+    "title": "Never negative. Never make-believe. | PARALLAX",
+    "music_mood": "cinematic",
+    "validation_overrides": {
+      "min_words": 37
+    },
+    "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
+  }
+}

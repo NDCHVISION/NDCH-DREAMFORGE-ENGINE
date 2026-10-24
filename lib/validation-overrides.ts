@@ -24,6 +24,8 @@ export const VALIDATION_OVERRIDE_ALLOWLIST: Readonly<Record<string, ValidationOv
   NDCH_029_AXIOM: { min_words: 48, second_person: false },
   // NDCH 030 FRAMES (approved concept 2026-10-23): 36-word narration.
   NDCH_030_FRAMES: { min_words: 36 },
+  // NDCH 031 PARALLAX (posts as 024): 37-word narration.
+  NDCH_031_PARALLAX: { min_words: 37 },
 };
 
 /**

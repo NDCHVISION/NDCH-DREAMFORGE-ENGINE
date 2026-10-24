@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_031_PARALLAX",
+  "episode_name": "PARALLAX",
+  "title_hook": "Never negative. Never make-believe.",
+  "concept": "A massive stone block seems to close the far end of a dark chamber. One deliberate step to the side reveals a narrow passage that was always there, hidden by the angle. Nothing in the room changes; only where you stand.",
+  "theme": "Intentional perception",
+  "quote": "You don't have to change the facts to change where you look.",
+  "core_metaphor": "Parallax: near things shift more than far things when you move. The block is real and stays; the passage behind it was present from the first frame.",
+  "emotional_arc": "acceptance -> fact -> reassessment -> recognition -> grounded direction",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#C6A94F"
+  },
+  "recurring_element": "one monolithic charcoal stone block in front of the far wall of a near-black chamber, one narrow passage in that wall, and one cool bone-white raking light that never moves",
+  "material": "Worn charcoal stone, dark polished stone floor, aged-gold (#C6A94F) survey brass used only on real instruments and markers; one cool bone-white raking light",
+  "validation_overrides": {
+    "min_words": 37
+  },
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in one monumental near-black chamber of worn charcoal stone. A monolithic stone block stands before the far wall; a narrow passage in that wall lies behind it. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Aged-gold (#C6A94F) appears only on survey brass. Locked or slow camera, physically credible light and reflection. No glow, no portals, no particles, no lens flares, no floating objects.",
+  "segments": {
+    "hook": {
+      "text": "Never negative. Never make-believe.",
+      "visual": "Frontal view down the dark chamber: the monolithic stone block fills the far end and appears to close the route completely. Locked camera."
+    },
+    "build": {
+      "text": "The wall is real. So is the opening you haven't noticed.",
+      "visual": "Close on the face of the stone block: chisel marks, fine cracks, a small aged-gold survey benchmark disc set flush into the stone. Very slow push-in."
+    },
+    "pivot": {
+      "text": "You don't have to change the facts to change where you look.",
+      "visual": "One slow sideways camera move to the right: the near block slides across the far wall and a narrow passage appears behind its right edge. The room does not change."
+    },
+    "resolution": {
+      "text": "Do not invent the good.",
+      "visual": "From the new position: a bronze surveyor's alidade on a stone plinth in the foreground, its sight vanes aligned with the narrow passage beyond. The block stays at the left edge. Near-static."
+    },
+    "mobius_close": {
+      "text": "Do not miss it either",
+      "visual": "Slow forward movement toward the narrow passage, stopping before it. The stone block remains at the left edge of the frame."
+    }
+  },
+  "highlight_words": [
+    "real",
+    "look"
+  ],
+  "peak_words": [
+    "opening"
+  ],
+  "caption": "Never negative. Never make-believe.\n\nThe wall is real. So is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look.\n\nDo not invent the good. Do not miss it either.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Perspective",
+    "#Mindset",
+    "#Clarity",
+    "#Parallax"
+  ]
+}

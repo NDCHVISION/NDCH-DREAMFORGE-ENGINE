@@ -1,0 +1,10 @@
+{
+  "reel_id": "NDCH_031_PARALLAX",
+  "clips": {
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_031_clip05.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow, steady forward camera movement toward the narrow passage in the far wall, stopping well before it. The stone post stays at the left edge of the frame. The architecture does not change shape. No glow, no new light."
+    }
+  }
+}
