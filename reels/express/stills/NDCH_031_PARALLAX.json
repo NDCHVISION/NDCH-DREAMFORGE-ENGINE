@@ -4,17 +4,6 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 2,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "block",
-          "path": "reels/express/stills/refs/NDCH_031_block.jpg"
-        }
-      ],
-      "prompt": "Close view of the face of the stone survey post from @block, filling the frame: worn charcoal stone, chisel marks, a chamfered edge, fine cracks, and the small round aged-gold (#C6A94F) survey benchmark disc set flush into the stone near its top. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
-    },
-    {
       "clip": 4,
       "variants": 2,
       "references": [
@@ -23,7 +12,7 @@
           "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
         }
       ],
-      "prompt": "The chamber from @hall, seen from the same position: in the near foreground, low in the frame, a bronze surveyor's alidade, a straight aged-gold (#C6A94F) sighting bar with an upright slotted sight vane at each end and a fine engraved scale, rests on a worn charcoal stone plinth; its two vanes line up exactly with the narrow passage in the far wall. The stone survey post stands at the left edge of the frame. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
+      "prompt": "The chamber from @hall, seen from the same position, camera low and just behind a low worn charcoal stone plinth in the bottom of the frame. Lying flat on top of the plinth is a surveyor's alidade: one straight horizontal aged-gold (#C6A94F) brass ruler bar pointing straight away from the camera toward the narrow passage in the far wall, with one small upright slotted sight vane at its near end and one at its far end. Sighting along the bar, both slots line up exactly with the passage. Nothing else on the plinth. The stone survey post stands at the left edge of the frame. Low-key interior: a monumental near-black chamber of worn charcoal stone with almost no ambient light. One cool bone-white (#F5F2EB) light rakes in from high on the left. No sunlight, no warm sandstone, no glow. Photorealistic vertical cinematic film still, restrained, natural film grain."
     }
   ]
 }
