@@ -4,10 +4,29 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 1,
+      "clip": 3,
       "variants": 2,
-      "prompt": "A vast circular chamber built entirely from the stone shown in @stone: polished black stone with fine natural veins of antique gold, the veins catching light. Low camera on the floor looking toward the far wall. High in the domed ceiling a small round opening glows warm amber, no sky visible; one narrow shaft of warm gold light falls through drifting dust onto the floor, where the emblem from @stone is inlaid in worn gold, flush with the stone. In the far wall, between two columns, an arched dark wooden door stands slightly ajar with warm amber light in the gap. Beside the door on a low stone platform: a plain wooden chair with a charcoal coat draped over its back, and a dark stoneware cup. Everything outside the beam and the door gap falls to near-black. No daylight, no white or blue light, no grey stone, no people, no lettering. Restrained, photorealistic, natural film grain.",
+      "prompt": "A closer view of the chamber in @room, camera low and about three metres from the arched door, framing the door, the wooden chair with the coat over its back and the dark cup on the platform. The room is dark: the only light is the soft glow of the fine gold veins running through the black stone of @stone and the warm amber gap of the door left ajar. Thin steam rises from the cup. No other light, no people, no lettering. Restrained, photorealistic, natural film grain.",
       "references": [
+        {
+          "tag": "room",
+          "path": "reels/express/stills/refs/NDCH_032_master2.jpg"
+        },
+        {
+          "tag": "stone",
+          "path": "reels/express/stills/refs/NDCH_032_stone.jpg"
+        }
+      ]
+    },
+    {
+      "clip": 4,
+      "variants": 2,
+      "prompt": "The chamber in @room, same camera position, in darkness: the only light is the soft glow of the gold veins in the black stone of @stone and the amber gap of the door left ajar. One tall faceless figure in a long dark coat stands on the floor just beyond the gold emblem, left of center, seen from behind, still, facing the door. No visible face, no glowing eyes, no second figure, no lettering. Restrained, photorealistic, natural film grain.",
+      "references": [
+        {
+          "tag": "room",
+          "path": "reels/express/stills/refs/NDCH_032_master2.jpg"
+        },
         {
           "tag": "stone",
           "path": "reels/express/stills/refs/NDCH_032_stone.jpg"
