@@ -44,7 +44,7 @@
  */
 
 import { writeFileSync, readFileSync, existsSync, appendFileSync, copyFileSync } from 'node:fs';
-import { execSync }                                                 from 'node:child_process';
+import { execSync, execFileSync }                                                 from 'node:child_process';
 import { randomUUID }                                               from 'node:crypto';
 import { tmpdir }                                                   from 'node:os';
 import { join, resolve }                                            from 'node:path';
@@ -85,6 +85,7 @@ import {
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
 import { parseOnlyClips, clipsToGenerate } from './lib/clip-selection.ts';
+import { tailTrimPoint, TAIL_FADE_SECONDS } from './lib/voice-tail.ts';
 import { parseI2vPlan, clipCostCredits, imageDataUri, type I2vClip } from './lib/i2v-plan.ts';
 
 /** Clips that start from an approved still (image-to-video), by 0-based index. Set from I2V_PLAN. */
@@ -397,7 +398,21 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
   // ── 1a: Save raw TTS output ──────────────────────────────────────────────
   const rawAudioPath = join(TMP, 'voiceover-raw.mp3');
   writeFileSync(rawAudioPath, audioBuffer);
-  const rawDuration = getMediaDuration(rawAudioPath);
+  let rawDuration = getMediaDuration(rawAudioPath);
+
+  // ── 1a': Trim any stray syllable after the last scripted word ───────────
+  const tailCut = tailTrimPoint(wordTimings, rawDuration);
+  if (tailCut !== undefined) {
+    const untrimmed = join(TMP, 'voiceover-raw-untrimmed.mp3');
+    copyFileSync(rawAudioPath, untrimmed);
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y', '-i', untrimmed,
+      '-af', `atrim=end=${tailCut},afade=t=out:st=${Math.max(0, tailCut - TAIL_FADE_SECONDS)}:d=${TAIL_FADE_SECONDS}`,
+      rawAudioPath,
+    ]);
+    console.log(`         tail trim: ${(rawDuration - tailCut).toFixed(2)}s after the last word removed (cut at ${tailCut}s)`);
+    rawDuration = getMediaDuration(rawAudioPath);
+  }
   console.log(`         raw saved: ${rawAudioPath}  (${rawDuration.toFixed(1)}s)`);
 
   // ── 1b: Audio post-processing — EQ + LUFS normalisation ───────────────────
