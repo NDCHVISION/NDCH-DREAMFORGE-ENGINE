@@ -11,10 +11,10 @@ before the velvet style). The plain `_vertical` / `_horizontal` file is the
 one in use.
 
 The posting number is the public number printed on the cover (PARALLAX posts
-as 024), not the engine file ID (NDCH_031) and not the Drive file label.
+as 025), not the engine file ID (NDCH_031) and not the Drive file label.
 `index.json` lists every cover with its size.
 
-001–023 were imported from the Drive folders NDCH_COVER_LI_SIZE,
+001–024 were imported from the Drive folders NDCH_COVER_LI_SIZE,
 NDCH_COVER_YT_SIZE, NDCH_VELCOVER_LI_SIZE and NDCH_VELCOVER_YT_SIZE, as
 received (no resizing or recompression).
 

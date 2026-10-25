@@ -264,23 +264,23 @@
     "notes": "Cover prints 023; Drive file is labelled 023."
   },
   {
-    "posting": "023",
+    "posting": "024",
     "title": "FRAMES",
     "engine_id": "NDCH_030_FRAMES",
-    "vertical": "023_FRAMES_vertical.png",
+    "vertical": "024_FRAMES_vertical.png",
     "vertical_size": "941x1672",
-    "horizontal": "023_FRAMES_horizontal.png",
+    "horizontal": "024_FRAMES_horizontal.png",
     "horizontal_size": "1983x793",
-    "added": "2026-10-24",
-    "notes": "Cover prints 023 (same as AXIOM); Drive file is labelled 024. Filed by the printed number."
+    "added": "2026-10-25",
+    "notes": "Re-issued cover printing 024 (the earlier one printed 023, same as AXIOM)."
   },
   {
-    "posting": "024",
+    "posting": "025",
     "title": "PARALLAX",
     "engine_id": "NDCH_031_PARALLAX",
-    "vertical": "024_PARALLAX_vertical.png",
-    "horizontal": "024_PARALLAX_horizontal.png",
-    "added": "2026-10-24",
-    "notes": "Emblemed stone block in the foreground; a lit stairway passage through an arch beyond. Vertical 941x1672, horizontal 1983x793 as received."
+    "vertical": "025_PARALLAX_vertical.png",
+    "horizontal": "025_PARALLAX_horizontal.png",
+    "added": "2026-10-25",
+    "notes": "Emblemed stone block in the foreground; a lit stairway passage through an arch beyond. Vertical 941x1672, horizontal 1983x793 as received. Re-issued printing 025."
   }
 ]
