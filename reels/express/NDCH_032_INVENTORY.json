@@ -1,0 +1,417 @@
+{
+  "reel_id": "NDCH_032_INVENTORY",
+  "engine_version": "2.1.0",
+  "reel_input": {
+    "note": "Express seed (reels/express/seeds). Descriptive only.",
+    "concept_seed": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
+    "doctrine_theme": "Gratitude without pretending",
+    "target_duration_seconds": 45
+  },
+  "concept": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
+  "theme": "Gratitude without pretending",
+  "core_metaphor": "The gold veins are already in the stone. Full light washes them out; darkness changes their visibility, not their existence.",
+  "emotional_arc": "loss -> concession -> discovery -> inventory -> shared hindsight -> instruction",
+  "quote": "Most of us only count them after. Count them now.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "note": "Locked geometry (TELEMETRY 014 law). validate-reel.ts enforces these for engine_version 2.1.0.",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45,
+    "segment_count": 5,
+    "segment_id_order": [
+      "hook",
+      "build",
+      "pivot",
+      "resolution",
+      "mobius_close"
+    ],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars before sending to Runway gen4.5. Keep each segment visual_prompt and compiled runway string <= 1000."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": [
+      "#1A1A1A",
+      "#C6A94F",
+      "#F5F2EB",
+      "#C6A94F"
+    ],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "harsh rim",
+    "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
+    "recurring_element": "one circular black-stone chamber with an oculus beam, hairline antique-gold veins in the stone, and one threshold in the far wall: a dark door ajar with amber light behind it, a plain chair with a coat over its back, and a stone ledge with a cup",
+    "color_temperature": "cold (below 4000K)"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "The final clause stays open and resolves when the reel loops back to the hook.",
+    "loop_seam": "'Count them now' -> 'Everyone wants the light back.'"
+  },
+  "loop_seam_validation": {
+    "note": "Contract the validator checks for engine_version 2.1.0.",
+    "text_seam_must_match": true,
+    "expected_text_seam": "...Count them now [LOOP] Everyone wants the light back.",
+    "full_text_must_start_with": "Everyone wants the light back.",
+    "full_text_must_end_with": "Count them now"
+  },
+  "timing_normalization": {
+    "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
+    "timeline_total_seconds": 45,
+    "tolerance_seconds": 0.5
+  },
+  "audio_sync_validation": {
+    "note": "Descriptive contract. Segment windows the compiled voiceover must align to.",
+    "boundary_tolerance_seconds": 0.5,
+    "expected_segment_boundaries_seconds": [
+      0,
+      6,
+      20,
+      29,
+      38,
+      45
+    ]
+  },
+  "voice_direction": {
+    "_status": "ADVISORY -- for future assemble-audio.ts Stage 9 integration. Current pipeline uses per-segment elevenlabs_payload overrides.",
+    "_law": "Orator Law: silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "global_rate": 0.82,
+    "character": "Documentary narrator. Not trailer narrator. Intimate, calm, observational. The doctrine is delivered as observation, not instruction.",
+    "breathing_points": [
+      {
+        "after": "You are building a cage out of certainty.",
+        "silence_ms": 600,
+        "visual_state": "Hook lands. The viewer is inside the cage before they know it. Give the line room."
+      },
+      {
+        "after": "That is the trap.",
+        "silence_ms": 850,
+        "visual_state": "Pivot diagnosis complete. The trap has been named. Viewer needs a beat before the doctrine arrives."
+      },
+      {
+        "after": "It rewards the capacity to bleed against the terrain.",
+        "silence_ms": 700,
+        "visual_state": "Central claim delivered. Terrain vs map. Let it sit before the directive begins."
+      },
+      {
+        "after": "Move.",
+        "silence_ms": 400,
+        "visual_state": "Single-word directive. The shortest sentence in the script. It must not be rushed past."
+      }
+    ],
+    "final_decay_ms": 2000,
+    "fragmentation_directive": "Resolution segment: 'Close the map. Enter the arena.' These are separate directives, not a flowing list. Each lands as a command. Hard stop between each."
+  },
+  "sound_direction": {
+    "_status": "v0.1-provisional -- 017-derived defaults. Override if this doctrine's emotional temperature requires it.",
+    "music_role": "tension",
+    "emotional_temperature": {
+      "primary": "cold",
+      "secondary": "mechanical",
+      "tertiary": "inevitable",
+      "anti_descriptors": [
+        "triumphant",
+        "inspirational",
+        "warm",
+        "melodic"
+      ]
+    },
+    "cinematic_layers": {
+      "layer_1_philosophy": "Voice. Documentary narrator. The doctrine is the intellectual foreground. Always forward.",
+      "layer_2_atmosphere": "Music. Sub-bass industrial drone. Answers: what emotional temperature does this doctrine exist in? Answer: cold machinery. Not pressure. Not urgency. The machine that doesn't care.",
+      "layer_3_space": "Silence. Between 'That is the trap.' and the pivot line, that silence is doing work. It is not empty."
+    },
+    "dynamic_profile": [
+      {
+        "section": "hook",
+        "music_directive": "restrained. Reference level, drone only.",
+        "voice_directive": "forward. Declarative, no warmth.",
+        "relationship": "Voice makes the accusation. Music confirms the cold."
+      },
+      {
+        "section": "build",
+        "music_directive": "slow mechanical rise. Sub-bass tightens incrementally.",
+        "voice_directive": "integrated. Accumulating rhythm mirrors the dopamine trap.",
+        "relationship": "Music and voice accelerate together toward the trap's reveal."
+      },
+      {
+        "section": "pivot",
+        "music_directive": "distortion surge at pivot onset, then duck to maximum clarity.",
+        "voice_directive": "unchanged. Maximum clarity. This is the terrain line.",
+        "relationship": "The surge marks the pivot. Then music recedes completely. Nothing competes with 'bleed against the terrain.'"
+      },
+      {
+        "section": "resolution",
+        "music_directive": "recover to reference level. Mechanical pulse returns.",
+        "voice_directive": "directive mode. Each sentence a separate command.",
+        "relationship": "Music confirms the directive is real. Not emotional. Operational."
+      },
+      {
+        "section": "mobius",
+        "music_directive": "BPM-locked cut at loop seam. No fade, no decay.",
+        "voice_directive": "decay. 'you are...' trails into silence.",
+        "relationship": "Voice exits. Music cuts at seam. Silence holds for the loop."
+      }
+    ],
+    "silence_function": {
+      "post_hook": "Cage is built. Viewer hasn't yet realized they're inside it.",
+      "post_trap": "Trap named. Nothing more is said. The diagnosis is complete.",
+      "post_directive": "'Move.' is a full stop. Not a transition.",
+      "loop_seam": "Grammatical and musical void. The loop resolves into 'You are not preparing.' which is not a resolution. It is a restart."
+    },
+    "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+  },
+  "visual_prompt": {
+    "primary_prompt": "Restrained photorealistic 9:16 sequence in one vast circular black-stone chamber with a round oculus. Fine antique-gold (#C6A94F) veins run through the stone, washed out by the single gold beam and glowing only when the light is gone. One threshold in the far wall: a dark door ajar with amber light behind it, a plain chair with a coat over its back, a cup on a stone ledge. Locked or slow camera, physically credible light. No faces, no portals, no fire, no lens flares, no floating objects.",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
+      "chromatic_boundaries": {
+        "base": "#1A1A1A",
+        "accent": "#C6A94F",
+        "light": "#F5F2EB",
+        "peak": "#C6A94F"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing. Geometry must remain rigid.",
+        "NO floating particles or ambient debris unless specified.",
+        "NO lens flares unless tied to crimson interference event.",
+        "ALL transitions must be cut-hard or precision wipe. No dissolves.",
+        "Maintain 9:16 vertical framing at all times. No reframe."
+      ]
+    },
+    "color_palette": {
+      "base": "#1A1A1A",
+      "accent": "#C6A94F",
+      "light": "#F5F2EB",
+      "peak": "#C6A94F"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate. 3-4px directional blur aligned to camera movement axis."
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    },
+    "material": "Black stone with hairline antique-gold (#C6A94F) veining, polished wet black stone floor, dark wood door and chair, charcoal wool coat, dark stoneware cup; one warm gold oculus beam"
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "Everyone wants the light back. Fair. But look at what the dark just showed you. The door that still opens. The cup still warm. The coat still on the chair. Easy to miss in daylight. Most of us only count them after. Count them now",
+      "mobius_note": "Final segment stays open: 'Count them now' resolves at loop restart with 'Everyone wants the light back.'.",
+      "word_count": 45,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Everyone wants the light back. Fair.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "Low view across the chamber: the oculus beam on the wet floor, hairline gold veins glinting faintly where it grazes. A cloud crosses and the beam narrows and dies.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        },
+        {
+          "id": "build",
+          "text": "But look at what the dark just showed you.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "Near-black chamber. The same gold veins brighten in sequence across floor, columns and walls, spreading outward.",
+          "frame_geometry": {
+            "subject_position": "lower-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "The door that still opens. The cup still warm. The coat still on the chair.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "The threshold, lit by the glowing veins: the door ajar with amber light, the steaming cup on the ledge, the coat on the chair. One slow push-in per line.",
+          "frame_geometry": {
+            "subject_position": "upper-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "flat 2D plane",
+            "camera_movement": "static locked"
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "Easy to miss in daylight. Most of us only count them after.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "Wide: a backlit faceless silhouette stands near the glowing threshold, small against the chamber. Near-static.",
+          "frame_geometry": {
+            "subject_position": "lower-left-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "Count them now",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "visual_prompt": "The cloud slides off the oculus, its edge lit gold; the beam returns and the veins stay faintly visible in the restored light.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.58,
+        "similarity_boost": 0.85,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.82
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0,
+        "note": "Final word trails into silence. Grammatically unresolved, inviting loop restart. Ellipsis drives the TTS decay."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#F5F2EB",
+    "highlight": "#C6A94F",
+    "peak": "#C6A94F",
+    "highlight_words": [
+      "light",
+      "dark",
+      "still"
+    ],
+    "peak_words": [
+      "now"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone. No subtitle content below 18% from bottom.",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
+      "animation": "word-by-word-appear",
+      "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "80-88",
+    "bpm_lock_point": 85,
+    "emotional_register": "tense anticipation",
+    "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
+    "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
+    "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
+    "suno_search_string": "dark cinematic ambient instrumental drone low-end hits 80bpm no vocals",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano"
+    ]
+  },
+  "music_config": {
+    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Restrained hook, rising build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+    "fade_in_seconds": 0,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "cover_export_directive": "remotion render src/Root.tsx CoverFrameOverlay public/cover.png --frame=600",
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": [
+          "300",
+          "500",
+          "700"
+        ],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "Everyone wants the light back. Fair.\n\nBut the dark has a way of showing you what was there all along.\n\nThe door that still opens. The cup still warm. The coat still on the chair.\n\nMost of us only count them after.\n\n#NDCH #NVSSeries #Inventory #Gratitude #Perspective #ClearThinking",
+    "hashtags": [
+      "#NDCH",
+      "#NVSSeries",
+      "#Inventory",
+      "#Gratitude",
+      "#Perspective",
+      "#ClearThinking"
+    ],
+    "alt_text": "Restrained photorealistic 9:16 sequence in one vast circular black-stone chamber with a round oculus. Fine antique-gold (#C6A94F) veins run through the stone, washed out by the single gold beam and gl"
+  },
+  "cover_frame_timestamp": "0:20",
+  "express": {
+    "built_by": "scripts/express-build.ts",
+    "template": "NDCH_016_ILLUSION_OF_MOTION.json",
+    "episode_name": "INVENTORY",
+    "title": "Everyone wants the light back. | INVENTORY",
+    "music_mood": "cinematic",
+    "validation_overrides": {
+      "min_words": 45
+    },
+    "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
+  }
+}
