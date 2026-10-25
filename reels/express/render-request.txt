@@ -1,6 +1,6 @@
 reels/express/seeds/NDCH_032_INVENTORY.json
 none
-inventory-v2-i2v
+inventory-v2-i2v-5s
 
 
 3,4
