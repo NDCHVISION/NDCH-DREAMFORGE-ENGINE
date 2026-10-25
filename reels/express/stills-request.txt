@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_032_INVENTORY.json
-1
-INVENTORY v2 round A3: room described fresh, stone reference only
+3,4
+INVENTORY v2 round B: dark door/chair/cup and figure from the new master
