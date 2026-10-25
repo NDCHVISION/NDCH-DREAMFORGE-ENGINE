@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_032_INVENTORY.json
 1
-INVENTORY round 1: chamber master (2 variants)
+INVENTORY round 2: chamber master on v2 room, black marble + gold veins, low-key
