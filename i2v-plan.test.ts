@@ -29,3 +29,16 @@ test('the FRAMES i2v plan is valid and its images exist', () => {
   assert.equal(m.size, 5);
   for (const c of m.values()) assert.ok(existsSync(c.image), c.image);
 });
+
+test('i2v plan duration override sets the clip length and its cost', () => {
+  const plan = parseI2vPlan(
+    { reel_id: 'R', clips: { '2': { image: 'reels/express/stills/approved/a.jpg', model: 'gen4.5', prompt: 'p', duration: 5 } } },
+    'R',
+    4,
+  );
+  assert.equal(plan.get(1)?.duration, 5);
+  assert.equal(clipCostCredits(10, plan.get(1)), 60);
+  assert.throws(() =>
+    parseI2vPlan({ reel_id: 'R', clips: { '1': { image: 'reels/express/stills/approved/a.jpg', model: 'gen4.5', prompt: 'p', duration: 7 } } }, 'R', 4),
+  );
+});

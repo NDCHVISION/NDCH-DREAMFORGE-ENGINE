@@ -447,7 +447,7 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
 
   for (let taskAttempt = 1; taskAttempt <= RUNWAY_MAX_TASK_ATTEMPTS; taskAttempt++) {
     console.log(
-      `         ${clipLabel}: requesting ${scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
+      `         ${clipLabel}: requesting ${i2vClips.get(scene.clipIndex)?.duration ?? scene.clipDuration}s for "${limitWords(scene.narrationChunk, 14)}"` +
       ` (attempt ${taskAttempt}/${RUNWAY_MAX_TASK_ATTEMPTS})`
     );
     const i2v = i2vClips.get(scene.clipIndex);
@@ -463,7 +463,7 @@ async function generateRunwayClip(scene: ReelScenePlan, totalClips: number): Pro
         promptText: scene.promptText,
         model: i2v ? i2v.model : 'gen4.5',
         ratio: '720:1280',
-        duration: scene.clipDuration,
+        duration: i2v?.duration ?? scene.clipDuration,
         ...(i2v ? { promptImage: imageDataUri(i2v.image, readFileSync(i2v.image)) } : {}),
       }),
       timeoutMs: DEFAULT_HTTP_TIMEOUT_MS,

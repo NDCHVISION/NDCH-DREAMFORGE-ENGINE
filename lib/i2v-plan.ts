@@ -5,7 +5,9 @@
  *
  * File: reels/express/i2v/<REEL_ID>.json
  *   { "reel_id": "...", "clips": { "1": { "image": "reels/express/stills/approved/x.jpg",
- *       "model": "gen4.5" | "gen4_turbo", "prompt": "motion only" } } }
+ *       "model": "gen4.5" | "gen4_turbo", "prompt": "motion only", "duration": 5 } } }
+ * duration (optional, 5 or 10) overrides the scene's planned clip length, e.g. to
+ * buy a 5 s clip for post when the edit is built outside the engine.
  */
 export const I2V_MODELS = ['gen4.5', 'gen4_turbo'] as const;
 export type I2vModel = (typeof I2V_MODELS)[number];
@@ -14,6 +16,8 @@ export interface I2vClip {
   image: string;
   model: I2vModel;
   prompt: string;
+  /** Optional override of the planned clip length, in seconds. */
+  duration?: 5 | 10;
 }
 
 export const I2V_CREDITS_PER_SECOND: Record<I2vModel, number> = { 'gen4.5': 12, gen4_turbo: 5 };
@@ -38,14 +42,22 @@ export function parseI2vPlan(raw: unknown, reelId: string, totalClips: number): 
     }
     if (typeof c.prompt !== 'string' || !c.prompt.trim()) throw new Error(`i2v plan: clip ${n} prompt is empty`);
     if (c.prompt.length > I2V_PROMPT_MAX_CHARS) throw new Error(`i2v plan: clip ${n} prompt over ${I2V_PROMPT_MAX_CHARS} chars`);
-    out.set(n - 1, { image: c.image, model: c.model as I2vModel, prompt: c.prompt.trim() });
+    if (c.duration !== undefined && c.duration !== 5 && c.duration !== 10) {
+      throw new Error(`i2v plan: clip ${n} duration must be 5 or 10`);
+    }
+    out.set(n - 1, {
+      image: c.image,
+      model: c.model as I2vModel,
+      prompt: c.prompt.trim(),
+      ...(c.duration !== undefined ? { duration: c.duration } : {}),
+    });
   }
   return out;
 }
 
 /** Credits for one clip: image-to-video rate when planned, else the text-to-video (gen4.5) rate. */
 export function clipCostCredits(clipDuration: number, i2v?: I2vClip): number {
-  return clipDuration * (i2v ? I2V_CREDITS_PER_SECOND[i2v.model] : 12);
+  return (i2v?.duration ?? clipDuration) * (i2v ? I2V_CREDITS_PER_SECOND[i2v.model] : 12);
 }
 
 export function imageDataUri(path: string, bytes: Buffer): string {

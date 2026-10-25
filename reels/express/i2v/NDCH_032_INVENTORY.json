@@ -4,12 +4,14 @@
     "3": {
       "image": "reels/express/stills/approved/NDCH_032_clip03.jpg",
       "model": "gen4.5",
-      "prompt": "Very slow, steady camera push-in toward the door. Thin steam rises gently from the cup and drifts. The warm light in the door gap flickers very faintly. The chair, coat and door stay completely still. The gold veins in the stone do not move or change. The architecture does not change shape. No new light, no people."
+      "prompt": "Very slow, steady camera push-in toward the door. Thin steam rises gently from the cup and drifts. The warm light in the door gap flickers very faintly. The chair, coat and door stay completely still. The gold veins in the stone do not move or change. The architecture does not change shape. No new light, no people.",
+      "duration": 5
     },
     "4": {
       "image": "reels/express/stills/approved/NDCH_032_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "Very slow camera drift to the right with a slight push-in. The figure stands completely still, facing away toward the door; it does not turn, walk or move its head. Faint dust drifts in the air. The gold veins in the stone do not move or change. The architecture does not change shape. No new light, no new people."
+      "prompt": "Very slow camera drift to the right with a slight push-in. The figure stands completely still, facing away toward the door; it does not turn, walk or move its head. Faint dust drifts in the air. The gold veins in the stone do not move or change. The architecture does not change shape. No new light, no new people.",
+      "duration": 5
     }
   }
 }
