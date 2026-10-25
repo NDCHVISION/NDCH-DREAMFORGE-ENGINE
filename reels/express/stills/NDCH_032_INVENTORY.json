@@ -4,35 +4,17 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 3,
+      "clip": 1,
       "variants": 2,
-      "prompt": "A closer view inside the chamber from @master: the camera low and about three metres from the arched door, framing the door, the wooden chair with the charcoal coat over its back, and the dark stoneware cup on the stone platform beside it, all in one vertical frame. The door stands slightly ajar with warm amber light in the gap, the only strong light. Thin wisps of steam rise from the cup. Same black stone, columns and steps as @master. Low-key: near-black stone, the faint gold glow of the door light on the platform and the chair. No people, no other objects, no bowls on the floor, no blue or white light, no fire, no lettering. Restrained, photorealistic, natural film grain.",
+      "prompt": "The same chamber as @room: same camera position, dome and oculus, columns, arched door standing ajar with warm amber light in the gap, steps, platform, the wooden chair with the coat over its back and the dark cup beside it. Rebuild all the stone in the material of @stone: polished black stone with fine natural veins of antique gold running through it, following the grain of the stone, not the joints. Set flush into the floor in the center of the beam, a large worn gold inlay of the emblem shown on @stone. The oculus is small and dim with no sky; one narrow shaft of warm gold light falls through dust onto the emblem. Everything outside the beam and the door gap is near-black. No daylight, no white or blue light, no grey stone, no people, no bowls on the floor, no lettering. Restrained, photorealistic, natural film grain.",
       "references": [
         {
-          "tag": "master",
+          "tag": "room",
           "path": "reels/express/stills/refs/NDCH_032_master.jpg"
-        }
-      ]
-    },
-    {
-      "clip": 4,
-      "variants": 2,
-      "prompt": "The chamber from @master, same camera position and framing. A single tall human figure stands on the floor between the platform and the camera, slightly left of center, seen from behind, a dark silhouette against the warm light of the door ajar and the beam. Faceless, plain long dark coat, still, arms at sides, small against the chamber. Everything else as in @master: the chair with the coat, the cup, the door, the columns. Low-key, near-black stone. No visible face, no glowing eyes, no second figure, no bowls on the floor, no lettering. Restrained, photorealistic, natural film grain.",
-      "references": [
+        },
         {
-          "tag": "master",
-          "path": "reels/express/stills/refs/NDCH_032_master.jpg"
-        }
-      ]
-    },
-    {
-      "clip": 5,
-      "variants": 2,
-      "prompt": "Looking straight up from the floor of the chamber in @master at the round oculus in the black stone dome. A soft dark cloud is drifting across the opening, half covering it; the uncovered half glows warm gold and the cloud's edge is lit bright gold. A shaft of warm light with dust falls from the uncovered half. The dome's black stone blocks ring the opening, catching faint warm light at their edges. No blue sky, no white daylight, no sun disc, no birds, no lettering. Restrained, photorealistic, natural film grain.",
-      "references": [
-        {
-          "tag": "master",
-          "path": "reels/express/stills/refs/NDCH_032_master.jpg"
+          "tag": "stone",
+          "path": "reels/express/stills/refs/NDCH_032_stone.jpg"
         }
       ]
     }
