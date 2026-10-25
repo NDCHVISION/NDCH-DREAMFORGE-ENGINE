@@ -1,6 +1,6 @@
-reels/express/seeds/NDCH_031_PARALLAX.json
+reels/express/seeds/NDCH_032_INVENTORY.json
 none
-parallax1
+inventory-vo1
 
-
+1
 
