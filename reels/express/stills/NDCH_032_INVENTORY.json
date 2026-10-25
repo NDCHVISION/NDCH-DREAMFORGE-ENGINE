@@ -6,12 +6,8 @@
     {
       "clip": 1,
       "variants": 2,
-      "prompt": "The same chamber as @room: same camera position, dome and oculus, columns, arched door standing ajar with warm amber light in the gap, steps, platform, the wooden chair with the coat over its back and the dark cup beside it. Rebuild all the stone in the material of @stone: polished black stone with fine natural veins of antique gold running through it, following the grain of the stone, not the joints. Set flush into the floor in the center of the beam, a large worn gold inlay of the emblem shown on @stone. The oculus is small and dim with no sky; one narrow shaft of warm gold light falls through dust onto the emblem. Everything outside the beam and the door gap is near-black. No daylight, no white or blue light, no grey stone, no people, no bowls on the floor, no lettering. Restrained, photorealistic, natural film grain.",
+      "prompt": "A vast circular chamber built entirely from the stone shown in @stone: polished black stone with fine natural veins of antique gold, the veins catching light. Low camera on the floor looking toward the far wall. High in the domed ceiling a small round opening glows warm amber, no sky visible; one narrow shaft of warm gold light falls through drifting dust onto the floor, where the emblem from @stone is inlaid in worn gold, flush with the stone. In the far wall, between two columns, an arched dark wooden door stands slightly ajar with warm amber light in the gap. Beside the door on a low stone platform: a plain wooden chair with a charcoal coat draped over its back, and a dark stoneware cup. Everything outside the beam and the door gap falls to near-black. No daylight, no white or blue light, no grey stone, no people, no lettering. Restrained, photorealistic, natural film grain.",
       "references": [
-        {
-          "tag": "room",
-          "path": "reels/express/stills/refs/NDCH_032_master.jpg"
-        },
         {
           "tag": "stone",
           "path": "reels/express/stills/refs/NDCH_032_stone.jpg"
