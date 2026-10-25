@@ -1,3 +1,3 @@
-NDCH_031_PARALLAX
-parallax1
-request 1: clip 5
+NDCH_032_INVENTORY
+inventory-v2-i2v-5s
+request: INVENTORY v2 clips 3, 4
