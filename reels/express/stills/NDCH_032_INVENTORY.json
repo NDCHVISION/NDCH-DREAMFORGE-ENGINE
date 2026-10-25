@@ -1,0 +1,12 @@
+{
+  "reel_id": "NDCH_032_INVENTORY",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "stills": [
+    {
+      "clip": 1,
+      "variants": 2,
+      "prompt": "Vertical cinematic film still. A vast circular chamber of black stone, seen from low on the floor looking toward the far wall. A round oculus high in the domed ceiling lets in one narrow shaft of warm gold light that falls straight down onto a polished, wet black stone floor in the center, faint dust in the beam. The black stone of the walls, columns and floor is threaded with fine hairline veins of antique gold (#C6A94F), mostly washed out and barely visible, catching light only where the beam grazes the floor and the nearest column. In the far wall, right of center, a heavy dark wooden door stands slightly ajar with a thin line of warm amber light behind it; beside it, in deep shadow, a plain wooden chair with a coat over its back and a stone ledge. Everything outside the beam falls to near-black. No people, no sunlight elsewhere, no sandstone, no turquoise, no glowing lines, no fire, no lettering. Restrained, photorealistic, natural film grain."
+    }
+  ]
+}

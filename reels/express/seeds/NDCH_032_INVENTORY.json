@@ -1,0 +1,62 @@
+{
+  "reel_id": "NDCH_032_INVENTORY",
+  "episode_name": "INVENTORY",
+  "title_hook": "Everyone wants the light back.",
+  "concept": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
+  "theme": "Gratitude without pretending",
+  "quote": "Most of us only count them after. Count them now.",
+  "core_metaphor": "The gold veins are already in the stone. Full light washes them out; darkness changes their visibility, not their existence.",
+  "emotional_arc": "loss -> concession -> discovery -> inventory -> shared hindsight -> instruction",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#C6A94F"
+  },
+  "recurring_element": "one circular black-stone chamber with an oculus beam, hairline antique-gold veins in the stone, and one threshold in the far wall: a dark door ajar with amber light behind it, a plain chair with a coat over its back, and a stone ledge with a cup",
+  "material": "Black stone with hairline antique-gold (#C6A94F) veining, polished wet black stone floor, dark wood door and chair, charcoal wool coat, dark stoneware cup; one warm gold oculus beam",
+  "validation_overrides": {
+    "min_words": 45
+  },
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in one vast circular black-stone chamber with a round oculus. Fine antique-gold (#C6A94F) veins run through the stone, washed out by the single gold beam and glowing only when the light is gone. One threshold in the far wall: a dark door ajar with amber light behind it, a plain chair with a coat over its back, a cup on a stone ledge. Locked or slow camera, physically credible light. No faces, no portals, no fire, no lens flares, no floating objects.",
+  "segments": {
+    "hook": {
+      "text": "Everyone wants the light back. Fair.",
+      "visual": "Low view across the chamber: the oculus beam on the wet floor, hairline gold veins glinting faintly where it grazes. A cloud crosses and the beam narrows and dies."
+    },
+    "build": {
+      "text": "But look at what the dark just showed you.",
+      "visual": "Near-black chamber. The same gold veins brighten in sequence across floor, columns and walls, spreading outward."
+    },
+    "pivot": {
+      "text": "The door that still opens. The cup still warm. The coat still on the chair.",
+      "visual": "The threshold, lit by the glowing veins: the door ajar with amber light, the steaming cup on the ledge, the coat on the chair. One slow push-in per line."
+    },
+    "resolution": {
+      "text": "Easy to miss in daylight. Most of us only count them after.",
+      "visual": "Wide: a backlit faceless silhouette stands near the glowing threshold, small against the chamber. Near-static."
+    },
+    "mobius_close": {
+      "text": "Count them now",
+      "visual": "The cloud slides off the oculus, its edge lit gold; the beam returns and the veins stay faintly visible in the restored light."
+    }
+  },
+  "highlight_words": [
+    "light",
+    "dark",
+    "still"
+  ],
+  "peak_words": [
+    "now"
+  ],
+  "caption": "Everyone wants the light back. Fair.\n\nBut the dark has a way of showing you what was there all along.\n\nThe door that still opens. The cup still warm. The coat still on the chair.\n\nMost of us only count them after.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Inventory",
+    "#Gratitude",
+    "#Perspective",
+    "#ClearThinking"
+  ]
+}
