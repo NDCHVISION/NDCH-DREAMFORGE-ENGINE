@@ -313,8 +313,8 @@
   },
   "subtitle_config": {
     "color": "#F5F2EB",
-    "highlight": "#C6A94F",
-    "peak": "#C6A94F",
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A",
     "highlight_words": [
       "engine",
       "shape",
@@ -424,6 +424,7 @@
       "fade_out_seconds": 2
     }
   },
+  "loop_audio": "seamless",
   "narration_timing": "anchored",
   "clip_transitions": [
     {
@@ -447,7 +448,10 @@
       "after_clip": 4,
       "type": "dissolve",
       "seconds": 0.8,
-      "note": "light match: the oil can's brass glint into the original's brass"
+      "note": "light match: the original's brass cylinder behind the hands into the master's brass"
     }
-  ]
+  ],
+  "finish": {
+    "subtitle_layout": "readable"
+  }
 }

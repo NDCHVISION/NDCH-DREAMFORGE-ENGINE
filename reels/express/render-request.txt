@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v2
+run-v1
 
-1
 
-BEARING v2: 35s timing, one clip per section (no Runway calls)
+
+RUN: clip 3/4 trim presets, readable captions (CAPTIONS.md), seamless loop bed (LOOPING.md); no new clips

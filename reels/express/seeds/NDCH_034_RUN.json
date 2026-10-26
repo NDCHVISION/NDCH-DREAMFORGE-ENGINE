@@ -92,7 +92,16 @@
       "after_clip": 4,
       "type": "dissolve",
       "seconds": 0.8,
-      "note": "light match: the oil can's brass glint into the original's brass"
+      "note": "light match: the original's brass cylinder behind the hands into the master's brass"
     }
-  ]
+  ],
+  "finish": {
+    "subtitle_layout": "readable"
+  },
+  "caption_colors": {
+    "text": "#F5F2EB",
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A"
+  },
+  "loop_audio": "seamless"
 }
