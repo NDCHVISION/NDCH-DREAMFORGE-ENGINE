@@ -6,12 +6,22 @@
   {
    "clip": 1,
    "variants": 2,
-   "prompt": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, short natural hair and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain."
+   "prompt": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, sleek dark hair parted in the middle and pulled back and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain."
   },
   {
    "clip": 2,
    "variants": 2,
-   "prompt": "The same woman's face seen from a three-quarter angle behind and to the side: the face is an extraordinarily thin, slightly translucent surface, like fine porcelain, holding the same composed expression. There is no head behind it. Past its edge opens a vast dark hall of black stone (#1A1A1A) with hairline antique-gold (#C6A94F) veins, and far down the hall a small figure in a charcoal sweater walks away from the surface. Strong depth. The surface is calm and beautiful, not eerie. No cracks, no horror, no lettering. Restrained, photorealistic, natural film grain."
+   "prompt": "Three-quarter rear view of a thin, slightly translucent porcelain mask with the exact face of @her, composed expression, standing upright on its own in a vast black-stone hall like @hall. The mask is hollow: from this angle you can see its paper-thin edge and the empty inside, and there is no head behind it. Far down the hall, small, a woman in a charcoal sweater walks away. Soft warm light on the mask from the left; cool dusk light in the hall. Calm and beautiful, not eerie. No second face, no cracks, no lettering. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "her",
+     "path": "reels/express/stills/refs/NDCH_035_her.jpg"
+    },
+    {
+     "tag": "hall",
+     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+    }
+   ]
   },
   {
    "clip": 3,
@@ -21,7 +31,17 @@
   {
    "clip": 4,
    "variants": 2,
-   "prompt": "A vast warm interior at the end of a black-stone hall: tiers of rooms, a wall of books, a long wooden table with a coat, plants and open notebooks, a tall window with green garden light, a staircase rising into gold (#C6A94F) light, bone-white (#F5F2EB) highlights. Small in the middle ground, a woman in a charcoal sweater stands in the light, seen from behind, at ease. Beautiful, lived-in, warm and complex. No lettering, no faces, no lens flares. Restrained, photorealistic, natural film grain."
+   "prompt": "At the far end of a black-stone hall like @hall, the stone opens into a warm, lived-in interior: tall dark-wood bookshelves lit by lamps, a long wooden table with a coat, plants and open notebooks, a staircase rising into gold (#C6A94F) light, a tall window with soft green garden light. The floor stays the same dark veined stone as @hall. Small in the middle ground, @her stands in the light, seen from behind, at ease. Warm pools of lamplight against near-black, restrained, not ornate. No checkerboard floor, no glass roof, no lettering, no lens flares. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "her",
+     "path": "reels/express/stills/refs/NDCH_035_her.jpg"
+    },
+    {
+     "tag": "hall",
+     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+    }
+   ]
   }
  ]
 }
