@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -62,7 +62,9 @@ test('withScrims adds the style and a scrim only for bright cues', () => {
   assert.match(scrimEvent(1, 2, 0.5), /^Dialogue: 0,0:00:00.85,0:00:02.15,Scrim/);
 });
 
-test('measureCueBands: dark band needs no scrim, bright band gets one', () => {
+const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
+
+test('measureCueBands: dark band needs no scrim, bright band gets one', { skip: !hasFfmpeg }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'caplaw-'));
   const dark = join(dir, 'dark.mp4');
   const bright = join(dir, 'bright.mp4');
