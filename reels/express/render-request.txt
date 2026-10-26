@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-run-v1
-1
+bearing-v2
+3,4
 
-1
-RUN clip 1 redo: push-in from the master two-shot, to be reversed into the opening
+3,4
+BEARING v2: clips 3 and 4 at 5s each, 120 credits (balance about 156)
