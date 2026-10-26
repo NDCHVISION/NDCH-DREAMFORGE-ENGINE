@@ -1,0 +1,35 @@
+{
+  "reel_id": "NDCH_036_RECEPTION",
+  "clips": {
+    "1": {
+      "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "Already moving on the first frame: the partly open pale oak door keeps swinging slowly toward the camera on its hinges, widening the view down the white corridor. At the same time the camera pushes gently forward while the far closed door at the end of the corridor appears to slide farther away (a slow dolly zoom), so the corridor seems to stretch longer as the door opens. The walls, floorboards and both doors keep their shape. Soft overcast daylight does not change. No people.",
+      "duration": 5
+    },
+    "2": {
+      "image": "reels/express/stills/approved/NDCH_036_clip02.jpg",
+      "model": "gen4.5",
+      "prompt": "The camera moves slowly and steadily forward across the room toward the closed door in the far wall, at one even pace. The chair, the table, the empty white cup and the blank frame stay exactly where they are; nothing in the room moves. The patch of daylight on the floor shifts very slightly. The walls, floor and door keep their shape. No people.",
+      "duration": 10
+    },
+    "3": {
+      "image": "reels/express/stills/approved/NDCH_036_clip03.jpg",
+      "model": "gen4.5",
+      "prompt": "The camera moves slowly and steadily forward down the long white corridor at one even pace. The repeating tables, chairs and empty cups on the left stay perfectly still and keep their shapes and spacing; the doors on the right stay as they are. The closed door at the far end stays closed and stays centred. Soft overcast daylight does not change. The corridor keeps its exact geometry. No people.",
+      "duration": 10
+    },
+    "4": {
+      "image": "reels/express/stills/approved/NDCH_036_clip04.jpg",
+      "model": "gen4.5",
+      "prompt": "Locked camera; the frame does not move. The door stays fully shut and the brass latch never moves. In the thin line of daylight under the door, a soft grey shadow slides slowly in from the left and stops in the middle, as if someone on the other side has stepped close and is standing still. Then nothing moves. The door, wall and floorboards keep their shape. No people visible, no new light.",
+      "duration": 10
+    },
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "From the approved clip 1 still: the partly open pale oak door swings slowly and slightly toward closed, then eases to a stop, and the camera drifts back very gently to settle on the opening framing. The far closed door at the end of the corridor stays where it is. Soft overcast daylight does not change. The walls, floorboards and both doors keep their shape. No people.",
+      "duration": 5
+    }
+  }
+}

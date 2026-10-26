@@ -4,28 +4,6 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 2,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "engine",
-          "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
-        }
-      ],
-      "prompt": "Low camera along a worn charcoal stone workbench: a row of four bronze copies of the right-hand engine in @engine stand one behind another, receding away from camera, each the same outline, solid dull dark bronze, every joint fused, crisp and flawless. At the far end of the row, soft and out of focus, the worn brass-and-iron original from @engine with its five-spoke flywheel. No people. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. No lamps, no windows, no lettering. Photorealistic, natural film grain."
-    },
-    {
-      "clip": 3,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "engine",
-          "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
-        }
-      ],
-      "prompt": "Macro close-up of the worn original engine in @engine: its aged-gold (#C6A94F) brass connecting rod and crank where they meet the hub of the black iron five-spoke flywheel, a thin film of oil catching the light on the brass, faint fingerprints. Shallow depth of field; behind it, soft and out of focus, the solid bronze copy. No people. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. No lamps, no windows, no lettering. Photorealistic, natural film grain."
-    },
-    {
       "clip": 4,
       "variants": 2,
       "references": [
@@ -34,7 +12,7 @@
           "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
         }
       ],
-      "prompt": "Close shot of the worn original engine in @engine on the stone workbench. Two bare hands, no face, no sleeves above the wrist in frame, hold a small brass oil can with a long thin spout to the brass crank, one drop of oil at the tip. Beside the engine on the bench lies an unfinished raw grey cast-iron five-spoke flywheel, not yet machined. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. No lamps, no windows, no lettering. Photorealistic, natural film grain."
+      "prompt": "Close shot on a worn charcoal stone bench. In the foreground, two bare hands with deep warm brown skin, clearly dark brown, no face, no sleeves, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the bench. Just behind, the worn brass-and-iron original engine from @engine, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
     }
   ]
 }

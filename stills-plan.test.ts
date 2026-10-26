@@ -39,3 +39,12 @@ test('the FRAMES stills plan is valid', () => {
   assert.equal(p.reel_id, 'NDCH_030_FRAMES');
   for (const s of p.stills) assert.ok(s.prompt.includes('#F5F2EB'), `clip ${s.clip} keeps the beam colour`);
 });
+
+test('casting rule: people and hands are cast brown-skinned or racially ambiguous from 037 on', () => {
+  const plan = (reel_id: string, prompt: string) => ({ ...base(), reel_id, stills: [{ clip: 1, variants: 1, prompt }] });
+  assert.throws(() => parseStillsPlan(plan('NDCH_037_X', 'Two bare hands hold a cup.')), /casting rule/);
+  parseStillsPlan(plan('NDCH_037_X', 'Two bare hands with warm brown skin hold a cup.'));
+  parseStillsPlan(plan('NDCH_037_X', 'A racially ambiguous man stands in the hall.'));
+  parseStillsPlan(plan('NDCH_037_X', 'An empty stone hall.'));
+  parseStillsPlan(plan('NDCH_036_X', 'Two bare hands hold a cup.')); // earlier reels unchanged
+});

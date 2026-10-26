@@ -173,6 +173,15 @@ and every render ends with a loop seam check in the run summary.
 
 Every reel's captions share one size, place and halo, and their colours hold contrast on any frame; a soft scrim is added only behind cues that land on a bright background: see [CAPTIONS.md](../CAPTIONS.md). From 035 the build sets `finish.subtitle_layout: "readable"` and refuses caption colours that fail the contrast check; set `caption_colors` to give the words lighter colours than the picture's palette.
 
+### Casting rule (standing until the owner changes it)
+
+Any person on screen, hands included, is cast with **brown skin or a racially ambiguous
+complexion**. Say it in every still prompt that shows a person or hands ("two bare hands with
+warm brown skin"); image models default otherwise, and the motion clip inherits whatever the
+still shows. The stills builder rejects a prompt that shows people without it, from 037 on
+(`CASTING_RULE_FROM` in `lib/stills-plan.ts`). Reels already in production (034-036) were
+made before the rule; 034 RUN was recast by hand.
+
 ### Universal Viewer Law
 
 A seed must land for a stranger who has never heard of NDCH. The builder refuses
@@ -196,7 +205,7 @@ only reads `reels/express/seeds/`.
 > under 300 characters naming the palette hex codes; title_hook is the most quotable line, under
 > 50 characters. The reel must work for a stranger who has never heard of the creator: no brand or creator
 > named in the narration, no villain, no launch or episode framing, no follow asks; first person only if any
-> viewer could say the line about their own life. Output only the JSON.
+> viewer could say the line about their own life. Any person or hands on screen are cast with brown skin or a racially ambiguous complexion, stated in the visual. Output only the JSON.
 
 ## Costs
 
