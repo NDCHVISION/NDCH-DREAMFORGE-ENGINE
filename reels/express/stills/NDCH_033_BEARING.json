@@ -6,12 +6,24 @@
     {
       "clip": 1,
       "variants": 2,
-      "prompt": "Extreme close-up at table height along a matte slate-black stone surface. A fine antique-gold (#C6A94F) chain lies taut in a sharp chiselled groove and bends around the edge of a deep dark fissure in the stone; one worn, brighter link is caught against the fissure's lip, the chain pulled tight behind it. The groove is polished smooth where the chain has passed many times. Shallow depth of field: chain and fissure edge sharp, the groove curving away into soft darkness. One warm light from directly above, as from a hanging brass lantern out of frame. Fine dust in the air. Near-black surroundings, strong gold-on-black contrast that reads at phone size. No people, no hands, no glow, no sparks, no lettering. Restrained, photorealistic, natural film grain."
+      "prompt": "Extreme close-up at table height on a near-black charcoal stone surface like the stone of @hall. A fine antique-gold (#C6A94F) chain runs taut through a narrow chiselled groove cut into the stone and bends sharply around the edge of a deep dark fissure that crosses the groove; one worn, brighter link is snagged on the fissure's edge, the chain pulled tight behind it. The groove is polished smooth by wear. Shallow depth of field: the snagged link sharp, the groove curving away into darkness. The only light is a single warm pool from above, its source out of frame. Near-black surroundings, strong gold-on-black contrast readable at phone size. No lantern in frame, no people, no hands, no glow, no sparks, no lettering. Restrained, photorealistic, natural film grain.",
+      "references": [
+        {
+          "tag": "hall",
+          "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
+        }
+      ]
     },
     {
       "clip": 2,
       "variants": 2,
-      "prompt": "Low angle along a rectangular chart table of matte slate-black stone in a low vaulted room of the same stone. A fine antique-gold (#C6A94F) chain lies in a chiselled groove that runs in one closed loop around three deep dark fissures in the near half of the table; at the loop's near end the chain passes over a small dark bronze sprocket half-recessed in a slot in the stone. Beyond the loop the stone is bare and uncut, running to an arched doorway in the far wall, dark beyond. One enclosed aged-brass lantern hangs above the table and gives a single warm light from directly above. Fine dust. No people, no glow, no portals, no lettering. Restrained, photorealistic, natural film grain."
+      "prompt": "A low, narrow vaulted chamber of near-black charcoal block stone like @hall, almost dark. In the foreground a long rectangular table of the same dark stone. A fine antique-gold (#C6A94F) chain lies in a carved closed oval groove on the near half of the tabletop, circling three deep dark cracks in the stone. The far half of the tabletop is bare. In the far wall, an arched doorway opens onto darkness. One enclosed brass lantern hangs low above the table, the only light, a warm pool on the tabletop; the walls fall away into shadow. Low camera at the table's near end. No daylight, no pale stone, no people, no lettering. Restrained, photorealistic, natural film grain.",
+      "references": [
+        {
+          "tag": "hall",
+          "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
+        }
+      ]
     }
   ]
 }
