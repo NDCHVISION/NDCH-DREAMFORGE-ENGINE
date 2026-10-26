@@ -40,11 +40,11 @@
     },
     "pivot": {
       "text": "Pressure can get you answers. Only trust gets you the person.",
-      "visual": "A straight line of identical empty rooms seen through every open door. From the first doorway, a long enfilade of seven small bone-white (#F5F2EB) plaster rooms on light oak floors, each with the same wooden chair and small table with one empty white cup on the left, every pale oak door open, shrinking evenly to a vanishing point. At the far end the last door is closed, its brass (#C6A94F) latch catching the light. Soft overcast daylight. Motion: slow, steady push forward along the line of doorways; the closed last door never seems to get closer. The rooms keep their exact geometry. No people, no readable text, no glow."
+      "visual": "The same empty seat repeated down one long corridor. A long white plaster (#F5F2EB) corridor with light oak herringbone floors in soft overcast daylight: the same small wooden table with one empty white cup and the same wooden chair repeat in a line down the left side, pale doors line the right, and at the far end, dead centre, one closed door. Symmetrical, clean. Motion: slow, steady push forward down the corridor; the closed far door never seems to get closer. The corridor keeps its exact geometry. No people, no readable text, no glow."
     },
     "resolution": {
       "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
-      "visual": "A closed door with someone standing behind it. Side view at a 45-degree angle and waist height beside a closed, unpainted pale oak door with a small brass (#C6A94F) lever latch in a bone-white (#F5F2EB) plaster wall, soft overcast daylight from the left. Along the gap under the door, a dark grey band of shadow breaks the daylight on the floor. Motion: the shadow under the door shifts slowly once, as someone moves on the other side; the camera eases sideways a few centimetres and settles, never approaching the door. The latch never moves. No people visible, no readable text."
+      "visual": "Waiting at a closed door, at floor level. A low close-up a few centimetres above light oak floorboards at the gap under a closed, unpainted pale oak door, bright overcast daylight spilling through the gap toward the lens, a soft dark grey shadow in the middle of the line of light as if someone stands on the other side. Bone-white (#F5F2EB) skirting at the edges. Motion: the shadow shifts slowly once as the person beyond moves; the camera holds low and still, never approaching. No feet, no people, no readable text."
     },
     "mobius_close": {
       "text": "Because the next time you ask...",
@@ -118,8 +118,8 @@
     "approved": {
       "clip1": "reels/express/stills/approved/NDCH_036_clip01.jpg (round A v2)",
       "clip2": "reels/express/stills/approved/NDCH_036_clip02.jpg (round A v1)",
-      "clip3": "pending round B (enfilade replaces the overhead grid)",
-      "clip4": "pending round B (45-degree side view, shadow under the door)"
+      "clip3": "reels/express/stills/approved/NDCH_036_clip03.jpg (round B v2, corridor of repeated seats)",
+      "clip4": "pending round C (floor-level gap under the door)"
     }
   }
 }

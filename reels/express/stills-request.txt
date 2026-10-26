@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_036_RECEPTION.json
-3,4
-RECEPTION round B: clip 3 enfilade, clip 4 side view with shadow under the door
+4
+RECEPTION round C: clip 4 floor-level gap under the door with shadow
