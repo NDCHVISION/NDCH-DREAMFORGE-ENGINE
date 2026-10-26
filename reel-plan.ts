@@ -1,3 +1,4 @@
+import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -328,6 +329,8 @@ export interface ResolvedProductionPlan {
   brand?: string;
   /** Resolved from music_config in the reel spec. Drives ElevenLabs SFX background generation. */
   musicConfig?: ResolvedMusicConfig;
+  /** Opening audio (music start/fade, optional sound event). Defaults when the spec has none. */
+  openingAudio: ResolvedOpeningAudio;
 }
 
 interface ResolveProductionPlanOptions {
@@ -479,6 +482,8 @@ export function resolveProductionPlan(
     mood_arc: pickString(rawMusicConfig, [['mood_arc']]),
   } : undefined;
 
+  const openingAudio = resolveOpeningAudio(pickValue(reelSpec, [['opening_audio']]), 'reel spec opening_audio');
+
   return {
     engineConfigPath: engineConfigPath ? resolve(engineConfigPath) : undefined,
     reelSpecPath: reelSpecPath ? resolve(reelSpecPath) : undefined,
@@ -503,5 +508,6 @@ export function resolveProductionPlan(
     subtitles,
     brand,
     musicConfig,
+    openingAudio,
   };
 }

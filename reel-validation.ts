@@ -16,6 +16,7 @@
  */
 
 import { resolveValidationOverrides, type ValidationOverrides } from './lib/validation-overrides.ts';
+import { resolveOpeningAudio } from './lib/opening-audio.ts';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -130,6 +131,16 @@ export function validateCompiledReel(spec: unknown): ReelValidationResult {
     errors.push({ severity: 'error', code, message });
   const warn = (code: string, message: string) =>
     warnings.push({ severity: 'warning', code, message });
+
+  // --- Opening audio (optional): must parse if present -----------------------
+  const openingAudio = pick(spec, ['opening_audio']);
+  if (openingAudio !== undefined) {
+    try {
+      resolveOpeningAudio(openingAudio);
+    } catch (e) {
+      err('OPENING_AUDIO', (e as Error).message);
+    }
+  }
 
   // --- Segments: presence, count, canonical IDs, order ---------------------
   const rawSegments = pick(spec, ['voiceover', 'script', 'segments']);

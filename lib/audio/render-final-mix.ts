@@ -12,6 +12,7 @@
  * NON-DESTRUCTIVE LAW: source video and voice files are never overwritten.
  */
 
+import { musicIntroFilter } from '../opening-audio.ts';
 import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -81,7 +82,7 @@ export function renderVoiceMusicPreview(
     `ffmpeg -y -ss ${start} -to ${end} -i "${musicSourcePath}" -i "${voicePath}" ` +
     `-filter_complex ` +
     `"[0:a]volume=${mixPlan.music_initial_gain_db}dB,` +
-    `afade=t=in:st=0:d=${mixPlan.music_fade_in_seconds},` +
+    musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: mixPlan.music_start_seconds ?? 0 }) +
     `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
     `aloop=loop=-1:size=2e+09[music];` +
     `[1:a]asplit=2[voice][duckref];` +
@@ -129,7 +130,7 @@ export function renderFinalMixedVideo(
     `-i "${voicePath}" ` +
     `-filter_complex ` +
     `"[1:a]volume=${mixPlan.music_initial_gain_db}dB,` +
-    `afade=t=in:st=0:d=${mixPlan.music_fade_in_seconds},` +
+    musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: mixPlan.music_start_seconds ?? 0 }) +
     `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
     `aloop=loop=-1:size=2e+09[music];` +
     `[2:a]asplit=2[voice][duckref];` +

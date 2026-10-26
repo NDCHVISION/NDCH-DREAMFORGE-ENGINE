@@ -877,7 +877,7 @@ test('buildAdaptiveMusicMixFilter includes sidechain ducking and preserves fades
   const filter = buildAdaptiveMusicMixFilter(audioDuration);
   const fadeOutStart = computeFadeOutStartSecsFormatted(audioDuration);
   assert.match(filter, /\[0:a\]volume=-18dB/);
-  assert.match(filter, /afade=t=in:st=0:d=1\.5/);
+  assert.match(filter, /afade=t=in:st=0:d=0\.2,/);
   assert.ok(filter.includes(`afade=t=out:st=${fadeOutStart}:d=2`));
   assert.ok(filter.includes(`sidechaincompress=${MUSIC_DUCKING_FILTER}`));
   assert.match(filter, /\[ducked\]\[voice\]amix=inputs=2:duration=shortest\[out\]$/);
