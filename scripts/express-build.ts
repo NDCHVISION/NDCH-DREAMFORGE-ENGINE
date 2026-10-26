@@ -51,7 +51,7 @@ const MAX_PROMPT = 1000;
 const WORD_RANGE = { min: 70, max: 105 };
 
 /**
- * Opening rule (from NDCH 034 RUN onward). Viewers decide in the first two
+ * Opening rule (from NDCH 033 BEARING onward). Viewers decide in the first two
  * seconds, and the posts that held them opened on a moment the viewer has
  * lived or a plain concrete claim (GRAVITAS: "Most people enter a room and
  * become part of its atmosphere."), not on a metaphor to decode. So:
@@ -60,7 +60,7 @@ const WORD_RANGE = { min: 70, max: 105 };
  *     or establishing opening shot.
  * Seeds numbered below OPENING_RULE_FROM keep the rules they were written under.
  */
-const OPENING_RULE_FROM = 34;
+const OPENING_RULE_FROM = 33; // 033 BEARING posts first (027), then 034 RUN (028)
 const OPENING_MAX_WORDS = 8;
 const STATIC_OPENING = /\b(locked|static|near-static|establishing)\b/i;
 
@@ -166,7 +166,7 @@ function openingMusicLine(seed: ExpressSeed): string | undefined {
   const o = resolveOpeningAudio(seed.opening_audio, `${seed.reel_id}.opening_audio`);
   switch (o.mode) {
     case 'impact':
-      return 'A clear hit on the first frame, then the bed enters, rising';
+      return 'Entering just under the opening sound with no hit of its own, rising';
     case 'silence':
       return `Silent for the first ${o.musicStartSecs}s, entering with the opening sound, then rising`;
     case 'fade':

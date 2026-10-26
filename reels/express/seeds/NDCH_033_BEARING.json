@@ -1,0 +1,72 @@
+{
+  "reel_id": "NDCH_033_BEARING",
+  "episode_name": "BEARING",
+  "title_hook": "You can still repeat what they said. Word for word.",
+  "concept": "On a black-stone chart table, a fine gold chain runs in an endless loop through a groove that circles three dark fissures, drawn by a bronze sprocket turning in a slot cut into the stone. It moves constantly and goes nowhere. A blow from outside jolts the table; the chain jumps its groove, snags on a fissure lip and snaps. It goes slack. Nothing happens. Then a hand takes the broken end and draws it across bare stone toward a doorway. The fissures stay.",
+  "theme": "Self-respect over grievance",
+  "quote": "They don't get credit for where you turn. You do.",
+  "core_metaphor": "The fissures are the injuries; the chain is the course; the groove is the habit. The chain circles because the groove allows nothing else. The blow breaks the loop but chooses no direction. The break and the decision are separate events, and only the second is yours.",
+  "emotional_arc": "grievance -> audit -> interruption -> nothing -> refusal to credit -> ownership",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#C6A94F"
+  },
+  "recurring_element": "one rectangular black-stone chart table in a low vaulted room; a fine antique-gold chain running in a chiselled closed-loop groove around three dark fissures, drawn by a small bronze sprocket in a slot at the loop's near end; one enclosed brass lantern hanging above the table; one arched doorway in the far wall",
+  "material": "Matte slate-black stone with a sharp chiselled groove polished smooth by wear, and three deep dark fissures; a fine flexible antique-gold (#C6A94F) chain; a small dark bronze sprocket; an aged brass enclosed lantern giving one warm steady light from directly above; fine dust",
+  "opening_audio": {
+    "mode": "impact",
+    "music_fade_in_seconds": 0.3,
+    "sound_event": {
+      "prompt": "Close-miked fine metal chain dragged steadily through a narrow stone groove: dry continuous scrape, with one small metallic catch and release. Quiet stone room. Realistic. No music, no booms, no whooshes.",
+      "duration_seconds": 6,
+      "gain_db": -10,
+      "fade_out_seconds": 2
+    }
+  },
+  "validation_overrides": {
+    "min_words": 54
+  },
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in one low vaulted room of matte slate-black stone. A rectangular stone chart table: a fine flexible antique-gold (#C6A94F) chain runs in an endless loop through a chiselled groove around three deep dark fissures, drawn by a small bronze sprocket in a slot in the stone. One enclosed brass lantern hangs above; one arched doorway in the far wall. Physically credible light, weight, friction and dust. No faces, no glow, no portals, no sparks, no particles, no lens flares, no floating objects.",
+  "segments": {
+    "hook": {
+      "text": "You can still repeat what they said. Word for word.",
+      "visual": "Extreme close, low along the stone: the gold chain is already moving steadily under tension through its chiselled groove, scraping against the polished stone as it rounds a dark fissure. One worn link catches on the fissure's edge, holds a beat, then slips free. Camera almost still; slow pull back reveals the closed loop around three fissures."
+    },
+    "build": {
+      "text": "Every name. Every date. Now name one thing you did right by yourself.",
+      "visual": "Low angle along the table: the chain keeps running its loop, engaged on a small bronze sprocket half-recessed in a slot in the stone. The same worn link comes round and catches on the same fissure edge again, then slips free. Beyond the loop, bare uncut stone runs to an arched doorway in the far wall. Slow lateral track, ending on the empty stone."
+    },
+    "pivot": {
+      "text": "Sometimes the person who hurt you breaks a pattern you hadn't.",
+      "visual": "A heavy blow from outside jolts the table. Dust falls from the vault, the lantern swings. The running chain jumps its groove at the worn link, snags on the fissure lip, pulls taut and that link snaps. Both ends go slack on the stone. The sprocket stops. The lantern settles. Nothing else moves."
+    },
+    "resolution": {
+      "text": "Don't mistake that for a favor. They don't get credit for where you turn. You do.",
+      "visual": "Close on the slack broken chain, completely still for a long beat; nothing changes. Then one hand in a plain dark sleeve enters slowly from the right, takes the broken end and draws it across bare stone toward the doorway. The chain stays loose and settles against the stone. Precise, unhurried. The fissures stay visible."
+    },
+    "mobius_close": {
+      "text": "Now choose your bearing",
+      "visual": "Low and wide from the end of the table: the chain lies loosely across bare stone, its end at the table's edge, pointing at the arched doorway. Beyond the doorway is dark; only the lantern lights the room. The empty groove behind it. Slow forward movement, stopping short of the doorway."
+    }
+  },
+  "highlight_words": [
+    "word",
+    "right",
+    "credit"
+  ],
+  "peak_words": [
+    "bearing"
+  ],
+  "caption": "You can still repeat what they said. Word for word.\n\nNow name one thing you did right by yourself.\n\nSometimes the person who hurt you breaks a pattern you hadn't. Don't mistake that for a favor.\n\nThey don't get credit for where you turn. You do.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Bearing",
+    "#SelfRespect",
+    "#Boundaries",
+    "#ClearThinking"
+  ]
+}
