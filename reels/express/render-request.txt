@@ -2,6 +2,6 @@ reels/express/seeds/NDCH_036_RECEPTION.json
 auto
 reception-v1
 
+1
 
-
-RECEPTION (030) full render: clips 2, 3, 5 new; clips 1 and 4 cached
+RECEPTION (030) v2: anchored timing, engine transitions, end tail; no Runway calls
