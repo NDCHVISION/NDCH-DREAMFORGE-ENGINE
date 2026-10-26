@@ -3,10 +3,10 @@
   "episode_name": "INVENTORY",
   "title_hook": "Everyone wants the light back.",
   "concept": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
-  "theme": "Gratitude without pretending",
-  "quote": "Most of us only count them after. Count them now.",
+  "theme": "Gratitude as recognition of what was given",
+  "quote": "None of it was owed. All of it was given.",
   "core_metaphor": "The gold veins are already in the stone. Full light washes them out; darkness changes their visibility, not their existence.",
-  "emotional_arc": "loss -> concession -> discovery -> inventory -> shared hindsight -> instruction",
+  "emotional_arc": "loss -> concession -> discovery -> recognition of the giver -> gift -> instruction",
   "music_mood": "cinematic",
   "palette": {
     "base": "#1A1A1A",
@@ -26,15 +26,15 @@
       "visual": "Low view across the chamber: the oculus beam on the wet floor, hairline gold veins glinting faintly where it grazes. A cloud crosses and the beam narrows and dies."
     },
     "build": {
-      "text": "But look at what the dark just showed you.",
+      "text": "But the dark shows you what was given.",
       "visual": "Near-black chamber. The same gold veins brighten in sequence across floor, columns and walls, spreading outward."
     },
     "pivot": {
-      "text": "The door that still opens. The cup still warm. The coat still on the chair.",
+      "text": "The chair. Someone held you up. The cup. Someone kept it warm. The door. Someone left it open.",
       "visual": "The threshold, lit by the glowing veins: the door ajar with amber light, the steaming cup on the ledge, the coat on the chair. One slow push-in per line."
     },
     "resolution": {
-      "text": "Easy to miss in daylight. Most of us only count them after.",
+      "text": "None of it was owed. All of it was given.",
       "visual": "Wide: a backlit faceless silhouette stands near the glowing threshold, small against the chamber. Near-static."
     },
     "mobius_close": {
@@ -45,12 +45,12 @@
   "highlight_words": [
     "light",
     "dark",
-    "still"
+    "given"
   ],
   "peak_words": [
     "now"
   ],
-  "caption": "Everyone wants the light back. Fair.\n\nBut the dark has a way of showing you what was there all along.\n\nThe door that still opens. The cup still warm. The coat still on the chair.\n\nMost of us only count them after.",
+  "caption": "Everyone wants the light back. Fair.\n\nBut the dark shows you what was given.\n\nThe chair. Someone held you up.\nThe cup. Someone kept it warm.\nThe door. Someone left it open.\n\nNone of it was owed. All of it was given.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",
