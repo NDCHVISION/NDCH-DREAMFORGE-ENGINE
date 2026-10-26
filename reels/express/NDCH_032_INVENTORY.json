@@ -4,14 +4,14 @@
   "reel_input": {
     "note": "Express seed (reels/express/seeds). Descriptive only.",
     "concept_seed": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
-    "doctrine_theme": "Gratitude without pretending",
+    "doctrine_theme": "Gratitude as recognition of what was given",
     "target_duration_seconds": 45
   },
   "concept": "A single beam from an oculus lights a black-stone chamber whose fine gold veins are washed out by the light. A cloud covers the oculus; in the dark the veins glow and reveal what was there all along: a door still ajar, a cup still warm, a coat still on a chair. The light returns and the veins stay faintly visible.",
-  "theme": "Gratitude without pretending",
+  "theme": "Gratitude as recognition of what was given",
   "core_metaphor": "The gold veins are already in the stone. Full light washes them out; darkness changes their visibility, not their existence.",
-  "emotional_arc": "loss -> concession -> discovery -> inventory -> shared hindsight -> instruction",
-  "quote": "Most of us only count them after. Count them now.",
+  "emotional_arc": "loss -> concession -> discovery -> recognition of the giver -> gift -> instruction",
+  "quote": "None of it was owed. All of it was given.",
   "style_id": "style_1_fractal",
   "format": {
     "target_duration_seconds": 45,
@@ -222,7 +222,7 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "Everyone wants the light back. Fair. But look at what the dark just showed you. The door that still opens. The cup still warm. The coat still on the chair. Easy to miss in daylight. Most of us only count them after. Count them now",
+      "full_text": "Everyone wants the light back. Fair. But the dark shows you what was given. The chair. Someone held you up. The cup. Someone kept it warm. The door. Someone left it open. None of it was owed. All of it was given. Count them now",
       "mobius_note": "Final segment stays open: 'Count them now' resolves at loop restart with 'Everyone wants the light back.'.",
       "word_count": 45,
       "estimated_duration_seconds": 45,
@@ -242,7 +242,7 @@
         },
         {
           "id": "build",
-          "text": "But look at what the dark just showed you.",
+          "text": "But the dark shows you what was given.",
           "timestamp_start": "0:06",
           "timestamp_end": "0:20",
           "visual_prompt": "Near-black chamber. The same gold veins brighten in sequence across floor, columns and walls, spreading outward.",
@@ -255,7 +255,7 @@
         },
         {
           "id": "pivot",
-          "text": "The door that still opens. The cup still warm. The coat still on the chair.",
+          "text": "The chair. Someone held you up. The cup. Someone kept it warm. The door. Someone left it open.",
           "timestamp_start": "0:20",
           "timestamp_end": "0:29",
           "visual_prompt": "The threshold, lit by the glowing veins: the door ajar with amber light, the steaming cup on the ledge, the coat on the chair. One slow push-in per line.",
@@ -268,7 +268,7 @@
         },
         {
           "id": "resolution",
-          "text": "Easy to miss in daylight. Most of us only count them after.",
+          "text": "None of it was owed. All of it was given.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
           "visual_prompt": "Wide: a backlit faceless silhouette stands near the glowing threshold, small against the chamber. Near-static.",
@@ -318,7 +318,7 @@
     "highlight_words": [
       "light",
       "dark",
-      "still"
+      "given"
     ],
     "peak_words": [
       "now"
@@ -391,7 +391,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "Everyone wants the light back. Fair.\n\nBut the dark has a way of showing you what was there all along.\n\nThe door that still opens. The cup still warm. The coat still on the chair.\n\nMost of us only count them after.\n\n#NDCH #NVSSeries #Inventory #Gratitude #Perspective #ClearThinking",
+    "caption": "Everyone wants the light back. Fair.\n\nBut the dark shows you what was given.\n\nThe chair. Someone held you up.\nThe cup. Someone kept it warm.\nThe door. Someone left it open.\n\nNone of it was owed. All of it was given.\n\n#NDCH #NVSSeries #Inventory #Gratitude #Perspective #ClearThinking",
     "hashtags": [
       "#NDCH",
       "#NVSSeries",

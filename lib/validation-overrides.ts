@@ -26,7 +26,7 @@ export const VALIDATION_OVERRIDE_ALLOWLIST: Readonly<Record<string, ValidationOv
   NDCH_030_FRAMES: { min_words: 36 },
   // NDCH 031 PARALLAX (posts as 025): 37-word narration.
   NDCH_031_PARALLAX: { min_words: 37 },
-  // NDCH 032 INVENTORY (posts as 026): 45-word narration.
+  // NDCH 032 INVENTORY (posts as 026): 45-word gratitude narration.
   NDCH_032_INVENTORY: { min_words: 45 },
   // NDCH 033 BEARING (posts as 027): 54-word narration.
   NDCH_033_BEARING: { min_words: 54 },
