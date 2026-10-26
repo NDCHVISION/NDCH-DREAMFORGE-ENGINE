@@ -31,6 +31,7 @@ import {
 import { join, resolve, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateCompiledReel } from '../reel-validation.ts';
+import { checkUniversalViewer } from '../lib/universal-viewer.ts';
 
 const ROOT = resolve('.');
 const TEMPLATE_PATH = join(ROOT, 'reels', 'NDCH_016_ILLUSION_OF_MOTION.json');
@@ -224,6 +225,19 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     }
   }
   const words = SEGMENT_IDS.map((id) => seed.segments[id].text).join(' ');
+  const viewerHits = checkUniversalViewer({
+    narration: words,
+    title_hook: seed.title_hook,
+    quote: seed.quote,
+    // Hashtags are allowed to carry the brand tag; the caption body is not.
+    caption: seed.caption.replace(/#\S+/g, ''),
+  });
+  if (viewerHits.length) {
+    const lines = viewerHits.map((h) => `  - ${h.field}: "${h.match}" (${h.reason})`).join('\n');
+    throw new Error(
+      `${source}: fails the Universal Viewer Law. A stranger scrolling past must get the idea without knowing the creator:\n${lines}`,
+    );
+  }
   const n = wordCount(words);
   const overrides = resolveValidationOverrides(seed.reel_id, seed.validation_overrides);
   const min = overrides.min_words ?? WORD_RANGE.min;

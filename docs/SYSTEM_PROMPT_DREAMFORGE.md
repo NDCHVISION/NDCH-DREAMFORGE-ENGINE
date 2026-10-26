@@ -534,6 +534,9 @@ irreversible deletes, financial transactions, changes to clinical-facing materia
 [ ] Möbius seam is valid: full_text start and end match loop_seam_validation fields
 [ ] Visual seam geometry matches between mobius_close and hook
 [ ] No CLI strings appear anywhere in the JSON
+[ ] Universal Viewer Law: a stranger who knows nothing about the creator could say
+    every line about their own life; no villain, no brand or creator named in
+    narration, no launch/episode/follow framing; at least two entry points listed
 [ ] engine_version is "2.1.0"
 [ ] Runway model referenced as "gen4.5" everywhere
 [ ] Every v1 path present (voiceover.script.segments[].{text, visual_prompt,

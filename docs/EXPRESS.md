@@ -119,6 +119,15 @@ sound event, so nothing is forced to open loud.
   (0/6/20/29/38/45). Shorter reels (25–30 s) would need new windows, validator rules and
   timing tests.
 
+### Universal Viewer Law
+
+A seed must land for a stranger who has never heard of NDCH. The builder refuses
+narration that names the creator or brand, launch or "new episode" framing, and follow or subscribe asks.
+Before you queue a seed, read every line and ask: could anyone say this about their own life? Keep the
+villain out, and list at least two kinds of viewer who would see themselves in it under
+`universal_viewer_check.entry_points`. Unreviewed seeds go in `reels/express/drafts/`; the render queue
+only reads `reels/express/seeds/`.
+
 ### Seed prompt (paste into any AI chat)
 
 > Write a DreamForge EXPRESS seed as JSON, same keys and shape as this example:
@@ -130,7 +139,9 @@ sound event, so nothing is forced to open loud.
 > plain claim (8 words or fewer), not a metaphor, and the hook visual is already moving on frame one
 > (never a locked, static or establishing shot); each visual is one vivid 9:16 shot
 > under 300 characters naming the palette hex codes; title_hook is the most quotable line, under
-> 50 characters. Output only the JSON.
+> 50 characters. The reel must work for a stranger who has never heard of the creator: no brand or creator
+> named in the narration, no villain, no launch or episode framing, no follow asks; first person only if any
+> viewer could say the line about their own life. Output only the JSON.
 
 ## Costs
 

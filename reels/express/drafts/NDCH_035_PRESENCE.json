@@ -1,0 +1,108 @@
+{
+  "reel_id": "NDCH_035_PRESENCE",
+  "posting_number": "029",
+  "episode_name": "PRESENCE",
+  "status": "draft: awaiting creative approval and Runway prompt review. Posts as episode 029. Move to reels/express/seeds/ to queue it for render.",
+  "title_hook": "My presence is not your access.",
+  "concept": "A monumental black-stone building with one lit doorway at street level. Through it you see a small warm room, and it reads as the whole building. As the camera nears the doorway, the perspective shifts: the room sits far behind the threshold and can't be reached from where you stand. The camera rises and shows that the building holds an immense, lit interior that the doorway never connected to.",
+  "theme": "Familiarity feels like knowing someone. Access is something a person gives.",
+  "quote": "Same room, every day. You haven't seen me in months.",
+  "core_metaphor": "The street doorway is the part of a person anyone nearby can see. The building is the rest of them.",
+  "emotional_arc": "recognition -> familiarity -> loss of a closeness once given -> the self still alive -> boundary",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#DC143C"
+  },
+  "recurring_element": "one monumental black-stone building with a single tall lit doorway at street level; through it, a small warm room with a wooden table, two cups and a chair; one backlit faceless figure in a charcoal coat",
+  "material": "Black stone with hairline antique-gold (#C6A94F) veining, wet black stone pavement, dark wood table and chair, dark stoneware cups, warm gold lamp light from inside, bone-white (#F5F2EB) steam and highlights",
+  "primary_prompt": "Restrained photorealistic 9:16 sequence around one monumental black-stone building at dusk. A single tall doorway at street level glows warm gold (#C6A94F); through it, a small room with a wooden table, two cups and a chair with a coat over its back. Above, the building rises into dark stone that later opens onto a vast lit interior. Slow, physically credible camera, real light, wet stone. No faces, no text, no portals, no lens flares, no floating objects.",
+  "segments": {
+    "hook": {
+      "text": "Same room, every day. You haven't seen me in months.",
+      "visual": "Already happening on the first frame: a backlit faceless figure in a charcoal coat steps through a tall doorway glowing warm gold (#C6A94F) in a monumental black-stone facade (#1A1A1A) at dusk, wet pavement reflecting the light. The camera tracks sideways with the figure. Inside, a small room with a wooden table and two cups. By the second second the figure is seated at the table, and the lit room reads as the whole building."
+    },
+    "build": {
+      "text": "You know how I take my coffee. You know which chair I pick. That's familiarity, and it feels a lot like knowing someone.",
+      "visual": "Slow push toward the doorway. The small room in detail: steam rising from one cup in bone-white (#F5F2EB) lamp light, a coat over the back of a chair, a worn table edge. Ordinary and familiar, framed through the stone doorway."
+    },
+    "pivot": {
+      "text": "Once, you heard my thoughts before I'd finished them. I miss who I was around you.",
+      "visual": "The push continues to the threshold and the perspective shifts: the doorway's depth stretches and the lit room sits far behind it, across a wide gap of dark stone floor. Nothing breaks and the room stays lit; it can't be reached from here. A thin crimson (#DC143C) line of light runs along the threshold stone."
+    },
+    "resolution": {
+      "text": "That person didn't go anywhere. They laugh in rooms you can't see from where you stand.",
+      "visual": "The camera cranes up the facade. The doorway shrinks to one small lit point at the base. Behind and above it the building opens into an immense interior: tier after tier of warm-lit rooms, stairways and halls with soft moving light, reaching far beyond anything visible from the street."
+    },
+    "mobius_close": {
+      "text": "My presence is not your access. You'll still find me in the...",
+      "visual": "The camera descends the facade and settles into the same sideways track along the street as a backlit figure steps through the single lit doorway, framed exactly like the opening shot, wet pavement reflecting the gold."
+    }
+  },
+  "transitions": [
+    {
+      "from": "hook",
+      "to": "build",
+      "strategy": "Push-dissolve",
+      "how": "Accelerate the dolly into a push toward the doorway in the last 0.6 s and dissolve into the room framed through the doorway."
+    },
+    {
+      "from": "build",
+      "to": "pivot",
+      "strategy": "Shape match",
+      "how": "Hold the doorway rectangle in the same place in frame across the cut; the incoming clip is already mid-push."
+    },
+    {
+      "from": "pivot",
+      "to": "resolution",
+      "strategy": "Light match",
+      "how": "The crimson threshold line becomes the doorway's gold glow at the base of the facade as the crane begins."
+    },
+    {
+      "from": "resolution",
+      "to": "mobius_close",
+      "strategy": "Flare through",
+      "how": "One of the lit interior windows blooms briefly as the camera starts down, then settles on the facade."
+    },
+    {
+      "from": "mobius_close",
+      "to": "hook (loop)",
+      "strategy": "Shape match",
+      "how": "The final frame matches the first: same doorway position, same figure mid-step, same track speed, so the loop has no fade."
+    }
+  ],
+  "universal_viewer_check": {
+    "test": "Could someone who knows nothing about the creator say every line about their own life?",
+    "entry_points": [
+      "The person who pulled back from someone they still see every day.",
+      "The person who just realized someone pulled back from them.",
+      "Anyone who has confused seeing someone often with knowing them."
+    ],
+    "removed_for_this_law": "The line 'Then you used that against me' named a wrongdoer and a victim, which locked out two of the three entry points."
+  },
+  "highlight_words": [
+    "room",
+    "familiarity",
+    "presence"
+  ],
+  "peak_words": [
+    "access"
+  ],
+  "caption": "Same room, every day. You haven't seen me in months.\n\nSeeing someone often can feel like knowing them.\n\nMy presence is not your access.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Presence",
+    "#Perception",
+    "#Identity",
+    "#ClearThinking"
+  ],
+  "opening_check": {
+    "first_sentence": "Same room, every day.",
+    "event_at_0s": "The figure is mid-step through the lit doorway.",
+    "tension_by_2s": "Someone you see every day, in a lit room that looks like all there is.",
+    "works_muted": "Yes: the doorway, the figure and the two cups carry it."
+  }
+}
