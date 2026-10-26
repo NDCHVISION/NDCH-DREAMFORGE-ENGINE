@@ -1,6 +1,8 @@
 import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anchor.ts';
 import { resolveFinish, type FinishProfile } from './lib/finish.ts';
+import { resolveEndTitle, type EndTitle } from './lib/end-title.ts';
+import { resolveSoundEvents, type TimedSoundEvent } from './lib/sound-events.ts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -339,6 +341,10 @@ export interface ResolvedProductionPlan {
   transitions?: unknown;
   /** Finish profile: caption layout, output resolution, loudness (lib/finish.ts). */
   finish: FinishProfile;
+  /** Reel name over the closing shot (lib/end-title.ts). */
+  endTitle?: EndTitle;
+  /** Timed sound effects after the opening (lib/sound-events.ts). */
+  soundEvents: TimedSoundEvent[];
 }
 
 interface ResolveProductionPlanOptions {
@@ -521,5 +527,7 @@ export function resolveProductionPlan(
     narrationTiming,
     transitions: pickValue(reelSpec, [['clip_transitions']]),
     finish: resolveFinish(pickValue(reelSpec, [['finish']])),
+    endTitle: resolveEndTitle(pickValue(reelSpec, [['end_title']])),
+    soundEvents: resolveSoundEvents(pickValue(reelSpec, [['sound_events']])),
   };
 }

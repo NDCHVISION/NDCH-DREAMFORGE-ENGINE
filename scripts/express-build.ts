@@ -24,6 +24,8 @@ import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-aud
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import { resolveTransitions, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
+import { resolveEndTitle } from '../lib/end-title.ts';
+import { resolveSoundEvents } from '../lib/sound-events.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -147,6 +149,10 @@ export interface ExpressSeed {
   clip_transitions?: TransitionSpec[];
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
   finish?: { subtitle_layout?: 'default' | 'safe_zone'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
+  /** Reel name over the closing shot (lib/end-title.ts). */
+  end_title?: Record<string, unknown>;
+  /** Timed sound effects after the opening (lib/sound-events.ts). */
+  sound_events?: Record<string, unknown>[];
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
   voice?: { voice_id?: string; stability?: number; speed?: number };
 }
@@ -260,6 +266,8 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
   resolveNarrationTiming(seed.narration_timing);
   resolveFinish(seed.finish);
+  resolveEndTitle(seed.end_title);
+  resolveSoundEvents(seed.sound_events);
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
@@ -411,6 +419,10 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.clip_transitions;
   if (seed.finish) spec.finish = structuredClone(seed.finish);
   else delete spec.finish;
+  if (seed.end_title) spec.end_title = structuredClone(seed.end_title);
+  else delete spec.end_title;
+  if (seed.sound_events) spec.sound_events = structuredClone(seed.sound_events);
+  else delete spec.sound_events;
   spec.music_config = {
     description: musicDescription(seed),
     // Informational. Older seeds keep the value they were built with.
