@@ -2,7 +2,7 @@
   "reel_id": "NDCH_036_RECEPTION",
   "posting_number": "030",
   "episode_name": "RECEPTION",
-  "status": "draft: awaiting creative approval, stills review and motion-prompt review. Posts as episode 030. Move to reels/express/seeds/ to queue it for render.",
+  "status": "seed: concept, stills and motion prompts approved 2026-10-26. Posts as episode 030. Test render of clips 1 and 4 first.",
   "title_hook": "Pressure gets answers. Not the person.",
   "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
   "theme": "Answers given under pressure are not trust freely given.",
@@ -36,7 +36,7 @@
   "segments": {
     "hook": {
       "text": "You asked again. They answered again. Somehow you know them less.",
-      "visual": "A door opening toward camera while the corridor behind it pulls away. Already swinging on the first frame: a tall pale oak door with a small brass (#C6A94F) latch opens toward the lens in a pale plaster wall, bright overcast daylight. Through the widening gap, a long white plaster corridor with another closed oak door at its far end. The camera pushes forward while the lens widens (dolly zoom), so the far door stretches farther away as this one opens. One dominant subject, clean bright contrast between the oak and the white walls, readable at phone size. One continuous shot. No people, no lettering, no lens flares."
+      "visual": "A door opening toward camera onto a long white corridor. Already swinging on the first frame: a tall pale oak door with a small brass (#C6A94F) latch opens toward the lens, bright overcast daylight. Through the widening gap, a long white plaster corridor runs to another closed oak door at its far end. Motion: the door keeps swinging slowly open while the camera advances gently toward the doorway with a smooth, restrained forward dolly; natural perspective deepens. One dominant subject, clean bright contrast, readable at phone size. One continuous shot. No people, no lettering, no lens flares."
     },
     "build": {
       "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away.",
@@ -52,7 +52,7 @@
     },
     "mobius_close": {
       "text": "Because the next time you ask...",
-      "visual": "The first door again, about to open. The camera drifts slowly back to square up on the same tall pale oak door with its brass (#C6A94F) latch in the pale plaster wall, front-on in overcast daylight, matching the opening framing. The latch lifts and the door begins to swing toward the lens on the final frame, the long white corridor behind it, so the loop runs straight into the opening. No people, no lettering."
+      "visual": "Clip 1's first seconds played in reverse: the door swings slowly back toward its starting position and the camera eases back, so the last frame is exactly the first frame of the reel. No people, no lettering."
     }
   },
   "transitions": [
@@ -84,7 +84,7 @@
       "from": "mobius_close",
       "to": "hook (loop)",
       "strategy": "Shape match",
-      "how": "Clip 5 ends on clip 1's opening door framing as it starts to swing, so the loop has no fade."
+      "how": "The close is clip 1 reversed, so its last frame is the reel's first frame; the loop has no fade or transition of its own."
     }
   ],
   "distinct_from": {
@@ -118,19 +118,21 @@
     "#Patience"
   ],
   "stills_and_motion": {
-    "note": "All five clips start from approved stills; clip 5 reuses the clip 1 still. Motion prompts below await review; after approval copy them into reels/express/i2v/NDCH_036_RECEPTION.json (gen4.5; durations 5/10/10/10/5).",
+    "note": "All clips start from approved stills. Motion prompts merged with the external review (clips 1-4), clip 4 kept human rather than eerie. Copied to reels/express/i2v/NDCH_036_RECEPTION.json.",
     "motion_prompts": {
-      "1": "Already moving on the first frame: the partly open pale oak door keeps swinging slowly toward the camera on its hinges, widening the view down the white corridor. At the same time the camera pushes gently forward while the far closed door at the end of the corridor appears to slide farther away (a slow dolly zoom), so the corridor seems to stretch longer as the door opens. The walls, floorboards and both doors keep their shape. Soft overcast daylight does not change. No people.",
-      "2": "The camera moves slowly and steadily forward across the room toward the closed door in the far wall, at one even pace. The chair, the table, the empty white cup and the blank frame stay exactly where they are; nothing in the room moves. The patch of daylight on the floor shifts very slightly. The walls, floor and door keep their shape. No people.",
-      "3": "The camera moves slowly and steadily forward down the long white corridor at one even pace. The repeating tables, chairs and empty cups on the left stay perfectly still and keep their shapes and spacing; the doors on the right stay as they are. The closed door at the far end stays closed and stays centred. Soft overcast daylight does not change. The corridor keeps its exact geometry. No people.",
-      "4": "Locked camera; the frame does not move. The door stays fully shut and the brass latch never moves. In the thin line of daylight under the door, a soft grey shadow slides slowly in from the left and stops in the middle, as if someone on the other side has stepped close and is standing still. Then nothing moves. The door, wall and floorboards keep their shape. No people visible, no new light.",
-      "5": "From the approved clip 1 still: the partly open pale oak door swings slowly and slightly toward closed, then eases to a stop, and the camera drifts back very gently to settle on the opening framing. The far closed door at the end of the corridor stays where it is. Soft overcast daylight does not change. The walls, floorboards and both doors keep their shape. No people."
+      "1": "The pale oak door is already swinging slowly open in the first frame. The camera advances gently toward the doorway with a smooth, restrained forward dolly. As the door opens, more of the empty white corridor becomes visible. Natural perspective deepens gradually. The distant closed door remains stationary. Preserve the precise architecture, straight wall edges, stable floorboards, realistic hinge movement, and soft overcast daylight. Quiet photographic realism. No people.",
+      "2": "A continuous, exceptionally smooth forward camera movement toward the closed door across the room. The camera maintains a constant height and orientation. Natural perspective produces subtle parallax between the foreground furniture and distant wall. The chair, table, empty white cup, and blank frame remain completely stationary. The daylight remains soft and consistent. Preserve exact object proportions, architectural geometry, and realistic spatial relationships. No people.",
+      "3": "The camera advances slowly through the long white corridor, maintaining precise central alignment toward the distant closed door. Repeating tables, chairs, and empty cups pass gradually through the frame with natural perspective and subtle parallax. All objects remain stationary. The doors along the right wall remain unchanged. The forward movement becomes almost imperceptibly slower near the end, without stopping completely. Preserve consistent corridor dimensions, architectural geometry, object spacing, and soft daylight. No people.",
+      "4": "Perfectly locked camera. The closed door, brass latch, surrounding wall, and floorboards remain completely motionless. A narrow band of soft daylight is visible beneath the door. Within that band, a diffuse grey interruption gradually enters from the left, moving naturally across the illuminated floor until it settles near the center, as if someone on the other side has quietly stepped close and is standing still. It remains subtle, soft-edged, and physically plausible. Once it stops, the entire image becomes still. The door never opens. No visible person, no additional objects, no lighting change.",
+      "5": "Fallback only; the planned close is clip 1's first seconds played in reverse. Locked camera on the original pale oak doorway composition. The partly open door drifts a few centimetres toward closed and eases to a stop. The distant corridor door remains closed. Preserve the original architecture, door proportions, floorboards, and soft overcast daylight. No people."
     },
     "approved": {
       "clip1": "reels/express/stills/approved/NDCH_036_clip01.jpg (round A v2)",
       "clip2": "reels/express/stills/approved/NDCH_036_clip02.jpg (round A v1)",
       "clip3": "reels/express/stills/approved/NDCH_036_clip03.jpg (round B v2, corridor of repeated seats)",
       "clip4": "reels/express/stills/approved/NDCH_036_clip04.jpg (round A v1; the shadow comes from motion, rounds B and C rejected)"
-    }
-  }
+    },
+    "loop": "Close = clip 1 seconds 0-2.5 reversed (LOOPING.md, PRESENCE v2 method), so the last frame is frame one exactly; clip 5 is a fallback only. loop_audio seamless (default from 035): the bed runs through the loop point."
+  },
+  "loop_audio": "seamless"
 }

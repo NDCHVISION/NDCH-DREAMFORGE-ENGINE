@@ -38,6 +38,7 @@ import { pathToFileURL } from 'node:url';
 import { validateCompiledReel } from '../reel-validation.ts';
 import { checkUniversalViewer } from '../lib/universal-viewer.ts';
 import { CAPTION_LAW_FROM, captionColourProblems } from '../lib/caption-law.ts';
+import { END_RULE_FROM, END_TAIL_SECS, resolveEndTail } from '../lib/end-tail.ts';
 import { resolveLoopAudio } from '../lib/loop-seam.ts';
 
 const ROOT = resolve('.');
@@ -183,6 +184,8 @@ export interface ExpressSeed {
   narration_timing?: NarrationTiming;
   /** Loop law (LOOPING.md). Defaults to "seamless" from 035 PRESENCE on; older seeds keep "fade". */
   loop_audio?: 'fade' | 'seamless';
+  /** Seconds after the last word where the reel ends (lib/end-tail.ts). Default 2.5 from reel 036 on. */
+  end_tail_secs?: number;
   /** Caption colours when the visual palette's own fail the caption law (CAPTIONS.md). Default: palette.light/accent/peak. */
   caption_colors?: { text?: string; highlight?: string; peak?: string };
   /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
@@ -330,6 +333,10 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     if (problems.length) throw new Error(`${source}: caption contrast: ${problems.join('; ')}`);
   }
   resolveEndTitle(seed.end_title);
+  resolveEndTail(seed.end_tail_secs);
+  if (seed.end_tail_secs !== undefined && seed.narration_timing !== 'anchored') {
+    throw new Error(`${source}: end_tail_secs needs narration_timing "anchored"`);
+  }
   resolveSoundEvents(seed.sound_events);
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
@@ -499,6 +506,10 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.finish;
   if (seed.end_title) spec.end_title = structuredClone(seed.end_title);
   else delete spec.end_title;
+  // End rule (LOOPING.md): from 036, anchored reels end 2.5 s after the last word.
+  const endTail = seed.end_tail_secs ?? (reelNumber(seed.reel_id) >= END_RULE_FROM && seed.narration_timing === 'anchored' ? END_TAIL_SECS : undefined);
+  if (endTail !== undefined) spec.end_tail_secs = endTail;
+  else delete spec.end_tail_secs;
   if (seed.sound_events) spec.sound_events = structuredClone(seed.sound_events);
   else delete spec.sound_events;
   spec.music_config = {

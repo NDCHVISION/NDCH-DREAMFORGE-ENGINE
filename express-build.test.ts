@@ -426,3 +426,16 @@ test('express: section_boundaries set the windows, the length and the music timi
   delete continuous.clip_transitions;
   assert.throws(() => assertSeed(continuous, 'x'), /section_boundaries need narration_timing "anchored"/);
 });
+
+test('express: end rule (from 036) ends anchored reels 2.5 s after the last word; earlier reels keep 45 s', () => {
+  const presence = buildReel(loadSeed('NDCH_035_PRESENCE.json'), TEMPLATE) as Record<string, unknown>;
+  assert.equal(presence.end_tail_secs, undefined);
+  const later: ExpressSeed = { ...loadSeed('NDCH_035_PRESENCE.json'), reel_id: 'NDCH_036_TEST' };
+  assert.equal((buildReel(later, TEMPLATE) as Record<string, unknown>).end_tail_secs, 2.5);
+  const custom: ExpressSeed = { ...structuredClone(later), end_tail_secs: 3.5 };
+  assert.equal((buildReel(custom, TEMPLATE) as Record<string, unknown>).end_tail_secs, 3.5);
+  const own = loadSeed('NDCH_035_PRESENCE.json');
+  assert.doesNotThrow(() => assertSeed({ ...structuredClone(own), end_tail_secs: 3 }, 'tail'));
+  assert.throws(() => assertSeed({ ...structuredClone(own), end_tail_secs: 0.1 }, 'tail'), /end_tail_secs/);
+  assert.throws(() => assertSeed({ ...structuredClone(own), narration_timing: undefined, clip_transitions: undefined, end_tail_secs: 2 }, 'tail'), /needs narration_timing/);
+});
