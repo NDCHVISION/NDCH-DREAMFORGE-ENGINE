@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-bearing-v2
+reception-v1
 
-1
 
-BEARING v2: dip-to-near-black joins 3-4 and 4-5, clip 4 cropped (no Runway calls)
+1,4
+RECEPTION (030) test: clips 1 and 4 only, review before the rest

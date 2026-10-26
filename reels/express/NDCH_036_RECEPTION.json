@@ -1,0 +1,428 @@
+{
+  "reel_id": "NDCH_036_RECEPTION",
+  "engine_version": "2.1.0",
+  "reel_input": {
+    "note": "Express seed (reels/express/seeds). Descriptive only.",
+    "concept_seed": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
+    "doctrine_theme": "Answers given under pressure are not trust freely given.",
+    "target_duration_seconds": 45
+  },
+  "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
+  "theme": "Answers given under pressure are not trust freely given.",
+  "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
+  "emotional_arc": "a familiar frustration -> a paradox you can see -> the tidy rooms are for visitors -> answers are not trust -> what kind of presence earns a door",
+  "quote": "Pressure can get you answers. Only trust gets you the person.",
+  "style_id": "style_1_fractal",
+  "format": {
+    "target_duration_seconds": 45,
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "frame_rate": 30
+  },
+  "frame_geometry": {
+    "note": "Locked geometry (TELEMETRY 014 law). validate-reel.ts enforces these for engine_version 2.1.0.",
+    "aspect_ratio": "9:16",
+    "resolution": "1080x1920",
+    "fps": 30,
+    "runway_ratio": "768:1280",
+    "total_duration_seconds": 45,
+    "segment_count": 5,
+    "segment_id_order": [
+      "hook",
+      "build",
+      "pivot",
+      "resolution",
+      "mobius_close"
+    ],
+    "runway_prompt_char_budget": 1000,
+    "runway_prompt_char_budget_note": "lib/scene-planning.ts MAX_RUNWAY_PROMPT_CHARS truncates promptText to 1000 chars before sending to Runway gen4.5. Keep each segment visual_prompt and compiled runway string <= 1000."
+  },
+  "visual_thread": {
+    "dominant_palette_lock": [
+      "#F5F2EB",
+      "#C6A94F",
+      "#FFFFFF",
+      "#C6A94F"
+    ],
+    "lighting_direction": "upper-left",
+    "lighting_quality": "harsh rim",
+    "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
+    "recurring_element": "one canonical doorway: a tall pale oak door with a small brass (#C6A94F) latch, set in a pale plaster wall; behind each doorway an identical tidy room of white plaster with one plain wooden chair, one empty white cup on a small table and one blank white framed picture",
+    "color_temperature": "cold (below 4000K)"
+  },
+  "seed_frame_strategy": {
+    "pipeline_mode": "iterative_image_to_video_continuation",
+    "initial_scene_generation": "text-to-video",
+    "downstream_scenes_generation": "image-to-video",
+    "buffer_bridge": {
+      "extraction_command": "ffmpeg -sseof -1 -i scene_[N-1].mp4 -update 1 -q:v 1 seed_scene_[N].png",
+      "runway_api_parameter": "init_image = seed_scene_[N].png",
+      "motion_weight_ratio": 0.75
+    }
+  },
+  "mobius_loop": {
+    "enabled": true,
+    "description": "The final clause stays open and resolves when the reel loops back to the hook.",
+    "loop_seam": "'time you ask...' -> 'You asked again.'"
+  },
+  "loop_seam_validation": {
+    "note": "Contract the validator checks for engine_version 2.1.0.",
+    "text_seam_must_match": true,
+    "expected_text_seam": "...time you ask... [LOOP] You asked again.",
+    "full_text_must_start_with": "You asked again.",
+    "full_text_must_end_with": "time you ask..."
+  },
+  "timing_normalization": {
+    "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
+    "timeline_total_seconds": 45,
+    "tolerance_seconds": 0.5
+  },
+  "audio_sync_validation": {
+    "note": "Descriptive contract. Segment windows the compiled voiceover must align to.",
+    "boundary_tolerance_seconds": 0.5,
+    "expected_segment_boundaries_seconds": [
+      0,
+      6,
+      20,
+      29,
+      38,
+      45
+    ]
+  },
+  "voice_direction": {
+    "_status": "ADVISORY -- for future assemble-audio.ts Stage 9 integration. Current pipeline uses per-segment elevenlabs_payload overrides.",
+    "_law": "Orator Law: silence is a first-class structural element. Narration conducts the visuals; it does not compete with them.",
+    "global_rate": 0.82,
+    "character": "Documentary narrator. Not trailer narrator. Intimate, calm, observational. The doctrine is delivered as observation, not instruction.",
+    "breathing_points": [
+      {
+        "after": "You are building a cage out of certainty.",
+        "silence_ms": 600,
+        "visual_state": "Hook lands. The viewer is inside the cage before they know it. Give the line room."
+      },
+      {
+        "after": "That is the trap.",
+        "silence_ms": 850,
+        "visual_state": "Pivot diagnosis complete. The trap has been named. Viewer needs a beat before the doctrine arrives."
+      },
+      {
+        "after": "It rewards the capacity to bleed against the terrain.",
+        "silence_ms": 700,
+        "visual_state": "Central claim delivered. Terrain vs map. Let it sit before the directive begins."
+      },
+      {
+        "after": "Move.",
+        "silence_ms": 400,
+        "visual_state": "Single-word directive. The shortest sentence in the script. It must not be rushed past."
+      }
+    ],
+    "final_decay_ms": 2000,
+    "fragmentation_directive": "Resolution segment: 'Close the map. Enter the arena.' These are separate directives, not a flowing list. Each lands as a command. Hard stop between each."
+  },
+  "sound_direction": {
+    "_status": "v0.1-provisional -- 017-derived defaults. Override if this doctrine's emotional temperature requires it.",
+    "music_role": "tension",
+    "emotional_temperature": {
+      "primary": "cold",
+      "secondary": "mechanical",
+      "tertiary": "inevitable",
+      "anti_descriptors": [
+        "triumphant",
+        "inspirational",
+        "warm",
+        "melodic"
+      ]
+    },
+    "cinematic_layers": {
+      "layer_1_philosophy": "Voice. Documentary narrator. The doctrine is the intellectual foreground. Always forward.",
+      "layer_2_atmosphere": "Music. Sub-bass industrial drone. Answers: what emotional temperature does this doctrine exist in? Answer: cold machinery. Not pressure. Not urgency. The machine that doesn't care.",
+      "layer_3_space": "Silence. Between 'That is the trap.' and the pivot line, that silence is doing work. It is not empty."
+    },
+    "dynamic_profile": [
+      {
+        "section": "hook",
+        "music_directive": "restrained. Reference level, drone only.",
+        "voice_directive": "forward. Declarative, no warmth.",
+        "relationship": "Voice makes the accusation. Music confirms the cold."
+      },
+      {
+        "section": "build",
+        "music_directive": "slow mechanical rise. Sub-bass tightens incrementally.",
+        "voice_directive": "integrated. Accumulating rhythm mirrors the dopamine trap.",
+        "relationship": "Music and voice accelerate together toward the trap's reveal."
+      },
+      {
+        "section": "pivot",
+        "music_directive": "distortion surge at pivot onset, then duck to maximum clarity.",
+        "voice_directive": "unchanged. Maximum clarity. This is the terrain line.",
+        "relationship": "The surge marks the pivot. Then music recedes completely. Nothing competes with 'bleed against the terrain.'"
+      },
+      {
+        "section": "resolution",
+        "music_directive": "recover to reference level. Mechanical pulse returns.",
+        "voice_directive": "directive mode. Each sentence a separate command.",
+        "relationship": "Music confirms the directive is real. Not emotional. Operational."
+      },
+      {
+        "section": "mobius",
+        "music_directive": "BPM-locked cut at loop seam. No fade, no decay.",
+        "voice_directive": "decay. 'you are...' trails into silence.",
+        "relationship": "Voice exits. Music cuts at seam. Silence holds for the loop."
+      }
+    ],
+    "silence_function": {
+      "post_hook": "Cage is built. Viewer hasn't yet realized they're inside it.",
+      "post_trap": "Trap named. Nothing more is said. The diagnosis is complete.",
+      "post_directive": "'Move.' is a full stop. Not a transition.",
+      "loop_seam": "Grammatical and musical void. The loop resolves into 'You are not preparing.' which is not a resolution. It is a restart."
+    },
+    "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
+  },
+  "visual_prompt": {
+    "primary_prompt": "A restrained photorealistic 9:16 film about a house that never lets its owner be found. One bright house of bone-white (#F5F2EB) plaster in soft overcast morning daylight: pale oak doors with small brass (#C6A94F) latches open onto identical tidy rooms, each with one wooden chair, one empty white cup and one blank white frame. The person who lives there is never shown; only a shadow or a moving curtain hints at them. The architecture stays legible and consistent. Slow, physically credible camera, real daylight. No faces, no figures, no darkness, no warm glow, no readable text, no lens flares.",
+    "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
+    "global_visual_matrix": {
+      "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
+      "chromatic_boundaries": {
+        "base": "#F5F2EB",
+        "accent": "#C6A94F",
+        "light": "#FFFFFF",
+        "peak": "#C6A94F"
+      },
+      "anti_drift_rules": [
+        "NO liquid, fluid, or organic morphing. Geometry must remain rigid.",
+        "NO floating particles or ambient debris unless specified.",
+        "NO lens flares unless tied to crimson interference event.",
+        "ALL transitions must be cut-hard or precision wipe. No dissolves.",
+        "Maintain 9:16 vertical framing at all times. No reframe."
+      ]
+    },
+    "color_palette": {
+      "base": "#F5F2EB",
+      "accent": "#C6A94F",
+      "light": "#FFFFFF",
+      "peak": "#C6A94F"
+    },
+    "post_processing": {
+      "chromatic_aberration": {
+        "enabled": true,
+        "intensity": "4-5px RGB split on all crimson interference events; 1px baseline during gold telemetry sequences"
+      },
+      "motion_blur": {
+        "enabled": true,
+        "intensity": "moderate. 3-4px directional blur aligned to camera movement axis."
+      },
+      "film_grain": {
+        "isolation_scenes_intensity": 0.12,
+        "clarity_scenes_intensity": 0.03,
+        "grain_type": "fine digital noise, HUD-matched"
+      }
+    },
+    "material": "Bone-white (#F5F2EB) plaster walls, pale oak doors, small brass (#C6A94F) latches, light oak floorboards. Flat, soft overcast morning daylight from tall windows on the left; no lamps, no warm glow, no dark rooms. Shadows are soft and grey."
+  },
+  "voiceover": {
+    "script": {
+      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. An invitation is not yours to manufacture. Be someone a closed door is safe around. Because the next time you ask...",
+      "mobius_note": "Final segment stays open: 'time you ask...' resolves at loop restart with 'You asked again.'.",
+      "word_count": 71,
+      "estimated_duration_seconds": 45,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You asked again. They answered again. Somehow you know them less.",
+          "timestamp_start": "0:00",
+          "timestamp_end": "0:06",
+          "visual_prompt": "A door opening toward camera onto a long white corridor. Already swinging on the first frame: a tall pale oak door with a small brass (#C6A94F) latch opens toward the lens, bright overcast daylight. Through the widening gap, a long white plaster corridor runs to another closed oak door at its far end. Motion: the door keeps swinging slowly open while the camera advances gently toward the doorway with a smooth, restrained forward dolly; natural perspective deepens. One dominant subject, clean bright contrast, readable at phone size. One continuous shot. No people, no lettering, no lens flares.",
+          "frame_geometry": {
+            "subject_position": "center-frame",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        },
+        {
+          "id": "build",
+          "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away.",
+          "timestamp_start": "0:06",
+          "timestamp_end": "0:20",
+          "visual_prompt": "A tidy room made for visitors, not for living. Slow forward track through a small bone-white (#F5F2EB) plaster room in soft daylight: one plain wooden chair, one empty white cup on a small table, one blank white framed picture, everything neat and untouched. In the far wall, another pale oak door with a brass (#C6A94F) latch stands slightly open onto more white wall. The camera keeps moving toward it at one steady pace. No people, no readable text, no clutter.",
+          "frame_geometry": {
+            "subject_position": "lower-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "shallow foreground/background split",
+            "camera_movement": "slow push-in"
+          }
+        },
+        {
+          "id": "pivot",
+          "text": "Pressure can get you answers. Only trust gets you the person.",
+          "timestamp_start": "0:20",
+          "timestamp_end": "0:29",
+          "visual_prompt": "The same empty seat repeated down one long corridor. A long white plaster (#F5F2EB) corridor with light oak herringbone floors in soft overcast daylight: the same small wooden table with one empty white cup and the same wooden chair repeat in a line down the left side, pale doors line the right, and at the far end, dead centre, one closed door. Symmetrical, clean. Motion: slow, steady push forward down the corridor; the closed far door never seems to get closer. The corridor keeps its exact geometry. No people, no readable text, no glow.",
+          "frame_geometry": {
+            "subject_position": "upper-center",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "flat 2D plane",
+            "camera_movement": "static locked"
+          }
+        },
+        {
+          "id": "resolution",
+          "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
+          "timestamp_start": "0:29",
+          "timestamp_end": "0:38",
+          "visual_prompt": "A closed door with someone standing behind it. Front-on at standing height, a closed panelled door in pale warm beige with a small brass (#C6A94F) lever latch, set in a bone-white (#F5F2EB) plaster wall above light oak herringbone floorboards, soft overcast daylight from the left, a thin line of daylight under the door. Motion: locked camera; the door stays fully shut and the latch never moves; a soft shadow slides slowly into the line of light under the door and stops in the middle, as someone on the other side steps close and stands still. No people visible, no readable text.",
+          "frame_geometry": {
+            "subject_position": "lower-left-third",
+            "negative_space": "vast void occupying upper two-thirds",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "slow pull-back"
+          }
+        },
+        {
+          "id": "mobius_close",
+          "text": "Because the next time you ask...",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:45",
+          "visual_prompt": "Clip 1's first seconds played in reverse: the door swings slowly back toward its starting position and the camera eases back, so the last frame is exactly the first frame of the reel. No people, no lettering.",
+          "frame_geometry": {
+            "subject_position": "lower-right-third",
+            "negative_space": "compressed darkness behind subject",
+            "depth_plane": "deep z-axis recession",
+            "camera_movement": "vertical drift downward"
+          }
+        }
+      ]
+    },
+    "elevenLabs_config": {
+      "voice_id": "C9Uh5MFptuXa176UlaXE",
+      "voice_settings": {
+        "stability": 0.58,
+        "similarity_boost": 0.85,
+        "style": 0.05,
+        "use_speaker_boost": true,
+        "speed": 0.82
+      },
+      "final_segment_override": {
+        "segment_id": "mobius_close",
+        "stability": 0.65,
+        "style": 0,
+        "note": "Final word trails into silence. Grammatically unresolved, inviting loop restart. Ellipsis drives the TTS decay."
+      }
+    }
+  },
+  "subtitle_config": {
+    "color": "#FFFFFF",
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A",
+    "highlight_words": [
+      "door",
+      "answers",
+      "trust"
+    ],
+    "peak_words": [
+      "trust"
+    ],
+    "subtitle_position": {
+      "font_family": "Cormorant Garamond",
+      "font_weight_primary": "500",
+      "font_weight_highlight": "700",
+      "font_weight_peak": "700",
+      "font_size_primary_vw": 4.5,
+      "font_size_highlight_vw": 5.4,
+      "letter_spacing": "0.06em",
+      "vertical_anchor": "28% from bottom of frame",
+      "horizontal_align": "center",
+      "safe_zone_compliance": "Instagram Reels UI safe zone. No subtitle content below 18% from bottom.",
+      "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
+      "animation": "word-by-word-appear",
+      "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
+    }
+  },
+  "sound_brief": {
+    "bpm_range": "80-88",
+    "bpm_lock_point": 85,
+    "emotional_register": "tense anticipation",
+    "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
+    "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
+    "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
+    "suno_search_string": "dark cinematic ambient instrumental drone low-end hits 80bpm no vocals",
+    "explicit_exclusions": [
+      "no melody",
+      "no vocals",
+      "no orchestral strings",
+      "no emotional piano"
+    ]
+  },
+  "music_config": {
+    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+    "fade_in_seconds": 0.2,
+    "fade_out_start_seconds": 43,
+    "fade_out_end_seconds": 45
+  },
+  "remotion_compiler_directives": {
+    "render_subtitles": true,
+    "render_cover_asset": true,
+    "render_brand_overlay": true,
+    "composition_ids": {
+      "video_overlay": "NDCH_HUD_Overlay",
+      "cover_render": "CoverFrameOverlay"
+    },
+    "expected_input_props": {
+      "subtitleConfig": "subtitle_config",
+      "visualThread": "visual_thread",
+      "pacingLock": "voiceover.script.segments.pacing_lock"
+    },
+    "cover_export_directive": "remotion render src/Root.tsx CoverFrameOverlay public/cover.png --frame=600",
+    "subtitle_safe_zone_padding": {
+      "bottom_px": 345,
+      "left_right_px": 108
+    },
+    "font_asset_requirements": [
+      {
+        "family": "Cormorant Garamond",
+        "weights": [
+          "300",
+          "500",
+          "700"
+        ],
+        "source": "local-assets"
+      }
+    ]
+  },
+  "instagram_config": {
+    "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nBe someone a closed door is safe around.\n\n#NDCH #NVSSeries #Boundaries #Trust #Relationships #Patience",
+    "hashtags": [
+      "#NDCH",
+      "#NVSSeries",
+      "#Boundaries",
+      "#Trust",
+      "#Relationships",
+      "#Patience"
+    ],
+    "alt_text": "A restrained photorealistic 9:16 film about a house that never lets its owner be found. One bright house of bone-white (#F5F2EB) plaster in soft overcast morning daylight: pale oak doors with small br"
+  },
+  "cover_frame_timestamp": "0:20",
+  "express": {
+    "built_by": "scripts/express-build.ts",
+    "template": "NDCH_016_ILLUSION_OF_MOTION.json",
+    "episode_name": "RECEPTION",
+    "title": "Pressure gets answers. Not the person. | RECEPTION",
+    "music_mood": "cinematic",
+    "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
+  },
+  "opening_audio": {
+    "mode": "immediate",
+    "music_fade_in_seconds": 0.2,
+    "sound_event": {
+      "prompt": "Close-miked brass door latch lifting and a light oak door swinging open in a quiet bright house: crisp latch click, soft hinge, a breath of air, faint birdsong outside a window. Dry and realistic. No music, no impacts, no whooshes.",
+      "duration_seconds": 5,
+      "gain_db": -10,
+      "fade_out_seconds": 2
+    }
+  },
+  "loop_audio": "seamless",
+  "finish": {
+    "subtitle_layout": "readable"
+  }
+}

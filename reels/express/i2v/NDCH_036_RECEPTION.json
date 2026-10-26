@@ -4,31 +4,31 @@
     "1": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
       "model": "gen4.5",
-      "prompt": "Already moving on the first frame: the partly open pale oak door keeps swinging slowly toward the camera on its hinges, widening the view down the white corridor. At the same time the camera pushes gently forward while the far closed door at the end of the corridor appears to slide farther away (a slow dolly zoom), so the corridor seems to stretch longer as the door opens. The walls, floorboards and both doors keep their shape. Soft overcast daylight does not change. No people.",
+      "prompt": "The pale oak door is already swinging slowly open in the first frame. The camera advances gently toward the doorway with a smooth, restrained forward dolly. As the door opens, more of the empty white corridor becomes visible. Natural perspective deepens gradually. The distant closed door remains stationary. Preserve the precise architecture, straight wall edges, stable floorboards, realistic hinge movement, and soft overcast daylight. Quiet photographic realism. No people.",
       "duration": 5
     },
     "2": {
       "image": "reels/express/stills/approved/NDCH_036_clip02.jpg",
       "model": "gen4.5",
-      "prompt": "The camera moves slowly and steadily forward across the room toward the closed door in the far wall, at one even pace. The chair, the table, the empty white cup and the blank frame stay exactly where they are; nothing in the room moves. The patch of daylight on the floor shifts very slightly. The walls, floor and door keep their shape. No people.",
+      "prompt": "A continuous, exceptionally smooth forward camera movement toward the closed door across the room. The camera maintains a constant height and orientation. Natural perspective produces subtle parallax between the foreground furniture and distant wall. The chair, table, empty white cup, and blank frame remain completely stationary. The daylight remains soft and consistent. Preserve exact object proportions, architectural geometry, and realistic spatial relationships. No people.",
       "duration": 10
     },
     "3": {
       "image": "reels/express/stills/approved/NDCH_036_clip03.jpg",
       "model": "gen4.5",
-      "prompt": "The camera moves slowly and steadily forward down the long white corridor at one even pace. The repeating tables, chairs and empty cups on the left stay perfectly still and keep their shapes and spacing; the doors on the right stay as they are. The closed door at the far end stays closed and stays centred. Soft overcast daylight does not change. The corridor keeps its exact geometry. No people.",
+      "prompt": "The camera advances slowly through the long white corridor, maintaining precise central alignment toward the distant closed door. Repeating tables, chairs, and empty cups pass gradually through the frame with natural perspective and subtle parallax. All objects remain stationary. The doors along the right wall remain unchanged. The forward movement becomes almost imperceptibly slower near the end, without stopping completely. Preserve consistent corridor dimensions, architectural geometry, object spacing, and soft daylight. No people.",
       "duration": 10
     },
     "4": {
       "image": "reels/express/stills/approved/NDCH_036_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera; the frame does not move. The door stays fully shut and the brass latch never moves. In the thin line of daylight under the door, a soft grey shadow slides slowly in from the left and stops in the middle, as if someone on the other side has stepped close and is standing still. Then nothing moves. The door, wall and floorboards keep their shape. No people visible, no new light.",
+      "prompt": "Perfectly locked camera. The closed door, brass latch, surrounding wall, and floorboards remain completely motionless. A narrow band of soft daylight is visible beneath the door. Within that band, a diffuse grey interruption gradually enters from the left, moving naturally across the illuminated floor until it settles near the center, as if someone on the other side has quietly stepped close and is standing still. It remains subtle, soft-edged, and physically plausible. Once it stops, the entire image becomes still. The door never opens. No visible person, no additional objects, no lighting change.",
       "duration": 10
     },
     "5": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
       "model": "gen4.5",
-      "prompt": "From the approved clip 1 still: the partly open pale oak door swings slowly and slightly toward closed, then eases to a stop, and the camera drifts back very gently to settle on the opening framing. The far closed door at the end of the corridor stays where it is. Soft overcast daylight does not change. The walls, floorboards and both doors keep their shape. No people.",
+      "prompt": "Fallback only; the planned close is clip 1's first seconds played in reverse. Locked camera on the original pale oak doorway composition. The partly open door drifts a few centimetres toward closed and eases to a stop. The distant corridor door remains closed. Preserve the original architecture, door proportions, floorboards, and soft overcast daylight. No people.",
       "duration": 5
     }
   }
