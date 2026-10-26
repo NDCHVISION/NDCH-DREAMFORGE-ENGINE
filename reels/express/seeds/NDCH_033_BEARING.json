@@ -27,6 +27,31 @@
     }
   },
   "narration_timing": "anchored",
+  "clip_transitions": [
+    {
+      "after_clip": 1,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "shape match: the chain in the crack becomes the chain loop on the table"
+    },
+    {
+      "after_clip": 2,
+      "type": "cut",
+      "note": "hard cut on the beat: the blow lands with 'Sometimes'"
+    },
+    {
+      "after_clip": 3,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "push-dissolve into the stillness before the hand"
+    },
+    {
+      "after_clip": 4,
+      "type": "dissolve",
+      "seconds": 0.8,
+      "note": "light match on the lantern in the arch"
+    }
+  ],
   "validation_overrides": {
     "min_words": 54
   },

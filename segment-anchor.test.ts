@@ -61,8 +61,11 @@ test('anchor: timing mode is opt-in and validated', () => {
   assert.throws(() => resolveNarrationTiming('fast'), /continuous" or "anchored/);
 });
 
-test('conform: pads short clips, trims long ones, always to the slot', () => {
-  assert.match(conformClipFilter(5.9, 6), /tpad=stop_mode=clone:stop_duration=0\.1,trim=0:6,/);
+test('conform: slows slightly short clips, holds only big gaps, trims long ones', () => {
+  const slight = conformClipFilter(5.9, 6);
+  assert.match(slight, /^setpts=1\.017\*PTS,/);
+  assert.doesNotMatch(slight, /tpad/);
+  assert.match(conformClipFilter(4, 6), /tpad=stop_mode=clone:stop_duration=2,trim=0:6,/);
   const long = conformClipFilter(10, 9);
   assert.doesNotMatch(long, /tpad/);
   assert.match(long, /trim=0:9,/);

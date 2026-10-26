@@ -4,4 +4,4 @@ bearing-v1
 
 
 
-BEARING re-render with anchored narration (no Runway)
+BEARING re-render with clip transitions (no Runway)

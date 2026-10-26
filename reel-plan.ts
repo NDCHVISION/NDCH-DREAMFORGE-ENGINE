@@ -334,6 +334,8 @@ export interface ResolvedProductionPlan {
   openingAudio: ResolvedOpeningAudio;
   /** 'anchored' starts each section's narration at its window (lib/segment-anchor.ts). */
   narrationTiming: NarrationTiming;
+  /** Raw `clip_transitions` from the spec; validated against the clip count at render (lib/transitions.ts). */
+  transitions?: unknown;
 }
 
 interface ResolveProductionPlanOptions {
@@ -514,5 +516,6 @@ export function resolveProductionPlan(
     musicConfig,
     openingAudio,
     narrationTiming,
+    transitions: pickValue(reelSpec, [['clip_transitions']]),
   };
 }
