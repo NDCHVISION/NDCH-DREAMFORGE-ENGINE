@@ -262,6 +262,7 @@ jobs:
             --reel "${{ steps.seed.outputs.spec }}" \
             --video "$FINAL" \
             --voice /tmp/voiceover.mp3 \
+            $( [ -f /tmp/voiceover_clean.mp3 ] && echo --narration /tmp/voiceover_clean.mp3 ) \
             --output "$OUTDIR" $ARGS
           MIXED=$(ls "$OUTDIR"/*_final_mixed.mp4 | head -1)
           echo "mixed=$MIXED" >> "$GITHUB_OUTPUT"
@@ -293,6 +294,11 @@ jobs:
             jq -r .instagram_config.caption "$SPEC"
           } > "/tmp/${ID}_caption.txt"
           gh release upload "$TAG" "/tmp/${ID}_FINAL.mp4" "/tmp/${ID}_caption.txt" --clobber
+          # Clean narration (no music or effects), so the music can be swapped later without re-recording.
+          if [ -f /tmp/voiceover_clean.mp3 ]; then
+            cp /tmp/voiceover_clean.mp3 "/tmp/${ID}_narration.mp3"
+            gh release upload "$TAG" "/tmp/${ID}_narration.mp3" --clobber
+          fi
           URL=$(gh release view "$TAG" --json url -q .url)
           {
             echo "## ✅ $ID ready to post"

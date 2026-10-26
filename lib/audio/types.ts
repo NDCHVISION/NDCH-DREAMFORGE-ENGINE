@@ -84,6 +84,8 @@ export interface WindowScoreBreakdown {
   doctrine_alignment: SectionScore;
   headroom: SectionScore;
   narration_compatibility: SectionScore;
+  /** Voice fit against the reel's real narration (voice-fit.ts); present when a voice track was given. */
+  voice_fit?: SectionScore;
 }
 
 export interface CandidateWindow {

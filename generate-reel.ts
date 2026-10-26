@@ -606,6 +606,10 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
     );
   }
 
+  // Keep the narration on its own (no music, no effects): music swaps and voice fit use it.
+  copyFileSync(voicePath, join(TMP, 'voiceover_clean.mp3'));
+  console.log(`         clean narration: ${join(TMP, 'voiceover_clean.mp3')}`);
+
   // ── 1c: Ambient music layer (ElevenLabs SFX / local file / optional) ──────
   const withMusic = await mixMusicUnderVoice(voicePath, voiceDuration);
 

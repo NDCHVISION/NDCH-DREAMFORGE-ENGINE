@@ -25,6 +25,8 @@
  * Optional:
  *   --video   Path to rendered video (enables final mixed video output)
  *   --voice   Path to rendered voiceover (enables voice+music preview)
+ *   --narration  Clean narration only, no ambience (voice fit uses it to find the words;
+ *             falls back to --voice)
  *   --output  Output directory (default: output/music_intelligence/<reel_id>)
  *   --preset  Mastering preset ID override
  *   --dry-run Analyze and select only — skip render and validate
@@ -46,6 +48,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, resolve, basename } from 'node:path';
 
 import { analyzeTrack } from '../lib/audio/analyze-music.ts';
+import { detectVoiceSpans } from '../lib/audio/voice-fit.ts';
+import { execFileSync } from 'node:child_process';
 import { selectMusicWindow } from '../lib/audio/select-music-window.ts';
 import { buildMixPlan } from '../lib/audio/build-mix-plan.ts';
 import { renderAll } from '../lib/audio/render-final-mix.ts';
@@ -59,6 +63,7 @@ interface CliArgs {
   musicPaths: string[];
   videoPath: string | null;
   voicePath: string | null;
+  narrationPath: string | null;
   outputDir: string | null;
   presetId: string | null;
   dryRun: boolean;
@@ -72,6 +77,7 @@ function parseArgs(argv: string[]): CliArgs {
     musicPaths: [],
     videoPath: null,
     voicePath: null,
+    narrationPath: null,
     outputDir: null,
     presetId: null,
     dryRun: false,
@@ -84,6 +90,7 @@ function parseArgs(argv: string[]): CliArgs {
       case '--music': args.musicPaths.push(argv[++i]); break;
       case '--video': args.videoPath = argv[++i]; break;
       case '--voice': args.voicePath = argv[++i]; break;
+      case '--narration': args.narrationPath = argv[++i]; break;
       case '--output': args.outputDir = argv[++i]; break;
       case '--preset': args.presetId = argv[++i]; break;
       case '--dry-run': args.dryRun = true; break;
@@ -306,6 +313,16 @@ async function main(): Promise<void> {
   // Extract reel spec
   console.log('\n[1/6] Extracting reel specification…');
   const reelSpec = extractReelMusicSpec(reelPath);
+  // End rule (lib/end-tail.ts): a rendered reel can be shorter than the spec's 45 s; fit the music to it.
+  if (args.videoPath && existsSync(resolve(args.videoPath))) {
+    const rendered = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', resolve(args.videoPath)], { encoding: 'utf8' }).trim());
+    if (rendered > 5 && rendered < reelSpec.duration_seconds - 0.5) reelSpec.duration_seconds = Math.round(rendered * 10) / 10;
+  }
+  // Voice fit: where the words are, from a clean narration track.
+  // --narration is the clean voice (no ambience or effects); --voice is what gets mixed.
+  const spanSource = args.narrationPath ?? args.voicePath;
+  const voiceSpans = spanSource && existsSync(resolve(spanSource)) ? detectVoiceSpans(resolve(spanSource)) : undefined;
+  if (voiceSpans) console.log(`  narration: ${voiceSpans.length} spoken spans (voice fit on)`);
   console.log(`  reel_id: ${reelSpec.reel_id}`);
   console.log(`  duration: ${reelSpec.duration_seconds}s`);
   console.log(`  doctrine: primary=${reelSpec.doctrine_profile.emotional_temperature_primary} secondary=${reelSpec.doctrine_profile.emotional_temperature_secondary}`);
@@ -321,7 +338,7 @@ async function main(): Promise<void> {
   const analyses: TrackAnalysis[] = [];
   for (const musicPath of uniqueMusicPaths) {
     console.log(`\n  → ${basename(musicPath)}`);
-    const analysis = await analyzeTrack(musicPath, reelSpec, args.strideSeconds);
+    const analysis = await analyzeTrack(musicPath, reelSpec, args.strideSeconds, voiceSpans);
     analyses.push(analysis);
 
     // Save analysis (omit large energy_profile_db from saved file for readability)
