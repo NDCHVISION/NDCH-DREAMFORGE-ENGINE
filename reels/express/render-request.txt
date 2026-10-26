@@ -1,6 +1,6 @@
 reels/express/seeds/NDCH_033_BEARING.json
-none
+auto
 bearing-v1
-2,5
 
-2,5
+
+
