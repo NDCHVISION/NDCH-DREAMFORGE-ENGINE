@@ -1,3 +1,3 @@
-reels/express/stills/NDCH_033_BEARING.json
-1,2
-BEARING round A2: near-black hall reference, lantern out of frame on clip 1, simpler loop on the master
+reels/express/stills/NDCH_034_RUN.json
+5
+RUN round B: clip 5 two-shot with the approved clip 1 flywheel as reference
