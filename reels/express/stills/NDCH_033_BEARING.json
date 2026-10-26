@@ -4,24 +4,35 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 1,
+      "clip": 3,
       "variants": 2,
-      "prompt": "Extreme close-up at table height on a near-black charcoal stone surface like the stone of @hall. A fine antique-gold (#C6A94F) chain runs taut through a narrow chiselled groove cut into the stone and bends sharply around the edge of a deep dark fissure that crosses the groove; one worn, brighter link is snagged on the fissure's edge, the chain pulled tight behind it. The groove is polished smooth by wear. Shallow depth of field: the snagged link sharp, the groove curving away into darkness. The only light is a single warm pool from above, its source out of frame. Near-black surroundings, strong gold-on-black contrast readable at phone size. No lantern in frame, no people, no hands, no glow, no sparks, no lettering. Restrained, photorealistic, natural film grain.",
+      "prompt": "The same vaulted chamber and stone table as @master, camera lower and closer on the tabletop: the fine gold chain lies in its loop on the dark stone beside a deep crack, pulled taut. The brass lantern hangs above, a faint fall of dust drifting through its light. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
       "references": [
         {
-          "tag": "hall",
-          "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
+          "tag": "master",
+          "path": "reels/express/stills/refs/NDCH_033_master.jpg"
         }
       ]
     },
     {
-      "clip": 2,
+      "clip": 4,
       "variants": 2,
-      "prompt": "A low, narrow vaulted chamber of near-black charcoal block stone like @hall, almost dark. In the foreground a long rectangular table of the same dark stone. A fine antique-gold (#C6A94F) chain lies in a carved closed oval groove on the near half of the tabletop, circling three deep dark cracks in the stone. The far half of the tabletop is bare. In the far wall, an arched doorway opens onto darkness. One enclosed brass lantern hangs low above the table, the only light, a warm pool on the tabletop; the walls fall away into shadow. Low camera at the table's near end. No daylight, no pale stone, no people, no lettering. Restrained, photorealistic, natural film grain.",
+      "prompt": "Close on the dark stone tabletop of @master: a broken fine gold chain lies slack and still on bare stone, its loose end pointing toward the dark arched doorway, which is soft and out of focus behind. One adult hand in a plain dark sleeve rests at the right edge of the frame, not yet touching the chain. No face, no second hand, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
       "references": [
         {
-          "tag": "hall",
-          "path": "reels/express/stills/refs/NDCH_031_hall.jpg"
+          "tag": "master",
+          "path": "reels/express/stills/refs/NDCH_033_master.jpg"
+        }
+      ]
+    },
+    {
+      "clip": 5,
+      "variants": 2,
+      "prompt": "Low wide view from the near end of the stone table in @master: the fine gold chain lies loosely across the bare dark tabletop, its end at the table's far edge, pointing at the arched doorway, which opens onto darkness. The lantern hangs still. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
+      "references": [
+        {
+          "tag": "master",
+          "path": "reels/express/stills/refs/NDCH_033_master.jpg"
         }
       ]
     }
