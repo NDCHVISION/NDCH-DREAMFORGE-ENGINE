@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v2
-3,4
+run-v1
 
-3,4
-BEARING v2: clips 3 and 4 at 5s each, 120 credits (balance about 156)
+
+
+RUN full render: clips 2-4 generated (gen4.5), clips 1 and 5 from presets, final assembly
