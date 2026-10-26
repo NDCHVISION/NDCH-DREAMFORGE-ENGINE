@@ -30,6 +30,23 @@ export function stillCostCredits(ratio: string): number {
   return ratio === '1080:1920' ? 8 : 5;
 }
 export const STILL_PROMPT_MAX_CHARS = 1000;
+
+/**
+ * Casting rule (standing, set by the owner on 2026-10-26; change it only when
+ * the owner says so): any person on screen, hands included, is cast with brown
+ * skin or a racially ambiguous complexion, and the still prompt says so
+ * explicitly, because image models default otherwise. Binding from
+ * CASTING_RULE_FROM on; earlier reels keep the prompts they were made with.
+ */
+export const CASTING_RULE_FROM = 37;
+const PEOPLE = /\b(hands?|fingers?|arms?|person|people|figure|man|woman|silhouette|face)\b/i;
+const CAST = /brown[- ]skin|brown-skinned|racially ambiguous/i;
+
+export function castingViolation(reelId: string, prompt: string): boolean {
+  const m = reelId.match(/^NDCH_(\d+)/);
+  if (!m || Number(m[1]) < CASTING_RULE_FROM) return false;
+  return PEOPLE.test(prompt) && !CAST.test(prompt);
+}
 export const STILL_MAX_VARIANTS = 4;
 
 export function parseStillsPlan(raw: unknown): StillsPlan {
@@ -61,6 +78,11 @@ export function parseStillsPlan(raw: unknown): StillsPlan {
         throw new Error(`stills plan: clip ${s.clip} reference path "${r.path}" is invalid`);
       }
       if (!s.prompt.includes(`@${r.tag}`)) throw new Error(`stills plan: clip ${s.clip} prompt must mention @${r.tag}`);
+    }
+    if (castingViolation(p.reel_id, s.prompt)) {
+      throw new Error(
+        `stills plan: clip ${s.clip} shows a person or hands; casting rule: state brown skin or a racially ambiguous complexion`,
+      );
     }
   }
   return p as StillsPlan;

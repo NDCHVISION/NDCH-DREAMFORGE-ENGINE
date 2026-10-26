@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_034_RUN.json
-3,4
-RUN redo: clip 3 flywheel hub (no linkage), clip 4 hands lift the next flywheel
+4
+RUN clip 4 recast: brown-skinned hands (casting rule)

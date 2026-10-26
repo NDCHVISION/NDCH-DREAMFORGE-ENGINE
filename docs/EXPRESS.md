@@ -169,6 +169,15 @@ Every reel loops with no seam in picture, sound or words: see [LOOPING.md](../LO
 From 035 on the engine carries the music bed across the loop point (`loop_audio: "seamless"`),
 and every render ends with a loop seam check in the run summary.
 
+### Casting rule (standing until the owner changes it)
+
+Any person on screen, hands included, is cast with **brown skin or a racially ambiguous
+complexion**. Say it in every still prompt that shows a person or hands ("two bare hands with
+warm brown skin"); image models default otherwise, and the motion clip inherits whatever the
+still shows. The stills builder rejects a prompt that shows people without it, from 037 on
+(`CASTING_RULE_FROM` in `lib/stills-plan.ts`). Reels already in production (034-036) were
+made before the rule; 034 RUN was recast by hand.
+
 ### Universal Viewer Law
 
 A seed must land for a stranger who has never heard of NDCH. The builder refuses
@@ -192,7 +201,7 @@ only reads `reels/express/seeds/`.
 > under 300 characters naming the palette hex codes; title_hook is the most quotable line, under
 > 50 characters. The reel must work for a stranger who has never heard of the creator: no brand or creator
 > named in the narration, no villain, no launch or episode framing, no follow asks; first person only if any
-> viewer could say the line about their own life. Output only the JSON.
+> viewer could say the line about their own life. Any person or hands on screen are cast with brown skin or a racially ambiguous complexion, stated in the visual. Output only the JSON.
 
 ## Costs
 
