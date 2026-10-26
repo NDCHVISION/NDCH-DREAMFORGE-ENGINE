@@ -41,15 +41,15 @@
     },
     {
       "after_clip": 3,
-      "type": "dissolve",
-      "seconds": 0.6,
-      "note": "push-dissolve into the stillness before the hand"
+      "type": "dip",
+      "seconds": 0.5,
+      "note": "dip to near-black: the dust settles and time passes before the hand comes in"
     },
     {
       "after_clip": 4,
-      "type": "dissolve",
-      "seconds": 0.8,
-      "note": "light match on the lantern in the arch"
+      "type": "dip",
+      "seconds": 0.5,
+      "note": "dip to near-black again, rhyming the last: the hand has done its work and the room is left with the choice"
     }
   ],
   "finish": {

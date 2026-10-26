@@ -11,8 +11,29 @@
  * transition. Choose the type from what the two shots share and what the moment
  * means; the shots' framing does the rest (a light match is a dissolve whose two
  * light sources line up). Types that flash a flat colour (zoomin, fadewhite,
- * fadeblack) are deliberately not offered: they read as a jarring cut.
+ * fadeblack) are deliberately not offered: they read as a jarring cut. `dip`
+ * goes down to near-black (15% of the picture's level, never pure black) and
+ * back up, as TRANSITIONS.md's "dip to near-black" asks.
  */
+
+/** Level the picture keeps at the bottom of a dip (TRANSITIONS.md: never pure black). */
+export const DIP_FLOOR = 0.15;
+
+/**
+ * xfade custom expression for a dip to near-black: shot A dims to DIP_FLOOR over
+ * the first half, shot B rises from it over the second. Chroma is scaled toward
+ * neutral (128) and luma toward video black (16), so colours never shift.
+ */
+export function dipXfade(floor = DIP_FLOOR): string {
+  const k = 2 * (1 - floor);
+  const a = `(1-${k}*(1-P))`;
+  const b = `(${floor}+${k}*(0.5-P))`;
+  return (
+    `custom:expr='if(gt(P,0.5),` +
+    `if(PLANE,128+(A-128)*${a},16+(A-16)*${a}),` +
+    `if(PLANE,128+(B-128)*${b},16+(B-16)*${b}))'`
+  );
+}
 
 /** Engine transition type -> ffmpeg xfade transition name. */
 export const TRANSITION_XFADE = {
@@ -26,6 +47,7 @@ export const TRANSITION_XFADE = {
   wipe_left: 'wipeleft', // shadow sweep: a hard edge of light or shadow crosses the frame
   wipe_right: 'wiperight',
   blur: 'hblur', // focus shift: memory, waking, losing the thread
+  dip: dipXfade(), // dip to near-black: a change of time or mood, or two shots that don't share geometry
 } as const;
 
 export type BlendTransition = keyof typeof TRANSITION_XFADE;

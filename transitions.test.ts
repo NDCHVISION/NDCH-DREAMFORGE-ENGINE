@@ -5,7 +5,7 @@ import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { buildTransitionGraph, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionVarietyProblems } from './lib/transitions.ts';
+import { buildTransitionGraph, dipXfade, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionVarietyProblems } from './lib/transitions.ts';
 import { conformClipFilter } from './lib/segment-anchor.ts';
 import { assertSeed, buildReel, type ExpressSeed } from './scripts/express-build.ts';
 
@@ -68,7 +68,7 @@ test('rendered: dissolves blend across the boundary, the cut stays hard, total l
 test('express: BEARING declares a transition for every boundary, cut on the blow', () => {
   const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_033_BEARING.json', 'utf8')) as ExpressSeed;
   assertSeed(seed, 'bearing');
-  assert.deepEqual(resolveTransitions(seed.clip_transitions, 5), [0.6, 0, 0.6, 0.8]);
+  assert.deepEqual(resolveTransitions(seed.clip_transitions, 5), [0.6, 0, 0.5, 0.5]);
   const spec = buildReel(seed, JSON.parse(readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'))) as Record<string, unknown>;
   assert.equal((spec.clip_transitions as unknown[]).length, 4);
   const noAnchor = structuredClone(seed);
@@ -108,4 +108,17 @@ test('express: PRESENCE uses varied, motivated transitions', () => {
   const bad = structuredClone(seed);
   bad.clip_transitions = [1, 2, 3, 4].map((n) => ({ after_clip: n, type: 'dissolve', note: 'z' }));
   assert.throws(() => assertSeed(bad, 'x'), /vary them/);
+});
+
+test('dip: goes to near-black (never pure black) and back, keeping colour neutral', () => {
+  const expr = dipXfade();
+  assert.match(expr, /^custom:expr='/);
+  assert.equal(resolveTransitionKinds([{ after_clip: 1, type: 'dip', seconds: 0.5, note: 'x' }], 2)[0], expr);
+  const r = spawnSync('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'color=c=0xC08040:s=64x64:d=2,format=yuv420p', '-f', 'lavfi', '-i', 'color=c=0x4080C0:s=64x64:d=2,format=yuv420p',
+    '-filter_complex', `[0:v][1:v]xfade=transition=${expr}:duration=1:offset=0.5,signalstats,metadata=print:key=lavfi.signalstats.YAVG:file=-`, '-f', 'null', '-'], { encoding: 'utf8' });
+  if (r.status === null) return; // no ffmpeg here
+  const y = [...r.stdout.matchAll(/YAVG=([\d.]+)/g)].map((m) => Number(m[1]));
+  const min = Math.min(...y);
+  assert.ok(min > 16 && min < 40, `bottom of the dip should be near-black, got ${min}`);
+  assert.ok(y[0] > 100 && y.at(-1)! > 100, 'both shots at full level outside the dip');
 });

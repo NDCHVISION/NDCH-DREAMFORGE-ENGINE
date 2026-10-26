@@ -917,7 +917,7 @@ async function generateVideo(
         '-filter_complex', buildTransitionGraph(lengths, boundary, kinds),
         '-map', '[vout]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', stitchedPath,
       ]);
-      console.log(`         transitions: ${boundary.map((d, i) => `${i + 1}→${i + 2} ${d > 0 ? `${kinds[i]} ${d}s` : 'cut'}`).join(', ')}`);
+      console.log(`         transitions: ${boundary.map((d, i) => `${i + 1}→${i + 2} ${d > 0 ? `${kinds[i].startsWith('custom') ? 'dip' : kinds[i]} ${d}s` : 'cut'}`).join(', ')}`);
     } else {
       stitchedPath = stitchVideoClips(conformed);
     }
