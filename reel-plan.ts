@@ -1,5 +1,6 @@
 import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anchor.ts';
+import { resolveFinish, type FinishProfile } from './lib/finish.ts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -336,6 +337,8 @@ export interface ResolvedProductionPlan {
   narrationTiming: NarrationTiming;
   /** Raw `clip_transitions` from the spec; validated against the clip count at render (lib/transitions.ts). */
   transitions?: unknown;
+  /** Finish profile: caption layout, output resolution, loudness (lib/finish.ts). */
+  finish: FinishProfile;
 }
 
 interface ResolveProductionPlanOptions {
@@ -517,5 +520,6 @@ export function resolveProductionPlan(
     openingAudio,
     narrationTiming,
     transitions: pickValue(reelSpec, [['clip_transitions']]),
+    finish: resolveFinish(pickValue(reelSpec, [['finish']])),
   };
 }
