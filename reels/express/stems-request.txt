@@ -1,3 +1,3 @@
 NDCH_033_BEARING
 bearing-v1
-request: BEARING clips 2-5 for review
+request: BEARING clip 2 (locked-camera regen) for review
