@@ -16,12 +16,12 @@
   {
    "clip": 3,
    "variants": 2,
-   "prompt": "A view straight down from above onto a cutaway house with no ceilings, like a living floor plan: a precise grid of identical small rooms of bone-white (#F5F2EB) plaster on light oak floors, each with one wooden chair, one small table with one empty white cup, and one pale oak door standing open into the next room. The grid fills the frame edge to edge and repeats evenly. In the upper right corner, one room is different: its door is closed and a single white curtain at its window hangs slightly lifted by a breeze. Soft, even overcast daylight, soft grey shadows. Full-bleed photograph. No people, no lettering, no warm glow, no darkness. Restrained, photorealistic, natural film grain."
+   "prompt": "A long enfilade: seven identical small rooms in a straight line, every pale oak door standing open, seen straight through from the first doorway at standing height. Each room is bone-white (#F5F2EB) plaster with light oak floorboards, and each has the same plain wooden chair and small table with one empty white cup in the same place on the left. The doorways shrink evenly toward a vanishing point at the centre of the frame. At the far end, the last door is closed, its brass (#C6A94F) latch catching the light. Soft, even overcast daylight from windows on the left, soft grey shadows. Symmetrical, clean, reads at phone size. Full-bleed photograph. No people, no lettering, no warm glow, no darkness. Restrained, photorealistic, natural film grain."
   },
   {
    "clip": 4,
    "variants": 2,
-   "prompt": "A closed pale oak door seen from the side at waist height, close enough that the door fills the right half of the frame, in a bright, quiet house. Small brass (#C6A94F) latch, bone-white (#F5F2EB) plaster wall, light oak floorboards. Soft, even overcast daylight from the left. In the narrow gap under the door, a soft grey shadow lies across the daylight on the floor, as if someone is standing in the room beyond. The door is fully shut. Full-bleed photograph. No people visible, no feet, no lettering, no lamps, no warm glow, no darkness. Restrained, photorealistic, natural film grain."
+   "prompt": "A closed pale oak door with visible natural wood grain, unpainted, seen from the side at a 45-degree angle and waist height, the door filling the right half of the frame, in a bright, quiet house. Small brass (#C6A94F) lever latch, bone-white (#F5F2EB) plaster wall, light oak floorboards running toward the door. Soft, even overcast daylight from the left. Along the gap under the door, a distinct dark grey band of shadow breaks the daylight on the floor, as if someone is standing just on the other side. The door is fully shut. Nothing on the wall: no switches, no sockets. Full-bleed photograph. No people visible, no feet, no lettering, no lamps, no warm glow, no darkness. Restrained, photorealistic, natural film grain."
   }
  ]
 }

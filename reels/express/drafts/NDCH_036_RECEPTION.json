@@ -40,11 +40,11 @@
     },
     "pivot": {
       "text": "Pressure can get you answers. Only trust gets you the person.",
-      "visual": "An overhead view of the same tidy room repeated, seen like a floor plan. Camera looking straight down and rising slowly upward through a ceiling-free cutaway of the house: a grid of identical white plaster rooms, each with one chair, one cup and one open oak door, repeating in every direction under even daylight. In one corner room, a single white curtain moves in a breeze; that room has no open door. The grid keeps its exact geometry. No people, no readable text."
+      "visual": "A straight line of identical empty rooms seen through every open door. From the first doorway, a long enfilade of seven small bone-white (#F5F2EB) plaster rooms on light oak floors, each with the same wooden chair and small table with one empty white cup on the left, every pale oak door open, shrinking evenly to a vanishing point. At the far end the last door is closed, its brass (#C6A94F) latch catching the light. Soft overcast daylight. Motion: slow, steady push forward along the line of doorways; the closed last door never seems to get closer. The rooms keep their exact geometry. No people, no readable text, no glow."
     },
     "resolution": {
       "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
-      "visual": "A closed door with someone moving behind it. Stable side view at waist height beside a closed pale oak door with a small brass (#C6A94F) latch in a bone-white (#F5F2EB) wall, soft daylight. In the gap under the door, a soft grey shadow passes once, slowly, as someone walks across the room beyond. The camera eases sideways a few centimetres and settles; it never approaches the door. The latch never moves. No people visible, no readable text."
+      "visual": "A closed door with someone standing behind it. Side view at a 45-degree angle and waist height beside a closed, unpainted pale oak door with a small brass (#C6A94F) lever latch in a bone-white (#F5F2EB) plaster wall, soft overcast daylight from the left. Along the gap under the door, a dark grey band of shadow breaks the daylight on the floor. Motion: the shadow under the door shifts slowly once, as someone moves on the other side; the camera eases sideways a few centimetres and settles, never approaching the door. The latch never moves. No people visible, no readable text."
     },
     "mobius_close": {
       "text": "Because the next time you ask...",
@@ -112,5 +112,14 @@
     "#Trust",
     "#Relationships",
     "#Patience"
-  ]
+  ],
+  "stills_and_motion": {
+    "note": "Clips 1-4 start from approved stills (reels/express/stills/NDCH_036_RECEPTION.json). Clip 5 reuses the approved clip 1 still. Motion prompts are written and reviewed after all stills are approved.",
+    "approved": {
+      "clip1": "reels/express/stills/approved/NDCH_036_clip01.jpg (round A v2)",
+      "clip2": "reels/express/stills/approved/NDCH_036_clip02.jpg (round A v1)",
+      "clip3": "pending round B (enfilade replaces the overhead grid)",
+      "clip4": "pending round B (45-degree side view, shadow under the door)"
+    }
+  }
 }
