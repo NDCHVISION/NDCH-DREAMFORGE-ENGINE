@@ -2,7 +2,7 @@
   "reel_id": "NDCH_036_RECEPTION",
   "posting_number": "030",
   "episode_name": "RECEPTION",
-  "status": "seed: concept, stills and motion prompts approved 2026-10-26. Posts as episode 030. Test render of clips 1 and 4 first.",
+  "status": "rendered v2 and loop-patched 2026-10-26; awaiting creator review. Posts as episode 030.",
   "title_hook": "Pressure gets answers. Not the person.",
   "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
   "theme": "Answers given under pressure are not trust freely given.",
@@ -160,5 +160,11 @@
       "seconds": 0.6,
       "note": "push-dissolve: the closed door dissolves back to the first door, already easing shut, so the loop runs into the opening"
     }
-  ]
+  ],
+  "post_edit_v2": {
+    "why": "v2 render (anchored timing, engine transitions) failed the loop seam: clip 5 drifted, last frame vs first SSIM about 0.33. Patched in post from the cached clip 1 stem, no credits.",
+    "edit": "Reel kept as rendered to 41.5 s (captions end 41.04 s). From 41.1 s a 0.4 s dissolve into clip 1 stem 0-1.508 s, slowed x1.26 to match the conform and played in reverse, 1.9 s, so the last frame is frame one. Audio untouched (seamless bed).",
+    "result": "43.0 s, last vs first frame SSIM 0.999; tail level -34.7 dB vs -34.3 dB before it, head -26.6 dB (within 15 dB).",
+    "file": "NDCH_036_RECEPTION_FINAL_v2.mp4 (delivered in chat; not on the release: binary uploads are blocked from this session)"
+  }
 }

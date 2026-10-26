@@ -53,6 +53,12 @@ export interface SceneAllocationEntry {
 
 export interface ScenePlanningOptions {
   targetDurationSecs?: number;
+  /**
+   * Exact clip count (anchored narration: one clip per section). The usual
+   * 10 s / 5 s split is padded with 5 s clips or truncated to match, so a short
+   * reel with its own section_boundaries still gets a clip for every section.
+   */
+  clipCount?: number;
   narrationSegments?: ResolvedNarrationSegment[];
   /**
    * Fixed description of the on-screen person, prepended verbatim to every
@@ -731,6 +737,13 @@ export function planClipDurations(audioDurationSecs: number, targetDurationSecs 
   return durations;
 }
 
+/** Pads with 5 s clips or truncates so there are exactly `count` clips (no-op when count is unset). */
+export function fitClipCount(durations: Array<5 | 10>, count?: number): Array<5 | 10> {
+  if (!count || count < 1 || durations.length === count) return durations;
+  if (durations.length > count) return durations.slice(0, count);
+  return [...durations, ...new Array<5>(count - durations.length).fill(5)];
+}
+
 function splitUnitDurationSecs(totalDurationSecs: number, pieceWordCount: number, totalPieceWords: number, pieceCount: number): number {
   if (pieceCount < 2) return 0;
   const weight = totalPieceWords > 0
@@ -811,7 +824,7 @@ export function planNarrationScenes(
   audioDurationSecs: number,
   options: ScenePlanningOptions = {}
 ): ReelScenePlan[] {
-  const clipDurations = planClipDurations(audioDurationSecs, options.targetDurationSecs);
+  const clipDurations = fitClipCount(planClipDurations(audioDurationSecs, options.targetDurationSecs), options.clipCount);
   const normalizedScript = normalizeWhitespace(script);
 
   if (!normalizedScript) throw new Error('Narration script must contain non-whitespace content');
