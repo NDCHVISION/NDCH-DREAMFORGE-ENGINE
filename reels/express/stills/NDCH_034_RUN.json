@@ -8,15 +8,11 @@
       "variants": 2,
       "references": [
         {
-          "tag": "shot",
-          "path": "reels/express/stills/refs/NDCH_034_clip04_layout.jpg"
-        },
-        {
           "tag": "engine",
           "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
         }
       ],
-      "prompt": "The same scene, framing and light as @shot: two bare hands with warm brown skin, no face, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the worn stone bench. The original engine from @engine stands just behind, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
+      "prompt": "Close shot on a worn charcoal stone bench. In the foreground, two bare hands with deep warm brown skin, clearly dark brown, no face, no sleeves, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the bench. Just behind, the worn brass-and-iron original engine from @engine, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
     }
   ]
 }
