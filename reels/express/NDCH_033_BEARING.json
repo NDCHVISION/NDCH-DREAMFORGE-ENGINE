@@ -454,5 +454,21 @@
     "subtitle_layout": "safe_zone",
     "output": "1080x1920",
     "loudness_lufs": -14
-  }
+  },
+  "end_title": {
+    "text": "BEARING",
+    "start_seconds": 40.2,
+    "fade_in_seconds": 1.2,
+    "position_pct": 12
+  },
+  "sound_events": [
+    {
+      "at_seconds": 22.1,
+      "prompt": "A single taut steel chain snapping under tension: one sharp metallic crack with a short ring, then loose chain links skittering and rattling across a stone table, in a quiet stone room.",
+      "duration_seconds": 2.5,
+      "gain_db": -6,
+      "fade_out_seconds": 0.8,
+      "note": "the snap, on 'breaks'"
+    }
+  ]
 }

@@ -10,19 +10,19 @@
     "2": {
       "image": "reels/express/stills/approved/NDCH_033_clip02.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera; the frame does not move. The gold chain slides slowly and steadily around its loop on the tabletop. The lantern sways very slightly on its chain, its flame steady. The vault, table, crack and doorway do not change shape. No people, no new light.",
+      "prompt": "The camera moves slowly and steadily forward along the table toward the lantern. The gold chain lies completely still on the stone: heavy metal, every link stays exactly where it rests; it does not slide, coil, lift or change shape. The lantern sways very slightly on its chain and its flame flickers, the light shifting softly over the links. The vault, table, crack and doorway keep their shape. No people.",
       "duration": 10
     },
     "3": {
       "image": "reels/express/stills/approved/NDCH_033_clip03.jpg",
       "model": "gen4.5",
-      "prompt": "At once a heavy jolt shakes the room: the lantern swings once on its chain and dust falls through its light. The gold chain on the table snaps at one link near the crack and its loose end slides off onto the bare stone. Then the lantern slows and everything settles; for the rest of the shot nothing moves. The camera stays still. The table, crack, vault and doorway do not change shape. No people.",
+      "prompt": "Locked camera. For the first two seconds the taut gold chain trembles under strain. Then the open link above the crack snaps: the two halves whip apart in opposite directions, recoiling fast and skidding across the stone, a few loose links bouncing free, and a puff of dust jumps from the crack. The lantern swings once from the shock. Then everything settles and nothing moves. The table, crack, vault and doorway keep their shape. No people.",
       "duration": 10
     },
     "4": {
       "image": "reels/express/stills/approved/NDCH_033_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "For two seconds nothing moves. Then the hand slowly takes the loose end of the gold chain between finger and thumb and draws it across the bare stone toward the doorway; the chain stays loose and settles against the stone. Precise and unhurried. The camera stays still. One hand only; the fingers keep their shape. The lantern, crack and doorway do not change.",
+      "prompt": "For one second nothing moves. Then the brown hand slowly takes the broken end of the gold chain between finger and thumb and draws it across the bare stone, away from the crack and toward the doorway; the chain follows loosely and settles flat. Precise and unhurried. Locked camera. One hand only, deep brown skin throughout; the fingers keep their shape. The lantern, crack and doorway do not change.",
       "duration": 10
     },
     "5": {
