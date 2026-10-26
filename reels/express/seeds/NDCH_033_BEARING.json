@@ -52,6 +52,11 @@
       "note": "light match on the lantern in the arch"
     }
   ],
+  "finish": {
+    "subtitle_layout": "safe_zone",
+    "output": "1080x1920",
+    "loudness_lufs": -14
+  },
   "validation_overrides": {
     "min_words": 54
   },

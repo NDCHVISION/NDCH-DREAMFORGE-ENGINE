@@ -1,4 +1,5 @@
 import { type SubtitleCue } from './subtitles.ts';
+import { SAFE_ZONE_FONT_SIZE_PX, SAFE_ZONE_MARGIN_V_PX, SAFE_ZONE_OUTLINE_PX, SAFE_ZONE_SHADOW_PX } from './finish.ts';
 
 /**
  * ASS (Advanced SubStation Alpha) subtitle generation for ffmpeg burn-in.
@@ -25,6 +26,8 @@ export interface AssSubtitleStyle {
   playResX: number;
   playResY: number;
   marginVPx: number;
+  outlinePx: number;
+  shadowPx: number;
 }
 
 const DEFAULT_FONT = 'Cormorant Garamond';
@@ -66,7 +69,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 /** Builds an ASS style from a reel spec `subtitle_config` (or any unknown). */
-export function parseSubtitleStyle(config: unknown): AssSubtitleStyle {
+export function parseSubtitleStyle(config: unknown, layout: 'default' | 'safe_zone' = 'default'): AssSubtitleStyle {
   const record = isRecord(config) ? config : {};
   const rawFont = typeof record.font === 'string' ? record.font.trim() : '';
   // Commas would corrupt the ASS style line.
@@ -83,6 +86,12 @@ export function parseSubtitleStyle(config: unknown): AssSubtitleStyle {
     playResX: DEFAULT_PLAY_RES_X,
     playResY: DEFAULT_PLAY_RES_Y,
     marginVPx: DEFAULT_MARGIN_V_PX,
+    outlinePx: 2,
+    shadowPx: 1,
+    // safe_zone (finish profile): clear of the platform caption overlay, larger, outlined.
+    ...(layout === 'safe_zone'
+      ? { fontSizePx: SAFE_ZONE_FONT_SIZE_PX, marginVPx: SAFE_ZONE_MARGIN_V_PX, outlinePx: SAFE_ZONE_OUTLINE_PX, shadowPx: SAFE_ZONE_SHADOW_PX }
+      : {}),
   };
 }
 
@@ -141,7 +150,7 @@ export function buildAssDocument(cues: SubtitleCue[], style: AssSubtitleStyle): 
     '',
     '[V4+ Styles]',
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,0,0,0,0,100,100,0,0,1,2,1,2,48,48,${style.marginVPx},1`,
+    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,0,0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
     '',
     '[Events]',
     'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',

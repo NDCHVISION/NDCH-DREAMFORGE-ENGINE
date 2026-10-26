@@ -43,8 +43,8 @@
  * Node ≥ 18 + ffmpeg on PATH required.
  */
 
-import { writeFileSync, readFileSync, existsSync, appendFileSync, copyFileSync } from 'node:fs';
-import { execSync, execFileSync }                                                 from 'node:child_process';
+import { writeFileSync, readFileSync, existsSync, appendFileSync, copyFileSync, renameSync } from 'node:fs';
+import { execSync, execFileSync, spawnSync }                                                 from 'node:child_process';
 import { randomUUID }                                               from 'node:crypto';
 import { tmpdir }                                                   from 'node:os';
 import { join, resolve }                                            from 'node:path';
@@ -89,6 +89,7 @@ import {
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
 import { resolveTransitions, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
+import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
@@ -239,7 +240,23 @@ async function generateElevenLabsAmbience(description: string): Promise<string> 
     }
   );
 
-  writeFileSync(AMBIENCE_CACHE_PATH, audioBuffer);
+  // The generated clip fades in and out; looped as is, the bed drops to
+  // silence at every seam. Trim the fades and join three copies with
+  // crossfades so the bed is continuous for a whole reel.
+  const rawAmbience = join(TMP, 'background-ambience-raw.mp3');
+  writeFileSync(rawAmbience, audioBuffer);
+  try {
+    const trimmed = join(TMP, 'background-ambience-trimmed.wav');
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', rawAmbience, '-af', AMBIENCE_TRIM_FILTER, trimmed]);
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y', '-i', trimmed, '-i', trimmed, '-i', trimmed,
+      '-filter_complex', ambienceLoopFilter(), '-map', '[bed]',
+      '-ar', '44100', '-b:a', '192k', AMBIENCE_CACHE_PATH,
+    ]);
+  } catch (err) {
+    console.warn(`         [WARN] ambience seam smoothing failed (${(err as Error).message}); using the raw clip`);
+    copyFileSync(rawAmbience, AMBIENCE_CACHE_PATH);
+  }
   console.log(`         ambience saved: ${AMBIENCE_CACHE_PATH} (will loop to cover full reel)`);
   return AMBIENCE_CACHE_PATH;
 }
@@ -973,7 +990,7 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
   try {
     execSync(
       `ffmpeg -y -i "${videoPath}" ` +
-      `-vf "ass='${toFfmpegFilterPath(assPath)}'${fontsArg}" ` +
+      `-vf "${outputScaleFilter(plan.finish)}ass='${toFfmpegFilterPath(assPath)}'${fontsArg}" ` +
       `-c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -c:a copy "${outputPath}"`,
       { stdio: 'inherit' }
     );
@@ -982,8 +999,33 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
   }
 
   const duration = getMediaDuration(outputPath);
-  console.log(`         subtitled: ${outputPath} (${duration.toFixed(1)}s)`);
+  console.log(`         subtitled: ${outputPath} (${duration.toFixed(1)}s)${plan.finish.output === '1080x1920' ? ' at 1080x1920' : ''}`);
+  normalizeLoudnessInPlace(outputPath, plan);
   return outputPath;
+}
+
+/**
+ * finish.loudness_lufs: two-pass loudnorm on the finished reel's audio
+ * (video stream copied). Overwrites the file so the workflow's upload step
+ * picks it up unchanged.
+ */
+function normalizeLoudnessInPlace(videoPath: string, plan: ResolvedProductionPlan): void {
+  const target = plan.finish.loudnessLufs;
+  if (target === undefined) return;
+  const measure = spawnSync('ffmpeg', [
+    '-hide_banner', '-nostats', '-i', videoPath,
+    '-af', `loudnorm=I=${target}:TP=-1:LRA=11:print_format=json`, '-f', 'null', '-',
+  ], { encoding: 'utf8' });
+  if (measure.status !== 0) throw new Error(`loudness measurement failed: ${measure.stderr.slice(-300)}`);
+  const m = parseLoudnormJson(measure.stderr);
+  const tmpOut = videoPath.replace(/\.mp4$/, '.loudnorm.mp4');
+  execFileSync('ffmpeg', [
+    '-v', 'error', '-y', '-i', videoPath,
+    '-c:v', 'copy', '-af', loudnormApplyFilter(target, m),
+    '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', tmpOut,
+  ]);
+  renameSync(tmpOut, videoPath);
+  console.log(`         loudness: ${m.input_i} → ${target} LUFS (true peak ≤ -1 dBTP)`);
 }
 
 // ── Step 4: GitHub Release upload ─────────────────────────────────────────
@@ -1128,7 +1170,10 @@ function buildSubtitleCues(
 ): SubtitleCue[] {
   // Preferred: exact word timings from the ElevenLabs alignment.
   if (wordTimings.length > 0) {
-    const timedCues = buildCuesFromWordTimings(wordTimings);
+    const timedCues = buildCuesFromWordTimings(
+      wordTimings,
+      plan.finish.subtitleLayout === 'safe_zone' ? { maxWordsPerCue: SAFE_ZONE_MAX_WORDS_PER_CUE } : undefined,
+    );
     if (timedCues.length > 0) return timedCues;
   }
 
@@ -1179,7 +1224,7 @@ function writeSubtitleArtifacts(
   writeFileSync(srtPath, srt);
   console.log(`  subtitles srt : ${srtPath} (${cues.length} cues, ${timingSource})`);
 
-  const style = parseSubtitleStyle(plan.subtitles);
+  const style = parseSubtitleStyle(plan.subtitles, plan.finish.subtitleLayout);
   const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
   writeFileSync(assPath, buildAssDocument(cues, style));
   console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
