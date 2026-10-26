@@ -4,15 +4,15 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 5,
+      "clip": 1,
       "variants": 2,
       "references": [
         {
-          "tag": "pair",
-          "path": "reels/express/stills/refs/NDCH_034_pair.jpg"
+          "tag": "engine",
+          "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
         }
       ],
-      "prompt": "Re-photograph the scene in @pair as one real photograph, same layout: two identical small single-cylinder horizontal mill engines side by side on a worn charcoal stone workbench in a near-black stone workshop. Each has a brass cylinder at the left, a crosshead and connecting rod driving a crank, and a black iron flywheel with exactly six straight spokes mounted on the crankshaft at the right; the mechanism is complete and plausible, nothing passes through the flywheel. The left engine is the worn original: aged-gold (#C6A94F) brass, black iron, fingerprints and a thin oil sheen. The right engine is the same engine cast in solid dark bronze, one uniform dull-brown metal, every joint fused. One cool bone-white (#F5F2EB) light rakes from high left, real contact shadows on the bench, everything else falls into black. No lamps, no windows, no people, no lettering. Photorealistic, natural film grain."
+      "prompt": "Extreme close-up of the flywheel of the left engine in @engine, the worn original: its black iron five-spoke flywheel fills most of the frame, seen from the same low front three-quarter angle, with the brass crank and the edge of the upright aged-gold (#C6A94F) brass cylinder just visible at the left of frame. Same engine, same design, same worn brass with faint fingerprints and a thin oil sheen. The bronze copy is out of frame to the right. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left and draws a crisp edge along the rim and spokes; everything else falls into black. No lamps, no windows, no people, no lettering. Photorealistic, natural film grain."
     }
   ]
 }
