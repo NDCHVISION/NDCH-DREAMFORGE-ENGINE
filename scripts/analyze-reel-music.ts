@@ -142,6 +142,7 @@ function extractReelMusicSpec(reelPath: string): ReelMusicSpec {
     voice_occupancy_seconds: voiceOccupancy,
     doctrine_profile: doctrineProfile,
     mastering_preset_id: mastPreset,
+    ...(raw['opening_audio'] !== undefined ? { opening_audio: raw['opening_audio'] } : {}),
   };
 }
 

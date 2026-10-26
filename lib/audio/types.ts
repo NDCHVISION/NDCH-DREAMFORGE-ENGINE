@@ -137,6 +137,8 @@ export interface ReelMusicSpec {
   voice_occupancy_seconds: number;
   doctrine_profile: DoctrineProfile;
   mastering_preset_id: string;
+  /** Raw `opening_audio` block from the reel spec (lib/opening-audio.ts). Optional. */
+  opening_audio?: unknown;
 }
 
 export interface AlternativeTrack {
@@ -188,6 +190,8 @@ export interface MixPlan {
   true_peak_target_dbfs: number;
   music_initial_gain_db: number;
   music_fade_in_seconds: number;
+  /** When the music bed starts (opening_audio). Absent in older plans = 0. */
+  music_start_seconds?: number;
   music_fade_out_seconds: number;
   ducking_filter: string;
   ending_behavior: 'hard_cut' | 'fade_out' | 'bpm_cut';

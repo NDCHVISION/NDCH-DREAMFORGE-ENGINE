@@ -7,13 +7,14 @@
  * committed to artifacts.
  */
 
+import { DEFAULT_MUSIC_FADE_IN_SECS, musicIntroFilter, resolveOpeningAudio } from '../opening-audio.ts';
 import { basename } from 'node:path';
 import type { SelectionResult, ReelMusicSpec, MixPlan, GainEnvelopePoint } from './types.ts';
 
 // Default mastering constants derived from NDCH_017_MASTERING_PRESET
 const DEFAULTS = {
   MUSIC_INITIAL_GAIN_DB: -18,     // Layer 2 under Layer 1 voice
-  MUSIC_FADE_IN_SECS: 0.05, // opening rule: no audible fade-in
+  MUSIC_FADE_IN_SECS: DEFAULT_MUSIC_FADE_IN_SECS, // per-reel override: opening_audio
   MUSIC_FADE_OUT_SECS: 3.5,       // matches ending_decay.final_dissolve_duration_s
   LOUDNESS_TARGET_LUFS: -16,
   TRUE_PEAK_TARGET_DBFS: -1.0,
@@ -115,6 +116,9 @@ export function buildMixPlan(
 ): MixPlan {
   const presetId = options.masteringPresetId ?? reelSpec.mastering_preset_id;
   const segBounds = reelSpec.segment_boundaries_seconds;
+  const opening = reelSpec.opening_audio === undefined
+    ? { musicFadeInSecs: DEFAULTS.MUSIC_FADE_IN_SECS, musicStartSecs: 0 }
+    : resolveOpeningAudio(reelSpec.opening_audio, `${reelSpec.reel_id}.opening_audio`);
 
   return {
     schema_version: '1.0',
@@ -130,7 +134,8 @@ export function buildMixPlan(
     loudness_target_lufs: DEFAULTS.LOUDNESS_TARGET_LUFS,
     true_peak_target_dbfs: DEFAULTS.TRUE_PEAK_TARGET_DBFS,
     music_initial_gain_db: DEFAULTS.MUSIC_INITIAL_GAIN_DB,
-    music_fade_in_seconds: DEFAULTS.MUSIC_FADE_IN_SECS,
+    music_fade_in_seconds: opening.musicFadeInSecs,
+    music_start_seconds: opening.musicStartSecs,
     music_fade_out_seconds: DEFAULTS.MUSIC_FADE_OUT_SECS,
     ducking_filter: DEFAULTS.DUCKING_FILTER,
     ending_behavior: 'hard_cut', // Möbius law: no fade, hard seam at loop
@@ -169,7 +174,7 @@ export function buildFFmpegMixFilter(
 
   return (
     `[0:a]volume=${initGain}dB,` +
-    `afade=t=in:st=0:d=${mixPlan.music_fade_in_seconds},` +
+    musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: mixPlan.music_start_seconds ?? 0 }) +
     `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds}[music];` +
     `[1:a]asplit=2[voice][duckref];` +
     `[music][duckref]sidechaincompress=${mixPlan.ducking_filter}[ducked];` +

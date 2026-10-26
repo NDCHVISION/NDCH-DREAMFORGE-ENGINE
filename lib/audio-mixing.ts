@@ -1,5 +1,8 @@
+import { DEFAULT_MUSIC_FADE_IN_SECS, musicIntroFilter, type ResolvedOpeningAudio } from './opening-audio.ts';
+
 export const MUSIC_BED_GAIN_DB = -18;
-export const MUSIC_FADE_IN_SECS = 0.05; // opening rule: music is present on frame one (short ramp only to avoid a click)
+/** Default music fade-in. Per-reel control lives in `opening_audio` (lib/opening-audio.ts). */
+export const MUSIC_FADE_IN_SECS = DEFAULT_MUSIC_FADE_IN_SECS;
 export const MUSIC_FADE_OUT_SECS = 2.0;
 export const FADE_TIMING_PRECISION = 3;
 // Sidechain tuning for voice-forward reels:
@@ -35,14 +38,20 @@ export function resolveMusicTrackPath(
  * Keeps existing music fades while using sidechain compression to duck music
  * under the voice and recover smoothly between narration peaks.
  */
-export function buildAdaptiveMusicMixFilter(audioDurationSecs: number): string {
+export function buildAdaptiveMusicMixFilter(
+  audioDurationSecs: number,
+  opening: Pick<ResolvedOpeningAudio, 'musicFadeInSecs' | 'musicStartSecs'> = {
+    musicFadeInSecs: MUSIC_FADE_IN_SECS,
+    musicStartSecs: 0,
+  },
+): string {
   const fadeOutStart = computeFadeOutStartSecsFormatted(audioDurationSecs);
 
   // Tuned for voice-forward narration: deeper reduction while voice is present,
   // then smooth recovery to avoid obvious "pumping" artifacts in the music bed.
   return (
     `[0:a]volume=${MUSIC_BED_GAIN_DB}dB,` +
-    `afade=t=in:st=0:d=${MUSIC_FADE_IN_SECS},` +
+    musicIntroFilter(opening) +
     `afade=t=out:st=${fadeOutStart}:d=${MUSIC_FADE_OUT_SECS}[music];` +
     `[1:a]asplit=2[voice][duckref];` +
     `[music][duckref]sidechaincompress=${MUSIC_DUCKING_FILTER}[ducked];` +

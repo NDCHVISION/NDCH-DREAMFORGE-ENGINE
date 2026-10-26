@@ -20,6 +20,7 @@
  */
 
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
+import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -129,6 +130,12 @@ export interface ExpressSeed {
   peak_words: string[];
   caption: string;
   hashtags: string[];
+  /**
+   * How the first seconds sound: music start and fade-in, and an optional sound
+   * event at a fixed time. See lib/opening-audio.ts. Absent = `immediate` with a
+   * 0.2 s music fade-in and no sound event.
+   */
+  opening_audio?: OpeningAudioConfig;
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
   voice?: { voice_id?: string; stability?: number; speed?: number };
 }
@@ -153,14 +160,30 @@ function lastWords(text: string, n: number): string {
   return words.slice(-n).join(' ');
 }
 
+function openingMusicLine(seed: ExpressSeed): string | undefined {
+  // Seeds before the opening rule keep their original brief unless they declare opening_audio.
+  if (reelNumber(seed.reel_id) < OPENING_RULE_FROM && !seed.opening_audio) return undefined;
+  const o = resolveOpeningAudio(seed.opening_audio, `${seed.reel_id}.opening_audio`);
+  switch (o.mode) {
+    case 'impact':
+      return 'A clear hit on the first frame, then the bed enters, rising';
+    case 'silence':
+      return `Silent for the first ${o.musicStartSecs}s, entering with the opening sound, then rising`;
+    case 'fade':
+      return 'Fading in gently under the hook, rising';
+    case 'immediate':
+    default:
+      return 'Present from the first frame with no swell or fade-in, no cinematic hit, rising';
+  }
+}
+
 function musicDescription(seed: ExpressSeed): string {
-  // From the opening rule on, the brief asks for sound on the first frame.
-  const opening = reelNumber(seed.reel_id) >= OPENING_RULE_FROM;
+  const opening = openingMusicLine(seed);
   if (seed.music_mood === 'electronica') {
-    const hook = opening ? 'A clear low hit on the first frame, no fade-in, then rising' : 'Low and steady for the hook, rising';
+    const hook = opening ?? 'Low and steady for the hook, rising';
     return `Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. ${hook} through the build, one clear lift at the 20s pivot, settling for the resolution, decaying into the loop. No vocals.`;
   }
-  const hook = opening ? 'A clear low hit on the first frame, no swell or fade-in, rising build' : 'Restrained hook, rising build';
+  const hook = opening ? `${opening} through the build` : 'Restrained hook, rising build';
   return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
 }
 
@@ -210,6 +233,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     );
   }
   assertOpening(seed, source);
+  resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
 }
 
 export function buildReel(seed: ExpressSeed, template: Json): Json {
@@ -346,9 +370,13 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   };
   delete (spec.subtitle_config as Json).highlight_words_rationale;
 
+  const opening = resolveOpeningAudio(seed.opening_audio, `${seed.reel_id}.opening_audio`);
+  if (seed.opening_audio) spec.opening_audio = structuredClone(seed.opening_audio);
+  else delete spec.opening_audio;
   spec.music_config = {
     description: musicDescription(seed),
-    fade_in_seconds: 0,
+    // Informational. Older seeds keep the value they were built with.
+    fade_in_seconds: seed.opening_audio ? opening.musicFadeInSecs : 0,
     fade_out_start_seconds: 43,
     fade_out_end_seconds: 45,
   };

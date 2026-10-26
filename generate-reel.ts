@@ -23,7 +23,7 @@
  *                       spec contains a music_config.description field, the engine
  *                       calls the ElevenLabs Sound Generation API to produce a
  *                       22-second ambient loop from that description automatically.
- *                       Music is mixed at −18 dB with a 0.05 s anti-click ramp (no audible fade-in) and 2.0 s
+ *                       Music is mixed at −18 dB with a short fade-in (opening_audio; default 0.2 s) and 2.0 s
  *                       fade-out, plus adaptive ducking under narration for clearer
  *                       voice-forward playback.
  *
@@ -81,6 +81,13 @@ import {
   resolveMusicTrackPath,
 } from './lib/audio-mixing.ts';
 import {
+  buildOpeningEventMixFilter,
+  describeOpeningAudio,
+  type ResolvedOpeningAudio,
+  type ResolvedSoundEvent,
+} from './lib/opening-audio.ts';
+import { checkOpeningAudio } from './lib/opening-audio-check.ts';
+import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
@@ -102,6 +109,8 @@ const RUNWAY_MAX_TASK_ATTEMPTS   = 4;
 const CLIP_CHECKPOINT_PATH       = process.env.CLIP_CHECKPOINT_PATH ?? join(TMP, 'runway-clip-checkpoint.json');
 const MUSIC_ASSET_RELATIVE_PATH  = 'assets/ambient-drone.mp3';
 const AMBIENCE_CACHE_PATH        = join(TMP, 'background-ambience.mp3');
+const OPENING_EVENT_PATH         = join(TMP, 'opening-sound-event.mp3');
+const OPENING_CHECK_PATH         = join(TMP, 'opening-audio-check.json');
 const ELEVENLABS_SFX_MAX_SECS    = 22;     // hard cap from ElevenLabs sound-generation API
 const ELEVENLABS_SFX_TIMEOUT_MS  = 60_000;
 const DEFAULT_HTTP_TIMEOUT_MS    = 45_000;
@@ -244,7 +253,7 @@ async function generateElevenLabsAmbience(description: string): Promise<string> 
  *
  * Mix settings:
  *   • Volume: −18 dB (music sits well beneath the voice)
- *   • Fade-in: 0.05 s (anti-click only; the opening rule wants sound on frame one)
+ *   • Fade-in: per reel from opening_audio (default 0.2 s; 0 allowed; optional delayed start)
  *   • Fade-out: 2.0 s (timed to end of narration)
  *   • Music loops indefinitely to cover any narration length
  *   • Sidechain ducking keeps narration dominant without hard pumping
@@ -275,7 +284,7 @@ async function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number):
 
   console.log(`         mixing ambient music: ${musicPath}`);
   const mixedPath = join(TMP, 'voiceover-mixed.mp3');
-  const filterGraph = buildAdaptiveMusicMixFilter(audioDurationSecs);
+  const filterGraph = buildAdaptiveMusicMixFilter(audioDurationSecs, plan.openingAudio);
 
   try {
     execSync(
@@ -292,6 +301,69 @@ async function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number):
 
   console.log(`         mixed: ${mixedPath}`);
   return mixedPath;
+}
+
+/** Generates the opening sound event with ElevenLabs sound generation. */
+async function generateOpeningSoundEvent(event: ResolvedSoundEvent): Promise<string> {
+  const { elevenLabsKey } = getConfig();
+  console.log(`         opening sound event: "${(event.prompt ?? '').slice(0, 80)}" (${event.durationSecs}s)`);
+  const audioBuffer = await requestBuffer('https://api.elevenlabs.io/v1/sound-generation', {
+    method: 'POST',
+    headers: {
+      'xi-api-key': elevenLabsKey,
+      'Content-Type': 'application/json',
+      'Accept': 'audio/mpeg',
+    },
+    body: JSON.stringify({
+      text: event.prompt,
+      duration_seconds: event.durationSecs,
+      prompt_influence: 0.6,
+    }),
+    timeoutMs: ELEVENLABS_SFX_TIMEOUT_MS,
+    maxRetries: 2,
+  });
+  writeFileSync(OPENING_EVENT_PATH, audioBuffer);
+  return OPENING_EVENT_PATH;
+}
+
+/**
+ * Lays the opening sound event (if the reel has one) over the finished voice
+ * and music track, then measures the result. Fails the run before any video
+ * credits are spent if the event cannot be produced, the opening is silent,
+ * or the mix clips.
+ */
+async function addOpeningSoundEvent(basePath: string, opening: ResolvedOpeningAudio): Promise<string> {
+  console.log(`         opening audio: ${describeOpeningAudio(opening)}`);
+  const event = opening.soundEvent;
+  if (!event) return basePath;
+
+  let eventPath: string;
+  if (event.file) {
+    eventPath = resolve('.', event.file);
+    if (!existsSync(eventPath)) throw new Error(`opening_audio.sound_event.file not found: ${event.file}`);
+  } else {
+    try {
+      eventPath = await generateOpeningSoundEvent(event);
+    } catch (err) {
+      throw new Error(`Opening sound event generation failed: ${(err as Error).message}`);
+    }
+  }
+
+  const outPath = join(TMP, 'voiceover-opening.mp3');
+  execFileSync('ffmpeg', [
+    '-v', 'error', '-y',
+    '-i', basePath,
+    '-i', eventPath,
+    '-filter_complex', buildOpeningEventMixFilter(event),
+    '-map', '[out]', '-ar', '44100', '-b:a', '192k', outPath,
+  ]);
+
+  const check = checkOpeningAudio(outPath, opening);
+  writeFileSync(OPENING_CHECK_PATH, JSON.stringify(check, null, 2));
+  const opener = check.opening ? `opening mean ${check.opening.meanDb.toFixed(1)} dB, ` : '';
+  console.log(`         opening check: ${opener}peak ${check.whole.maxDb.toFixed(2)} dBFS → ${check.ok ? 'ok' : 'FAILED'}`);
+  if (!check.ok) throw new Error(`Opening audio check failed: ${check.issues.join('; ')}`);
+  return outPath;
 }
 
 // ── Step 1: ElevenLabs voiceover ──────────────────────────────────────────
@@ -419,7 +491,10 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
   const processedPath = processAudio(rawAudioPath);
 
   // ── 1c: Ambient music layer (ElevenLabs SFX / local file / optional) ──────
-  const finalAudioSource = await mixMusicUnderVoice(processedPath, rawDuration);
+  const withMusic = await mixMusicUnderVoice(processedPath, rawDuration);
+
+  // ── 1d: Opening sound event (opening_audio.sound_event), if the reel has one ──
+  const finalAudioSource = await addOpeningSoundEvent(withMusic, getConfig().plan.openingAudio);
 
   // Normalise to the canonical output filename the rest of the pipeline expects.
   const audioPath = join(TMP, 'voiceover.mp3');
