@@ -29,6 +29,15 @@ on, not starting over. Three seams have to close: picture, sound and words.
   already checks the open ending.
 - No caption on screen across the loop point.
 
+## Ending: a beat after the last word
+
+A reel ends **2.5 seconds after its last spoken word**, not at a fixed 45 s. A long silent hold after the closing line is where viewers leave before the loop comes round; a short beat lets the line land and hands straight back to the opening.
+
+- From 036 on, anchored express reels get `end_tail_secs: 2.5` automatically. A seed can set 1 to 6 seconds.
+- The last shot is conformed to the shorter window and the music bed is built for the new length, so it still crosses the loop point.
+- The last shot never runs shorter than 3 s, and an end title keeps its time on screen.
+- Engine: `lib/end-tail.ts`. Origin: 029 PRESENCE held its face about 5 s after "Presence is not access..."; cut to 42.5 s it played tighter and still passed the seam check.
+
 ## The check
 
 Every Express render ends with a loop seam check in the run summary

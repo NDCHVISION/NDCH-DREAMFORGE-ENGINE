@@ -94,6 +94,7 @@ import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions,
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { endTitleAss } from './lib/end-title.ts';
 import { measureCueBands, withScrims } from './lib/caption-law.ts';
+import { reelEndSecs, trimLastWindow } from './lib/end-tail.ts';
 import type { TimedSoundEvent } from './lib/sound-events.ts';
 import {
   getRunwayPollDelayMs,
@@ -105,6 +106,9 @@ import { parseI2vPlan, clipCostCredits, imageDataUri, type I2vClip } from './lib
 
 /** Clips that start from an approved still (image-to-video), by 0-based index. Set from I2V_PLAN. */
 let i2vClips = new Map<number, I2vClip>();
+
+/** End rule (lib/end-tail.ts): where the reel ends, set once the narration is placed. */
+let reelEnd: { endSecs: number; fullSecs: number } | undefined;
 
 const DR_NKRUMAH_VOICE_ID        = 'C9Uh5MFptuXa176UlaXE'; // Dr. Nkrumah's voice — always takes precedence over any spec or engine default
 const DEFAULT_VOICE_ID           = ENGINE_DEFAULTS.defaultVoiceId;
@@ -572,6 +576,30 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
     voicePath = anchoredPath;
     voiceDuration = getMediaDuration(anchoredPath);
     wordTimings = anchorPlan.words;
+
+    // End rule: end a short beat after the last word instead of at the fixed length.
+    const plan = getConfig().plan;
+    const segs = plan.narrationSegments;
+    const lastWord = anchorPlan.words[anchorPlan.words.length - 1];
+    const lastStart = segs[segs.length - 1]?.timestampStartSeconds;
+    if (plan.endTailSecs !== undefined && lastWord && lastStart !== undefined) {
+      const fullSecs = anchorPlan.totalSecs;
+      const endSecs = reelEndSecs({
+        lastWordEndSecs: lastWord.endSeconds,
+        lastWindowStartSecs: lastStart,
+        fullSecs,
+        tailSecs: plan.endTailSecs,
+        endTitleStartSecs: plan.endTitle?.startSecs,
+      });
+      if (endSecs < fullSecs) {
+        const trimmedPath = join(TMP, 'voiceover-anchored-end.mp3');
+        execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', voicePath, '-af', 'apad', '-t', String(endSecs), '-ar', '44100', '-b:a', '192k', trimmedPath]);
+        voicePath = trimmedPath;
+        voiceDuration = getMediaDuration(trimmedPath);
+        reelEnd = { endSecs, fullSecs };
+        console.log(`         end rule: last word at ${lastWord.endSeconds.toFixed(2)}s, reel ends at ${endSecs}s (was ${fullSecs}s)`);
+      }
+    }
     console.log(
       `         anchored narration: ${anchorPlan.cuts.map((c) => `[${c.index}] @${c.dstStartSecs.toFixed(2)}s`).join(' ')} → ${voiceDuration.toFixed(1)}s`,
     );
@@ -896,6 +924,8 @@ async function generateVideo(
         ? scene.timestampEndSeconds - scene.timestampStartSeconds
         : scene.clipDuration,
     );
+    // End rule: the last shot ends with the reel (lib/end-tail.ts).
+    if (reelEnd) windows.splice(0, windows.length, ...trimLastWindow(windows, reelEnd.fullSecs, reelEnd.endSecs));
     const boundary = resolveTransitions(plan.transitions, scenePlan.length);
     const kinds = resolveTransitionKinds(plan.transitions, scenePlan.length);
     const lengths = clipLengthsWithTransitions(windows, boundary);

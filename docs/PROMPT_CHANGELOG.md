@@ -2,6 +2,13 @@
 
 ---
 
+## 2026-10-26 — End rule: a beat after the last word
+
+**Rule (creator directive, from 029 review "end is a bit long"):** reels end 2.5 s after the last spoken word, not at a fixed 45 s.
+
+- `lib/end-tail.ts`, `LOOPING.md` (Ending): `end_tail_secs` (1-6 s), default 2.5 for anchored express reels from 036; the last shot and the music bed are cut to the new length, the seamless loop is kept
+- 029 PRESENCE final re-cut to 42.5 s by hand (the same rule)
+
 ## 2026-10-26 — Caption law: one size, readable on any frame
 
 **Rule (creator directive):** captions must be a consistent size and readable, especially in colour contrast.
