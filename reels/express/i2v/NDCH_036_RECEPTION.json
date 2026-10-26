@@ -22,8 +22,8 @@
     "4": {
       "image": "reels/express/stills/approved/NDCH_036_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "Perfectly locked camera. The closed door, brass latch, surrounding wall, and floorboards remain completely motionless. A narrow band of soft daylight is visible beneath the door. Within that band, a diffuse grey interruption gradually enters from the left, moving naturally across the illuminated floor until it settles near the center, as if someone on the other side has quietly stepped close and is standing still. It remains subtle, soft-edged, and physically plausible. Once it stops, the entire image becomes still. The door never opens. No visible person, no additional objects, no lighting change.",
-      "duration": 10
+      "prompt": "Perfectly locked camera. The closed door stays fully shut in every frame; it never opens, moves or swings, and the brass latch never moves. The face of the door and the wall stay evenly lit with no shadows crossing them. The only change in the whole clip: in the thin strip of daylight on the floor directly under the door, the middle of the strip dims softly, as if something on the other side is blocking a little of the light. The dimming is faint and soft-edged, not a shape. Everything else is completely still. No people, no silhouettes, no hands, no new light.",
+      "duration": 5
     },
     "5": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",

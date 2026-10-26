@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-bearing-v2
+reception-v1
+4
 
-1
-
-BEARING v2: tight 34s timing, lines clear of transitions (no Runway calls)
+4
+RECEPTION (030) clip 4 retry: 5 s, dim the light under the door only, door never opens
