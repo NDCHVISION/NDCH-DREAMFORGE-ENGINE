@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v1
+run-v1
 
 
-
-BEARING re-render with the finish profile (no Runway)
+1
+RUN clip 1 only (gen4.5, from the approved still) for review before the rest
