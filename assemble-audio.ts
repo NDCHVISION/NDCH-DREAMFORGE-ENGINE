@@ -531,7 +531,7 @@ function mixMusicUnderVO(voPath: string, voDuration: number): string {
   execSync(
     `ffmpeg -y -i "${voPath}" -i "${musicPath}" ` +
     `-filter_complex ` +
-    `"[1:a]volume=-18dB,afade=t=in:st=0:d=1.5,afade=t=out:st=${fadeOutStart.toFixed(1)}:d=2.0,aloop=loop=-1:size=2e+09[music];` +
+    `"[1:a]volume=-18dB,afade=t=in:st=0:d=0.05,afade=t=out:st=${fadeOutStart.toFixed(1)}:d=2.0,aloop=loop=-1:size=2e+09[music];` +
     `[0:a][music]amix=inputs=2:duration=first[mixed]" ` +
     `-map "[mixed]" -ar 44100 -b:a 192k "${finalPath}"`,
     { stdio: 'pipe' }

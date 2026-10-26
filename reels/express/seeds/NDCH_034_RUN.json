@@ -1,7 +1,7 @@
 {
   "reel_id": "NDCH_034_RUN",
   "episode_name": "RUN",
-  "title_hook": "They copied the engine. It still won't run.",
+  "title_hook": "Perfect copy. Dead engine.",
   "concept": "A small working flywheel engine runs on a stone workbench. Beside it stand copies cast in solid bronze with no core: flawless, sharply detailed, every part fused, none of them able to turn. The original is worn, fingerprinted and oiled; the copies are immaculate because they have never worked. Beside the original lies an unfinished flywheel for the next engine.",
   "theme": "Authorship is maintenance, then the next build",
   "quote": "A mold takes the shape. Not the work that keeps it turning.",
@@ -17,16 +17,16 @@
   "recurring_element": "one canonical engine: a small single-cylinder horizontal mill engine on a worn stone workbench, black iron flywheel with six straight spokes turning clockwise as seen from camera at one steady speed in every shot; beside it one or more solid bronze copies of the same engine that never move",
   "material": "Original: aged brass (#C6A94F) cylinder, crosshead and valve gear, black iron six-spoke flywheel and bed; brass dulled at the edges, faint fingerprints, a fine oil sheen. Copies: solid dark bronze, crisp flawless detail, clean even patina, every joint fused, never handled. Worn charcoal stone bench in a near-black workshop; one cool bone-white (#F5F2EB) light rakes from high left and never moves",
   "validation_overrides": {
-    "min_words": 46
+    "min_words": 44
   },
   "primary_prompt": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder flywheel engine of aged brass (#C6A94F) and black iron runs at one steady speed; its six-spoke flywheel turns clockwise, crank and piston rod linked. The brass is worn and fingerprinted with a thin oil sheen. Beside it stand flawless copies cast in solid dark bronze, every part fused, perfectly still. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Locked or slow camera, real machined metal. No steam, no glow, no sparks, no lettering.",
   "segments": {
     "hook": {
-      "text": "They copied the engine. It still won't run.",
-      "visual": "Locked low view across the stone bench: two engines side by side, same outline. The left one's six-spoke flywheel turns clockwise, piston rod sliding; its brass is worn and oiled. The right one is flawless dark bronze, perfectly still. Bone-white raking light."
+      "text": "Someone copied your work. Perfect copy. Dead engine.",
+      "visual": "Already in motion on the first frame: macro on the worn original's six-spoke black iron flywheel spinning clockwise, filling most of the frame, the brass crank flashing gold. The camera pulls back and slides right to the flawless bronze copy beside it, same outline, perfectly still, bone-white light on its flywheel rim."
     },
     "build": {
-      "text": "They measured every part. Reproduced every contour. Perfected everything they could see.",
+      "text": "They copied everything they could see. Every contour. Every detail.",
       "visual": "Slow lateral track along a row of solid bronze copies: crisp bolt heads, clean even patina, flawless and still, every joint fused. At the far end, soft in the background, the worn original's flywheel keeps turning."
     },
     "pivot": {
@@ -50,7 +50,7 @@
   "peak_words": [
     "turning"
   ],
-  "caption": "They copied the engine. It still won't run.\n\nThey measured every part. Reproduced every contour. Perfected everything they could see.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.",
+  "caption": "Someone copied your work. Perfect copy. Dead engine.\n\nThey copied everything they could see. Every contour. Every detail.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",

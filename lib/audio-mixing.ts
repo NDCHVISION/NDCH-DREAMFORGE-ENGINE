@@ -1,5 +1,5 @@
 export const MUSIC_BED_GAIN_DB = -18;
-export const MUSIC_FADE_IN_SECS = 1.5;
+export const MUSIC_FADE_IN_SECS = 0.05; // opening rule: music is present on frame one (short ramp only to avoid a click)
 export const MUSIC_FADE_OUT_SECS = 2.0;
 export const FADE_TIMING_PRECISION = 3;
 // Sidechain tuning for voice-forward reels:

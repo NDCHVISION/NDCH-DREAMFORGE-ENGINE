@@ -36,6 +36,28 @@ validator.
 `unlock / journey / transform / potential` · the last line ends open (`...`) so the loop flows back
 into the hook · each visual prompt ≤ 1000 characters.
 
+### Opening rule (from 034 RUN on)
+
+Viewers decide in the first two seconds. GRAVITAS (1,106 views) opened on a moment the viewer
+has lived ("Most people enter a room and become part of its atmosphere."); the posts around it
+that opened on a metaphor to decode (CAGE, THRESHOLD, WARMUP) got single digits. This is a
+working hypothesis until the retention curves confirm it, but every seed from 034 on follows it:
+
+- **Line one is a lived moment or a plain claim, never the metaphor.** The viewer should
+  recognise themselves or get the point instantly; the philosophy comes after.
+  The builder rejects a first sentence over 8 words.
+- **Frame one is already moving.** Open on an event, not an establishing shot: no `locked`,
+  `static`, `near-static` or `establishing` in the hook visual (the builder rejects them).
+  Show the contradiction by 0.5 s and make the tension unmistakable by 2 s; the wider room
+  comes after.
+- **Sound on frame one.** Music no longer fades in (0.05 s anti-click ramp only), and the
+  music brief asks for a clear hit on the first frame.
+- **Readable on a phone, with the sound off.** The key contrast must read at phone size on
+  the first frame; do not rely on fine detail in near-black.
+
+Seeds numbered below 034 keep the rules they were written under; rewrite one to this rule
+before rendering it.
+
 ### Seed prompt (paste into any AI chat)
 
 > Write a DreamForge EXPRESS seed as JSON, same keys and shape as this example:
@@ -43,7 +65,9 @@ into the hook · each visual prompt ≤ 1000 characters.
 > Theme: `<one line>`. Physical metaphor: `<object or phenomenon>`. Music mood: cinematic | electronica.
 > Rules: narration 75–95 words across hook/build/pivot/resolution/mobius_close; second person; no
 > "unlock", "journey", "transform", "potential", no em-dashes; the mobius_close line ends with "..."
-> and reads naturally back into the hook's first sentence; each visual is one vivid 9:16 shot
+> and reads naturally back into the hook's first sentence; the hook's first sentence is a moment the viewer has lived or a
+> plain claim (8 words or fewer), not a metaphor, and the hook visual is already moving on frame one
+> (never a locked, static or establishing shot); each visual is one vivid 9:16 shot
 > under 300 characters naming the palette hex codes; title_hook is the most quotable line, under
 > 50 characters. Output only the JSON.
 

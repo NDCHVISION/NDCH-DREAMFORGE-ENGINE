@@ -13,7 +13,7 @@ import type { SelectionResult, ReelMusicSpec, MixPlan, GainEnvelopePoint } from 
 // Default mastering constants derived from NDCH_017_MASTERING_PRESET
 const DEFAULTS = {
   MUSIC_INITIAL_GAIN_DB: -18,     // Layer 2 under Layer 1 voice
-  MUSIC_FADE_IN_SECS: 1.5,
+  MUSIC_FADE_IN_SECS: 0.05, // opening rule: no audible fade-in
   MUSIC_FADE_OUT_SECS: 3.5,       // matches ending_decay.final_dissolve_duration_s
   LOUDNESS_TARGET_LUFS: -16,
   TRUE_PEAK_TARGET_DBFS: -1.0,

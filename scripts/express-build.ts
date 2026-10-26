@@ -49,6 +49,42 @@ const BOUNDARIES = [0, 6, 20, 29, 38, 45] as const;
 const MAX_PROMPT = 1000;
 const WORD_RANGE = { min: 70, max: 105 };
 
+/**
+ * Opening rule (from NDCH 034 RUN onward). Viewers decide in the first two
+ * seconds, and the posts that held them opened on a moment the viewer has
+ * lived or a plain concrete claim (GRAVITAS: "Most people enter a room and
+ * become part of its atmosphere."), not on a metaphor to decode. So:
+ *   - the hook's first sentence is at most OPENING_MAX_WORDS words;
+ *   - the hook visual is already in motion on frame one: no locked, static
+ *     or establishing opening shot.
+ * Seeds numbered below OPENING_RULE_FROM keep the rules they were written under.
+ */
+const OPENING_RULE_FROM = 34;
+const OPENING_MAX_WORDS = 8;
+const STATIC_OPENING = /\b(locked|static|near-static|establishing)\b/i;
+
+function reelNumber(reelId: string): number {
+  const m = reelId.match(/^NDCH_(\d+)/);
+  return m ? Number(m[1]) : Number.POSITIVE_INFINITY;
+}
+
+export function assertOpening(seed: ExpressSeed, source: string): void {
+  if (reelNumber(seed.reel_id) < OPENING_RULE_FROM) return;
+  const opener = firstSentence(seed.segments.hook.text);
+  const n = wordCount(opener);
+  if (n > OPENING_MAX_WORDS) {
+    throw new Error(
+      `${source}: opening rule: the hook's first sentence is ${n} words ("${opener}"); keep it to ${OPENING_MAX_WORDS} or fewer, a lived moment or a plain claim, not a metaphor`,
+    );
+  }
+  const still = seed.segments.hook.visual.match(STATIC_OPENING);
+  if (still) {
+    throw new Error(
+      `${source}: opening rule: the hook visual must already be in motion on frame one (found "${still[0]}")`,
+    );
+  }
+}
+
 type SegmentId = (typeof SEGMENT_IDS)[number];
 
 export interface ExpressSeed {
@@ -118,9 +154,14 @@ function lastWords(text: string, n: number): string {
 }
 
 function musicDescription(seed: ExpressSeed): string {
-  return seed.music_mood === 'electronica'
-    ? 'Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. Low and steady for the hook, rising through the build, one clear lift at the 20s pivot, settling for the resolution, decaying into the loop. No vocals.'
-    : 'Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Restrained hook, rising build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.';
+  // From the opening rule on, the brief asks for sound on the first frame.
+  const opening = reelNumber(seed.reel_id) >= OPENING_RULE_FROM;
+  if (seed.music_mood === 'electronica') {
+    const hook = opening ? 'A clear low hit on the first frame, no fade-in, then rising' : 'Low and steady for the hook, rising';
+    return `Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. ${hook} through the build, one clear lift at the 20s pivot, settling for the resolution, decaying into the loop. No vocals.`;
+  }
+  const hook = opening ? 'A clear low hit on the first frame, no swell or fade-in, rising build' : 'Restrained hook, rising build';
+  return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
 }
 
 export function assertSeed(seed: ExpressSeed, source: string): void {
@@ -168,6 +209,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
       `${source}: narration is ${n} words; express reels need ${min}-${WORD_RANGE.max} to fit 45s at the 016 pace`,
     );
   }
+  assertOpening(seed, source);
 }
 
 export function buildReel(seed: ExpressSeed, template: Json): Json {

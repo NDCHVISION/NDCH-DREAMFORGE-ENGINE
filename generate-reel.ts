@@ -23,7 +23,7 @@
  *                       spec contains a music_config.description field, the engine
  *                       calls the ElevenLabs Sound Generation API to produce a
  *                       22-second ambient loop from that description automatically.
- *                       Music is mixed at −18 dB with a 1.5 s fade-in and 2.0 s
+ *                       Music is mixed at −18 dB with a 0.05 s anti-click ramp (no audible fade-in) and 2.0 s
  *                       fade-out, plus adaptive ducking under narration for clearer
  *                       voice-forward playback.
  *
@@ -244,7 +244,7 @@ async function generateElevenLabsAmbience(description: string): Promise<string> 
  *
  * Mix settings:
  *   • Volume: −18 dB (music sits well beneath the voice)
- *   • Fade-in: 1.5 s
+ *   • Fade-in: 0.05 s (anti-click only; the opening rule wants sound on frame one)
  *   • Fade-out: 2.0 s (timed to end of narration)
  *   • Music loops indefinitely to cover any narration length
  *   • Sidechain ducking keeps narration dominant without hard pumping

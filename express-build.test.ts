@@ -333,3 +333,16 @@ test('express: cast accepts only false, and only with a character line', () => {
   delete noChar.character;
   assert.throws(() => assertSeed(noChar, 'no-character'), /no character line/);
 });
+
+test('express: opening rule binds from 034 (short first sentence, moving first frame)', () => {
+  const run = loadSeed('NDCH_034_RUN.json');
+  assertSeed(run, 'run');
+  const long: ExpressSeed = structuredClone(run);
+  long.segments.hook.text = 'You do not choose against yourself all at once, it happens slowly. Dead engine.';
+  assert.throws(() => assertSeed(long, 'long'), /opening rule: the hook's first sentence/);
+  const still: ExpressSeed = structuredClone(run);
+  still.segments.hook.visual = 'Locked low view across the stone bench: two engines side by side.';
+  assert.throws(() => assertSeed(still, 'still'), /already be in motion/);
+  // Seeds written before the rule keep building.
+  assertSeed(loadSeed('NDCH_031_PARALLAX.json'), 'parallax');
+});
