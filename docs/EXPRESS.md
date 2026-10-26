@@ -163,6 +163,12 @@ centred 46% from the top (sizes are on the 1280-px caption canvas).
   (0/6/20/29/38/45). Shorter reels (25–30 s) would need new windows, validator rules and
   timing tests.
 
+### Looping
+
+Every reel loops with no seam in picture, sound or words: see [LOOPING.md](../LOOPING.md).
+From 035 on the engine carries the music bed across the loop point (`loop_audio: "seamless"`),
+and every render ends with a loop seam check in the run summary.
+
 ### Universal Viewer Law
 
 A seed must land for a stranger who has never heard of NDCH. The builder refuses

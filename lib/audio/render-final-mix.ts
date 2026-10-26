@@ -13,10 +13,57 @@
  */
 
 import { musicIntroFilter } from '../opening-audio.ts';
-import { execSync } from 'node:child_process';
+import { LOOP_CROSSFADE_SECS, seamlessBedFilter } from '../loop-seam.ts';
+import { execSync, execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import type { MixPlan } from './types.ts';
+
+/**
+ * Music part of the final mix, ending in [music]. `musicIdx` is the music input
+ * (the extraction window). With loop_audio "seamless", a bed from the first
+ * frame and room in the track past the window, the bed crosses the loop point
+ * (lib/loop-seam.ts) and needs the music again as input `tailIdx`, extracted from
+ * the window end (`tailInput`). Otherwise the older fade-out.
+ */
+export function musicChain(
+  mixPlan: MixPlan,
+  musicIdx: number,
+  tailIdx: number,
+  sourceDurationSecs: number,
+  musicSourcePath = '',
+): { tailInput: string; filter: string } {
+  const start = mixPlan.music_extraction_start_seconds;
+  const end = mixPlan.music_extraction_end_seconds;
+  const d = end - start;
+  const startSecs = mixPlan.music_start_seconds ?? 0;
+  const overrun = Math.min(LOOP_CROSSFADE_SECS, Math.max(0, sourceDurationSecs - end));
+  if (mixPlan.loop_audio === 'seamless' && startSecs === 0 && overrun >= 0.3) {
+    return {
+      tailInput: `-ss ${end.toFixed(3)} -to ${(end + overrun).toFixed(3)} -i "${musicSourcePath}" `,
+      filter:
+        seamlessBedFilter(musicIdx, tailIdx, 'bed', d, mixPlan.music_initial_gain_db, overrun) + ';' +
+        `[bed]aloop=loop=-1:size=2e+09[music];`,
+    };
+  }
+  const fadeOutStart = Math.max(0, d - mixPlan.music_fade_out_seconds);
+  return {
+    tailInput: '',
+    filter:
+      `[${musicIdx}:a]volume=${mixPlan.music_initial_gain_db}dB,` +
+      musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: startSecs }) +
+      `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
+      `aloop=loop=-1:size=2e+09[music];`,
+  };
+}
+
+function sourceDuration(path: string): number {
+  try {
+    return Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path], { encoding: 'utf8' }).trim()) || 0;
+  } catch {
+    return 0;
+  }
+}
 
 function ffRun(cmd: string): void {
   execSync(cmd, { maxBuffer: 5 * 1024 * 1024, stdio: 'pipe' });
@@ -74,17 +121,16 @@ export function renderVoiceMusicPreview(
   const outPath = join(outputDir, `${mixPlan.reel_id}_voice_music.mp3`);
   const start = mixPlan.music_extraction_start_seconds.toFixed(3);
   const end = mixPlan.music_extraction_end_seconds.toFixed(3);
-  const fadeOutStart = Math.max(0, mixPlan.music_extraction_end_seconds - mixPlan.music_extraction_start_seconds - mixPlan.music_fade_out_seconds);
+  const music = musicChain(mixPlan, 0, 2, sourceDuration(musicSourcePath), musicSourcePath);
 
   // Input 0: music (extracted window)
   // Input 1: voice
+  // Input 2: the music past the window end (seamless loop only)
   ffRun(
     `ffmpeg -y -ss ${start} -to ${end} -i "${musicSourcePath}" -i "${voicePath}" ` +
+    music.tailInput +
     `-filter_complex ` +
-    `"[0:a]volume=${mixPlan.music_initial_gain_db}dB,` +
-    musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: mixPlan.music_start_seconds ?? 0 }) +
-    `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
-    `aloop=loop=-1:size=2e+09[music];` +
+    `"` + music.filter +
     `[1:a]asplit=2[voice][duckref];` +
     `[music][duckref]sidechaincompress=${mixPlan.ducking_filter}[ducked];` +
     `[ducked][voice]amix=inputs=2:duration=shortest[out]" ` +
@@ -118,21 +164,19 @@ export function renderFinalMixedVideo(
   const outPath = join(outputDir, `${mixPlan.reel_id}_final_mixed.mp4`);
   const start = mixPlan.music_extraction_start_seconds.toFixed(3);
   const end = mixPlan.music_extraction_end_seconds.toFixed(3);
-  const musicDuration = mixPlan.music_extraction_end_seconds - mixPlan.music_extraction_start_seconds;
-  const fadeOutStart = Math.max(0, musicDuration - mixPlan.music_fade_out_seconds);
+  const music = musicChain(mixPlan, 1, 3, sourceDuration(musicSourcePath), musicSourcePath);
 
   // Input 0: video (video stream taken from this)
   // Input 1: music extracted window
   // Input 2: voice
+  // Input 3: the music past the window end (seamless loop only)
   ffRun(
     `ffmpeg -y -i "${videoPath}" ` +
     `-ss ${start} -to ${end} -i "${musicSourcePath}" ` +
     `-i "${voicePath}" ` +
+    music.tailInput +
     `-filter_complex ` +
-    `"[1:a]volume=${mixPlan.music_initial_gain_db}dB,` +
-    musicIntroFilter({ musicFadeInSecs: mixPlan.music_fade_in_seconds, musicStartSecs: mixPlan.music_start_seconds ?? 0 }) +
-    `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
-    `aloop=loop=-1:size=2e+09[music];` +
+    `"` + music.filter +
     `[2:a]asplit=2[voice][duckref];` +
     `[music][duckref]sidechaincompress=${mixPlan.ducking_filter}[ducked];` +
     `[ducked][voice]amix=inputs=2:duration=shortest[mixed];` +

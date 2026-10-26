@@ -8,6 +8,7 @@
  */
 
 import { DEFAULT_MUSIC_FADE_IN_SECS, musicIntroFilter, resolveOpeningAudio } from '../opening-audio.ts';
+import { resolveLoopAudio } from '../loop-seam.ts';
 import { basename } from 'node:path';
 import type { SelectionResult, ReelMusicSpec, MixPlan, GainEnvelopePoint } from './types.ts';
 
@@ -139,6 +140,7 @@ export function buildMixPlan(
     music_fade_out_seconds: DEFAULTS.MUSIC_FADE_OUT_SECS,
     ducking_filter: DEFAULTS.DUCKING_FILTER,
     ending_behavior: 'hard_cut', // Möbius law: no fade, hard seam at loop
+    loop_audio: resolveLoopAudio(reelSpec.loop_audio),
     ending_fade_duration_seconds: DEFAULTS.MUSIC_FADE_OUT_SECS,
     validation_expectations: {
       duration_tolerance_seconds: 1.0,

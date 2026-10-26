@@ -37,6 +37,7 @@ import { join, resolve, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateCompiledReel } from '../reel-validation.ts';
 import { checkUniversalViewer } from '../lib/universal-viewer.ts';
+import { resolveLoopAudio } from '../lib/loop-seam.ts';
 
 const ROOT = resolve('.');
 const TEMPLATE_PATH = join(ROOT, 'reels', 'NDCH_016_ILLUSION_OF_MOTION.json');
@@ -66,6 +67,8 @@ const WORD_RANGE = { min: 70, max: 105 };
  *     or establishing opening shot.
  * Seeds numbered below OPENING_RULE_FROM keep the rules they were written under.
  */
+/** Loop law: the music bed crosses the loop point from this reel number on (LOOPING.md). */
+const LOOP_RULE_FROM = 35;
 const OPENING_RULE_FROM = 33; // 033 BEARING posts first (027), then 034 RUN (028)
 const OPENING_MAX_WORDS = 8;
 const STATIC_OPENING = /\b(locked|static|near-static|establishing)\b/i;
@@ -144,6 +147,8 @@ export interface ExpressSeed {
   opening_audio?: OpeningAudioConfig;
   /** 'anchored' = each section's narration starts at its window; clips are conformed to their slots. */
   narration_timing?: NarrationTiming;
+  /** Loop law (LOOPING.md). Defaults to "seamless" from 035 PRESENCE on; older seeds keep "fade". */
+  loop_audio?: 'fade' | 'seamless';
   /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
    * (A seed's free-form `transitions` plan, if any, stays documentation and is not read.) */
   clip_transitions?: TransitionSpec[];
@@ -413,6 +418,9 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   const opening = resolveOpeningAudio(seed.opening_audio, `${seed.reel_id}.opening_audio`);
   if (seed.opening_audio) spec.opening_audio = structuredClone(seed.opening_audio);
   else delete spec.opening_audio;
+  const loopAudio = seed.loop_audio ?? (reelNumber(seed.reel_id) >= LOOP_RULE_FROM ? 'seamless' : undefined);
+  if (loopAudio) spec.loop_audio = resolveLoopAudio(loopAudio);
+  else delete spec.loop_audio;
   if (seed.narration_timing) spec.narration_timing = seed.narration_timing;
   else delete spec.narration_timing;
   if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);

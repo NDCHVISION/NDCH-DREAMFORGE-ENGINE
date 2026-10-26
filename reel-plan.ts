@@ -3,6 +3,7 @@ import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anch
 import { resolveFinish, type FinishProfile } from './lib/finish.ts';
 import { resolveEndTitle, type EndTitle } from './lib/end-title.ts';
 import { resolveSoundEvents, type TimedSoundEvent } from './lib/sound-events.ts';
+import { resolveLoopAudio, type LoopAudio } from './lib/loop-seam.ts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -337,6 +338,8 @@ export interface ResolvedProductionPlan {
   openingAudio: ResolvedOpeningAudio;
   /** 'anchored' starts each section's narration at its window (lib/segment-anchor.ts). */
   narrationTiming: NarrationTiming;
+  /** 'seamless' carries the music bed across the loop point (LOOPING.md); 'fade' is the older fade-out. */
+  loopAudio: LoopAudio;
   /** Raw `clip_transitions` from the spec; validated against the clip count at render (lib/transitions.ts). */
   transitions?: unknown;
   /** Finish profile: caption layout, output resolution, loudness (lib/finish.ts). */
@@ -525,6 +528,7 @@ export function resolveProductionPlan(
     musicConfig,
     openingAudio,
     narrationTiming,
+    loopAudio: resolveLoopAudio(pickValue(reelSpec, [['loop_audio']])),
     transitions: pickValue(reelSpec, [['clip_transitions']]),
     finish: resolveFinish(pickValue(reelSpec, [['finish']])),
     endTitle: resolveEndTitle(pickValue(reelSpec, [['end_title']])),

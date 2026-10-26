@@ -417,6 +417,7 @@
     },
     "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
   },
+  "loop_audio": "seamless",
   "narration_timing": "anchored",
   "clip_transitions": [
     {

@@ -139,6 +139,8 @@ export interface ReelMusicSpec {
   mastering_preset_id: string;
   /** Raw `opening_audio` block from the reel spec (lib/opening-audio.ts). Optional. */
   opening_audio?: unknown;
+  /** Raw `loop_audio` from the reel spec (lib/loop-seam.ts). Optional. */
+  loop_audio?: unknown;
 }
 
 export interface AlternativeTrack {
@@ -195,6 +197,8 @@ export interface MixPlan {
   music_fade_out_seconds: number;
   ducking_filter: string;
   ending_behavior: 'hard_cut' | 'fade_out' | 'bpm_cut';
+  /** 'seamless' = the bed crosses the loop point (LOOPING.md). Absent in older plans = 'fade'. */
+  loop_audio?: 'fade' | 'seamless';
   ending_fade_duration_seconds: number;
   validation_expectations: {
     duration_tolerance_seconds: number;
