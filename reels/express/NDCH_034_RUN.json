@@ -47,7 +47,7 @@
     "lighting_direction": "upper-left",
     "lighting_quality": "harsh rim",
     "camera_distance_arc": "wide -> medium -> extreme-close -> wide -> medium",
-    "recurring_element": "one canonical engine: a small single-cylinder horizontal mill engine on a worn stone workbench, black iron flywheel with six straight spokes turning clockwise as seen from camera at one steady speed in every shot; beside it one or more solid bronze copies of the same engine that never move",
+    "recurring_element": "one canonical engine: a small single-cylinder engine on a worn stone workbench, upright brass cylinder at the left on a black iron base, black iron flywheel with five curved spokes turning clockwise as seen from camera at one steady speed in every shot; beside it one or more solid bronze copies of the same engine that never move",
     "color_temperature": "cold (below 4000K)"
   },
   "seed_frame_strategy": {
@@ -179,7 +179,7 @@
     "mastering_preset_id": "NDCH_017_MASTERING_PRESET"
   },
   "visual_prompt": {
-    "primary_prompt": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder flywheel engine of aged brass (#C6A94F) and black iron runs at one steady speed; its six-spoke flywheel turns clockwise, crank and piston rod linked. The brass is worn and fingerprinted with a thin oil sheen. Beside it stand flawless copies cast in solid dark bronze, every part fused, perfectly still. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Locked or slow camera, real machined metal. No steam, no glow, no sparks, no lettering.",
+    "primary_prompt": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder engine (upright cylinder at the left, flywheel at the right) of aged brass (#C6A94F) and black iron runs at one steady speed; its five-spoke flywheel turns clockwise, crank and piston rod linked. The brass is worn and fingerprinted with a thin oil sheen. Beside it stand flawless copies cast in solid dark bronze, every part fused, perfectly still. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Locked or slow camera, real machined metal. No steam, no glow, no sparks, no lettering.",
     "runway_prompt_modifier": "Hard-geometry CAD aesthetic. No organic morphing. Rigid wireframe transitions only.",
     "global_visual_matrix": {
       "rendering_engine": "Runway gen4.5. Hard-geometry CAD aesthetic, no organic drift.",
@@ -218,7 +218,7 @@
         "grain_type": "fine digital noise, HUD-matched"
       }
     },
-    "material": "Original: aged brass (#C6A94F) cylinder, crosshead and valve gear, black iron six-spoke flywheel and bed; brass dulled at the edges, faint fingerprints, a fine oil sheen. Copies: solid dark bronze, crisp flawless detail, clean even patina, every joint fused, never handled. Worn charcoal stone bench in a near-black workshop; one cool bone-white (#F5F2EB) light rakes from high left and never moves"
+    "material": "Original: aged brass (#C6A94F) cylinder, crosshead and valve gear, black iron five-spoke flywheel and bed; brass dulled at the edges, faint fingerprints, a fine oil sheen. Copies: solid dark bronze, crisp flawless detail, clean even patina, every joint fused, never handled. Worn charcoal stone bench in a near-black workshop; one cool bone-white (#F5F2EB) light rakes from high left and never moves"
   },
   "voiceover": {
     "script": {
@@ -232,7 +232,7 @@
           "text": "Someone copied your work. Perfect copy. Dead engine.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
-          "visual_prompt": "Already turning on the first frame: extreme close-up of the worn original's black iron six-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. One short, controlled lateral move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. By the third second the move settles and holds both engines side by side in one low frame: the original turning, the copy dead still.",
+          "visual_prompt": "Already turning on the first frame: extreme close-up of the worn original's black iron five-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. One short, controlled lateral move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. By the third second the move settles and holds both engines side by side in one low frame: the original turning, the copy dead still.",
           "frame_geometry": {
             "subject_position": "center-frame",
             "negative_space": "vast void occupying upper two-thirds",
@@ -271,7 +271,7 @@
           "text": "Run your mind. Run your systems. Build the next one.",
           "timestamp_start": "0:29",
           "timestamp_end": "0:38",
-          "visual_prompt": "Close on two hands, no face: a brass oil can drips into the oil cup on the crosshead guide; a fingerprint shows on the brass. The flywheel never changes speed. Beside it, an unfinished raw-iron six-spoke flywheel waits on the bench.",
+          "visual_prompt": "Close on two hands, no face: a brass oil can drips into the oil cup on the crosshead guide; a fingerprint shows on the brass. The flywheel never changes speed. Beside it, an unfinished raw-iron five-spoke flywheel waits on the bench.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
             "negative_space": "vast void occupying upper two-thirds",
@@ -284,7 +284,7 @@
           "text": "And let them copy",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "visual_prompt": "The two engines side by side in the same low frame and light, the original turning, the copy still. The camera eases left and in until the worn original's spinning six-spoke flywheel fills the frame again, matching the opening close-up for a seamless loop. Its rim catches a thin line of gold.",
+          "visual_prompt": "The two engines side by side in the same low frame and light, the original turning, the copy still. The camera eases left and in until the worn original's spinning five-spoke flywheel fills the frame again, matching the opening close-up for a seamless loop. Its rim catches a thin line of gold.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
             "negative_space": "compressed darkness behind subject",
@@ -400,7 +400,7 @@
       "#SelfMastery",
       "#Run"
     ],
-    "alt_text": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder flywheel engine of aged brass (#C6A94F) and black iron runs at one stea"
+    "alt_text": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder engine (upright cylinder at the left, flywheel at the right) of aged br"
   },
   "cover_frame_timestamp": "0:20",
   "express": {
