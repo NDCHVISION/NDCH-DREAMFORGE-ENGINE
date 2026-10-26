@@ -234,6 +234,8 @@ The creator's life can supply the insight. It can never be required to understan
 **What follows from it:**
 - First person is allowed only when any viewer could speak the line. "You haven't seen me in months" passes. "After what my business partner did" fails.
 - Leave the villain out. A line that names a wrongdoer and a victim locks out every viewer who stands on the other side. Write the moment so more than one person in it can recognize themselves.
+- Nothing may read as an indirect message, a public grievance or a personal defense aimed at someone identifiable. The viewer should leave thinking about their own life, not wondering whom the creator is addressing.
+- Prefer a principle to a declaration. "Presence is not access" is a principle; "My presence is not your access" is a declaration aimed at someone.
 - Narration never names the creator, the brand, the practice or the platform. The brand lives in the hashtags and the cover, not in the spoken words.
 - No episode, launch, or "new reel" framing in the narration or caption. No calls to follow or subscribe.
 - Each concept records at least two entry points: different viewers who would each see themselves in it (`universal_viewer_check.entry_points`).

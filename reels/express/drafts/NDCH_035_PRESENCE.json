@@ -2,95 +2,111 @@
   "reel_id": "NDCH_035_PRESENCE",
   "posting_number": "029",
   "episode_name": "PRESENCE",
-  "status": "draft: awaiting creative approval and Runway prompt review. Posts as episode 029. Move to reels/express/seeds/ to queue it for render.",
-  "title_hook": "My presence is not your access.",
-  "concept": "A monumental black-stone building with one lit doorway at street level. Through it you see a small warm room, and it reads as the whole building. As the camera nears the doorway, the perspective shifts: the room sits far behind the threshold and can't be reached from where you stand. The camera rises and shows that the building holds an immense, lit interior that the doorway never connected to.",
-  "theme": "Familiarity feels like knowing someone. Access is something a person gives.",
-  "quote": "Same room, every day. You haven't seen me in months.",
-  "core_metaphor": "The street doorway is the part of a person anyone nearby can see. The building is the rest of them.",
-  "emotional_arc": "recognition -> familiarity -> loss of a closeness once given -> the self still alive -> boundary",
+  "status": "draft: awaiting creative approval, stills review and motion-prompt review. Posts as episode 029. Move to reels/express/seeds/ to queue it for render.",
+  "title_hook": "Presence is not access.",
+  "concept": "An intimate close-up of a composed face. The camera arcs and reveals the face is a thin surface with no head behind it, only depth: a vast black-stone hall where the person walks away. The camera pulls back until the gap is enormous, then follows the person into a warm, complex interior the surface never showed. The surface stays exactly where it was. The film returns to the face.",
+  "theme": "Familiarity is not understanding.",
+  "quote": "Presence is not access.",
+  "core_metaphor": "The face you see every day is a surface. Behind it is a whole world you have never been inside.",
+  "emotional_arc": "recognition -> assumption -> contradiction -> revelation -> reinterpretation",
   "music_mood": "cinematic",
   "palette": {
     "base": "#1A1A1A",
     "accent": "#C6A94F",
     "light": "#F5F2EB",
-    "peak": "#DC143C"
+    "peak": "#C6A94F"
   },
-  "recurring_element": "one monumental black-stone building with a single tall lit doorway at street level; through it, a small warm room with a wooden table, two cups and a chair; one backlit faceless figure in a charcoal coat",
-  "material": "Black stone with hairline antique-gold (#C6A94F) veining, wet black stone pavement, dark wood table and chair, dark stoneware cups, warm gold lamp light from inside, bone-white (#F5F2EB) steam and highlights",
-  "primary_prompt": "Restrained photorealistic 9:16 sequence around one monumental black-stone building at dusk. A single tall doorway at street level glows warm gold (#C6A94F); through it, a small room with a wooden table, two cups and a chair with a coat over its back. Above, the building rises into dark stone that later opens onto a vast lit interior. Slow, physically credible camera, real light, wet stone. No faces, no text, no portals, no lens flares, no floating objects.",
+  "character": "The same person in every cast shot: an adult woman in her late thirties with deep brown skin, short natural hair and a composed, neutral expression, wearing a charcoal crew-neck sweater",
+  "recurring_element": "one thin, slightly translucent face-surface holding a composed expression, and the vast black-stone hall with hairline gold veins that opens behind it",
+  "material": "Black stone with hairline antique-gold (#C6A94F) veining; the face-surface like fine porcelain, slightly translucent at its edges; warm gold interior light against cool dusk light in the hall",
+  "validation_overrides": {
+    "min_words": 67
+  },
+  "primary_prompt": "Restrained photorealistic 9:16 film about one face that turns out to be a thin surface with a vast world behind it. Close-ups of a calm adult face, a black-stone hall with hairline antique-gold (#C6A94F) veins, and a warm, lived-in interior at its end. Slow, physically credible camera, real light. No lettering, no horror, no cracks, no lens flares, no floating objects.",
   "segments": {
     "hook": {
-      "text": "Same room, every day. You haven't seen me in months.",
-      "visual": "Already happening on the first frame: a backlit faceless figure in a charcoal coat steps through a tall doorway glowing warm gold (#C6A94F) in a monumental black-stone facade (#1A1A1A) at dusk, wet pavement reflecting the light. The camera tracks sideways with the figure. Inside, a small room with a wooden table and two cups. By the second second the figure is seated at the table, and the lit room reads as the whole building."
+      "text": "You can see someone every day... and mistake it for knowing them.",
+      "visual": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, short natural hair and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain. Motion: Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays composed and does not change. The background stays dark. Her face does not change shape. No new people."
     },
     "build": {
-      "text": "You know how I take my coffee. You know which chair I pick. That's familiarity, and it feels a lot like knowing someone.",
-      "visual": "Slow push toward the doorway. The small room in detail: steam rising from one cup in bone-white (#F5F2EB) lamp light, a coat over the back of a chair, a worn table edge. Ordinary and familiar, framed through the stone doorway."
+      "text": "You know their voice, their laugh, the way they cross a room. Familiarity hides distance well.",
+      "visual": "The same woman's face seen from a three-quarter angle behind and to the side: the face is an extraordinarily thin, slightly translucent surface, like fine porcelain, holding the same composed expression. There is no head behind it. Past its edge opens a vast dark hall of black stone (#1A1A1A) with hairline antique-gold (#C6A94F) veins, and far down the hall a small figure in a charcoal sweater walks away from the surface. Strong depth. The surface is calm and beautiful, not eerie. No cracks, no horror, no lettering. Restrained, photorealistic, natural film grain. Motion: Slow camera arc to the left around the surface. The face-surface holds completely still with the same expression. Far down the hall the small figure keeps walking away at an even pace. The architecture does not change shape. No new people."
     },
     "pivot": {
-      "text": "Once, you heard my thoughts before I'd finished them. I miss who I was around you.",
-      "visual": "The push continues to the threshold and the perspective shifts: the doorway's depth stretches and the lit room sits far behind it, across a wide gap of dark stone floor. Nothing breaks and the room stays lit; it can't be reached from here. A thin crimson (#DC143C) line of light runs along the threshold stone."
+      "text": "What someone lets you see, and who they are when no one is watching, are not always the same.",
+      "visual": "Wide view down an immense black-stone hall (#1A1A1A) with hairline antique-gold (#C6A94F) veins. In the near foreground, small at the lower left, the thin translucent face-surface stands upright on its own, facing away from the hall. Far in the distance, a small figure in a charcoal sweater walks toward a faint warm light. The gap between the surface and the figure is enormous. Cool dusk light, fine dust in the air. No lettering, no portals, no glow halos. Restrained, photorealistic, natural film grain. Motion: Slow, steady pull-back down the hall. The surface in the foreground stays still and grows smaller. The distant figure keeps walking toward the warm light. Dust drifts. The architecture does not change shape. No new people.",
+      "cast": false
     },
     "resolution": {
-      "text": "That person didn't go anywhere. They laugh in rooms you can't see from where you stand.",
-      "visual": "The camera cranes up the facade. The doorway shrinks to one small lit point at the base. Behind and above it the building opens into an immense interior: tier after tier of warm-lit rooms, stairways and halls with soft moving light, reaching far beyond anything visible from the street."
+      "text": "You can know every expression on a face and still never see what lives behind it.",
+      "visual": "A vast warm interior at the end of a black-stone hall: tiers of rooms, a wall of books, a long wooden table with a coat, plants and open notebooks, a tall window with green garden light, a staircase rising into gold (#C6A94F) light, bone-white (#F5F2EB) highlights. Small in the middle ground, a woman in a charcoal sweater stands in the light, seen from behind, at ease. Beautiful, lived-in, warm and complex. No lettering, no faces, no lens flares. Restrained, photorealistic, natural film grain. Motion: Slow push-in toward the warm interior. The woman turns her head slightly toward the window light. Soft light shifts across the shelves. The architecture does not change shape. No new people.",
+      "cast": false
     },
     "mobius_close": {
-      "text": "My presence is not your access. You'll still find me in the...",
-      "visual": "The camera descends the facade and settles into the same sideways track along the street as a backlit figure steps through the single lit doorway, framed exactly like the opening shot, wet pavement reflecting the gold."
+      "text": "Presence is not access...",
+      "visual": "The same intimate close-up as the opening: an adult woman in her late thirties with deep brown skin, short natural hair and a composed, neutral expression, wearing a charcoal crew-neck sweater, composed, against near-black (#1A1A1A), warm key light from the left. Motion: From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
     }
   },
   "transitions": [
     {
       "from": "hook",
       "to": "build",
-      "strategy": "Push-dissolve",
-      "how": "Accelerate the dolly into a push toward the doorway in the last 0.6 s and dissolve into the room framed through the doorway."
+      "strategy": "Shape match",
+      "how": "Hold the outline of the face in the same place across the cut; the incoming arc is already moving, so the face becomes a surface without a visible edit."
     },
     {
       "from": "build",
       "to": "pivot",
-      "strategy": "Shape match",
-      "how": "Hold the doorway rectangle in the same place in frame across the cut; the incoming clip is already mid-push."
+      "strategy": "Light match",
+      "how": "Align the faint warm light at the far end of the hall across the cut as the camera starts pulling back."
     },
     {
       "from": "pivot",
       "to": "resolution",
-      "strategy": "Light match",
-      "how": "The crimson threshold line becomes the doorway's gold glow at the base of the facade as the crane begins."
+      "strategy": "Flare through",
+      "how": "The warm light at the end of the hall blooms to fill the frame and settles into the interior."
     },
     {
       "from": "resolution",
       "to": "mobius_close",
-      "strategy": "Flare through",
-      "how": "One of the lit interior windows blooms briefly as the camera starts down, then settles on the facade."
+      "strategy": "Dip to near-black",
+      "how": "0.4 s down to near-black and back up on the face. Change of place, not of mood; never pure black."
     },
     {
       "from": "mobius_close",
       "to": "hook (loop)",
       "strategy": "Shape match",
-      "how": "The final frame matches the first: same doorway position, same figure mid-step, same track speed, so the loop has no fade."
+      "how": "Clip 5 ends on clip 1's opening framing, so the loop has no fade."
     }
   ],
+  "stills_and_motion": {
+    "note": "Clips 1-4 start from approved stills (reels/express/stills/NDCH_035_PRESENCE.json). Clip 5 reuses the approved clip 1 still. After the stills are approved, copy these motion prompts into reels/express/i2v/NDCH_035_PRESENCE.json.",
+    "motion_prompts": {
+      "1": "Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays composed and does not change. The background stays dark. Her face does not change shape. No new people.",
+      "2": "Slow camera arc to the left around the surface. The face-surface holds completely still with the same expression. Far down the hall the small figure keeps walking away at an even pace. The architecture does not change shape. No new people.",
+      "3": "Slow, steady pull-back down the hall. The surface in the foreground stays still and grows smaller. The distant figure keeps walking toward the warm light. Dust drifts. The architecture does not change shape. No new people.",
+      "4": "Slow push-in toward the warm interior. The woman turns her head slightly toward the window light. Soft light shifts across the shelves. The architecture does not change shape. No new people.",
+      "5": "From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
+    }
+  },
   "universal_viewer_check": {
     "test": "Could someone who knows nothing about the creator say every line about their own life?",
     "entry_points": [
-      "The person who pulled back from someone they still see every day.",
-      "The person who just realized someone pulled back from them.",
-      "Anyone who has confused seeing someone often with knowing them."
+      "The person who realizes they never really knew someone they see every day.",
+      "The person who keeps a whole life behind a familiar face.",
+      "Partners, parents of adult children, old friends, colleagues: anyone who has confused familiarity with understanding."
     ],
-    "removed_for_this_law": "The line 'Then you used that against me' named a wrongdoer and a victim, which locked out two of the three entry points."
+    "changes_for_this_law": "No I, me, my or your in the narration. The closing line is a principle ('Presence is not access') rather than a declaration aimed at someone ('My presence is not your access'). The cast is a woman, distinct from the creator, so viewers don't read it as autobiography."
   },
   "highlight_words": [
-    "room",
     "familiarity",
-    "presence"
+    "behind",
+    "see"
   ],
   "peak_words": [
     "access"
   ],
-  "caption": "Same room, every day. You haven't seen me in months.\n\nSeeing someone often can feel like knowing them.\n\nMy presence is not your access.",
+  "caption": "You can see someone every day and mistake it for knowing them.\n\nHow much do you know about the people you see every day?\n\nPresence is not access.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",
@@ -98,11 +114,5 @@
     "#Perception",
     "#Identity",
     "#ClearThinking"
-  ],
-  "opening_check": {
-    "first_sentence": "Same room, every day.",
-    "event_at_0s": "The figure is mid-step through the lit doorway.",
-    "tension_by_2s": "Someone you see every day, in a lit room that looks like all there is.",
-    "works_muted": "Yes: the doorway, the figure and the two cups carry it."
-  }
+  ]
 }

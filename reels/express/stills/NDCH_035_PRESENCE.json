@@ -1,0 +1,27 @@
+{
+ "reel_id": "NDCH_035_PRESENCE",
+ "model": "gen4_image",
+ "ratio": "1080:1920",
+ "stills": [
+  {
+   "clip": 1,
+   "variants": 2,
+   "prompt": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, short natural hair and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain."
+  },
+  {
+   "clip": 2,
+   "variants": 2,
+   "prompt": "The same woman's face seen from a three-quarter angle behind and to the side: the face is an extraordinarily thin, slightly translucent surface, like fine porcelain, holding the same composed expression. There is no head behind it. Past its edge opens a vast dark hall of black stone (#1A1A1A) with hairline antique-gold (#C6A94F) veins, and far down the hall a small figure in a charcoal sweater walks away from the surface. Strong depth. The surface is calm and beautiful, not eerie. No cracks, no horror, no lettering. Restrained, photorealistic, natural film grain."
+  },
+  {
+   "clip": 3,
+   "variants": 2,
+   "prompt": "Wide view down an immense black-stone hall (#1A1A1A) with hairline antique-gold (#C6A94F) veins. In the near foreground, small at the lower left, the thin translucent face-surface stands upright on its own, facing away from the hall. Far in the distance, a small figure in a charcoal sweater walks toward a faint warm light. The gap between the surface and the figure is enormous. Cool dusk light, fine dust in the air. No lettering, no portals, no glow halos. Restrained, photorealistic, natural film grain."
+  },
+  {
+   "clip": 4,
+   "variants": 2,
+   "prompt": "A vast warm interior at the end of a black-stone hall: tiers of rooms, a wall of books, a long wooden table with a coat, plants and open notebooks, a tall window with green garden light, a staircase rising into gold (#C6A94F) light, bone-white (#F5F2EB) highlights. Small in the middle ground, a woman in a charcoal sweater stands in the light, seen from behind, at ease. Beautiful, lived-in, warm and complex. No lettering, no faces, no lens flares. Restrained, photorealistic, natural film grain."
+  }
+ ]
+}

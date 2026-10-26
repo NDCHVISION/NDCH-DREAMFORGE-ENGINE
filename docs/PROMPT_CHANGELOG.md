@@ -11,6 +11,7 @@
 - `docs/SYSTEM_PROMPT_DREAMFORGE.md`: self-correction checklist item; `docs/EXPRESS.md`: seed rules and seed prompt
 - `reels/express/drafts/`: holding folder for seeds awaiting review (the render queue reads `seeds/` only)
 - `reels/express/drafts/NDCH_035_PRESENCE.json`: posts as episode 029, one reel merged from the 029A/B/C briefs; the villain line was removed under the new law
+- 029 review round 2: PRESENCE rebuilt as a universal observation (no I/my/your), closing line "Presence is not access", face-as-surface visual; stills plan `reels/express/stills/NDCH_035_PRESENCE.json` (stills generate only when `stills-request.txt` changes on main)
 
 ## 2026-06-24 — engine config fix + 015A spec
 

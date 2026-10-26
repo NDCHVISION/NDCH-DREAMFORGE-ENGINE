@@ -124,7 +124,8 @@ sound event, so nothing is forced to open loud.
 A seed must land for a stranger who has never heard of NDCH. The builder refuses
 narration that names the creator or brand, launch or "new episode" framing, and follow or subscribe asks.
 Before you queue a seed, read every line and ask: could anyone say this about their own life? Keep the
-villain out, and list at least two kinds of viewer who would see themselves in it under
+villain out, leave out anything that reads as a message aimed at one person, prefer a principle to a
+declaration ("Presence is not access", not "My presence is not your access"), and list at least two kinds of viewer who would see themselves in it under
 `universal_viewer_check.entry_points`. Unreviewed seeds go in `reels/express/drafts/`; the render queue
 only reads `reels/express/seeds/`.
 
