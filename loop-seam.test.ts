@@ -81,8 +81,11 @@ test('express: 035 on carries the bed across the loop; older seeds keep their fa
   const presence = JSON.parse(readFileSync('reels/express/seeds/NDCH_035_PRESENCE.json', 'utf8')) as ExpressSeed;
   assertSeed(presence, 'presence');
   assert.equal((buildReel(presence, tmpl) as Record<string, unknown>).loop_audio, 'seamless');
+  const bearing = JSON.parse(readFileSync('reels/express/seeds/NDCH_033_BEARING.json', 'utf8')) as ExpressSeed;
+  assert.equal((buildReel(bearing, tmpl) as Record<string, unknown>).loop_audio, undefined);
+  // An older seed may opt in (034 RUN does).
   const run = JSON.parse(readFileSync('reels/express/seeds/NDCH_034_RUN.json', 'utf8')) as ExpressSeed;
-  assert.equal((buildReel(run, tmpl) as Record<string, unknown>).loop_audio, undefined);
+  assert.equal((buildReel(run, tmpl) as Record<string, unknown>).loop_audio, 'seamless');
 });
 
 const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
