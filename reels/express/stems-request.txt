@@ -1,3 +1,3 @@
-NDCH_032_INVENTORY
-inventory-v2-i2v-5s
-request: INVENTORY v2 clips 3, 4
+NDCH_033_BEARING
+bearing-v1
+request: BEARING clip 1 for review
