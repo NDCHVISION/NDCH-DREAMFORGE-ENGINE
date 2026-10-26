@@ -1,3 +1,3 @@
-reels/express/stills/NDCH_033_BEARING.json
-3,4,5
-BEARING round B: pivot, resolution (hand) and close stills from the locked master
+reels/express/stills/NDCH_034_RUN.json
+5
+RUN round C: one complete engine in profile (two-shot to be composited from it)
