@@ -1,3 +1,3 @@
-reels/express/stills/NDCH_034_RUN.json
-1,5
-RUN round A: clip 1 opening flywheel close-up and clip 5 engine master two-shot
+reels/express/stills/NDCH_033_BEARING.json
+1,2
+BEARING round A retry after API top-up: clip 1 opening frame and clip 2 room master
