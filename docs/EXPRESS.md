@@ -36,7 +36,7 @@ validator.
 `unlock / journey / transform / potential` · the last line ends open (`...`) so the loop flows back
 into the hook · each visual prompt ≤ 1000 characters.
 
-### First-frame retention contract (from 034 RUN on)
+### First-frame retention contract (from 033 BEARING on)
 
 Viewers decide in the first two seconds. GRAVITAS (1,106 views) opened on a moment the viewer
 has lived ("Most people enter a room and become part of its atmosphere."); the posts around it
@@ -44,7 +44,7 @@ that opened on a metaphor to decode (CAGE, THRESHOLD, WARMUP) got single digits.
 result, not proof. These are creative quality requirements, not retention guarantees; check them
 against the retention curves as reels come in.
 
-Every seed from 034 on meets all of these:
+Every seed from 033 on meets all of these:
 
 1. **At 0.0 s, a visually consequential event is already happening.** Not a camera drift over a
    still room: something in the frame is moving or changing.
@@ -59,7 +59,7 @@ Every seed from 034 on meets all of these:
 7. **No passive establishing shot as the default opening.** The wider room comes after the event.
 8. **Line one is a lived moment or a plain claim, never the metaphor.** The philosophy comes after.
 
-**What the builder checks automatically** (`scripts/express-build.ts`, from NDCH_034): the hook's
+**What the builder checks automatically** (`scripts/express-build.ts`, from NDCH_033): the hook's
 first sentence is 8 words or fewer, and the hook visual does not contain `locked`, `static`,
 `near-static` or `establishing`. That is a text check on the prompt, not a check of the footage.
 
@@ -71,7 +71,7 @@ first sentence is 8 words or fewer, and the hook visual does not contain `locked
 - [ ] Recurring objects keep their geometry and direction (RUN: six spokes, clockwise, one speed).
 - [ ] The hook still works muted.
 
-Seeds numbered below 034 keep the rules they were written under; rewrite one to this contract
+Seeds numbered below 033 keep the rules they were written under; rewrite one to this contract
 before rendering it.
 
 ### Opening audio

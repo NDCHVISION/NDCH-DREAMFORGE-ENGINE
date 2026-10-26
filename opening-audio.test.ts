@@ -213,7 +213,7 @@ test('express: RUN carries its opening audio into the compiled spec, with a mech
   assert.equal(validateCompiledReel(spec).valid, true);
 });
 
-test('express: seeds before 034 keep their music brief and get no opening_audio', () => {
+test('express: seeds before 033 keep their music brief and get no opening_audio', () => {
   for (const [file, compiled] of [
     ['NDCH_031_PARALLAX.json', 'reels/express/NDCH_031_PARALLAX.json'],
     ['NDCH_032_INVENTORY.json', 'reels/express/NDCH_032_INVENTORY.json'],
@@ -236,4 +236,16 @@ test('validator: a compiled spec with an invalid opening_audio is an error', () 
   spec.opening_audio = { mode: 'silence' };
   const r = validateCompiledReel(spec);
   assert.ok(r.errors.some((e) => e.code === 'OPENING_AUDIO'));
+});
+
+test('express: BEARING (posts 027) opens on a lived moment, a moving frame and the chain scrape', () => {
+  const bearing = seed('NDCH_033_BEARING.json');
+  assertSeed(bearing, 'bearing'); // includes the opening rule (first sentence <= 8 words, no static hook)
+  assert.equal(bearing.segments.hook.text.split(/[.!?]/)[0], 'You can still repeat what they said');
+  assert.match(bearing.segments.hook.visual, /^Extreme close.*already moving/);
+  const spec = buildReel(bearing, TEMPLATE) as Spec;
+  assert.equal(spec.opening_audio?.mode, 'impact');
+  assert.match(spec.opening_audio?.sound_event?.prompt ?? '', /chain dragged/);
+  assert.match(spec.music_config.description, /no hit of its own/);
+  assert.equal(validateCompiledReel(spec).valid, true);
 });

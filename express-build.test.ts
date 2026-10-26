@@ -334,7 +334,7 @@ test('express: cast accepts only false, and only with a character line', () => {
   assert.throws(() => assertSeed(noChar, 'no-character'), /no character line/);
 });
 
-test('express: opening rule binds from 034 (short first sentence, moving first frame)', () => {
+test('express: opening rule binds from 033 (short first sentence, moving first frame)', () => {
   const run = loadSeed('NDCH_034_RUN.json');
   assertSeed(run, 'run');
   const long: ExpressSeed = structuredClone(run);
