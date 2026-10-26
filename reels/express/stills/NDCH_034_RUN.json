@@ -4,26 +4,19 @@
   "ratio": "1080:1920",
   "stills": [
     {
-      "clip": 3,
-      "variants": 2,
-      "references": [
-        {
-          "tag": "engine",
-          "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
-        }
-      ],
-      "prompt": "Macro close-up of the hub and spokes of the worn original's black iron five-spoke flywheel from @engine, filling the frame; a thin film of oil gleams on the polished hub and the aged-gold (#C6A94F) brass collar. Behind it, soft and out of focus, the dull solid bronze copy's flywheel, fused and still. No connecting rod or crank in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
-    },
-    {
       "clip": 4,
       "variants": 2,
       "references": [
         {
+          "tag": "shot",
+          "path": "reels/express/stills/refs/NDCH_034_clip04_layout.jpg"
+        },
+        {
           "tag": "engine",
           "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
         }
       ],
-      "prompt": "Close shot on the worn stone bench beside the original engine from @engine: two bare hands, no face, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the bench. The original engine stands just behind, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
+      "prompt": "The same scene, framing and light as @shot: two bare hands with warm brown skin, no face, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the worn stone bench. The original engine from @engine stands just behind, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
     }
   ]
 }
