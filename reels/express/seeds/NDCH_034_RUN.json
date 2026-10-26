@@ -1,0 +1,62 @@
+{
+  "reel_id": "NDCH_034_RUN",
+  "episode_name": "RUN",
+  "title_hook": "They copied the engine. It still won't run.",
+  "concept": "A small brass-and-iron flywheel engine runs on a stone workbench. Beside it stand exact copies cast in solid bronze: every outline right, every part fused, none of them able to turn. A mold takes the surface of a thing, never its working. The engine keeps turning because someone tends it, and that is the one part nobody can cast.",
+  "theme": "Authorship is a practice, not a shape",
+  "quote": "A mold can take the shape. It can't take what keeps it turning.",
+  "core_metaphor": "Casting is a physical fact: a mold records only the outside. A cast engine is solid metal in the right silhouette. Motion comes from the inside and from upkeep, so the working engine and its copies look identical until you ask them to run.",
+  "emotional_arc": "provocation -> recognition -> distinction -> practice -> indifference to the copy",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#1A1A1A",
+    "accent": "#C6A94F",
+    "light": "#F5F2EB",
+    "peak": "#C6A94F"
+  },
+  "recurring_element": "one small working flywheel engine of aged brass and black iron on a worn stone workbench, its flywheel turning at one steady speed in every shot, and beside it one or more identical copies cast in solid dark bronze that never move",
+  "material": "Working engine: aged brass (#C6A94F) cylinder, crosshead and valve gear, black iron flywheel and bed, a fine oil sheen. Copies: solid dark bronze, same silhouette, every joint fused, matte. Worn charcoal stone bench in a near-black workshop; one cool bone-white (#F5F2EB) light rakes from high left and never moves",
+  "validation_overrides": {
+    "min_words": 50
+  },
+  "primary_prompt": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small working flywheel engine of aged brass (#C6A94F) and black iron turns at one steady speed. Beside it stand copies of the same engine cast in solid dark bronze, every part fused, perfectly still. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Locked or slow camera, real machined metal, physically credible light and reflection. No glow, no sparks, no particles, no lettering.",
+  "segments": {
+    "hook": {
+      "text": "They copied the engine. It still won't run.",
+      "visual": "Locked low view across the stone bench: the brass-and-iron engine runs, flywheel turning, piston rod sliding, a thread of steam at the valve. Beside it, an identical engine in solid dark bronze, motionless. Bone-white raking light."
+    },
+    "build": {
+      "text": "Some run their mouths. Some run campaigns. Some run after the credit.",
+      "visual": "Slow lateral track along the bench past a row of solid bronze castings of the engine, identical outlines, matte and still. At the far end, soft in the background, the working engine's flywheel keeps turning."
+    },
+    "pivot": {
+      "text": "A mold can take the shape. It can't take what you do to keep it turning.",
+      "visual": "Macro: an opened two-part sand mold on the bench, the engine's outline pressed crisp into dark packed sand. Rack focus past it to the working engine behind, crankshaft and brass valve gear moving."
+    },
+    "resolution": {
+      "text": "Run your mind. Run your systems. Build the next one.",
+      "visual": "Close on two hands, no face: a small brass oil can touches the moving crosshead, then a cloth wipes the brass. The flywheel never changes speed. Beside it, half in frame, a new iron flywheel waits on the bench."
+    },
+    "mobius_close": {
+      "text": "And let them copy",
+      "visual": "Return to the opening frame: the working engine turning beside the still bronze copy, same low angle and light. The flywheel rim catches a thin line of gold. Locked camera, matched for a seamless loop."
+    }
+  },
+  "highlight_words": [
+    "engine",
+    "shape",
+    "run"
+  ],
+  "peak_words": [
+    "turning"
+  ],
+  "caption": "They copied the engine. It still won't run.\n\nA mold can take the shape. It can't take what you do to keep it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Authorship",
+    "#Discipline",
+    "#SelfMastery",
+    "#Run"
+  ]
+}
