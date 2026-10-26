@@ -1,6 +1,7 @@
 import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anchor.ts';
 import { resolveFinish, type FinishProfile } from './lib/finish.ts';
+import { resolveEndTail } from './lib/end-tail.ts';
 import { resolveEndTitle, type EndTitle } from './lib/end-title.ts';
 import { resolveSoundEvents, type TimedSoundEvent } from './lib/sound-events.ts';
 import { resolveLoopAudio, type LoopAudio } from './lib/loop-seam.ts';
@@ -346,6 +347,8 @@ export interface ResolvedProductionPlan {
   finish: FinishProfile;
   /** Reel name over the closing shot (lib/end-title.ts). */
   endTitle?: EndTitle;
+  /** Seconds after the last word where the reel ends (lib/end-tail.ts); undefined keeps the full length. */
+  endTailSecs?: number;
   /** Timed sound effects after the opening (lib/sound-events.ts). */
   soundEvents: TimedSoundEvent[];
 }
@@ -532,6 +535,7 @@ export function resolveProductionPlan(
     transitions: pickValue(reelSpec, [['clip_transitions']]),
     finish: resolveFinish(pickValue(reelSpec, [['finish']])),
     endTitle: resolveEndTitle(pickValue(reelSpec, [['end_title']])),
+    endTailSecs: resolveEndTail(pickValue(reelSpec, [['end_tail_secs']])),
     soundEvents: resolveSoundEvents(pickValue(reelSpec, [['sound_events']])),
   };
 }

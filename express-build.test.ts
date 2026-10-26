@@ -401,3 +401,16 @@ test('express: caption law (from 035) holds one readable style and refuses low-c
   const old = loadSeed('NDCH_034_RUN.json');
   assert.doesNotThrow(() => assertSeed(old, 'run'));
 });
+
+test('express: end rule (from 036) ends anchored reels 2.5 s after the last word; earlier reels keep 45 s', () => {
+  const presence = buildReel(loadSeed('NDCH_035_PRESENCE.json'), TEMPLATE) as Record<string, unknown>;
+  assert.equal(presence.end_tail_secs, undefined);
+  const later: ExpressSeed = { ...loadSeed('NDCH_035_PRESENCE.json'), reel_id: 'NDCH_036_TEST' };
+  assert.equal((buildReel(later, TEMPLATE) as Record<string, unknown>).end_tail_secs, 2.5);
+  const custom: ExpressSeed = { ...structuredClone(later), end_tail_secs: 3.5 };
+  assert.equal((buildReel(custom, TEMPLATE) as Record<string, unknown>).end_tail_secs, 3.5);
+  const own = loadSeed('NDCH_035_PRESENCE.json');
+  assert.doesNotThrow(() => assertSeed({ ...structuredClone(own), end_tail_secs: 3 }, 'tail'));
+  assert.throws(() => assertSeed({ ...structuredClone(own), end_tail_secs: 0.1 }, 'tail'), /end_tail_secs/);
+  assert.throws(() => assertSeed({ ...structuredClone(own), narration_timing: undefined, clip_transitions: undefined, end_tail_secs: 2 }, 'tail'), /needs narration_timing/);
+});
