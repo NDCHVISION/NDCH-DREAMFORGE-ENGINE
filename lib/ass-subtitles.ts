@@ -139,7 +139,11 @@ export function applyWordColorOverrides(line: string, style: AssSubtitleStyle): 
 }
 
 /** Renders a complete ASS document for the given cues and style. */
-export function buildAssDocument(cues: SubtitleCue[], style: AssSubtitleStyle): string {
+export function buildAssDocument(
+  cues: SubtitleCue[],
+  style: AssSubtitleStyle,
+  extra: { styles?: string[]; events?: string[] } = {},
+): string {
   const header = [
     '[Script Info]',
     'ScriptType: v4.00+',
@@ -151,6 +155,7 @@ export function buildAssDocument(cues: SubtitleCue[], style: AssSubtitleStyle): 
     '[V4+ Styles]',
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
     `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,0,0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
+    ...(extra.styles ?? []),
     '',
     '[Events]',
     'Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text',
@@ -164,5 +169,5 @@ export function buildAssDocument(cues: SubtitleCue[], style: AssSubtitleStyle): 
     return `Dialogue: 0,${formatAssTimestamp(cue.startSeconds)},${formatAssTimestamp(cue.endSeconds)},Reel,,0,0,0,,${text}`;
   });
 
-  return [...header, ...events, ''].join('\n');
+  return [...header, ...events, ...(extra.events ?? []), ''].join('\n');
 }

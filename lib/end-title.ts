@@ -1,0 +1,94 @@
+/**
+ * End title (seed / spec field `end_title`): the reel's name set in spaced
+ * capitals over the closing shot, as on the covers, fading in and holding to
+ * the last frame. Burned with the captions (same ASS document), so it renders
+ * at full output resolution.
+ *
+ *   { "text": "BEARING", "start_seconds": 41.2, "fade_in_seconds": 1.2,
+ *     "color": "#FFFFFF", "size_px": 76, "letter_spacing_px": 22, "position_pct": 46 }
+ *
+ * size_px and letter_spacing_px are on the 1280-px-high caption canvas;
+ * position_pct is the title's vertical centre, measured from the top.
+ */
+
+export interface EndTitle {
+  text: string;
+  startSecs: number;
+  fadeInSecs: number;
+  colorHex: string;
+  sizePx: number;
+  spacingPx: number;
+  positionPct: number;
+}
+
+export const END_TITLE_DEFAULTS = { fadeInSecs: 1.2, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 };
+
+const KEYS = new Set(['text', 'start_seconds', 'fade_in_seconds', 'color', 'size_px', 'letter_spacing_px', 'position_pct']);
+
+function numIn(obj: Record<string, unknown>, key: string, min: number, max: number): number | undefined {
+  const v = obj[key];
+  if (v === undefined) return undefined;
+  if (typeof v !== 'number' || !Number.isFinite(v) || v < min || v > max) {
+    throw new Error(`end_title.${key} must be a number from ${min} to ${max}`);
+  }
+  return v;
+}
+
+export function resolveEndTitle(raw: unknown): EndTitle | undefined {
+  if (raw === undefined || raw === null) return undefined;
+  if (typeof raw !== 'object' || Array.isArray(raw)) throw new Error('end_title must be an object');
+  const r = raw as Record<string, unknown>;
+  const unknown = Object.keys(r).filter((k) => !KEYS.has(k));
+  if (unknown.length) throw new Error(`end_title: unknown key(s): ${unknown.join(', ')}`);
+  if (typeof r.text !== 'string' || !r.text.trim() || r.text.trim().length > 24) {
+    throw new Error('end_title.text must be 1 to 24 characters');
+  }
+  if (/[{}\\]/.test(r.text)) throw new Error('end_title.text must not contain { } or \\');
+  const startSecs = numIn(r, 'start_seconds', 0, 120);
+  if (startSecs === undefined) throw new Error('end_title.start_seconds is required');
+  if (r.color !== undefined && (typeof r.color !== 'string' || !/^#[0-9A-Fa-f]{6}$/.test(r.color))) {
+    throw new Error('end_title.color must be #RRGGBB');
+  }
+  return {
+    text: r.text.trim().toUpperCase(),
+    startSecs,
+    fadeInSecs: numIn(r, 'fade_in_seconds', 0, 3) ?? END_TITLE_DEFAULTS.fadeInSecs,
+    colorHex: (r.color as string | undefined) ?? END_TITLE_DEFAULTS.colorHex,
+    sizePx: numIn(r, 'size_px', 24, 160) ?? END_TITLE_DEFAULTS.sizePx,
+    spacingPx: numIn(r, 'letter_spacing_px', 0, 80) ?? END_TITLE_DEFAULTS.spacingPx,
+    positionPct: numIn(r, 'position_pct', 10, 90) ?? END_TITLE_DEFAULTS.positionPct,
+  };
+}
+
+function bgr(hex: string): string {
+  const h = hex.replace('#', '').toUpperCase();
+  return `${h.slice(4, 6)}${h.slice(2, 4)}${h.slice(0, 2)}`;
+}
+
+function assTime(seconds: number): string {
+  const cs = Math.max(0, Math.round(seconds * 100));
+  const h = Math.floor(cs / 360000);
+  const m = Math.floor((cs % 360000) / 6000);
+  const s = Math.floor((cs % 6000) / 100);
+  return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(cs % 100).padStart(2, '0')}`;
+}
+
+/** The ASS style line and dialogue line for the title. Spacing is the style's letter spacing. */
+export function endTitleAss(
+  title: EndTitle,
+  fontName: string,
+  playResX: number,
+  playResY: number,
+  endSecs: number,
+): { style: string; event: string } {
+  const style =
+    `Style: EndTitle,${fontName},${title.sizePx},&H00${bgr(title.colorHex)},&H000000FF,&H64000000,&H78000000,` +
+    `0,0,0,0,100,100,${title.spacingPx},0,1,1,2,5,0,0,0,1`;
+  const x = Math.round(playResX / 2 + title.spacingPx / 2); // spacing trails the last letter; re-centre
+  const y = Math.round((playResY * title.positionPct) / 100);
+  const fadeMs = Math.round(title.fadeInSecs * 1000);
+  const event =
+    `Dialogue: 1,${assTime(title.startSecs)},${assTime(Math.max(endSecs, title.startSecs + 0.5))},EndTitle,,0,0,0,,` +
+    `{\\pos(${x},${y})\\fad(${fadeMs},0)}${title.text}`;
+  return { style, event };
+}

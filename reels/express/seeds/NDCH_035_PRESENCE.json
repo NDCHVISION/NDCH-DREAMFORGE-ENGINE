@@ -2,7 +2,7 @@
   "reel_id": "NDCH_035_PRESENCE",
   "posting_number": "029",
   "episode_name": "PRESENCE",
-  "status": "draft: awaiting creative approval, stills review and motion-prompt review. Posts as episode 029. Move to reels/express/seeds/ to queue it for render.",
+  "status": "approved for render pending the creator's go (stills locked, motion prompts in reels/express/i2v/NDCH_035_PRESENCE.json). Posts as episode 029.",
   "title_hook": "Presence is not access.",
   "concept": "An intimate close-up of a composed face. The camera arcs and reveals the face is a thin surface with no head behind it, only depth: a vast black-stone hall where the person walks away. The camera pulls back until the gap is enormous, then follows the person into a warm, complex interior the surface never showed. The surface stays exactly where it was. The film returns to the face.",
   "theme": "Familiarity is not understanding.",
@@ -19,6 +19,33 @@
   "character": "The same person in every cast shot: a woman in her mid-twenties of mixed heritage with warm light-brown skin, hazel-brown eyes, shoulder-length dark curly hair in loose natural curls and a composed, neutral expression, wearing a charcoal crew-neck sweater",
   "recurring_element": "one thin, slightly translucent face-surface holding a composed expression, and the vast black-stone hall with hairline gold veins that opens behind it",
   "material": "Black stone with hairline antique-gold (#C6A94F) veining; the face-surface like fine porcelain, slightly translucent at its edges; warm gold interior light against cool dusk light in the hall",
+  "narration_timing": "anchored",
+  "clip_transitions": [
+    {
+      "after_clip": 1,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "shape match: her face becomes the same face on the porcelain shell"
+    },
+    {
+      "after_clip": 2,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "light match: the warm glow inside the shell carries into the hall shot"
+    },
+    {
+      "after_clip": 3,
+      "type": "dissolve",
+      "seconds": 0.8,
+      "note": "flare through: the warm light at the end of the hall opens into the library"
+    },
+    {
+      "after_clip": 4,
+      "type": "dissolve",
+      "seconds": 0.5,
+      "note": "near-black dip feel: change of place back to her face, which loops into the opening"
+    }
+  ],
   "validation_overrides": {
     "min_words": 67
   },
@@ -80,13 +107,13 @@
     }
   ],
   "stills_and_motion": {
-    "note": "Clips 1-4 start from approved stills (reels/express/stills/NDCH_035_PRESENCE.json). Clip 5 reuses the approved clip 1 still. After the stills are approved, copy these motion prompts into reels/express/i2v/NDCH_035_PRESENCE.json.",
+    "note": "All four stills approved. Motion prompts live in reels/express/i2v/NDCH_035_PRESENCE.json (clip 5 reuses the clip 1 still).",
     "motion_prompts": {
-      "1": "Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays composed and does not change. The background stays dark. Her face does not change shape. No new people.",
-      "2": "Slow camera arc to the left around the surface. The face-surface holds completely still with the same expression. Far down the hall the small figure keeps walking away at an even pace. The architecture does not change shape. No new people.",
-      "3": "Slow, steady pull-back down the hall. The surface in the foreground stays still and grows smaller. The distant figure keeps walking toward the warm light. Dust drifts. The architecture does not change shape. No new people.",
-      "4": "Slow push-in toward the warm interior. The woman turns her head slightly toward the window light. Soft light shifts across the shelves. The architecture does not change shape. No new people.",
-      "5": "From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
+      "1": "Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays calm and composed. Her curls move very slightly. The background stays near-black. Her face keeps its shape and features in every frame. No new people, no new light.",
+      "2": "Slow camera arc to the left around the porcelain face-shell, which holds completely still with the same calm face and closed eyes. Behind it, the woman in the charcoal sweater keeps walking away down the hall at an even pace, growing smaller. The warm light in the shell glows steadily. The shell, rod and stone hall do not change shape. No new people.",
+      "3": "Slow, steady camera pull-back down the hall. The porcelain shell in the foreground stays completely still and its warm glow holds steady. Far away, the woman keeps walking away from the camera toward the warm light at the end of the hall and grows smaller. Fine dust drifts in the air. The stone hall and its gold veins do not change shape. No new people.",
+      "4": "Slow push-in toward the warm library. The woman by the table turns her head slightly toward the window light; her curls move a little. Lamp light flickers softly across the shelves and the plants stir slightly. The pillar, shelves, staircase and table do not change shape. No new people.",
+      "5": "Very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays calm and composed. The background stays near-black. Her face keeps its shape and features in every frame. No new people, no new light."
     },
     "approved": {
       "clip1": "reels/express/stills/approved/NDCH_035_clip01.jpg (round C2 v2)",
@@ -96,7 +123,8 @@
         "reels/express/stills/refs/NDCH_035_room.jpg (round B clip 4 v2)",
         "reels/express/stills/refs/NDCH_035_face.jpg (clip 1 face crop)"
       ],
-      "clip2": "reels/express/stills/approved/NDCH_035_clip02.jpg (round E v2)"
+      "clip2": "reels/express/stills/approved/NDCH_035_clip02.jpg (round E v2)",
+      "clip3": "reels/express/stills/approved/NDCH_035_clip03.jpg (round F v1)"
     }
   },
   "universal_viewer_check": {

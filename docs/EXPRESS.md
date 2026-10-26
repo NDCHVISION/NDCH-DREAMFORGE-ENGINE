@@ -131,6 +131,29 @@ A dissolve of d seconds borrows d/2 from each clip, so boundaries and the 45 s l
 Unlisted boundaries are cuts. Light match, shape match and push-dissolve are dissolves whose
 effect comes from framing; say which in `note`.
 
+### Sound effects and end title
+
+`sound_events` (optional, up to 6) puts a sound on a moment the picture has to sell,
+such as a chain snapping or a door closing. Each one is generated once with ElevenLabs
+from `prompt` (or read from a repo `file`) and laid over the voice and music at
+`at_seconds` on the reel timeline, through the opening event's limiter:
+
+```json
+"sound_events": [
+  { "at_seconds": 21.4, "prompt": "a taut steel chain link snapping...", "duration_seconds": 2.5,
+    "gain_db": -6, "fade_out_seconds": 1, "note": "the snap" }
+]
+```
+
+`end_title` (optional) sets the reel's name in spaced capitals over the closing shot,
+as on the covers. It fades in at `start_seconds` and holds to the last frame. It is burned
+with the captions, so it needs subtitles on. Defaults: white, 76 px, 22 px letter spacing,
+centred 46% from the top (sizes are on the 1280-px caption canvas).
+
+```json
+"end_title": { "text": "BEARING", "start_seconds": 41.2, "fade_in_seconds": 1.2 }
+```
+
 ### Not in this version (possible later work)
 
 - **Sub-second cuts inside the hook.** Each section gets one generated clip today, so the
