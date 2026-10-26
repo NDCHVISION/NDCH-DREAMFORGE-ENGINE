@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, mkdtempSync, writeFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -130,7 +130,9 @@ test('express: Universal Viewer Law refuses creator announcements and brand-name
 });
 
 const DRAFT_DIR = join('reels', 'express', 'drafts');
-for (const file of readdirSync(DRAFT_DIR).filter((f) => f.endsWith('.json')).sort()) {
+// The drafts folder may be empty (git drops empty folders), so it is optional.
+const draftFiles = existsSync(DRAFT_DIR) ? readdirSync(DRAFT_DIR).filter((f) => f.endsWith('.json')).sort() : [];
+for (const file of draftFiles) {
   test(`express: draft ${file} passes the seed rules and builds a valid v2.1 reel`, () => {
     const seed = JSON.parse(readFileSync(join(DRAFT_DIR, file), 'utf8')) as ExpressSeed;
     assertSeed(seed, file);

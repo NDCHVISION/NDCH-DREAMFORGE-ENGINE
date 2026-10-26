@@ -1,0 +1,35 @@
+{
+  "reel_id": "NDCH_035_PRESENCE",
+  "clips": {
+    "1": {
+      "image": "reels/express/stills/approved/NDCH_035_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays calm and composed. Her curls move very slightly. The background stays near-black. Her face keeps its shape and features in every frame. No new people, no new light.",
+      "duration": 5
+    },
+    "2": {
+      "image": "reels/express/stills/approved/NDCH_035_clip02.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow camera arc to the left around the porcelain face-shell, which holds completely still with the same calm face and closed eyes. Behind it, the woman in the charcoal sweater keeps walking away down the hall at an even pace, growing smaller. The warm light in the shell glows steadily. The shell, rod and stone hall do not change shape. No new people.",
+      "duration": 10
+    },
+    "3": {
+      "image": "reels/express/stills/approved/NDCH_035_clip03.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow, steady camera pull-back down the hall. The porcelain shell in the foreground stays completely still and its warm glow holds steady. Far away, the woman keeps walking away from the camera toward the warm light at the end of the hall and grows smaller. Fine dust drifts in the air. The stone hall and its gold veins do not change shape. No new people.",
+      "duration": 10
+    },
+    "4": {
+      "image": "reels/express/stills/approved/NDCH_035_clip04.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow push-in toward the warm library. The woman by the table turns her head slightly toward the window light; her curls move a little. Lamp light flickers softly across the shelves and the plants stir slightly. The pillar, shelves, staircase and table do not change shape. No new people.",
+      "duration": 10
+    },
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_035_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "Very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays calm and composed. The background stays near-black. Her face keeps its shape and features in every frame. No new people, no new light.",
+      "duration": 5
+    }
+  }
+}

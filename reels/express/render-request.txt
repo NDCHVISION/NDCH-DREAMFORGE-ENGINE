@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_035_PRESENCE.json
 auto
-run-v1
+presence-v1
 
 
-1
-RUN clip 1 only (gen4.5, from the approved still) for review before the rest
+
+PRESENCE (posts as 029): first render from approved stills (i2v, 5 clips, ~480 credits)
