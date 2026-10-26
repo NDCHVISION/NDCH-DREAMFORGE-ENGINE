@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_035_PRESENCE.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-presence-v1
+bearing-v2
+2,3,4
 
-
-
-PRESENCE (posts as 029): first render from approved stills (i2v, 5 clips, ~480 credits)
+2,3,4
+BEARING v2: clips 2-4 only (~360 credits), review before the full render
