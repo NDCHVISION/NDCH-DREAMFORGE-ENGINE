@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-reception-v1
+bearing-v2
 
 1
 
-RECEPTION (030) v2: anchored timing, engine transitions, end tail; no Runway calls
+BEARING v2: 35s timing, one clip per section (no Runway calls)
