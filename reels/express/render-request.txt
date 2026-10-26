@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_035_PRESENCE.json
 auto
-bearing-v1
+presence-v1
 
 
 
-BEARING re-render with clip transitions (no Runway)
+PRESENCE (posts as 029): first render from approved stills (i2v, 5 clips, ~480 credits)
