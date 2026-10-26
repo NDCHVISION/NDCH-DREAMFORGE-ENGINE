@@ -63,13 +63,13 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause stays open and resolves when the reel loops back to the hook.",
-    "loop_seam": "'let them copy' -> 'Perfect copy.'"
+    "loop_seam": "'let them copy' -> 'Someone copied your work.'"
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...let them copy [LOOP] Perfect copy.",
-    "full_text_must_start_with": "Perfect copy.",
+    "expected_text_seam": "...let them copy [LOOP] Someone copied your work.",
+    "full_text_must_start_with": "Someone copied your work.",
     "full_text_must_end_with": "let them copy"
   },
   "timing_normalization": {
@@ -222,17 +222,17 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "Perfect copy. Dead engine. They copied everything they could see. Every contour. Every detail. A mold takes the shape. Not the work that keeps it turning. Run your mind. Run your systems. Build the next one. And let them copy",
-      "mobius_note": "Final segment stays open: 'let them copy' resolves at loop restart with 'Perfect copy.'.",
-      "word_count": 40,
+      "full_text": "Someone copied your work. Perfect copy. Dead engine. They copied everything they could see. Every contour. Every detail. A mold takes the shape. Not the work that keeps it turning. Run your mind. Run your systems. Build the next one. And let them copy",
+      "mobius_note": "Final segment stays open: 'let them copy' resolves at loop restart with 'Someone copied your work.'.",
+      "word_count": 44,
       "estimated_duration_seconds": 45,
       "segments": [
         {
           "id": "hook",
-          "text": "Perfect copy. Dead engine.",
+          "text": "Someone copied your work. Perfect copy. Dead engine.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
-          "visual_prompt": "Already turning on the first frame: extreme close-up of the worn original's black iron six-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. A slow, controlled lateral camera move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. The move settles with both engines side by side in one low frame: the original turning, the copy dead still.",
+          "visual_prompt": "Already turning on the first frame: extreme close-up of the worn original's black iron six-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. One short, controlled lateral move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. By the third second the move settles and holds both engines side by side in one low frame: the original turning, the copy dead still.",
           "frame_geometry": {
             "subject_position": "center-frame",
             "negative_space": "vast void occupying upper two-thirds",
@@ -284,7 +284,7 @@
           "text": "And let them copy",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "visual_prompt": "Return to the opening frame: the worn engine turning beside the still bronze copy, same low angle and light. Nothing else changes. The flywheel rim catches a thin line of gold. Locked camera, matched for a seamless loop.",
+          "visual_prompt": "The two engines side by side in the same low frame and light, the original turning, the copy still. The camera eases left and in until the worn original's spinning six-spoke flywheel fills the frame again, matching the opening close-up for a seamless loop. Its rim catches a thin line of gold.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
             "negative_space": "compressed darkness behind subject",
@@ -391,7 +391,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "Perfect copy. Dead engine.\n\nThey copied everything they could see. Every contour. Every detail.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.\n\n#NDCH #NVSSeries #Authorship #Discipline #SelfMastery #Run",
+    "caption": "Someone copied your work. Perfect copy. Dead engine.\n\nThey copied everything they could see. Every contour. Every detail.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.\n\n#NDCH #NVSSeries #Authorship #Discipline #SelfMastery #Run",
     "hashtags": [
       "#NDCH",
       "#NVSSeries",
@@ -410,7 +410,7 @@
     "title": "Perfect copy. Dead engine. | RUN",
     "music_mood": "cinematic",
     "validation_overrides": {
-      "min_words": 40
+      "min_words": 44
     },
     "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
   },
