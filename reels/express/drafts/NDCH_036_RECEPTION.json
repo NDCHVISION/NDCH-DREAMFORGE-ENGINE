@@ -16,6 +16,10 @@
     "light": "#FFFFFF",
     "peak": "#C6A94F"
   },
+  "caption_colors": {
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A"
+  },
   "recurring_element": "one canonical doorway: a tall pale oak door with a small brass (#C6A94F) latch, set in a pale plaster wall; behind each doorway an identical tidy room of white plaster with one plain wooden chair, one empty white cup on a small table and one blank white framed picture",
   "material": "Bone-white (#F5F2EB) plaster walls, pale oak doors, small brass (#C6A94F) latches, light oak floorboards. Flat, soft overcast morning daylight from tall windows on the left; no lamps, no warm glow, no dark rooms. Shadows are soft and grey.",
   "opening_audio": {

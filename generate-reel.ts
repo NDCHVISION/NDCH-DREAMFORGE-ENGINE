@@ -93,6 +93,7 @@ import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { endTitleAss } from './lib/end-title.ts';
+import { measureCueBands, withScrims } from './lib/caption-law.ts';
 import type { TimedSoundEvent } from './lib/sound-events.ts';
 import {
   getRunwayPollDelayMs,
@@ -997,7 +998,8 @@ function applyBrandOverlay(videoPath: string, plan: ResolvedProductionPlan): str
  * subtitle_config. Brand fonts can be vendored in assets/fonts/ so libass
  * resolves the configured font without a system install.
  */
-function burnSubtitles(videoPath: string, assPath: string | undefined, plan: ResolvedProductionPlan): string {
+function burnSubtitles(videoPath: string, artifacts: SubtitleArtifacts, plan: ResolvedProductionPlan): string {
+  const { assPath, cues } = artifacts;
   if (!assPath) return videoPath;
 
   const subtitleConfig = plan.subtitles && typeof plan.subtitles === 'object' && !Array.isArray(plan.subtitles)
@@ -1009,6 +1011,15 @@ function burnSubtitles(videoPath: string, assPath: string | undefined, plan: Res
   }
 
   console.log('  [3c] Burning subtitles into video…');
+
+  // Caption law (CAPTIONS.md): a soft scrim behind any cue that lands on a bright background.
+  if (plan.finish.subtitleLayout === 'readable' && cues?.length) {
+    const bands = measureCueBands(videoPath, cues);
+    for (const b of bands) {
+      console.log(`         caption band ${b.start.toFixed(2)}s: luminance ${b.luminance.toFixed(3)}${b.opacity ? `, scrim ${Math.round(b.opacity * 100)}%` : ''}`);
+    }
+    writeFileSync(assPath, withScrims(readFileSync(assPath, 'utf8'), bands));
+  }
 
   if (/['\r\n]/.test(assPath)) {
     throw new Error(`Unsafe subtitle path for ffmpeg filter: ${assPath}`);
@@ -1214,7 +1225,9 @@ function buildSubtitleCues(
   if (wordTimings.length > 0) {
     const timedCues = buildCuesFromWordTimings(
       wordTimings,
-      plan.finish.subtitleLayout === 'safe_zone' ? { maxWordsPerCue: SAFE_ZONE_MAX_WORDS_PER_CUE } : undefined,
+      plan.finish.subtitleLayout === 'safe_zone' || plan.finish.subtitleLayout === 'readable'
+        ? { maxWordsPerCue: SAFE_ZONE_MAX_WORDS_PER_CUE }
+        : undefined,
     );
     if (timedCues.length > 0) return timedCues;
   }
@@ -1241,6 +1254,7 @@ function buildSubtitleCues(
 interface SubtitleArtifacts {
   srtPath?: string;
   assPath?: string;
+  cues?: SubtitleCue[];
 }
 
 function writeSubtitleArtifacts(
@@ -1273,7 +1287,7 @@ function writeSubtitleArtifacts(
   if (plan.endTitle) console.log(`  end title     : "${plan.endTitle.text}" from ${plan.endTitle.startSecs}s`);
   console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
 
-  return { srtPath, assPath };
+  return { srtPath, assPath, cues };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────
@@ -1348,8 +1362,9 @@ async function main(): Promise<void> {
   }
   const mergedPath  = mergeAudioVideo(audioPath, videoPath);
   const brandedPath = applyBrandOverlay(mergedPath, plan);
-  const { srtPath: subtitlePath, assPath } = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings);
-  const finalPath   = burnSubtitles(brandedPath, assPath, plan);
+  const subtitleArtifacts = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings);
+  const { srtPath: subtitlePath } = subtitleArtifacts;
+  const finalPath   = burnSubtitles(brandedPath, subtitleArtifacts, plan);
   const { videoUrl: publicUrl, subtitleUrl } = await uploadToGitHubRelease(finalPath, subtitlePath);
 
   // Write resolved plan artifact (including scene timeline) after generation completes.
@@ -1367,7 +1382,7 @@ async function main(): Promise<void> {
     instagram: plan.instagram,
      subtitles: plan.subtitles,
      subtitlePath,
-     subtitleAssPath: assPath,
+     subtitleAssPath: subtitleArtifacts.assPath,
      subtitleTimingSource: wordTimings.length > 0 ? 'elevenlabs-word-timestamps' : 'estimated',
      subtitleUrl,
      sceneTimeline,

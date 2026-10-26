@@ -1,6 +1,6 @@
 # DreamForge — Architectural Invariants
 
-**Version:** 2.0.4 (adds Universal Viewer Law)
+**Version:** 2.0.5 (adds Caption Readability Law)
 **Status:** Locked — v2.x COMPLETE
 
 > DreamForge does not optimize for outputs.
@@ -241,6 +241,17 @@ The creator's life can supply the insight. It can never be required to understan
 - Each concept records at least two entry points: different viewers who would each see themselves in it (`universal_viewer_check.entry_points`).
 
 **Enforcement:** `lib/universal-viewer.ts` refuses the mechanical tells (brand or creator named in narration, launch and episode framing, follow asks) inside `scripts/express-build.ts`. Whether a line needs the backstory is a human review step in the self-correction protocol.
+
+### Caption Readability Law
+A viewer must be able to read every caption in the second it is on screen, on a phone, over any frame. Captions are one size, in one place, on every reel.
+
+- One style for every reel: 72 px bold on the 720x1280 canvas, dark halo, 28% up from the bottom, at most 5 words a cue. No reel sets its own size or position.
+- Colour contrast is measured, not judged by eye: body text 4.5:1 and accent words 3:1 against the brightest background a caption may sit on. Dark accents (crimson, royal blue, deep gold) are for the picture, never the words.
+- Where the frame behind a caption is bright, the renderer adds a soft scrim behind that cue only.
+
+**Origin:** review of 030 to 034 (October 2026): 44 px thin captions under the platform overlay, a royal-blue word lost on a dark wall, gold words lost in light, size changing between reels.
+
+**Enforcement:** `lib/caption-law.ts` via `scripts/express-build.ts` (style and colours, from 035) and `generate-reel.ts` (scrim). Details: `CAPTIONS.md`.
 
 ---
 

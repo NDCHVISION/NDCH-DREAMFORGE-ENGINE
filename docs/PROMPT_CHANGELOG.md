@@ -2,6 +2,15 @@
 
 ---
 
+## 2026-10-26 — Caption law: one size, readable on any frame
+
+**Rule (creator directive):** captions must be a consistent size and readable, especially in colour contrast.
+
+- `CAPTIONS.md`, `lib/caption-law.ts`: `readable` subtitle layout (72 px bold, dark halo, 28% up, 5 words a cue), set automatically from reel 035
+- Build check: caption text needs 4.5:1 and accent words 3:1 against a 0.15-luminance background; failing colours are refused with a suggestion; new seed field `caption_colors`
+- Render: the caption band behind each cue is measured and a soft scrim is added only where it is bright
+- 035 PRESENCE and the 036 RECEPTION draft: accent words move from `#C6A94F` to `#E9C46A` (captions only; the picture palette is unchanged)
+
 ## 2026-10-26 — Universal Viewer Law + 035 PRESENCE draft (posts as 029)
 
 **Rule (creator directive):** every concept must appeal to anyone who comes across it by chance, and must never read as an announcement from the creator.

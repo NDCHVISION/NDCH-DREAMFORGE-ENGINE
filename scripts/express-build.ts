@@ -37,6 +37,7 @@ import { join, resolve, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validateCompiledReel } from '../reel-validation.ts';
 import { checkUniversalViewer } from '../lib/universal-viewer.ts';
+import { CAPTION_LAW_FROM, captionColourProblems } from '../lib/caption-law.ts';
 import { resolveLoopAudio } from '../lib/loop-seam.ts';
 
 const ROOT = resolve('.');
@@ -151,11 +152,13 @@ export interface ExpressSeed {
   narration_timing?: NarrationTiming;
   /** Loop law (LOOPING.md). Defaults to "seamless" from 035 PRESENCE on; older seeds keep "fade". */
   loop_audio?: 'fade' | 'seamless';
+  /** Caption colours when the visual palette's own fail the caption law (CAPTIONS.md). Default: palette.light/accent/peak. */
+  caption_colors?: { text?: string; highlight?: string; peak?: string };
   /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
    * (A seed's free-form `transitions` plan, if any, stays documentation and is not read.) */
   clip_transitions?: TransitionSpec[];
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
-  finish?: { subtitle_layout?: 'default' | 'safe_zone'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
+  finish?: { subtitle_layout?: 'default' | 'safe_zone' | 'readable'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Reel name over the closing shot (lib/end-title.ts). */
   end_title?: Record<string, unknown>;
   /** Timed sound effects after the opening (lib/sound-events.ts). */
@@ -209,6 +212,12 @@ function musicDescription(seed: ExpressSeed): string {
   }
   const hook = opening ? `${opening} through the build` : 'Restrained hook, rising build';
   return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
+}
+
+/** Caption colours: `caption_colors` where given, else the visual palette. */
+function captionColours(seed: ExpressSeed): { color: string; highlight: string; peak: string } {
+  const c = seed.caption_colors ?? {};
+  return { color: c.text ?? seed.palette.light, highlight: c.highlight ?? seed.palette.accent, peak: c.peak ?? seed.palette.peak };
 }
 
 export function assertSeed(seed: ExpressSeed, source: string): void {
@@ -273,6 +282,15 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
   resolveNarrationTiming(seed.narration_timing);
   resolveFinish(seed.finish);
+  // Caption law (CAPTIONS.md), from 035 PRESENCE on: one readable style, colours that hold contrast.
+  if (reelNumber(seed.reel_id) >= CAPTION_LAW_FROM) {
+    const layout = seed.finish?.subtitle_layout;
+    if (layout && layout !== 'readable') {
+      throw new Error(`${source}: finish.subtitle_layout must be "readable" (or left out) from reel ${CAPTION_LAW_FROM} on; see CAPTIONS.md`);
+    }
+    const problems = captionColourProblems(captionColours(seed));
+    if (problems.length) throw new Error(`${source}: caption contrast: ${problems.join('; ')}`);
+  }
   resolveEndTitle(seed.end_title);
   resolveSoundEvents(seed.sound_events);
   if (seed.clip_transitions !== undefined) {
@@ -412,11 +430,12 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     v.elevenLabs_config = cfg;
   }
 
+  const captionColour = captionColours(seed);
   spec.subtitle_config = {
     ...((template.subtitle_config as Json) ?? {}),
-    color: palette.light,
-    highlight: palette.accent,
-    peak: palette.peak,
+    color: captionColour.color,
+    highlight: captionColour.highlight,
+    peak: captionColour.peak,
     highlight_words: seed.highlight_words,
     peak_words: seed.peak_words,
   };
@@ -432,7 +451,10 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.narration_timing;
   if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);
   else delete spec.clip_transitions;
-  if (seed.finish) spec.finish = structuredClone(seed.finish);
+  const finish = seed.finish ? structuredClone(seed.finish) : undefined;
+  if (reelNumber(seed.reel_id) >= CAPTION_LAW_FROM) {
+    spec.finish = { ...(finish ?? {}), subtitle_layout: 'readable' };
+  } else if (finish) spec.finish = finish;
   else delete spec.finish;
   if (seed.end_title) spec.end_title = structuredClone(seed.end_title);
   else delete spec.end_title;

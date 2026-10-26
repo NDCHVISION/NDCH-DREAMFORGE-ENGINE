@@ -169,6 +169,10 @@ Every reel loops with no seam in picture, sound or words: see [LOOPING.md](../LO
 From 035 on the engine carries the music bed across the loop point (`loop_audio: "seamless"`),
 and every render ends with a loop seam check in the run summary.
 
+### Captions
+
+Every reel's captions share one size, place and halo, and their colours hold contrast on any frame; a soft scrim is added only behind cues that land on a bright background: see [CAPTIONS.md](../CAPTIONS.md). From 035 the build sets `finish.subtitle_layout: "readable"` and refuses caption colours that fail the contrast check; set `caption_colors` to give the words lighter colours than the picture's palette.
+
 ### Universal Viewer Law
 
 A seed must land for a stranger who has never heard of NDCH. The builder refuses

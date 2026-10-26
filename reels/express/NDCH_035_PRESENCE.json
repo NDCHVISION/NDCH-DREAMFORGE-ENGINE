@@ -316,8 +316,8 @@
   },
   "subtitle_config": {
     "color": "#F5F2EB",
-    "highlight": "#C6A94F",
-    "peak": "#C6A94F",
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A",
     "highlight_words": [
       "familiarity",
       "behind",
@@ -444,5 +444,8 @@
       "seconds": 0.7,
       "note": "her world closes like an aperture back onto the familiar face, mirroring the iris that opened it"
     }
-  ]
+  ],
+  "finish": {
+    "subtitle_layout": "readable"
+  }
 }
