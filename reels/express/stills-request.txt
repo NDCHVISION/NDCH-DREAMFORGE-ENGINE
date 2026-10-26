@@ -1,3 +1,3 @@
-reels/express/stills/NDCH_034_RUN.json
-5
-RUN round B: clip 5 two-shot with the approved clip 1 flywheel as reference
+reels/express/stills/NDCH_035_PRESENCE.json
+2,4
+PRESENCE (posts as 029) round B: clip 1 v2 locked as @her, round A clip 3 v2 as @hall; mask reveal and warm interior
