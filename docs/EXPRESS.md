@@ -131,6 +131,20 @@ A dissolve of d seconds borrows d/2 from each clip, so boundaries and the 45 s l
 Unlisted boundaries are cuts. Light match, shape match and push-dissolve are dissolves whose
 effect comes from framing; say which in `note`.
 
+### Section timing (`section_boundaries`)
+
+The default grid is 0/6/20/29/38/45. When a line is much shorter than its window the
+picture sits on dead air, so an anchored seed can set its own: six whole seconds, each
+section's start and then the end, 25-59 s in all, no section under 3 s.
+
+```json
+"section_boundaries": [0, 5, 12, 19, 28, 34]
+```
+
+Rule of thumb: a window is its line plus about 1.5 s of breath; give a visual event
+(a snap, a reveal) the seconds it needs after the line. Sound events and the end title
+are on the reel timeline, so move them with the windows.
+
 ### Sound effects and end title
 
 `sound_events` (optional, up to 6) puts a sound on a moment the picture has to sell,

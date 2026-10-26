@@ -138,10 +138,20 @@ test('detects total duration not equal to 45', () => {
   const reel = clone();
   const segs = segmentsOf(reel);
   segs[segs.length - 1].timestamp_end = '0:50';
+  reel.format = { target_duration_seconds: 45 };
+  assert.ok(codes(reel).includes('TOTAL_DURATION'));
+  reel.format = { target_duration_seconds: 75 };
+  assert.ok(codes(reel).includes('FORMAT_DURATION'));
+});
+
+test('a reel that declares its own length (25-59 s) is checked against it', () => {
+  const reel = clone();
+  const segs = segmentsOf(reel);
+  segs[segs.length - 1].timestamp_end = '0:50';
   reel.format = { target_duration_seconds: 50 };
   const c = codes(reel);
-  assert.ok(c.includes('TOTAL_DURATION'));
-  assert.ok(c.includes('FORMAT_DURATION'));
+  assert.ok(!c.includes('TOTAL_DURATION'));
+  assert.ok(!c.includes('FORMAT_DURATION'));
 });
 
 test('detects over-budget per-segment prompt', () => {

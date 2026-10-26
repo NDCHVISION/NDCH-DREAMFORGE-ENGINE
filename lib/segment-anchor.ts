@@ -18,6 +18,15 @@ export type NarrationTiming = 'continuous' | 'anchored';
 
 export const ANCHOR_LEAD_SECS = 0.15;
 export const ANCHOR_MIN_GAP_SECS = 0.2;
+/**
+ * Lead for each section when transitions are known: a blend of length d is
+ * centred on the boundary, so the line waits until d/2 + 0.1 s after it
+ * (TRANSITIONS.md: never across a word). Index 0 is the hook (always 0).
+ */
+export function leadsForTransitions(boundary: number[]): number[] {
+  return [0, ...boundary.map((d) => round3(Math.max(ANCHOR_LEAD_SECS, d > 0 ? d / 2 + 0.1 : 0)))];
+}
+
 /** Audio before a section's first word kept with it, so consonants are not clipped. */
 export const ANCHOR_PRE_ROLL_SECS = 0.06;
 
@@ -60,9 +69,10 @@ export function planSegmentAnchors(
   words: WordTiming[],
   audioSecs: number,
   totalSecs: number,
-  opts: { leadSecs?: number; minGapSecs?: number; preRollSecs?: number } = {},
+  opts: { leadSecs?: number | number[]; minGapSecs?: number; preRollSecs?: number } = {},
 ): AnchorPlan | undefined {
-  const lead = opts.leadSecs ?? ANCHOR_LEAD_SECS;
+  const leadAt = (k: number): number =>
+    Array.isArray(opts.leadSecs) ? (opts.leadSecs[k] ?? ANCHOR_LEAD_SECS) : (opts.leadSecs ?? ANCHOR_LEAD_SECS);
   const gap = opts.minGapSecs ?? ANCHOR_MIN_GAP_SECS;
   const preRoll = opts.preRollSecs ?? ANCHOR_PRE_ROLL_SECS;
   if (segments.length === 0 || words.length === 0) return undefined;
@@ -88,7 +98,7 @@ export function planSegmentAnchors(
   for (let k = 0; k < segments.length; k++) {
     const srcStart = srcStarts[k];
     const srcEnd = k + 1 < segments.length ? srcStarts[k + 1] : audioSecs;
-    const dstStart = k === 0 ? 0 : Math.max(segments[k].startSecs + lead, prevDstEnd + gap);
+    const dstStart = k === 0 ? 0 : Math.max(segments[k].startSecs + leadAt(k), prevDstEnd + gap);
     cuts.push({ index: k, srcStartSecs: srcStart, srcEndSecs: srcEnd, dstStartSecs: round3(dstStart) });
     prevDstEnd = dstStart + (srcEnd - srcStart);
   }

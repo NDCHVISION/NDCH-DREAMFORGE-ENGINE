@@ -55,6 +55,35 @@ const SEGMENT_IDS = [
   'mobius_close',
 ] as const;
 const BOUNDARIES = [0, 6, 20, 29, 38, 45] as const;
+/** Shortest and longest reel a seed may set with section_boundaries. */
+const SECTION_TOTAL = { min: 25, max: 59 };
+/** Shortest window a section may have, in seconds. */
+const SECTION_MIN_SECS = 3;
+
+/**
+ * Section start times plus the end (6 numbers). A seed may set its own with
+ * `section_boundaries` (needs narration_timing "anchored") so each window fits
+ * its line instead of leaving dead air; otherwise the 016 grid 0/6/20/29/38/45.
+ */
+export function sectionBoundaries(seed: Pick<ExpressSeed, 'section_boundaries'>): readonly number[] {
+  return seed.section_boundaries ?? BOUNDARIES;
+}
+
+function assertSectionBoundaries(b: unknown, source: string): void {
+  if (!Array.isArray(b) || b.length !== SEGMENT_IDS.length + 1 || !b.every((x) => Number.isInteger(x))) {
+    throw new Error(`${source}: section_boundaries must be ${SEGMENT_IDS.length + 1} whole seconds (each section's start, then the end)`);
+  }
+  if (b[0] !== 0) throw new Error(`${source}: section_boundaries must start at 0`);
+  for (let i = 1; i < b.length; i++) {
+    if (b[i] - b[i - 1] < SECTION_MIN_SECS) {
+      throw new Error(`${source}: section_boundaries: section ${i} is ${(b[i] - b[i - 1]).toFixed(2)}s (min ${SECTION_MIN_SECS}s)`);
+    }
+  }
+  const total = b[b.length - 1];
+  if (total < SECTION_TOTAL.min || total > SECTION_TOTAL.max) {
+    throw new Error(`${source}: section_boundaries end at ${total}s; a reel runs ${SECTION_TOTAL.min}-${SECTION_TOTAL.max}s`);
+  }
+}
 const MAX_PROMPT = 1000;
 const WORD_RANGE = { min: 70, max: 105 };
 
@@ -101,6 +130,8 @@ export function assertOpening(seed: ExpressSeed, source: string): void {
 type SegmentId = (typeof SEGMENT_IDS)[number];
 
 export interface ExpressSeed {
+  /** Section starts plus the end, e.g. [0, 5, 12, 19, 28, 34] (needs narration_timing "anchored"). */
+  section_boundaries?: number[];
   reel_id: string; // e.g. "NDCH_023_TIDE"
   episode_name: string; // e.g. "TIDE" — used in the title
   title_hook: string; // hook-first title line, e.g. "The tide doesn't argue with the shore."
@@ -206,12 +237,13 @@ function openingMusicLine(seed: ExpressSeed): string | undefined {
 
 function musicDescription(seed: ExpressSeed): string {
   const opening = openingMusicLine(seed);
+  const pivot = sectionBoundaries(seed)[2];
   if (seed.music_mood === 'electronica') {
     const hook = opening ?? 'Low and steady for the hook, rising';
-    return `Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. ${hook} through the build, one clear lift at the 20s pivot, settling for the resolution, decaying into the loop. No vocals.`;
+    return `Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. ${hook} through the build, one clear lift at the ${pivot}s pivot, settling for the resolution, decaying into the loop. No vocals.`;
   }
   const hook = opening ? `${opening} through the build` : 'Restrained hook, rising build';
-  return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
+  return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the ${pivot}s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
 }
 
 /** Caption colours: `caption_colors` where given, else the visual palette. */
@@ -278,6 +310,12 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
       `${source}: narration is ${n} words; express reels need ${min}-${WORD_RANGE.max} to fit 45s at the 016 pace`,
     );
   }
+  if (seed.section_boundaries !== undefined) {
+    assertSectionBoundaries(seed.section_boundaries, source);
+    if (seed.narration_timing !== 'anchored') {
+      throw new Error(`${source}: section_boundaries need narration_timing "anchored"`);
+    }
+  }
   assertOpening(seed, source);
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
   resolveNarrationTiming(seed.narration_timing);
@@ -312,13 +350,15 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   const tmplScript = (tmplVoice.script as Json) ?? {};
   const tmplSegments = (tmplScript.segments as Json[]) ?? [];
 
+  const bounds = sectionBoundaries(seed);
+  const total = bounds[bounds.length - 1];
   const segments = SEGMENT_IDS.map((id, i) => {
     const base = (tmplSegments[i] ?? {}) as Json;
     return {
       id,
       text: seed.segments[id].text.trim(),
-      timestamp_start: fmt(BOUNDARIES[i]),
-      timestamp_end: fmt(BOUNDARIES[i + 1]),
+      timestamp_start: fmt(bounds[i]),
+      timestamp_end: fmt(bounds[i + 1]),
       visual_prompt: seed.segments[id].visual.trim(),
       ...(seed.segments[id].cast === false ? { cast: false } : {}),
       ...(base.frame_geometry ? { frame_geometry: base.frame_geometry } : {}),
@@ -352,7 +392,7 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
       note: 'Express seed (reels/express/seeds). Descriptive only.',
       concept_seed: seed.concept,
       doctrine_theme: seed.theme,
-      target_duration_seconds: 45,
+      target_duration_seconds: total,
     },
     concept: seed.concept,
     theme: seed.theme,
@@ -408,13 +448,14 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     full_text_must_end_with: closeTail,
   };
 
+  if (seed.section_boundaries) spec.format = { ...((template.format as Json) ?? {}), target_duration_seconds: total };
   spec.voiceover = {
     ...tmplVoice,
     script: {
       full_text: fullText,
       mobius_note: `Final segment stays open: '${closeTail}' resolves at loop restart with '${hookOpen}'.`,
       word_count: wordCount(fullText),
-      estimated_duration_seconds: 45,
+      estimated_duration_seconds: total,
       segments,
     },
   };
@@ -464,8 +505,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     description: musicDescription(seed),
     // Informational. Older seeds keep the value they were built with.
     fade_in_seconds: seed.opening_audio ? opening.musicFadeInSecs : 0,
-    fade_out_start_seconds: 43,
-    fade_out_end_seconds: 45,
+    fade_out_start_seconds: total - 2,
+    fade_out_end_seconds: total,
   };
   spec.sound_brief = {
     ...((template.sound_brief as Json) ?? {}),

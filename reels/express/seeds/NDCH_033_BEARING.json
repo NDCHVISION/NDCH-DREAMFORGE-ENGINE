@@ -102,7 +102,7 @@
   ],
   "sound_events": [
     {
-      "at_seconds": 22.1,
+      "at_seconds": 14.1,
       "prompt": "A single taut steel chain snapping under tension: one sharp metallic crack with a short ring, then loose chain links skittering and rattling across a stone table, in a quiet stone room.",
       "duration_seconds": 2.5,
       "gain_db": -6,
@@ -112,8 +112,16 @@
   ],
   "end_title": {
     "text": "BEARING",
-    "start_seconds": 40.2,
+    "start_seconds": 30.2,
     "fade_in_seconds": 1.2,
     "position_pct": 12
-  }
+  },
+  "section_boundaries": [
+    0,
+    5,
+    12,
+    19,
+    28,
+    34
+  ]
 }

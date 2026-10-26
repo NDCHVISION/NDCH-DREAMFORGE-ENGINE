@@ -220,22 +220,27 @@ export function validateCompiledReel(spec: unknown): ReelValidationResult {
     }
   });
 
-  // --- Total duration locked to 45.0s --------------------------------------
-  if (
-    priorEnd !== undefined &&
-    Math.abs(priorEnd - V2_TOTAL_DURATION_SECONDS) > 0.001
-  ) {
-    err(
-      'TOTAL_DURATION',
-      `Final segment ends at ${priorEnd}s; v2.1 total must be exactly ${V2_TOTAL_DURATION_SECONDS}s.`,
-    );
-  }
+  // --- Total duration: 45.0s, or the reel's own length when an express seed
+  // set section_boundaries (format.target_duration_seconds, 25-59s) ----------
   const formatDuration = pickNumber(spec, [
     'format',
     'target_duration_seconds',
   ]);
+  const ownLength =
+    formatDuration !== undefined && formatDuration >= 25 && formatDuration <= 59 && Number.isInteger(formatDuration);
+  const expectedTotal = ownLength ? (formatDuration as number) : V2_TOTAL_DURATION_SECONDS;
+  if (
+    priorEnd !== undefined &&
+    Math.abs(priorEnd - expectedTotal) > 0.001
+  ) {
+    err(
+      'TOTAL_DURATION',
+      `Final segment ends at ${priorEnd}s; the total must be exactly ${expectedTotal}s.`,
+    );
+  }
   if (
     formatDuration !== undefined &&
+    !ownLength &&
     Math.abs(formatDuration - V2_TOTAL_DURATION_SECONDS) > 0.001
   ) {
     err(
