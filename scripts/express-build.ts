@@ -23,6 +23,7 @@ import { resolveValidationOverrides, type ValidationOverrides } from '../lib/val
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import { resolveTransitions, type TransitionSpec } from '../lib/transitions.ts';
+import { resolveFinish } from '../lib/finish.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -144,6 +145,8 @@ export interface ExpressSeed {
   /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
    * (A seed's free-form `transitions` plan, if any, stays documentation and is not read.) */
   clip_transitions?: TransitionSpec[];
+  /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
+  finish?: { subtitle_layout?: 'default' | 'safe_zone'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
   voice?: { voice_id?: string; stability?: number; speed?: number };
 }
@@ -256,6 +259,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   assertOpening(seed, source);
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
   resolveNarrationTiming(seed.narration_timing);
+  resolveFinish(seed.finish);
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
@@ -405,6 +409,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.narration_timing;
   if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);
   else delete spec.clip_transitions;
+  if (seed.finish) spec.finish = structuredClone(seed.finish);
+  else delete spec.finish;
   spec.music_config = {
     description: musicDescription(seed),
     // Informational. Older seeds keep the value they were built with.
