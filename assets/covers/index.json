@@ -282,5 +282,16 @@
     "horizontal": "025_PARALLAX_horizontal.png",
     "added": "2026-10-25",
     "notes": "Emblemed stone block in the foreground; a lit stairway passage through an arch beyond. Vertical 941x1672, horizontal 1983x793 as received. Re-issued printing 025."
+  },
+  {
+    "posting": "026",
+    "title": "INVENTORY",
+    "engine_id": "NDCH_032_INVENTORY",
+    "vertical": "026_INVENTORY_vertical.png",
+    "horizontal": "026_INVENTORY_horizontal.png",
+    "vertical_size": "941x1672",
+    "horizontal_size": "1983x793",
+    "added": "2026-10-26",
+    "notes": "Built on the 025 PARALLAX house template (velvet, frame and ornaments kept); art is the INVENTORY master in its vein-lit state with the inlaid emblem."
   }
 ]
