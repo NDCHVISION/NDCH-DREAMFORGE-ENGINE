@@ -10,6 +10,8 @@ import { resolveSoundEvents } from './lib/sound-events.ts';
 import { buildOpeningEventMixFilter } from './lib/opening-audio.ts';
 import { buildAssDocument, parseSubtitleStyle } from './lib/ass-subtitles.ts';
 
+const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
+
 test('end_title: absent resolves to undefined; defaults fill in', () => {
   assert.equal(resolveEndTitle(undefined), undefined);
   const t = resolveEndTitle({ text: 'Bearing', start_seconds: 41 });
@@ -45,7 +47,7 @@ test('end_title: renders as a second style in the caption document', () => {
   assert.ok(!buildAssDocument([], style).includes('EndTitle'));
 });
 
-test('end_title: libass burns the title (pixels change at the title position)', () => {
+test('end_title: libass burns the title (pixels change at the title position)', { skip: !hasFfmpeg }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'endtitle-'));
   const style = parseSubtitleStyle({}, 'safe_zone');
   const t = resolveEndTitle({ text: 'BEARING', start_seconds: 0, fade_in_seconds: 0 })!;
@@ -78,7 +80,7 @@ test('sound_events: rejects bad input', () => {
   assert.throws(() => resolveSoundEvents(Array(7).fill({ at_seconds: 1, duration_seconds: 1, prompt: 'x' })), /at most 6/);
 });
 
-test('sound_events: an event mixed at 3s is silent before 3s and present after', () => {
+test('sound_events: an event mixed at 3s is silent before 3s and present after', { skip: !hasFfmpeg }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'sfx-'));
   const base = join(dir, 'base.wav');
   const ev = join(dir, 'ev.wav');
