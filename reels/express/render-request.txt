@@ -4,4 +4,4 @@ bearing-v2
 3,4
 
 3,4
-BEARING v2: clips 3 (10s) and 4 (5s) only, 180 credits (balance 216); clip 2 built from its still
+BEARING v2: clips 3 and 4 at 5s each, 120 credits (balance about 156)
