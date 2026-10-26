@@ -26,15 +26,11 @@
   {
    "clip": 3,
    "variants": 2,
-   "prompt": "Wide view down an immense black-stone hall like @hall. In the near foreground at the lower left, the same thin porcelain face-shell of @face, tinted to her warm skin tone, stands upright on a slim black steel rod at head height, seen from behind: its smooth hollow back faces the camera, its clean, polished rim catches the light, and warm light glows softly through it. Far away, as a tiny figure near the very end of the hall, a woman with dark curly hair in a charcoal sweater walks toward a faint warm light. The gap between the shell and the woman is enormous. Cool dusk light, fine dust in the air. No cracks, no chips, no jagged edges, no lettering, no portals, no glow halos. Restrained, photorealistic, natural film grain.",
+   "prompt": "The same scene as @plate, same framing and light: the immense black-stone hall with hairline antique-gold (#C6A94F) veins, the thin skin-toned porcelain face-shell on its slim black rod in the near foreground at the lower left with its smooth hollow back toward the camera, cool dusk light. The only change: the small woman with dark curly hair in a charcoal sweater, far away near the end of the hall, is seen from behind, walking away from the camera toward the faint warm light at the end of the hall; her face is not visible. Keep everything else as in @plate. No second person, no lettering, no cracks. Restrained, photorealistic, natural film grain.",
    "references": [
     {
-     "tag": "face",
-     "path": "reels/express/stills/refs/NDCH_035_face.jpg"
-    },
-    {
-     "tag": "hall",
-     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+     "tag": "plate",
+     "path": "reels/express/stills/refs/NDCH_035_plate3.jpg"
     }
    ]
   },
