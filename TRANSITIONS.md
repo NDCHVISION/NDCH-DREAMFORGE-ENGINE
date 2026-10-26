@@ -11,7 +11,8 @@ where a cut is the point.
   short, retime it to fill its slot; never hold its last frame.
 - **Short.** 0.5 to 0.8 s. Long dissolves read as slideshow.
 - **Time to the voice.** Land transitions in the gaps between lines, never
-  across a word.
+  across a word. With anchored narration the engine enforces this: a line after a
+  blend of length d waits d/2 + 0.1 s past the boundary, so the blend finishes first.
 - **Never full black.** NDCH lives in the dark, but the screen never goes to
   pure black mid-film; dips stop at near-black so the room is still there.
 

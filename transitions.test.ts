@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import { buildTransitionGraph, dipXfade, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionVarietyProblems } from './lib/transitions.ts';
-import { conformClipFilter } from './lib/segment-anchor.ts';
+import { conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { assertSeed, buildReel, type ExpressSeed } from './scripts/express-build.ts';
 
 test('transitions: default is all cuts; dissolves validated', () => {
@@ -69,10 +69,12 @@ test('express: BEARING declares a transition for every boundary, cut on the blow
   const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_033_BEARING.json', 'utf8')) as ExpressSeed;
   assertSeed(seed, 'bearing');
   assert.deepEqual(resolveTransitions(seed.clip_transitions, 5), [0.6, 0, 0.5, 0.5]);
+  assert.deepEqual(leadsForTransitions([0.6, 0, 0.5, 0.5]), [0, 0.4, 0.15, 0.35, 0.35]);
   const spec = buildReel(seed, JSON.parse(readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'))) as Record<string, unknown>;
   assert.equal((spec.clip_transitions as unknown[]).length, 4);
   const noAnchor = structuredClone(seed);
   delete noAnchor.narration_timing;
+  delete noAnchor.section_boundaries;
   assert.throws(() => assertSeed(noAnchor, 'x'), /clip_transitions need narration_timing "anchored"/);
 });
 

@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-run-v1
-3,4
+bearing-v2
 
+1
 
-RUN: regenerate clips 3 (hub) and 4 (brown hands lift the casting), re-assemble
+BEARING v2: tight 34s timing, lines clear of transitions (no Runway calls)

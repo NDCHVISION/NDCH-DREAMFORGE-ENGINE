@@ -89,7 +89,7 @@ import {
   type ResolvedSoundEvent,
 } from './lib/opening-audio.ts';
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
-import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
+import { planSegmentAnchors, buildAnchorFilter, conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { endTitleAss } from './lib/end-title.ts';
@@ -561,6 +561,7 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
         wordTimings,
         getMediaDuration(processedPath),
         getConfig().plan.targetDurationSeconds ?? 45,
+        { leadSecs: leadsForTransitions(resolveTransitions(getConfig().plan.transitions, getConfig().plan.narrationSegments.length)) },
       )
     : undefined;
   if (getConfig().plan.narrationTiming === 'anchored' && !anchorPlan) {

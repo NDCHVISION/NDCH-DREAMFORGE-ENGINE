@@ -89,7 +89,7 @@ for (const file of seedFiles) {
       plan.instagram.caption?.startsWith(seed.caption.trim().slice(0, 20)),
     );
     assert.ok(plan.script.startsWith(seed.segments.hook.text.slice(0, 20)));
-    assert.equal(plan.targetDurationSeconds, 45);
+    assert.equal(plan.targetDurationSeconds, seed.section_boundaries?.at(-1) ?? 45);
   });
 }
 
@@ -400,6 +400,31 @@ test('express: caption law (from 035) holds one readable style and refuses low-c
   // Reels before 035 keep their own finish.
   const old = loadSeed('NDCH_034_RUN.json');
   assert.doesNotThrow(() => assertSeed(old, 'run'));
+});
+
+test('express: section_boundaries set the windows, the length and the music timing', () => {
+  const seed = loadSeed('NDCH_033_BEARING.json');
+  assert.deepEqual(seed.section_boundaries, [0, 5, 12, 19, 28, 34]);
+  const spec = buildReel(seed, JSON.parse(readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'))) as {
+    voiceover: { script: { segments: { timestamp_start: string; timestamp_end: string }[] } };
+    format: { target_duration_seconds: number };
+    music_config: { fade_out_end_seconds: number; description: string };
+  };
+  const segs = spec.voiceover.script.segments;
+  assert.deepEqual(segs.map((s) => [s.timestamp_start, s.timestamp_end]), [['0:00', '0:05'], ['0:05', '0:12'], ['0:12', '0:19'], ['0:19', '0:28'], ['0:28', '0:34']]);
+  assert.equal(spec.format.target_duration_seconds, 34);
+  assert.equal(spec.music_config.fade_out_end_seconds, 34);
+  assert.match(spec.music_config.description, /at the 12s pivot/);
+  const bad = (b: unknown, re: RegExp) => assert.throws(() => assertSeed({ ...structuredClone(seed), section_boundaries: b as number[] }, 'x'), re);
+  bad([0, 5, 12, 19, 28], /6 whole seconds/);
+  bad([0, 5, 12.5, 19, 28, 34], /whole seconds/);
+  bad([1, 5, 12, 19, 28, 34], /start at 0/);
+  bad([0, 2, 12, 19, 28, 34], /section 1 is 2.00s/);
+  bad([0, 5, 12, 19, 28, 70], /end at 70s/);
+  const continuous = structuredClone(seed);
+  delete continuous.narration_timing;
+  delete continuous.clip_transitions;
+  assert.throws(() => assertSeed(continuous, 'x'), /section_boundaries need narration_timing "anchored"/);
 });
 
 test('express: end rule (from 036) ends anchored reels 2.5 s after the last word; earlier reels keep 45 s', () => {
