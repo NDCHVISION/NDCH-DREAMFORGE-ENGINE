@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v1
+run-v1
 
 
 
-RECEPTION (030) full render: clips 2, 3, 5 new; clips 1 and 4 cached
+RUN: clip 3/4 trim presets, readable captions (CAPTIONS.md), seamless loop bed (LOOPING.md); no new clips
