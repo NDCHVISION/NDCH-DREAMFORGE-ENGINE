@@ -5,7 +5,7 @@ import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { buildTransitionGraph, clipLengthsWithTransitions, resolveTransitions } from './lib/transitions.ts';
+import { buildTransitionGraph, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionVarietyProblems } from './lib/transitions.ts';
 import { conformClipFilter } from './lib/segment-anchor.ts';
 import { assertSeed, buildReel, type ExpressSeed } from './scripts/express-build.ts';
 
@@ -13,7 +13,7 @@ test('transitions: default is all cuts; dissolves validated', () => {
   assert.deepEqual(resolveTransitions(undefined, 5), [0, 0, 0, 0]);
   assert.deepEqual(resolveTransitions([{ after_clip: 2, type: 'dissolve' }], 5), [0, 0.6, 0, 0]);
   assert.throws(() => resolveTransitions([{ after_clip: 5, type: 'cut' }], 5), /from 1 to 4/);
-  assert.throws(() => resolveTransitions([{ after_clip: 1, type: 'wipe' }], 5), /"cut" or "dissolve"/);
+  assert.throws(() => resolveTransitions([{ after_clip: 1, type: 'wipe' }], 5), /"cut" or one of: dissolve/);
   assert.throws(() => resolveTransitions([{ after_clip: 1, type: 'dissolve', seconds: 2 }], 5), /0\.3 to 1/);
   assert.throws(() => resolveTransitions([{ after_clip: 1, type: 'cut', seconds: 0.5 }], 5), /no seconds/);
 });
@@ -74,4 +74,38 @@ test('express: BEARING declares a transition for every boundary, cut on the blow
   const noAnchor = structuredClone(seed);
   delete noAnchor.narration_timing;
   assert.throws(() => assertSeed(noAnchor, 'x'), /clip_transitions need narration_timing "anchored"/);
+});
+
+test('transitions: thematic types map to xfade and reach the graph', () => {
+  const plan = [
+    { after_clip: 1, type: 'dissolve', seconds: 0.8, note: 'push-dissolve into the face on the shell' },
+    { after_clip: 2, type: 'slide_left', seconds: 0.7, note: 'the surface leaves frame left' },
+    { after_clip: 3, type: 'iris_open', seconds: 0.9, note: 'the far light opens into her world' },
+    { after_clip: 4, type: 'iris_close', seconds: 0.7, note: 'the world closes back to the face' },
+  ];
+  assert.deepEqual(resolveTransitions(plan, 5), [0.8, 0.7, 0.9, 0.7]);
+  const kinds = resolveTransitionKinds(plan, 5);
+  assert.deepEqual(kinds, ['fade', 'smoothleft', 'circleopen', 'circleclose']);
+  const g = buildTransitionGraph(clipLengthsWithTransitions([6, 14, 9, 9, 7], [0.8, 0.7, 0.9, 0.7]), [0.8, 0.7, 0.9, 0.7], kinds);
+  assert.match(g, /xfade=transition=smoothleft:/);
+  assert.match(g, /xfade=transition=circleopen:/);
+  assert.match(g, /xfade=transition=circleclose:.*\[vout\]$/);
+  assert.throws(() => resolveTransitions([{ after_clip: 1, type: 'zoomin' }], 5), /one of/);
+});
+
+test('transitions: coherence rule wants a reason for each blend and some variety', () => {
+  const same = [1, 2, 3].map((n) => ({ after_clip: n, type: 'dissolve' as const, note: 'x' }));
+  assert.match(transitionVarietyProblems(same).join(), /vary them/);
+  assert.match(transitionVarietyProblems([{ after_clip: 1, type: 'iris_open' }]).join(), /needs a note/);
+  assert.deepEqual(transitionVarietyProblems([...same.slice(0, 2), { after_clip: 3, type: 'slide_left', note: 'y' }]), []);
+  assert.deepEqual(transitionVarietyProblems(undefined), []);
+});
+
+test('express: PRESENCE uses varied, motivated transitions', () => {
+  const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_035_PRESENCE.json', 'utf8')) as ExpressSeed;
+  assertSeed(seed, 'presence');
+  assert.deepEqual(resolveTransitionKinds(seed.clip_transitions, 5), ['fade', 'smoothleft', 'circleopen', 'circleclose']);
+  const bad = structuredClone(seed);
+  bad.clip_transitions = [1, 2, 3, 4].map((n) => ({ after_clip: n, type: 'dissolve', note: 'z' }));
+  assert.throws(() => assertSeed(bad, 'x'), /vary them/);
 });
