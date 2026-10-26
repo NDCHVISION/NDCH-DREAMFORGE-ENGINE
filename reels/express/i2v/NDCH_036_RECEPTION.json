@@ -28,7 +28,7 @@
     "5": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
       "model": "gen4.5",
-      "prompt": "Fallback only; the planned close is clip 1's first seconds played in reverse. Locked camera on the original pale oak doorway composition. The partly open door drifts a few centimetres toward closed and eases to a stop. The distant corridor door remains closed. Preserve the original architecture, door proportions, floorboards, and soft overcast daylight. No people.",
+      "prompt": "From the approved clip 1 still: the partly open pale oak door swings slowly and slightly toward closed, then eases to a stop, and the camera drifts back very gently to settle on the opening framing. The far closed door at the end of the corridor stays where it is. Soft overcast daylight does not change. The walls, floorboards and both doors keep their shape. No people.",
       "duration": 5
     }
   }

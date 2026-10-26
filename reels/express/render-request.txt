@@ -1,7 +1,7 @@
 reels/express/seeds/NDCH_036_RECEPTION.json
 auto
 reception-v1
-4
 
-4
-RECEPTION (030) clip 4 retry: 5 s, dim the light under the door only, door never opens
+
+
+RECEPTION (030) full render: clips 2, 3, 5 new; clips 1 and 4 cached
