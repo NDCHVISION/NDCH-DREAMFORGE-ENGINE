@@ -1,0 +1,17 @@
+{
+  "reel_id": "NDCH_034_RUN",
+  "model": "gen4_image",
+  "ratio": "1080:1920",
+  "stills": [
+    {
+      "clip": 1,
+      "variants": 2,
+      "prompt": "Extreme close-up, camera low and close, of the flywheel of a small single-cylinder horizontal mill engine on a worn charcoal stone workbench: a black iron flywheel with exactly six straight spokes and a heavy plain rim fills most of the frame, seen at a slight three-quarter angle. Behind its hub, an aged-gold (#C6A94F) brass crank and the end of the connecting rod catch the light. The brass is worn and dulled at the edges, with faint fingerprints and a thin oil sheen. One cool bone-white (#F5F2EB) light rakes from high left and draws a crisp edge along the rim and spokes. Near-black workshop beyond, falling off to darkness. Strong contrast that reads at phone size. No steam, no glow, no sparks, no people, no lettering. Restrained, photorealistic, natural film grain."
+    },
+    {
+      "clip": 5,
+      "variants": 2,
+      "prompt": "Low wide view along a worn charcoal stone workbench in a near-black stone workshop. Two identical small single-cylinder horizontal mill engines stand side by side, each with its cylinder at the left end and a black iron flywheel with exactly six straight spokes at the right end. The left engine is the worn original: aged-gold (#C6A94F) brass cylinder, crosshead and valve gear on a black iron bed, brass dulled at the edges, faint fingerprints, a thin oil sheen. The right engine is a flawless copy cast in solid dark bronze: the same outline and every part, crisp detail, clean even patina, every joint fused, never handled. One cool bone-white (#F5F2EB) light rakes from high left and draws a bright edge along both flywheel rims. Nothing else on the bench. No steam, no glow, no sparks, no people, no lettering. Restrained, photorealistic, natural film grain."
+    }
+  ]
+}
