@@ -143,6 +143,7 @@ function extractReelMusicSpec(reelPath: string): ReelMusicSpec {
     doctrine_profile: doctrineProfile,
     mastering_preset_id: mastPreset,
     ...(raw['opening_audio'] !== undefined ? { opening_audio: raw['opening_audio'] } : {}),
+    ...(raw['loop_audio'] !== undefined ? { loop_audio: raw['loop_audio'] } : {}),
   };
 }
 

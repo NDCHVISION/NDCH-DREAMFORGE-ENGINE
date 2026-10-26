@@ -79,6 +79,8 @@ import {
 import {
   buildAdaptiveMusicMixFilter,
   resolveMusicTrackPath,
+  seamlessMusicInputs,
+  usesSeamlessBed,
 } from './lib/audio-mixing.ts';
 import {
   buildOpeningEventMixFilter,
@@ -305,13 +307,14 @@ async function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number):
 
   console.log(`         mixing ambient music: ${musicPath}`);
   const mixedPath = join(TMP, 'voiceover-mixed.mp3');
-  const filterGraph = buildAdaptiveMusicMixFilter(audioDurationSecs, plan.openingAudio);
+  const filterGraph = buildAdaptiveMusicMixFilter(audioDurationSecs, plan.openingAudio, plan.loopAudio);
 
   try {
     execSync(
       `ffmpeg -y ` +
       `-stream_loop -1 -i "${musicPath}" ` +
       `-i "${voicePath}" ` +
+      (usesSeamlessBed(plan.loopAudio, plan.openingAudio) ? seamlessMusicInputs(musicPath, audioDurationSecs) : '') +
       `-filter_complex "${filterGraph}" ` +
       `-map "[out]" -ar 44100 -b:a 192k "${mixedPath}"`,
       { stdio: 'inherit' }

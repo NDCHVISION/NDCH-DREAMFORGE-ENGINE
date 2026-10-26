@@ -1,4 +1,5 @@
 import { DEFAULT_MUSIC_FADE_IN_SECS, musicIntroFilter, type ResolvedOpeningAudio } from './opening-audio.ts';
+import { seamlessBedFilter, type LoopAudio } from './loop-seam.ts';
 
 export const MUSIC_BED_GAIN_DB = -18;
 /** Default music fade-in. Per-reel control lives in `opening_audio` (lib/opening-audio.ts). */
@@ -12,6 +13,16 @@ export const FADE_TIMING_PRECISION = 3;
 // - makeup: slight post-compression lift to keep music bed present
 export const MUSIC_DUCKING_FILTER =
   'threshold=0.030:ratio=10:attack=25:release=300:makeup=1';
+
+/** True when the adaptive mix carries the bed across the loop point. */
+export function usesSeamlessBed(loopAudio: LoopAudio, opening: Pick<ResolvedOpeningAudio, 'musicStartSecs'>): boolean {
+  return loopAudio === 'seamless' && opening.musicStartSecs === 0;
+}
+
+/** Extra ffmpeg input (index 2) the seamless mix needs: the looped music seeked to the reel's end. */
+export function seamlessMusicInputs(musicPath: string, audioDurationSecs: number): string {
+  return `-stream_loop -1 -ss ${audioDurationSecs.toFixed(3)} -i "${musicPath}" `;
+}
 
 export function computeFadeOutStartSecsFormatted(audioDurationSecs: number): string {
   return Math.max(0, audioDurationSecs - MUSIC_FADE_OUT_SECS).toFixed(FADE_TIMING_PRECISION);
@@ -44,7 +55,20 @@ export function buildAdaptiveMusicMixFilter(
     musicFadeInSecs: MUSIC_FADE_IN_SECS,
     musicStartSecs: 0,
   },
+  loopAudio: LoopAudio = 'fade',
 ): string {
+  // Loop law (LOOPING.md): with a bed from the first frame, carry it across the
+  // loop point instead of fading out. Needs the music again as input 2, seeked
+  // to audioDurationSecs (see seamlessMusicInputs). A delayed bed keeps its
+  // fade, so the tail falls to the same silence the head starts from.
+  if (usesSeamlessBed(loopAudio, opening)) {
+    return (
+      seamlessBedFilter(0, 2, 'music', audioDurationSecs, MUSIC_BED_GAIN_DB) + ';' +
+      `[1:a]asplit=2[voice][duckref];` +
+      `[music][duckref]sidechaincompress=${MUSIC_DUCKING_FILTER}[ducked];` +
+      `[ducked][voice]amix=inputs=2:duration=shortest[out]`
+    );
+  }
   const fadeOutStart = computeFadeOutStartSecsFormatted(audioDurationSecs);
 
   // Tuned for voice-forward narration: deeper reduction while voice is present,

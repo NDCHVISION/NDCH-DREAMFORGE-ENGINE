@@ -301,6 +301,18 @@ jobs:
             echo "Download the video and caption here: $URL"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Loop seam check (LOOPING.md)
+        if: ${{ steps.in.outputs.only_clips == '' }}
+        continue-on-error: true
+        run: |
+          ID="${{ steps.seed.outputs.reel_id }}"
+          {
+            echo "## Loop seam"
+            echo '```'
+            npx tsx scripts/loop-check.ts "/tmp/${ID}_FINAL.mp4" 2>&1 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Log rendered reel
         if: ${{ steps.in.outputs.only_clips == '' }}
         run: |
