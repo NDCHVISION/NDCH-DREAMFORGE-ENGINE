@@ -26,6 +26,7 @@
       "fade_out_seconds": 2
     }
   },
+  "narration_timing": "anchored",
   "validation_overrides": {
     "min_words": 54
   },

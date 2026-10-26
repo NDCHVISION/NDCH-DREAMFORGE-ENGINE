@@ -21,6 +21,7 @@
 
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
+import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -137,6 +138,8 @@ export interface ExpressSeed {
    * 0.2 s music fade-in and no sound event.
    */
   opening_audio?: OpeningAudioConfig;
+  /** 'anchored' = each section's narration starts at its window; clips are conformed to their slots. */
+  narration_timing?: NarrationTiming;
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
   voice?: { voice_id?: string; stability?: number; speed?: number };
 }
@@ -248,6 +251,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   }
   assertOpening(seed, source);
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
+  resolveNarrationTiming(seed.narration_timing);
 }
 
 export function buildReel(seed: ExpressSeed, template: Json): Json {
@@ -387,6 +391,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   const opening = resolveOpeningAudio(seed.opening_audio, `${seed.reel_id}.opening_audio`);
   if (seed.opening_audio) spec.opening_audio = structuredClone(seed.opening_audio);
   else delete spec.opening_audio;
+  if (seed.narration_timing) spec.narration_timing = seed.narration_timing;
+  else delete spec.narration_timing;
   spec.music_config = {
     description: musicDescription(seed),
     // Informational. Older seeds keep the value they were built with.
