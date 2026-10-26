@@ -24,26 +24,26 @@
     {
       "after_clip": 1,
       "type": "dissolve",
-      "seconds": 0.6,
-      "note": "shape match: her face becomes the same face on the porcelain shell"
+      "seconds": 0.8,
+      "note": "push-dissolve: a slow push on her face dissolves into the same face on the shell"
     },
     {
       "after_clip": 2,
-      "type": "dissolve",
-      "seconds": 0.6,
-      "note": "light match: the warm glow inside the shell carries into the hall shot"
+      "type": "slide_left",
+      "seconds": 0.7,
+      "note": "the surface slides out left, the way the shell leaves the hall shot"
     },
     {
       "after_clip": 3,
-      "type": "dissolve",
-      "seconds": 0.8,
-      "note": "flare through: the warm light at the end of the hall opens into the library"
+      "type": "iris_open",
+      "seconds": 0.9,
+      "note": "the light at the end of the hall opens into her world"
     },
     {
       "after_clip": 4,
-      "type": "dissolve",
-      "seconds": 0.5,
-      "note": "near-black dip feel: change of place back to her face, which loops into the opening"
+      "type": "iris_close",
+      "seconds": 0.7,
+      "note": "her world closes like an aperture back onto the familiar face, mirroring the iris that opened it"
     }
   ],
   "validation_overrides": {
@@ -152,5 +152,51 @@
     "#Perception",
     "#Identity",
     "#ClearThinking"
-  ]
+  ],
+  "post_edit_v2": {
+    "why": "Creator review of the first render: the shell held too long (14 s) and the joins were all dissolves. v2 was re-cut in post from the cached stems, no credits.",
+    "picture_windows_seconds": {
+      "face": [
+        0,
+        6
+      ],
+      "shell": [
+        6,
+        12.5
+      ],
+      "hall": [
+        12.5,
+        22.5
+      ],
+      "library": [
+        22.5,
+        38
+      ],
+      "face_reverse": [
+        38,
+        45
+      ]
+    },
+    "source_ranges_seconds": {
+      "clip1": [
+        0,
+        2.5
+      ],
+      "clip2": [
+        0,
+        5
+      ],
+      "clip3": [
+        0,
+        10
+      ],
+      "clip4": [
+        0,
+        10
+      ],
+      "close": "clip1 0-2.5 reversed, so the last frame is the first"
+    },
+    "beats": "library opens on 'and who they are when no one is watching'; hall appears on 'Familiarity hides distance well'",
+    "captions": "larger (58 px at 720 wide) and raised 300 px, clear of platform buttons"
+  }
 }

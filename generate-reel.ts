@@ -88,7 +88,7 @@ import {
 } from './lib/opening-audio.ts';
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
-import { resolveTransitions, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
+import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { endTitleAss } from './lib/end-title.ts';
 import type { TimedSoundEvent } from './lib/sound-events.ts';
@@ -893,6 +893,7 @@ async function generateVideo(
         : scene.clipDuration,
     );
     const boundary = resolveTransitions(plan.transitions, scenePlan.length);
+    const kinds = resolveTransitionKinds(plan.transitions, scenePlan.length);
     const lengths = clipLengthsWithTransitions(windows, boundary);
     const conformed = clipPaths.map((clipPath, idx) => {
       const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
@@ -910,10 +911,10 @@ async function generateVideo(
       execFileSync('ffmpeg', [
         '-v', 'error', '-y',
         ...conformed.flatMap((p) => ['-i', p]),
-        '-filter_complex', buildTransitionGraph(lengths, boundary),
+        '-filter_complex', buildTransitionGraph(lengths, boundary, kinds),
         '-map', '[vout]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', stitchedPath,
       ]);
-      console.log(`         transitions: ${boundary.map((d, i) => `${i + 1}→${i + 2} ${d > 0 ? `dissolve ${d}s` : 'cut'}`).join(', ')}`);
+      console.log(`         transitions: ${boundary.map((d, i) => `${i + 1}→${i + 2} ${d > 0 ? `${kinds[i]} ${d}s` : 'cut'}`).join(', ')}`);
     } else {
       stitchedPath = stitchVideoClips(conformed);
     }

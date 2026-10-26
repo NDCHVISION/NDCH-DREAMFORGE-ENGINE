@@ -15,6 +15,43 @@ where a cut is the point.
 - **Never full black.** NDCH lives in the dark, but the screen never goes to
   pure black mid-film; dips stop at near-black so the room is still there.
 
+## Coherence: the joins tell the story
+
+NDCH reels are stitched from separately generated shots, so the joins are where a
+reel either holds together or falls apart. Treat the transitions as one designed
+sequence, not five separate decisions.
+
+- **Each join moves the story forward.** Name what the two shots share (a light, a
+  shape, a direction of travel) or what the moment means. If you can't, the shots
+  are in the wrong order or the join should be a cut on a beat.
+- **Vary them to fit the moment.** Three or more of the same blend in one reel reads
+  as a template. Use the type each moment calls for.
+- **Rhyme where the story rhymes.** A door that opens can close the same way later
+  (PRESENCE: the iris that opens her world is the iris that closes it).
+- **Follow the motion.** If something leaves frame left at the start of shot B,
+  slide left into it; if the camera rises, slide up.
+- **Never flash a flat colour.** No zoom-throughs into skin, no white or black
+  flashes. The engine leaves those types out on purpose.
+- **Cut shots before they go wrong, not after.** If a generated clip drifts (a face
+  changes, an object leaves frame), end the shot on its last good second and let
+  the transition carry the move.
+
+**Enforced from 035 PRESENCE on** (`scripts/express-build.ts`): every blend in
+`clip_transitions` carries a `note` with its reason, and a reel with three or more
+blends uses at least two types.
+
+## Engine types (`clip_transitions[].type`)
+
+| Type | Strategy it realises |
+| --- | --- |
+| `cut` | Hard cut on a beat |
+| `dissolve` | Light match, shape match, push-dissolve |
+| `iris_open` / `iris_close` | Flare through: a light or opening widens into the next world, and its bookend |
+| `slide_left` / `slide_right` | The subject or surface leaves frame; the story moves on in that direction |
+| `slide_up` / `slide_down` | A crane, a rise or a descent carried across the join |
+| `wipe_left` / `wipe_right` | Shadow sweep: a hard edge of light or shadow crosses the frame |
+| `blur` | Focus shift: memory, waking, losing the thread |
+
 ## The strategies
 
 | Strategy | Use when | How |
@@ -34,3 +71,11 @@ where a cut is the point.
 - Figure at the door into the wide room: **flare through** (he passes through the door).
 - Light lost and light returned: **shadow sweep** with the opening's rim flaring gold.
 - Last frame matches the first: the reel **loops** with no fade.
+
+## Reference: PRESENCE (029)
+
+- Her face into the shell: **push-dissolve** (`dissolve`), a slow push on her face dissolving into the same face on the shell.
+- Shell into the hall: **`slide_left`**, the surface slides out the way the shell leaves the next shot.
+- Hall into the library: **`iris_open`** from the light at the end of the hall, landing on "who they are when no one is watching".
+- Library back to her face: **`iris_close`**, the bookend of the iris that opened her world.
+- The close plays the opening seconds in reverse, so the last frame is the first: the reel **loops** with no fade.
