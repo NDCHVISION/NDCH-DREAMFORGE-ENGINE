@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v1
+run-v1
+3,4
 
 
-1,4
-RECEPTION (030) test: clips 1 and 4 only, review before the rest
+RUN: regenerate clips 3 (hub) and 4 (brown hands lift the casting), re-assemble

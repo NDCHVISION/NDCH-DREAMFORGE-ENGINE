@@ -16,14 +16,14 @@
     "3": {
       "image": "reels/express/stills/approved/NDCH_034_clip03.jpg",
       "model": "gen4.5",
-      "prompt": "Very slow push-in. The flywheel turns clockwise at one steady speed and the brass rod moves with the crank; the bead of oil on the brass catches the light as it moves. The flywheel keeps five spokes and every part stays connected. No new light, no people.",
-      "duration": 10
+      "duration": 10,
+      "prompt": "Locked camera. The flywheel turns clockwise at one steady speed around its hub; glints of oil travel around the hub as it turns. Nothing else moves; the bronze flywheel behind stays completely still. No parts appear or detach. No new light."
     },
     "4": {
       "image": "reels/express/stills/approved/NDCH_034_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera. The hands tilt the brass oil can slowly; a drop of oil forms at the tip of the spout and falls. Behind them the engine's flywheel turns clockwise at one steady speed. The unfinished flywheel casting on the bench stays still. Two hands only, fingers keep their shape. No new light.",
-      "duration": 10
+      "duration": 10,
+      "prompt": "Locked camera. The brown-skinned hands lift the raw flywheel casting slowly from the bench and turn it once toward the light, then hold it still beside the running engine. Behind them the engine's flywheel turns clockwise at one steady speed. Two hands only, fingers keep their shape. No new light."
     },
     "5": {
       "image": "reels/express/stills/approved/NDCH_034_clip05.jpg",
