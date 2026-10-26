@@ -109,6 +109,36 @@ test('express: a closed final sentence breaks the möbius loop and is rejected',
   assert.ok(result.errors.some((e) => e.code === 'MOBIUS_OPEN_CLAUSE'));
 });
 
+test('express: Universal Viewer Law refuses creator announcements and brand-named narration', () => {
+  const seed = loadSeed(seedFiles[0]);
+  const cases: Array<[string, (s: ExpressSeed) => void]> = [
+    ['brand in narration', (s) => { s.segments.build.text = 'At NDCH you learn to look closer.'; }],
+    ['launch announcement', (s) => { s.segments.pivot.text = "I'm launching something new for you."; }],
+    ['episode framing', (s) => { s.caption = 'Our new episode is here. Watch it twice.'; }],
+    ['follow ask', (s) => { s.caption = 'Follow for more like this.'; }],
+    ['own business', (s) => { s.segments.resolution.text = 'My patients taught me this, and now you know it.'; }],
+  ];
+  for (const [name, mutate] of cases) {
+    const bad: ExpressSeed = structuredClone(seed);
+    mutate(bad);
+    assert.throws(() => assertSeed(bad, name), /Universal Viewer Law/, name);
+  }
+  // The brand hashtag stays allowed.
+  const ok: ExpressSeed = structuredClone(seed);
+  ok.caption = `${seed.caption}\n\n#NDCH`;
+  assert.doesNotThrow(() => assertSeed(ok, 'hashtag'));
+});
+
+const DRAFT_DIR = join('reels', 'express', 'drafts');
+for (const file of readdirSync(DRAFT_DIR).filter((f) => f.endsWith('.json')).sort()) {
+  test(`express: draft ${file} passes the seed rules and builds a valid v2.1 reel`, () => {
+    const seed = JSON.parse(readFileSync(join(DRAFT_DIR, file), 'utf8')) as ExpressSeed;
+    assertSeed(seed, file);
+    const result = validateCompiledReel(buildReel(seed, TEMPLATE));
+    assert.deepEqual(result.errors, [], JSON.stringify(result.errors));
+  });
+}
+
 test('express: seeds over the word budget are refused before render', () => {
   const seed = loadSeed(seedFiles[0]);
   const bad: ExpressSeed = structuredClone(seed);

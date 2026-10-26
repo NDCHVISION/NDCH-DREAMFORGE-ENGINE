@@ -32,6 +32,9 @@ export const VALIDATION_OVERRIDE_ALLOWLIST: Readonly<Record<string, ValidationOv
   NDCH_033_BEARING: { min_words: 54 },
   // NDCH 034 RUN (posts as 028): 44-word narration.
   NDCH_034_RUN: { min_words: 44 },
+  // NDCH 035 PRESENCE (posts as 029; draft pending approval): 67-word
+  // narration, inside the 65-75 range set in the 029 creative review.
+  NDCH_035_PRESENCE: { min_words: 67 },
 };
 
 /**
