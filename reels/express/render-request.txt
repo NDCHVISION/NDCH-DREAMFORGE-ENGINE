@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v2
+run-v1
 
 1
 
-BEARING v2 final: snap picture synced to the sound on breaks (no Runway calls)
+RUN re-assembly with retimed clips 1, 2, 5 (no Runway)
