@@ -51,6 +51,7 @@ blends uses at least two types.
 | `slide_up` / `slide_down` | A crane, a rise or a descent carried across the join |
 | `wipe_left` / `wipe_right` | Shadow sweep: a hard edge of light or shadow crosses the frame |
 | `blur` | Focus shift: memory, waking, losing the thread |
+| `dip` | Dip to near-black: down to 15% and back up, never pure black. Also the honest join between two shots whose room doesn't quite match |
 
 ## The strategies
 
