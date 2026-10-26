@@ -30,8 +30,8 @@ export const VALIDATION_OVERRIDE_ALLOWLIST: Readonly<Record<string, ValidationOv
   NDCH_032_INVENTORY: { min_words: 45 },
   // NDCH 033 BEARING (posts as 027): 54-word narration.
   NDCH_033_BEARING: { min_words: 54 },
-  // NDCH 034 RUN (posts as 028): 40-word narration.
-  NDCH_034_RUN: { min_words: 40 },
+  // NDCH 034 RUN (posts as 028): 44-word narration.
+  NDCH_034_RUN: { min_words: 44 },
 };
 
 /**

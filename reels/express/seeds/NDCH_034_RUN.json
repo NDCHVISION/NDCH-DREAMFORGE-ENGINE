@@ -27,13 +27,13 @@
     }
   },
   "validation_overrides": {
-    "min_words": 40
+    "min_words": 44
   },
   "primary_prompt": "Restrained photorealistic 9:16 sequence in one near-black stone workshop. On a worn charcoal stone bench a small single-cylinder flywheel engine of aged brass (#C6A94F) and black iron runs at one steady speed; its six-spoke flywheel turns clockwise, crank and piston rod linked. The brass is worn and fingerprinted with a thin oil sheen. Beside it stand flawless copies cast in solid dark bronze, every part fused, perfectly still. One cool bone-white (#F5F2EB) light rakes from high left and never moves. Locked or slow camera, real machined metal. No steam, no glow, no sparks, no lettering.",
   "segments": {
     "hook": {
-      "text": "Perfect copy. Dead engine.",
-      "visual": "Already turning on the first frame: extreme close-up of the worn original's black iron six-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. A slow, controlled lateral camera move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. The move settles with both engines side by side in one low frame: the original turning, the copy dead still."
+      "text": "Someone copied your work. Perfect copy. Dead engine.",
+      "visual": "Already turning on the first frame: extreme close-up of the worn original's black iron six-spoke flywheel spinning clockwise at one steady speed, filling the frame, its aged brass (#C6A94F) crank flashing. One short, controlled lateral move to the right reveals by the second second the identical solid bronze copy beside it, its flywheel motionless, a bone-white (#F5F2EB) edge of light along its rim. By the third second the move settles and holds both engines side by side in one low frame: the original turning, the copy dead still."
     },
     "build": {
       "text": "They copied everything they could see. Every contour. Every detail.",
@@ -49,7 +49,7 @@
     },
     "mobius_close": {
       "text": "And let them copy",
-      "visual": "Return to the opening frame: the worn engine turning beside the still bronze copy, same low angle and light. Nothing else changes. The flywheel rim catches a thin line of gold. Locked camera, matched for a seamless loop."
+      "visual": "The two engines side by side in the same low frame and light, the original turning, the copy still. The camera eases left and in until the worn original's spinning six-spoke flywheel fills the frame again, matching the opening close-up for a seamless loop. Its rim catches a thin line of gold."
     }
   },
   "highlight_words": [
@@ -60,7 +60,7 @@
   "peak_words": [
     "turning"
   ],
-  "caption": "Perfect copy. Dead engine.\n\nThey copied everything they could see. Every contour. Every detail.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.",
+  "caption": "Someone copied your work. Perfect copy. Dead engine.\n\nThey copied everything they could see. Every contour. Every detail.\n\nA mold takes the shape. Not the work that keeps it turning.\n\nRun your mind. Run your systems. Build the next one.\n\nAnd let them copy.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",
