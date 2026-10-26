@@ -1,0 +1,11 @@
+{
+  "reel_id": "NDCH_033_BEARING",
+  "clips": {
+    "1": {
+      "image": "reels/express/stills/approved/NDCH_033_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "The gold chain is drawn steadily under tension from lower left to upper right, sliding across the stone and over the deep crack. The flat brass link catches on the crack's edge, holds for a moment, then jerks free and slides on. The camera stays low and almost still, then pulls back slightly. The chain stays flexible and keeps the same links; the stone and the crack do not change shape. No new light, no sparks, no hands.",
+      "duration": 5
+    }
+  }
+}
