@@ -16,7 +16,7 @@
     "light": "#F5F2EB",
     "peak": "#C6A94F"
   },
-  "character": "The same person in every cast shot: an adult woman in her late thirties with deep brown skin, sleek dark hair parted in the middle and pulled back and a composed, neutral expression, wearing a charcoal crew-neck sweater",
+  "character": "The same person in every cast shot: a woman in her mid-twenties of mixed heritage with warm light-brown skin, hazel-brown eyes, shoulder-length dark curly hair in loose natural curls and a composed, neutral expression, wearing a charcoal crew-neck sweater",
   "recurring_element": "one thin, slightly translucent face-surface holding a composed expression, and the vast black-stone hall with hairline gold veins that opens behind it",
   "material": "Black stone with hairline antique-gold (#C6A94F) veining; the face-surface like fine porcelain, slightly translucent at its edges; warm gold interior light against cool dusk light in the hall",
   "validation_overrides": {
@@ -26,7 +26,7 @@
   "segments": {
     "hook": {
       "text": "You can see someone every day... and mistake it for knowing them.",
-      "visual": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, sleek dark hair parted in the middle and pulled back and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain. Motion: Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays composed and does not change. The background stays dark. Her face does not change shape. No new people."
+      "visual": "Intimate close-up at eye level of a woman in her mid-twenties of mixed heritage with warm light-brown skin, hazel-brown eyes, shoulder-length dark curly hair in loose natural curls and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain. Motion: Very slow camera move to the right, already moving on the first frame. She blinks once and breathes; her expression stays composed and does not change. The background stays dark. Her face does not change shape. No new people."
     },
     "build": {
       "text": "You know their voice, their laugh, the way they cross a room. Familiarity hides distance well.",
@@ -44,7 +44,7 @@
     },
     "mobius_close": {
       "text": "Presence is not access...",
-      "visual": "The same intimate close-up as the opening: an adult woman in her late thirties with deep brown skin, sleek dark hair parted in the middle and pulled back and a composed, neutral expression, wearing a charcoal crew-neck sweater, composed, against near-black (#1A1A1A), warm key light from the left. Motion: From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
+      "visual": "The same intimate close-up as the opening: a woman in her mid-twenties of mixed heritage with warm light-brown skin, hazel-brown eyes, shoulder-length dark curly hair in loose natural curls and a composed, neutral expression, wearing a charcoal crew-neck sweater, composed, against near-black (#1A1A1A), warm key light from the left. Motion: From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
     }
   },
   "transitions": [
@@ -89,10 +89,11 @@
       "5": "From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
     },
     "approved": {
-      "clip1": "reels/express/stills/approved/NDCH_035_clip01.jpg (round A v2)",
+      "clip1": "pending round C (recast: mid-twenties, mixed heritage, curly hair)",
+      "clip4": "composition locked from round B v2 (refs/NDCH_035_room.jpg); recast in round C",
       "refs": [
-        "reels/express/stills/refs/NDCH_035_her.jpg (clip 1 v2)",
-        "reels/express/stills/refs/NDCH_035_hall.jpg (round A clip 3 v2, hall plate)"
+        "reels/express/stills/refs/NDCH_035_hall.jpg (round A clip 3 v2, hall plate)",
+        "reels/express/stills/refs/NDCH_035_room.jpg (round B clip 4 v2)"
       ]
     }
   },
