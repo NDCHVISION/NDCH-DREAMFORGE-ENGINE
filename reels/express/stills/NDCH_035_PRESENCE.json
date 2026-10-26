@@ -6,22 +6,12 @@
   {
    "clip": 1,
    "variants": 2,
-   "prompt": "Intimate close-up at eye level of an adult woman in her late thirties with deep brown skin, sleek dark hair parted in the middle and pulled back and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain."
+   "prompt": "Intimate close-up at eye level of a woman in her mid-twenties of mixed heritage with warm light-brown skin, hazel-brown eyes, shoulder-length dark curly hair in loose natural curls and a composed, neutral expression, wearing a charcoal crew-neck sweater. Soft warm key light from the left, deep near-black background (#1A1A1A). Real skin texture, a natural catchlight, calm eyes looking just past the lens. The face fills most of the frame and reads at phone size. Nothing unusual is visible yet. No lettering, no glow, no masks, no makeup effects. Restrained, photorealistic, natural film grain."
   },
   {
    "clip": 2,
    "variants": 2,
-   "prompt": "Three-quarter rear view of a thin, slightly translucent porcelain mask with the exact face of @her, composed expression, standing upright on its own in a vast black-stone hall like @hall. The mask is hollow: from this angle you can see its paper-thin edge and the empty inside, and there is no head behind it. Far down the hall, small, a woman in a charcoal sweater walks away. Soft warm light on the mask from the left; cool dusk light in the hall. Calm and beautiful, not eerie. No second face, no cracks, no lettering. Restrained, photorealistic, natural film grain.",
-   "references": [
-    {
-     "tag": "her",
-     "path": "reels/express/stills/refs/NDCH_035_her.jpg"
-    },
-    {
-     "tag": "hall",
-     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
-    }
-   ]
+   "prompt": "Three-quarter rear view of a thin, slightly translucent porcelain mask with the exact face of her, composed expression, standing upright on its own in a vast black-stone hall of black stone. The mask is hollow: from this angle you can see its paper-thin edge and the empty inside, and there is no head behind it. Far down the hall, small, a woman in a charcoal sweater walks away. Soft warm light on the mask from the left; cool dusk light in the hall. Calm and beautiful, not eerie. No second face, no cracks, no lettering. Restrained, photorealistic, natural film grain."
   },
   {
    "clip": 3,
@@ -31,15 +21,11 @@
   {
    "clip": 4,
    "variants": 2,
-   "prompt": "At the far end of a black-stone hall like @hall, the stone opens into a warm, lived-in interior: tall dark-wood bookshelves lit by lamps, a long wooden table with a coat, plants and open notebooks, a staircase rising into gold (#C6A94F) light, a tall window with soft green garden light. The floor stays the same dark veined stone as @hall. Small in the middle ground, @her stands in the light, seen from behind, at ease. Warm pools of lamplight against near-black, restrained, not ornate. No checkerboard floor, no glass roof, no lettering, no lens flares. Restrained, photorealistic, natural film grain.",
+   "prompt": "The same warm library interior as @room, same framing: the black-stone pillar with hairline antique-gold (#C6A94F) veins on the left, the wall of books, the wooden staircase, the long table with a coat, plants and open notebooks, the window with green garden light, warm lamplight against near-black. Small in the middle ground by the table stands a woman in her mid-twenties with shoulder-length dark curly hair in loose natural curls, wearing a charcoal crew-neck sweater, seen from behind, at ease. Keep everything else as in @room. No lettering, no lens flares. Restrained, photorealistic, natural film grain.",
    "references": [
     {
-     "tag": "her",
-     "path": "reels/express/stills/refs/NDCH_035_her.jpg"
-    },
-    {
-     "tag": "hall",
-     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+     "tag": "room",
+     "path": "reels/express/stills/refs/NDCH_035_room.jpg"
     }
    ]
   }
