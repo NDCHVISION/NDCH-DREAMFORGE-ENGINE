@@ -422,7 +422,34 @@
     }
   },
   "loop_audio": "seamless",
+  "narration_timing": "anchored",
+  "clip_transitions": [
+    {
+      "after_clip": 1,
+      "type": "dissolve",
+      "seconds": 0.7,
+      "note": "push-dissolve: the push through the opening door dissolves into the tidy room already moving"
+    },
+    {
+      "after_clip": 2,
+      "type": "cut",
+      "note": "hard cut on a beat: cut exactly on 'Pressure', the jump from the room to the endless corridor is the point"
+    },
+    {
+      "after_clip": 3,
+      "type": "wipe_left",
+      "seconds": 0.7,
+      "note": "shadow sweep: a soft edge of light crosses from the corridor onto the closed door"
+    },
+    {
+      "after_clip": 4,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "push-dissolve: the closed door dissolves back to the first door, already easing shut, so the loop runs into the opening"
+    }
+  ],
   "finish": {
     "subtitle_layout": "readable"
-  }
+  },
+  "end_tail_secs": 2.5
 }
