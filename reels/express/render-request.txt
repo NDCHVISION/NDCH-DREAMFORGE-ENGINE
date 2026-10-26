@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-run-v1
+bearing-v2
 
+1
 
-
-RUN: clip 3/4 trim presets, readable captions (CAPTIONS.md), seamless loop bed (LOOPING.md); no new clips
+BEARING v2: readable captions, clip 2 pull-back reveal (no Runway calls)

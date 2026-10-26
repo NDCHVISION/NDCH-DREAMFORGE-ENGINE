@@ -92,7 +92,7 @@ test('express: BEARING opts into the finish profile', () => {
   const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_033_BEARING.json', 'utf8')) as ExpressSeed;
   assertSeed(seed, 'bearing');
   const plan = resolveProductionPlan({ REEL_SPEC_PATH: 'reels/express/NDCH_033_BEARING.json' }, { defaultVoiceId: 'v', defaultModelId: 'm' });
-  assert.deepEqual(plan.finish, { subtitleLayout: 'safe_zone', output: '1080x1920', loudnessLufs: -14 });
+  assert.deepEqual(plan.finish, { subtitleLayout: 'readable', output: '1080x1920', loudnessLufs: -14 });
   const other = resolveProductionPlan({ REEL_SPEC_PATH: 'reels/express/NDCH_032_INVENTORY.json' }, { defaultVoiceId: 'v', defaultModelId: 'm' });
   assert.deepEqual(other.finish, { subtitleLayout: 'default', output: 'native' });
 });

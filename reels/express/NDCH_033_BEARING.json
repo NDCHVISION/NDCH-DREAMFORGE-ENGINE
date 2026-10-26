@@ -313,8 +313,8 @@
   },
   "subtitle_config": {
     "color": "#F5F2EB",
-    "highlight": "#C6A94F",
-    "peak": "#C6A94F",
+    "highlight": "#E9C46A",
+    "peak": "#E9C46A",
     "highlight_words": [
       "word",
       "right",
@@ -430,7 +430,7 @@
       "after_clip": 1,
       "type": "dissolve",
       "seconds": 0.6,
-      "note": "shape match: the chain in the crack becomes the chain loop on the table"
+      "note": "shape match: the chain in the crack dissolves into the chain loop, then the camera pulls back to reveal the room"
     },
     {
       "after_clip": 2,
@@ -451,7 +451,7 @@
     }
   ],
   "finish": {
-    "subtitle_layout": "safe_zone",
+    "subtitle_layout": "readable",
     "output": "1080x1920",
     "loudness_lufs": -14
   },
