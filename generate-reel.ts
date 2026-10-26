@@ -87,6 +87,7 @@ import {
   type ResolvedSoundEvent,
 } from './lib/opening-audio.ts';
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
+import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
 import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
@@ -490,8 +491,37 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
   // ── 1b: Audio post-processing — EQ + LUFS normalisation ───────────────────
   const processedPath = processAudio(rawAudioPath);
 
+  // ── 1b': Segment-anchored narration (narration_timing: "anchored") ─────────
+  let voicePath = processedPath;
+  let voiceDuration = rawDuration;
+  const anchorPlan = getConfig().plan.narrationTiming === 'anchored'
+    ? planSegmentAnchors(
+        getConfig().plan.narrationSegments.map((s) => ({ text: s.text, startSecs: s.timestampStartSeconds ?? 0 })),
+        wordTimings,
+        getMediaDuration(processedPath),
+        getConfig().plan.targetDurationSeconds ?? 45,
+      )
+    : undefined;
+  if (getConfig().plan.narrationTiming === 'anchored' && !anchorPlan) {
+    console.warn('         [WARN] narration_timing anchored, but word timings do not match the sections; keeping the continuous read');
+  }
+  if (anchorPlan) {
+    const anchoredPath = join(TMP, 'voiceover-anchored.mp3');
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y', '-i', processedPath,
+      '-filter_complex', buildAnchorFilter(anchorPlan),
+      '-map', '[out]', '-ar', '44100', '-b:a', '192k', anchoredPath,
+    ]);
+    voicePath = anchoredPath;
+    voiceDuration = getMediaDuration(anchoredPath);
+    wordTimings = anchorPlan.words;
+    console.log(
+      `         anchored narration: ${anchorPlan.cuts.map((c) => `[${c.index}] @${c.dstStartSecs.toFixed(2)}s`).join(' ')} → ${voiceDuration.toFixed(1)}s`,
+    );
+  }
+
   // ── 1c: Ambient music layer (ElevenLabs SFX / local file / optional) ──────
-  const withMusic = await mixMusicUnderVoice(processedPath, rawDuration);
+  const withMusic = await mixMusicUnderVoice(voicePath, voiceDuration);
 
   // ── 1d: Opening sound event (opening_audio.sound_event), if the reel has one ──
   const finalAudioSource = await addOpeningSoundEvent(withMusic, getConfig().plan.openingAudio);
@@ -797,7 +827,25 @@ async function generateVideo(
     return { videoPath: '', sceneTimeline, selectionOnly: true };
   }
 
-  const stitchedPath = stitchVideoClips(clipPaths);
+  // narration_timing "anchored": every clip fills exactly its section window.
+  const finalClipPaths = plan.narrationTiming === 'anchored'
+    ? clipPaths.map((clipPath, idx) => {
+        const scene = scenePlan[idx];
+        const slot = scene.timestampStartSeconds !== undefined && scene.timestampEndSeconds !== undefined
+          ? scene.timestampEndSeconds - scene.timestampStartSeconds
+          : scene.clipDuration;
+        const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
+        execFileSync('ffmpeg', [
+          '-v', 'error', '-y', '-i', clipPath, '-an',
+          '-vf', conformClipFilter(getMediaDuration(clipPath), slot),
+          '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out,
+        ]);
+        console.log(`         clip ${idx + 1}: conformed to its ${slot}s window (was ${getMediaDuration(clipPath).toFixed(2)}s)`);
+        return out;
+      })
+    : clipPaths;
+
+  const stitchedPath = stitchVideoClips(finalClipPaths);
   const stitchedDuration = getMediaDuration(stitchedPath);
   console.log(`         stitched duration: ${stitchedDuration.toFixed(1)}s`);
   return { videoPath: stitchedPath, sceneTimeline };

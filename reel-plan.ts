@@ -1,4 +1,5 @@
 import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
+import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anchor.ts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
@@ -331,6 +332,8 @@ export interface ResolvedProductionPlan {
   musicConfig?: ResolvedMusicConfig;
   /** Opening audio (music start/fade, optional sound event). Defaults when the spec has none. */
   openingAudio: ResolvedOpeningAudio;
+  /** 'anchored' starts each section's narration at its window (lib/segment-anchor.ts). */
+  narrationTiming: NarrationTiming;
 }
 
 interface ResolveProductionPlanOptions {
@@ -483,6 +486,7 @@ export function resolveProductionPlan(
   } : undefined;
 
   const openingAudio = resolveOpeningAudio(pickValue(reelSpec, [['opening_audio']]), 'reel spec opening_audio');
+  const narrationTiming = resolveNarrationTiming(pickValue(reelSpec, [['narration_timing']]));
 
   return {
     engineConfigPath: engineConfigPath ? resolve(engineConfigPath) : undefined,
@@ -509,5 +513,6 @@ export function resolveProductionPlan(
     brand,
     musicConfig,
     openingAudio,
+    narrationTiming,
   };
 }
