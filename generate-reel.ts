@@ -90,6 +90,8 @@ import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
 import { resolveTransitions, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
+import { endTitleAss } from './lib/end-title.ts';
+import type { TimedSoundEvent } from './lib/sound-events.ts';
 import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
@@ -323,7 +325,7 @@ async function mixMusicUnderVoice(voicePath: string, audioDurationSecs: number):
 }
 
 /** Generates the opening sound event with ElevenLabs sound generation. */
-async function generateOpeningSoundEvent(event: ResolvedSoundEvent): Promise<string> {
+async function generateOpeningSoundEvent(event: ResolvedSoundEvent, outPath = OPENING_EVENT_PATH): Promise<string> {
   const { elevenLabsKey } = getConfig();
   console.log(`         opening sound event: "${(event.prompt ?? '').slice(0, 80)}" (${event.durationSecs}s)`);
   const audioBuffer = await requestBuffer('https://api.elevenlabs.io/v1/sound-generation', {
@@ -341,8 +343,8 @@ async function generateOpeningSoundEvent(event: ResolvedSoundEvent): Promise<str
     timeoutMs: ELEVENLABS_SFX_TIMEOUT_MS,
     maxRetries: 2,
   });
-  writeFileSync(OPENING_EVENT_PATH, audioBuffer);
-  return OPENING_EVENT_PATH;
+  writeFileSync(outPath, audioBuffer);
+  return outPath;
 }
 
 /**
@@ -383,6 +385,39 @@ async function addOpeningSoundEvent(basePath: string, opening: ResolvedOpeningAu
   console.log(`         opening check: ${opener}peak ${check.whole.maxDb.toFixed(2)} dBFS → ${check.ok ? 'ok' : 'FAILED'}`);
   if (!check.ok) throw new Error(`Opening audio check failed: ${check.issues.join('; ')}`);
   return outPath;
+}
+
+/**
+ * Lays the reel's timed sound effects (sound_events) over the finished track,
+ * one at a time, each through the same limiter as the opening event. Runs
+ * before any video credits are spent, so a failed effect stops the run cheaply.
+ */
+async function addTimedSoundEvents(basePath: string, events: TimedSoundEvent[]): Promise<string> {
+  let current = basePath;
+  for (const [i, event] of events.entries()) {
+    let eventPath: string;
+    if (event.file) {
+      eventPath = resolve('.', event.file);
+      if (!existsSync(eventPath)) throw new Error(`sound_events[${i}].file not found: ${event.file}`);
+    } else {
+      try {
+        eventPath = await generateOpeningSoundEvent(event, join(TMP, `sound-event-${i}.mp3`));
+      } catch (err) {
+        throw new Error(`sound_events[${i}] generation failed: ${(err as Error).message}`);
+      }
+    }
+    const outPath = join(TMP, `voiceover-sfx-${i}.mp3`);
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y',
+      '-i', current,
+      '-i', eventPath,
+      '-filter_complex', buildOpeningEventMixFilter(event),
+      '-map', '[out]', '-ar', '44100', '-b:a', '192k', outPath,
+    ]);
+    console.log(`         sound event ${i + 1}: @${event.startSecs}s ${event.durationSecs}s ${event.gainDb} dB${event.note ? ` (${event.note})` : ''}`);
+    current = outPath;
+  }
+  return current;
 }
 
 // ── Step 1: ElevenLabs voiceover ──────────────────────────────────────────
@@ -542,7 +577,10 @@ async function generateVoiceover(): Promise<VoiceoverResult> {
   const withMusic = await mixMusicUnderVoice(voicePath, voiceDuration);
 
   // ── 1d: Opening sound event (opening_audio.sound_event), if the reel has one ──
-  const finalAudioSource = await addOpeningSoundEvent(withMusic, getConfig().plan.openingAudio);
+  const withOpening = await addOpeningSoundEvent(withMusic, getConfig().plan.openingAudio);
+
+  // ── 1e: Timed sound effects (sound_events), if the reel has any ──
+  const finalAudioSource = await addTimedSoundEvents(withOpening, getConfig().plan.soundEvents);
 
   // Normalise to the canonical output filename the rest of the pipeline expects.
   const audioPath = join(TMP, 'voiceover.mp3');
@@ -1226,7 +1264,9 @@ function writeSubtitleArtifacts(
 
   const style = parseSubtitleStyle(plan.subtitles, plan.finish.subtitleLayout);
   const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
-  writeFileSync(assPath, buildAssDocument(cues, style));
+  const title = plan.endTitle ? endTitleAss(plan.endTitle, style.fontName, style.playResX, style.playResY, plan.endTitle.startSecs + 60) : undefined;
+  writeFileSync(assPath, buildAssDocument(cues, style, title ? { styles: [title.style], events: [title.event] } : {}));
+  if (plan.endTitle) console.log(`  end title     : "${plan.endTitle.text}" from ${plan.endTitle.startSecs}s`);
   console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
 
   return { srtPath, assPath };
