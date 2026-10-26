@@ -1,4 +1,5 @@
 import { type SubtitleCue } from './subtitles.ts';
+import { READABLE_BLUR, READABLE_FONT_SIZE_PX, READABLE_MARGIN_V_PX, READABLE_OUTLINE_ALPHA, READABLE_OUTLINE_PX } from './caption-law.ts';
 import { SAFE_ZONE_FONT_SIZE_PX, SAFE_ZONE_MARGIN_V_PX, SAFE_ZONE_OUTLINE_PX, SAFE_ZONE_SHADOW_PX } from './finish.ts';
 
 /**
@@ -28,6 +29,11 @@ export interface AssSubtitleStyle {
   marginVPx: number;
   outlinePx: number;
   shadowPx: number;
+  /** Readable layout only: bold face, halo alpha, halo blur, captions drawn on layer 1 above scrims. */
+  bold?: boolean;
+  outlineAlpha?: string;
+  blur?: number;
+  layer?: number;
 }
 
 const DEFAULT_FONT = 'Cormorant Garamond';
@@ -69,7 +75,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 /** Builds an ASS style from a reel spec `subtitle_config` (or any unknown). */
-export function parseSubtitleStyle(config: unknown, layout: 'default' | 'safe_zone' = 'default'): AssSubtitleStyle {
+export function parseSubtitleStyle(config: unknown, layout: 'default' | 'safe_zone' | 'readable' = 'default'): AssSubtitleStyle {
   const record = isRecord(config) ? config : {};
   const rawFont = typeof record.font === 'string' ? record.font.trim() : '';
   // Commas would corrupt the ASS style line.
@@ -91,6 +97,18 @@ export function parseSubtitleStyle(config: unknown, layout: 'default' | 'safe_zo
     // safe_zone (finish profile): clear of the platform caption overlay, larger, outlined.
     ...(layout === 'safe_zone'
       ? { fontSizePx: SAFE_ZONE_FONT_SIZE_PX, marginVPx: SAFE_ZONE_MARGIN_V_PX, outlinePx: SAFE_ZONE_OUTLINE_PX, shadowPx: SAFE_ZONE_SHADOW_PX }
+      : {}),
+    ...(layout === 'readable'
+      ? {
+          fontSizePx: READABLE_FONT_SIZE_PX,
+          marginVPx: READABLE_MARGIN_V_PX,
+          outlinePx: READABLE_OUTLINE_PX,
+          shadowPx: 0,
+          bold: true,
+          outlineAlpha: READABLE_OUTLINE_ALPHA,
+          blur: READABLE_BLUR,
+          layer: 1,
+        }
       : {}),
   };
 }
@@ -154,7 +172,7 @@ export function buildAssDocument(
     '',
     '[V4+ Styles]',
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H96000000,&H96000000,0,0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
+    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H${style.outlineAlpha ?? '96'}000000,&H96000000,${style.bold ? -1 : 0},0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
     ...(extra.styles ?? []),
     '',
     '[Events]',
@@ -166,7 +184,8 @@ export function buildAssDocument(
       .split('\n')
       .map(line => applyWordColorOverrides(escapeAssText(line), style))
       .join('\\N');
-    return `Dialogue: 0,${formatAssTimestamp(cue.startSeconds)},${formatAssTimestamp(cue.endSeconds)},Reel,,0,0,0,,${text}`;
+    const lead = style.blur ? `{\\blur${style.blur}}` : '';
+    return `Dialogue: ${style.layer ?? 0},${formatAssTimestamp(cue.startSeconds)},${formatAssTimestamp(cue.endSeconds)},Reel,,0,0,0,,${lead}${text}`;
   });
 
   return [...header, ...events, ...(extra.events ?? []), ''].join('\n');

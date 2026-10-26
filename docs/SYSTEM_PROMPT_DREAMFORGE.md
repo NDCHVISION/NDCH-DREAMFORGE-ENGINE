@@ -537,6 +537,9 @@ irreversible deletes, financial transactions, changes to clinical-facing materia
 [ ] Universal Viewer Law: a stranger who knows nothing about the creator could say
     every line about their own life; no villain, no brand or creator named in
     narration, no launch/episode/follow framing; at least two entry points listed
+[ ] Caption law (CAPTIONS.md): caption text reaches 4.5:1 and accent words 3:1
+    against a 0.15-luminance background (no crimson, royal blue or deep gold words);
+    accent words never share a colour with what is behind them
 [ ] engine_version is "2.1.0"
 [ ] Runway model referenced as "gen4.5" everywhere
 [ ] Every v1 path present (voiceover.script.segments[].{text, visual_prompt,

@@ -4,6 +4,9 @@
  *   subtitle_layout  "safe_zone": captions sit at 28% from the bottom (clear of
  *                    the Shorts/Reels caption and username overlay), larger,
  *                    with an outline and soft shadow, at most 5 words a cue.
+ *                    "readable" is the caption law (lib/caption-law.ts, CAPTIONS.md):
+ *                    one size for every reel, bold with a dark halo, and a scrim
+ *                    behind any cue that lands on a bright background.
  *                    "default" keeps the old bottom placement.
  *   output           "1080x1920": the finished reel is scaled from the 720x1280
  *                    clips with Lanczos and a light sharpen before captions are
@@ -13,7 +16,7 @@
  *                    true peak -1 dBTP). Shorts/Reels play at about -14.
  */
 
-export type SubtitleLayout = 'default' | 'safe_zone';
+export type SubtitleLayout = 'default' | 'safe_zone' | 'readable';
 export type OutputResolution = 'native' | '1080x1920';
 
 export interface FinishProfile {
@@ -39,7 +42,9 @@ export function resolveFinish(raw: unknown): FinishProfile {
   const unknown = Object.keys(r).filter((k) => !KEYS.has(k));
   if (unknown.length) throw new Error(`finish: unknown key(s): ${unknown.join(', ')}`);
   const layout = r.subtitle_layout ?? 'default';
-  if (layout !== 'default' && layout !== 'safe_zone') throw new Error('finish.subtitle_layout must be "default" or "safe_zone"');
+  if (layout !== 'default' && layout !== 'safe_zone' && layout !== 'readable') {
+    throw new Error('finish.subtitle_layout must be "default", "safe_zone" or "readable"');
+  }
   const output = r.output ?? 'native';
   if (output !== 'native' && output !== '1080x1920') throw new Error('finish.output must be "native" or "1080x1920"');
   let loudnessLufs: number | undefined;

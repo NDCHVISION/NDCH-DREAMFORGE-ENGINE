@@ -378,3 +378,26 @@ test('express: opening rule binds from 033 (short first sentence, moving first f
   // Seeds written before the rule keep building.
   assertSeed(loadSeed('NDCH_031_PARALLAX.json'), 'parallax');
 });
+
+test('express: caption law (from 035) holds one readable style and refuses low-contrast caption colours', () => {
+  const seed = loadSeed('NDCH_035_PRESENCE.json');
+  const spec = buildReel(structuredClone(seed), TEMPLATE) as { finish: { subtitle_layout: string }; subtitle_config: Record<string, unknown> };
+  assert.equal(spec.finish.subtitle_layout, 'readable');
+  assert.equal(spec.subtitle_config.highlight, '#E9C46A');
+
+  const dark: ExpressSeed = structuredClone(seed);
+  dark.caption_colors = { highlight: '#E9C46A', peak: '#DC143C' };
+  assert.throws(() => assertSeed(dark, 'crimson'), /caption contrast: peak words #DC143C/);
+
+  const fromPalette: ExpressSeed = structuredClone(seed);
+  delete fromPalette.caption_colors;
+  assert.throws(() => assertSeed(fromPalette, 'old gold'), /highlight words #C6A94F/);
+
+  const otherLayout: ExpressSeed = structuredClone(seed);
+  otherLayout.finish = { subtitle_layout: 'safe_zone' };
+  assert.throws(() => assertSeed(otherLayout, 'layout'), /must be "readable"/);
+
+  // Reels before 035 keep their own finish.
+  const old = loadSeed('NDCH_034_RUN.json');
+  assert.doesNotThrow(() => assertSeed(old, 'run'));
+});
