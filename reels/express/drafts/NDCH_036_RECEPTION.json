@@ -1,0 +1,116 @@
+{
+  "reel_id": "NDCH_036_RECEPTION",
+  "posting_number": "030",
+  "episode_name": "RECEPTION",
+  "status": "draft: awaiting creative approval, stills review and motion-prompt review. Posts as episode 030. Move to reels/express/seeds/ to queue it for render.",
+  "title_hook": "Pressure gets answers. Not the person.",
+  "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
+  "theme": "Answers given under pressure are not trust freely given.",
+  "quote": "Pressure can get you answers. Only trust gets you the person.",
+  "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
+  "emotional_arc": "a familiar frustration -> a paradox you can see -> the tidy rooms are for visitors -> answers are not trust -> what kind of presence earns a door",
+  "music_mood": "cinematic",
+  "palette": {
+    "base": "#F5F2EB",
+    "accent": "#C6A94F",
+    "light": "#FFFFFF",
+    "peak": "#C6A94F"
+  },
+  "recurring_element": "one canonical doorway: a tall pale oak door with a small brass (#C6A94F) latch, set in a pale plaster wall; behind each doorway an identical tidy room of white plaster with one plain wooden chair, one empty white cup on a small table and one blank white framed picture",
+  "material": "Bone-white (#F5F2EB) plaster walls, pale oak doors, small brass (#C6A94F) latches, light oak floorboards. Flat, soft overcast morning daylight from tall windows on the left; no lamps, no warm glow, no dark rooms. Shadows are soft and grey.",
+  "opening_audio": {
+    "mode": "immediate",
+    "music_fade_in_seconds": 0.2,
+    "sound_event": {
+      "prompt": "Close-miked brass door latch lifting and a light oak door swinging open in a quiet bright house: crisp latch click, soft hinge, a breath of air, faint birdsong outside a window. Dry and realistic. No music, no impacts, no whooshes.",
+      "duration_seconds": 5,
+      "gain_db": -10,
+      "fade_out_seconds": 2
+    }
+  },
+  "primary_prompt": "A restrained photorealistic 9:16 film about a house that never lets its owner be found. One bright house of bone-white (#F5F2EB) plaster in soft overcast morning daylight: pale oak doors with small brass (#C6A94F) latches open onto identical tidy rooms, each with one wooden chair, one empty white cup and one blank white frame. The person who lives there is never shown; only a shadow or a moving curtain hints at them. The architecture stays legible and consistent. Slow, physically credible camera, real daylight. No faces, no figures, no darkness, no warm glow, no readable text, no lens flares.",
+  "segments": {
+    "hook": {
+      "text": "You asked again. They answered again. Somehow you know them less.",
+      "visual": "A door opening toward camera while the corridor behind it pulls away. Already swinging on the first frame: a tall pale oak door with a small brass (#C6A94F) latch opens toward the lens in a pale plaster wall, bright overcast daylight. Through the widening gap, a long white plaster corridor with another closed oak door at its far end. The camera pushes forward while the lens widens (dolly zoom), so the far door stretches farther away as this one opens. One dominant subject, clean bright contrast between the oak and the white walls, readable at phone size. One continuous shot. No people, no lettering, no lens flares."
+    },
+    "build": {
+      "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away.",
+      "visual": "A tidy room made for visitors, not for living. Slow forward track through a small bone-white (#F5F2EB) plaster room in soft daylight: one plain wooden chair, one empty white cup on a small table, one blank white framed picture, everything neat and untouched. In the far wall, another pale oak door with a brass (#C6A94F) latch stands slightly open onto more white wall. The camera keeps moving toward it at one steady pace. No people, no readable text, no clutter."
+    },
+    "pivot": {
+      "text": "Pressure can get you answers. Only trust gets you the person.",
+      "visual": "An overhead view of the same tidy room repeated, seen like a floor plan. Camera looking straight down and rising slowly upward through a ceiling-free cutaway of the house: a grid of identical white plaster rooms, each with one chair, one cup and one open oak door, repeating in every direction under even daylight. In one corner room, a single white curtain moves in a breeze; that room has no open door. The grid keeps its exact geometry. No people, no readable text."
+    },
+    "resolution": {
+      "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
+      "visual": "A closed door with someone moving behind it. Stable side view at waist height beside a closed pale oak door with a small brass (#C6A94F) latch in a bone-white (#F5F2EB) wall, soft daylight. In the gap under the door, a soft grey shadow passes once, slowly, as someone walks across the room beyond. The camera eases sideways a few centimetres and settles; it never approaches the door. The latch never moves. No people visible, no readable text."
+    },
+    "mobius_close": {
+      "text": "Because the next time you ask...",
+      "visual": "The first door again, about to open. The camera drifts slowly back to square up on the same tall pale oak door with its brass (#C6A94F) latch in the pale plaster wall, front-on in overcast daylight, matching the opening framing. The latch lifts and the door begins to swing toward the lens on the final frame, the long white corridor behind it, so the loop runs straight into the opening. No people, no lettering."
+    }
+  },
+  "transitions": [
+    {
+      "from": "hook",
+      "to": "build",
+      "strategy": "Push-dissolve",
+      "how": "Accelerate the push through the open doorway in the last 0.6 s of clip 1 and dissolve into the tidy room already tracking forward."
+    },
+    {
+      "from": "build",
+      "to": "pivot",
+      "strategy": "Hard cut on a beat",
+      "how": "Cut exactly on the first syllable of 'Pressure' from the ground-level track to the overhead grid; the jump in point of view is the point."
+    },
+    {
+      "from": "pivot",
+      "to": "resolution",
+      "strategy": "Shadow sweep",
+      "how": "A soft cloud shadow crosses the grid of rooms at the end of clip 3 and lifts off the closed door in clip 4; the brass latch catches the returning daylight."
+    },
+    {
+      "from": "resolution",
+      "to": "mobius_close",
+      "strategy": "Push-dissolve",
+      "how": "In the last 0.5 s of clip 4 the camera eases toward the latch and dissolves onto the first door's latch, already lifting."
+    },
+    {
+      "from": "mobius_close",
+      "to": "hook (loop)",
+      "strategy": "Shape match",
+      "how": "Clip 5 ends on clip 1's opening door framing as it starts to swing, so the loop has no fade."
+    }
+  ],
+  "distinct_from": {
+    "reel": "NDCH_035_PRESENCE (posting 029)",
+    "how": "PRESENCE is about seeing someone daily and misreading them, shown with a face, a figure, a dark stone hall and a revealed warm interior. RECEPTION is about pushing for answers and getting a front room, shown in a bright daylight house with no people at all, and the hidden life is never revealed. No shared imagery (no faces, black stone, gold light or interior reveal), no shared vocabulary ('access', 'presence', 'inside', 'behind'), and different transitions."
+  },
+  "universal_viewer_check": {
+    "test": "Could someone who knows nothing about the creator say every line about their own life?",
+    "entry_points": [
+      "The parent of a teenager who gets answers but not the kid.",
+      "The partner who keeps checking in and keeps hearing 'I'm fine'.",
+      "The person who answers every question and offers nothing, and recognises the tidy room as their own."
+    ],
+    "changes_for_this_law": "No controller or villain is addressed; 'you' is anyone who has pushed to know someone. No I, me or my. The close is a principle ('Be someone a closed door is safe around'), not a verdict on a person."
+  },
+  "highlight_words": [
+    "door",
+    "answers",
+    "trust"
+  ],
+  "peak_words": [
+    "trust"
+  ],
+  "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nBe someone a closed door is safe around.",
+  "hashtags": [
+    "#NDCH",
+    "#NVSSeries",
+    "#Boundaries",
+    "#Trust",
+    "#Relationships",
+    "#Patience"
+  ]
+}
