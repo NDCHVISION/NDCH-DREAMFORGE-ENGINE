@@ -22,6 +22,7 @@
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
+import { resolveTransitions, type TransitionSpec } from '../lib/transitions.ts';
 import {
   readFileSync,
   writeFileSync,
@@ -140,6 +141,9 @@ export interface ExpressSeed {
   opening_audio?: OpeningAudioConfig;
   /** 'anchored' = each section's narration starts at its window; clips are conformed to their slots. */
   narration_timing?: NarrationTiming;
+  /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
+   * (A seed's free-form `transitions` plan, if any, stays documentation and is not read.) */
+  clip_transitions?: TransitionSpec[];
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
   voice?: { voice_id?: string; stability?: number; speed?: number };
 }
@@ -252,6 +256,12 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   assertOpening(seed, source);
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
   resolveNarrationTiming(seed.narration_timing);
+  if (seed.clip_transitions !== undefined) {
+    resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
+    if (seed.narration_timing !== 'anchored') {
+      throw new Error(`${source}: clip_transitions need narration_timing "anchored"`);
+    }
+  }
 }
 
 export function buildReel(seed: ExpressSeed, template: Json): Json {
@@ -393,6 +403,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.opening_audio;
   if (seed.narration_timing) spec.narration_timing = seed.narration_timing;
   else delete spec.narration_timing;
+  if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);
+  else delete spec.clip_transitions;
   spec.music_config = {
     description: musicDescription(seed),
     // Informational. Older seeds keep the value they were built with.

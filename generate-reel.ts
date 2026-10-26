@@ -88,6 +88,7 @@ import {
 } from './lib/opening-audio.ts';
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter } from './lib/segment-anchor.ts';
+import { resolveTransitions, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import {
   getRunwayPollDelayMs,
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
@@ -827,25 +828,43 @@ async function generateVideo(
     return { videoPath: '', sceneTimeline, selectionOnly: true };
   }
 
-  // narration_timing "anchored": every clip fills exactly its section window.
-  const finalClipPaths = plan.narrationTiming === 'anchored'
-    ? clipPaths.map((clipPath, idx) => {
-        const scene = scenePlan[idx];
-        const slot = scene.timestampStartSeconds !== undefined && scene.timestampEndSeconds !== undefined
-          ? scene.timestampEndSeconds - scene.timestampStartSeconds
-          : scene.clipDuration;
-        const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
-        execFileSync('ffmpeg', [
-          '-v', 'error', '-y', '-i', clipPath, '-an',
-          '-vf', conformClipFilter(getMediaDuration(clipPath), slot),
-          '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out,
-        ]);
-        console.log(`         clip ${idx + 1}: conformed to its ${slot}s window (was ${getMediaDuration(clipPath).toFixed(2)}s)`);
-        return out;
-      })
-    : clipPaths;
-
-  const stitchedPath = stitchVideoClips(finalClipPaths);
+  // narration_timing "anchored": every clip fills exactly its section window,
+  // plus half of any dissolve it shares with a neighbour (lib/transitions.ts).
+  let stitchedPath: string;
+  if (plan.narrationTiming === 'anchored') {
+    const windows = scenePlan.map((scene) =>
+      scene.timestampStartSeconds !== undefined && scene.timestampEndSeconds !== undefined
+        ? scene.timestampEndSeconds - scene.timestampStartSeconds
+        : scene.clipDuration,
+    );
+    const boundary = resolveTransitions(plan.transitions, scenePlan.length);
+    const lengths = clipLengthsWithTransitions(windows, boundary);
+    const conformed = clipPaths.map((clipPath, idx) => {
+      const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
+      const src = getMediaDuration(clipPath);
+      execFileSync('ffmpeg', [
+        '-v', 'error', '-y', '-i', clipPath, '-an',
+        '-vf', conformClipFilter(src, lengths[idx]),
+        '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out,
+      ]);
+      console.log(`         clip ${idx + 1}: conformed to ${lengths[idx]}s (window ${windows[idx]}s, was ${src.toFixed(2)}s)`);
+      return out;
+    });
+    if (boundary.some((d) => d > 0)) {
+      stitchedPath = join(TMP, 'stitched-transitions.mp4');
+      execFileSync('ffmpeg', [
+        '-v', 'error', '-y',
+        ...conformed.flatMap((p) => ['-i', p]),
+        '-filter_complex', buildTransitionGraph(lengths, boundary),
+        '-map', '[vout]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', stitchedPath,
+      ]);
+      console.log(`         transitions: ${boundary.map((d, i) => `${i + 1}→${i + 2} ${d > 0 ? `dissolve ${d}s` : 'cut'}`).join(', ')}`);
+    } else {
+      stitchedPath = stitchVideoClips(conformed);
+    }
+  } else {
+    stitchedPath = stitchVideoClips(clipPaths);
+  }
   const stitchedDuration = getMediaDuration(stitchedPath);
   console.log(`         stitched duration: ${stitchedDuration.toFixed(1)}s`);
   return { videoPath: stitchedPath, sceneTimeline };

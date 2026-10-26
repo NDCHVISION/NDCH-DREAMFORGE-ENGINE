@@ -122,10 +122,20 @@ export function buildAnchorFilter(plan: AnchorPlan): string {
   );
 }
 
-/** ffmpeg -vf chain that makes a clip exactly `slotSecs` long (pads by holding motion's last frame only as a last resort). */
+/** Shortfall up to this ratio is absorbed by slowing the clip slightly (invisible), not by holding a frame. */
+export const CONFORM_MAX_STRETCH = 1.1;
+
+/**
+ * ffmpeg -vf chain that makes a clip exactly `slotSecs` long. A small
+ * shortfall is absorbed by slowing the clip a few percent; a frame is held
+ * only for a larger one. Longer clips are trimmed.
+ */
 export function conformClipFilter(clipSecs: number, slotSecs: number, fps = 24): string {
-  const pad = Math.max(0, slotSecs - clipSecs);
+  const ratio = clipSecs > 0 ? slotSecs / clipSecs : 1;
+  const stretch = ratio > 1 && ratio <= CONFORM_MAX_STRETCH ? ratio : 1;
+  const pad = Math.max(0, slotSecs - clipSecs * stretch);
   return [
+    ...(stretch > 1 ? [`setpts=${round3(stretch)}*PTS`] : []),
     `fps=${fps}`,
     'scale=720:1280:force_original_aspect_ratio=increase',
     'crop=720:1280',

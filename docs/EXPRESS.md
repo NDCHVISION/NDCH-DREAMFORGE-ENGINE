@@ -110,6 +110,27 @@ sound event, so nothing is forced to open loud.
 - The same fade-in and start settings apply to the Suno mix (`analyze-reel-music.ts`).
 - What code cannot judge: whether the event sounds right and sits well under the voice. Listen.
 
+### Narration timing and transitions
+
+`"narration_timing": "anchored"` keeps one natural ElevenLabs read but starts each section's
+narration at its window (0 / 6 / 20 / 29 / 38 s, plus 0.15 s), using the word timings; subtitles
+shift with their words. Clips are conformed to their windows (trimmed when long, slowed up to
+10% when slightly short, a held frame only for a bigger gap), so line and picture stay together.
+Without it, a short script finishes early and lines play over the wrong shot.
+
+`"clip_transitions"` (needs anchored timing) sets each boundary, following TRANSITIONS.md:
+
+```json
+"clip_transitions": [
+  { "after_clip": 1, "type": "dissolve", "seconds": 0.6, "note": "shape match" },
+  { "after_clip": 2, "type": "cut", "note": "hard cut on the beat" }
+]
+```
+
+A dissolve of d seconds borrows d/2 from each clip, so boundaries and the 45 s length hold.
+Unlisted boundaries are cuts. Light match, shape match and push-dissolve are dissolves whose
+effect comes from framing; say which in `note`.
+
 ### Not in this version (possible later work)
 
 - **Sub-second cuts inside the hook.** Each section gets one generated clip today, so the
