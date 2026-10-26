@@ -22,7 +22,7 @@
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
-import { resolveTransitions, type TransitionSpec } from '../lib/transitions.ts';
+import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
 import { resolveEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
@@ -69,6 +69,8 @@ const WORD_RANGE = { min: 70, max: 105 };
  */
 /** Loop law: the music bed crosses the loop point from this reel number on (LOOPING.md). */
 const LOOP_RULE_FROM = 35;
+/** Transition coherence rule applies from this reel number on (035 PRESENCE posts as 029). */
+const TRANSITION_RULE_FROM = 35;
 const OPENING_RULE_FROM = 33; // 033 BEARING posts first (027), then 034 RUN (028)
 const OPENING_MAX_WORDS = 8;
 const STATIC_OPENING = /\b(locked|static|near-static|establishing)\b/i;
@@ -277,6 +279,11 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
       throw new Error(`${source}: clip_transitions need narration_timing "anchored"`);
+    }
+    // Coherent, varied transitions (TRANSITIONS.md), from 035 PRESENCE on.
+    if (reelNumber(seed.reel_id) >= TRANSITION_RULE_FROM) {
+      const problems = transitionVarietyProblems(seed.clip_transitions);
+      if (problems.length) throw new Error(`${source}: ${problems.join('; ')}`);
     }
   }
 }

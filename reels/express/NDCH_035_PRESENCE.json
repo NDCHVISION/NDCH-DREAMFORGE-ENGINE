@@ -423,26 +423,26 @@
     {
       "after_clip": 1,
       "type": "dissolve",
-      "seconds": 0.6,
-      "note": "shape match: her face becomes the same face on the porcelain shell"
+      "seconds": 0.8,
+      "note": "push-dissolve: a slow push on her face dissolves into the same face on the shell"
     },
     {
       "after_clip": 2,
-      "type": "dissolve",
-      "seconds": 0.6,
-      "note": "light match: the warm glow inside the shell carries into the hall shot"
+      "type": "slide_left",
+      "seconds": 0.7,
+      "note": "the surface slides out left, the way the shell leaves the hall shot"
     },
     {
       "after_clip": 3,
-      "type": "dissolve",
-      "seconds": 0.8,
-      "note": "flare through: the warm light at the end of the hall opens into the library"
+      "type": "iris_open",
+      "seconds": 0.9,
+      "note": "the light at the end of the hall opens into her world"
     },
     {
       "after_clip": 4,
-      "type": "dissolve",
-      "seconds": 0.5,
-      "note": "near-black dip feel: change of place back to her face, which loops into the opening"
+      "type": "iris_close",
+      "seconds": 0.7,
+      "note": "her world closes like an aperture back onto the familiar face, mirroring the iris that opened it"
     }
   ]
 }
