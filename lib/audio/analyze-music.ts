@@ -14,6 +14,7 @@
 
 import { execSync } from 'node:child_process';
 import { statSync } from 'node:fs';
+import { computeFitFrames, scoreVoiceFit, type VoiceFitScore, type VoiceSpan } from './voice-fit.ts';
 import { basename } from 'node:path';
 
 import type {
@@ -550,9 +551,13 @@ export function findTopWindows(
   trackFeatures: { brightness_ratio: number; low_energy_weight: number; onset_density_per_second: number; mean_volume_db: number | null; true_peak_dbfs: number | null },
   n = 5,
   strideSeconds = 1.0,
+  fit?: (startSecs: number) => VoiceFitScore | undefined,
 ): CandidateWindow[] {
   const windowLen = Math.floor(reelSpec.duration_seconds);
-  const maxStart = profile.length - windowLen;
+  // A seamless loop (LOOPING.md) lays the music's continuation past the window end over the
+  // reel's first seconds, so the window must stop short of the track's own ending.
+  const loopTail = reelSpec.loop_audio === 'seamless' ? 3 : 0;
+  const maxStart = profile.length - windowLen - loopTail;
   if (maxStart < 0) return [];
 
   const scored: Array<{ start: number; score: number; breakdown: WindowScoreBreakdown; snapshot: CandidateWindow['feature_snapshot'] }> = [];
@@ -560,7 +565,19 @@ export function findTopWindows(
 
   for (let s = 0; s <= maxStart; s += stride) {
     const { totalScore, breakdown, snapshot } = scoreWindow(profile, s, reelSpec, trackFeatures);
-    scored.push({ start: s, score: totalScore, breakdown, snapshot });
+    const vf = fit?.(s);
+    if (vf) {
+      breakdown.voice_fit = {
+        score: vf.score,
+        details: [
+          `MEASURED speech-band share under words=${vf.clash.toFixed(2)}, jumps on words=${vf.spikes}`,
+          `MEASURED level spread=${vf.steadyDb.toFixed(1)}dB, loop shape=${vf.loopSimilarity.toFixed(2)}, loop jump=${vf.loopJumpDb.toFixed(1)}dB`,
+        ],
+      };
+    }
+    // With the real narration known, voice fit carries half the score: on takes from one
+    // prompt the structural scores all land near 1.0 and cannot rank them.
+    scored.push({ start: s, score: vf ? 0.5 * totalScore + 0.5 * vf.score : totalScore, breakdown, snapshot });
   }
 
   scored.sort((a, b) => b.score - a.score);
@@ -580,6 +597,9 @@ export function findTopWindows(
     if (entry.breakdown.mobius.score < 0.3) risks.push('Möbius seam unclear — loop cut may be audible');
     if (entry.breakdown.headroom.score < 0.3) risks.push('Limited headroom — true peak risk');
     if (entry.snapshot.hook_mean_rms_db > -15) risks.push('Hook energy very high — HUMAN REVIEW: may mask VO');
+    const vfit = entry.breakdown.voice_fit;
+    if (vfit && vfit.score > 0.6) strengths.push('Sits under the narration: clear speech band, steady, loops cleanly');
+    if (vfit && vfit.score < 0.45) risks.push('Competes with the narration or changes colour at the loop — listen with the voice');
 
     const confidence = Math.min(
       1,
@@ -607,6 +627,7 @@ export async function analyzeTrack(
   filePath: string,
   reelSpec: ReelMusicSpec,
   strideSeconds = 1.0,
+  voiceSpans?: VoiceSpan[],
 ): Promise<TrackAnalysis> {
   const start = Date.now();
   const notes: string[] = [];
@@ -650,7 +671,13 @@ export async function analyzeTrack(
   };
 
   console.log(`    scoring windows (stride=${strideSeconds}s)…`);
-  const candidateWindows = findTopWindows(profile, reelSpec, trackFeaturesForScoring, 5, strideSeconds);
+  let fit: ((startSecs: number) => VoiceFitScore | undefined) | undefined;
+  if (voiceSpans && voiceSpans.length) {
+    console.log(`    voice fit (${voiceSpans.length} spoken spans)…`);
+    const frames = computeFitFrames(filePath);
+    fit = (s) => scoreVoiceFit(frames, s, reelSpec.duration_seconds, voiceSpans);
+  }
+  const candidateWindows = findTopWindows(profile, reelSpec, trackFeaturesForScoring, 5, strideSeconds, fit);
 
   return {
     schema_version: '1.0',

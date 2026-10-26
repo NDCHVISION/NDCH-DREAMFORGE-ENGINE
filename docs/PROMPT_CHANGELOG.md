@@ -2,6 +2,14 @@
 
 ---
 
+## 2026-10-26 — Music voice fit + clean narration asset
+
+**From 029 PRESENCE music choice:** the music scorer gave all 7 Suno takes 0.99-1.00, so it could not rank them.
+
+- `lib/audio/voice-fit.ts`: scores each window against the real narration (speech-band share under words, jumps on words, steadiness, loop likeness); half the total score when a narration track is given. Windows stop 3 s short of a track's end for seamless loops. The CLI fits the window to the rendered length (end rule).
+- `generate-reel.ts` keeps the clean narration; the express workflow uploads `<ID>_narration.mp3` to the release and passes it to music intelligence (`--narration`).
+- On the 029 takes the spread is now 0.73-0.81 instead of 0.99-1.00.
+
 ## 2026-10-26 — End rule: a beat after the last word
 
 **Rule (creator directive, from 029 review "end is a bit long"):** reels end 2.5 s after the last spoken word, not at a fixed 45 s.

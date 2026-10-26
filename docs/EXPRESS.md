@@ -25,6 +25,18 @@ step used on 016. Keep 6–12 tracks there and swap them out now and then so ree
 Mix in a few electronica tracks for variety. With the library empty, the reel gets
 ElevenLabs ambience instead (`music: ambient`), or no music (`music: none`).
 
+**How tracks are ranked.** Each window is scored on its shape (quiet hook, build, pivot, seam)
+and, since October 2026, on **voice fit** against the reel's own narration (`lib/audio/voice-fit.ts`):
+how much of the music sits in the speech band while words are spoken, level jumps that land on
+words, how steady it is, and how alike its last and first seconds are. Voice fit carries half the
+score; on takes from one Suno prompt the shape scores all land near 1.0 and cannot rank them.
+Windows stop 3 s short of a track's end so a seamless loop has music to carry across.
+
+**Clean narration.** Every render uploads `<REEL_ID>_narration.mp3` (the voice alone, no music or
+effects) to the reel's release, so the music can be changed later without re-recording. To
+re-score tracks for a finished reel by hand:
+`npx tsx scripts/analyze-reel-music.ts --reel reels/express/<ID>.json --video <final.mp4> --narration <ID>_narration.mp3 --dry-run --music a.wav --music b.wav …`
+
 ## Write a new seed
 
 Copy any file in `reels/express/seeds/`, rename it (`NDCH_0NN_NAME.json`), and edit the words.
