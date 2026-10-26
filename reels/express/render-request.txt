@@ -1,6 +1,6 @@
-reels/express/seeds/NDCH_032_INVENTORY.json
+reels/express/seeds/NDCH_033_BEARING.json
 none
-inventory-v2-i2v-5s
+bearing-v1
+
 
 1
-
