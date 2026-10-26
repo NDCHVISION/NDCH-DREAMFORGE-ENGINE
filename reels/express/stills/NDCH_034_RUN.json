@@ -6,7 +6,13 @@
     {
       "clip": 5,
       "variants": 2,
-      "prompt": "Low-key interior: a near-black stone workshop with almost no ambient light. On a worn charcoal stone workbench, one complete small single-cylinder horizontal mill engine seen in side profile: brass cylinder at the left end, crosshead and connecting rod in the middle, and at the right end a black iron flywheel with exactly six straight spokes mounted on the crankshaft, part of the same machine. Aged-gold (#C6A94F) brass dulled at the edges with faint fingerprints and a thin oil sheen, on a black iron bed. One cool bone-white (#F5F2EB) light rakes from high left and draws a bright edge along the flywheel rim; everything else falls off into black. Empty bench space to the right of the engine. No lamps in frame, no windows, no people, no lettering. Restrained, photorealistic, natural film grain."
+      "references": [
+        {
+          "tag": "pair",
+          "path": "reels/express/stills/refs/NDCH_034_pair.jpg"
+        }
+      ],
+      "prompt": "Re-photograph the scene in @pair as one real photograph, same layout: two identical small single-cylinder horizontal mill engines side by side on a worn charcoal stone workbench in a near-black stone workshop. Each has a brass cylinder at the left, a crosshead and connecting rod driving a crank, and a black iron flywheel with exactly six straight spokes mounted on the crankshaft at the right; the mechanism is complete and plausible, nothing passes through the flywheel. The left engine is the worn original: aged-gold (#C6A94F) brass, black iron, fingerprints and a thin oil sheen. The right engine is the same engine cast in solid dark bronze, one uniform dull-brown metal, every joint fused. One cool bone-white (#F5F2EB) light rakes from high left, real contact shadows on the bench, everything else falls into black. No lamps, no windows, no people, no lettering. Photorealistic, natural film grain."
     }
   ]
 }
