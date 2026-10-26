@@ -4,4 +4,4 @@ bearing-v2
 
 1
 
-BEARING v2 final render from presets (no Runway calls)
+BEARING v2 final: snap picture synced to the sound on breaks (no Runway calls)
