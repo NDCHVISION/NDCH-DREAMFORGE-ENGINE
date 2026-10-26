@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-run-v1
+bearing-v2
 
+1
 
-
-RUN full render: clips 2-4 generated (gen4.5), clips 1 and 5 from presets, final assembly
+BEARING v2 final render from presets (no Runway calls)
