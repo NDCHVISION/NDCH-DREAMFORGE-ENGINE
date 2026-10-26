@@ -1,7 +1,7 @@
 reels/express/seeds/NDCH_033_BEARING.json
 auto
 bearing-v2
-2,3,4
+3,4
 
-2,3,4
-BEARING v2: clips 2-4 only (~360 credits), review before the full render
+3,4
+BEARING v2: clips 3 (10s) and 4 (5s) only, 180 credits (balance 216); clip 2 built from its still
