@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-reception-v1
-4
+bearing-v2
 
-4
-RECEPTION (030) clip 4 retry: 5 s, dim the light under the door only, door never opens
+1
+
+BEARING v2: 35s timing, one clip per section (no Runway calls)

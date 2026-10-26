@@ -818,6 +818,7 @@ async function generateVideo(
 
   const scenePlan = planNarrationScenes(plan.script, plan.prompt, audioDurationSecs, {
     targetDurationSecs: plan.targetDurationSeconds,
+    ...(plan.narrationTiming === 'anchored' ? { clipCount: plan.narrationSegments.length } : {}),
     narrationSegments: plan.narrationSegments,
     character: plan.character,
     material: plan.material,

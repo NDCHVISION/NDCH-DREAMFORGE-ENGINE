@@ -11,7 +11,7 @@ import {
 } from './scripts/express-build.ts';
 import { validateCompiledReel } from './reel-validation.ts';
 import { resolveProductionPlan } from './reel-plan.ts';
-import { planNarrationScenes } from './lib/scene-planning.ts';
+import { planNarrationScenes, fitClipCount } from './lib/scene-planning.ts';
 
 const TEMPLATE = JSON.parse(
   readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'),
@@ -404,17 +404,17 @@ test('express: caption law (from 035) holds one readable style and refuses low-c
 
 test('express: section_boundaries set the windows, the length and the music timing', () => {
   const seed = loadSeed('NDCH_033_BEARING.json');
-  assert.deepEqual(seed.section_boundaries, [0, 5, 12, 19, 28, 34]);
+  assert.deepEqual(seed.section_boundaries, [0, 5, 13, 20, 29, 35]);
   const spec = buildReel(seed, JSON.parse(readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'))) as {
     voiceover: { script: { segments: { timestamp_start: string; timestamp_end: string }[] } };
     format: { target_duration_seconds: number };
     music_config: { fade_out_end_seconds: number; description: string };
   };
   const segs = spec.voiceover.script.segments;
-  assert.deepEqual(segs.map((s) => [s.timestamp_start, s.timestamp_end]), [['0:00', '0:05'], ['0:05', '0:12'], ['0:12', '0:19'], ['0:19', '0:28'], ['0:28', '0:34']]);
-  assert.equal(spec.format.target_duration_seconds, 34);
-  assert.equal(spec.music_config.fade_out_end_seconds, 34);
-  assert.match(spec.music_config.description, /at the 12s pivot/);
+  assert.deepEqual(segs.map((s) => [s.timestamp_start, s.timestamp_end]), [['0:00', '0:05'], ['0:05', '0:13'], ['0:13', '0:20'], ['0:20', '0:29'], ['0:29', '0:35']]);
+  assert.equal(spec.format.target_duration_seconds, 35);
+  assert.equal(spec.music_config.fade_out_end_seconds, 35);
+  assert.match(spec.music_config.description, /at the 13s pivot/);
   const bad = (b: unknown, re: RegExp) => assert.throws(() => assertSeed({ ...structuredClone(seed), section_boundaries: b as number[] }, 'x'), re);
   bad([0, 5, 12, 19, 28], /6 whole seconds/);
   bad([0, 5, 12.5, 19, 28, 34], /whole seconds/);
@@ -438,4 +438,21 @@ test('express: end rule (from 036) ends anchored reels 2.5 s after the last word
   assert.doesNotThrow(() => assertSeed({ ...structuredClone(own), end_tail_secs: 3 }, 'tail'));
   assert.throws(() => assertSeed({ ...structuredClone(own), end_tail_secs: 0.1 }, 'tail'), /end_tail_secs/);
   assert.throws(() => assertSeed({ ...structuredClone(own), narration_timing: undefined, clip_transitions: undefined, end_tail_secs: 2 }, 'tail'), /needs narration_timing/);
+});
+
+test('anchored: a short reel still plans one clip per section, on its own windows', () => {
+  assert.deepEqual(fitClipCount([10, 10, 10, 5], 5), [10, 10, 10, 5, 5]);
+  assert.deepEqual(fitClipCount([10, 10, 10, 10, 10, 5], 5), [10, 10, 10, 10, 10]);
+  assert.deepEqual(fitClipCount([10, 10, 10, 10, 5]), [10, 10, 10, 10, 5]);
+  const plan = resolveProductionPlan(
+    { REEL_SPEC_PATH: join('reels', 'express', 'NDCH_033_BEARING.json') },
+    { defaultVoiceId: 'v', defaultModelId: 'm' },
+  );
+  const scenes = planNarrationScenes(plan.script, plan.prompt, 35, {
+    targetDurationSecs: plan.targetDurationSeconds,
+    narrationSegments: plan.narrationSegments,
+    clipCount: plan.narrationSegments.length,
+  });
+  assert.equal(scenes.length, 5);
+  assert.deepEqual(scenes.map((s) => [s.timestampStartSeconds, s.timestampEndSeconds]), [[0, 5], [5, 13], [13, 20], [20, 29], [29, 35]]);
 });
