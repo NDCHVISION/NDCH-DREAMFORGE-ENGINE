@@ -68,5 +68,31 @@
     "#Discipline",
     "#SelfMastery",
     "#Run"
+  ],
+  "narration_timing": "anchored",
+  "clip_transitions": [
+    {
+      "after_clip": 1,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "push-dissolve: the still bronze copy becomes the nearest copy in the row"
+    },
+    {
+      "after_clip": 2,
+      "type": "dissolve",
+      "seconds": 0.6,
+      "note": "shape match: the far original's turning flywheel becomes the macro flywheel"
+    },
+    {
+      "after_clip": 3,
+      "type": "cut",
+      "note": "hard cut on the beat: lands on 'Run your mind'"
+    },
+    {
+      "after_clip": 4,
+      "type": "dissolve",
+      "seconds": 0.8,
+      "note": "light match: the oil can's brass glint into the original's brass"
+    }
   ]
 }

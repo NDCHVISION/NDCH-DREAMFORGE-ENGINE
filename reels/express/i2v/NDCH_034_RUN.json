@@ -1,0 +1,35 @@
+{
+  "reel_id": "NDCH_034_RUN",
+  "clips": {
+    "1": {
+      "image": "reels/express/stills/approved/NDCH_034_clip01.jpg",
+      "model": "gen4.5",
+      "prompt": "Opens already moving: the black iron five-spoke flywheel turns clockwise at one steady speed, the brass crank and rod moving with it. One short, smooth camera move to the right and slightly back reveals beside it an identical engine cast in solid dark bronze whose flywheel is completely still; the move settles with both engines side by side. The bronze engine never moves. The flywheel keeps five spokes and the same shape. No new light, no people.",
+      "duration": 5
+    },
+    "2": {
+      "image": "reels/express/stills/approved/NDCH_034_clip02.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow, steady lateral camera track along the row of bronze copies toward the far end. The bronze copies stay completely still; no part of them moves. At the far end the worn original's flywheel turns clockwise at one steady speed. The engines keep their shapes. No new light, no people.",
+      "duration": 10
+    },
+    "3": {
+      "image": "reels/express/stills/approved/NDCH_034_clip03.jpg",
+      "model": "gen4.5",
+      "prompt": "Very slow push-in. The flywheel turns clockwise at one steady speed and the brass rod moves with the crank; the bead of oil on the brass catches the light as it moves. The flywheel keeps five spokes and every part stays connected. No new light, no people.",
+      "duration": 10
+    },
+    "4": {
+      "image": "reels/express/stills/approved/NDCH_034_clip04.jpg",
+      "model": "gen4.5",
+      "prompt": "Locked camera. The hands tilt the brass oil can slowly; a drop of oil forms at the tip of the spout and falls. Behind them the engine's flywheel turns clockwise at one steady speed. The unfinished flywheel casting on the bench stays still. Two hands only, fingers keep their shape. No new light.",
+      "duration": 10
+    },
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_034_clip05.jpg",
+      "model": "gen4.5",
+      "prompt": "The worn original's flywheel turns clockwise at one steady speed; the bronze copy beside it stays completely still. The camera eases slowly left and in toward the original's flywheel until it fills the frame. The engines keep their shapes. No new light, no people.",
+      "duration": 5
+    }
+  }
+}
