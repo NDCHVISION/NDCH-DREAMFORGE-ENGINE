@@ -89,11 +89,12 @@
       "5": "From the approved clip 1 still: very slow camera move to the left that eases to a stop on the opening framing. She blinks once; her expression stays composed. The background stays dark. No new people."
     },
     "approved": {
-      "clip1": "pending round C (recast: mid-twenties, mixed heritage, curly hair)",
+      "clip1": "reels/express/stills/approved/NDCH_035_clip01.jpg (round C2 v2)",
       "clip4": "reels/express/stills/approved/NDCH_035_clip04.jpg (round C v2)",
       "refs": [
         "reels/express/stills/refs/NDCH_035_hall.jpg (round A clip 3 v2, hall plate)",
-        "reels/express/stills/refs/NDCH_035_room.jpg (round B clip 4 v2)"
+        "reels/express/stills/refs/NDCH_035_room.jpg (round B clip 4 v2)",
+        "reels/express/stills/refs/NDCH_035_face.jpg (clip 1 face crop)"
       ]
     }
   },
