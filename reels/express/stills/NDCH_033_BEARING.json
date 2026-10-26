@@ -21,45 +21,33 @@
     {
       "clip": 3,
       "variants": 2,
-      "prompt": "Lower and closer on the tabletop of @master, framed like @shot: the fine gold chain is pulled taut in one straight line across the table, entering at the left edge of the frame and leaving at the right edge, crossing directly over the deep crack in the centre. The one link above the crack is stretched and partly opened, about to give. The brass lantern hangs above, its light falling on that link. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
+      "prompt": "Close, low view across the dark stone tabletop of @master, the deep crack running away from the camera down the middle of the table. One single fine gold chain is stretched tight in a perfectly straight horizontal line across the frame, from the left edge to the right edge, passing over the crack. It is one chain, not crossed, not knotted, not coiled. Directly above the crack one link is pulled open into a gap, about to give. The brass lantern hangs above, its light on that link. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
       "references": [
         {
           "tag": "master",
           "path": "reels/express/stills/refs/NDCH_033_master.jpg"
-        },
-        {
-          "tag": "shot",
-          "path": "reels/express/stills/approved/NDCH_033_clip03.jpg"
         }
       ]
     },
     {
       "clip": 4,
       "variants": 2,
-      "prompt": "Close on the dark stone tabletop of @master, framed like @shot: the fine gold chain lies broken in two on bare stone, one loose broken end resting near the crack. A man's hand with deep brown skin, in a plain charcoal sleeve, reaches in from the right and rests beside the loose end, not yet touching it. One hand only, natural proportions, five fingers. No face, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
+      "prompt": "Close on the dark stone tabletop of @master: a short broken length of fine gold chain lies slack on bare stone, its broken end near the deep crack. The dark brown hand of a Black man, deep brown skin, in a plain charcoal sleeve, reaches in from the right edge and rests flat on the stone beside the broken end, not yet touching it. One hand only, natural proportions, five fingers. No face, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
       "references": [
         {
           "tag": "master",
           "path": "reels/express/stills/refs/NDCH_033_master.jpg"
-        },
-        {
-          "tag": "shot",
-          "path": "reels/express/stills/approved/NDCH_033_clip04.jpg"
         }
       ]
     },
     {
       "clip": 5,
       "variants": 2,
-      "prompt": "Low wide view from the near end of the stone table in @master, framed like @shot: the broken gold chain lies in two lengths on the bare dark stone, one on each side of the deep crack, with a clear gap between the two broken ends. The longer length runs straight along the table toward the arched doorway at the far end, which opens onto darkness. The lantern hangs still above. Clean stone with nothing else on the table. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
+      "prompt": "Low wide view from the near end of the stone table in @master, the lantern hanging above the far end before the arched doorway. On the bare dark stone lie two separate pieces of fine gold chain with a clear gap between their broken ends: a short piece left of the crack, and a long piece right of the crack running straight along the table toward the doorway. The crack is a single clean line. Nothing else on the table. No people, no hands, no lettering. Near-black charcoal stone, one warm light from the brass lantern above, strong gold-on-black contrast readable at phone size. Restrained, photorealistic, natural film grain.",
       "references": [
         {
           "tag": "master",
           "path": "reels/express/stills/refs/NDCH_033_master.jpg"
-        },
-        {
-          "tag": "shot",
-          "path": "reels/express/stills/approved/NDCH_033_clip05.jpg"
         }
       ]
     }
