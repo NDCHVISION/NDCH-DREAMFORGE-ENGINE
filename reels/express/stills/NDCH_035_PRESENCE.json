@@ -11,12 +11,32 @@
   {
    "clip": 2,
    "variants": 2,
-   "prompt": "Three-quarter rear view of a thin, slightly translucent porcelain mask with the exact face of her, composed expression, standing upright on its own in a vast black-stone hall of black stone. The mask is hollow: from this angle you can see its paper-thin edge and the empty inside, and there is no head behind it. Far down the hall, small, a woman in a charcoal sweater walks away. Soft warm light on the mask from the left; cool dusk light in the hall. Calm and beautiful, not eerie. No second face, no cracks, no lettering. Restrained, photorealistic, natural film grain."
+   "prompt": "A museum-quality sculpture: a life-size, paper-thin shell of a woman's face cast in pale translucent porcelain, an exact likeness of the face of @face, with her composed expression, closed lips and calm sculpted eyes. It is mounted upright at head height on a slim black steel rod in a vast black-stone hall like @hall. Seen from a three-quarter rear angle: the back of the shell is open and hollow, its edge as thin as an eggshell, and warm light from the left glows through the porcelain. Far down the hall, small, a woman with dark curly hair in a charcoal sweater walks away. Cool dusk light in the hall. Calm and beautiful. No eye holes, no glowing eyes, no cracks, no chips, no plastic, no second face, no lettering. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "face",
+     "path": "reels/express/stills/refs/NDCH_035_face.jpg"
+    },
+    {
+     "tag": "hall",
+     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+    }
+   ]
   },
   {
    "clip": 3,
    "variants": 2,
-   "prompt": "Wide view down an immense black-stone hall (#1A1A1A) with hairline antique-gold (#C6A94F) veins. In the near foreground, small at the lower left, the thin translucent face-surface stands upright on its own, facing away from the hall. Far in the distance, a small figure in a charcoal sweater walks toward a faint warm light. The gap between the surface and the figure is enormous. Cool dusk light, fine dust in the air. No lettering, no portals, no glow halos. Restrained, photorealistic, natural film grain."
+   "prompt": "Wide view down an immense black-stone hall like @hall. In the near foreground at the lower left, the same paper-thin translucent porcelain face-shell of @face stands upright on a slim black steel rod at head height, seen from behind, its hollow back toward the camera, warm light glowing through it. Far in the distance, a small woman with dark curly hair in a charcoal sweater walks toward a faint warm light at the end of the hall. The gap between the shell and the woman is enormous. Cool dusk light, fine dust in the air. No cracks, no lettering, no portals, no glow halos. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "face",
+     "path": "reels/express/stills/refs/NDCH_035_face.jpg"
+    },
+    {
+     "tag": "hall",
+     "path": "reels/express/stills/refs/NDCH_035_hall.jpg"
+    }
+   ]
   },
   {
    "clip": 4,
