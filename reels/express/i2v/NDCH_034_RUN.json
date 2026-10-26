@@ -2,10 +2,10 @@
   "reel_id": "NDCH_034_RUN",
   "clips": {
     "1": {
-      "image": "reels/express/stills/approved/NDCH_034_clip01.jpg",
+      "image": "reels/express/stills/approved/NDCH_034_clip05.jpg",
       "model": "gen4.5",
-      "prompt": "Opens already moving: the black iron five-spoke flywheel turns clockwise at one steady speed, the brass crank and rod moving with it. One short, smooth camera move to the right and slightly back reveals beside it an identical engine cast in solid dark bronze whose flywheel is completely still; the move settles with both engines side by side. The bronze engine never moves. The flywheel keeps five spokes and the same shape. No new light, no people.",
-      "duration": 5
+      "duration": 5,
+      "prompt": "The worn original's flywheel on the left turns counter-clockwise at one steady speed; the bronze copy on the right stays completely still. One smooth, continuous camera push-in toward the left engine's flywheel until it fills the frame, no cuts. The engines keep their shapes and the flywheel keeps five spokes. No new light, no people. (This clip is played in reverse in the edit.)"
     },
     "2": {
       "image": "reels/express/stills/approved/NDCH_034_clip02.jpg",
