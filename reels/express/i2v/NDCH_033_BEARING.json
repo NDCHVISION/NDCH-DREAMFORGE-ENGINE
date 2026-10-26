@@ -10,7 +10,7 @@
     "2": {
       "image": "reels/express/stills/approved/NDCH_033_clip02.jpg",
       "model": "gen4.5",
-      "prompt": "The camera tracks slowly sideways and slightly forward along the stone table. The gold chain slides slowly around its loop on the tabletop. The lantern hangs still, its flame steady. The vault, table, crack and doorway do not change shape. No people, no new light.",
+      "prompt": "Locked camera; the frame does not move. The gold chain slides slowly and steadily around its loop on the tabletop. The lantern sways very slightly on its chain, its flame steady. The vault, table, crack and doorway do not change shape. No people, no new light.",
       "duration": 10
     },
     "3": {
@@ -28,7 +28,7 @@
     "5": {
       "image": "reels/express/stills/approved/NDCH_033_clip05.jpg",
       "model": "gen4.5",
-      "prompt": "Slow steady push forward along the table toward the doorway, stopping short of it. Nothing in the room moves; the lantern hangs still. The chain, table, crack and doorway do not change shape. No people, no new light.",
+      "prompt": "Locked camera; the frame does not move. The lantern flame flickers gently. Nothing else moves: the chain lies still, pointing at the doorway. The table, crack and doorway do not change shape. No people, no new light.",
       "duration": 5
     }
   }
