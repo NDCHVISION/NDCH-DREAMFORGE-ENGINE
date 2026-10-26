@@ -44,7 +44,7 @@
     },
     "resolution": {
       "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
-      "visual": "Waiting at a closed door, at floor level. A low close-up a few centimetres above light oak floorboards at the gap under a closed, unpainted pale oak door, bright overcast daylight spilling through the gap toward the lens, a soft dark grey shadow in the middle of the line of light as if someone stands on the other side. Bone-white (#F5F2EB) skirting at the edges. Motion: the shadow shifts slowly once as the person beyond moves; the camera holds low and still, never approaching. No feet, no people, no readable text."
+      "visual": "A closed door with someone standing behind it. Front-on at standing height, a closed panelled door in pale warm beige with a small brass (#C6A94F) lever latch, set in a bone-white (#F5F2EB) plaster wall above light oak herringbone floorboards, soft overcast daylight from the left, a thin line of daylight under the door. Motion: locked camera; the door stays fully shut and the latch never moves; a soft shadow slides slowly into the line of light under the door and stops in the middle, as someone on the other side steps close and stands still. No people visible, no readable text."
     },
     "mobius_close": {
       "text": "Because the next time you ask...",
@@ -114,12 +114,19 @@
     "#Patience"
   ],
   "stills_and_motion": {
-    "note": "Clips 1-4 start from approved stills (reels/express/stills/NDCH_036_RECEPTION.json). Clip 5 reuses the approved clip 1 still. Motion prompts are written and reviewed after all stills are approved.",
+    "note": "All five clips start from approved stills; clip 5 reuses the clip 1 still. Motion prompts below await review; after approval copy them into reels/express/i2v/NDCH_036_RECEPTION.json (gen4.5; durations 5/10/10/10/5).",
+    "motion_prompts": {
+      "1": "Already moving on the first frame: the partly open pale oak door keeps swinging slowly toward the camera on its hinges, widening the view down the white corridor. At the same time the camera pushes gently forward while the far closed door at the end of the corridor appears to slide farther away (a slow dolly zoom), so the corridor seems to stretch longer as the door opens. The walls, floorboards and both doors keep their shape. Soft overcast daylight does not change. No people.",
+      "2": "The camera moves slowly and steadily forward across the room toward the closed door in the far wall, at one even pace. The chair, the table, the empty white cup and the blank frame stay exactly where they are; nothing in the room moves. The patch of daylight on the floor shifts very slightly. The walls, floor and door keep their shape. No people.",
+      "3": "The camera moves slowly and steadily forward down the long white corridor at one even pace. The repeating tables, chairs and empty cups on the left stay perfectly still and keep their shapes and spacing; the doors on the right stay as they are. The closed door at the far end stays closed and stays centred. Soft overcast daylight does not change. The corridor keeps its exact geometry. No people.",
+      "4": "Locked camera; the frame does not move. The door stays fully shut and the brass latch never moves. In the thin line of daylight under the door, a soft grey shadow slides slowly in from the left and stops in the middle, as if someone on the other side has stepped close and is standing still. Then nothing moves. The door, wall and floorboards keep their shape. No people visible, no new light.",
+      "5": "From the approved clip 1 still: the partly open pale oak door swings slowly and slightly toward closed, then eases to a stop, and the camera drifts back very gently to settle on the opening framing. The far closed door at the end of the corridor stays where it is. Soft overcast daylight does not change. The walls, floorboards and both doors keep their shape. No people."
+    },
     "approved": {
       "clip1": "reels/express/stills/approved/NDCH_036_clip01.jpg (round A v2)",
       "clip2": "reels/express/stills/approved/NDCH_036_clip02.jpg (round A v1)",
       "clip3": "reels/express/stills/approved/NDCH_036_clip03.jpg (round B v2, corridor of repeated seats)",
-      "clip4": "pending round C (floor-level gap under the door)"
+      "clip4": "reels/express/stills/approved/NDCH_036_clip04.jpg (round A v1; the shadow comes from motion, rounds B and C rejected)"
     }
   }
 }
