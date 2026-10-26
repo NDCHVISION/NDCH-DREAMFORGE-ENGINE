@@ -6,6 +6,30 @@
       "model": "gen4.5",
       "prompt": "Locked camera; the frame does not move. The gold chain is drawn slowly and steadily from lower left toward upper right along the edge of the deep crack. The flat brass link reaches the crack's jagged edge, catches on it and stops, the chain pulling taut behind it, then slips free with a small jerk and moves on a short way. The crack stays exactly where it is, the same width and shape, in every frame. The chain stays flexible and keeps the same links. No new light, no camera movement, no sparks, no hands.",
       "duration": 5
+    },
+    "2": {
+      "image": "reels/express/stills/approved/NDCH_033_clip02.jpg",
+      "model": "gen4.5",
+      "prompt": "The camera tracks slowly sideways and slightly forward along the stone table. The gold chain slides slowly around its loop on the tabletop. The lantern hangs still, its flame steady. The vault, table, crack and doorway do not change shape. No people, no new light.",
+      "duration": 10
+    },
+    "3": {
+      "image": "reels/express/stills/approved/NDCH_033_clip03.jpg",
+      "model": "gen4.5",
+      "prompt": "At once a heavy jolt shakes the room: the lantern swings once on its chain and dust falls through its light. The gold chain on the table snaps at one link near the crack and its loose end slides off onto the bare stone. Then the lantern slows and everything settles; for the rest of the shot nothing moves. The camera stays still. The table, crack, vault and doorway do not change shape. No people.",
+      "duration": 10
+    },
+    "4": {
+      "image": "reels/express/stills/approved/NDCH_033_clip04.jpg",
+      "model": "gen4.5",
+      "prompt": "For two seconds nothing moves. Then the hand slowly takes the loose end of the gold chain between finger and thumb and draws it across the bare stone toward the doorway; the chain stays loose and settles against the stone. Precise and unhurried. The camera stays still. One hand only; the fingers keep their shape. The lantern, crack and doorway do not change.",
+      "duration": 10
+    },
+    "5": {
+      "image": "reels/express/stills/approved/NDCH_033_clip05.jpg",
+      "model": "gen4.5",
+      "prompt": "Slow steady push forward along the table toward the doorway, stopping short of it. Nothing in the room moves; the lantern hangs still. The chain, table, crack and doorway do not change shape. No people, no new light.",
+      "duration": 5
     }
   }
 }
