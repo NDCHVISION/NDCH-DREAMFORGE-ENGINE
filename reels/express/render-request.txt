@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v2
+run-v1
+3,4
 
-1
 
-BEARING v2: dip-to-near-black joins 3-4 and 4-5, clip 4 cropped (no Runway calls)
+RUN: regenerate clips 3 (hub) and 4 (brown hands lift the casting), re-assemble
