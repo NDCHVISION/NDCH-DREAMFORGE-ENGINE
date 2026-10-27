@@ -24,6 +24,7 @@ import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-aud
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
+import { resolveSunoPrompt, sunoPromptProblem } from '../lib/suno.ts';
 import { END_TITLE_RULE_FROM, resolveEndTitle, ruleEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
 import {
@@ -196,6 +197,8 @@ export interface ExpressSeed {
   /** Reel name over the closing shot (lib/end-title.ts). */
   /** `false` opts a reel out of the end title rule. */
   end_title?: Record<string, unknown> | false;
+  /** Suno prompt for the music bed (lib/suno.ts); required from SUNO_RULE_FROM. */
+  suno_prompt?: Record<string, unknown>;
   /** Timed sound effects after the opening (lib/sound-events.ts). */
   sound_events?: Record<string, unknown>[];
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
@@ -334,6 +337,9 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     if (problems.length) throw new Error(`${source}: caption contrast: ${problems.join('; ')}`);
   }
   if (seed.end_title !== false) resolveEndTitle(seed.end_title);
+  resolveSunoPrompt(seed.suno_prompt, `${source}: suno_prompt`);
+  const sunoProblem = sunoPromptProblem(seed.reel_id, seed.suno_prompt);
+  if (sunoProblem) throw new Error(`${source}: ${sunoProblem}`);
   resolveEndTail(seed.end_tail_secs);
   if (seed.end_tail_secs !== undefined && seed.narration_timing !== 'anchored') {
     throw new Error(`${source}: end_tail_secs needs narration_timing "anchored"`);
@@ -515,6 +521,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
           : undefined);
   if (endTitle) spec.end_title = structuredClone(endTitle);
   else delete spec.end_title;
+  if (seed.suno_prompt) spec.suno_prompt = resolveSunoPrompt(seed.suno_prompt);
+  else delete spec.suno_prompt;
   // End rule (LOOPING.md): from 036, anchored reels end 2.5 s after the last word.
   const endTail = seed.end_tail_secs ?? (reelNumber(seed.reel_id) >= END_RULE_FROM && seed.narration_timing === 'anchored' ? END_TAIL_SECS : undefined);
   if (endTail !== undefined) spec.end_tail_secs = endTail;

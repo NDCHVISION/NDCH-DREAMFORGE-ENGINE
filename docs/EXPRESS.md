@@ -18,6 +18,25 @@ To re-render one, pass its seed path in the `seed` box and anything in `cache_bu
 
 ## Music (Suno)
 
+**Every reel keeps its prompt and its chosen song (enforced, lib/suno.ts).**
+
+1. The seed carries `suno_prompt`, required from 037: the exact text for Suno's
+   "Style of Music" box, the "Exclude styles" text, a title and the model.
+   It is always instrumental, because the narration carries the words.
+   ```json
+   "suno_prompt": { "style": "dark cinematic ambient instrumental, 85 bpm, ...", "exclude": "vocals, piano, strings",
+                    "title": "BEARING", "instrumental": true, "model": "v5" }
+   ```
+2. Generate 2-4 takes in Suno from that prompt and add the MP3s to
+   `reels/express/music/<REEL_ID>/candidates/`. A render uses that reel's own candidates
+   first, and falls back to the shared `suno-library` release only when there are none.
+3. Each full render writes `reels/express/music/<REEL_ID>/music.json` (the prompt, every
+   candidate's score, the winner, its window and why it won) and `chosen.mp3` (the song the
+   reel went out with; the ElevenLabs ambience when no Suno take was available), and
+   rebuilds `reels/express/music/INDEX.md`, one row per reel, so prompts can be compared
+   with how they turned out.
+
+
 Upload instrumental Suno MP3s to the GitHub release named **`suno-library`**
 (Releases → create `suno-library` once → drag MP3s in). Each render analyzes every track
 in that release and picks the best 45-second window for the reel, the same music-intelligence

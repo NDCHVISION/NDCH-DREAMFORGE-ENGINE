@@ -127,5 +127,12 @@
   "caption_colors": {
     "highlight": "#E9C46A",
     "peak": "#E9C46A"
+  },
+  "suno_prompt": {
+    "style": "dark cinematic ambient instrumental, 85 bpm, low sustained sub-bass drone, slow evolving dark pads, distant metallic textures like a chain dragged over stone, sparse heavy low-end hits, one clear swell and impact around 0:13, then settling and steady, cold and restrained, no melody",
+    "exclude": "vocals, choir, piano, orchestral strings, guitar, upbeat drums, EDM drop",
+    "title": "BEARING",
+    "instrumental": true,
+    "model": "v5"
   }
 }
