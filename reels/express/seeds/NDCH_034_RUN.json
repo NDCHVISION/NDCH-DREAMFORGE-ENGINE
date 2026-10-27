@@ -103,5 +103,13 @@
     "highlight": "#E9C46A",
     "peak": "#E9C46A"
   },
-  "loop_audio": "seamless"
+  "loop_audio": "seamless",
+  "section_boundaries": [
+    0,
+    6,
+    20,
+    29,
+    36,
+    43
+  ]
 }

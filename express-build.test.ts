@@ -463,6 +463,7 @@ test('express: end title rule — from 033 every reel closes on its name unless 
   // Rule default: name in capitals, 2.2 s into the closing section, upper frame.
   const run = load('NDCH_034_RUN.json');
   delete (run as Partial<ExpressSeed>).end_title;
+  delete (run as Partial<ExpressSeed>).section_boundaries; // default windows: close starts at 38 s
   assert.deepEqual(title(run), { text: 'RUN', start_seconds: 40.2, fade_in_seconds: 1.2, position_pct: 12 });
   // A seed's own title wins (BEARING set it by hand).
   assert.equal(title(load('NDCH_033_BEARING.json'))?.start_seconds, 31.2);
