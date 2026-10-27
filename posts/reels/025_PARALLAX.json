@@ -1,0 +1,39 @@
+{
+  "posting": "025",
+  "title": "PARALLAX",
+  "engine_id": "NDCH_031_PARALLAX",
+  "emoji": "👁️",
+  "status": "scheduled",
+  "schedule": {
+    "youtube": "2026-11-03T11:00:00-06:00"
+  },
+  "cover": {
+    "vertical": "assets/covers/025_PARALLAX_vertical.png",
+    "horizontal": "assets/covers/025_PARALLAX_horizontal.png"
+  },
+  "alt_text": "A dark stone chamber. A tall stone post hides the far wall's only opening. The camera steps to the side and a narrow stairway passage appears behind it, then moves slowly toward it.",
+  "platforms": {
+    "youtube": {
+      "title": "025 | PARALLAX 👁️ #philosophy #motivation",
+      "description": "Never negative. Never make-believe.\n\nThe wall is real.\nSo is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look.\n\nDo not invent the good.\nDo not miss it either.\n\n—\nPARALLAX · 025 · NDCH Dreamforge\n\n#NDCH #NVSSeries #Parallax #Perspective #ClearThinking #Mindset",
+      "pinned_comment": "Parallax: when you move, near things shift more than far things. Nothing in the room changes. Only where you stand."
+    },
+    "instagram": {
+      "caption": "Never negative. Never make-believe.\n\nThe wall is real.\nSo is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look.\n\nDo not invent the good.\nDo not miss it either.\n\n—\nPARALLAX · 025 · NDCH Dreamforge\n\n#NDCH #Parallax #Perspective #ClearThinking #Mindset",
+      "first_comment": "Parallax: when you move, near things shift more than far things. Nothing in the room changes. Only where you stand."
+    },
+    "tiktok": {
+      "caption": "Never negative. Never make-believe.\n\nThe wall is real. So is the opening you haven't noticed.\n\nDo not invent the good. Do not miss it either.\n\nPARALLAX · 025 · NDCH\n\n#NDCH #perspective #clearthinking #mindset #parallax",
+      "first_comment": "Parallax: when you move, near things shift more than far things. Nothing in the room changes. Only where you stand."
+    },
+    "facebook": {
+      "title": "PARALLAX · NDCH 025",
+      "description": "Never negative. Never make-believe.\n\nThe wall is real. So is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look. Do not invent the good. Do not miss it either.\n\n#NDCH #Perspective #ClearThinking",
+      "first_comment": "Parallax: when you move, near things shift more than far things. Nothing in the room changes. Only where you stand."
+    },
+    "linkedin": {
+      "title": "PARALLAX · NDCH 025",
+      "post": "Never negative. Never make-believe.\n\nThe wall is real: the setback, the deadline, the number on the report. So is the opening you haven't noticed yet.\n\nClear thinking doesn't change the facts. It changes where you stand when you look at them.\n\nDo not invent the good. Do not miss it either.\n\nPARALLAX · 025 · NDCH Dreamforge\n\n#ClearThinking #Perspective #Leadership"
+    }
+  }
+}
