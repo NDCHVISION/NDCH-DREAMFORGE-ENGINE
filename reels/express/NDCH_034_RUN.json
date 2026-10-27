@@ -5,7 +5,7 @@
     "note": "Express seed (reels/express/seeds). Descriptive only.",
     "concept_seed": "A small working flywheel engine runs on a stone workbench. Beside it stand copies cast in solid bronze with no core: flawless, sharply detailed, every part fused, none of them able to turn. The original is worn, fingerprinted and oiled; the copies are immaculate because they have never worked. Beside the original lies an unfinished flywheel for the next engine.",
     "doctrine_theme": "Authorship is maintenance, then the next build",
-    "target_duration_seconds": 45
+    "target_duration_seconds": 43
   },
   "concept": "A small working flywheel engine runs on a stone workbench. Beside it stand copies cast in solid bronze with no core: flawless, sharply detailed, every part fused, none of them able to turn. The original is worn, fingerprinted and oiled; the copies are immaculate because they have never worked. Beside the original lies an unfinished flywheel for the next engine.",
   "theme": "Authorship is maintenance, then the next build",
@@ -14,7 +14,7 @@
   "quote": "A mold takes the shape. Not the work that keeps it turning.",
   "style_id": "style_1_fractal",
   "format": {
-    "target_duration_seconds": 45,
+    "target_duration_seconds": 43,
     "aspect_ratio": "9:16",
     "resolution": "1080x1920",
     "frame_rate": 30
@@ -225,7 +225,7 @@
       "full_text": "Someone copied your work. Perfect copy. Dead engine. They copied everything they could see. Every contour. Every detail. A mold takes the shape. Not the work that keeps it turning. Run your mind. Run your systems. Build the next one. And let them copy",
       "mobius_note": "Final segment stays open: 'let them copy' resolves at loop restart with 'Someone copied your work.'.",
       "word_count": 44,
-      "estimated_duration_seconds": 45,
+      "estimated_duration_seconds": 43,
       "segments": [
         {
           "id": "hook",
@@ -270,7 +270,7 @@
           "id": "resolution",
           "text": "Run your mind. Run your systems. Build the next one.",
           "timestamp_start": "0:29",
-          "timestamp_end": "0:38",
+          "timestamp_end": "0:36",
           "visual_prompt": "Medium close-up of a Ghanaian man in his mid-sixties with deep brown skin, close-cropped grey hair and a short grey beard, in a charcoal work shirt and worn leather apron, holding an unfinished raw grey cast-iron flywheel casting at chest height beside the running original engine. The camera pushes in slowly; he looks from the lens to the engine and smiles slightly. The engine's flywheel never changes speed.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
@@ -282,8 +282,8 @@
         {
           "id": "mobius_close",
           "text": "And let them copy",
-          "timestamp_start": "0:38",
-          "timestamp_end": "0:45",
+          "timestamp_start": "0:36",
+          "timestamp_end": "0:43",
           "visual_prompt": "The two engines side by side in the same low frame and light, the original turning, the copy still. The camera eases left and in until the worn original's spinning five-spoke flywheel fills the frame again, matching the opening close-up for a seamless loop. Its rim catches a thin line of gold.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
@@ -357,8 +357,8 @@
   "music_config": {
     "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
     "fade_in_seconds": 0.2,
-    "fade_out_start_seconds": 43,
-    "fade_out_end_seconds": 45
+    "fade_out_start_seconds": 41,
+    "fade_out_end_seconds": 43
   },
   "remotion_compiler_directives": {
     "render_subtitles": true,
@@ -456,7 +456,7 @@
   },
   "end_title": {
     "text": "RUN",
-    "start_seconds": 40.2,
+    "start_seconds": 38.2,
     "fade_in_seconds": 1.2,
     "position_pct": 12
   }

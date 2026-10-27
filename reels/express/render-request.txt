@@ -1,7 +1,7 @@
 reels/express/seeds/NDCH_034_RUN.json
 auto
 run-v1
-4
 
 
-RUN: clip 4 Ghanaian elder builder (gen4.5 10 s, ~120 credits), re-assemble
+
+RUN: elder clip 4 trimmed past the murmur, top-edge lamp darkened, resolution window 7 s (reel 43 s); no new clips
