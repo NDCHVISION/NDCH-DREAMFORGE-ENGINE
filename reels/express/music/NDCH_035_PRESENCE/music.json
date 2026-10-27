@@ -1,0 +1,71 @@
+{
+  "reel_id": "NDCH_035_PRESENCE",
+  "recorded_at": "2026-10-27T03:36:21.771Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "intimate felt piano recorded inches from the hammers, soft key clicks and pedal creak, single notes with long space between, distant bowed vibraphone and glass harmonica drones in a large empty hall, faint cello harmonics far behind, warm tape hiss, slow 62 BPM, D dorian, minimal, cinematic restraint, close versus far, no drums, no build, no climax, starts and ends on the same quiet chord, seamless loop",
+    "exclude": "drums, percussion, vocals, choir, strings swell, epic, trailer, uplifting, EDM, lo-fi beat, bright synth pads, reverb wash on piano",
+    "title": "Room Behind a Wall",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Room_Behind_a_Wall__1__1",
+    "window_start_seconds": 49,
+    "window_end_seconds": 91.5,
+    "reasons": [
+      "Creator's pick (option B) from three previews, chosen by ear",
+      "Steadiest of the top three, no level jumps on words; end and start differ in colour, so the loop relies on the seamless bed",
+      "Mixed in post under the separated original narration: bed about 15 dB under words, music carries the wordless hall stretch, -14.7 LUFS"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Room_Behind_a_Wall_1",
+      "rank": 1,
+      "best_window_start_seconds": 47,
+      "score": 0.805
+    },
+    {
+      "name": "Room_Behind_a_Wall__3__1",
+      "rank": 2,
+      "best_window_start_seconds": 12,
+      "score": 0.795
+    },
+    {
+      "name": "Room_Behind_a_Wall__4__1",
+      "rank": 3,
+      "best_window_start_seconds": 52,
+      "score": 0.774
+    },
+    {
+      "name": "Room_Behind_a_Wall__1__1",
+      "rank": 4,
+      "best_window_start_seconds": 37,
+      "score": 0.771
+    },
+    {
+      "name": "Room_Behind_a_Wall__2__1",
+      "rank": 5,
+      "best_window_start_seconds": 61,
+      "score": 0.764
+    },
+    {
+      "name": "Unresolved_Note__1__1",
+      "rank": 6,
+      "best_window_start_seconds": 16,
+      "score": 0.754
+    },
+    {
+      "name": "Unresolved_Note_1",
+      "rank": 7,
+      "best_window_start_seconds": 132,
+      "score": 0.725
+    }
+  ],
+  "notes": [
+    "Posts as 029. The music was replaced in post (no re-render), so there is no run_id; the posted cut is NDCH_029_PRESENCE_POST_FINAL.mp4 in the express-NDCH_035_PRESENCE release",
+    "Candidate scores are the music engine with voice fit (lib/audio/voice-fit.ts), scored after the choice; it ranked Room_Behind_a_Wall_1 first (0.805); the chosen take’s best window scored 0.771",
+    "chosen.mp3 is the 42.5 s window as heard in the reel, with the loop tail carried over its head"
+  ]
+}
