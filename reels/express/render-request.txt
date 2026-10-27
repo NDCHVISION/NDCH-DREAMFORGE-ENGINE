@@ -1,7 +1,7 @@
 reels/express/seeds/NDCH_036_RECEPTION.json
 auto
 reception-v1
-1,2,5
+1,2
 
 
-RECEPTION (030) v3: regenerate clips 1, 2, 5 (door geometry), cut on "The person" at 17 s
+RECEPTION (030) v4: clips 1 and 2 with still doors; slots 0/6/17/28/38/45; no end title
