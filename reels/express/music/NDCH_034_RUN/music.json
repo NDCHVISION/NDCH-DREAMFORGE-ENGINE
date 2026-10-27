@@ -1,12 +1,32 @@
 {
   "reel_id": "NDCH_034_RUN",
-  "recorded_at": "2026-10-27T20:15:05.838Z",
-  "run_id": "40576030377",
-  "source": "elevenlabs",
-  "ambience_brief": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 16s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+  "recorded_at": "2026-10-27T20:21:37.519Z",
+  "run_id": "40576963104",
+  "source": "suno",
   "chosen": {
     "file": "chosen.mp3",
-    "source_name": "ElevenLabs ambience (no Suno track available)"
+    "source_name": "run_bed",
+    "window_start_seconds": 0,
+    "window_end_seconds": 37,
+    "score": 0.719,
+    "confidence": 0.945,
+    "reasons": [
+      "Highest overall score: 0.719 across 1 evaluated tracks",
+      "Strong hook section — low, stable, sparse",
+      "Good build arc — positive slope with variation",
+      "Pivot section has identifiable dynamic event",
+      "Strong doctrine alignment — dark, mechanical, restrained",
+      "Sits under the narration: clear speech band, steady, loops cleanly",
+      "Hook score: 0.90",
+      "Build score: 0.72",
+      "Pivot score: 1.00",
+      "Möbius seam score: 0.00",
+      "Doctrine alignment: 0.82 (cold, mechanical, restrained)",
+      "Best extraction window: 0.0s – 37.0s"
+    ]
   },
-  "candidates": []
+  "candidates": [],
+  "notes": [
+    "Möbius seam unclear — loop cut may be audible"
+  ]
 }
