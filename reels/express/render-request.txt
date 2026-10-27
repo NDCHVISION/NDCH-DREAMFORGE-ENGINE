@@ -4,4 +4,4 @@ reception-v2
 
 1
 
-RECEPTION (030) fix: clip 5 cut before the sofa, -14 LUFS, end title (no Runway)
+RECEPTION (030) polish: full closing line, blur join, no frozen frames, hopeful bed, knock sound (no Runway)

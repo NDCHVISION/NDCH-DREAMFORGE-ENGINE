@@ -11,7 +11,7 @@
   "theme": "Answers given under pressure are not trust freely given.",
   "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
   "emotional_arc": "a familiar frustration -> the tidy rooms are for visitors -> answers are not trust -> growing into patience -> the door is open",
-  "quote": "Pressure can get you answers. Only trust gets you the person.",
+  "quote": "Not forced. Offered.",
   "style_id": "style_1_fractal",
   "format": {
     "target_duration_seconds": 45,
@@ -63,14 +63,14 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause stays open and resolves when the reel loops back to the hook.",
-    "loop_seam": "'open. Not because...' -> 'You asked again.'"
+    "loop_seam": "'Not forced. Offered...' -> 'You asked again.'"
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...open. Not because... [LOOP] You asked again.",
+    "expected_text_seam": "...Not forced. Offered... [LOOP] You asked again.",
     "full_text_must_start_with": "You asked again.",
-    "full_text_must_end_with": "open. Not because..."
+    "full_text_must_end_with": "Not forced. Offered..."
   },
   "timing_normalization": {
     "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
@@ -222,16 +222,16 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. So you stop forcing it. You become someone a closed door is safe around. One day, the door is wide open. Not because...",
-      "mobius_note": "Final segment stays open: 'open. Not because...' resolves at loop restart with 'You asked again.'.",
-      "word_count": 73,
+      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. So you stop forcing it. You become someone a closed door is safe around. One day, the door is wide open. Not forced. Offered...",
+      "mobius_note": "Final segment stays open: 'Not forced. Offered...' resolves at loop restart with 'You asked again.'.",
+      "word_count": 74,
       "estimated_duration_seconds": 45,
       "segments": [
         {
           "id": "hook",
           "text": "You asked again. They answered again. Somehow you know them less.",
           "timestamp_start": "0:00",
-          "timestamp_end": "0:06",
+          "timestamp_end": "0:07",
           "visual_prompt": "A boy knocking at a closed door. Already moving on the first frame: a Black boy with dark brown skin, a short neat fade and a crisp white shirt knocks with his knuckles on a closed panelled door in a bright white wall, then waits, looking up at it. The door stays shut. One dominant subject, clean bright contrast, readable at phone size. No other people, no lettering.",
           "frame_geometry": {
             "subject_position": "center-frame",
@@ -243,7 +243,7 @@
         {
           "id": "build",
           "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.",
-          "timestamp_start": "0:06",
+          "timestamp_start": "0:07",
           "timestamp_end": "0:17",
           "visual_prompt": "The same boy, seen from behind, standing at the edge of a tidy room made for visitors: one wooden chair, one empty white cup, one blank frame, a closed door in the far wall. The camera moves slowly sideways past his shoulder. Nothing in the room moves. No other people, no readable text.",
           "frame_geometry": {
@@ -270,7 +270,7 @@
           "id": "resolution",
           "text": "So you stop forcing it. You become someone a closed door is safe around.",
           "timestamp_start": "0:28",
-          "timestamp_end": "0:38",
+          "timestamp_end": "0:39",
           "visual_prompt": "The same person grown into a man, standing calmly in front of the closed panelled door, not touching it, with a small settled smile. Camera holds still, soft overcast daylight. No other people, no readable text.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
@@ -281,8 +281,8 @@
         },
         {
           "id": "mobius_close",
-          "text": "One day, the door is wide open. Not because...",
-          "timestamp_start": "0:38",
+          "text": "One day, the door is wide open. Not forced. Offered...",
+          "timestamp_start": "0:39",
           "timestamp_end": "0:45",
           "visual_prompt": "The same doorway, now wide open, warm golden daylight pouring through from a lived-in room. The man walks through it and away into the light. Camera holds still. The last frame cuts back to the boy at the same door, closed. No other people, no lettering.",
           "frame_geometry": {
@@ -346,7 +346,7 @@
     "emotional_temperature": "cold, mechanical, inevitable. Not triumphant, not inspirational.",
     "instrumentation_direction": "Sub-bass industrial drone pulse, zero melody, mechanical ticking tracking timeline steps, sparse heavy low-end thud hitting on beat 1.",
     "energy_arc": "Constant low mechanical tension through hook and build. Sub-bass distortion surge at 20s pivot mark. Immediate return to reference level under directive. BPM-locked hard cut at loop seam 'you are...' with no decay or fade.",
-    "suno_search_string": "dark cinematic ambient instrumental drone low-end hits 80bpm no vocals",
+    "suno_search_string": "warm hopeful cinematic piano strings instrumental 70bpm no vocals",
     "explicit_exclusions": [
       "no melody",
       "no vocals",
@@ -355,7 +355,7 @@
     ]
   },
   "music_config": {
-    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 17s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+    "description": "Warm hopeful cinematic: soft felt piano, gentle sustained strings, light warm pads, no percussion. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, a tender lift at the 17s pivot, opening into a bright, warm major resolution at the close, carried into the loop. No vocals, nothing dark or ominous.",
     "fade_in_seconds": 0.2,
     "fade_out_start_seconds": 43,
     "fade_out_end_seconds": 45
@@ -391,7 +391,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nBe someone a closed door is safe around.\n\n#NDCH #NVSSeries #Boundaries #Trust #Relationships #Patience",
+    "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nOne day, the door is wide open. Not forced. Offered.\n\n#NDCH #NVSSeries #Boundaries #Trust #Relationships #Patience",
     "hashtags": [
       "#NDCH",
       "#NVSSeries",
@@ -407,18 +407,18 @@
     "built_by": "scripts/express-build.ts",
     "template": "NDCH_016_ILLUSION_OF_MOTION.json",
     "episode_name": "RECEPTION",
-    "title": "Pressure gets answers. Not the person. | RECEPTION",
-    "music_mood": "cinematic",
+    "title": "Pressure gets answers. Trust opens doors. | RECEPTION",
+    "music_mood": "uplifting",
     "note": "Express reel: content from the seed; geometry, subtitle law and voice config inherited from 016."
   },
   "opening_audio": {
     "mode": "immediate",
     "music_fade_in_seconds": 0.2,
     "sound_event": {
-      "prompt": "Close-miked brass door latch lifting and a light oak door swinging open in a quiet bright house: crisp latch click, soft hinge, a breath of air, faint birdsong outside a window. Dry and realistic. No music, no impacts, no whooshes.",
-      "duration_seconds": 5,
+      "prompt": "A child knocking softly on a solid wooden door with his knuckles: three slow, patient knocks about half a second apart, then quiet room tone. Dry and realistic. No music, no impacts, no whooshes.",
+      "duration_seconds": 4,
       "gain_db": -10,
-      "fade_out_seconds": 2
+      "fade_out_seconds": 1.5
     }
   },
   "loop_audio": "seamless",
@@ -432,8 +432,9 @@
     },
     {
       "after_clip": 2,
-      "type": "cut",
-      "note": "hard cut on a beat: cut on 'The person you came for'; the boy becomes a teenager in the endless corridor"
+      "type": "blur",
+      "seconds": 0.6,
+      "note": "focus shift: the boy's stare softens and resolves into him as a teenager walking the corridor; years pass in the blur"
     },
     {
       "after_clip": 3,
@@ -449,9 +450,21 @@
     }
   ],
   "clip_source_seconds": {
+    "2": [
+      0,
+      10
+    ],
+    "3": [
+      0,
+      10
+    ],
+    "4": [
+      0,
+      10
+    ],
     "5": [
       0,
-      3.5
+      4
     ]
   },
   "finish": {

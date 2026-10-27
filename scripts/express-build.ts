@@ -143,7 +143,8 @@ export interface ExpressSeed {
   quote: string;
   core_metaphor: string;
   emotional_arc: string;
-  music_mood?: 'cinematic' | 'electronica';
+  /** 'uplifting' for reels that end in hope (036 RECEPTION recast); the others are dark. */
+  music_mood?: 'cinematic' | 'electronica' | 'uplifting';
   palette: { base: string; accent: string; light: string; peak: string };
   primary_prompt: string;
   recurring_element: string;
@@ -251,6 +252,10 @@ function musicDescription(seed: ExpressSeed): string {
   if (seed.music_mood === 'electronica') {
     const hook = opening ?? 'Low and steady for the hook, rising';
     return `Dark minimal electronica: deep sub-bass pulse, restrained analog synth arpeggio, sparse percussion. ${hook} through the build, one clear lift at the ${pivot}s pivot, settling for the resolution, decaying into the loop. No vocals.`;
+  }
+  if (seed.music_mood === 'uplifting') {
+    const hook = opening ?? 'Quiet and tender for the hook, rising';
+    return `Warm hopeful cinematic: soft felt piano, gentle sustained strings, light warm pads, no percussion. ${hook} through the build, a tender lift at the ${pivot}s pivot, opening into a bright, warm major resolution at the close, carried into the loop. No vocals, nothing dark or ominous.`;
   }
   const hook = opening ? `${opening} through the build` : 'Restrained hook, rising build';
   return `Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. ${hook}, one clear dynamic event at the ${pivot}s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.`;
@@ -552,7 +557,9 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     suno_search_string:
       seed.music_mood === 'electronica'
         ? 'dark minimal electronica instrumental sub-bass pulse analog synth 90bpm no vocals'
-        : 'dark cinematic ambient instrumental drone low-end hits 80bpm no vocals',
+        : seed.music_mood === 'uplifting'
+          ? 'warm hopeful cinematic piano strings instrumental 70bpm no vocals'
+          : 'dark cinematic ambient instrumental drone low-end hits 80bpm no vocals',
   };
 
   spec.instagram_config = {

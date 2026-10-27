@@ -234,6 +234,19 @@ picture right where it should build toward the resolution.
   (`section_boundaries`, as BEARING did at 35 s) before slowing the clip. Keep any retime
   at 1.25x or less; past that, motion reads as slow motion.
 
+### Using part of a clip (`clip_source_seconds`)
+
+`"clip_source_seconds": { "5": [0, 4.0] }` uses only those seconds of clip 5, slowed (up to 2.5x)
+to fill its slot. Use it to cut a clip before it goes wrong (036: the man walked through the
+sofa after 4 s) instead of paying to regenerate, and to slow a 10 s clip gently into an 11 s
+slot instead of freezing its last frame (`[0, 10]`). Needs `narration_timing: "anchored"`.
+
+### Music mood
+
+`music_mood` is `cinematic` or `electronica` (both dark), or `uplifting` (warm piano and strings,
+opening into a bright resolution) for reels that end in hope. It sets the ElevenLabs ambience
+prompt and the Suno search string.
+
 ### Section timing (`section_boundaries`)
 
 The default grid is 0/6/20/29/38/45. When a line is much shorter than its window the
