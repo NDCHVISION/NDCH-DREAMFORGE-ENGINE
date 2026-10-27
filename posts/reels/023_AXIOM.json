@@ -1,0 +1,38 @@
+{
+  "posting": "023",
+  "title": "AXIOM",
+  "engine_id": "NDCH_029_AXIOM",
+  "emoji": "⚖️",
+  "status": "scheduled",
+  "schedule": {
+    "youtube": "2026-10-27T11:00:00-05:00"
+  },
+  "cover": {
+    "vertical": "assets/covers/023_AXIOM_vertical.png",
+    "horizontal": "assets/covers/023_AXIOM_horizontal.png"
+  },
+  "platforms": {
+    "youtube": {
+      "title": "023 | AXIOM ⚖️ #philosophy #motivation",
+      "description": "Every life gathers stories.\n\nSome inherited. Some imagined. Some believed before they were ever examined.\n\nThe room can turn.\n\nAn axiom does not need permission to be true.\n\n—\nAXIOM · 023 · NDCH Dreamforge\n\n#NDCH #NVSSeries #Identity #SelfMastery #Authorship #Axiom",
+      "pinned_comment": "Which belief did you inherit that you've never examined?"
+    },
+    "instagram": {
+      "caption": "Every life gathers stories.\n\nSome inherited. Some imagined. Some believed before they were ever examined.\n\nThe room can turn.\n\nAn axiom does not need permission to be true.\n\n—\nAXIOM · 023 · NDCH Dreamforge\n\n#NDCH #Identity #SelfMastery #Authorship #Axiom",
+      "first_comment": "Which belief did you inherit that you've never examined?"
+    },
+    "tiktok": {
+      "caption": "Every life gathers stories. Some inherited. Some imagined. Some believed before they were ever examined.\n\nAn axiom does not need permission to be true.\n\nAXIOM · 023 · NDCH\n\n#NDCH #identity #selfmastery #mindset #axiom",
+      "first_comment": "Which belief did you inherit that you've never examined?"
+    },
+    "facebook": {
+      "title": "AXIOM · NDCH 023",
+      "description": "Every life gathers stories.\n\nSome inherited. Some imagined. Some believed before they were ever examined.\n\nThe room can turn. An axiom does not need permission to be true.\n\n#NDCH #Identity #SelfMastery",
+      "first_comment": "Which belief did you inherit that you've never examined?"
+    },
+    "linkedin": {
+      "title": "AXIOM · NDCH 023",
+      "post": "Every life gathers stories.\n\nSome we inherited from family. Some we picked up at work. Some we believed long before anyone examined them. A lot of what we call \"who I am\" arrived that way.\n\nThe useful question is which of those stories are true, and which are only familiar.\n\nThe room can turn. An axiom does not need permission to be true.\n\nAXIOM · 023 · NDCH Dreamforge\n\n#Leadership #Identity #SelfMastery"
+    }
+  }
+}

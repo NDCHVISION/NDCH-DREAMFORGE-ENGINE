@@ -1,0 +1,39 @@
+{
+  "posting": "026",
+  "title": "INVENTORY",
+  "engine_id": "NDCH_032_INVENTORY",
+  "emoji": "🕯️",
+  "status": "scheduled",
+  "schedule": {
+    "youtube": "2026-11-06T11:00:00-06:00"
+  },
+  "cover": {
+    "vertical": "assets/covers/026_INVENTORY_vertical.png",
+    "horizontal": "assets/covers/026_INVENTORY_horizontal.png"
+  },
+  "alt_text": "A dark marble chamber veined with gold, lit by one round opening in the dome. The light fades and the gold veins glow, picking out a coat on a chair, a steaming cup, and a door left ajar with warm light behind it. A man in a long coat walks through the door, and the light returns.",
+  "platforms": {
+    "youtube": {
+      "title": "026 | INVENTORY 🕯️ #philosophy #motivation",
+      "description": "Everyone wants the light back. Fair.\n\nBut the dark shows you what was given.\n\nThe chair. Someone held you up.\nThe cup. Someone kept it warm.\nThe door. Someone left it open.\n\nNone of it was owed. All of it was given.\n\nCount them now.\n\n—\nINVENTORY · 026 · NDCH Dreamforge\n\n#NDCH #NVSSeries #Inventory #Gratitude #Perspective #ClearThinking",
+      "pinned_comment": "Who's on your inventory?"
+    },
+    "instagram": {
+      "caption": "Everyone wants the light back. Fair.\n\nBut the dark shows you what was given.\n\nThe chair. Someone held you up.\nThe cup. Someone kept it warm.\nThe door. Someone left it open.\n\nNone of it was owed. All of it was given.\n\nCount them now.\n\n—\nINVENTORY · 026 · NDCH Dreamforge\n\n#NDCH #Inventory #Gratitude #Perspective #ClearThinking",
+      "first_comment": "Who's on your inventory?"
+    },
+    "tiktok": {
+      "caption": "The chair. Someone held you up. The cup. Someone kept it warm. The door. Someone left it open.\n\nNone of it was owed. Count them now.\n\nINVENTORY · 026 · NDCH\n\n#NDCH #gratitude #perspective #mindset #inventory",
+      "first_comment": "Who's on your inventory?"
+    },
+    "facebook": {
+      "title": "INVENTORY · NDCH 026",
+      "description": "Everyone wants the light back. Fair.\n\nBut the dark shows you what was given. The chair: someone held you up. The cup: someone kept it warm. The door: someone left it open.\n\nNone of it was owed. Count them now.\n\n#NDCH #Gratitude #Perspective",
+      "first_comment": "Who's on your inventory?"
+    },
+    "linkedin": {
+      "title": "INVENTORY · NDCH 026",
+      "post": "Everyone wants the light back. Fair.\n\nBut hard seasons have a way of showing you what was given: the people who held you up, the ones who kept things warm, the ones who left a door open for you.\n\nNone of it was owed. All of it was given.\n\nCount them now.\n\nINVENTORY · 026 · NDCH Dreamforge\n\n#Gratitude #Perspective #Leadership"
+    }
+  }
+}
