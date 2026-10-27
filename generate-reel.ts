@@ -101,6 +101,7 @@ import {
   getRunwayRetryDelayMs,   checkRunwayCreditBalance,   assertSufficientRunwayCredits,   estimateRunwayCostCredits,
 } from './lib/runway-resilience.ts';
 import { parseOnlyClips, clipsToGenerate } from './lib/clip-selection.ts';
+import { preflightBudget } from './lib/production-rules.ts';
 import { tailTrimPoint, TAIL_FADE_SECONDS } from './lib/voice-tail.ts';
 import { parseI2vPlan, clipCostCredits, imageDataUri, type I2vClip } from './lib/i2v-plan.ts';
 
@@ -874,14 +875,23 @@ async function generateVideo(
     if (uncachedScenes.length === 0) {
       console.log(`   preflight: all ${scenePlan.length} clips found in checkpoint — skipping Runway credit check`);
     } else {
-      const estimatedCost = i2vClips.size
-        ? uncachedScenes.reduce((n, sc) => n + clipCostCredits(sc.clipDuration, i2vClips.get(sc.clipIndex)), 0)
-        : estimateRunwayCostCredits(uncachedScenes);
+      const costOf = (scenes: typeof uncachedScenes) => i2vClips.size
+        ? scenes.reduce((n, sc) => n + clipCostCredits(sc.clipDuration, i2vClips.get(sc.clipIndex)), 0)
+        : estimateRunwayCostCredits(scenes);
+      const runCost = costOf(uncachedScenes);
+      // Production rule 1 (lib/production-rules.ts): from 037, cover every clip the reel still needs.
+      const remainingScenes = clipsToGenerate(
+        scenePlan.length,
+        (idx) => Boolean(preflightCheckpoint[idx]) && existsSync(preflightCheckpoint[idx]),
+        undefined,
+      ).map((idx) => scenePlan[idx]);
+      const budget = preflightBudget(process.env.REEL_ID ?? '', runCost, costOf(remainingScenes), process.env.ALLOW_PARTIAL_BUDGET === '1');
       const balance = await checkRunwayCreditBalance(process.env.RUNWAY_API_KEY ?? '');
       console.log(
-        `   preflight: Runway credits balance=${balance}, estimated cost=${estimatedCost} for ${uncachedScenes.length}/${scenePlan.length} uncached clip(s)`,
+        `   preflight: Runway credits balance=${balance}, estimated cost=${runCost} for ${uncachedScenes.length}/${scenePlan.length} uncached clip(s)` +
+          (budget.scope === 'reel' ? `; whole reel still needs ${budget.cost} (production rule 1)` : ''),
       );
-      assertSufficientRunwayCredits(balance, estimatedCost);
+      assertSufficientRunwayCredits(balance, budget.cost);
     }
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);

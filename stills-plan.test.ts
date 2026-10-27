@@ -41,7 +41,12 @@ test('the FRAMES stills plan is valid', () => {
 });
 
 test('casting rule: people and hands are cast brown-skinned or racially ambiguous from 037 on', () => {
-  const plan = (reel_id: string, prompt: string) => ({ ...base(), reel_id, stills: [{ clip: 1, variants: 1, prompt }] });
+  // From 037 every still also references the reel's master plate (production rule 2).
+  const master = { tag: 'master', path: 'reels/express/stills/refs/NDCH_037_master.jpg' };
+  const plan = (reel_id: string, prompt: string) =>
+    reel_id >= 'NDCH_037'
+      ? { ...base(), reel_id, stills: [{ clip: 1, variants: 1, prompt: `${prompt} Same room as @master.`, references: [master] }] }
+      : { ...base(), reel_id, stills: [{ clip: 1, variants: 1, prompt }] };
   assert.throws(() => parseStillsPlan(plan('NDCH_037_X', 'Two bare hands hold a cup.')), /casting rule/);
   parseStillsPlan(plan('NDCH_037_X', 'Two bare hands with warm brown skin hold a cup.'));
   parseStillsPlan(plan('NDCH_037_X', 'A racially ambiguous man stands in the hall.'));
