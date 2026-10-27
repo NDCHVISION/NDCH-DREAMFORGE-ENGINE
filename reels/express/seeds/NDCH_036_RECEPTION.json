@@ -226,5 +226,12 @@
     "strength": 0.55,
     "head_seconds": 0.9,
     "tail_seconds": 1.2
+  },
+  "suno_prompt": {
+    "title": "RECEPTION bed",
+    "style": "Warm hopeful cinematic instrumental, 70 BPM, solo felt piano opening tender and patient in D major, soft sustained strings entering gently around 17 seconds, slow build with warm cello and viola, no drums, a bright open major-key swell and resolution around 38 seconds, intimate and uplifting, like light coming through a doorway, 50 seconds",
+    "exclude": "vocals, choir, drums, percussion, trap, EDM, dark, ominous, horror, minor-key drone, heavy bass hits, risers, braams",
+    "instrumental": true,
+    "model": "v5"
   }
 }
