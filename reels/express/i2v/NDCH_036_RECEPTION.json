@@ -28,7 +28,7 @@
     "5": {
       "image": "reels/express/stills/approved/NDCH_036_clip05.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera. The man walks slowly and steadily away from the camera through the wide-open doorway into the warm, sunlit room beyond. The door stays wide open and out of sight; it does not move. Warm golden daylight; a plant by the window sways slightly. The doorframe and walls keep their shape. No other people.",
+      "prompt": "Locked camera; the frame does not move or zoom. The man takes one slow step forward over the threshold and stops, standing in the warm light in the clear open floor just inside the doorway. He lifts his head and looks around the room, at ease. He does not walk any further. The sofa, rug, table and every piece of furniture stay solid and exactly where they are; he never touches or passes through them. A plant by the window sways slightly. The doorframe and walls keep their shape. No other people.",
       "duration": 10
     }
   }

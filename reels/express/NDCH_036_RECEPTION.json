@@ -449,7 +449,15 @@
     }
   ],
   "finish": {
-    "subtitle_layout": "readable"
+    "subtitle_layout": "readable",
+    "output": "1080x1920",
+    "loudness_lufs": -14
+  },
+  "end_title": {
+    "text": "RECEPTION",
+    "start_seconds": 40,
+    "fade_in_seconds": 1.2,
+    "position_pct": 12
   },
   "end_tail_secs": 2.5
 }
