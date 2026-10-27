@@ -3,6 +3,8 @@
  * prompt for the clip's opening frame, so the picture can be reviewed (and
  * fixed for a few credits) before any video is paid for.
  */
+import { continuityProblems } from './production-rules.ts';
+
 export interface StillReference {
   /** Tag used in the prompt as @tag. */
   tag: string;
@@ -79,6 +81,8 @@ export function parseStillsPlan(raw: unknown): StillsPlan {
       }
       if (!s.prompt.includes(`@${r.tag}`)) throw new Error(`stills plan: clip ${s.clip} prompt must mention @${r.tag}`);
     }
+    const continuity = continuityProblems(p.reel_id, s.clip, s.references ?? []);
+    if (continuity.length) throw new Error(`stills plan: ${continuity.join('; ')}`);
     if (castingViolation(p.reel_id, s.prompt)) {
       throw new Error(
         `stills plan: clip ${s.clip} shows a person or hands; casting rule: state brown skin or a racially ambiguous complexion`,

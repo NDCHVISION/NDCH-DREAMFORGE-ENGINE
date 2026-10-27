@@ -48,6 +48,24 @@ validator.
 `unlock / journey / transform / potential` · the last line ends open (`...`) so the loop flows back
 into the hook · each visual prompt ≤ 1000 characters.
 
+### Production rules (from 037, enforced; lib/production-rules.ts)
+
+Learned on 033 BEARING, which ran out of credits halfway and whose table and crack
+changed from shot to shot.
+
+1. **Budget the whole reel first.** Before any video is generated, the Runway balance
+   must cover every clip the reel still needs, even when a run only generates one or two
+   of them (`only_clips`). A run that can't be finished stops before spending anything.
+   Price the reel (stills about 8 credits each, image-to-video 12 credits a second) and top
+   up first. A render request line `partial_budget=1` overrides this for one run.
+2. **One room, one master.** Make one master plate of the reel's space first
+   (`reels/express/stills/refs/NDCH_<nnn>_master.jpg`) and have every still reference it,
+   so the table, the light and the props carry through every shot. A still may also
+   reference that reel's own approved stills (for example the previous shot, so a change
+   it shows, like a break, carries into the next). It may not reference another reel's
+   pictures: they bring their look and their cast with them. The stills plan is refused
+   otherwise.
+
 ### First-frame retention contract (from 033 BEARING on)
 
 Viewers decide in the first two seconds. GRAVITAS (1,106 views) opened on a moment the viewer

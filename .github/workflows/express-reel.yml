@@ -21,6 +21,8 @@ on:
   #   5 voice_only (1 = never call Runway; fail if any clip is not cached)
   #   6 only_clips (e.g. 2 or 2,5 = generate just those clips, then stop: no final
   #     video; review them with Express Stems before paying for the rest)
+  #   any later line exactly "partial_budget=1": skip production rule 1 for this run
+  #     (from 037 the credit check otherwise covers every clip the reel still needs)
   push:
     branches: [main]
     paths: ['reels/express/render-request.txt']
@@ -78,6 +80,7 @@ jobs:
             IN_REGEN=$(sed -n 4p "$F" | tr -d '[:space:]')
             IN_VOICE_ONLY=$(sed -n 5p "$F" | tr -d '[:space:]')
             IN_ONLY=$(sed -n 6p "$F" | tr -d '[:space:]')
+            if grep -qx 'partial_budget=1' "$F"; then IN_PARTIAL=1; fi
           fi
           IN_MUSIC=${IN_MUSIC:-auto}
           # bash regex tests: an empty value must pass where the pattern allows it
@@ -91,7 +94,7 @@ jobs:
           if [ -n "${IN_ONLY:-}" ] && [ -n "${IN_VOICE_ONLY:-}" ]; then echo "only_clips and voice_only cannot be combined" >&2; exit 1; fi
           {
             echo "seed=$IN_SEED"; echo "music=$IN_MUSIC"
-            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"; echo "voice_only=${IN_VOICE_ONLY:-}"; echo "only_clips=${IN_ONLY:-}"
+            echo "cache_bust=$IN_CACHE_BUST"; echo "regen_clips=$IN_REGEN"; echo "voice_only=${IN_VOICE_ONLY:-}"; echo "only_clips=${IN_ONLY:-}"; echo "partial_budget=${IN_PARTIAL:-}"
           } >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
@@ -218,6 +221,7 @@ jobs:
           CLIP_CHECKPOINT_PATH: /tmp/runway-clip-checkpoint.json
           VOICE_ONLY: ${{ steps.in.outputs.voice_only }}
           ONLY_CLIPS: ${{ steps.in.outputs.only_clips }}
+          ALLOW_PARTIAL_BUDGET: ${{ steps.in.outputs.partial_budget }}
           REEL_ID: ${{ steps.seed.outputs.reel_id }}
         run: |
           # Clips listed in reels/express/i2v/<REEL_ID>.json start from approved stills.
