@@ -467,6 +467,12 @@
       4.8
     ]
   },
+  "loop_light": {
+    "color": "#FFF1DC",
+    "strength": 0.55,
+    "head_seconds": 0.9,
+    "tail_seconds": 1.2
+  },
   "finish": {
     "subtitle_layout": "readable",
     "output": "1080x1920",

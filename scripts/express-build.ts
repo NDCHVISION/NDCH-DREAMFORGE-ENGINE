@@ -25,6 +25,7 @@ import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anc
 import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
 import { resolveClipSource } from '../lib/clip-source.ts';
+import { resolveLoopLight } from '../lib/loop-light.ts';
 import { resolveSunoPrompt, sunoPromptProblem } from '../lib/suno.ts';
 import { END_TITLE_RULE_FROM, resolveEndTitle, ruleEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
@@ -196,6 +197,8 @@ export interface ExpressSeed {
   clip_transitions?: TransitionSpec[];
   /** Use only part of a clip, slowed to fill its slot: { "5": [0, 3.5] } (lib/clip-source.ts). Needs narration_timing "anchored". */
   clip_source_seconds?: Record<string, [number, number]>;
+  /** Light match across the loop point: { color, strength, head_seconds, tail_seconds } (lib/loop-light.ts). */
+  loop_light?: Record<string, unknown>;
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
   finish?: { subtitle_layout?: 'default' | 'safe_zone' | 'readable'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Reel name over the closing shot (lib/end-title.ts). */
@@ -353,6 +356,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     throw new Error(`${source}: end_tail_secs needs narration_timing "anchored"`);
   }
   resolveSoundEvents(seed.sound_events);
+  resolveLoopLight(seed.loop_light);
   if (seed.clip_source_seconds !== undefined) {
     resolveClipSource(seed.clip_source_seconds, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
@@ -522,6 +526,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.clip_transitions;
   if (seed.clip_source_seconds) spec.clip_source_seconds = structuredClone(seed.clip_source_seconds);
   else delete spec.clip_source_seconds;
+  if (seed.loop_light) spec.loop_light = structuredClone(seed.loop_light);
+  else delete spec.loop_light;
   const finish = seed.finish ? structuredClone(seed.finish) : undefined;
   if (reelNumber(seed.reel_id) >= CAPTION_LAW_FROM) {
     spec.finish = { ...(finish ?? {}), subtitle_layout: 'readable' };

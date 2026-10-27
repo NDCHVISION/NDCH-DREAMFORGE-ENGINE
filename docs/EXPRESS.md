@@ -241,6 +241,15 @@ to fill its slot. Use it to cut a clip before it goes wrong (036: the man walked
 sofa after 4 s) instead of paying to regenerate, and to slow a 10 s clip gently into an 11 s
 slot instead of freezing its last frame (`[0, 10]`). Needs `narration_timing: "anchored"`.
 
+### Loop light (`loop_light`)
+
+`"loop_light": { "color": "#FFF1DC", "strength": 0.55, "head_seconds": 0.9, "tail_seconds": 1.2 }`
+warms the last shot toward a light colour and opens the first shot in the same light, settling to
+its natural look, so the replay comes out of the light the reel ended in. Applied to the picture
+before captions and the title are burned. `strength` is capped at 0.75 so it never becomes a flat
+flash. Use it when the last and first shots are different places (036: the warm room he walks
+into, then the boy at the closed door); a reel whose last frame is its first frame doesn't need it.
+
 ### Music mood
 
 `music_mood` is `cinematic` or `electronica` (both dark), or `uplifting` (warm piano and strings,

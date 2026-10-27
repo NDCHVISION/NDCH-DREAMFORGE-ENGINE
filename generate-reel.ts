@@ -91,6 +91,7 @@ import {
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { resolveClipSource, CLIP_SOURCE_MAX_SLOW } from './lib/clip-source.ts';
+import { loopLightFilter } from './lib/loop-light.ts';
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { clearOfLastWord, endTitleAss } from './lib/end-title.ts';
@@ -977,6 +978,20 @@ async function generateVideo(
   }
   const stitchedDuration = getMediaDuration(stitchedPath);
   console.log(`         stitched duration: ${stitchedDuration.toFixed(1)}s`);
+  if (plan.loopLight) {
+    // Light match across the loop point, on the picture only (captions are burned later).
+    const [w, h] = execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', stitchedPath])
+      .toString().trim().split(',').map(Number);
+    const lit = join(TMP, 'stitched-loop-light.mp4');
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y', '-i', stitchedPath,
+      '-filter_complex', loopLightFilter(plan.loopLight, stitchedDuration, w, h),
+      '-map', '[vout]', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', lit,
+    ]);
+    const l = plan.loopLight;
+    console.log(`         loop light: ${l.colorHex} at ${l.strength}, last ${l.tailSecs}s into first ${l.headSecs}s`);
+    return { videoPath: lit, sceneTimeline };
+  }
   return { videoPath: stitchedPath, sceneTimeline };
 }
 

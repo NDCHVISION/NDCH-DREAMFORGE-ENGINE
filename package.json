@@ -6,7 +6,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts reel-validation.test.ts music-analysis.test.ts express-build.test.ts clip-selection.test.ts stills-plan.test.ts i2v-plan.test.ts voice-tail.test.ts opening-audio.test.ts segment-anchor.test.ts transitions.test.ts loop-seam.test.ts caption-law.test.ts end-tail.test.ts voice-fit.test.ts finish.test.ts end-title-sfx.test.ts post-kit.test.ts production-rules.test.ts suno.test.ts clip-source.test.ts",
+    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts reel-validation.test.ts music-analysis.test.ts express-build.test.ts clip-selection.test.ts stills-plan.test.ts i2v-plan.test.ts voice-tail.test.ts opening-audio.test.ts segment-anchor.test.ts transitions.test.ts loop-seam.test.ts caption-law.test.ts end-tail.test.ts voice-fit.test.ts finish.test.ts end-title-sfx.test.ts post-kit.test.ts production-rules.test.ts suno.test.ts clip-source.test.ts loop-light.test.ts",
     "music:analyze": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env scripts/analyze-reel-music.ts; else exec tsx scripts/analyze-reel-music.ts; fi'",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
