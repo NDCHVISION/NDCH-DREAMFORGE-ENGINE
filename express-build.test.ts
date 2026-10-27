@@ -7,6 +7,7 @@ import { join } from 'node:path';
 import {
   buildReel,
   assertSeed,
+  assertOpening,
   type ExpressSeed,
 } from './scripts/express-build.ts';
 import { validateCompiledReel } from './reel-validation.ts';
@@ -471,4 +472,17 @@ test('express: end title rule — from 033 every reel closes on its name unless 
   assert.equal(title({ ...run, end_title: false }), undefined);
   // Reels before the rule keep what they were made with.
   assert.equal(title(load('NDCH_032_INVENTORY.json')), undefined);
+});
+
+test('express: person-first rule — from 037 the hook shows a person unless the seed says why not', () => {
+  const base = JSON.parse(readFileSync('reels/express/seeds/NDCH_034_RUN.json', 'utf8')) as ExpressSeed;
+  const seed = (hook: string, extra: Partial<ExpressSeed> = {}) =>
+    ({ ...base, ...extra, reel_id: 'NDCH_037_TEST', segments: { ...base.segments, hook: { ...base.segments.hook, visual: hook } } }) as ExpressSeed;
+  assert.throws(() => assertOpening(seed('Already turning: a flywheel spinning in the dark.'), 't'), /person-first rule/);
+  assert.doesNotThrow(() => assertOpening(seed('Already moving: weathered hands with deep brown skin spin a flywheel.'), 't'));
+  assert.doesNotThrow(() =>
+    assertOpening(seed('Already turning: a flywheel spinning in the dark.', { hook_without_person: 'the reel is about an empty room by design' }), 't'),
+  );
+  // Reels before 037 keep the rules they were made with.
+  assert.doesNotThrow(() => assertOpening({ ...seed('Already turning: a flywheel spinning in the dark.'), reel_id: 'NDCH_036_TEST' } as ExpressSeed, 't'));
 });

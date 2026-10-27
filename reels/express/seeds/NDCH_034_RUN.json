@@ -81,7 +81,7 @@
       "after_clip": 2,
       "type": "dissolve",
       "seconds": 0.6,
-      "note": "shape match: the far original's turning flywheel becomes the macro flywheel"
+      "note": "shape match: the far original's turning flywheel becomes the hub in close-up"
     },
     {
       "after_clip": 3,
@@ -90,9 +90,9 @@
     },
     {
       "after_clip": 4,
-      "type": "dissolve",
-      "seconds": 0.8,
-      "note": "light match: the original's brass cylinder behind the hands into the master's brass"
+      "type": "dip",
+      "seconds": 0.5,
+      "note": "dip to near-black: a breath after his smile, from the man who builds back to the copies, so 'And let them copy' lands as the verdict"
     }
   ],
   "finish": {
@@ -107,9 +107,9 @@
   "section_boundaries": [
     0,
     6,
-    20,
-    29,
-    36,
-    43
+    16,
+    23,
+    30,
+    37
   ]
 }

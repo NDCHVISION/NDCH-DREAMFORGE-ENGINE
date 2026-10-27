@@ -81,3 +81,10 @@ blends uses at least two types.
 - Hall into the library: **`iris_open`** from the light at the end of the hall, landing on "who they are when no one is watching".
 - Library back to her face: **`iris_close`**, the bookend of the iris that opened her world.
 - The close plays the opening seconds in reverse, so the last frame is the first: the reel **loops** with no fade.
+
+## Reference: RUN (028)
+
+- Still bronze copy into the row of copies: **push-dissolve** (`dissolve`).
+- The far original's flywheel into the hub in close-up: **shape match** (`dissolve`).
+- Hub into the elder's face on "Run your mind": **hard cut on the beat** (`cut`).
+- The elder's smile into the two engines: **dip to near-black** (`dip`, 0.5 s), a breath before "And let them copy".
