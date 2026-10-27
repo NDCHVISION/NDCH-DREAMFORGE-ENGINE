@@ -5,7 +5,7 @@ import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { endTitleAss, resolveEndTitle } from './lib/end-title.ts';
+import { clearOfLastWord, endTitleAss, resolveEndTitle, ruleEndTitle } from './lib/end-title.ts';
 import { resolveSoundEvents } from './lib/sound-events.ts';
 import { buildOpeningEventMixFilter } from './lib/opening-audio.ts';
 import { buildAssDocument, parseSubtitleStyle } from './lib/ass-subtitles.ts';
@@ -97,4 +97,16 @@ test('sound_events: an event mixed at 3s is silent before 3s and present after',
   };
   assert.ok(level(2) < -60, 'silent before the event');
   assert.ok(level(3.2) > -12, 'audible during the event');
+});
+
+test('end_title rule: the episode name, 2.2 s into the closing section, upper frame', () => {
+  assert.deepEqual(ruleEndTitle('Run', 38), { text: 'RUN', start_seconds: 40.2, fade_in_seconds: 1.2, position_pct: 12 });
+  assert.equal(ruleEndTitle('BEARING', 29).start_seconds, 31.2); // matches the reel the rule came from
+});
+
+test('end_title rule: the title waits for the last word', () => {
+  const t = resolveEndTitle({ text: 'RUN', start_seconds: 40.2 })!;
+  assert.equal(clearOfLastWord(t, 39.5).startSecs, 40.2);
+  assert.equal(clearOfLastWord(t, 40.5).startSecs, 40.9);
+  assert.equal(clearOfLastWord(t, undefined).startSecs, 40.2);
 });

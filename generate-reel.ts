@@ -92,7 +92,7 @@ import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
-import { endTitleAss } from './lib/end-title.ts';
+import { clearOfLastWord, endTitleAss } from './lib/end-title.ts';
 import { measureCueBands, withScrims } from './lib/caption-law.ts';
 import { reelEndSecs, trimLastWindow } from './lib/end-tail.ts';
 import type { TimedSoundEvent } from './lib/sound-events.ts';
@@ -1318,9 +1318,11 @@ function writeSubtitleArtifacts(
 
   const style = parseSubtitleStyle(plan.subtitles, plan.finish.subtitleLayout);
   const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
-  const title = plan.endTitle ? endTitleAss(plan.endTitle, style.fontName, style.playResX, style.playResY, plan.endTitle.startSecs + 60) : undefined;
+  // The end title never lands on the closing line: it waits for the last word.
+  const endTitle = plan.endTitle ? clearOfLastWord(plan.endTitle, wordTimings[wordTimings.length - 1]?.endSeconds) : undefined;
+  const title = endTitle ? endTitleAss(endTitle, style.fontName, style.playResX, style.playResY, endTitle.startSecs + 60) : undefined;
   writeFileSync(assPath, buildAssDocument(cues, style, title ? { styles: [title.style], events: [title.event] } : {}));
-  if (plan.endTitle) console.log(`  end title     : "${plan.endTitle.text}" from ${plan.endTitle.startSecs}s`);
+  if (endTitle) console.log(`  end title     : "${endTitle.text}" from ${endTitle.startSecs}s`);
   console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
 
   return { srtPath, assPath, cues };

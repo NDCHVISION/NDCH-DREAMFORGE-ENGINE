@@ -23,6 +23,36 @@ export interface EndTitle {
 
 export const END_TITLE_DEFAULTS = { fadeInSecs: 1.2, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 };
 
+/**
+ * End title rule (docs/EXPRESS.md, "End title"): every express reel from this
+ * number on closes on its name, set the way 033 BEARING set it. A seed may give
+ * its own `end_title`, or `end_title: false` to go without.
+ */
+export const END_TITLE_RULE_FROM = 33;
+/** The title fades in this long after the closing section starts (BEARING: 29 s -> 31.2 s). */
+export const END_TITLE_RULE_DELAY_SECS = 2.2;
+/** Upper frame, clear of the readable captions (28% up from the bottom) and the subject. */
+export const END_TITLE_RULE_POSITION_PCT = 12;
+/** The title never fades in before the last word has ended plus this gap. */
+export const END_TITLE_WORD_GAP_SECS = 0.4;
+
+/** The rule's `end_title` for a reel: its episode name over the closing shot. */
+export function ruleEndTitle(episodeName: string, closeStartSecs: number): Record<string, unknown> {
+  return {
+    text: episodeName.trim().toUpperCase().slice(0, 24),
+    start_seconds: Math.round((closeStartSecs + END_TITLE_RULE_DELAY_SECS) * 10) / 10,
+    fade_in_seconds: END_TITLE_DEFAULTS.fadeInSecs,
+    position_pct: END_TITLE_RULE_POSITION_PCT,
+  };
+}
+
+/** Moves a title that would land on the closing line to just after its last word. */
+export function clearOfLastWord(title: EndTitle, lastWordEndSecs: number | undefined): EndTitle {
+  if (lastWordEndSecs === undefined) return title;
+  const earliest = Math.round((lastWordEndSecs + END_TITLE_WORD_GAP_SECS) * 100) / 100;
+  return title.startSecs >= earliest ? title : { ...title, startSecs: earliest };
+}
+
 const KEYS = new Set(['text', 'start_seconds', 'fade_in_seconds', 'color', 'size_px', 'letter_spacing_px', 'position_pct']);
 
 function numIn(obj: Record<string, unknown>, key: string, min: number, max: number): number | undefined {

@@ -451,5 +451,11 @@
   "finish": {
     "subtitle_layout": "readable"
   },
+  "end_title": {
+    "text": "RECEPTION",
+    "start_seconds": 40.2,
+    "fade_in_seconds": 1.2,
+    "position_pct": 12
+  },
   "end_tail_secs": 2.5
 }
