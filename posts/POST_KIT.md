@@ -9,7 +9,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
 | 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
 | 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT |
-| 029 | [PRESENCE](#029--presence) | draft |  |
+| 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
 
 ## 023 · AXIOM
 
@@ -703,7 +703,7 @@ A fine gold chain drags through a crack in dark stone. In a vaulted stone chambe
 
 ## 029 · PRESENCE
 
-Status: draft · Engine: NDCH_035_PRESENCE
+Status: scheduled · Engine: NDCH_035_PRESENCE · YouTube: Tue, Nov 17, 11:00 AM CT
 
 Covers: `assets/covers/029_PRESENCE_vertical.png`, `assets/covers/029_PRESENCE_horizontal.png`
 
