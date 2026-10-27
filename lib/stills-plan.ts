@@ -41,7 +41,7 @@ export const STILL_PROMPT_MAX_CHARS = 1000;
  * CASTING_RULE_FROM on; earlier reels keep the prompts they were made with.
  */
 export const CASTING_RULE_FROM = 37;
-const PEOPLE = /\b(hands?|fingers?|arms?|person|people|figure|man|woman|silhouette|face)\b/i;
+export const PEOPLE = /\b(hands?|fingers?|arms?|person|people|figure|man|woman|silhouette|face)\b/i;
 const CAST = /brown[- ]skin|brown-skinned|racially ambiguous/i;
 
 export function castingViolation(reelId: string, prompt: string): boolean {

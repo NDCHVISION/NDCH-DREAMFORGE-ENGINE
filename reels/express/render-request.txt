@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v2
+run-v1
 
-1
 
-RECEPTION (030) loop light: ends warming into light, opens out of it (no Runway)
+
+RUN: tightened to 37 s (build 10 s, pivot 7 s), clip 2 at native speed, dip into the close; no new clips
