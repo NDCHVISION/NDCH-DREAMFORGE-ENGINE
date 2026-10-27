@@ -17,7 +17,7 @@
   {
    "clip": 2,
    "variants": 2,
-   "prompt": "The same tidy room as @room, same framing, light and furniture: the plain wooden chair, the small table with one empty white cup, the blank framed picture, the closed door in the far wall. Sitting in the wooden chair is a Black boy of about nine with dark brown skin, a short neat low fade haircut and a clean-cut look, wearing a crisp white short-sleeve button-up shirt and navy trousers, his feet not reaching the floor, hands in his lap, looking toward the closed door. Quiet, waiting, not sad. Full-bleed photograph. No lettering, no other people. Restrained, photorealistic, natural film grain.",
+   "prompt": "The same tidy room as @room, same framing, light and furniture: the plain wooden chair, the small table with one empty white cup, the blank framed picture, the closed door in the far wall. In the near foreground at the left edge, seen from behind at shoulder height, stands a Black boy of about nine with dark brown skin, a short neat low fade haircut and a clean-cut look, wearing a crisp white short-sleeve button-up shirt and navy trousers, looking across the room at the empty chair and the closed door. Curious and patient. Full-bleed photograph. No lettering, no other people. Restrained, photorealistic, natural film grain.",
    "references": [
     {
      "tag": "room",
