@@ -107,3 +107,12 @@ test('rendered: a seamless bed passes the seam check, a faded one fails it', { s
   assert.deepEqual(loopSeamProblems(measureLoopSeam(seamless)), []);
   assert.ok(loopSeamProblems(measureLoopSeam(faded)).some((p) => /fades before the replay/.test(p)));
 });
+
+test('rendered: the seam check reads the last frame when the picture ends before the audio', { skip: !hasFfmpeg }, () => {
+  const dir = mkdtempSync(join(tmpdir(), 'loopseam-short-'));
+  const out = join(dir, 'short.mp4');
+  ff(['-f', 'lavfi', '-i', 'color=c=gray:s=64x64:r=24:d=1.8', '-f', 'lavfi', '-i', 'sine=frequency=220:duration=2',
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', out]);
+  const m = measureLoopSeam(out);
+  assert.ok(m.pictureSsim > 0.99, `same gray picture at both ends (got ${m.pictureSsim})`);
+});
