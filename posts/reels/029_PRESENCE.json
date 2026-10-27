@@ -3,7 +3,10 @@
   "title": "PRESENCE",
   "engine_id": "NDCH_035_PRESENCE",
   "emoji": "🎭",
-  "status": "draft",
+  "status": "scheduled",
+  "schedule": {
+    "youtube": "2026-11-17T11:00:00-06:00"
+  },
   "cover": {
     "vertical": "assets/covers/029_PRESENCE_vertical.png",
     "horizontal": "assets/covers/029_PRESENCE_horizontal.png"

@@ -8,7 +8,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT |
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
 | 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
-| 029 | [PRESENCE](#029--presence) | draft |  |
+| 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
 
 ## 023 · AXIOM
 
@@ -568,7 +568,7 @@ A dark marble chamber veined with gold, lit by one round opening in the dome. Th
 
 ## 029 · PRESENCE
 
-Status: draft · Engine: NDCH_035_PRESENCE
+Status: scheduled · Engine: NDCH_035_PRESENCE · YouTube: Tue, Nov 17, 11:00 AM CT
 
 Covers: `assets/covers/029_PRESENCE_vertical.png`, `assets/covers/029_PRESENCE_horizontal.png`
 
