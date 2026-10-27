@@ -343,6 +343,8 @@ export interface ResolvedProductionPlan {
   loopAudio: LoopAudio;
   /** Raw `clip_transitions` from the spec; validated against the clip count at render (lib/transitions.ts). */
   transitions?: unknown;
+  /** Raw `clip_source_seconds` from the spec; validated against the clip count at render (lib/clip-source.ts). */
+  clipSource?: unknown;
   /** Finish profile: caption layout, output resolution, loudness (lib/finish.ts). */
   finish: FinishProfile;
   /** Reel name over the closing shot (lib/end-title.ts). */
@@ -533,6 +535,7 @@ export function resolveProductionPlan(
     narrationTiming,
     loopAudio: resolveLoopAudio(pickValue(reelSpec, [['loop_audio']])),
     transitions: pickValue(reelSpec, [['clip_transitions']]),
+    clipSource: pickValue(reelSpec, [['clip_source_seconds']]),
     finish: resolveFinish(pickValue(reelSpec, [['finish']])),
     endTitle: resolveEndTitle(pickValue(reelSpec, [['end_title']])),
     endTailSecs: resolveEndTail(pickValue(reelSpec, [['end_tail_secs']])),

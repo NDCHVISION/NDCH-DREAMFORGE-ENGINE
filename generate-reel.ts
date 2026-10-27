@@ -90,6 +90,7 @@ import {
 } from './lib/opening-audio.ts';
 import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
+import { resolveClipSource, CLIP_SOURCE_MAX_SLOW } from './lib/clip-source.ts';
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { clearOfLastWord, endTitleAss } from './lib/end-title.ts';
@@ -945,12 +946,15 @@ async function generateVideo(
     const boundary = resolveTransitions(plan.transitions, scenePlan.length);
     const kinds = resolveTransitionKinds(plan.transitions, scenePlan.length);
     const lengths = clipLengthsWithTransitions(windows, boundary);
+    const sources = resolveClipSource(plan.clipSource, scenePlan.length);
     const conformed = clipPaths.map((clipPath, idx) => {
       const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
       const src = getMediaDuration(clipPath);
+      const win = sources.get(idx);
+      if (win) console.log(`         clip ${idx + 1}: using ${win.start}-${win.end}s of the clip (clip_source_seconds)`);
       execFileSync('ffmpeg', [
         '-v', 'error', '-y', '-i', clipPath, '-an',
-        '-vf', conformClipFilter(src, lengths[idx]),
+        '-vf', conformClipFilter(src, lengths[idx], 24, win ? { ...win, maxSlow: CLIP_SOURCE_MAX_SLOW } : undefined),
         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out,
       ]);
       console.log(`         clip ${idx + 1}: conformed to ${lengths[idx]}s (window ${windows[idx]}s, was ${src.toFixed(2)}s)`);

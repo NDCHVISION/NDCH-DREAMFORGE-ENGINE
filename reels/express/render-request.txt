@@ -2,6 +2,6 @@ reels/express/seeds/NDCH_036_RECEPTION.json
 auto
 reception-v2
 
+1
 
-
-RECEPTION (030) recast: boy, teen, man; door wide open; all five clips new
+RECEPTION (030) fix: clip 5 cut before the sofa, -14 LUFS, end title (no Runway)

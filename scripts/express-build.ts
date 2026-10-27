@@ -24,6 +24,7 @@ import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-aud
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
+import { resolveClipSource } from '../lib/clip-source.ts';
 import { resolveSunoPrompt, sunoPromptProblem } from '../lib/suno.ts';
 import { END_TITLE_RULE_FROM, resolveEndTitle, ruleEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
@@ -192,6 +193,8 @@ export interface ExpressSeed {
   /** Per-boundary transitions the engine applies (lib/transitions.ts). Needs narration_timing "anchored".
    * (A seed's free-form `transitions` plan, if any, stays documentation and is not read.) */
   clip_transitions?: TransitionSpec[];
+  /** Use only part of a clip, slowed to fill its slot: { "5": [0, 3.5] } (lib/clip-source.ts). Needs narration_timing "anchored". */
+  clip_source_seconds?: Record<string, [number, number]>;
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
   finish?: { subtitle_layout?: 'default' | 'safe_zone' | 'readable'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Reel name over the closing shot (lib/end-title.ts). */
@@ -345,6 +348,12 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     throw new Error(`${source}: end_tail_secs needs narration_timing "anchored"`);
   }
   resolveSoundEvents(seed.sound_events);
+  if (seed.clip_source_seconds !== undefined) {
+    resolveClipSource(seed.clip_source_seconds, SEGMENT_IDS.length);
+    if (seed.narration_timing !== 'anchored') {
+      throw new Error(`${source}: clip_source_seconds needs narration_timing "anchored"`);
+    }
+  }
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
@@ -506,6 +515,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.narration_timing;
   if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);
   else delete spec.clip_transitions;
+  if (seed.clip_source_seconds) spec.clip_source_seconds = structuredClone(seed.clip_source_seconds);
+  else delete spec.clip_source_seconds;
   const finish = seed.finish ? structuredClone(seed.finish) : undefined;
   if (reelNumber(seed.reel_id) >= CAPTION_LAW_FROM) {
     spec.finish = { ...(finish ?? {}), subtitle_layout: 'readable' };

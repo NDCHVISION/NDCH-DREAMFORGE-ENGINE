@@ -448,6 +448,12 @@
       "note": "time dissolve on a shape match: the closed door becomes the same doorway wide open; years pass, the door is never seen opening"
     }
   ],
+  "clip_source_seconds": {
+    "5": [
+      0,
+      3.5
+    ]
+  },
   "finish": {
     "subtitle_layout": "readable",
     "output": "1080x1920",

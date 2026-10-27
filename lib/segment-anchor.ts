@@ -139,13 +139,25 @@ export const CONFORM_MAX_STRETCH = 1.1;
  * ffmpeg -vf chain that makes a clip exactly `slotSecs` long. A small
  * shortfall is absorbed by slowing the clip a few percent; a frame is held
  * only for a larger one. Longer clips are trimmed.
+ *
+ * With `source` (lib/clip-source.ts), only that window of the clip is used and
+ * it may be slowed up to `source.maxSlow` to fill the slot.
  */
-export function conformClipFilter(clipSecs: number, slotSecs: number, fps = 24): string {
-  const ratio = clipSecs > 0 ? slotSecs / clipSecs : 1;
-  const stretch = ratio > 1 && ratio <= CONFORM_MAX_STRETCH ? ratio : 1;
-  const pad = Math.max(0, slotSecs - clipSecs * stretch);
+export function conformClipFilter(
+  clipSecs: number,
+  slotSecs: number,
+  fps = 24,
+  source?: { start: number; end: number; maxSlow: number },
+): string {
+  const usable = source ? Math.max(0, Math.min(source.end, clipSecs) - source.start) : clipSecs;
+  const maxStretch = source ? Math.max(CONFORM_MAX_STRETCH, source.maxSlow) : CONFORM_MAX_STRETCH;
+  const ratio = usable > 0 ? slotSecs / usable : 1;
+  const stretch = ratio > 1 ? Math.min(ratio, maxStretch) : 1;
+  const effectiveStretch = !source && ratio > CONFORM_MAX_STRETCH ? 1 : stretch;
+  const pad = Math.max(0, slotSecs - usable * effectiveStretch);
   return [
-    ...(stretch > 1 ? [`setpts=${round3(stretch)}*PTS`] : []),
+    ...(source ? [`trim=${round3(source.start)}:${round3(source.start + usable)}`, 'setpts=PTS-STARTPTS'] : []),
+    ...(effectiveStretch > 1 ? [`setpts=${round3(effectiveStretch)}*PTS`] : []),
     `fps=${fps}`,
     'scale=720:1280:force_original_aspect_ratio=increase',
     'crop=720:1280',
