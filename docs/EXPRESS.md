@@ -85,6 +85,44 @@ changed from shot to shot.
    pictures: they bring their look and their cast with them. The stills plan is refused
    otherwise.
 
+### Motion that survives Runway (lessons from 036 RECEPTION)
+
+RECEPTION took four renders (about 1,020 credits) because the doors kept breaking. What failed,
+and what held, so the next reel is designed around it from the seed:
+
+1. **Don't ask Runway to move hinged things.** Every clip where a door swung came back wrong:
+   hinges on both sides of the frame, a door passing through its own frame to hang from the
+   other jamb, two leaves swinging against each other. A door that only has to sit there held
+   in every clip.
+2. **Don't push the camera toward a closed door.** Twice the far door opened on its own, or
+   turned into a different door (a brass knob became a black lever, a gap showed a garden),
+   as the camera approached it, even with "stays shut" written into the prompt. A sideways
+   track past the door, or a push that stops well short of it, held.
+3. **Give the motion to things that can't break:** the camera (slow pushes and lateral tracks),
+   light and shadow (a cloud shadow crossing the floor), fabric, water, dust. These held on the
+   first take every time: the corridor push, the locked closed-door shot.
+4. **Stills: image models read "gap under the door" as "the door is open."** Three rounds
+   asking for a shadow in the gap under a closed door came back with the door ajar. Put the
+   event in the motion prompt instead, from a still of a plainly shut door.
+5. **A visible shadow becomes a silhouette.** "A shadow under the door" produced a full
+   head-and-shoulders shape across the door face. "The light under the door dims softly, not
+   a shape" produced the intended ambiguous change.
+
+Engine mechanics learned on the same reel:
+
+- **The free-form `transitions` plan is documentation only.** The engine applies
+  `clip_transitions` (with `narration_timing: "anchored"`); without both, every join is a cut
+  and the reel runs at voice length (036 v1 came out 33.6 s).
+- **Pick clip lengths for their slots.** A clip is slowed at most 10% to fill its window;
+  beyond that its last frame is held. A 5 s clip in a 10 s slot freezes for about 5 s, so use
+  10 s clips for slots over 5.5 s, and set `section_boundaries` so every moving clip fits.
+- **Check hard cuts against the word timings.** A cut at a section boundary lands
+  mid-sentence when the previous line runs long; move the boundary (or the sentence) so the
+  cut falls in a gap.
+- **Close the loop on a camera move, not a door move.** Played in reverse, the opening
+  clip's first seconds end exactly on frame one (SSIM 0.99 on 036). This only works if
+  `end_title` is off or the title is added after the patch.
+
 ### First-frame retention contract (from 033 BEARING on)
 
 Viewers decide in the first two seconds. GRAVITAS (1,106 views) opened on a moment the viewer
