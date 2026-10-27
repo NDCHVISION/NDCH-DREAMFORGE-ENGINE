@@ -33,6 +33,7 @@ Caption colours come from the visual palette unless the seed sets `caption_color
 - Accent words should be the few words that carry the idea, not decoration. One or two per reel.
 - Never colour a word the same as what is behind it (a gold "light" over a lit doorway).
 - Keep the bottom 30% of the frame quiet in the visual prompts where possible; the scrim is a backstop, not a licence.
+- A line longer than 5 words is split into even cues, the longer part last ("Not the work / that keeps it turning."), so no cue holds a stray word or two. Lines of 5 words or fewer read best and stay whole.
 
 ## Reference
 

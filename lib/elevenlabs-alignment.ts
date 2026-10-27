@@ -84,7 +84,10 @@ export interface TimedCueOptions {
  *
  * Break priority per word appended:
  *   1. Sentence-ending punctuation
- *   2. Max word count reached
+ *   2. Max word count reached. A sentence longer than the max is split into
+ *      even parts (7 words at max 5 -> 3 + 4, not 5 + 2), so no cue is left
+ *      holding a stray word or two of the line (RUN: "Not the work / that
+ *      keeps it turning.", not "Not the work that keeps / it turning.").
  *   3. Cue text would exceed two display lines
  *   4. Clause punctuation once the cue already has ≥5 words
  *
@@ -92,6 +95,30 @@ export interface TimedCueOptions {
  * frame-accurate to the narration. A minimum readable duration is enforced
  * by extending a cue's end, capped at the next cue's start (no overlap).
  */
+/**
+ * Word indices to break after so each sentence longer than `maxWords` splits
+ * into the fewest cues, as even as possible, the longer parts last.
+ */
+export function balancedBreaks(words: readonly WordTiming[], maxWords: number): Set<number> {
+  const out = new Set<number>();
+  let start = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (!SENTENCE_END_PATTERN.test(words[i].word) && i < words.length - 1) continue;
+    const n = i - start + 1;
+    if (n > maxWords) {
+      const parts = Math.ceil(n / maxWords);
+      let at = start - 1;
+      for (let p = 0; p < parts - 1; p++) {
+        // Shorter parts first: floor of the remaining words over the remaining parts.
+        at += Math.floor((i - at) / (parts - p));
+        out.add(at);
+      }
+    }
+    start = i + 1;
+  }
+  return out;
+}
+
 export function buildCuesFromWordTimings(
   words: WordTiming[],
   options?: TimedCueOptions,
@@ -113,12 +140,14 @@ export function buildCuesFromWordTimings(
     buffer = [];
   };
 
-  for (const word of words) {
+  const breakAfter = balancedBreaks(words, maxWords);
+
+  for (const [i, word] of words.entries()) {
     buffer.push(word);
     const textLength = buffer.reduce((sum, entry) => sum + entry.word.length + 1, -1);
 
     if (SENTENCE_END_PATTERN.test(word.word)) { flush(); continue; }
-    if (buffer.length >= maxWords) { flush(); continue; }
+    if (breakAfter.has(i) || buffer.length >= maxWords) { flush(); continue; }
     if (textLength >= maxChars * 2 - 6) { flush(); continue; }
     if (CLAUSE_END_PATTERN.test(word.word) && buffer.length >= 5) { flush(); continue; }
   }

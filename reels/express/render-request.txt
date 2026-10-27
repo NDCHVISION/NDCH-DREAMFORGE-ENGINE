@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v1
-1,2
+run-v1
 
 
-RECEPTION (030) v4: clips 1 and 2 with still doors; slots 0/6/17/28/38/45; no end title
+
+RUN: balanced caption split ("Not the work / that keeps it turning."); no new clips
