@@ -6,22 +6,57 @@
   {
    "clip": 1,
    "variants": 2,
-   "prompt": "A tall pale oak door caught partway open toward the camera, photographed front-on at eye level in a bright, quiet house. The door is opened about a third of the way, its edge and small brass (#C6A94F) latch nearest the lens and sharp. Through the gap, a long narrow corridor of bone-white (#F5F2EB) plaster with light oak floorboards runs straight away to another closed pale oak door at its far end. Soft, even overcast morning daylight from a tall window on the left; soft grey shadows. One dominant subject, clean contrast between the warm oak and the white walls, reads at phone size. Full-bleed photograph: no borders, no frames. No people, no lettering, no lamps, no warm glow, no dark rooms, no lens flares. Restrained, photorealistic, natural film grain."
+   "prompt": "The same closed panelled door, wall and floor as @door, same front-on framing and soft overcast daylight from the left. Standing at the right of the door, in profile facing it, is a Black boy of about nine with dark brown skin, a short neat low fade haircut and a clean-cut look, wearing a crisp white short-sleeve button-up shirt and navy trousers. His right hand is raised at shoulder height, knuckles about to knock on the door. The door is fully shut. Hopeful, patient expression. Full-bleed photograph, reads at phone size. No lettering, no other people. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "door",
+     "path": "reels/express/stills/approved/NDCH_036_clip04.jpg"
+    }
+   ]
   },
   {
    "clip": 2,
    "variants": 2,
-   "prompt": "A small tidy room made for visitors, seen at standing height from its doorway. Bone-white (#F5F2EB) plaster walls, light oak floorboards, soft overcast daylight from a tall window on the left. One plain wooden chair, one empty white cup on a small bare wooden table, one blank white framed picture on the wall. Everything neat, symmetrical and untouched: no bag, no coat, no books, no plants, nothing personal. In the far wall, centred, a pale oak door with a small brass (#C6A94F) latch stands slightly open onto more white wall. Full-bleed photograph. No people, no lettering, no lamps, no warm glow, no dark corners. Restrained, photorealistic, natural film grain."
+   "prompt": "The same tidy room as @room, same framing, light and furniture: the plain wooden chair, the small table with one empty white cup, the blank framed picture, the closed door in the far wall. Sitting in the wooden chair is a Black boy of about nine with dark brown skin, a short neat low fade haircut and a clean-cut look, wearing a crisp white short-sleeve button-up shirt and navy trousers, his feet not reaching the floor, hands in his lap, looking toward the closed door. Quiet, waiting, not sad. Full-bleed photograph. No lettering, no other people. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "room",
+     "path": "reels/express/stills/approved/NDCH_036_clip02.jpg"
+    }
+   ]
   },
   {
    "clip": 3,
    "variants": 2,
-   "prompt": "A long enfilade: seven identical small rooms in a straight line, every pale oak door standing open, seen straight through from the first doorway at standing height. Each room is bone-white (#F5F2EB) plaster with light oak floorboards, and each has the same plain wooden chair and small table with one empty white cup in the same place on the left. The doorways shrink evenly toward a vanishing point at the centre of the frame. At the far end, the last door is closed, its brass (#C6A94F) latch catching the light. Soft, even overcast daylight from windows on the left, soft grey shadows. Symmetrical, clean, reads at phone size. Full-bleed photograph. No people, no lettering, no warm glow, no darkness. Restrained, photorealistic, natural film grain."
+   "prompt": "The same long white corridor as @hall, same framing and daylight, the same small tables, chairs and empty cups repeating down the left side and the closed door at the far end. In the middle distance, seen from behind and walking away down the corridor, is the same Black young man at about sixteen, dark brown skin, a short neat low fade haircut, clean-cut, wearing a crisp white short-sleeve button-up shirt and navy trousers. His posture is upright and steady. Full-bleed photograph. No lettering, no other people. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "hall",
+     "path": "reels/express/stills/approved/NDCH_036_clip03.jpg"
+    }
+   ]
   },
   {
    "clip": 4,
    "variants": 2,
-   "prompt": "A low floor-level close-up of the gap under a closed, unpainted pale oak door, the camera a few centimetres above light oak floorboards, the bottom third of the door filling the top of the frame. Bright, soft overcast daylight spills out through the gap onto the floorboards toward the lens. In the middle of that line of light, a soft dark grey shadow interrupts it, as if someone is standing just on the other side of the door. Bone-white (#F5F2EB) skirting board at the edges. Shallow depth of field, the floorboards sharp near the gap. Full-bleed photograph. No feet, no people, no metal strips, no kick plate, no lettering, no lamps, no warm glow. Restrained, photorealistic, natural film grain."
+   "prompt": "The same closed panelled door, wall and floor as @door, same front-on framing and soft overcast daylight from the left. Standing calmly one step back from the door, slightly to the right, seen in three-quarter view, is the same Black man grown up, about thirty, dark brown skin, a short neat low fade haircut and a neatly trimmed short beard, clean-cut, wearing a crisp white button-up shirt with the sleeves rolled once and navy trousers. His hands rest at his sides; he is not touching the door. Patient, settled, warm expression. The door is fully shut. Full-bleed photograph. No lettering, no other people. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "door",
+     "path": "reels/express/stills/approved/NDCH_036_clip04.jpg"
+    }
+   ]
+  },
+  {
+   "clip": 5,
+   "variants": 2,
+   "prompt": "The same doorway, wall and floor as @door, same front-on framing, but the door now stands wide open, swung fully inward and away out of sight. Warm golden daylight pours through the open doorway from a bright, lived-in room beyond: a window, a sofa with a throw, books, plants. Standing in the doorway, seen from behind as he steps through, is the same Black man grown up, about thirty, dark brown skin, a short neat low fade haircut and a neatly trimmed short beard, clean-cut, wearing a crisp white button-up shirt with the sleeves rolled once and navy trousers. Hopeful, welcoming, alive. Full-bleed photograph. No lettering, no other people visible. Restrained, photorealistic, natural film grain.",
+   "references": [
+    {
+     "tag": "door",
+     "path": "reels/express/stills/approved/NDCH_036_clip04.jpg"
+    }
+   ]
   }
  ]
 }
