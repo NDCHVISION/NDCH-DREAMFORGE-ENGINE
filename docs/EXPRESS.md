@@ -180,6 +180,22 @@ A dissolve of d seconds borrows d/2 from each clip, so boundaries and the 45 s l
 Unlisted boundaries are cuts. Light match, shape match and push-dissolve are dissolves whose
 effect comes from framing; say which in `note`.
 
+### Motion in the middle (lesson from 034 RUN)
+
+Plan movement into the middle sections (build, pivot, resolution) when the seed is written,
+not in the edit. RUN's clips 3 and 4 came back with flaws (a surface that changed mid-shot,
+a casting that changed shape), so the edit kept only their clean stretches and slowed them
+2x and 1.8x to fill 9 s windows. The reel held up, but 20 to 38 s became 18 s of near-still
+picture right where it should build toward the resolution.
+
+- Give every middle visual a camera move plus one more thing that happens in the shot
+  (a reveal, a hand entering, light crossing), so 9 s has two beats, not one.
+- Write each Runway prompt for a motion that model can hold for the whole clip; risky
+  motion (objects turning in hands, fast spokes) is where it breaks.
+- When the clean footage is shorter than its window, shorten the window
+  (`section_boundaries`, as BEARING did at 35 s) before slowing the clip. Keep any retime
+  at 1.25x or less; past that, motion reads as slow motion.
+
 ### Section timing (`section_boundaries`)
 
 The default grid is 0/6/20/29/38/45. When a line is much shorter than its window the

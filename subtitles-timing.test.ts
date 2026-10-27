@@ -184,3 +184,11 @@ test('buildAssDocument converts wrapped lines to \\N and escapes braces', () => 
   );
   assert.ok(doc.includes('line one\\Nline (two)'));
 });
+
+test('buildCuesFromWordTimings splits a long sentence evenly, never leaving a stray word or two', () => {
+  const words = buildWordTimingsFromAlignment(alignmentFromText('A mold takes the shape. Not the work that keeps it turning.'));
+  const cues = buildCuesFromWordTimings(words, { maxWordsPerCue: 5 });
+  assert.deepEqual(cues.map((c) => c.text.replace(/\n/g, ' ')), ['A mold takes the shape.', 'Not the work', 'that keeps it turning.']);
+  const twelve = buildWordTimingsFromAlignment(alignmentFromText('one two three four five six seven eight nine ten eleven twelve.'));
+  assert.deepEqual(buildCuesFromWordTimings(twelve, { maxWordsPerCue: 5 }).map((c) => c.text.split(/\s+/).length), [4, 4, 4]);
+});
