@@ -309,6 +309,31 @@ still shows. The stills builder rejects a prompt that shows people without it, f
 (`CASTING_RULE_FROM` in `lib/stills-plan.ts`). Reels already in production (034-036) were
 made before the rule; 034 RUN was recast by hand.
 
+### People rules (from 029 PRESENCE, 030 FRAMES and 034 RUN)
+
+Reels with a person in them resonate more than object-only reels, and who is on screen is a
+statement. Put a person in every reel where the idea allows, and cast deliberately: vary age
+and gender across reels, and elders count. What made people work in the clips so far:
+
+1. **Cast specifically.** Age, heritage, skin, hair or beard, build, one outfit, plus "real skin
+   texture with visible pores" (PRESENCE: "mid-twenties, mixed heritage, warm light-brown skin,
+   3B curls, charcoal crew-neck"). Vague casting gets a generic face. The casting rule above
+   still applies.
+2. **Lock the face first.** Approve one face still, save it in `stills/refs/`, and reference it
+   (`@face`) in every later still. PRESENCE's face held across four shots this way.
+3. **One person, one outfit,** the same in every shot they appear in.
+4. **Small human motion only:** breathe, blink, turn the head, a look, a slight smile, holding
+   still. No objects turned or handled in the hands, no walking toward the camera. RUN's casting
+   changed shape the moment the hands turned it.
+5. **Pose the action in the still.** If the person holds something, the still shows it already
+   held; the clip only adds the look and the camera move.
+6. **Every motion prompt says** "his/her face keeps its shape and features in every frame" and
+   "no new people".
+7. **Frame for the model:** an intimate close-up, or far away / from behind. A mid-distance face
+   doing a task is the riskiest shot.
+8. **Light the face like the reel:** one key light, near-black background, and the face in the
+   upper third so captions (28% up) never cover it.
+
 ### Universal Viewer Law
 
 A seed must land for a stranger who has never heard of NDCH. The builder refuses
