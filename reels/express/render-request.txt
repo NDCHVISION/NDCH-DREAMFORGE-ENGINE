@@ -4,4 +4,4 @@ run-v1
 
 
 
-RUN: tightened to 37 s (build 10 s, pivot 7 s), clip 2 at native speed, dip into the close; no new clips
+RUN 37 s: pinned ambience bed (loud across the loop point); no new clips
