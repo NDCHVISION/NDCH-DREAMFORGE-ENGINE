@@ -64,7 +64,7 @@
     }
   ],
   "notes": [
-    "Posts as 029. The music was replaced in post (no re-render), so there is no run_id; the posted cut is NDCH_029_PRESENCE_POST_FINAL.mp4 in the express-NDCH_035_PRESENCE release",
+    "Posts as 029. The music was replaced in post (no re-render), so there is no run_id; the posted cut (NDCH_029_PRESENCE_FINAL_E.mp4) was delivered in chat, not to the release",
     "Candidate scores are the music engine with voice fit (lib/audio/voice-fit.ts), scored after the choice; it ranked Room_Behind_a_Wall_1 first (0.805); the chosen take’s best window scored 0.771",
     "chosen.mp3 is the 42.5 s window as heard in the reel, with the loop tail carried over its head"
   ]
