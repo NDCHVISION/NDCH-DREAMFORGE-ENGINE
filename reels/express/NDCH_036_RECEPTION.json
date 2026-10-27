@@ -5,16 +5,16 @@
     "note": "Express seed (reels/express/seeds). Descriptive only.",
     "concept_seed": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
     "doctrine_theme": "Answers given under pressure are not trust freely given.",
-    "target_duration_seconds": 45
+    "target_duration_seconds": 47
   },
   "concept": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
   "theme": "Answers given under pressure are not trust freely given.",
   "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
   "emotional_arc": "a familiar frustration -> the tidy rooms are for visitors -> answers are not trust -> growing into patience -> the door is open",
-  "quote": "Not forced. Offered.",
+  "quote": "One day, the door is wide open. Offered.",
   "style_id": "style_1_fractal",
   "format": {
-    "target_duration_seconds": 45,
+    "target_duration_seconds": 47,
     "aspect_ratio": "9:16",
     "resolution": "1080x1920",
     "frame_rate": 30
@@ -63,14 +63,14 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause stays open and resolves when the reel loops back to the hook.",
-    "loop_seam": "'Not forced. Offered...' -> 'You asked again.'"
+    "loop_seam": "'wide open. Offered...' -> 'You asked again.'"
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...Not forced. Offered... [LOOP] You asked again.",
+    "expected_text_seam": "...wide open. Offered... [LOOP] You asked again.",
     "full_text_must_start_with": "You asked again.",
-    "full_text_must_end_with": "Not forced. Offered..."
+    "full_text_must_end_with": "wide open. Offered..."
   },
   "timing_normalization": {
     "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
@@ -222,10 +222,10 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. So you stop forcing it. You become someone a closed door is safe around. One day, the door is wide open. Not forced. Offered...",
-      "mobius_note": "Final segment stays open: 'Not forced. Offered...' resolves at loop restart with 'You asked again.'.",
-      "word_count": 74,
-      "estimated_duration_seconds": 45,
+      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. So you stop forcing it. You become someone a closed door is safe around. One day, the door is wide open. Offered...",
+      "mobius_note": "Final segment stays open: 'wide open. Offered...' resolves at loop restart with 'You asked again.'.",
+      "word_count": 72,
+      "estimated_duration_seconds": 47,
       "segments": [
         {
           "id": "hook",
@@ -270,7 +270,7 @@
           "id": "resolution",
           "text": "So you stop forcing it. You become someone a closed door is safe around.",
           "timestamp_start": "0:28",
-          "timestamp_end": "0:39",
+          "timestamp_end": "0:38",
           "visual_prompt": "The same person grown into a man, standing calmly in front of the closed panelled door, not touching it, with a small settled smile. Camera holds still, soft overcast daylight. No other people, no readable text.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
@@ -281,9 +281,9 @@
         },
         {
           "id": "mobius_close",
-          "text": "One day, the door is wide open. Not forced. Offered...",
-          "timestamp_start": "0:39",
-          "timestamp_end": "0:45",
+          "text": "One day, the door is wide open. Offered...",
+          "timestamp_start": "0:38",
+          "timestamp_end": "0:47",
           "visual_prompt": "The same doorway, now wide open, warm golden daylight pouring through from a lived-in room. The man walks through it and away into the light. Camera holds still. The last frame cuts back to the boy at the same door, closed. No other people, no lettering.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
@@ -357,8 +357,8 @@
   "music_config": {
     "description": "Warm hopeful cinematic: soft felt piano, gentle sustained strings, light warm pads, no percussion. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, a tender lift at the 17s pivot, opening into a bright, warm major resolution at the close, carried into the loop. No vocals, nothing dark or ominous.",
     "fade_in_seconds": 0.2,
-    "fade_out_start_seconds": 43,
-    "fade_out_end_seconds": 45
+    "fade_out_start_seconds": 45,
+    "fade_out_end_seconds": 47
   },
   "remotion_compiler_directives": {
     "render_subtitles": true,
@@ -391,7 +391,7 @@
     ]
   },
   "instagram_config": {
-    "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nOne day, the door is wide open. Not forced. Offered.\n\n#NDCH #NVSSeries #Boundaries #Trust #Relationships #Patience",
+    "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nOne day, the door is wide open. Offered.\n\n#NDCH #NVSSeries #Boundaries #Trust #Relationships #Patience",
     "hashtags": [
       "#NDCH",
       "#NVSSeries",
@@ -464,7 +464,7 @@
     ],
     "5": [
       0,
-      4
+      4.8
     ]
   },
   "finish": {
@@ -474,8 +474,8 @@
   },
   "end_title": {
     "text": "RECEPTION",
-    "start_seconds": 40,
-    "fade_in_seconds": 1.2,
+    "start_seconds": 42,
+    "fade_in_seconds": 1,
     "position_pct": 12
   },
   "end_tail_secs": 2.5

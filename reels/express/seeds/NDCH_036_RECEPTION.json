@@ -6,7 +6,7 @@
   "title_hook": "Pressure gets answers. Trust opens doors.",
   "concept": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
   "theme": "Answers given under pressure are not trust freely given.",
-  "quote": "Not forced. Offered.",
+  "quote": "One day, the door is wide open. Offered.",
   "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
   "emotional_arc": "a familiar frustration -> the tidy rooms are for visitors -> answers are not trust -> growing into patience -> the door is open",
   "music_mood": "uplifting",
@@ -51,7 +51,7 @@
       "visual": "The same person grown into a man, standing calmly in front of the closed panelled door, not touching it, with a small settled smile. Camera holds still, soft overcast daylight. No other people, no readable text."
     },
     "mobius_close": {
-      "text": "One day, the door is wide open. Not forced. Offered...",
+      "text": "One day, the door is wide open. Offered...",
       "visual": "The same doorway, now wide open, warm golden daylight pouring through from a lived-in room. The man walks through it and away into the light. Camera holds still. The last frame cuts back to the boy at the same door, closed. No other people, no lettering."
     }
   },
@@ -108,7 +108,7 @@
   "peak_words": [
     "trust"
   ],
-  "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nOne day, the door is wide open. Not forced. Offered.",
+  "caption": "You asked again. They answered again. Somehow you know them less.\n\nPressure can get you answers. Only trust gets you the person.\n\nOne day, the door is wide open. Offered.",
   "hashtags": [
     "#NDCH",
     "#NVSSeries",
@@ -175,13 +175,13 @@
     7,
     17,
     28,
-    39,
-    45
+    38,
+    47
   ],
   "end_title": {
     "text": "RECEPTION",
-    "start_seconds": 40.0,
-    "fade_in_seconds": 1.2,
+    "start_seconds": 42.0,
+    "fade_in_seconds": 1.0,
     "position_pct": 12
   },
   "post_edit_v4": {
@@ -218,7 +218,7 @@
     ],
     "5": [
       0,
-      4.0
+      4.8
     ]
   }
 }

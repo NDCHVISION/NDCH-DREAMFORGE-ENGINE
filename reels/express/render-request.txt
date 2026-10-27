@@ -4,4 +4,4 @@ reception-v2
 
 1
 
-RECEPTION (030) polish: full closing line, blur join, no frozen frames, hopeful bed, knock sound (no Runway)
+RECEPTION (030) polish 2: closing line fits before the end; clip 5 0-4.8 s (no Runway)
