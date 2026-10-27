@@ -110,7 +110,8 @@ export function measureLoopSeam(videoPath: string): LoopSeamMetrics {
   const first = join(dir, 'first.png');
   const last = join(dir, 'last.png');
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', videoPath, '-frames:v', '1', first]);
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-sseof', '-0.1', '-i', videoPath, '-frames:v', '1', '-update', '1', last]);
+  // The picture can end a few frames before the audio; decode the last second and keep the final frame.
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-sseof', '-1', '-i', videoPath, '-an', '-update', '1', last]);
   const ssimLog = join(dir, 'ssim.txt');
   execFileSync('ffmpeg', ['-v', 'error', '-i', first, '-i', last, '-lavfi', `[0][1]ssim=stats_file=${ssimLog}`, '-f', 'null', '-']);
   const pictureSsim = parseSsim(readFileSync(ssimLog, 'utf8'));
