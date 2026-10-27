@@ -8,6 +8,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT |
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
 | 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
+| 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT |
 | 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
 
 ## 023 · AXIOM
@@ -564,6 +565,140 @@ INVENTORY · 026 · NDCH Dreamforge
 
 ```text
 A dark marble chamber veined with gold, lit by one round opening in the dome. The light fades and the gold veins glow, picking out a coat on a chair, a steaming cup, and a door left ajar with warm light behind it. A man in a long coat walks through the door, and the light returns.
+```
+
+## 027 · BEARING
+
+Status: scheduled · Engine: NDCH_033_BEARING · YouTube: Tue, Nov 10, 11:00 AM CT
+
+### YouTube
+
+**Title**
+
+```text
+027 | BEARING 🧭 #philosophy #motivation
+```
+
+**Description**
+
+```text
+You can still repeat what they said. Word for word.
+
+Now name one thing you did right by yourself.
+
+Sometimes the person who hurt you breaks a pattern you hadn't. Don't mistake that for a favor.
+
+They don't get credit for where you turn. You do.
+
+—
+BEARING · 027 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Bearing #SelfRespect #Boundaries #ClearThinking
+```
+
+**Pinned comment**
+
+```text
+What's one thing you did right by yourself this year?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+You can still repeat what they said. Word for word.
+
+Now name one thing you did right by yourself.
+
+Sometimes the person who hurt you breaks a pattern you hadn't. Don't mistake that for a favor.
+
+They don't get credit for where you turn. You do.
+
+—
+BEARING · 027 · NDCH Dreamforge
+
+#NDCH #Bearing #SelfRespect #Boundaries #ClearThinking
+```
+
+**First comment (pin it)**
+
+```text
+What's one thing you did right by yourself this year?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+You can still repeat what they said. Word for word.
+
+They don't get credit for where you turn. You do.
+
+BEARING · 027 · NDCH
+
+#NDCH #selfrespect #boundaries #mindset #healing
+```
+
+**First comment (pin it)**
+
+```text
+What's one thing you did right by yourself this year?
+```
+
+### Facebook
+
+**Title**
+
+```text
+BEARING · NDCH 027
+```
+
+**Description**
+
+```text
+You can still repeat what they said. Word for word. Now name one thing you did right by yourself.
+
+Sometimes the person who hurt you breaks a pattern you hadn't. Don't mistake that for a favor.
+
+They don't get credit for where you turn. You do.
+
+#NDCH #SelfRespect #Boundaries
+```
+
+**First comment**
+
+```text
+What's one thing you did right by yourself this year?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+BEARING · NDCH 027
+```
+
+**Post text**
+
+```text
+Most of us can repeat, word for word, what someone said to us at our worst. Far fewer can name one thing we did right by ourselves since.
+
+Sometimes a setback, or a person, breaks a pattern you had not broken yourself. That is worth noticing. It is not a favor, and it does not earn them the credit.
+
+The direction you take from here is yours.
+
+BEARING · 027 · NDCH Dreamforge
+
+#Leadership #Resilience #SelfRespect
+```
+
+### Alt text
+
+```text
+A fine gold chain drags through a crack in dark stone. In a vaulted stone chamber lit by one brass lantern, the chain lies in a loop on a long table, then is pulled taut across the crack and snaps, its halves whipping apart. A brown hand picks up the broken end and draws it away. The broken chain rests on the table and the word BEARING appears in white.
 ```
 
 ## 029 · PRESENCE

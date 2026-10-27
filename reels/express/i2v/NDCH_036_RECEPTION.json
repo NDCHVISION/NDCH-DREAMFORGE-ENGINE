@@ -4,13 +4,13 @@
     "1": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera; the frame does not move. There is only one door in the foreground: the pale oak door on the right, hinged on its right edge. Already moving on the first frame, it swings slowly and smoothly open toward the camera on its hinges, revealing more of the long white corridor. The door stays one solid rigid panel; the door frame, walls, floorboards and the closed door at the far end of the corridor do not move or change shape. Soft overcast daylight does not change. No second door, no people.",
-      "duration": 5
+      "prompt": "The camera moves slowly and steadily forward a short distance down the bright white corridor, already moving on the first frame. The pale oak door on the right stays exactly where it is, partly open and completely still; it never moves, swings or changes shape, and it keeps its hinges on its right edge. The closed door at the far end of the corridor stays closed and small in the frame. A soft cloud shadow drifts slowly across the floorboards and walls from left to right, then the daylight returns. The walls, floorboards and both doors keep their shape. One continuous shot. No people.",
+      "duration": 10
     },
     "2": {
       "image": "reels/express/stills/approved/NDCH_036_clip02.jpg",
       "model": "gen4.5",
-      "prompt": "The camera moves slowly and steadily forward a short distance into the room, about one step, and eases to a stop well before the far wall; the closed door in the far wall stays small and whole in the frame. The chair, table, empty white cup and blank frame stay exactly where they are; nothing in the room moves. The patch of daylight on the floor shifts very slightly. The door stays shut and keeps its shape and handle. No people.",
+      "prompt": "The camera tracks slowly sideways from left to right along the room at a constant height and distance, parallel to the far wall, already moving on the first frame. The chair, table, empty white cup and blank frame stay exactly where they are. The door in the far wall stays fully shut in every frame and keeps its shape and its brass handle; it never opens. The patch of daylight on the floor shifts very slightly. Nothing else moves. No people.",
       "duration": 10
     },
     "3": {
