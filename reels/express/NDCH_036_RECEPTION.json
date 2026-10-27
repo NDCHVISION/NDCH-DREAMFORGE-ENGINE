@@ -232,7 +232,7 @@
           "text": "You asked again. They answered again. Somehow you know them less.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
-          "visual_prompt": "A door opening toward camera onto a long white corridor. Already swinging on the first frame: a tall pale oak door with a small brass (#C6A94F) latch opens toward the lens, bright overcast daylight. Through the widening gap, a long white plaster corridor runs to another closed oak door at its far end. Motion: the door keeps swinging slowly open while the camera advances gently toward the doorway with a smooth, restrained forward dolly; natural perspective deepens. One dominant subject, clean bright contrast, readable at phone size. One continuous shot. No people, no lettering, no lens flares.",
+          "visual_prompt": "A door swinging open toward camera onto a long white corridor. Already swinging on the first frame: one tall pale oak door on the right, hinged on its right edge, opens toward the lens while the camera holds its position, bright overcast daylight. Through the widening gap, a long white plaster corridor runs to another closed oak door at its far end. One rigid door, one doorframe. One dominant subject, clean bright contrast, readable at phone size. One continuous shot. No people, no lettering, no lens flares.",
           "frame_geometry": {
             "subject_position": "center-frame",
             "negative_space": "vast void occupying upper two-thirds",
@@ -242,10 +242,10 @@
         },
         {
           "id": "build",
-          "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away.",
+          "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.",
           "timestamp_start": "0:06",
-          "timestamp_end": "0:20",
-          "visual_prompt": "A tidy room made for visitors, not for living. Slow forward track through a small bone-white (#F5F2EB) plaster room in soft daylight: one plain wooden chair, one empty white cup on a small table, one blank white framed picture, everything neat and untouched. In the far wall, another pale oak door with a brass (#C6A94F) latch stands slightly open onto more white wall. The camera keeps moving toward it at one steady pace. No people, no readable text, no clutter.",
+          "timestamp_end": "0:17",
+          "visual_prompt": "A tidy room made for visitors, not for living. A short, slow step forward into a small bone-white (#F5F2EB) plaster room in soft daylight: one plain wooden chair, one empty white cup on a small table, one blank framed picture. The camera eases to a stop well before the far wall, where a closed door stays small and whole. Nothing in the room moves. No people, no readable text.",
           "frame_geometry": {
             "subject_position": "lower-center",
             "negative_space": "compressed darkness behind subject",
@@ -255,8 +255,8 @@
         },
         {
           "id": "pivot",
-          "text": "Pressure can get you answers. Only trust gets you the person.",
-          "timestamp_start": "0:20",
+          "text": "The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person.",
+          "timestamp_start": "0:17",
           "timestamp_end": "0:29",
           "visual_prompt": "The same empty seat repeated down one long corridor. A long white plaster (#F5F2EB) corridor with light oak herringbone floors in soft overcast daylight: the same small wooden table with one empty white cup and the same wooden chair repeat in a line down the left side, pale doors line the right, and at the far end, dead centre, one closed door. Symmetrical, clean. Motion: slow, steady push forward down the corridor; the closed far door never seems to get closer. The corridor keeps its exact geometry. No people, no readable text, no glow.",
           "frame_geometry": {
@@ -284,7 +284,7 @@
           "text": "Because the next time you ask...",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "visual_prompt": "Clip 1's first seconds played in reverse: the door swings slowly back toward its starting position and the camera eases back, so the last frame is exactly the first frame of the reel. No people, no lettering.",
+          "visual_prompt": "The opening framing again, held: the same partly open pale oak door and long white corridor from the first frame, camera fixed, only the daylight on the floorboards brightening very slightly. The last frame matches the first, so the loop runs straight into the door swinging open. No people, no lettering.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
             "negative_space": "compressed darkness behind subject",
@@ -355,7 +355,7 @@
     ]
   },
   "music_config": {
-    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 20s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
+    "description": "Dark cinematic ambient: low sustained drone, slow evolving pads, sparse heavy low-end hits. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, one clear dynamic event at the 17s pivot, stable resolution, energy declining into the loop. No vocals, no melody-led hooks.",
     "fade_in_seconds": 0.2,
     "fade_out_start_seconds": 43,
     "fade_out_end_seconds": 45
@@ -433,7 +433,7 @@
     {
       "after_clip": 2,
       "type": "cut",
-      "note": "hard cut on a beat: cut exactly on 'Pressure', the jump from the room to the endless corridor is the point"
+      "note": "hard cut on a beat: cut exactly on 'The person you came for'; the jump from one tidy room to an endless corridor of them is the point"
     },
     {
       "after_clip": 3,

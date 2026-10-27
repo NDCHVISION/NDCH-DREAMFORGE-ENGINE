@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-run-v1
+reception-v1
+1,2,5
 
 
-
-RUN: final with the end title rule (RUN at 40.2 s, upper frame); no new clips
+RECEPTION (030) v3: regenerate clips 1, 2, 5 (door geometry), cut on "The person" at 17 s
