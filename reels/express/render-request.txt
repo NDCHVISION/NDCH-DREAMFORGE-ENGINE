@@ -1,7 +1,7 @@
 reels/express/seeds/NDCH_034_RUN.json
 auto
 run-v1
+4
 
 
-
-RUN: balanced caption split ("Not the work / that keeps it turning."); no new clips
+RUN: clip 4 Ghanaian elder builder (gen4.5 10 s, ~120 credits), re-assemble
