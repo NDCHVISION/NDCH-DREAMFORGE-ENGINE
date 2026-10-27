@@ -2,7 +2,7 @@
   "reel_id": "NDCH_036_RECEPTION",
   "posting_number": "030",
   "episode_name": "RECEPTION",
-  "status": "v4: clips 1 and 2 regenerated with still doors (camera and light move instead). Posts as episode 030.",
+  "status": "v4 final, loop-patched 2026-10-26; ready to post as episode 030.",
   "title_hook": "Pressure gets answers. Not the person.",
   "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
   "theme": "Answers given under pressure are not trust freely given.",
@@ -176,5 +176,11 @@
     38,
     45
   ],
-  "end_title": false
+  "end_title": false,
+  "post_edit_v4": {
+    "edit": "v4 render kept to 41.3 s (captions end 40.82 s). From 40.9 s a 0.4 s dissolve into clip 1 stem 0-1.8 s played in reverse (clip 1 is trimmed, not stretched, so 1x), so the last frame is frame one. Audio untouched.",
+    "result": "42.7 s; last vs first frame SSIM 0.99; tail -35.1 dB, head -26.4 dB (within 15 dB).",
+    "review": "Doors checked frame by frame: all still and intact in every clip.",
+    "file": "NDCH_036_RECEPTION_FINAL_v4.mp4 (delivered in chat; binary uploads are blocked from this session)"
+  }
 }
