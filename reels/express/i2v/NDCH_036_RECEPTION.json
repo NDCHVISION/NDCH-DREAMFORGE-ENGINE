@@ -4,32 +4,32 @@
     "1": {
       "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
       "model": "gen4.5",
-      "prompt": "The camera moves slowly and steadily forward a short distance down the bright white corridor, already moving on the first frame. The pale oak door on the right stays exactly where it is, partly open and completely still; it never moves, swings or changes shape, and it keeps its hinges on its right edge. The closed door at the far end of the corridor stays closed and small in the frame. A soft cloud shadow drifts slowly across the floorboards and walls from left to right, then the daylight returns. The walls, floorboards and both doors keep their shape. One continuous shot. No people.",
+      "prompt": "Already moving on the first frame: the boy knocks on the door a few times with his knuckles, steady and patient, then lowers his hand and waits, looking up at the door. Locked camera. The door stays fully shut and does not move; the handle does not move. Soft overcast daylight. The boy keeps the same face, clothes and size. No other people.",
       "duration": 10
     },
     "2": {
       "image": "reels/express/stills/approved/NDCH_036_clip02.jpg",
       "model": "gen4.5",
-      "prompt": "The camera tracks slowly sideways from left to right along the room at a constant height and distance, parallel to the far wall, already moving on the first frame. The chair, table, empty white cup and blank frame stay exactly where they are. The door in the far wall stays fully shut in every frame and keeps its shape and its brass handle; it never opens. The patch of daylight on the floor shifts very slightly. Nothing else moves. No people.",
+      "prompt": "The camera moves slowly sideways a short way from left to right, past the boy's shoulder, revealing more of the tidy room. The boy stands still, breathing, and turns his head slightly toward the empty chair. The chair, table, empty cup and blank frame stay exactly where they are. The far door stays shut and keeps its shape. No other people.",
       "duration": 10
     },
     "3": {
       "image": "reels/express/stills/approved/NDCH_036_clip03.jpg",
       "model": "gen4.5",
-      "prompt": "The camera advances slowly through the long white corridor, maintaining precise central alignment toward the distant closed door. Repeating tables, chairs, and empty cups pass gradually through the frame with natural perspective and subtle parallax. All objects remain stationary. The doors along the right wall remain unchanged. The forward movement becomes almost imperceptibly slower near the end, without stopping completely. Preserve consistent corridor dimensions, architectural geometry, object spacing, and soft daylight. No people.",
+      "prompt": "The camera follows slowly behind the young man as he walks steadily away down the long white corridor at an even pace. The repeating tables, chairs and empty cups stay perfectly still. The doors along the walls and the closed door at the far end stay shut. The corridor keeps its exact geometry. No other people.",
       "duration": 10
     },
     "4": {
       "image": "reels/express/stills/approved/NDCH_036_clip04.jpg",
       "model": "gen4.5",
-      "prompt": "Perfectly locked camera. The closed door stays fully shut in every frame; it never opens, moves or swings, and the brass latch never moves. The face of the door and the wall stay evenly lit with no shadows crossing them. The only change in the whole clip: in the thin strip of daylight on the floor directly under the door, the middle of the strip dims softly, as if something on the other side is blocking a little of the light. The dimming is faint and soft-edged, not a shape. Everything else is completely still. No people, no silhouettes, no hands, no new light.",
-      "duration": 5
+      "prompt": "Locked camera. The man stands calmly in front of the closed door, breathing; he slowly lowers his gaze, then lifts his head and looks toward the door with a small, settled smile. He does not touch the door. The door and handle stay completely still and shut. Soft overcast daylight. No other people.",
+      "duration": 10
     },
     "5": {
-      "image": "reels/express/stills/approved/NDCH_036_clip01.jpg",
+      "image": "reels/express/stills/approved/NDCH_036_clip05.jpg",
       "model": "gen4.5",
-      "prompt": "Locked camera; the frame does not move. The pale oak door stays exactly where it is, partly open; nothing moves except the soft daylight on the floorboards, which brightens very slightly as a cloud passes. The walls, floorboards and both doors keep their shape. No people.",
-      "duration": 5
+      "prompt": "Locked camera. The man walks slowly and steadily away from the camera through the wide-open doorway into the warm, sunlit room beyond. The door stays wide open and out of sight; it does not move. Warm golden daylight; a plant by the window sways slightly. The doorframe and walls keep their shape. No other people.",
+      "duration": 10
     }
   }
 }

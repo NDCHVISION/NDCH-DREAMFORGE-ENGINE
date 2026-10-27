@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-run-v1
+reception-v2
 
 
 
-RUN: elder clip 4 trimmed past the murmur, top-edge lamp darkened, resolution window 7 s (reel 43 s); no new clips
+RECEPTION (030) recast: boy, teen, man; door wide open; all five clips new

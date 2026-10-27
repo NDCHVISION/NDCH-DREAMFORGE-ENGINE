@@ -3,14 +3,14 @@
   "engine_version": "2.1.0",
   "reel_input": {
     "note": "Express seed (reels/express/seeds). Descriptive only.",
-    "concept_seed": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
+    "concept_seed": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
     "doctrine_theme": "Answers given under pressure are not trust freely given.",
     "target_duration_seconds": 45
   },
-  "concept": "A bright, quiet house of white plaster in flat morning daylight. A pale oak door swings open toward camera and the corridor behind it stretches away instead of coming closer. Every door opened leads to another identical tidy room: one chair, one empty cup, one blank frame. The person who lives here is never seen. The only signs of them are a shadow passing under a closed door and a curtain moving in a room the camera never reaches. The camera stops pushing and waits. The film returns to the first door.",
+  "concept": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
   "theme": "Answers given under pressure are not trust freely given.",
   "core_metaphor": "A house that answers every knock with another polite empty room. The person who lives there is real, but never in the room you pushed your way into.",
-  "emotional_arc": "a familiar frustration -> a paradox you can see -> the tidy rooms are for visitors -> answers are not trust -> what kind of presence earns a door",
+  "emotional_arc": "a familiar frustration -> the tidy rooms are for visitors -> answers are not trust -> growing into patience -> the door is open",
   "quote": "Pressure can get you answers. Only trust gets you the person.",
   "style_id": "style_1_fractal",
   "format": {
@@ -63,14 +63,14 @@
   "mobius_loop": {
     "enabled": true,
     "description": "The final clause stays open and resolves when the reel loops back to the hook.",
-    "loop_seam": "'time you ask...' -> 'You asked again.'"
+    "loop_seam": "'open. Not because...' -> 'You asked again.'"
   },
   "loop_seam_validation": {
     "note": "Contract the validator checks for engine_version 2.1.0.",
     "text_seam_must_match": true,
-    "expected_text_seam": "...time you ask... [LOOP] You asked again.",
+    "expected_text_seam": "...open. Not because... [LOOP] You asked again.",
     "full_text_must_start_with": "You asked again.",
-    "full_text_must_end_with": "time you ask..."
+    "full_text_must_end_with": "open. Not because..."
   },
   "timing_normalization": {
     "note": "Display timeline runs continuously 0:00->0:45 (validator checks this). Per-segment pacing_lock.total_scene_seconds are delivery budgets, not the timeline; their sum (~37.7s) leaves intentional breathing room. ElevenLabs output is reconciled to each segment window via audio_sync_validation; sub-second remainder is absorbed into the mobius_close trailing silence.",
@@ -222,9 +222,9 @@
   },
   "voiceover": {
     "script": {
-      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. An invitation is not yours to manufacture. Be someone a closed door is safe around. Because the next time you ask...",
-      "mobius_note": "Final segment stays open: 'time you ask...' resolves at loop restart with 'You asked again.'.",
-      "word_count": 71,
+      "full_text": "You asked again. They answered again. Somehow you know them less. Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them. The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person. So you stop forcing it. You become someone a closed door is safe around. One day, the door is wide open. Not because...",
+      "mobius_note": "Final segment stays open: 'open. Not because...' resolves at loop restart with 'You asked again.'.",
+      "word_count": 73,
       "estimated_duration_seconds": 45,
       "segments": [
         {
@@ -232,7 +232,7 @@
           "text": "You asked again. They answered again. Somehow you know them less.",
           "timestamp_start": "0:00",
           "timestamp_end": "0:06",
-          "visual_prompt": "A bright white corridor with one pale oak door standing ajar on the right. Already moving on the first frame: the camera glides slowly forward down the corridor toward a closed oak door at its far end while a soft cloud shadow drifts across the floor and walls, then the daylight returns. The doors stay still and keep their shape. One dominant subject, clean bright contrast, readable at phone size. One continuous shot. No people, no lettering, no lens flares.",
+          "visual_prompt": "A boy knocking at a closed door. Already moving on the first frame: a Black boy with dark brown skin, a short neat fade and a crisp white shirt knocks with his knuckles on a closed panelled door in a bright white wall, then waits, looking up at it. The door stays shut. One dominant subject, clean bright contrast, readable at phone size. No other people, no lettering.",
           "frame_geometry": {
             "subject_position": "center-frame",
             "negative_space": "vast void occupying upper two-thirds",
@@ -245,7 +245,7 @@
           "text": "Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.",
           "timestamp_start": "0:06",
           "timestamp_end": "0:17",
-          "visual_prompt": "A tidy room made for visitors, not for living. A slow sideways track along a small bone-white (#F5F2EB) plaster room in soft daylight: one plain wooden chair, one empty white cup on a small table, one blank framed picture, and a closed door in the far wall that stays shut. Nothing in the room moves. No people, no readable text.",
+          "visual_prompt": "The same boy, seen from behind, standing at the edge of a tidy room made for visitors: one wooden chair, one empty white cup, one blank frame, a closed door in the far wall. The camera moves slowly sideways past his shoulder. Nothing in the room moves. No other people, no readable text.",
           "frame_geometry": {
             "subject_position": "lower-center",
             "negative_space": "compressed darkness behind subject",
@@ -258,7 +258,7 @@
           "text": "The person you came for is always one room away. Pressure can get you answers. Only trust gets you the person.",
           "timestamp_start": "0:17",
           "timestamp_end": "0:28",
-          "visual_prompt": "The same empty seat repeated down one long corridor. A long white plaster (#F5F2EB) corridor with light oak herringbone floors in soft overcast daylight: the same small wooden table with one empty white cup and the same wooden chair repeat in a line down the left side, pale doors line the right, and at the far end, dead centre, one closed door. Symmetrical, clean. Motion: slow, steady push forward down the corridor; the closed far door never seems to get closer. The corridor keeps its exact geometry. No people, no readable text, no glow.",
+          "visual_prompt": "The same person as a teenager, seen from behind, walking steadily away down a long white corridor of identical tables, chairs and empty cups toward a closed door at the far end. The camera follows slowly. No other people, no readable text.",
           "frame_geometry": {
             "subject_position": "upper-center",
             "negative_space": "compressed darkness behind subject",
@@ -268,10 +268,10 @@
         },
         {
           "id": "resolution",
-          "text": "An invitation is not yours to manufacture. Be someone a closed door is safe around.",
+          "text": "So you stop forcing it. You become someone a closed door is safe around.",
           "timestamp_start": "0:28",
           "timestamp_end": "0:38",
-          "visual_prompt": "A closed door with someone standing behind it. Front-on at standing height, a closed panelled door in pale warm beige with a small brass (#C6A94F) lever latch, set in a bone-white (#F5F2EB) plaster wall above light oak herringbone floorboards, soft overcast daylight from the left, a thin line of daylight under the door. Motion: locked camera; the door stays fully shut and the latch never moves; a soft shadow slides slowly into the line of light under the door and stops in the middle, as someone on the other side steps close and stands still. No people visible, no readable text.",
+          "visual_prompt": "The same person grown into a man, standing calmly in front of the closed panelled door, not touching it, with a small settled smile. Camera holds still, soft overcast daylight. No other people, no readable text.",
           "frame_geometry": {
             "subject_position": "lower-left-third",
             "negative_space": "vast void occupying upper two-thirds",
@@ -281,10 +281,10 @@
         },
         {
           "id": "mobius_close",
-          "text": "Because the next time you ask...",
+          "text": "One day, the door is wide open. Not because...",
           "timestamp_start": "0:38",
           "timestamp_end": "0:45",
-          "visual_prompt": "The opening framing again, held: the same partly open pale oak door and long white corridor from the first frame, camera fixed, only the daylight on the floorboards brightening very slightly. The last frame matches the first, so the loop runs straight into the door swinging open. No people, no lettering.",
+          "visual_prompt": "The same doorway, now wide open, warm golden daylight pouring through from a lived-in room. The man walks through it and away into the light. Camera holds still. The last frame cuts back to the boy at the same door, closed. No other people, no lettering.",
           "frame_geometry": {
             "subject_position": "lower-right-third",
             "negative_space": "compressed darkness behind subject",
@@ -428,24 +428,24 @@
       "after_clip": 1,
       "type": "dissolve",
       "seconds": 0.7,
-      "note": "push-dissolve: the push through the opening door dissolves into the tidy room already moving"
+      "note": "push-dissolve: the knocking boy dissolves to the same boy already inside the tidy room"
     },
     {
       "after_clip": 2,
       "type": "cut",
-      "note": "hard cut on a beat: cut exactly on 'The person you came for'; the jump from one tidy room to an endless corridor of them is the point"
+      "note": "hard cut on a beat: cut on 'The person you came for'; the boy becomes a teenager in the endless corridor"
     },
     {
       "after_clip": 3,
       "type": "wipe_left",
       "seconds": 0.7,
-      "note": "shadow sweep: a soft edge of light crosses from the corridor onto the closed door"
+      "note": "shadow sweep: a soft edge of light crosses from the corridor to the man at the closed door"
     },
     {
       "after_clip": 4,
       "type": "dissolve",
-      "seconds": 0.6,
-      "note": "push-dissolve: the closed door dissolves back to the first door, already easing shut, so the loop runs into the opening"
+      "seconds": 1,
+      "note": "time dissolve on a shape match: the closed door becomes the same doorway wide open; years pass, the door is never seen opening"
     }
   ],
   "finish": {
