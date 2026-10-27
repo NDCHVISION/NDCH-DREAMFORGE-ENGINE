@@ -189,10 +189,19 @@ from `prompt` (or read from a repo `file`) and laid over the voice and music at
 ]
 ```
 
-`end_title` (optional) sets the reel's name in spaced capitals over the closing shot,
+`end_title` sets the reel's name in spaced capitals over the closing shot,
 as on the covers. It fades in at `start_seconds` and holds to the last frame. It is burned
 with the captions, so it needs subtitles on. Defaults: white, 76 px, 22 px letter spacing,
 centred 46% from the top (sizes are on the 1280-px caption canvas).
+
+**End title rule (from 033 BEARING on, standing).** Every express reel closes on its name.
+A seed that leaves `end_title` out gets the BEARING setting automatically: the
+`episode_name` in capitals, fading in over 1.2 s, 2.2 s after the closing section starts
+(38 s → 40.2 s on the default windows), centred 12% from the top so it clears the readable
+captions and the subject. At render the title never lands on the closing line: if the last
+word ends later than the title's start, the title waits until 0.4 s after it. A seed may set
+its own `end_title` (any field above) or `"end_title": false` to go without. Engine:
+`END_TITLE_RULE_FROM` and `ruleEndTitle` in `lib/end-title.ts`.
 
 ```json
 "end_title": { "text": "BEARING", "start_seconds": 41.2, "fade_in_seconds": 1.2 }

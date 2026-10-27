@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-bearing-v2
+run-v1
 
-1
 
-BEARING v2: readable captions, clip 2 pull-back reveal (no Runway calls)
+
+RUN: final with the end title rule (RUN at 40.2 s, upper frame); no new clips

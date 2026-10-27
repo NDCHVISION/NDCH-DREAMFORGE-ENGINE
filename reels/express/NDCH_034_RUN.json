@@ -453,5 +453,11 @@
   ],
   "finish": {
     "subtitle_layout": "readable"
+  },
+  "end_title": {
+    "text": "RUN",
+    "start_seconds": 40.2,
+    "fade_in_seconds": 1.2,
+    "position_pct": 12
   }
 }

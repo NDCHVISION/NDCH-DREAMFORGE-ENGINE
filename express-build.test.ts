@@ -456,3 +456,18 @@ test('anchored: a short reel still plans one clip per section, on its own window
   assert.equal(scenes.length, 5);
   assert.deepEqual(scenes.map((s) => [s.timestampStartSeconds, s.timestampEndSeconds]), [[0, 5], [5, 13], [13, 20], [20, 29], [29, 35]]);
 });
+
+test('express: end title rule — from 033 every reel closes on its name unless the seed opts out', () => {
+  const load = (f: string) => JSON.parse(readFileSync(`reels/express/seeds/${f}`, 'utf8')) as ExpressSeed;
+  const title = (seed: ExpressSeed) => (buildReel(seed, TEMPLATE) as Record<string, unknown>).end_title as Record<string, unknown> | undefined;
+  // Rule default: name in capitals, 2.2 s into the closing section, upper frame.
+  const run = load('NDCH_034_RUN.json');
+  delete (run as Partial<ExpressSeed>).end_title;
+  assert.deepEqual(title(run), { text: 'RUN', start_seconds: 40.2, fade_in_seconds: 1.2, position_pct: 12 });
+  // A seed's own title wins (BEARING set it by hand).
+  assert.equal(title(load('NDCH_033_BEARING.json'))?.start_seconds, 31.2);
+  // Opt-out.
+  assert.equal(title({ ...run, end_title: false }), undefined);
+  // Reels before the rule keep what they were made with.
+  assert.equal(title(load('NDCH_032_INVENTORY.json')), undefined);
+});

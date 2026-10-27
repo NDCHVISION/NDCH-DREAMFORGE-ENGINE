@@ -24,7 +24,7 @@ import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-aud
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
 import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
-import { resolveEndTitle } from '../lib/end-title.ts';
+import { END_TITLE_RULE_FROM, resolveEndTitle, ruleEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
 import {
   readFileSync,
@@ -194,7 +194,8 @@ export interface ExpressSeed {
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
   finish?: { subtitle_layout?: 'default' | 'safe_zone' | 'readable'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Reel name over the closing shot (lib/end-title.ts). */
-  end_title?: Record<string, unknown>;
+  /** `false` opts a reel out of the end title rule. */
+  end_title?: Record<string, unknown> | false;
   /** Timed sound effects after the opening (lib/sound-events.ts). */
   sound_events?: Record<string, unknown>[];
   /** Optional ElevenLabs override; anything omitted keeps 016's voice config. */
@@ -332,7 +333,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     const problems = captionColourProblems(captionColours(seed));
     if (problems.length) throw new Error(`${source}: caption contrast: ${problems.join('; ')}`);
   }
-  resolveEndTitle(seed.end_title);
+  if (seed.end_title !== false) resolveEndTitle(seed.end_title);
   resolveEndTail(seed.end_tail_secs);
   if (seed.end_tail_secs !== undefined && seed.narration_timing !== 'anchored') {
     throw new Error(`${source}: end_tail_secs needs narration_timing "anchored"`);
@@ -504,7 +505,15 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
     spec.finish = { ...(finish ?? {}), subtitle_layout: 'readable' };
   } else if (finish) spec.finish = finish;
   else delete spec.finish;
-  if (seed.end_title) spec.end_title = structuredClone(seed.end_title);
+  // End title rule (from 033 BEARING): the reel closes on its name unless the seed says otherwise.
+  const endTitle =
+    seed.end_title === false
+      ? undefined
+      : seed.end_title ??
+        (reelNumber(seed.reel_id) >= END_TITLE_RULE_FROM && seed.episode_name
+          ? ruleEndTitle(seed.episode_name, sectionBoundaries(seed)[SEGMENT_IDS.length - 1])
+          : undefined);
+  if (endTitle) spec.end_title = structuredClone(endTitle);
   else delete spec.end_title;
   // End rule (LOOPING.md): from 036, anchored reels end 2.5 s after the last word.
   const endTail = seed.end_tail_secs ?? (reelNumber(seed.reel_id) >= END_RULE_FROM && seed.narration_timing === 'anchored' ? END_TAIL_SECS : undefined);

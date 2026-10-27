@@ -27,7 +27,9 @@ on, not starting over. Three seams have to close: picture, sound and words.
 - The last line ends open (`...`) and reads naturally into the first line
   ("Presence is not access... You can see someone every day..."). The validator
   already checks the open ending.
-- No caption on screen across the loop point.
+- No caption on screen across the loop point. The one exception is the end title
+  (docs/EXPRESS.md, "End title rule"): the reel's name holds to the last frame and
+  clears with the cut back to frame one.
 
 ## Ending: a beat after the last word
 
