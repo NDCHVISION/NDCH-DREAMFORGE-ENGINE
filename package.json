@@ -6,14 +6,15 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts reel-validation.test.ts music-analysis.test.ts express-build.test.ts clip-selection.test.ts stills-plan.test.ts i2v-plan.test.ts voice-tail.test.ts opening-audio.test.ts segment-anchor.test.ts transitions.test.ts loop-seam.test.ts caption-law.test.ts end-tail.test.ts voice-fit.test.ts finish.test.ts end-title-sfx.test.ts",
+    "test": "tsx --test env.test.ts reel-plan.test.ts ai-enrichment.test.ts subtitles-timing.test.ts reel-validation.test.ts music-analysis.test.ts express-build.test.ts clip-selection.test.ts stills-plan.test.ts i2v-plan.test.ts voice-tail.test.ts opening-audio.test.ts segment-anchor.test.ts transitions.test.ts loop-seam.test.ts caption-law.test.ts end-tail.test.ts voice-fit.test.ts finish.test.ts end-title-sfx.test.ts post-kit.test.ts",
     "music:analyze": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env scripts/analyze-reel-music.ts; else exec tsx scripts/analyze-reel-music.ts; fi'",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
     "generate": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env generate-reel.ts; else exec tsx generate-reel.ts; fi'",
-    "publish": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env publish-reel.ts; else exec tsx publish-reel.ts; fi'"
+    "publish": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env publish-reel.ts; else exec tsx publish-reel.ts; fi'",
+    "posts": "tsx scripts/post-kit.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
