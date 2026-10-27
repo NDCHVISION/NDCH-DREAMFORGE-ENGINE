@@ -5,14 +5,14 @@
   "stills": [
     {
       "clip": 4,
-      "variants": 2,
+      "variants": 4,
       "references": [
         {
           "tag": "engine",
           "path": "reels/express/stills/refs/NDCH_034_engine.jpg"
         }
       ],
-      "prompt": "Close shot on a worn charcoal stone bench. In the foreground, two bare hands with deep warm brown skin, clearly dark brown, no face, no sleeves, grip an unfinished raw grey cast-iron five-spoke flywheel casting resting on the bench. Just behind, the worn brass-and-iron original engine from @engine, its flywheel in frame. Low-key interior: near-black stone workshop with almost no ambient light. One cool bone-white (#F5F2EB) light rakes from high left; everything else falls into black. Photorealistic, natural film grain."
+      "prompt": "Medium close-up at chest height in the dim stone workshop of @engine. A Ghanaian man in his mid-sixties with deep brown skin, close-cropped grey hair and a full, neatly kept short grey beard, bright alert eyes, upright and strong, charcoal work shirt with sleeves rolled to the elbow under a worn dark leather apron. He holds an unfinished raw grey cast-iron flywheel casting at chest height in both hands: five straight spokes from a round hub, open gaps between them, rough sand-cast surface. Behind him at left, the original engine from @engine, brass cylinder and black iron five-spoke flywheel. His face in the upper third, turned three-quarters toward the engine, calm focus, the start of a smile. Real skin texture with visible pores, natural beard detail. One cool bone-white (#F5F2EB) light from high left, near-black background. Photorealistic, natural film grain. One person only, no lettering."
     }
   ]
 }

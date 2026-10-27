@@ -1,3 +1,3 @@
 reels/express/stills/NDCH_034_RUN.json
 4
-RUN clip 4 recast 2: deep brown skin, no layout reference
+RUN clip 4: Ghanaian elder builder, 4 variants (~32 credits)
