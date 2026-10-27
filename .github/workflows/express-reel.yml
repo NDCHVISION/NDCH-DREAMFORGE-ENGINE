@@ -135,7 +135,15 @@ jobs:
           mkdir -p /tmp/suno
           COUNT=0
           if [ "${{ steps.in.outputs.music }}" = "auto" ]; then
-            gh release download suno-library -p "*.mp3" -D /tmp/suno 2>/dev/null || true
+            # This reel's own candidates (made from its suno_prompt) come first; the shared
+            # suno-library release is the fallback (lib/suno.ts).
+            OWN="reels/express/music/${{ steps.seed.outputs.reel_id }}/candidates"
+            if ls "$OWN"/*.mp3 >/dev/null 2>&1; then
+              cp "$OWN"/*.mp3 /tmp/suno/
+              echo "Using this reel's own Suno candidates: $OWN"
+            else
+              gh release download suno-library -p "*.mp3" -D /tmp/suno 2>/dev/null || true
+            fi
             COUNT=$(ls /tmp/suno/*.mp3 2>/dev/null | wc -l)
           fi
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
@@ -311,6 +319,22 @@ jobs:
             echo "Download the video and caption here: $URL"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Record music (prompt, chosen track, scores)
+        if: ${{ steps.in.outputs.only_clips == '' }}
+        continue-on-error: true
+        run: |
+          ID="${{ steps.seed.outputs.reel_id }}"
+          OUTDIR="output/music_intelligence/$ID"
+          npx tsx scripts/record-music.ts --spec "${{ steps.seed.outputs.spec }}" --run-id "${{ github.run_id }}" \
+            $( [ -n "${{ steps.mix.outputs.mixed }}" ] && echo --selection "$OUTDIR/selection_report.json" --tracks /tmp/suno ) \
+            $( [ -z "${{ steps.mix.outputs.mixed }}" ] && [ -f /tmp/background-ambience.mp3 ] && echo --ambience /tmp/background-ambience.mp3 )
+          {
+            echo "## Music record"
+            echo '```'
+            cat "reels/express/music/$ID/music.json" | head -40
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Loop seam check (LOOPING.md)
         if: ${{ steps.in.outputs.only_clips == '' }}
         continue-on-error: true
@@ -337,6 +361,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add "$LOG"
+          [ -d "reels/express/music/${{ steps.seed.outputs.reel_id }}" ] && git add reels/express/music
           git commit -m "express: rendered ${{ steps.seed.outputs.reel_id }} [skip ci]"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"
           git push
