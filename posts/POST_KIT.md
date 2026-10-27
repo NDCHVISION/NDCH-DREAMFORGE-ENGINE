@@ -8,6 +8,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT |
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
 | 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
+| 029 | [PRESENCE](#029--presence) | draft |  |
 
 ## 023 · AXIOM
 
@@ -563,4 +564,142 @@ INVENTORY · 026 · NDCH Dreamforge
 
 ```text
 A dark marble chamber veined with gold, lit by one round opening in the dome. The light fades and the gold veins glow, picking out a coat on a chair, a steaming cup, and a door left ajar with warm light behind it. A man in a long coat walks through the door, and the light returns.
+```
+
+## 029 · PRESENCE
+
+Status: draft · Engine: NDCH_035_PRESENCE
+
+Covers: `assets/covers/029_PRESENCE_vertical.png`, `assets/covers/029_PRESENCE_horizontal.png`
+
+### YouTube
+
+**Title**
+
+```text
+029 | PRESENCE 🎭 #philosophy #motivation
+```
+
+**Description**
+
+```text
+You can see someone every day and mistake it for knowing them.
+
+You know their voice. Their laugh. The way they cross a room.
+Familiarity hides distance well.
+
+What someone lets you see, and who they are when no one is watching, are not always the same.
+
+Presence is not access.
+
+—
+PRESENCE · 029 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Presence #Perception #Connection #ClearThinking
+```
+
+**Pinned comment**
+
+```text
+Who do you see every day but have never really asked?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+You can see someone every day and mistake it for knowing them.
+
+You know their voice. Their laugh. The way they cross a room.
+Familiarity hides distance well.
+
+What someone lets you see, and who they are when no one is watching, are not always the same.
+
+Presence is not access.
+
+—
+PRESENCE · 029 · NDCH Dreamforge
+
+#NDCH #Presence #Perception #Connection #ClearThinking
+```
+
+**First comment (pin it)**
+
+```text
+Who do you see every day but have never really asked?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+You can see someone every day and mistake it for knowing them.
+
+Familiarity hides distance well. Presence is not access.
+
+PRESENCE · 029 · NDCH
+
+#NDCH #presence #perception #mindset #connection
+```
+
+**First comment (pin it)**
+
+```text
+Who do you see every day but have never really asked?
+```
+
+### Facebook
+
+**Title**
+
+```text
+PRESENCE · NDCH 029
+```
+
+**Description**
+
+```text
+You can see someone every day and mistake it for knowing them.
+
+You know their voice, their laugh, the way they cross a room. Familiarity hides distance well. What someone lets you see, and who they are when no one is watching, are not always the same.
+
+Presence is not access.
+
+#NDCH #Presence #Connection
+```
+
+**First comment**
+
+```text
+Who do you see every day but have never really asked?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+PRESENCE · NDCH 029
+```
+
+**Post text**
+
+```text
+You can work beside someone every day and mistake it for knowing them.
+
+You know their voice in meetings, their laugh, the way they walk into a room. Familiarity hides distance well. What a colleague lets you see, and what they carry when no one is watching, are not always the same.
+
+Presence is not access. Access is earned by asking, and by listening to the answer.
+
+PRESENCE · 029 · NDCH Dreamforge
+
+#Leadership #Connection #EmotionalIntelligence
+```
+
+### Alt text
+
+```text
+A young woman with dark curly hair and a charcoal sweater looks toward the camera against a black background. A sculpted shell of her face stands on a post in a black marble hall veined with gold while she walks away behind it. The hall opens onto light, then into a warm library with a spiral stair and brass lamps, where she walks to a tall window over green trees. It ends on her face again.
 ```
