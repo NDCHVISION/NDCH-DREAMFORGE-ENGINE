@@ -88,13 +88,9 @@ What's a line you've held while the room moved?
 **Caption**
 
 ```text
-Agreement does not determine what is true. Disagreement does not make it false.
+023| AXIOM
 
-The line never moved.
-
-AXIOM · 023 · NDCH
-
-#NDCH #truth #conviction #mindset #axiom
+An axiom does not require its surroundings to agree.
 ```
 
 **First comment (pin it)**
@@ -232,17 +228,9 @@ What's the lens in your work that no one can copy?
 **Caption**
 
 ```text
-If they're copying your blueprint, you're watching the wrong thing. Keep building.
+024| FRAMES
 
-They can copy the frames. The color. The weight. The exact angle.
-
-Watch them long enough and you forget what you were looking at.
-
-The lenses were always clear.
-
-FRAMES · 024 · NDCH
-
-#NDCH #originality #attention #mindset #frames
+If they're copying your blueprint, you're watching the wrong thing.
 ```
 
 **First comment (pin it)**
@@ -378,15 +366,9 @@ Parallax: when you move, near things shift more than far things. Nothing in the 
 **Caption**
 
 ```text
-Never negative. Never make-believe.
+025| PARALLAX
 
-The wall is real. So is the opening you haven't noticed.
-
-Do not invent the good. Do not miss it either.
-
-PARALLAX · 025 · NDCH
-
-#NDCH #perspective #clearthinking #mindset #parallax
+You don't have to change the facts to change where you look.
 ```
 
 **First comment (pin it)**
@@ -530,13 +512,9 @@ Who's on your inventory?
 **Caption**
 
 ```text
-The coat still on the chair. The cup still warm. The door that still opens.
+026| INVENTORY
 
 Most of us only count them after. Count them now.
-
-INVENTORY · 026 · NDCH
-
-#NDCH #gratitude #perspective #mindset #inventory
 ```
 
 **First comment (pin it)**
@@ -670,13 +648,9 @@ What's one thing you did right by yourself this year?
 **Caption**
 
 ```text
-You can still repeat what they said. Word for word.
+027| BEARING
 
 They don't get credit for where you turn. You do.
-
-BEARING · 027 · NDCH
-
-#NDCH #selfrespect #boundaries #mindset #healing
 ```
 
 **First comment (pin it)**
@@ -812,13 +786,9 @@ What are you building right now that no one could copy from the outside?
 **Caption**
 
 ```text
-Someone copied your work. Perfect copy. Dead engine.
+028| RUN
 
 A mold takes the shape. Not the work that keeps it turning.
-
-RUN · 028 · NDCH
-
-#NDCH #authorship #discipline #mindset #keepbuilding
 ```
 
 **First comment (pin it)**
@@ -954,13 +924,9 @@ Who do you see every day but have never really asked?
 **Caption**
 
 ```text
-You can see someone every day and mistake it for knowing them.
+029| PRESENCE
 
 Familiarity hides distance well. Presence is not access.
-
-PRESENCE · 029 · NDCH
-
-#NDCH #presence #perception #mindset #connection
 ```
 
 **First comment (pin it)**
@@ -1100,13 +1066,9 @@ Who finally opened up to you, and what changed before they did?
 **Caption**
 
 ```text
-You asked again. They answered again. Somehow you know them less.
+030| RECEPTION
 
 Pressure can get you answers. Only trust gets you the person.
-
-RECEPTION · 030 · NDCH
-
-#ndch #trust #relationships #patience #mindset
 ```
 
 **First comment (pin it)**

@@ -26,7 +26,7 @@ npm run posts -- all             # everything
 
 - **YouTube title:** `<posting> | <TITLE> <emoji> #philosophy #motivation` (max 100 characters). The description opens with the hook line, ends with `<TITLE> · <posting> · NDCH Dreamforge` and six hashtags.
 - **Instagram:** no title; the first line is the hook, the cover carries the title. At most 5 hashtags.
-- **TikTok:** shorter caption, the main line first, 5 lowercase hashtags.
+- **TikTok:** exactly two lines with a blank line between: `<posting>| <TITLE>` (e.g. `023| AXIOM`), then the one line from the reel that carries its idea. No hashtags, no sign-off. The pinned comment still goes in `first_comment`.
 - **Facebook:** title `<TITLE> · NDCH <posting>`, tighter caption, 3 hashtags.
 - **LinkedIn:** the reel's idea in professional terms, 3 hashtags, vertical cover as the thumbnail.
 - **Location tag (rule, every post):** `location.name` is a real, monumental landmark whose story echoes the reel's idea (023 AXIOM: Leaning Tower of Pisa). Tag it on Instagram, TikTok, Facebook and YouTube (Studio: Video location); LinkedIn has no location field. `location.why` records the link for us and is never posted. Pick a different landmark each time and spread them across the world. The tests fail if a post has no location.

@@ -37,8 +37,9 @@ export const FIELDS: Record<Platform, { key: string; label: string; required: bo
   ],
 };
 
-/** Hashtag caps we hold ourselves to (Instagram allows at most 5). */
-export const MAX_HASHTAGS: Partial<Record<Platform, number>> = { instagram: 5, tiktok: 5, facebook: 3, linkedin: 3 };
+/** Hashtag caps we hold ourselves to (Instagram allows at most 5; TikTok captions carry none). */
+export const MAX_HASHTAGS: Partial<Record<Platform, number>> = { instagram: 5, tiktok: 0, facebook: 3, linkedin: 3 };
+
 
 /**
  * Rule (from 2026-10-28): every post carries a location tag naming a real, monumental landmark
@@ -106,10 +107,16 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     for (const k of Object.keys(copy)) if (!known.has(k)) errs.push(`${where}: ${plat}.${k} is not a known field`);
     const cap = MAX_HASHTAGS[plat];
     const body = copy.caption ?? copy.description ?? copy.post ?? '';
-    if (cap && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
+    if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
   if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${p.posting} | ${p.title}`))
     errs.push(`${where}: youtube.title should start with "${p.posting} | ${p.title}"`);
+  const tt = p.platforms?.tiktok?.caption;
+  if (tt) {
+    const [head, blank, line, ...rest] = tt.split('\n');
+    if (head !== `${p.posting}| ${p.title}` || blank !== '' || !line?.trim() || rest.length)
+      errs.push(`${where}: tiktok.caption must be "${p.posting}| ${p.title}", a blank line, then one line from the reel`);
+  }
   return errs;
 }
 
