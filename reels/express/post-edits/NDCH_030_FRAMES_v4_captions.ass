@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+ScaledBorderAndShadow: yes
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Reel,Cormorant Garamond,72,&H00EBF2F5,&H000000FF,&H30000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,0,2,48,48,358,1
+Style: EndTitle,Cormorant Garamond,76,&H00FFFFFF,&H000000FF,&H64000000,&H78000000,0,0,0,0,100,100,22,0,1,1,2,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.06,0:00:02.20,Reel,,0,0,0,,{\blur2}They can copy the {\1c&H6AC4E9&}frames.{\1c&HEBF2F5&}
+Dialogue: 1,0:00:02.70,0:00:05.00,Reel,,0,0,0,,{\blur2}The color. The weight.
+Dialogue: 1,0:00:05.05,0:00:06.60,Reel,,0,0,0,,{\blur2}The exact angle.
+Dialogue: 1,0:00:07.95,0:00:09.20,Reel,,0,0,0,,{\blur2}And you start watching
+Dialogue: 1,0:00:09.20,0:00:10.40,Reel,,0,0,0,,{\blur2}them do it.
+Dialogue: 1,0:00:16.70,0:00:18.00,Reel,,0,0,0,,{\blur2}Long enough to {\1c&HF2C4B0&}forget{\1c&HEBF2F5&}
+Dialogue: 1,0:00:18.00,0:00:19.80,Reel,,0,0,0,,{\blur2}what you were looking at.
+Dialogue: 1,0:00:21.90,0:00:23.00,Reel,,0,0,0,,{\blur2}Take them off.
+Dialogue: 1,0:00:28.40,0:00:30.60,Reel,,0,0,0,,{\blur2}The lenses were always {\1c&H6AC4E9&}clear.{\1c&HEBF2F5&}
+Dialogue: 1,0:00:31.00,0:00:35.92,EndTitle,,0,0,0,,{\pos(371,512)\fad(1200,0)}FRAMES

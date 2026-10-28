@@ -68,9 +68,10 @@
       "Hook: first 0.42 s trimmed (cut just before the first word), so the hand reaches for the frames at 0.5 s",
       "Glasses-off: frames at 25.21-25.67 s removed (the blue temple showed through his fingers) with a 0.17 s dissolve; that stretch is silent, so the cut is inaudible",
       "Sound arc: a low tremolo hum (brown noise below 300 Hz plus 110/220 Hz, about 16 dB under the music) under 0-21.5 s, cut off with the music at the drop before 'Take them off'",
-      "v3: the blue that bled through his palm and fingers (22.5-24.8 s on the v2 timeline) painted out frame by frame: small blue blobs fully enclosed by skin are inpainted from the surrounding skin; the glasses frame itself is left untouched"
+      "v3: the blue that bled through his palm and fingers (22.5-24.8 s on the v2 timeline) painted out frame by frame: small blue blobs fully enclosed by skin are inpainted from the surrounding skin; the glasses frame itself is left untouched",
+      "v4: old captions removed by inpainting their boxes (dark backgrounds); new captions to the caption law (CAPTIONS.md): 72 px bold cream on the 720x1280 canvas at 28% from the bottom, at most 5 words a cue, 'frames' and 'clear' in #E9C46A, 'forget' lifted from #245BDB to #B0C4F2; no scrim needed (every band under 0.15). End title FRAMES from 31.0 s at 40% height, 1.2 s fade-in. Cue file: reels/express/post-edits/NDCH_030_FRAMES_v4_captions.ass"
     ],
     "result": "35.9 s, -14.2 LUFS, peak -1.3 dBFS. No Runway or ElevenLabs.",
-    "file": "NDCH_REEL_024_FRAMES_v3.mp4 (delivered in chat)"
+    "file": "NDCH_REEL_024_FRAMES_v4.mp4 (delivered in chat)"
   }
 }
