@@ -307,9 +307,9 @@ from `prompt` (or read from a repo `file`) and laid over the voice and music at
 ```
 
 `end_title` sets the reel's name in spaced capitals over the closing shot,
-as on the covers. It fades in at `start_seconds` and holds to the last frame;
-`fade_out_seconds` (default 0) fades it out over the reel's last moments so the loop point
-lands on a clean frame (033 BEARING uses 0.5). It is burned
+as on the covers. It fades in at `start_seconds` and fades out over `fade_out_seconds`
+(default **0.5**) ending on the reel's last frame, so the loop point lands on a clean frame;
+set `fade_out_seconds: 0` to hold the title to the last frame instead. It is burned
 with the captions, so it needs subtitles on. Defaults: white, 76 px, 22 px letter spacing,
 centred 46% from the top (sizes are on the 1280-px caption canvas).
 
@@ -317,7 +317,8 @@ centred 46% from the top (sizes are on the 1280-px caption canvas).
 A seed that leaves `end_title` out gets the BEARING setting automatically: the
 `episode_name` in capitals, fading in over 1.2 s, 2.2 s after the closing section starts
 (38 s → 40.2 s on the default windows), centred 12% from the top so it clears the readable
-captions and the subject. At render the title never lands on the closing line: if the last
+captions and the subject, and fading out over the last 0.5 s so the replay starts clean
+(standing rule since the 029 PRESENCE review: a held title pops off at the loop). At render the title never lands on the closing line: if the last
 word ends later than the title's start, the title waits until 0.4 s after it. A seed may set
 its own `end_title` (any field above) or `"end_title": false` to go without. Engine:
 `END_TITLE_RULE_FROM` and `ruleEndTitle` in `lib/end-title.ts`.

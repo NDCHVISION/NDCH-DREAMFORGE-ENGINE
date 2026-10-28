@@ -10,8 +10,9 @@
  *
  * size_px and letter_spacing_px are on the 1280-px-high caption canvas;
  * position_pct is the title's vertical centre, measured from the top. fade_out_seconds
- * (default 0) fades the title out over the reel's last moments, so the loop point lands
- * on a clean frame (033 BEARING).
+ * fades the title out over the reel's last moments, so the loop point lands on a clean
+ * frame. Default 0.5 s for every reel (rule from 029 PRESENCE review: a title that holds to
+ * the last frame pops off when the reel replays); set 0 to hold.
  */
 
 export interface EndTitle {
@@ -25,7 +26,7 @@ export interface EndTitle {
   positionPct: number;
 }
 
-export const END_TITLE_DEFAULTS = { fadeInSecs: 1.2, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 };
+export const END_TITLE_DEFAULTS = { fadeInSecs: 1.2, fadeOutSecs: 0.5, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 };
 
 /**
  * End title rule (docs/EXPRESS.md, "End title"): every express reel from this
@@ -87,7 +88,7 @@ export function resolveEndTitle(raw: unknown): EndTitle | undefined {
     text: r.text.trim().toUpperCase(),
     startSecs,
     fadeInSecs: numIn(r, 'fade_in_seconds', 0, 3) ?? END_TITLE_DEFAULTS.fadeInSecs,
-    fadeOutSecs: numIn(r, 'fade_out_seconds', 0, 3) ?? 0,
+    fadeOutSecs: numIn(r, 'fade_out_seconds', 0, 3) ?? END_TITLE_DEFAULTS.fadeOutSecs,
     colorHex: (r.color as string | undefined) ?? END_TITLE_DEFAULTS.colorHex,
     sizePx: numIn(r, 'size_px', 24, 160) ?? END_TITLE_DEFAULTS.sizePx,
     spacingPx: numIn(r, 'letter_spacing_px', 0, 80) ?? END_TITLE_DEFAULTS.spacingPx,
