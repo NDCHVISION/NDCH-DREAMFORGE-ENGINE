@@ -26,6 +26,8 @@ import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } fr
 import { resolveFinish } from '../lib/finish.ts';
 import { resolveClipSource } from '../lib/clip-source.ts';
 import { resolveLoopLight } from '../lib/loop-light.ts';
+import { resolveClipGrade } from '../lib/clip-grade.ts';
+import { resolveVoiceHolds } from '../lib/voice-holds.ts';
 import { resolveSunoPrompt, sunoPromptProblem } from '../lib/suno.ts';
 import { END_TITLE_RULE_FROM, resolveEndTitle, ruleEndTitle } from '../lib/end-title.ts';
 import { resolveSoundEvents } from '../lib/sound-events.ts';
@@ -199,6 +201,12 @@ export interface ExpressSeed {
   clip_source_seconds?: Record<string, [number, number]>;
   /** Light match across the loop point: { color, strength, head_seconds, tail_seconds, head_zoom, zoom_center } (lib/loop-light.ts). */
   loop_light?: Record<string, unknown>;
+  /** Per-clip colour temperature: { "1": { temperature: -0.5, saturation: 0.92 } } (lib/clip-grade.ts). Needs narration_timing "anchored". */
+  clip_grade?: Record<string, { temperature?: number; saturation?: number }>;
+  /** Pause before a line and slow it slightly: [{ before, until?, pause_seconds, tempo }] (lib/voice-holds.ts). */
+  voice_holds?: unknown[];
+  /** Caption backing: 'scrim' (default, caption law) or 'contact_shadow' for bright films (CAPTIONS.md). */
+  caption_backing?: 'scrim' | 'contact_shadow';
   /** dB (0-8) to lift the music bed after the last word so it carries into the loop (seamless loops). */
   loop_music_lift_db?: number;
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
@@ -361,6 +369,14 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   resolveLoopLight(seed.loop_light);
   if (seed.loop_music_lift_db !== undefined && (typeof seed.loop_music_lift_db !== 'number' || seed.loop_music_lift_db < 0 || seed.loop_music_lift_db > 8)) {
     throw new Error(`${source}: loop_music_lift_db must be a number from 0 to 8`);
+  }
+  if (seed.clip_grade !== undefined) {
+    resolveClipGrade(seed.clip_grade, SEGMENT_IDS.length);
+    if (seed.narration_timing !== 'anchored') throw new Error(`${source}: clip_grade needs narration_timing "anchored"`);
+  }
+  resolveVoiceHolds(seed.voice_holds);
+  if (seed.caption_backing !== undefined && !['scrim', 'contact_shadow'].includes(seed.caption_backing)) {
+    throw new Error(`${source}: caption_backing must be "scrim" or "contact_shadow"`);
   }
   if (seed.clip_source_seconds !== undefined) {
     resolveClipSource(seed.clip_source_seconds, SEGMENT_IDS.length);
@@ -531,6 +547,12 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.clip_transitions;
   if (seed.clip_source_seconds) spec.clip_source_seconds = structuredClone(seed.clip_source_seconds);
   else delete spec.clip_source_seconds;
+  if (seed.clip_grade) spec.clip_grade = structuredClone(seed.clip_grade);
+  else delete spec.clip_grade;
+  if (seed.voice_holds?.length) spec.voice_holds = structuredClone(seed.voice_holds);
+  else delete spec.voice_holds;
+  if (seed.caption_backing) (spec.subtitle_config as Json).backing = seed.caption_backing;
+  else delete (spec.subtitle_config as Json).backing;
   if (seed.loop_light) spec.loop_light = structuredClone(seed.loop_light);
   else delete spec.loop_light;
   if (seed.loop_music_lift_db !== undefined) spec.loop_music_lift_db = seed.loop_music_lift_db;

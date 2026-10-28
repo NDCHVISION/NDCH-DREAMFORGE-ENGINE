@@ -1,4 +1,5 @@
 import { resolveLoopLight, type LoopLight } from './lib/loop-light.ts';
+import { resolveVoiceHolds, type VoiceHold } from './lib/voice-holds.ts';
 import { resolveOpeningAudio, type ResolvedOpeningAudio } from './lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from './lib/segment-anchor.ts';
 import { resolveFinish, type FinishProfile } from './lib/finish.ts';
@@ -348,6 +349,10 @@ export interface ResolvedProductionPlan {
   clipSource?: unknown;
   /** Light match across the loop point (lib/loop-light.ts). */
   loopLight?: LoopLight;
+  /** Raw `clip_grade` from the spec (lib/clip-grade.ts). */
+  clipGrade?: unknown;
+  /** Pauses and slower lines applied to the narration after TTS (lib/voice-holds.ts). */
+  voiceHolds?: VoiceHold[];
   /** Finish profile: caption layout, output resolution, loudness (lib/finish.ts). */
   finish: FinishProfile;
   /** Reel name over the closing shot (lib/end-title.ts). */
@@ -540,6 +545,8 @@ export function resolveProductionPlan(
     transitions: pickValue(reelSpec, [['clip_transitions']]),
     clipSource: pickValue(reelSpec, [['clip_source_seconds']]),
     loopLight: resolveLoopLight(pickValue(reelSpec, [['loop_light']])),
+    clipGrade: pickValue(reelSpec, [['clip_grade']]),
+    voiceHolds: resolveVoiceHolds(pickValue(reelSpec, [['voice_holds']])),
     finish: resolveFinish(pickValue(reelSpec, [['finish']])),
     endTitle: resolveEndTitle(pickValue(reelSpec, [['end_title']])),
     endTailSecs: resolveEndTail(pickValue(reelSpec, [['end_tail_secs']])),
