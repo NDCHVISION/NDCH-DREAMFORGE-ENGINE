@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-run-v1
+reception-v2
 
+1
 
-
-RUN 37 s: pinned ambience bed (loud across the loop point); no new clips
+RECEPTION (030): clip 5 cut at 3.4 s before the ottoman, 1.5 s tail (no Runway)

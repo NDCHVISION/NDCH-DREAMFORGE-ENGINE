@@ -464,14 +464,14 @@
     ],
     "5": [
       0,
-      4.8
+      3.4
     ]
   },
   "loop_light": {
     "color": "#FFF1DC",
     "strength": 0.55,
     "head_seconds": 0.9,
-    "tail_seconds": 1.2
+    "tail_seconds": 1.5
   },
   "finish": {
     "subtitle_layout": "readable",
@@ -485,11 +485,11 @@
     "position_pct": 12
   },
   "suno_prompt": {
-    "style": "Warm hopeful cinematic instrumental, 70 BPM, solo felt piano opening tender and patient in D major, soft sustained strings entering gently around 17 seconds, slow build with warm cello and viola, no drums, a bright open major-key swell and resolution around 38 seconds, intimate and uplifting, like light coming through a doorway, 50 seconds",
-    "exclude": "vocals, choir, drums, percussion, trap, EDM, dark, ominous, horror, minor-key drone, heavy bass hits, risers, braams",
-    "title": "RECEPTION bed",
+    "style": "warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string guitar and soft upright piano in short patient phrases, like someone waiting at a door, warm solo cello enters around 0:17, slow steady build with soft violins underneath, no drums, a bright open swell that lifts around 0:38 like sunlight pouring through a doorway, then settles warm and calm, intimate and tender, starts and ends on the same warm chord for a seamless loop",
+    "exclude": "vocals, choir, drums, percussion, trap, EDM, lo-fi beat, dark, ominous, horror, drone, braams, risers, sub-bass hits, sad, minor key, dorian, felt piano close-mic",
+    "title": "RECEPTION - The Open Door",
     "instrumental": true,
     "model": "v5"
   },
-  "end_tail_secs": 2.5
+  "end_tail_secs": 1.5
 }
