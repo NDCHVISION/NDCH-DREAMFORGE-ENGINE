@@ -3,7 +3,10 @@
   "title": "THE STATUE",
   "engine_id": "NDCH_022_THE_STATUE",
   "emoji": "🗿",
-  "status": "draft",
+  "status": "scheduled",
+  "schedule": {
+    "linkedin": "2026-11-04T08:00:00-06:00"
+  },
   "cover": {
     "vertical": "assets/covers/022_THE_STATUE_vertical.png",
     "horizontal": "assets/covers/022_THE_STATUE_horizontal.png"
@@ -36,5 +39,6 @@
       "post": "Most growth advice is about adding. More discipline. More credentials. More polish.\n\nKeep adding long enough and it gets hard to tell what is yours and what you took on because it was expected.\n\nA sculptor does not add the figure to the stone. He removes what conceals it: the expectations, the performances, the roles inherited without choosing.\n\nNot everything you carry belongs to you. And not everything you lose is a loss.\n\nTHE STATUE · 022 · NDCH Dreamforge\n\n#Leadership #Identity #Growth"
     }
   },
-  "alt_text": "A rough stone figure stands under a spotlight in a dark gallery. Inside a block of black veined marble a man's figure emerges as the stone cracks and falls away in slabs. A hand turns a fragment of the stone. At the end a man in a dark shirt stands alone in the hall."
+  "alt_text": "A rough stone figure stands under a spotlight in a dark gallery. Inside a block of black veined marble a man's figure emerges as the stone cracks and falls away in slabs. A hand turns a fragment of the stone. At the end a man in a dark shirt stands alone in the hall.",
+  "note": "Already out on the other platforms; LinkedIn is the backfill."
 }

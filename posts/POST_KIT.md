@@ -4,7 +4,8 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 
 | # | Reel | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
-| 022 | [THE STATUE](#022--the-statue) | draft |  | Galleria dell'Accademia, Florence |
+| 021 | [FAITH](#021--faith) | scheduled |  | Eiffel Tower |
+| 022 | [THE STATUE](#022--the-statue) | scheduled |  | Galleria dell'Accademia, Florence |
 | 023 | [AXIOM](#023--axiom) | scheduled | Tue, Oct 27, 11:00 AM CT | Leaning Tower of Pisa |
 | 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT | Sagrada Família |
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT | Petra |
@@ -14,9 +15,143 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT | Great Sphinx of Giza |
 | 030 | [RECEPTION](#030--reception) | draft | Fri, Nov 20, 11:00 AM CT | Forbidden City |
 
+## 021 · FAITH
+
+Status: scheduled · LinkedIn: Thu, Oct 29, 8:00 AM CT
+
+Note: Already out on the other platforms; LinkedIn is the backfill.
+
+Covers: `assets/covers/021_FAITH_vertical.png`, `assets/covers/021_FAITH_horizontal.png`
+
+Location tag: `Eiffel Tower` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Built as a temporary exhibit for the 1889 World's Fair and due to come down, it was kept because it became a radio antenna. Built for one future, it became capacity for another.
+
+### YouTube
+
+**Title**
+
+```text
+021 | FAITH 🌱 #philosophy #motivation
+```
+
+**Description**
+
+```text
+Faith begins before certainty.
+
+The work comes before the reason.
+
+What is built for one future may become capacity for another.
+
+Not every preparation meets the future it imagined. It may still meet the future that comes.
+
+—
+FAITH · 021 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Faith #Discipline #Purpose #Preparation
+```
+
+**Pinned comment**
+
+```text
+What are you building now for a future you can't see yet?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+Faith begins before certainty.
+
+The work comes before the reason.
+
+What is built for one future may become capacity for another.
+
+Not every preparation meets the future it imagined. It may still meet the future that comes.
+
+—
+FAITH · 021 · NDCH Dreamforge
+
+#NDCH #Faith #Discipline #Purpose #Preparation
+```
+
+**First comment (pin it)**
+
+```text
+What are you building now for a future you can't see yet?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+021| FAITH
+
+What is built for one future may become capacity for another.
+```
+
+**First comment (pin it)**
+
+```text
+What are you building now for a future you can't see yet?
+```
+
+### Facebook
+
+**Title**
+
+```text
+FAITH · NDCH 021
+```
+
+**Description**
+
+```text
+Faith begins before certainty. The work comes before the reason.
+
+Not every preparation meets the future it imagined. It may still meet the future that comes.
+
+#NDCH #Faith #Purpose
+```
+
+**First comment**
+
+```text
+What are you building now for a future you can't see yet?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+FAITH · NDCH 021
+```
+
+**Post text**
+
+```text
+Most work that matters starts before anyone can justify it. The skill learned before the role exists. The system built before the demand shows up.
+
+Sometimes the future you prepared for never arrives. That work is rarely wasted.
+
+What is built for one future may become capacity for another.
+
+Not every preparation meets the future it imagined. It may still meet the future that comes.
+
+FAITH · 021 · NDCH Dreamforge
+
+#Leadership #CareerGrowth #Purpose
+```
+
 ## 022 · THE STATUE
 
-Status: draft · Engine: NDCH_022_THE_STATUE
+Status: scheduled · Engine: NDCH_022_THE_STATUE · LinkedIn: Wed, Nov 4, 8:00 AM CT
+
+Note: Already out on the other platforms; LinkedIn is the backfill.
 
 Covers: `assets/covers/022_THE_STATUE_vertical.png`, `assets/covers/022_THE_STATUE_horizontal.png`
 

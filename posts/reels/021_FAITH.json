@@ -1,0 +1,42 @@
+{
+  "posting": "021",
+  "title": "FAITH",
+  "emoji": "🌱",
+  "status": "scheduled",
+  "schedule": {
+    "linkedin": "2026-10-29T08:00:00-05:00"
+  },
+  "cover": {
+    "vertical": "assets/covers/021_FAITH_vertical.png",
+    "horizontal": "assets/covers/021_FAITH_horizontal.png"
+  },
+  "location": {
+    "name": "Eiffel Tower",
+    "why": "Built as a temporary exhibit for the 1889 World's Fair and due to come down, it was kept because it became a radio antenna. Built for one future, it became capacity for another."
+  },
+  "platforms": {
+    "youtube": {
+      "title": "021 | FAITH 🌱 #philosophy #motivation",
+      "description": "Faith begins before certainty.\n\nThe work comes before the reason.\n\nWhat is built for one future may become capacity for another.\n\nNot every preparation meets the future it imagined. It may still meet the future that comes.\n\n—\nFAITH · 021 · NDCH Dreamforge\n\n#NDCH #NVSSeries #Faith #Discipline #Purpose #Preparation",
+      "pinned_comment": "What are you building now for a future you can't see yet?"
+    },
+    "instagram": {
+      "caption": "Faith begins before certainty.\n\nThe work comes before the reason.\n\nWhat is built for one future may become capacity for another.\n\nNot every preparation meets the future it imagined. It may still meet the future that comes.\n\n—\nFAITH · 021 · NDCH Dreamforge\n\n#NDCH #Faith #Discipline #Purpose #Preparation",
+      "first_comment": "What are you building now for a future you can't see yet?"
+    },
+    "tiktok": {
+      "caption": "021| FAITH\n\nWhat is built for one future may become capacity for another.",
+      "first_comment": "What are you building now for a future you can't see yet?"
+    },
+    "facebook": {
+      "title": "FAITH · NDCH 021",
+      "description": "Faith begins before certainty. The work comes before the reason.\n\nNot every preparation meets the future it imagined. It may still meet the future that comes.\n\n#NDCH #Faith #Purpose",
+      "first_comment": "What are you building now for a future you can't see yet?"
+    },
+    "linkedin": {
+      "title": "FAITH · NDCH 021",
+      "post": "Most work that matters starts before anyone can justify it. The skill learned before the role exists. The system built before the demand shows up.\n\nSometimes the future you prepared for never arrives. That work is rarely wasted.\n\nWhat is built for one future may become capacity for another.\n\nNot every preparation meets the future it imagined. It may still meet the future that comes.\n\nFAITH · 021 · NDCH Dreamforge\n\n#Leadership #CareerGrowth #Purpose"
+    }
+  },
+  "note": "Already out on the other platforms; LinkedIn is the backfill."
+}
