@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-run-v1
+reception-v2
 
+1
 
-
-RUN 36 s: elder mouthing cut out, resolution window 6 s; no new clips
+RECEPTION (030): mix the best of four Suno takes (no Runway)
