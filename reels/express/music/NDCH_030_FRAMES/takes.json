@@ -1,0 +1,92 @@
+{
+  "reel_id": "NDCH_030_FRAMES",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note.mp3",
+      "status": "chosen",
+      "rank": 1,
+      "note": "Sparsest (about one note every 3 s); ends on a held note fading to near silence. 0.5-22.5 s under 0-22 s, cut at the glasses-off, own ending under 32-37 s",
+      "duration_seconds": 40.0,
+      "created": "2026-10-24T05:11:06Z",
+      "suno_id": "6593f0d1-28b1-43f8-81ec-263cb3de302e",
+      "suno_url": "https://suno.com/song/6593f0d1-28b1-43f8-81ec-263cb3de302e",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__unresolved-note.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note (1).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "A minor, no drums; ending does not fade as cleanly",
+      "duration_seconds": 39.6,
+      "created": "2026-10-24T05:11:24Z",
+      "suno_id": "3b99cfc7-a147-4370-9167-69ca619cdc0a",
+      "suno_url": "https://suno.com/song/3b99cfc7-a147-4370-9167-69ca619cdc0a",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__unresolved-note-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note (2).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "A minor, no drums; ending does not fade as cleanly",
+      "duration_seconds": 42.4,
+      "created": "2026-10-24T05:11:35Z",
+      "suno_id": "76514468-444e-42f0-938e-539613dfdf5c",
+      "suno_url": "https://suno.com/song/76514468-444e-42f0-938e-539613dfdf5c",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__unresolved-note-2.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note (3).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "A minor, no drums; ending does not fade as cleanly",
+      "duration_seconds": 39.6,
+      "created": "2026-10-24T05:11:44Z",
+      "suno_id": "41d0a42b-7aac-4d46-9199-04b9009e487e",
+      "suno_url": "https://suno.com/song/41d0a42b-7aac-4d46-9199-04b9009e487e",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__unresolved-note-3.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "A Minor Drone",
+      "suno_file": "A Minor Drone (1).mp3",
+      "status": "unused",
+      "rank": 5,
+      "note": "About twice as busy as the Unresolved Note takes",
+      "duration_seconds": 39.6,
+      "created": "2026-10-24T05:12:06Z",
+      "suno_id": "5064af8c-aad7-4df6-8d0e-77b3cac75c51",
+      "suno_url": "https://suno.com/song/5064af8c-aad7-4df6-8d0e-77b3cac75c51",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__a-minor-drone-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "A Minor Drone",
+      "suno_file": "A Minor Drone.mp3",
+      "status": "unused",
+      "rank": 5,
+      "note": "About twice as busy as the Unresolved Note takes",
+      "duration_seconds": 40.0,
+      "created": "2026-10-24T05:11:52Z",
+      "suno_id": "75f94cde-e79d-4f97-8a00-f0a5be138043",
+      "suno_url": "https://suno.com/song/75f94cde-e79d-4f97-8a00-f0a5be138043",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_030_FRAMES__a-minor-drone.mp3",
+      "structure_cues": "[Instrumental]"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Unresolved Note / A Minor Drone",
+      "instrumental": true,
+      "style": "Minimal cinematic piano, slow and sparse, 60 BPM, A minor. Single felt piano notes with long sustain, soft low cello drone underneath, distant room reverb. Restrained, introspective, quietly tense, no drums, no vocals, no build-up or drop. Ends unresolved on a held note. 40 seconds.",
+      "used": true
+    }
+  ]
+}

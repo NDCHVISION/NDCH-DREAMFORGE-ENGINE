@@ -1,0 +1,60 @@
+{
+  "reel_id": "NDCH_034_RUN",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Ostinato de Bois",
+      "suno_file": "Ostinato de Bois.wav",
+      "status": "candidate",
+      "note": "New take, not yet scored",
+      "duration_seconds": 72.8,
+      "created": "2026-10-28T00:54:38Z",
+      "suno_id": "d1acb659-0832-4e1f-bc68-58a3dfaf47bc",
+      "suno_url": "https://suno.com/song/d1acb659-0832-4e1f-bc68-58a3dfaf47bc",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_034_RUN__ostinato-de-bois.mp3"
+    },
+    {
+      "title": "Ostinato du jour",
+      "suno_file": "Ostinato du jour.wav",
+      "status": "candidate",
+      "note": "New take, not yet scored",
+      "duration_seconds": 46.8,
+      "created": "2026-10-28T00:54:50Z",
+      "suno_id": "1e18d9b8-aa54-4547-a8df-b68116bbc3b9",
+      "suno_url": "https://suno.com/song/1e18d9b8-aa54-4547-a8df-b68116bbc3b9",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_034_RUN__ostinato-du-jour.mp3"
+    },
+    {
+      "title": "Propulsive Motion",
+      "suno_file": "Propulsive Motion (1).wav",
+      "status": "candidate",
+      "note": "New take, not yet scored",
+      "duration_seconds": 44.4,
+      "created": "2026-10-28T00:55:17Z",
+      "suno_id": "ad48f155-418f-4b99-9a24-6f03e59ec993",
+      "suno_url": "https://suno.com/song/ad48f155-418f-4b99-9a24-6f03e59ec993",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_034_RUN__propulsive-motion-1.mp3"
+    },
+    {
+      "title": "Propulsive Motion",
+      "suno_file": "Propulsive Motion.wav",
+      "status": "candidate",
+      "note": "New take, not yet scored",
+      "duration_seconds": 46.8,
+      "created": "2026-10-28T00:55:03Z",
+      "suno_id": "829ccb2d-b839-43c0-8e3e-4dbae65e80fc",
+      "suno_url": "https://suno.com/song/829ccb2d-b839-43c0-8e3e-4dbae65e80fc",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_034_RUN__propulsive-motion.mp3"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "RUN - Hands That Keep It Turning",
+      "style": "warm, determined West African cinematic instrumental, 96 BPM, 12/8 feel, F minor lifting to A-flat major, a hand-played wooden gyil-style xylophone ostinato that turns like a well-oiled flywheel from the very first beat, a soft low frame drum and shaker keeping a steady heartbeat pulse, bowed double bass underneath, one warm solo cello melody entering around 0:23 with quiet dignity, sparse and handmade, every note played by human hands, slightly imperfect timing, wood and gut strings, close dry mix with a little room, steady build with no climax, a breath of near-silence around 0:29, ends on the same ostinato it began with for a seamless loop",
+      "exclude": "vocals, chants, choir, spoken word, afrobeats, amapiano, trap, EDM, 808, braams, risers, epic trailer drums, felt piano, nylon guitar, sub-bass drone, synth pads, lo-fi beat, horror",
+      "instrumental": true,
+      "model": "v5",
+      "used": true
+    }
+  ]
+}

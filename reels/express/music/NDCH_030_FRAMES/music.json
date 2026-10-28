@@ -1,0 +1,63 @@
+{
+  "reel_id": "NDCH_030_FRAMES",
+  "recorded_at": "2026-10-28T02:00:00.000Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "Minimal cinematic piano, slow and sparse, 60 BPM, A minor. Single felt piano notes with long sustain, soft low cello drone underneath, distant room reverb. Restrained, introspective, quietly tense, no drums, no vocals, no build-up or drop. Ends unresolved on a held note. 40 seconds.",
+    "title": "Unresolved Note / A Minor Drone",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Unresolved Note",
+    "window_start_seconds": 0.5,
+    "window_end_seconds": 22.5,
+    "reasons": [
+      "Sparsest (about one note every 3 s); ends on a held note fading to near silence. 0.5-22.5 s under 0-22 s, cut at the glasses-off, own ending under 32-37 s",
+      "Picked in the hand edit by measurement (Claude cannot listen); the creator approved the scored cut"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Unresolved Note",
+      "rank": 1,
+      "status": "chosen",
+      "note": "Sparsest (about one note every 3 s); ends on a held note fading to near silence. 0.5-22.5 s under 0-22 s, cut at the glasses-off, own ending under 32-37 s"
+    },
+    {
+      "name": "Unresolved Note (1)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "A minor, no drums; ending does not fade as cleanly"
+    },
+    {
+      "name": "Unresolved Note (2)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "A minor, no drums; ending does not fade as cleanly"
+    },
+    {
+      "name": "Unresolved Note (3)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "A minor, no drums; ending does not fade as cleanly"
+    },
+    {
+      "name": "A Minor Drone (1)",
+      "rank": 5,
+      "status": "unused",
+      "note": "About twice as busy as the Unresolved Note takes"
+    },
+    {
+      "name": "A Minor Drone",
+      "rank": 5,
+      "status": "unused",
+      "note": "About twice as busy as the Unresolved Note takes"
+    }
+  ],
+  "notes": [
+    "Posts as 024. Scored by hand before the music record rule, so there is no run_id and no engine score; recorded afterwards from the session notes",
+    "chosen.mp3 is the full Suno take; the reel used the window given (seconds into the take) where one is recorded",
+    "Every take, with Suno links, is in takes.json"
+  ]
+}

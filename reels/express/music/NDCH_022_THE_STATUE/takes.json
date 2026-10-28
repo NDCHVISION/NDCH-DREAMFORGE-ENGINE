@@ -1,0 +1,78 @@
+{
+  "reel_id": "NDCH_022_THE_STATUE",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Unresolved Harmony",
+      "suno_file": "Unresolved Harmony (2).mp3",
+      "status": "chosen",
+      "rank": 1,
+      "note": "Widest dynamics (LRA 11.4 LU), clearest quiet-build-recede; window 2:28.33-3:06.62 under the 38.3 s cut; loop resolves A major into D",
+      "duration_seconds": 202.2,
+      "created": "2026-10-19T23:03:48Z",
+      "suno_id": "437ca54e-50e2-4a1a-89ac-592b396908a8",
+      "suno_url": "https://suno.com/song/437ca54e-50e2-4a1a-89ac-592b396908a8",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_022_THE_STATUE__unresolved-harmony-2.mp3",
+      "structure_cues": "[Instrumental]\n\n[Intro - near silence, single low cello note, distant room tone]\n\n[Verse - sparse felt piano, two notes at a time, wide space between phrases]\n\n[Build - low strings enter, slow crescendo, tension, no percussion]\n\n[Peak - sustained string swell, held, then sudden cut to silence]\n\n[Release - one soft piano chord, cello sustains under it]\n\n[Outro - unresolved suspended chord, fades to near silence, no final cadence]"
+    },
+    {
+      "title": "Unresolved Harmony",
+      "suno_file": "Unresolved Harmony (1).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Same arc, quieter (-18.1 LUFS); best window from 2:34 but a 5.8 dB jump at the loop seam",
+      "duration_seconds": 193.6,
+      "created": "2026-10-19T23:03:04Z",
+      "suno_id": "23314d91-aec8-4d9f-a3d2-57c974cd85bb",
+      "suno_url": "https://suno.com/song/23314d91-aec8-4d9f-a3d2-57c974cd85bb",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_022_THE_STATUE__unresolved-harmony-1.mp3",
+      "structure_cues": "[Instrumental]\n\n[Intro - near silence, single low cello note, distant room tone]\n\n[Verse - sparse felt piano, two notes at a time, wide space between phrases]\n\n[Build - low strings enter, slow crescendo, tension, no percussion]\n\n[Peak - sustained string swell, held, then sudden cut to silence]\n\n[Release - one soft piano chord, cello sustains under it]\n\n[Outro - unresolved suspended chord, fades to near silence, no final cadence]"
+    },
+    {
+      "title": "Unresolved Cadence",
+      "suno_file": "Unresolved Cadence.mp3",
+      "status": "alternate",
+      "rank": 3,
+      "note": "Narrower range (8.5 LU), long even plateau 0:23-2:15; best window starts at full level",
+      "duration_seconds": 193.2,
+      "created": "2026-10-19T23:04:05Z",
+      "suno_id": "d3b2d938-b21d-45bf-8530-6d4dc45aca87",
+      "suno_url": "https://suno.com/song/d3b2d938-b21d-45bf-8530-6d4dc45aca87",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_022_THE_STATUE__unresolved-cadence.mp3",
+      "structure_cues": "[Instrumental]\n\n[Intro - near silence, single low cello note, distant room tone]\n\n[Verse - sparse felt piano, two notes at a time, wide space between phrases]\n\n[Build - low strings enter, slow crescendo, tension, no percussion]\n\n[Peak - sustained string swell, held, then sudden cut to silence]\n\n[Release - one soft piano chord, cello sustains under it]\n\n[Outro - unresolved suspended chord, fades to near silence, no final cadence]"
+    },
+    {
+      "title": "Unresolved Harmony",
+      "suno_file": "Unresolved Harmony.mp3",
+      "status": "unused",
+      "rank": 4,
+      "note": "Loudest and brightest (-16.6 LUFS), most energy in the voice band 0:25-2:25; weakest loop",
+      "duration_seconds": 198.8,
+      "created": "2026-10-19T23:02:40Z",
+      "suno_id": "31d04e6e-7c5c-4163-8a18-266e225be1f6",
+      "suno_url": "https://suno.com/song/31d04e6e-7c5c-4163-8a18-266e225be1f6",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_022_THE_STATUE__unresolved-harmony.mp3",
+      "structure_cues": "[Instrumental]\n\n[Intro - near silence, single low cello note, distant room tone]\n\n[Verse - sparse felt piano, two notes at a time, wide space between phrases]\n\n[Build - low strings enter, slow crescendo, tension, no percussion]\n\n[Peak - sustained string swell, held, then sudden cut to silence]\n\n[Release - one soft piano chord, cello sustains under it]\n\n[Outro - unresolved suspended chord, fades to near silence, no final cadence]"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Unresolved Harmony",
+      "instrumental": true,
+      "style": "Instrumental, cinematic minimal, 64 BPM, D minor, felt piano, solo cello, low string drone, sub swells, granite resonance, restrained, monumental, slow build, sparse, no drums, dark ambient neoclassical",
+      "exclude": "vocals, choir, drums, trap, EDM, synth lead, guitar, epic trailer hits, uplifting major key, heavy reverb wash",
+      "structure": "[Instrumental]\n[Intro - near silence, single low cello note, distant room tone]\n[Verse - sparse felt piano, two notes at a time, wide space between phrases]\n[Build - low strings enter, slow crescendo, tension, no percussion]\n[Peak - sustained string swell, held, then sudden cut to silence]\n[Release - one soft piano chord, cello sustains under it]\n[Outro - unresolved suspended chord, fades to near silence, no final cadence]",
+      "settings": "Weirdness 25-35, style influence 70-80",
+      "used": true
+    },
+    {
+      "title": "022 THE STATUE",
+      "instrumental": true,
+      "style": "minimalist cinematic score, solo cello, low sustained cello drone, sparse second string voice enters halfway, granite and stone textures, distant mineral impacts, falling-stone foley, deep sub resonance, intimate gallery room ambience, slow 60 bpm, D minor, restrained, contemplative, sudden near-silence break, warm sustained cello harmonic resolution, no drums, no vocals",
+      "exclude": "vocals, choir, trailer, epic, risers, braams, EDM, heavy percussion, drums, piano melody, uplifting, orchestral swell",
+      "structure": "[Intro: near-silent low cello drone, room tone, one distant stone impact]\n[Build: slow cello pulse, stone fractures, second cello voice enters]\n[Break: music drops to near silence, a single stone falls]\n[Outro: warm sustained cello harmonic, fades to silence]",
+      "note": "First prompt for 022 (before the 38.3 s cut). No takes from it were found.",
+      "used": false
+    }
+  ]
+}

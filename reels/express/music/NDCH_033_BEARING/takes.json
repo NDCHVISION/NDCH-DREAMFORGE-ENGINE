@@ -1,0 +1,38 @@
+{
+  "reel_id": "NDCH_033_BEARING",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Subterranean Chain",
+      "suno_file": "Subterranean Chain (1).wav",
+      "status": "candidate",
+      "note": "New take, not yet scored; made from BEARING's suno_prompt",
+      "duration_seconds": 142.4,
+      "created": "2026-10-28T00:59:56Z",
+      "suno_id": "52b46293-a9dd-4a8c-9156-e91d0697c89c",
+      "suno_url": "https://suno.com/song/52b46293-a9dd-4a8c-9156-e91d0697c89c",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_033_BEARING__subterranean-chain-1.mp3"
+    },
+    {
+      "title": "Subterranean Chain",
+      "suno_file": "Subterranean Chain.wav",
+      "status": "candidate",
+      "note": "New take, not yet scored; made from BEARING's suno_prompt",
+      "duration_seconds": 197.6,
+      "created": "2026-10-28T00:59:39Z",
+      "suno_id": "b66a4790-46bf-42a9-8048-f5b86f1508ce",
+      "suno_url": "https://suno.com/song/b66a4790-46bf-42a9-8048-f5b86f1508ce",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_033_BEARING__subterranean-chain.mp3"
+    }
+  ],
+  "prompts": [
+    {
+      "style": "dark cinematic ambient instrumental, 85 bpm, low sustained sub-bass drone, slow evolving dark pads, distant metallic textures like a chain dragged over stone, sparse heavy low-end hits, one clear swell and impact around 0:13, then settling and steady, cold and restrained, no melody",
+      "exclude": "vocals, choir, piano, orchestral strings, guitar, upbeat drums, EDM drop",
+      "title": "BEARING",
+      "instrumental": true,
+      "model": "v5",
+      "used": true
+    }
+  ]
+}

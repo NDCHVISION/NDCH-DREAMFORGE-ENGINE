@@ -1,0 +1,55 @@
+{
+  "reel_id": "NDCH_031_PARALLAX",
+  "recorded_at": "2026-10-28T02:00:00.000Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "dark minimal neoclassical, D minor, 56 bpm, felt piano with long sustain, bowed bronze singing bowl, low solo cello harmonics, sub-bass drone, cavernous stone reverb, sparse, patient, intimate, no drums, no vocals",
+    "title": "Open Chord",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Open Chord (3)",
+    "reasons": [
+      "D minor like the bronze tone; calmest passage (under one onset every 6 s); ends on an open D-A chord ringing to silence. Late calm stretch under 0-13 s, silence 13-22 s, own ending under 22-36 s",
+      "Picked in the hand edit by measurement (Claude cannot listen); the creator approved the scored cut"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Open Chord (3)",
+      "rank": 1,
+      "status": "chosen",
+      "note": "D minor like the bronze tone; calmest passage (under one onset every 6 s); ends on an open D-A chord ringing to silence. Late calm stretch under 0-13 s, silence 13-22 s, own ending under 22-36 s"
+    },
+    {
+      "name": "Open Chord (1)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Same prompt; less calm passage or weaker ending"
+    },
+    {
+      "name": "Open Chord (2)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Same prompt; less calm passage or weaker ending"
+    },
+    {
+      "name": "Open Chord (5)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Same prompt; less calm passage or weaker ending"
+    },
+    {
+      "name": "Open Chord",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Same prompt; less calm passage or weaker ending"
+    }
+  ],
+  "notes": [
+    "Posts as 025. Scored by hand before the music record rule, so there is no run_id and no engine score; recorded afterwards from the session notes",
+    "chosen.mp3 is the full Suno take; the reel used the window given (seconds into the take) where one is recorded",
+    "Every take, with Suno links, is in takes.json"
+  ]
+}

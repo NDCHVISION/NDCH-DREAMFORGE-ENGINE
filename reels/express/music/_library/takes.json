@@ -1,0 +1,369 @@
+{
+  "about": "Suno takes from before the express pipeline (June-September 2026) whose reel is not recorded. Kept for reuse. Titles and structure cues come from the files' own Suno tags.",
+  "takes": [
+    {
+      "title": "Acoustic Negative Space (Loop)",
+      "suno_file": "Acoustic Negative Space (Loop).mp3",
+      "status": "library",
+      "duration_seconds": 44.0,
+      "created": "2026-09-14T00:50:55Z",
+      "suno_id": "bc154198-239a-4254-84d8-3b7a920a043c",
+      "suno_url": "https://suno.com/song/bc154198-239a-4254-84d8-3b7a920a043c",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__acoustic-negative-space-loop.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Basalt Tides",
+      "suno_file": "Basalt Tides (1).mp3",
+      "status": "library",
+      "duration_seconds": 480.0,
+      "created": "2026-08-27T17:29:28Z",
+      "suno_id": "493d98be-fe1e-47f4-bc06-e34c3a2ed72b",
+      "suno_url": "https://suno.com/song/493d98be-fe1e-47f4-bc06-e34c3a2ed72b",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__basalt-tides-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Basalt Tides",
+      "suno_file": "Basalt Tides.mp3",
+      "status": "library",
+      "duration_seconds": 480.0,
+      "created": "2026-08-27T17:28:34Z",
+      "suno_id": "246cf344-0f59-4383-a2e5-acc868ca7fe4",
+      "suno_url": "https://suno.com/song/246cf344-0f59-4383-a2e5-acc868ca7fe4",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__basalt-tides.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Concrete Clockwork",
+      "suno_file": "Concrete Clockwork.wav",
+      "status": "library",
+      "duration_seconds": 172.8,
+      "created": "2026-06-16T02:09:51Z",
+      "suno_id": "c185896a-c46b-4bbe-bb3e-69bc9f525931",
+      "suno_url": "https://suno.com/song/c185896a-c46b-4bbe-bb3e-69bc9f525931",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__concrete-clockwork.mp3"
+    },
+    {
+      "title": "Controlled Dissolution",
+      "suno_file": "Controlled Dissolution (1).mp3",
+      "status": "library",
+      "duration_seconds": 44.4,
+      "created": "2026-09-14T00:51:08Z",
+      "suno_id": "863bce4e-af83-4527-a4f9-b24e6e18ae70",
+      "suno_url": "https://suno.com/song/863bce4e-af83-4527-a4f9-b24e6e18ae70",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__controlled-dissolution-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Controlled Dissolution",
+      "suno_file": "Controlled Dissolution.mp3",
+      "status": "library",
+      "duration_seconds": 43.6,
+      "created": "2026-09-14T00:50:30Z",
+      "suno_id": "316be71d-3056-4662-ac49-44a6ff6bf8bc",
+      "suno_url": "https://suno.com/song/316be71d-3056-4662-ac49-44a6ff6bf8bc",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__controlled-dissolution.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Controlled Negative Space",
+      "suno_file": "Controlled Negative Space.mp3",
+      "status": "library",
+      "duration_seconds": 43.6,
+      "created": "2026-09-14T00:50:42Z",
+      "suno_id": "56dce36e-ad30-48d1-a230-44a57cd3c0af",
+      "suno_url": "https://suno.com/song/56dce36e-ad30-48d1-a230-44a57cd3c0af",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__controlled-negative-space.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Drum Tick Crucible",
+      "suno_file": "Drum Tick Crucible.wav",
+      "status": "library",
+      "duration_seconds": 150.0,
+      "created": "2026-06-16T02:10:45Z",
+      "suno_id": "be70260b-b28c-4bc0-8ca5-7b7594a8941a",
+      "suno_url": "https://suno.com/song/be70260b-b28c-4bc0-8ca5-7b7594a8941a",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__drum-tick-crucible.mp3"
+    },
+    {
+      "title": "Glass Ledger",
+      "suno_file": "Glass Ledger.wav",
+      "status": "library",
+      "duration_seconds": 172.9,
+      "created": "2026-07-11T02:16:22Z",
+      "suno_id": "d2657a81-45a4-424a-a205-63538f0b4319",
+      "suno_url": "https://suno.com/song/d2657a81-45a4-424a-a205-63538f0b4319",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__glass-ledger.mp3"
+    },
+    {
+      "title": "Glass Thought",
+      "suno_file": "Glass Thought (1).mp3",
+      "status": "library",
+      "duration_seconds": 224.8,
+      "created": "2026-07-10T05:25:20.065Z",
+      "suno_id": "ff1d3f8f-ae2f-494f-94e6-e5609404695e",
+      "suno_url": "https://suno.com/song/ff1d3f8f-ae2f-494f-94e6-e5609404695e",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__glass-thought-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Glass Thought",
+      "suno_file": "Glass Thought.mp3",
+      "status": "library",
+      "duration_seconds": 193.3,
+      "created": "2026-07-10T05:25:20.065Z",
+      "suno_id": "5a6fde07-0a0c-431d-98fc-5be02970df63",
+      "suno_url": "https://suno.com/song/5a6fde07-0a0c-431d-98fc-5be02970df63",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__glass-thought.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Glass Threshold",
+      "suno_file": "Glass Threshold (1).mp3",
+      "status": "library",
+      "duration_seconds": 199.8,
+      "created": "2026-07-10T05:24:10.943Z",
+      "suno_id": "f47292e1-546d-4ef3-99ab-4066887dd4a6",
+      "suno_url": "https://suno.com/song/f47292e1-546d-4ef3-99ab-4066887dd4a6",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__glass-threshold-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Glass Threshold",
+      "suno_file": "Glass Threshold.mp3",
+      "status": "library",
+      "duration_seconds": 177.7,
+      "created": "2026-07-10T05:24:10.942Z",
+      "suno_id": "5fdae5a9-2b13-43b9-ae51-b515a7895911",
+      "suno_url": "https://suno.com/song/5fdae5a9-2b13-43b9-ae51-b515a7895911",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__glass-threshold.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Gold Frame",
+      "suno_file": "Gold Frame (1).wav",
+      "status": "library",
+      "duration_seconds": 171.8,
+      "created": "2026-07-13T07:38:02Z",
+      "suno_id": "be841021-d6f5-4b24-b5de-a244c8c00579",
+      "suno_url": "https://suno.com/song/be841021-d6f5-4b24-b5de-a244c8c00579",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-frame-1.mp3"
+    },
+    {
+      "title": "Gold Frame",
+      "suno_file": "Gold Frame.wav",
+      "status": "library",
+      "duration_seconds": 136.6,
+      "created": "2026-07-13T07:37:04Z",
+      "suno_id": "81a010be-c91b-4b5f-8980-ca08e912308a",
+      "suno_url": "https://suno.com/song/81a010be-c91b-4b5f-8980-ca08e912308a",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-frame.mp3"
+    },
+    {
+      "title": "Gold Glass Hours",
+      "suno_file": "Gold Glass Hours (1).mp3",
+      "status": "library",
+      "duration_seconds": 199.7,
+      "created": "2026-07-13T07:46:59.271Z",
+      "suno_id": "64f2a0b0-54da-4892-87c8-4d81b27ecb5d",
+      "suno_url": "https://suno.com/song/64f2a0b0-54da-4892-87c8-4d81b27ecb5d",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-glass-hours-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Gold Glass Hours",
+      "suno_file": "Gold Glass Hours.mp3",
+      "status": "library",
+      "duration_seconds": 183.1,
+      "created": "2026-07-13T07:46:59.271Z",
+      "suno_id": "b0fa9ceb-80f4-438f-8ccd-b0126e43ca71",
+      "suno_url": "https://suno.com/song/b0fa9ceb-80f4-438f-8ccd-b0126e43ca71",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-glass-hours.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Gold Ledger",
+      "suno_file": "Gold Ledger (1).wav",
+      "status": "library",
+      "duration_seconds": 176.0,
+      "created": "2026-07-13T07:39:25Z",
+      "suno_id": "80e014c7-1156-408b-9365-eb6f2b1f7384",
+      "suno_url": "https://suno.com/song/80e014c7-1156-408b-9365-eb6f2b1f7384",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-ledger-1.mp3"
+    },
+    {
+      "title": "Gold Ledger",
+      "suno_file": "Gold Ledger.wav",
+      "status": "library",
+      "duration_seconds": 158.4,
+      "created": "2026-07-13T07:38:57Z",
+      "suno_id": "7e46e0ba-14d5-43cf-8dc1-3731a21ff00f",
+      "suno_url": "https://suno.com/song/7e46e0ba-14d5-43cf-8dc1-3731a21ff00f",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gold-ledger.mp3"
+    },
+    {
+      "title": "Gravitas Field",
+      "suno_file": "Gravitas Field (1).mp3",
+      "status": "library",
+      "duration_seconds": 330.3,
+      "created": "2026-08-17T01:33:05Z",
+      "suno_id": "d6706398-7fd1-40ac-8daa-c09718034302",
+      "suno_url": "https://suno.com/song/d6706398-7fd1-40ac-8daa-c09718034302",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gravitas-field-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Gravitas Field",
+      "suno_file": "Gravitas Field.mp3",
+      "status": "library",
+      "duration_seconds": 215.0,
+      "created": "2026-08-17T01:32:19Z",
+      "suno_id": "f5cd0504-d47a-4354-86ac-89be912092b8",
+      "suno_url": "https://suno.com/song/f5cd0504-d47a-4354-86ac-89be912092b8",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__gravitas-field.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Hidden Law",
+      "suno_file": "Hidden Law.mp3",
+      "status": "library",
+      "duration_seconds": 156.9,
+      "created": "2026-07-06T23:35:42.784Z",
+      "suno_id": "6a10ffd6-d4aa-417e-bf99-2004b9ab4705",
+      "suno_url": "https://suno.com/song/6a10ffd6-d4aa-417e-bf99-2004b9ab4705",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__hidden-law.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Iron Center",
+      "suno_file": "Iron Center.mp3",
+      "status": "library",
+      "duration_seconds": 215.0,
+      "created": "2026-08-17T01:38:24Z",
+      "suno_id": "d16e689a-f04d-4888-a29b-577f99a5e1d5",
+      "suno_url": "https://suno.com/song/d16e689a-f04d-4888-a29b-577f99a5e1d5",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__iron-center.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Laws in Glass",
+      "suno_file": "Laws in Glass.mp3",
+      "status": "library",
+      "duration_seconds": 145.0,
+      "created": "2026-07-06T23:35:18.589Z",
+      "suno_id": "ba058326-abde-4d88-9a16-1a20108eef0b",
+      "suno_url": "https://suno.com/song/ba058326-abde-4d88-9a16-1a20108eef0b",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__laws-in-glass.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Midnight Glass Office",
+      "suno_file": "Midnight Glass Office.mp3",
+      "status": "library",
+      "duration_seconds": 162.6,
+      "created": "2026-07-13T07:46:56.569Z",
+      "suno_id": "6a35b18f-4566-4f13-a9cd-59a3ba139d5b",
+      "suno_url": "https://suno.com/song/6a35b18f-4566-4f13-a9cd-59a3ba139d5b",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__midnight-glass-office.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Mineral Stillness",
+      "suno_file": "Mineral Stillness (1).mp3",
+      "status": "library",
+      "duration_seconds": 480.0,
+      "created": "2026-08-27T17:28:54Z",
+      "suno_id": "03a4d2a4-cb0d-4179-b53c-a11ba77bd09d",
+      "suno_url": "https://suno.com/song/03a4d2a4-cb0d-4179-b53c-a11ba77bd09d",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__mineral-stillness-1.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Mineral Stillness",
+      "suno_file": "Mineral Stillness.mp3",
+      "status": "library",
+      "duration_seconds": 480.0,
+      "created": "2026-08-27T17:28:21Z",
+      "suno_id": "6c3b32a4-b569-4ac9-96fe-7982041f50a4",
+      "suno_url": "https://suno.com/song/6c3b32a4-b569-4ac9-96fe-7982041f50a4",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__mineral-stillness.mp3",
+      "structure_cues": "[Instrumental]"
+    },
+    {
+      "title": "Silent Protocol",
+      "suno_file": "Silent Protocol (1).wav",
+      "status": "library",
+      "duration_seconds": 146.7,
+      "created": "2026-07-11T02:15:59Z",
+      "suno_id": "00270503-c33c-49a9-9e7f-cbee88183044",
+      "suno_url": "https://suno.com/song/00270503-c33c-49a9-9e7f-cbee88183044",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__silent-protocol-1.mp3"
+    },
+    {
+      "title": "Silent Protocol",
+      "suno_file": "Silent Protocol.wav",
+      "status": "library",
+      "duration_seconds": 199.2,
+      "created": "2026-07-11T02:15:23Z",
+      "suno_id": "81502b9d-11db-40ab-9436-7f15e8d45f88",
+      "suno_url": "https://suno.com/song/81502b9d-11db-40ab-9436-7f15e8d45f88",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__silent-protocol.mp3"
+    },
+    {
+      "title": "Subterranean Architecture",
+      "suno_file": "Subterranean Architecture (1).mp3",
+      "status": "library",
+      "duration_seconds": 273.6,
+      "created": "2026-09-20T13:06:01Z",
+      "suno_id": "b8ccd015-6b4b-467a-9ece-28403b011a4d",
+      "suno_url": "https://suno.com/song/b8ccd015-6b4b-467a-9ece-28403b011a4d",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__subterranean-architecture-1.mp3",
+      "structure_cues": "Instrumental cinematic soundscape for monumental subterranean architecture.\n\nExtremely restrained, dark, physical, spacious, and expensive.\n\nBegin in near-silence: immense subterranean room tone, distant water, low mineral resonance, barely perceptible sub-bass pressure, enormous negative space.\n\nGradually introduce deep acoustic resonance that feels produced by stone, water, metal, air pressure, and architectural scale rather than conventional instruments.\n\nThe piece should slowly accumulate mass and tension without becoming a traditional musical build.\n\nSparse low-frequency pulses may emerge, irregular and widely separated, like enormous structures settling somewhere far below.\n\nMidway, allow greater physical density: deep resonant impacts, bowed-metal-like harmonic friction, cavernous low drones, hydraulic pressure, distant mineral groans, and restrained percussive weight.\n\nThen deliberately withdraw.\n\nCreate a substantial passage of unresolved near-silence with only environmental resonance and distant water remaining.\n\nDo NOT resolve the tension.\n\nAfter that restraint, allow one sudden, enormous lateral-feeling acoustic event: a brutal low-frequency architectural impact with stone stress, pressure displacement, and long natural decay.\n\nThe structure survives.\n\nAfter the impact, do not become triumphant.\n\nLet the sound stabilize into deep, scarred, controlled resonance.\n\nEnd by progressively removing density until only immense architectural room tone, distant water, faint mineral harmonics, and unresolved low-frequency air remain.\n\nThe ending should feel open, not completed.\n\nAESTHETIC:\nmonumental\nobsidian\nmineral\nhydraulic\narchitectural\nritualistic without religion\nancient without historical pastiche\nfuturistic without electronics\nluxury cinematic\nsevere\ncontrolled\nmysterious\ntactile\nphysically plausible\n\nMUSICAL LANGUAGE:\nextremely sparse\nvery slow harmonic movement\nlow register\nsub-bass used selectively\nlong natural decay\nmicrotonal mineral friction\nrare restrained harmonic overtones\nlarge dynamic range\nsilence as composition\nno obvious melody\nno conventional chord progression\nno recognizable beat\n\nABSOLUTELY NO:\nvocals\nchoir\nchanting\nspoken word\npiano\nstrings performing an emotional melody\ntrailer braams\nepic drums\nheartbeat rhythm\nEDM\nsynth arpeggios\nheroic crescendo\nHollywood triumph\nhorror stingers\nreligious music\nangelic pads\nhopeful resolution\nmotivational uplift\nfantasy soundtrack\ngeneric ambient meditation music\n\nThe emotional principle is not:\n“something wonderful is coming.”\n\nIt is:\n“something is being prepared without knowing what will come.”\n\nThe final feeling should be readiness without resolution.\n\nInstrumental only."
+    },
+    {
+      "title": "Subterranean Architecture",
+      "suno_file": "Subterranean Architecture (2).mp3",
+      "status": "library",
+      "duration_seconds": 259.2,
+      "created": "2026-09-20T13:06:21Z",
+      "suno_id": "65c63332-8f2c-4968-b1fc-efaf972234cb",
+      "suno_url": "https://suno.com/song/65c63332-8f2c-4968-b1fc-efaf972234cb",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__subterranean-architecture-2.mp3",
+      "structure_cues": "Instrumental cinematic soundscape for monumental subterranean architecture.\n\nExtremely restrained, dark, physical, spacious, and expensive.\n\nBegin in near-silence: immense subterranean room tone, distant water, low mineral resonance, barely perceptible sub-bass pressure, enormous negative space.\n\nGradually introduce deep acoustic resonance that feels produced by stone, water, metal, air pressure, and architectural scale rather than conventional instruments.\n\nThe piece should slowly accumulate mass and tension without becoming a traditional musical build.\n\nSparse low-frequency pulses may emerge, irregular and widely separated, like enormous structures settling somewhere far below.\n\nMidway, allow greater physical density: deep resonant impacts, bowed-metal-like harmonic friction, cavernous low drones, hydraulic pressure, distant mineral groans, and restrained percussive weight.\n\nThen deliberately withdraw.\n\nCreate a substantial passage of unresolved near-silence with only environmental resonance and distant water remaining.\n\nDo NOT resolve the tension.\n\nAfter that restraint, allow one sudden, enormous lateral-feeling acoustic event: a brutal low-frequency architectural impact with stone stress, pressure displacement, and long natural decay.\n\nThe structure survives.\n\nAfter the impact, do not become triumphant.\n\nLet the sound stabilize into deep, scarred, controlled resonance.\n\nEnd by progressively removing density until only immense architectural room tone, distant water, faint mineral harmonics, and unresolved low-frequency air remain.\n\nThe ending should feel open, not completed.\n\nAESTHETIC:\nmonumental\nobsidian\nmineral\nhydraulic\narchitectural\nritualistic without religion\nancient without historical pastiche\nfuturistic without electronics\nluxury cinematic\nsevere\ncontrolled\nmysterious\ntactile\nphysically plausible\n\nMUSICAL LANGUAGE:\nextremely sparse\nvery slow harmonic movement\nlow register\nsub-bass used selectively\nlong natural decay\nmicrotonal mineral friction\nrare restrained harmonic overtones\nlarge dynamic range\nsilence as composition\nno obvious melody\nno conventional chord progression\nno recognizable beat\n\nABSOLUTELY NO:\nvocals\nchoir\nchanting\nspoken word\npiano\nstrings performing an emotional melody\ntrailer braams\nepic drums\nheartbeat rhythm\nEDM\nsynth arpeggios\nheroic crescendo\nHollywood triumph\nhorror stingers\nreligious music\nangelic pads\nhopeful resolution\nmotivational uplift\nfantasy soundtrack\ngeneric ambient meditation music\n\nThe emotional principle is not:\n“something wonderful is coming.”\n\nIt is:\n“something is being prepared without knowing what will come.”\n\nThe final feeling should be readiness without resolution.\n\nInstrumental only."
+    },
+    {
+      "title": "Subterranean Architecture",
+      "suno_file": "Subterranean Architecture.mp3",
+      "status": "library",
+      "duration_seconds": 290.0,
+      "created": "2026-09-20T13:05:39Z",
+      "suno_id": "dcd2f62a-da30-4a2a-8d28-0bebca362a4e",
+      "suno_url": "https://suno.com/song/dcd2f62a-da30-4a2a-8d28-0bebca362a4e",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__subterranean-architecture.mp3",
+      "structure_cues": "Instrumental cinematic soundscape for monumental subterranean architecture.\n\nExtremely restrained, dark, physical, spacious, and expensive.\n\nBegin in near-silence: immense subterranean room tone, distant water, low mineral resonance, barely perceptible sub-bass pressure, enormous negative space.\n\nGradually introduce deep acoustic resonance that feels produced by stone, water, metal, air pressure, and architectural scale rather than conventional instruments.\n\nThe piece should slowly accumulate mass and tension without becoming a traditional musical build.\n\nSparse low-frequency pulses may emerge, irregular and widely separated, like enormous structures settling somewhere far below.\n\nMidway, allow greater physical density: deep resonant impacts, bowed-metal-like harmonic friction, cavernous low drones, hydraulic pressure, distant mineral groans, and restrained percussive weight.\n\nThen deliberately withdraw.\n\nCreate a substantial passage of unresolved near-silence with only environmental resonance and distant water remaining.\n\nDo NOT resolve the tension.\n\nAfter that restraint, allow one sudden, enormous lateral-feeling acoustic event: a brutal low-frequency architectural impact with stone stress, pressure displacement, and long natural decay.\n\nThe structure survives.\n\nAfter the impact, do not become triumphant.\n\nLet the sound stabilize into deep, scarred, controlled resonance.\n\nEnd by progressively removing density until only immense architectural room tone, distant water, faint mineral harmonics, and unresolved low-frequency air remain.\n\nThe ending should feel open, not completed.\n\nAESTHETIC:\nmonumental\nobsidian\nmineral\nhydraulic\narchitectural\nritualistic without religion\nancient without historical pastiche\nfuturistic without electronics\nluxury cinematic\nsevere\ncontrolled\nmysterious\ntactile\nphysically plausible\n\nMUSICAL LANGUAGE:\nextremely sparse\nvery slow harmonic movement\nlow register\nsub-bass used selectively\nlong natural decay\nmicrotonal mineral friction\nrare restrained harmonic overtones\nlarge dynamic range\nsilence as composition\nno obvious melody\nno conventional chord progression\nno recognizable beat\n\nABSOLUTELY NO:\nvocals\nchoir\nchanting\nspoken word\npiano\nstrings performing an emotional melody\ntrailer braams\nepic drums\nheartbeat rhythm\nEDM\nsynth arpeggios\nheroic crescendo\nHollywood triumph\nhorror stingers\nreligious music\nangelic pads\nhopeful resolution\nmotivational uplift\nfantasy soundtrack\ngeneric ambient meditation music\n\nThe emotional principle is not:\n“something wonderful is coming.”\n\nIt is:\n“something is being prepared without knowing what will come.”\n\nThe final feeling should be readiness without resolution.\n\nInstrumental only."
+    },
+    {
+      "title": "The Weight of Silence",
+      "suno_file": "The Weight of Silence.mp3",
+      "status": "library",
+      "duration_seconds": 189.5,
+      "created": "2026-06-20T03:59:02.028075Z",
+      "suno_id": "c7f5d69b-78c2-491c-aadf-95239e3796bf",
+      "suno_url": "https://suno.com/song/c7f5d69b-78c2-491c-aadf-95239e3796bf",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__the-weight-of-silence.mp3"
+    },
+    {
+      "title": "Three Note Pressure",
+      "suno_file": "Three Note Pressure.mp3",
+      "status": "library",
+      "duration_seconds": 235.1,
+      "created": "2026-08-27T05:30:40Z",
+      "suno_id": "ccb7e185-b0e5-47b8-9206-659c220b9acf",
+      "suno_url": "https://suno.com/song/ccb7e185-b0e5-47b8-9206-659c220b9acf",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/library__three-note-pressure.mp3",
+      "structure_cues": "[Instrumental]"
+    }
+  ]
+}

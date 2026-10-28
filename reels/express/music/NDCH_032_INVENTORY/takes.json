@@ -1,0 +1,94 @@
+{
+  "reel_id": "NDCH_032_INVENTORY",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Four Notes, Four Phases",
+      "suno_file": "Four Notes, Four Phases.mp3",
+      "status": "chosen",
+      "rank": 1,
+      "note": "Counting motif under 4-25 s, opening joined to its own ending at about 25 s, final chord blooms just after 'Count them now'",
+      "duration_seconds": 188.0,
+      "created": "2026-10-26T02:13:12Z",
+      "suno_id": "a00b7785-0a7e-461d-97fc-d9beebb926b9",
+      "suno_url": "https://suno.com/song/a00b7785-0a7e-461d-97fc-d9beebb926b9",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes-four-phases.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    },
+    {
+      "title": "Four Notes",
+      "suno_file": "Four Notes (3).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Similar ending; named as the swap-in",
+      "duration_seconds": 193.2,
+      "created": "2026-10-26T02:09:29Z",
+      "suno_id": "b7268d0a-1682-450d-951a-98fa89a9a14c",
+      "suno_url": "https://suno.com/song/b7268d0a-1682-450d-951a-98fa89a9a14c",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes-3.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    },
+    {
+      "title": "Four Notes",
+      "suno_file": "Four Notes.mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Similar ending; named as the swap-in",
+      "duration_seconds": 189.7,
+      "created": "2026-10-26T02:07:42Z",
+      "suno_id": "13c8d94b-c6ba-49cb-a06c-5cc97de940f0",
+      "suno_url": "https://suno.com/song/13c8d94b-c6ba-49cb-a06c-5cc97de940f0",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    },
+    {
+      "title": "Four Notes",
+      "suno_file": "Four Notes (1).mp3",
+      "status": "unused",
+      "rank": 4,
+      "note": "Same prompt",
+      "duration_seconds": 194.2,
+      "created": "2026-10-26T02:08:25Z",
+      "suno_id": "3e564461-ec2d-4f29-8133-03d2f9bada47",
+      "suno_url": "https://suno.com/song/3e564461-ec2d-4f29-8133-03d2f9bada47",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes-1.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    },
+    {
+      "title": "Four Notes",
+      "suno_file": "Four Notes (2).mp3",
+      "status": "unused",
+      "rank": 4,
+      "note": "Same prompt",
+      "duration_seconds": 189.8,
+      "created": "2026-10-26T02:08:49Z",
+      "suno_id": "c696754b-e1dc-43e7-898c-e65e9248a675",
+      "suno_url": "https://suno.com/song/c696754b-e1dc-43e7-898c-e65e9248a675",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes-2.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    },
+    {
+      "title": "Four Notes, Four Phases",
+      "suno_file": "Four Notes, Four Phases (1).mp3",
+      "status": "unused",
+      "rank": 4,
+      "note": "Same prompt",
+      "duration_seconds": 183.2,
+      "created": "2026-10-26T02:13:24Z",
+      "suno_id": "933c4e42-2c7a-495f-9fec-0ce363345db5",
+      "suno_url": "https://suno.com/song/933c4e42-2c7a-495f-9fec-0ce363345db5",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_032_INVENTORY__four-notes-four-phases-1.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Four Notes / Four Notes, Four Phases",
+      "instrumental": true,
+      "style": "A slow counting motif carries the whole track: soft plucked upright bass and muted kalimba repeat a patient four-note figure, like someone quietly counting. Bowed vibraphone and glass harmonica shimmer above it, warm and metallic, like gold catching light in dark stone. Dry, intimate, close-mic'd, a little room tone. Halfway, a low flugelhorn plays one long warm phrase. The ending opens into a full, sunlit major chord with soft strings and a brushed timpani swell, then stops cleanly on the downbeat. No piano, no drones, no choir, no vocals, no trap drums, no risers.",
+      "structure": "[Instrumental]\n[Intro: near silence, one glass harmonica note]\n[Verse: plucked bass and kalimba begin counting, four notes, repeating]\n[Verse 2: bowed vibraphone shimmer joins, still counting]\n[Bridge: flugelhorn enters, one long warm phrase]\n[Outro: full warm major chord, strings swell, clean ending]\n[End]",
+      "variant_note": "Darker variant offered, not generated: swap 'flugelhorn' for 'solo cello, sul tasto' and 'sunlit major chord' for 'open fifth chord'.",
+      "used": true
+    }
+  ]
+}
