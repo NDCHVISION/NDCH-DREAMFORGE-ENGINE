@@ -479,6 +479,14 @@
       "gain_db": -6,
       "fade_out_seconds": 0.8,
       "note": "the snap, on 'breaks'"
+    },
+    {
+      "at_seconds": 30.8,
+      "prompt": "A deep, slow sub-bass swell in a large stone room: a low resonant rumble that rises gently for three seconds and then softly fades away. No whoosh, no impact, no hit, no metallic sound, no music.",
+      "duration_seconds": 4,
+      "gain_db": -12,
+      "fade_out_seconds": 1.2,
+      "note": "low swell under the final push-in, gone before the loop point"
     }
   ]
 }

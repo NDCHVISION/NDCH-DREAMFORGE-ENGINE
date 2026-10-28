@@ -4,4 +4,4 @@ bearing-suno-v1
 
 1
 
-BEARING (027): end title fades out on the last frame (no Runway)
+BEARING (027): low sub-bass swell under the final push-in, faded before the loop (no Runway)
