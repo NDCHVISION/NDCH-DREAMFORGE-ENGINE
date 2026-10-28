@@ -17,9 +17,9 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 
 ## 021 · FAITH
 
-Status: scheduled · LinkedIn: Thu, Oct 29, 8:00 AM CT
+Status: scheduled · Instagram: Thu, Oct 29, 8:00 AM CT
 
-Note: Already out on the other platforms; LinkedIn is the backfill.
+Note: Only Instagram is outstanding; every other platform is posted or scheduled.
 
 Covers: `assets/covers/021_FAITH_vertical.png`, `assets/covers/021_FAITH_horizontal.png`
 
@@ -149,9 +149,9 @@ FAITH · 021 · NDCH Dreamforge
 
 ## 022 · THE STATUE
 
-Status: scheduled · Engine: NDCH_022_THE_STATUE · LinkedIn: Wed, Nov 4, 8:00 AM CT
+Status: scheduled · Engine: NDCH_022_THE_STATUE · Instagram: Wed, Nov 4, 8:00 AM CT
 
-Note: Already out on the other platforms; LinkedIn is the backfill.
+Note: Only Instagram is outstanding; every other platform is posted or scheduled.
 
 Covers: `assets/covers/022_THE_STATUE_vertical.png`, `assets/covers/022_THE_STATUE_horizontal.png`
 
