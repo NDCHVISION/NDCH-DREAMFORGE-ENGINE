@@ -1,0 +1,94 @@
+{
+  "reel_id": "NDCH_029_AXIOM",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Unresolved A Minor",
+      "suno_file": "Unresolved A Minor (1).mp3",
+      "status": "chosen",
+      "rank": 1,
+      "note": "Only take that goes near-silent on its own across the Crooked Room (15-20 s); in key with the A-tuned ring; end flows into start",
+      "duration_seconds": 188.0,
+      "created": "2026-10-23T04:48:03Z",
+      "suno_id": "6769b783-7338-45d1-972b-aa333b049231",
+      "suno_url": "https://suno.com/song/6769b783-7338-45d1-972b-aa333b049231",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__unresolved-a-minor-1.mp3",
+      "structure_cues": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    },
+    {
+      "title": "Suspended A Minor",
+      "suno_file": "Suspended A Minor (2).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "In key; the music itself builds, but it only dips briefly in the Crooked Room",
+      "duration_seconds": 178.4,
+      "created": "2026-10-23T04:48:40Z",
+      "suno_id": "7e9df0f8-91de-400e-870f-98893f9d1966",
+      "suno_url": "https://suno.com/song/7e9df0f8-91de-400e-870f-98893f9d1966",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__suspended-a-minor-2.mp3",
+      "structure_cues": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    },
+    {
+      "title": "Suspended A Minor",
+      "suno_file": "Suspended A Minor (1).mp3",
+      "status": "alternate",
+      "rank": 3,
+      "note": "In key, no real drop where it matters",
+      "duration_seconds": 189.4,
+      "created": "2026-10-23T04:47:32Z",
+      "suno_id": "29428132-3cf1-469c-a857-2babedd3df40",
+      "suno_url": "https://suno.com/song/29428132-3cf1-469c-a857-2babedd3df40",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__suspended-a-minor-1.mp3",
+      "structure_cues": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    },
+    {
+      "title": "Unresolved A Minor",
+      "suno_file": "Unresolved A Minor.mp3",
+      "status": "alternate",
+      "rank": 3,
+      "note": "In key, no real drop where it matters",
+      "duration_seconds": 180.0,
+      "created": "2026-10-23T04:47:47Z",
+      "suno_id": "b37b05fd-9fed-4071-965b-2ef418e4ffb5",
+      "suno_url": "https://suno.com/song/b37b05fd-9fed-4071-965b-2ef418e4ffb5",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__unresolved-a-minor.mp3",
+      "structure_cues": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    },
+    {
+      "title": "Suspended A Minor",
+      "suno_file": "Suspended A Minor.mp3",
+      "status": "unused",
+      "rank": 5,
+      "note": "Came back in B-flat/E-flat major: sour against the A-tuned ring",
+      "duration_seconds": 189.6,
+      "created": "2026-10-23T04:47:06Z",
+      "suno_id": "b1116dde-1ac7-4444-92d7-1a14d8002892",
+      "suno_url": "https://suno.com/song/b1116dde-1ac7-4444-92d7-1a14d8002892",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__suspended-a-minor.mp3",
+      "structure_cues": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    },
+    {
+      "title": "Unresolved A Minor",
+      "suno_file": "Unresolved A Minor (2).mp3",
+      "status": "unused",
+      "rank": 5,
+      "note": "Came back in B-flat/E-flat major: sour against the A-tuned ring",
+      "duration_seconds": 188.4,
+      "created": "2026-10-23T04:48:21Z",
+      "suno_id": "24c96f0e-a0a4-47a3-9bac-c80acd79ea01",
+      "suno_url": "https://suno.com/song/24c96f0e-a0a4-47a3-9bac-c80acd79ea01",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_029_AXIOM__unresolved-a-minor-2.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Unresolved A Minor / Suspended A Minor",
+      "instrumental": true,
+      "style": "minimalist neoclassical chamber, solo felt piano and solo cello, low sustained A drone, A minor, 60 bpm, sparse and patient, wide reverb in a stone hall, intimate close-miked piano, restrained, elegant, introspective, cinematic but quiet, single held notes, open fifths, slow build then sudden near-silence, resolves to an unresolved suspended chord",
+      "exclude": "drums, percussion, vocals, choir, synth bass, risers, trailer hits, epic, orchestral swell, guitar, electronic beats",
+      "structure": "[Intro: single soft piano notes over a low A drone]\n[Build: cello enters, slow rising line, piano chords thicken gently]\n[Break: near silence, only the drone and one high piano note]\n[Theme: piano and cello together, calm, open fifths]\n[Outro: suspended chord, held, fading, unresolved]",
+      "used": true
+    }
+  ]
+}

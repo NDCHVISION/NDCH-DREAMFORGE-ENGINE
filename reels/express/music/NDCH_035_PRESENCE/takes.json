@@ -1,0 +1,101 @@
+{
+  "reel_id": "NDCH_035_PRESENCE",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Room Behind a Wall",
+      "suno_file": "Room Behind a Wall.wav",
+      "status": "alternate",
+      "rank": 1,
+      "note": "Voice-fit 0.805, best window from 47 s",
+      "duration_seconds": 184.0,
+      "created": "2026-10-26T22:23:45Z",
+      "suno_id": "c2ba9bab-089a-4dc0-a250-9a78c206863f",
+      "suno_url": "https://suno.com/song/c2ba9bab-089a-4dc0-a250-9a78c206863f",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__room-behind-a-wall.mp3"
+    },
+    {
+      "title": "Room Behind a Wall",
+      "suno_file": "Room Behind a Wall (3).wav",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Voice-fit 0.795, best window from 12 s",
+      "duration_seconds": 180.0,
+      "created": "2026-10-26T22:27:01Z",
+      "suno_id": "b9289eac-901b-42b0-a29b-89a15e2e2069",
+      "suno_url": "https://suno.com/song/b9289eac-901b-42b0-a29b-89a15e2e2069",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__room-behind-a-wall-3.mp3"
+    },
+    {
+      "title": "Room Behind a Wall",
+      "suno_file": "Room Behind a Wall (4).wav",
+      "status": "alternate",
+      "rank": 3,
+      "note": "Voice-fit 0.774, best window from 52 s",
+      "duration_seconds": 180.0,
+      "created": "2026-10-26T22:32:21Z",
+      "suno_id": "73e6c711-f2e1-4d09-a4c1-697aa82253e6",
+      "suno_url": "https://suno.com/song/73e6c711-f2e1-4d09-a4c1-697aa82253e6",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__room-behind-a-wall-4.mp3"
+    },
+    {
+      "title": "Room Behind a Wall",
+      "suno_file": "Room Behind a Wall (1).wav",
+      "status": "chosen",
+      "rank": 4,
+      "note": "Creator's pick (option B) by ear; voice-fit 0.771; window 49-91.5 s",
+      "duration_seconds": 194.7,
+      "created": "2026-10-26T22:25:43Z",
+      "suno_id": "9cae58a0-dffc-4bf9-b66a-631a0bb9ca90",
+      "suno_url": "https://suno.com/song/9cae58a0-dffc-4bf9-b66a-631a0bb9ca90",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__room-behind-a-wall-1.mp3"
+    },
+    {
+      "title": "Room Behind a Wall",
+      "suno_file": "Room Behind a Wall (2).wav",
+      "status": "alternate",
+      "rank": 5,
+      "note": "Voice-fit 0.764, best window from 61 s",
+      "duration_seconds": 180.0,
+      "created": "2026-10-26T22:26:03Z",
+      "suno_id": "58050528-0da1-43e8-9fbe-7079779e926d",
+      "suno_url": "https://suno.com/song/58050528-0da1-43e8-9fbe-7079779e926d",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__room-behind-a-wall-2.mp3"
+    },
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note (1).wav",
+      "status": "alternate",
+      "rank": 6,
+      "note": "Voice-fit 0.754, best window from 16 s",
+      "duration_seconds": 184.0,
+      "created": "2026-10-26T22:31:56Z",
+      "suno_id": "b688e0ea-32cf-4468-9fce-ff12b8ad158e",
+      "suno_url": "https://suno.com/song/b688e0ea-32cf-4468-9fce-ff12b8ad158e",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__unresolved-note-1.mp3"
+    },
+    {
+      "title": "Unresolved Note",
+      "suno_file": "Unresolved Note.wav",
+      "status": "alternate",
+      "rank": 7,
+      "note": "Voice-fit 0.725, best window from 132 s",
+      "duration_seconds": 182.2,
+      "created": "2026-10-26T22:31:04Z",
+      "suno_id": "92781756-cc06-4132-abd5-14806ae60c20",
+      "suno_url": "https://suno.com/song/92781756-cc06-4132-abd5-14806ae60c20",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_035_PRESENCE__unresolved-note.mp3"
+    }
+  ],
+  "prompts": [
+    {
+      "style": "intimate felt piano recorded inches from the hammers, soft key clicks and pedal creak, single notes with long space between, distant bowed vibraphone and glass harmonica drones in a large empty hall, faint cello harmonics far behind, warm tape hiss, slow 62 BPM, D dorian, minimal, cinematic restraint, close versus far, no drums, no build, no climax, starts and ends on the same quiet chord, seamless loop",
+      "exclude": "drums, percussion, vocals, choir, strings swell, epic, trailer, uplifting, EDM, lo-fi beat, bright synth pads, reverb wash on piano",
+      "title": "Room Behind a Wall",
+      "instrumental": true,
+      "used": true,
+      "structure": "[Instrumental]\n[Intro: one felt piano note, room tone, tape hiss]\n[Verse: sparse piano, two notes at a time, far vibraphone drone enters quietly]\n[Interlude: piano stops, only the distant glass harmonics and cello harmonics, like a room behind a wall]\n[Verse: piano returns closer, same motif, no new instruments]\n[Outro: the opening piano note again, unresolved, hold, room tone]",
+      "settings": "Weirdness about 35%, style influence about 70%"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "reel_id": "NDCH_029_AXIOM",
+  "recorded_at": "2026-10-28T02:00:00.000Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "minimalist neoclassical chamber, solo felt piano and solo cello, low sustained A drone, A minor, 60 bpm, sparse and patient, wide reverb in a stone hall, intimate close-miked piano, restrained, elegant, introspective, cinematic but quiet, single held notes, open fifths, slow build then sudden near-silence, resolves to an unresolved suspended chord",
+    "exclude": "drums, percussion, vocals, choir, synth bass, risers, trailer hits, epic, orchestral swell, guitar, electronic beats",
+    "title": "Unresolved A Minor / Suspended A Minor",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Unresolved A Minor (1)",
+    "reasons": [
+      "Only take that goes near-silent on its own across the Crooked Room (15-20 s); in key with the A-tuned ring; end flows into start",
+      "Picked in the hand edit by measurement (Claude cannot listen); the creator approved the scored cut"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Unresolved A Minor (1)",
+      "rank": 1,
+      "status": "chosen",
+      "note": "Only take that goes near-silent on its own across the Crooked Room (15-20 s); in key with the A-tuned ring; end flows into start"
+    },
+    {
+      "name": "Suspended A Minor (2)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "In key; the music itself builds, but it only dips briefly in the Crooked Room"
+    },
+    {
+      "name": "Suspended A Minor (1)",
+      "rank": 3,
+      "status": "alternate",
+      "note": "In key, no real drop where it matters"
+    },
+    {
+      "name": "Unresolved A Minor",
+      "rank": 3,
+      "status": "alternate",
+      "note": "In key, no real drop where it matters"
+    },
+    {
+      "name": "Suspended A Minor",
+      "rank": 5,
+      "status": "unused",
+      "note": "Came back in B-flat/E-flat major: sour against the A-tuned ring"
+    },
+    {
+      "name": "Unresolved A Minor (2)",
+      "rank": 5,
+      "status": "unused",
+      "note": "Came back in B-flat/E-flat major: sour against the A-tuned ring"
+    }
+  ],
+  "notes": [
+    "Posts as 023. Scored by hand before the music record rule, so there is no run_id and no engine score; recorded afterwards from the session notes",
+    "chosen.mp3 is the full Suno take; the reel used the window given (seconds into the take) where one is recorded",
+    "Every take, with Suno links, is in takes.json"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "reel_id": "NDCH_032_INVENTORY",
+  "recorded_at": "2026-10-28T02:00:00.000Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "A slow counting motif carries the whole track: soft plucked upright bass and muted kalimba repeat a patient four-note figure, like someone quietly counting. Bowed vibraphone and glass harmonica shimmer above it, warm and metallic, like gold catching light in dark stone. Dry, intimate, close-mic'd, a little room tone. Halfway, a low flugelhorn plays one long warm phrase. The ending opens into a full, sunlit major chord with soft strings and a brushed timpani swell, then stops cleanly on the downbeat. No piano, no drones, no choir, no vocals, no trap drums, no risers.",
+    "title": "Four Notes / Four Notes, Four Phases",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Four Notes, Four Phases",
+    "reasons": [
+      "Counting motif under 4-25 s, opening joined to its own ending at about 25 s, final chord blooms just after 'Count them now'",
+      "Picked in the hand edit by measurement (Claude cannot listen); the creator approved the scored cut"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Four Notes, Four Phases",
+      "rank": 1,
+      "status": "chosen",
+      "note": "Counting motif under 4-25 s, opening joined to its own ending at about 25 s, final chord blooms just after 'Count them now'"
+    },
+    {
+      "name": "Four Notes (3)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Similar ending; named as the swap-in"
+    },
+    {
+      "name": "Four Notes",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Similar ending; named as the swap-in"
+    },
+    {
+      "name": "Four Notes (1)",
+      "rank": 4,
+      "status": "unused",
+      "note": "Same prompt"
+    },
+    {
+      "name": "Four Notes (2)",
+      "rank": 4,
+      "status": "unused",
+      "note": "Same prompt"
+    },
+    {
+      "name": "Four Notes, Four Phases (1)",
+      "rank": 4,
+      "status": "unused",
+      "note": "Same prompt"
+    }
+  ],
+  "notes": [
+    "Posts as 026. Scored by hand before the music record rule, so there is no run_id and no engine score; recorded afterwards from the session notes",
+    "chosen.mp3 is the full Suno take; the reel used the window given (seconds into the take) where one is recorded",
+    "Every take, with Suno links, is in takes.json"
+  ]
+}

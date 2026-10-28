@@ -1,0 +1,80 @@
+{
+  "reel_id": "NDCH_031_PARALLAX",
+  "about": "Every Suno take made for this reel, kept so prompts and results can be compared and unused takes reused. Audio lives in the suno-archive release (archive links); suno_url opens the original at full quality.",
+  "takes": [
+    {
+      "title": "Open Chord",
+      "suno_file": "Open Chord (3).mp3",
+      "status": "chosen",
+      "rank": 1,
+      "note": "D minor like the bronze tone; calmest passage (under one onset every 6 s); ends on an open D-A chord ringing to silence. Late calm stretch under 0-13 s, silence 13-22 s, own ending under 22-36 s",
+      "duration_seconds": 214.8,
+      "created": "2026-10-25T00:43:19Z",
+      "suno_id": "eb844592-f67b-4bf6-b657-1b23a7735ce3",
+      "suno_url": "https://suno.com/song/eb844592-f67b-4bf6-b657-1b23a7735ce3",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_031_PARALLAX__open-chord-3.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]"
+    },
+    {
+      "title": "Open Chord",
+      "suno_file": "Open Chord (1).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Same prompt; less calm passage or weaker ending",
+      "duration_seconds": 210.0,
+      "created": "2026-10-25T00:42:55Z",
+      "suno_id": "14ee0563-26b7-4541-a43f-3cba0a437c33",
+      "suno_url": "https://suno.com/song/14ee0563-26b7-4541-a43f-3cba0a437c33",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_031_PARALLAX__open-chord-1.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]"
+    },
+    {
+      "title": "Open Chord",
+      "suno_file": "Open Chord (2).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Same prompt; less calm passage or weaker ending",
+      "duration_seconds": 200.0,
+      "created": "2026-10-25T00:43:07Z",
+      "suno_id": "6748f94a-d227-4f2f-93be-54deb77e88e0",
+      "suno_url": "https://suno.com/song/6748f94a-d227-4f2f-93be-54deb77e88e0",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_031_PARALLAX__open-chord-2.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]"
+    },
+    {
+      "title": "Open Chord",
+      "suno_file": "Open Chord (5).mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Same prompt; less calm passage or weaker ending",
+      "duration_seconds": 194.7,
+      "created": "2026-10-25T00:43:40Z",
+      "suno_id": "2b79ab3f-20dd-48da-833d-a0c27cc6396c",
+      "suno_url": "https://suno.com/song/2b79ab3f-20dd-48da-833d-a0c27cc6396c",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_031_PARALLAX__open-chord-5.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]"
+    },
+    {
+      "title": "Open Chord",
+      "suno_file": "Open Chord.mp3",
+      "status": "alternate",
+      "rank": 2,
+      "note": "Same prompt; less calm passage or weaker ending",
+      "duration_seconds": 203.1,
+      "created": "2026-10-25T00:42:43Z",
+      "suno_id": "b02bd4d6-c9ac-4dc3-b6e2-f0ae83943afa",
+      "suno_url": "https://suno.com/song/b02bd4d6-c9ac-4dc3-b6e2-f0ae83943afa",
+      "archive": "https://github.com/NDCHVISION/NDCH-DREAMFORGE-ENGINE/releases/download/suno-archive/NDCH_031_PARALLAX__open-chord.mp3",
+      "structure_cues": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]"
+    }
+  ],
+  "prompts": [
+    {
+      "title": "Open Chord",
+      "instrumental": true,
+      "style": "dark minimal neoclassical, D minor, 56 bpm, felt piano with long sustain, bowed bronze singing bowl, low solo cello harmonics, sub-bass drone, cavernous stone reverb, sparse, patient, intimate, no drums, no vocals",
+      "structure": "[Instrumental]\n[Intro: single low piano note, drone fades in]\n[Verse: three-note piano figure, wide space between notes]\n[Break: near silence, only the bowl ringing]\n[Build: cello enters on a rising fifth, still quiet]\n[Outro: piano returns, ends on an open suspended chord, let it ring out]",
+      "used": true
+    }
+  ]
+}

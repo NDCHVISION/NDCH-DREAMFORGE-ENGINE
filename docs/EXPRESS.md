@@ -35,6 +35,13 @@ To re-render one, pass its seed path in the `seed` box and anything in `cache_bu
    reel went out with; the ElevenLabs ambience when no Suno take was available), and
    rebuilds `reels/express/music/INDEX.md`, one row per reel, so prompts can be compared
    with how they turned out.
+4. **Every take is kept, winners and losers.** Each reel's `takes.json` lists every Suno take
+   made for it (title, Suno link, length, rank, why it won or lost) and every prompt tried,
+   including prompts that never got takes. The audio goes to the `suno-archive` release
+   (`.github/workflows/suno-archive.yml`, see `reels/express/music/README.md`), not into git.
+   `reels/express/music/ARCHIVE.md` (`scripts/music-archive-index.ts`) lists them all. Before
+   writing a new prompt, read ARCHIVE.md: the new reel must not reuse another reel's
+   instrument set and key, and an unused take there may already fit.
 
 
 Upload instrumental Suno MP3s to the GitHub release named **`suno-library`**

@@ -1,0 +1,52 @@
+{
+  "reel_id": "NDCH_022_THE_STATUE",
+  "recorded_at": "2026-10-28T02:00:00.000Z",
+  "source": "suno",
+  "suno_prompt": {
+    "style": "Instrumental, cinematic minimal, 64 BPM, D minor, felt piano, solo cello, low string drone, sub swells, granite resonance, restrained, monumental, slow build, sparse, no drums, dark ambient neoclassical",
+    "exclude": "vocals, choir, drums, trap, EDM, synth lead, guitar, epic trailer hits, uplifting major key, heavy reverb wash",
+    "title": "Unresolved Harmony",
+    "instrumental": true
+  },
+  "chosen": {
+    "file": "chosen.mp3",
+    "source_name": "Unresolved Harmony (2)",
+    "window_start_seconds": 148.33,
+    "window_end_seconds": 186.62,
+    "reasons": [
+      "Widest dynamics (LRA 11.4 LU), clearest quiet-build-recede; window 2:28.33-3:06.62 under the 38.3 s cut; loop resolves A major into D",
+      "Picked in the hand edit by measurement (Claude cannot listen); the creator approved the scored cut"
+    ]
+  },
+  "candidates": [
+    {
+      "name": "Unresolved Harmony (2)",
+      "rank": 1,
+      "status": "chosen",
+      "note": "Widest dynamics (LRA 11.4 LU), clearest quiet-build-recede; window 2:28.33-3:06.62 under the 38.3 s cut; loop resolves A major into D"
+    },
+    {
+      "name": "Unresolved Harmony (1)",
+      "rank": 2,
+      "status": "alternate",
+      "note": "Same arc, quieter (-18.1 LUFS); best window from 2:34 but a 5.8 dB jump at the loop seam"
+    },
+    {
+      "name": "Unresolved Cadence",
+      "rank": 3,
+      "status": "alternate",
+      "note": "Narrower range (8.5 LU), long even plateau 0:23-2:15; best window starts at full level"
+    },
+    {
+      "name": "Unresolved Harmony",
+      "rank": 4,
+      "status": "unused",
+      "note": "Loudest and brightest (-16.6 LUFS), most energy in the voice band 0:25-2:25; weakest loop"
+    }
+  ],
+  "notes": [
+    "Posts as 022. Scored by hand before the music record rule, so there is no run_id and no engine score; recorded afterwards from the session notes",
+    "chosen.mp3 is the full Suno take; the reel used the window given (seconds into the take) where one is recorded",
+    "Every take, with Suno links, is in takes.json"
+  ]
+}

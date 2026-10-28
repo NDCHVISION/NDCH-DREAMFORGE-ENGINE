@@ -1,0 +1,34 @@
+# Uploads Suno takes to the `suno-archive` release, then deletes the upload branch so the
+# audio never lands in main's history (renders check out main; ~300 MB of takes would slow
+# every one). Push a branch named suno-archive/<anything> holding the takes under
+# suno-archive-upload/*.mp3, named <REEL_ID>__<take>.mp3 as listed in each reel's takes.json.
+name: Suno archive upload
+
+on:
+  push:
+    branches: ['suno-archive/**']
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload takes to the suno-archive release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          shopt -s nullglob
+          FILES=(suno-archive-upload/*.mp3)
+          echo "Takes to upload: ${#FILES[@]}"
+          [ ${#FILES[@]} -gt 0 ] || exit 0
+          gh release view suno-archive >/dev/null 2>&1 || gh release create suno-archive \
+            --target main --prerelease --title "Suno archive (every take, every reel)" \
+            --notes "Every Suno take made for a reel, winners and unused takes. Index: reels/express/music/ARCHIVE.md. Renders never read this release."
+          gh release upload suno-archive "${FILES[@]}" --clobber
+          gh release view suno-archive --json assets -q '.assets | length'
+      - name: Delete the upload branch
+        if: success()
+        run: git push origin --delete "${GITHUB_REF_NAME}"
