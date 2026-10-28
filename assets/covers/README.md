@@ -5,7 +5,7 @@ Final published covers, two per reel:
 - `<posting>_<TITLE>_vertical.png`: the vertical cover (LinkedIn / Reels / Shorts). This is the one actually used.
 - `<posting>_<TITLE>_horizontal.png`: the wide YouTube-style version.
 
-Some reels also have `_vertical_alt.png` / `_horizontal_alt.png`: an earlier
+Some reels also have `_vertical_alt.png` / `_horizontal_alt.png` (and `_alt2`, ...): an earlier
 design kept for the record (e.g. the black-and-gold covers of 016 and 017
 before the velvet style). The plain `_vertical` / `_horizontal` file is the
 one in use.
@@ -21,7 +21,7 @@ received (no resizing or recompression).
 House style, for any future automated covers: an "NDCH · DREAMFORGE" header,
 a thin gold frame with diamond corner ornaments, black stone with gold veining,
 the NDCH arch-and-Y emblem, the title in spaced gold capitals, the posting
-number between gold rules, and a deep-blue velvet surround.
+number between gold rules, and a deep-red velvet surround (recent covers; some earlier ones use blue).
 
 Not read by the engine. The style references for generation live in
 `../cover_references/`.

@@ -239,30 +239,33 @@
     "horizontal": "021_FAITH_horizontal.png",
     "horizontal_size": "1671x941",
     "added": "2026-10-24",
-    "notes": "Imported from Drive as received."
+    "notes": "Imported from Drive as received. Vertical replaced 2026-10-28 with the brighter red-velvet cover; the earlier one is kept as _alt.",
+    "vertical_alt": "021_FAITH_vertical_alt.png"
   },
   {
     "posting": "022",
     "title": "THE STATUE",
     "engine_id": "NDCH_022_THE_STATUE",
     "vertical": "022_THE_STATUE_vertical.png",
-    "vertical_size": "1080x1440",
+    "vertical_size": "941x1672",
     "horizontal": "022_THE_STATUE_horizontal.png",
     "horizontal_size": "1280x720",
     "added": "2026-10-24",
-    "notes": "Imported from Drive as received."
+    "notes": "Imported from Drive as received. Vertical replaced 2026-10-28 with the brighter full-height red-velvet cover; the earlier 1080x1440 one is kept as _alt.",
+    "vertical_alt": "022_THE_STATUE_vertical_alt.png"
   },
   {
     "posting": "023",
     "title": "AXIOM",
     "engine_id": "NDCH_029_AXIOM",
     "vertical": "023_AXIOM_vertical.png",
-    "vertical_size": "1080x1920",
+    "vertical_size": "941x1672",
     "horizontal": "023_AXIOM_horizontal.png",
     "horizontal_size": "1672x941",
     "added": "2026-10-24",
-    "notes": "Cover prints 023; Drive file is labelled 023. Vertical replaced 2026-10-28 with the red-velvet cover used at posting; the earlier one is kept as _alt.",
-    "vertical_alt": "023_AXIOM_vertical_alt.png"
+    "notes": "Cover prints 023; Drive file is labelled 023. Vertical replaced 2026-10-28 with the red-velvet cover used at posting; the earlier one is kept as _alt. Replaced again later the same day with a brighter version; the 1080x1920 cover from that morning is kept as _alt2.",
+    "vertical_alt": "023_AXIOM_vertical_alt.png",
+    "vertical_alt2": "023_AXIOM_vertical_alt2.png"
   },
   {
     "posting": "024",
