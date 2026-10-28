@@ -424,6 +424,7 @@
       "fade_out_seconds": 2
     }
   },
+  "loop_audio": "seamless",
   "narration_timing": "anchored",
   "clip_transitions": [
     {
@@ -450,6 +451,7 @@
       "note": "dip to near-black again, rhyming the last: the hand has done its work and the room is left with the choice"
     }
   ],
+  "loop_music_lift_db": 4,
   "finish": {
     "subtitle_layout": "readable",
     "output": "1080x1920",
@@ -459,7 +461,8 @@
     "text": "BEARING",
     "start_seconds": 31.2,
     "fade_in_seconds": 1.2,
-    "position_pct": 12
+    "position_pct": 12,
+    "fade_out_seconds": 0.5
   },
   "suno_prompt": {
     "style": "dark cinematic ambient instrumental, 85 bpm, low sustained sub-bass drone, slow evolving dark pads, distant metallic textures like a chain dragged over stone, sparse heavy low-end hits, one clear swell and impact around 0:13, then settling and steady, cold and restrained, no melody",
