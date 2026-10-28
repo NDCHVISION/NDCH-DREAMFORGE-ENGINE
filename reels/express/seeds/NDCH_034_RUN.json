@@ -109,7 +109,14 @@
     6,
     16,
     23,
-    30,
-    37
-  ]
+    29,
+    36
+  ],
+  "suno_prompt": {
+    "title": "RUN - Hands That Keep It Turning",
+    "style": "warm, determined West African cinematic instrumental, 96 BPM, 12/8 feel, F minor lifting to A-flat major, a hand-played wooden gyil-style xylophone ostinato that turns like a well-oiled flywheel from the very first beat, a soft low frame drum and shaker keeping a steady heartbeat pulse, bowed double bass underneath, one warm solo cello melody entering around 0:23 with quiet dignity, sparse and handmade, every note played by human hands, slightly imperfect timing, wood and gut strings, close dry mix with a little room, steady build with no climax, a breath of near-silence around 0:29, ends on the same ostinato it began with for a seamless loop",
+    "exclude": "vocals, chants, choir, spoken word, afrobeats, amapiano, trap, EDM, 808, braams, risers, epic trailer drums, felt piano, nylon guitar, sub-bass drone, synth pads, lo-fi beat, horror",
+    "instrumental": true,
+    "model": "v5"
+  }
 }
