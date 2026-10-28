@@ -45,3 +45,11 @@ test('validatePost requires a monumental location tag', () => {
   assert.ok(errs.some((e) => e.includes('location.name')));
   assert.ok(errs.some((e) => e.includes('location.why')));
 });
+
+test('TikTok captions follow the house format: number| TITLE, blank line, one line', () => {
+  const p = structuredClone(loadPosts()[0]);
+  assert.deepEqual(validatePost(p).filter((e) => e.includes('tiktok')), []);
+  p.platforms.tiktok.caption += '\n\n#NDCH #mindset';
+  assert.ok(validatePost(p).some((e) => e.includes('tiktok.caption must be')));
+  assert.ok(validatePost(p).some((e) => e.includes('tiktok has')));
+});
