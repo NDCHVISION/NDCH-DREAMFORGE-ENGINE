@@ -12,6 +12,10 @@
     "horizontal": "assets/covers/025_PARALLAX_horizontal.png"
   },
   "alt_text": "A dark stone chamber. A tall stone post hides the far wall's only opening. The camera steps to the side and a narrow stairway passage appears behind it, then moves slowly toward it.",
+  "location": {
+    "name": "Petra",
+    "why": "A sheer rock wall, and a narrow opening in it (the Siq) that leads to the Treasury. The wall is real; so is the way through."
+  },
   "platforms": {
     "youtube": {
       "title": "025 | PARALLAX 👁️ #philosophy #motivation",

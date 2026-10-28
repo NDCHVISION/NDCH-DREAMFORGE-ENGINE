@@ -2,22 +2,26 @@
 
 Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON, not this file.
 
-| # | Reel | Status | YouTube |
-| --- | --- | --- | --- |
-| 023 | [AXIOM](#023--axiom) | scheduled | Tue, Oct 27, 11:00 AM CT |
-| 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT |
-| 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
-| 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
-| 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT |
-| 028 | [RUN](#028--run) | scheduled | Fri, Nov 13, 11:00 AM CT |
-| 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
-| 030 | [RECEPTION](#030--reception) | draft | Fri, Nov 20, 11:00 AM CT |
+| # | Reel | Status | YouTube | Location |
+| --- | --- | --- | --- | --- |
+| 023 | [AXIOM](#023--axiom) | scheduled | Tue, Oct 27, 11:00 AM CT | Leaning Tower of Pisa |
+| 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT | Sagrada Família |
+| 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT | Petra |
+| 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT | Pantheon, Rome |
+| 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT | Royal Observatory Greenwich |
+| 028 | [RUN](#028--run) | scheduled | Fri, Nov 13, 11:00 AM CT | Terracotta Army |
+| 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT | Great Sphinx of Giza |
+| 030 | [RECEPTION](#030--reception) | draft | Fri, Nov 20, 11:00 AM CT | Forbidden City |
 
 ## 023 · AXIOM
 
 Status: scheduled · Engine: NDCH_029_AXIOM · YouTube: Tue, Oct 27, 11:00 AM CT
 
 Covers: `assets/covers/023_AXIOM_vertical.png`, `assets/covers/023_AXIOM_horizontal.png`
+
+Location tag: `Leaning Tower of Pisa` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: The tower leans; a plumb line dropped beside it still hangs true. The surroundings tilt, the line doesn't.
 
 ### YouTube
 
@@ -158,6 +162,10 @@ A vast dark circular hall with curved stone galleries. A plumb bob hangs on a ta
 Status: scheduled · Engine: NDCH_030_FRAMES · YouTube: Fri, Oct 30, 11:00 AM CT
 
 Covers: `assets/covers/024_FRAMES_vertical.png`, `assets/covers/024_FRAMES_horizontal.png`
+
+Location tag: `Sagrada Família` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Copied, photographed and imitated for over a century, and still being built. The builder keeps building.
 
 ### YouTube
 
@@ -300,6 +308,10 @@ FRAMES · 024 · NDCH Dreamforge
 Status: scheduled · Engine: NDCH_031_PARALLAX · YouTube: Tue, Nov 3, 11:00 AM CT
 
 Covers: `assets/covers/025_PARALLAX_vertical.png`, `assets/covers/025_PARALLAX_horizontal.png`
+
+Location tag: `Petra` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: A sheer rock wall, and a narrow opening in it (the Siq) that leads to the Treasury. The wall is real; so is the way through.
 
 ### YouTube
 
@@ -445,6 +457,10 @@ Status: scheduled · Engine: NDCH_032_INVENTORY · YouTube: Fri, Nov 6, 11:00 AM
 
 Covers: `assets/covers/026_INVENTORY_vertical.png`, `assets/covers/026_INVENTORY_horizontal.png`
 
+Location tag: `Pantheon, Rome` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: One opening of light in a dark dome. As the light moves, it shows what the room still holds.
+
 ### YouTube
 
 **Title**
@@ -589,6 +605,10 @@ A dark marble chamber veined with gold, lit by one round opening in the dome. Th
 
 Status: scheduled · Engine: NDCH_033_BEARING · YouTube: Tue, Nov 10, 11:00 AM CT
 
+Location tag: `Royal Observatory Greenwich` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Home of the Prime Meridian: the line the world takes its bearings from. Name your own reference point.
+
 ### YouTube
 
 **Title**
@@ -722,6 +742,10 @@ A fine gold chain drags through a crack in dark stone. In a vaulted stone chambe
 ## 028 · RUN
 
 Status: scheduled · Engine: NDCH_034_RUN · YouTube: Fri, Nov 13, 11:00 AM CT
+
+Location tag: `Terracotta Army` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Thousands of molded figures, perfect in shape, none of them alive. A mold takes the shape, not the work.
 
 ### YouTube
 
@@ -863,6 +887,10 @@ Status: scheduled · Engine: NDCH_035_PRESENCE · YouTube: Tue, Nov 17, 11:00 AM
 
 Covers: `assets/covers/029_PRESENCE_vertical.png`, `assets/covers/029_PRESENCE_horizontal.png`
 
+Location tag: `Great Sphinx of Giza` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Seen by everyone for millennia, still not truly known. Familiarity hides distance.
+
 ### YouTube
 
 **Title**
@@ -1000,6 +1028,10 @@ A young woman with dark curly hair and a charcoal sweater looks toward the camer
 Status: draft · Engine: NDCH_036_RECEPTION · YouTube: Fri, Nov 20, 11:00 AM CT
 
 Covers: `assets/covers/030_RECEPTION_vertical.png`, `assets/covers/030_RECEPTION_horizontal.png`
+
+Location tag: `Forbidden City` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Gate after gate, room after room. Every answer opens another door, and you know the place less.
 
 ### YouTube
 

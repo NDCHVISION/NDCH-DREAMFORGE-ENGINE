@@ -12,6 +12,10 @@
     "horizontal": "assets/covers/026_INVENTORY_horizontal.png"
   },
   "alt_text": "A dark marble chamber veined with gold, lit by one round opening in the dome. The light fades and the gold veins glow, picking out a coat on a chair, a steaming cup, and a door left ajar with warm light behind it. A man in a long coat walks through the door, and the light returns.",
+  "location": {
+    "name": "Pantheon, Rome",
+    "why": "One opening of light in a dark dome. As the light moves, it shows what the room still holds."
+  },
   "platforms": {
     "youtube": {
       "title": "026 | INVENTORY 🕯️ #philosophy #motivation",
