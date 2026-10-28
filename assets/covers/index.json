@@ -257,11 +257,12 @@
     "title": "AXIOM",
     "engine_id": "NDCH_029_AXIOM",
     "vertical": "023_AXIOM_vertical.png",
-    "vertical_size": "941x1672",
+    "vertical_size": "1080x1920",
     "horizontal": "023_AXIOM_horizontal.png",
     "horizontal_size": "1672x941",
     "added": "2026-10-24",
-    "notes": "Cover prints 023; Drive file is labelled 023."
+    "notes": "Cover prints 023; Drive file is labelled 023. Vertical replaced 2026-10-28 with the red-velvet cover used at posting; the earlier one is kept as _alt.",
+    "vertical_alt": "023_AXIOM_vertical_alt.png"
   },
   {
     "posting": "024",
