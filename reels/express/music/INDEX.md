@@ -6,7 +6,7 @@ and `chosen.mp3` (the bed the reel went out with).
 
 | Reel | Source | Prompt | Chosen | Window | Score | Candidates |
 | --- | --- | --- | --- | --- | --- | --- |
-| [NDCH_036_RECEPTION](NDCH_036_RECEPTION/music.json) | suno | warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string ... | Sunlight_Entering_the_Doorway_1 | 7-52.1s | 0.8 | 3 |
+| [NDCH_036_RECEPTION](NDCH_036_RECEPTION/music.json) | suno | warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string ... | Sunlight_Entering_the_Doorway_1 | 7-51.6s | 0.803 | 3 |
 | [NDCH_035_PRESENCE](NDCH_035_PRESENCE/music.json) | suno | intimate felt piano recorded inches from the hammers, soft key clicks and pedal creak, ... | Room_Behind_a_Wall__1__1 | 49-91.5s |  | 7 |
 | [NDCH_034_RUN](NDCH_034_RUN/music.json) | suno |  | run_bed | 0-37s | 0.719 | 0 |
 | [NDCH_032_INVENTORY](NDCH_032_INVENTORY/music.json) | suno | A slow counting motif carries the whole track: soft plucked upright bass and muted kali... | Four Notes, Four Phases |  |  | 6 |

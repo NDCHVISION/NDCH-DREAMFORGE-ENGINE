@@ -1,7 +1,7 @@
 {
   "reel_id": "NDCH_036_RECEPTION",
-  "recorded_at": "2026-10-28T01:26:20.662Z",
-  "run_id": "40614155170",
+  "recorded_at": "2026-10-28T01:43:00.385Z",
+  "run_id": "40615883485",
   "source": "suno",
   "suno_prompt": {
     "style": "warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string guitar and soft upright piano in short patient phrases, like someone waiting at a door, warm solo cello enters around 0:17, slow steady build with soft violins underneath, no drums, a bright open swell that lifts around 0:38 like sunlight pouring through a doorway, then settles warm and calm, intimate and tender, starts and ends on the same warm chord for a seamless loop",
@@ -14,11 +14,11 @@
     "file": "chosen.mp3",
     "source_name": "Sunlight_Entering_the_Doorway_1",
     "window_start_seconds": 7,
-    "window_end_seconds": 52.1,
-    "score": 0.8,
+    "window_end_seconds": 51.6,
+    "score": 0.803,
     "confidence": 1,
     "reasons": [
-      "Highest overall score: 0.800 across 4 evaluated tracks",
+      "Highest overall score: 0.803 across 4 evaluated tracks",
       "Strong hook section — low, stable, sparse",
       "Good build arc — positive slope with variation",
       "Pivot section has identifiable dynamic event",
@@ -28,9 +28,9 @@
       "Hook score: 0.90",
       "Build score: 1.00",
       "Pivot score: 1.00",
-      "Möbius seam score: 0.94",
+      "Möbius seam score: 0.97",
       "Doctrine alignment: 1.00 (cold, mechanical, restrained)",
-      "Best extraction window: 7.0s – 52.1s"
+      "Best extraction window: 7.0s – 51.6s"
     ]
   },
   "candidates": [
@@ -38,19 +38,19 @@
       "name": "Sunlight_Entering_the_Doorway",
       "rank": 2,
       "best_window_start_seconds": 5,
-      "score": 0.793
-    },
-    {
-      "name": "E-Major_Warmth",
-      "rank": 3,
-      "best_window_start_seconds": 7,
-      "score": 0.725
+      "score": 0.792
     },
     {
       "name": "E-Major_Warmth_1",
+      "rank": 3,
+      "best_window_start_seconds": 5,
+      "score": 0.731
+    },
+    {
+      "name": "E-Major_Warmth",
       "rank": 4,
-      "best_window_start_seconds": 4,
-      "score": 0.696
+      "best_window_start_seconds": 7,
+      "score": 0.722
     }
   ]
 }
