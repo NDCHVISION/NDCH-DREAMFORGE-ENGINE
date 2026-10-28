@@ -4,4 +4,4 @@ run-v1
 
 
 
-RUN 36 s: elder mouthing cut out, resolution window 6 s; no new clips
+RUN: score the four Suno takes from the RUN prompt; no new clips
