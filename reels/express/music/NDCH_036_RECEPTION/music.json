@@ -1,7 +1,7 @@
 {
   "reel_id": "NDCH_036_RECEPTION",
-  "recorded_at": "2026-10-28T01:43:00.385Z",
-  "run_id": "40615883485",
+  "recorded_at": "2026-10-28T03:12:49.128Z",
+  "run_id": "40624562409",
   "source": "suno",
   "suno_prompt": {
     "style": "warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string guitar and soft upright piano in short patient phrases, like someone waiting at a door, warm solo cello enters around 0:17, slow steady build with soft violins underneath, no drums, a bright open swell that lifts around 0:38 like sunlight pouring through a doorway, then settles warm and calm, intimate and tender, starts and ends on the same warm chord for a seamless loop",
@@ -12,45 +12,44 @@
   },
   "chosen": {
     "file": "chosen.mp3",
-    "source_name": "Sunlight_Entering_the_Doorway_1",
-    "window_start_seconds": 7,
-    "window_end_seconds": 51.6,
-    "score": 0.803,
+    "source_name": "Sunlight_Entering_the_Doorway",
+    "window_start_seconds": 5,
+    "window_end_seconds": 49.8,
+    "score": 0.793,
     "confidence": 1,
     "reasons": [
-      "Highest overall score: 0.803 across 4 evaluated tracks",
-      "Strong hook section — low, stable, sparse",
+      "Highest overall score: 0.793 across 4 evaluated tracks",
       "Good build arc — positive slope with variation",
       "Pivot section has identifiable dynamic event",
       "Clean Möbius seam — energy declining at end",
       "Strong doctrine alignment — dark, mechanical, restrained",
       "Sits under the narration: clear speech band, steady, loops cleanly",
-      "Hook score: 0.90",
+      "Hook score: 0.68",
       "Build score: 1.00",
       "Pivot score: 1.00",
-      "Möbius seam score: 0.97",
+      "Möbius seam score: 0.94",
       "Doctrine alignment: 1.00 (cold, mechanical, restrained)",
-      "Best extraction window: 7.0s – 51.6s"
+      "Best extraction window: 5.0s – 49.8s"
     ]
   },
   "candidates": [
     {
-      "name": "Sunlight_Entering_the_Doorway",
+      "name": "Sunlight_Entering_the_Doorway_1",
       "rank": 2,
-      "best_window_start_seconds": 5,
-      "score": 0.792
-    },
-    {
-      "name": "E-Major_Warmth_1",
-      "rank": 3,
-      "best_window_start_seconds": 5,
-      "score": 0.731
+      "best_window_start_seconds": 7,
+      "score": 0.789
     },
     {
       "name": "E-Major_Warmth",
+      "rank": 3,
+      "best_window_start_seconds": 8,
+      "score": 0.731
+    },
+    {
+      "name": "E-Major_Warmth_1",
       "rank": 4,
-      "best_window_start_seconds": 7,
-      "score": 0.722
+      "best_window_start_seconds": 5,
+      "score": 0.718
     }
   ]
 }
