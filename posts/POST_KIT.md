@@ -30,24 +30,26 @@ Covers: `assets/covers/023_AXIOM_vertical.png`, `assets/covers/023_AXIOM_horizon
 **Description**
 
 ```text
-Every life gathers stories.
+Orientation is easy when every reference agrees.
 
-Some inherited. Some imagined. Some believed before they were ever examined.
+But when the references begin to move, even what remains true can appear wrong.
 
-The room can turn.
+Agreement does not determine what is true. Disagreement does not make it false.
 
-An axiom does not need permission to be true.
+An axiom does not require its surroundings to agree.
+
+The line never moved.
 
 —
 AXIOM · 023 · NDCH Dreamforge
 
-#NDCH #NVSSeries #Identity #SelfMastery #Authorship #Axiom
+#NDCH #NVSSeries #Conviction #Truth #SelfMastery #Axiom
 ```
 
 **Pinned comment**
 
 ```text
-Which belief did you inherit that you've never examined?
+What's a line you've held while the room moved?
 ```
 
 ### Instagram
@@ -55,24 +57,26 @@ Which belief did you inherit that you've never examined?
 **Caption**
 
 ```text
-Every life gathers stories.
+Orientation is easy when every reference agrees.
 
-Some inherited. Some imagined. Some believed before they were ever examined.
+But when the references begin to move, even what remains true can appear wrong.
 
-The room can turn.
+Agreement does not determine what is true. Disagreement does not make it false.
 
-An axiom does not need permission to be true.
+An axiom does not require its surroundings to agree.
+
+The line never moved.
 
 —
 AXIOM · 023 · NDCH Dreamforge
 
-#NDCH #Identity #SelfMastery #Authorship #Axiom
+#NDCH #Conviction #Truth #SelfMastery #Axiom
 ```
 
 **First comment (pin it)**
 
 ```text
-Which belief did you inherit that you've never examined?
+What's a line you've held while the room moved?
 ```
 
 ### TikTok
@@ -80,19 +84,19 @@ Which belief did you inherit that you've never examined?
 **Caption**
 
 ```text
-Every life gathers stories. Some inherited. Some imagined. Some believed before they were ever examined.
+Agreement does not determine what is true. Disagreement does not make it false.
 
-An axiom does not need permission to be true.
+The line never moved.
 
 AXIOM · 023 · NDCH
 
-#NDCH #identity #selfmastery #mindset #axiom
+#NDCH #truth #conviction #mindset #axiom
 ```
 
 **First comment (pin it)**
 
 ```text
-Which belief did you inherit that you've never examined?
+What's a line you've held while the room moved?
 ```
 
 ### Facebook
@@ -106,19 +110,17 @@ AXIOM · NDCH 023
 **Description**
 
 ```text
-Every life gathers stories.
+Orientation is easy when every reference agrees. But when the references begin to move, even what remains true can appear wrong.
 
-Some inherited. Some imagined. Some believed before they were ever examined.
+Agreement does not determine what is true. Disagreement does not make it false. The line never moved.
 
-The room can turn. An axiom does not need permission to be true.
-
-#NDCH #Identity #SelfMastery
+#NDCH #Conviction #Truth
 ```
 
 **First comment**
 
 ```text
-Which belief did you inherit that you've never examined?
+What's a line you've held while the room moved?
 ```
 
 ### LinkedIn
@@ -132,17 +134,23 @@ AXIOM · NDCH 023
 **Post text**
 
 ```text
-Every life gathers stories.
+Orientation is easy when every reference agrees.
 
-Some we inherited from family. Some we picked up at work. Some we believed long before anyone examined them. A lot of what we call "who I am" arrived that way.
+It gets harder when the market shifts, the consensus turns, or the people around you start to move. In those moments, even what remains true can look wrong.
 
-The useful question is which of those stories are true, and which are only familiar.
+Agreement does not determine what is true. Disagreement does not make it false.
 
-The room can turn. An axiom does not need permission to be true.
+An axiom does not require its surroundings to agree.
 
 AXIOM · 023 · NDCH Dreamforge
 
-#Leadership #Identity #SelfMastery
+#Leadership #Conviction #ClearThinking
+```
+
+### Alt text
+
+```text
+A vast dark circular hall with curved stone galleries. A plumb bob hangs on a taut line above a round target. As the hall seems to tilt and turn around it, the line stays true. A man looks up at it, walks beside it and leaves; the line has not moved.
 ```
 
 ## 024 · FRAMES
