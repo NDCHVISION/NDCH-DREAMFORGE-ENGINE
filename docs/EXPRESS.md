@@ -115,6 +115,12 @@ and what held, so the next reel is designed around it from the seed:
    head-and-shoulders shape across the door face. "The light under the door dims softly, not
    a shape" produced the intended ambiguous change.
 
+6. **Blue bleeding through skin is fixable in post (024 FRAMES).** When a saturated prop
+   (the cobalt glasses) leaves a blue smear on the hand that holds it, paint out only the
+   blobs that are fully enclosed by skin and inpaint them from the surrounding skin; the prop
+   itself touches the background and is left alone. Frames where the prop passes *through*
+   the hand can't be repaired this way: cut them and bridge with a very short dissolve.
+
 Engine mechanics learned on the same reel:
 
 - **The free-form `transitions` plan is documentation only.** The engine applies
