@@ -152,9 +152,9 @@
     },
     {
       "after_clip": 3,
-      "type": "wipe_left",
-      "seconds": 0.7,
-      "note": "shadow sweep: a soft edge of light crosses from the corridor to the man at the closed door"
+      "type": "dissolve",
+      "seconds": 0.9,
+      "note": "time dissolve: the teenager walking away down the corridor fades into the grown man at the closed door; years pass in the dissolve (review pass: replaces the shadow-sweep wipe, which read as a hard edge on the bright corridor)"
     },
     {
       "after_clip": 4,
@@ -163,6 +163,35 @@
       "note": "time dissolve on a shape match: the closed door becomes the same doorway wide open; years pass, the door is never seen opening"
     }
   ],
+  "clip_grade": {
+    "1": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "2": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "3": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "4": {
+      "temperature": -0.2,
+      "saturation": 0.96
+    },
+    "5": {
+      "temperature": 0.3
+    }
+  },
+  "voice_holds": [
+    {
+      "before": "Only trust",
+      "pause_seconds": 0.5,
+      "tempo": 0.92
+    }
+  ],
+  "caption_backing": "contact_shadow",
   "post_edit_v2": {
     "why": "v2 render (anchored timing, engine transitions) failed the loop seam: clip 5 drifted, last frame vs first SSIM about 0.33. Patched in post from the cached clip 1 stem, no credits.",
     "edit": "Reel kept as rendered to 41.5 s (captions end 41.04 s). From 41.1 s a 0.4 s dissolve into clip 1 stem 0-1.508 s, slowed x1.26 to match the conform and played in reverse, 1.9 s, so the last frame is frame one. Audio untouched (seamless bed).",
@@ -240,5 +269,15 @@
     "model": "v5"
   },
   "end_tail_secs": 1.5,
-  "loop_music_lift_db": 5
+  "loop_music_lift_db": 5,
+  "review_pass_2026_10_27": {
+    "why": "Review of the posted cut: the caption scrim read as a grey band across the bright cream frames; the turn line went by at the pace of everything else; the whole film sat in one warm cream so the golden room at the end did not read as the reward; the corridor-to-man wipe read as a hard edge.",
+    "changes": [
+      "caption_backing contact_shadow (no scrim)",
+      "voice_holds: 0.5 s pause before 'Only trust gets you the person.' and that line at 0.92x",
+      "clip_grade: search cooler (clips 1-3 -0.45, clip 4 -0.2), the open room warmer (clip 5 +0.3)",
+      "clip_transitions after clip 3: dissolve 0.9 s instead of wipe_left"
+    ],
+    "kept": "Loop (loop_light head_zoom, loop_music_lift_db), opening knock, framing, clips. No Runway."
+  }
 }

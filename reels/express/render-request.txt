@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-bearing-suno-v1
+reception-v2
 
 1
 
-BEARING (027): end title fades out on the last frame (no Runway)
+RECEPTION (030) review pass: contact-shadow captions, held turn line, cooler search / warmer room, dissolve into the man (no Runway)

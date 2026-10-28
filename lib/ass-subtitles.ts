@@ -34,9 +34,16 @@ export interface AssSubtitleStyle {
   outlineAlpha?: string;
   blur?: number;
   layer?: number;
+  /** Shadow colour (ASS BGR) and alpha; the readable layout's contact shadow uses charcoal. */
+  shadowBgr?: string;
+  shadowAlpha?: string;
 }
 
 const DEFAULT_FONT = 'Cormorant Garamond';
+/** Contact shadow for captions on bright films (720x1280 canvas px, charcoal #1C1B1A, about 75% opaque). */
+export const CONTACT_SHADOW_PX = 2;
+export const CONTACT_SHADOW_BGR = '1A1B1C';
+export const CONTACT_SHADOW_ALPHA = '40';
 export const DEFAULT_PLAY_RES_X = 720;
 export const DEFAULT_PLAY_RES_Y = 1280;
 export const DEFAULT_FONT_SIZE_PX = 44;
@@ -108,6 +115,9 @@ export function parseSubtitleStyle(config: unknown, layout: 'default' | 'safe_zo
           outlineAlpha: READABLE_OUTLINE_ALPHA,
           blur: READABLE_BLUR,
           layer: 1,
+          // Bright films (subtitle_config.backing "contact_shadow"): no scrim; a tight
+          // charcoal shadow just below each letter keeps the text off the background.
+          ...(record.backing === 'contact_shadow' ? { shadowPx: CONTACT_SHADOW_PX, shadowBgr: CONTACT_SHADOW_BGR, shadowAlpha: CONTACT_SHADOW_ALPHA } : {}),
         }
       : {}),
   };
@@ -172,7 +182,7 @@ export function buildAssDocument(
     '',
     '[V4+ Styles]',
     'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding',
-    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H${style.outlineAlpha ?? '96'}000000,&H96000000,${style.bold ? -1 : 0},0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
+    `Style: Reel,${style.fontName},${style.fontSizePx},&H00${style.primaryBgr},&H000000FF,&H${style.outlineAlpha ?? '96'}000000,&H${style.shadowAlpha ?? '96'}${style.shadowBgr ?? '000000'},${style.bold ? -1 : 0},0,0,0,100,100,0,0,1,${style.outlinePx},${style.shadowPx},2,48,48,${style.marginVPx},1`,
     ...(extra.styles ?? []),
     '',
     '[Events]',
