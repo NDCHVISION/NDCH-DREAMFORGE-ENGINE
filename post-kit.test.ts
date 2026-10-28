@@ -54,3 +54,10 @@ test('TikTok captions follow the house format: number| TITLE, blank line, one li
   assert.ok(validatePost(p).some((e) => e.includes('tiktok.caption must be')));
   assert.ok(validatePost(p).some((e) => e.includes('tiktok has')));
 });
+
+test('LinkedIn posts follow the house format: number | TITLE, line, paragraph, #NDCH + two', () => {
+  const p = structuredClone(loadPosts()[0]);
+  assert.deepEqual(validatePost(p).filter((e) => e.includes('linkedin')), []);
+  p.platforms.linkedin.post = p.platforms.linkedin.post.replace(/#NDCH.*$/, '#Leadership #NDCH');
+  assert.ok(validatePost(p).some((e) => e.includes('linkedin.post must be')));
+});
