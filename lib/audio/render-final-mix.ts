@@ -14,8 +14,8 @@
 
 import { musicIntroFilter } from '../opening-audio.ts';
 import { LOOP_CROSSFADE_SECS, seamlessBedFilter } from '../loop-seam.ts';
-import { execSync, execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync } from 'node:fs';
+import { execSync, execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, mkdirSync, renameSync } from 'node:fs';
 import { join } from 'node:path';
 import type { MixPlan } from './types.ts';
 
@@ -186,7 +186,45 @@ export function renderFinalMixedVideo(
     `-c:v copy -c:a aac -b:a 192k ` +
     `-shortest "${outPath}"`,
   );
+  // The one-pass loudnorm above runs in dynamic mode over a short, ducked mix and lands
+  // about 2 LU under target (033 BEARING: -16.2 for -14), so master the finished mix.
+  masterLoudnessInPlace(outPath, mixPlan.loudness_target_lufs);
   return outPath;
+}
+
+/** Integrated loudness (LUFS) of a file's audio. */
+function integratedLufs(path: string): number {
+  const r = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', path, '-af', 'ebur128', '-f', 'null', '-'], { encoding: 'utf8' });
+  const m = [...r.stderr.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].pop();
+  if (!m) throw new Error(`loudness measurement failed: ${r.stderr.slice(-300)}`);
+  return Number(m[1]);
+}
+
+/**
+ * Masters a video's audio to targetLufs with a true peak at or under -1 dBTP (video copied).
+ * The house chain from the hand-scored reels (FRAMES, PARALLAX): a gentle compressor
+ * (-22 dB, 3:1), gain, then an oversampled limiter at -1.2 dBFS; later passes correct the
+ * gain until the result is within 0.3 LU. A linear loudnorm cannot do this when the mix needs more gain than its
+ * peaks allow (it then leaves the level short), which is the usual case for a ducked mix.
+ */
+export function masterLoudnessInPlace(videoPath: string, targetLufs: number): void {
+  const before = integratedLufs(videoPath);
+  const tmp = videoPath.replace(/\.mp4$/, '.master.mp4');
+  // The compressor takes about 6 dB off this kind of mix; start there and correct.
+  let gain = targetLufs - before + 6;
+  let after = before;
+  for (let pass = 0; pass < 4; pass++) {
+    execFileSync('ffmpeg', [
+      '-v', 'error', '-y', '-i', videoPath, '-c:v', 'copy',
+      '-af', `acompressor=threshold=-22dB:ratio=3:attack=5:release=90:makeup=1,volume=${gain.toFixed(2)}dB,aresample=192000,alimiter=limit=${Math.pow(10, -1.2 / 20).toFixed(4)}:attack=1:release=60:level=false,aresample=48000`,
+      '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', tmp,
+    ]);
+    after = integratedLufs(tmp);
+    if (Math.abs(after - targetLufs) <= 0.3) break;
+    gain += targetLufs - after;
+  }
+  renameSync(tmp, videoPath);
+  console.log(`    loudness: ${before.toFixed(1)} → ${after.toFixed(1)} LUFS (target ${targetLufs}; 3:1 compressor, limiter at -1.2 dBFS)`);
 }
 
 export function renderAll(
