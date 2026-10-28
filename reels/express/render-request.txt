@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-run-v1
+reception-v2
 
+1
 
-
-RUN: score the four Suno takes from the RUN prompt; no new clips
+RECEPTION (030): Suno mix at -14 LUFS (engine fix), no Runway

@@ -519,3 +519,13 @@ test('mix plan schema version is 1.0', async () => {
   const schema = JSON.parse(readFileSync('./schemas/mix_plan.schema.json', 'utf8')) as { _schema_version: string };
   assert.equal(schema._schema_version, '1.0');
 });
+
+test('the Suno mix follows the finish loudness, defaulting to -16', async () => {
+  const { buildMixPlan } = await import('./lib/audio/build-mix-plan.ts');
+  const sel = { selected_track_path: '/tmp/a.mp3', selected_window: { start_seconds: 0, end_seconds: 45 } } as unknown as Parameters<typeof buildMixPlan>[0];
+  const spec = { reel_id: 'X', duration_seconds: 45, segment_boundaries_seconds: [0, 6, 20, 29, 38, 45], segment_names: [], voice_occupancy_seconds: 38, doctrine_profile: {}, mastering_preset_id: 'p' } as unknown as Parameters<typeof buildMixPlan>[1];
+  assert.equal(buildMixPlan(sel, spec).loudness_target_lufs, -16);
+  const plan = buildMixPlan(sel, { ...spec, loudness_target_lufs: -14 });
+  assert.equal(plan.loudness_target_lufs, -14);
+  assert.equal(plan.validation_expectations.min_integrated_lufs, -15.5);
+});

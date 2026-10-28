@@ -143,6 +143,8 @@ export interface ReelMusicSpec {
   opening_audio?: unknown;
   /** Raw `loop_audio` from the reel spec (lib/loop-seam.ts). Optional. */
   loop_audio?: unknown;
+  /** Integrated loudness from the reel's finish profile (lib/finish.ts); default -16. */
+  loudness_target_lufs?: number;
 }
 
 export interface AlternativeTrack {

@@ -120,6 +120,7 @@ export function buildMixPlan(
   const opening = reelSpec.opening_audio === undefined
     ? { musicFadeInSecs: DEFAULTS.MUSIC_FADE_IN_SECS, musicStartSecs: 0 }
     : resolveOpeningAudio(reelSpec.opening_audio, `${reelSpec.reel_id}.opening_audio`);
+  const loudness = reelSpec.loudness_target_lufs ?? DEFAULTS.LOUDNESS_TARGET_LUFS;
 
   return {
     schema_version: '1.0',
@@ -132,7 +133,7 @@ export function buildMixPlan(
     intentional_silence_intervals: deriveIntentionalSilence(segBounds),
     music_gain_envelope: buildGainEnvelope(segBounds, reelSpec.duration_seconds),
     mastering_preset_id: presetId,
-    loudness_target_lufs: DEFAULTS.LOUDNESS_TARGET_LUFS,
+    loudness_target_lufs: loudness,
     true_peak_target_dbfs: DEFAULTS.TRUE_PEAK_TARGET_DBFS,
     music_initial_gain_db: DEFAULTS.MUSIC_INITIAL_GAIN_DB,
     music_fade_in_seconds: opening.musicFadeInSecs,
@@ -146,8 +147,8 @@ export function buildMixPlan(
       duration_tolerance_seconds: 1.0,
       min_voice_intelligibility_db: -40,
       max_true_peak_dbfs: DEFAULTS.TRUE_PEAK_TARGET_DBFS,
-      min_integrated_lufs: DEFAULTS.LOUDNESS_TARGET_LUFS - 1.5,
-      max_integrated_lufs: DEFAULTS.LOUDNESS_TARGET_LUFS + 1.5,
+      min_integrated_lufs: loudness - 1.5,
+      max_integrated_lufs: loudness + 1.5,
     },
     created_timestamp: new Date().toISOString(),
   };
