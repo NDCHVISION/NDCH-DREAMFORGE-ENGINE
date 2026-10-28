@@ -26,6 +26,7 @@ test('findPost matches by number or title', () => {
   const posts = loadPosts();
   assert.equal(findPost(posts, '26')?.title, 'INVENTORY');
   assert.equal(findPost(posts, 'inventory')?.posting, '026');
+  assert.equal(findPost(posts, 'statue')?.posting, '022');
   assert.equal(findPost(posts, '999'), undefined);
 });
 

@@ -4,6 +4,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 
 | # | Reel | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
+| 022 | [THE STATUE](#022--the-statue) | draft |  | Galleria dell'Accademia, Florence |
 | 023 | [AXIOM](#023--axiom) | scheduled | Tue, Oct 27, 11:00 AM CT | Leaning Tower of Pisa |
 | 024 | [FRAMES](#024--frames) | scheduled | Fri, Oct 30, 11:00 AM CT | Sagrada Família |
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT | Petra |
@@ -12,6 +13,142 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 028 | [RUN](#028--run) | scheduled | Fri, Nov 13, 11:00 AM CT | Terracotta Army |
 | 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT | Great Sphinx of Giza |
 | 030 | [RECEPTION](#030--reception) | draft | Fri, Nov 20, 11:00 AM CT | Forbidden City |
+
+## 022 · THE STATUE
+
+Status: draft · Engine: NDCH_022_THE_STATUE
+
+Covers: `assets/covers/022_THE_STATUE_vertical.png`, `assets/covers/022_THE_STATUE_horizontal.png`
+
+Location tag: `Galleria dell'Accademia, Florence` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Home of Michelangelo's David. The hall leading to it holds his unfinished Prisoners, figures still half inside the stone: a sculptor removes what conceals the figure.
+
+### YouTube
+
+**Title**
+
+```text
+022 | THE STATUE 🗿 #philosophy #motivation
+```
+
+**Description**
+
+```text
+You were told to become more. More disciplined. More impressive. More complete.
+
+So you kept adding, until you could no longer recognize what was underneath.
+
+But a sculptor does not add the figure to the stone. He removes what conceals it.
+
+Not everything you carry belongs to you. And not everything you lose is a loss.
+
+—
+THE STATUE · 022 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Identity #SelfMastery #Authenticity #TheStatue
+```
+
+**Pinned comment**
+
+```text
+What are you carrying that was never yours?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+You were told to become more. More disciplined. More impressive. More complete.
+
+So you kept adding, until you could no longer recognize what was underneath.
+
+But a sculptor does not add the figure to the stone. He removes what conceals it.
+
+Not everything you carry belongs to you. And not everything you lose is a loss.
+
+—
+THE STATUE · 022 · NDCH Dreamforge
+
+#NDCH #Identity #SelfMastery #Authenticity #TheStatue
+```
+
+**First comment (pin it)**
+
+```text
+What are you carrying that was never yours?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+022| THE STATUE
+
+Not everything you carry belongs to you. And not everything you lose is a loss.
+```
+
+**First comment (pin it)**
+
+```text
+What are you carrying that was never yours?
+```
+
+### Facebook
+
+**Title**
+
+```text
+THE STATUE · NDCH 022
+```
+
+**Description**
+
+```text
+You were told to become more. So you kept adding, until you could no longer recognize what was underneath.
+
+A sculptor does not add the figure to the stone. He removes what conceals it. Not everything you lose is a loss.
+
+#NDCH #Identity #SelfMastery
+```
+
+**First comment**
+
+```text
+What are you carrying that was never yours?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+THE STATUE · NDCH 022
+```
+
+**Post text**
+
+```text
+Most growth advice is about adding. More discipline. More credentials. More polish.
+
+Keep adding long enough and it gets hard to tell what is yours and what you took on because it was expected.
+
+A sculptor does not add the figure to the stone. He removes what conceals it: the expectations, the performances, the roles inherited without choosing.
+
+Not everything you carry belongs to you. And not everything you lose is a loss.
+
+THE STATUE · 022 · NDCH Dreamforge
+
+#Leadership #Identity #Growth
+```
+
+### Alt text
+
+```text
+A rough stone figure stands under a spotlight in a dark gallery. Inside a block of black veined marble a man's figure emerges as the stone cracks and falls away in slabs. A hand turns a fragment of the stone. At the end a man in a dark shirt stands alone in the hall.
+```
 
 ## 023 · AXIOM
 
