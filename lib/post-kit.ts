@@ -75,7 +75,7 @@ export function loadPosts(dir = POSTS_DIR): ReelPost[] {
 /** Find a reel by posting number ("26", "026") or title ("inventory"). */
 export function findPost(posts: ReelPost[], query: string): ReelPost | undefined {
   const q = query.trim().toLowerCase();
-  return posts.find((p) => p.posting === q.padStart(3, '0') || p.title.toLowerCase() === q);
+  return posts.find((p) => p.posting === q.padStart(3, '0') || [p.title.toLowerCase(), p.title.toLowerCase().replace(/^the /, '')].includes(q));
 }
 
 export function hashtags(text: string): string[] {
@@ -157,7 +157,7 @@ export function renderKit(posts: ReelPost[]): string {
     '',
     '| # | Reel | Status | YouTube | Location |',
     '| --- | --- | --- | --- | --- |',
-    ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase()}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
+    ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase().replace(/ /g, '-')}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
     '',
   ];
   return head.join('\n') + '\n' + posts.map((p) => renderPost(p)).join('\n');
