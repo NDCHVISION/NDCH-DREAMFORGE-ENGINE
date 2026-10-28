@@ -1,7 +1,7 @@
 {
   "reel_id": "NDCH_033_BEARING",
-  "recorded_at": "2026-10-28T01:59:08.896Z",
-  "run_id": "40617966689",
+  "recorded_at": "2026-10-28T02:24:15.600Z",
+  "run_id": "40620407747",
   "source": "suno",
   "suno_prompt": {
     "style": "dark cinematic ambient instrumental, 85 bpm, low sustained sub-bass drone, slow evolving dark pads, distant metallic textures like a chain dragged over stone, sparse heavy low-end hits, one clear swell and impact around 0:13, then settling and steady, cold and restrained, no melody",
@@ -37,7 +37,7 @@
       "name": "subterranean-chain",
       "rank": 2,
       "best_window_start_seconds": 138,
-      "score": 0.797
+      "score": 0.798
     }
   ],
   "notes": [
