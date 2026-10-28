@@ -9,6 +9,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 025 | [PARALLAX](#025--parallax) | scheduled | Tue, Nov 3, 11:00 AM CT |
 | 026 | [INVENTORY](#026--inventory) | scheduled | Fri, Nov 6, 11:00 AM CT |
 | 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT |
+| 028 | [RUN](#028--run) | scheduled | Fri, Nov 13, 11:00 AM CT |
 | 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
 
 ## 023 · AXIOM
@@ -699,6 +700,144 @@ BEARING · 027 · NDCH Dreamforge
 
 ```text
 A fine gold chain drags through a crack in dark stone. In a vaulted stone chamber lit by one brass lantern, the chain lies in a loop on a long table, then is pulled taut across the crack and snaps, its halves whipping apart. A brown hand picks up the broken end and draws it away. The broken chain rests on the table and the word BEARING appears in white.
+```
+
+## 028 · RUN
+
+Status: scheduled · Engine: NDCH_034_RUN · YouTube: Fri, Nov 13, 11:00 AM CT
+
+### YouTube
+
+**Title**
+
+```text
+028 | RUN ⚙️ #philosophy #motivation
+```
+
+**Description**
+
+```text
+Someone copied your work. Perfect copy. Dead engine.
+
+They copied everything they could see. Every contour. Every detail.
+
+A mold takes the shape. Not the work that keeps it turning.
+
+Run your mind. Run your systems. Build the next one.
+
+And let them copy.
+
+—
+RUN · 028 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Run #Authorship #Discipline #SelfMastery
+```
+
+**Pinned comment**
+
+```text
+What are you building right now that no one could copy from the outside?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+Someone copied your work. Perfect copy. Dead engine.
+
+They copied everything they could see. Every contour. Every detail.
+
+A mold takes the shape. Not the work that keeps it turning.
+
+Run your mind. Run your systems. Build the next one.
+
+And let them copy.
+
+—
+RUN · 028 · NDCH Dreamforge
+
+#NDCH #Run #Authorship #Discipline #SelfMastery
+```
+
+**First comment (pin it)**
+
+```text
+What are you building right now that no one could copy from the outside?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+Someone copied your work. Perfect copy. Dead engine.
+
+A mold takes the shape. Not the work that keeps it turning.
+
+RUN · 028 · NDCH
+
+#NDCH #authorship #discipline #mindset #keepbuilding
+```
+
+**First comment (pin it)**
+
+```text
+What are you building right now that no one could copy from the outside?
+```
+
+### Facebook
+
+**Title**
+
+```text
+RUN · NDCH 028
+```
+
+**Description**
+
+```text
+Someone copied your work. Perfect copy. Dead engine.
+
+They copied everything they could see. A mold takes the shape, not the work that keeps it turning.
+
+Run your mind. Run your systems. Build the next one. And let them copy.
+
+#NDCH #Authorship #Discipline
+```
+
+**First comment**
+
+```text
+What are you building right now that no one could copy from the outside?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+RUN · NDCH 028
+```
+
+**Post text**
+
+```text
+Anyone can copy what they can see: the product, the layout, the pitch, the look of the thing.
+
+What they can't copy is what keeps it running. The judgement behind the decisions, the systems that turn effort into results, and the habit of building the next version before anyone asks for it.
+
+A copy is a finished object. The original is a process that keeps going. If someone copies your work, the answer is rarely to guard it harder. It is to keep building.
+
+RUN · 028 · NDCH Dreamforge
+
+#Leadership #Innovation #Craftsmanship
+```
+
+### Alt text
+
+```text
+A small brass-and-iron engine runs in a dark stone workshop, its black flywheel turning. Beside it sits an identical bronze copy that does not move, then a long table of copies, all still. A close-up of the original's turning hub. A grey-bearded man with deep brown skin, in a charcoal work shirt and leather apron, holds an unfinished iron flywheel casting beside the running engine; he looks at it, turns to the camera and smiles. The two engines return and the word RUN appears in white.
 ```
 
 ## 029 · PRESENCE
