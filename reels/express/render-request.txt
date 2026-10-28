@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v2
+run-v1
 
-1
 
-RECEPTION (030): clip 5 cut at 3.4 s before the ottoman, 1.5 s tail (no Runway)
+
+RUN 36 s: elder mouthing cut out, resolution window 6 s; no new clips

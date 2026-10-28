@@ -43,7 +43,6 @@ import { checkUniversalViewer } from '../lib/universal-viewer.ts';
 import { CAPTION_LAW_FROM, captionColourProblems } from '../lib/caption-law.ts';
 import { END_RULE_FROM, END_TAIL_SECS, resolveEndTail } from '../lib/end-tail.ts';
 import { resolveLoopAudio } from '../lib/loop-seam.ts';
-import { PEOPLE } from '../lib/stills-plan.ts';
 
 const ROOT = resolve('.');
 const TEMPLATE_PATH = join(ROOT, 'reels', 'NDCH_016_ILLUSION_OF_MOTION.json');
@@ -130,19 +129,7 @@ export function assertOpening(seed: ExpressSeed, source: string): void {
       `${source}: opening rule: the hook visual must already be in motion on frame one (found "${still[0]}")`,
     );
   }
-  // Person-first rule (docs/EXPRESS.md, People rules 9): from 037, a person is on screen in the hook.
-  if (reelNumber(seed.reel_id) >= HOOK_PERSON_RULE_FROM && !PEOPLE.test(seed.segments.hook.visual)) {
-    const why = seed.hook_without_person;
-    if (typeof why !== 'string' || why.trim().length < 10) {
-      throw new Error(
-        `${source}: person-first rule: the hook visual shows no person (a face, hands mid-motion, a figure); add one, or set hook_without_person to the reason the idea can't carry one`,
-      );
-    }
-  }
 }
-
-/** Person-first rule: from this reel on, the hook shows a person (People rules 9, from 034 RUN). */
-export const HOOK_PERSON_RULE_FROM = 37;
 
 type SegmentId = (typeof SEGMENT_IDS)[number];
 
@@ -197,8 +184,6 @@ export interface ExpressSeed {
    * 0.2 s music fade-in and no sound event.
    */
   opening_audio?: OpeningAudioConfig;
-  /** Why the hook has no person (person-first rule, from 037). */
-  hook_without_person?: string;
   /** 'anchored' = each section's narration starts at its window; clips are conformed to their slots. */
   narration_timing?: NarrationTiming;
   /** Loop law (LOOPING.md). Defaults to "seamless" from 035 PRESENCE on; older seeds keep "fade". */

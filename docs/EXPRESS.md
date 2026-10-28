@@ -355,11 +355,10 @@ and gender across reels, and elders count. What made people work in the clips so
    doing a task is the riskiest shot.
 8. **Light the face like the reel:** one key light, near-black background, and the face in the
    upper third so captions (28% up) never cover it.
-9. **Person first (from 037, enforced).** A person is on screen in the hook: a face, or hands
-   mid-motion, inside the first two seconds. RUN met its elder at 29 s, after much of the audience
-   had gone; the reels that resonate put the person up front. The builder refuses a hook visual
-   with no person unless the seed sets `hook_without_person` to the reason the idea can't carry
-   one (`HOOK_PERSON_RULE_FROM` in `scripts/express-build.ts`).
+9. **Direction, not a rule: more people.** Reels with a person resonate, so lean toward people,
+   and when there is one, show them early (RUN's elder arrived at 29 s, then 23 s, after much of
+   the audience had gone). Dynamism comes first, though: a reel may lead with an animal, which we
+   haven't done yet, or with pure mechanics when the idea is stronger that way.
 
 ### Universal Viewer Law
 
@@ -384,7 +383,7 @@ only reads `reels/express/seeds/`.
 > under 300 characters naming the palette hex codes; title_hook is the most quotable line, under
 > 50 characters. The reel must work for a stranger who has never heard of the creator: no brand or creator
 > named in the narration, no villain, no launch or episode framing, no follow asks; first person only if any
-> viewer could say the line about their own life. Any person or hands on screen are cast with brown skin or a racially ambiguous complexion, stated in the visual. The hook visual shows a person (a face, or hands mid-motion) in the first two seconds. Output only the JSON.
+> viewer could say the line about their own life. Any person or hands on screen are cast with brown skin or a racially ambiguous complexion, stated in the visual. Output only the JSON.
 
 ## Costs
 
