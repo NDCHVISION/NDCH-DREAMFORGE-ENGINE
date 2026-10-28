@@ -1,10 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { applyVoiceHolds, findHoldSpan, holdTimes, resolveVoiceHolds, shiftTimings } from './lib/voice-holds.ts';
+
+const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
 
 const W = (word: string, s: number, e: number) => ({ word, startSeconds: s, endSeconds: e });
 const words = [W('Pressure', 0, 0.5), W('gets', 0.55, 0.8), W('answers.', 0.85, 1.4), W('Only', 1.6, 1.9), W('trust', 1.95, 2.3), W('gets', 2.35, 2.6), W('you', 2.65, 2.8), W('the', 2.85, 2.95), W('person.', 3.0, 3.6), W('So', 3.9, 4.1)];
@@ -35,7 +37,7 @@ test('timings shift: earlier words stay, the held line moves and stretches, late
   assert.equal(out[9].startSeconds, Math.round((3.9 + extra) * 1000) / 1000);
 });
 
-test('applyVoiceHolds lengthens the audio by the pause and the stretch', () => {
+test('applyVoiceHolds lengthens the audio by the pause and the stretch', { skip: !hasFfmpeg }, () => {
   const dir = mkdtempSync(join(tmpdir(), 'holds-'));
   const src = join(dir, 'vo.wav');
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-f', 'lavfi', '-i', 'sine=f=220:d=4.5', '-ar', '44100', '-ac', '1', src]);
