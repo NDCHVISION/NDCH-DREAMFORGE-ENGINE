@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_034_RUN.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-run-v1
+bearing-suno-v1
 
+1
 
-
-RUN 35 s: elder turns one way only (engine to camera), no head-shake read; no new clips
+BEARING (027): real Suno music, the two Subterranean Chain takes (no Runway; re-queued after RUN)
