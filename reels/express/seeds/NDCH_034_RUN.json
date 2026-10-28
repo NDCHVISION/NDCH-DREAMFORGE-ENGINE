@@ -86,7 +86,7 @@
     {
       "after_clip": 3,
       "type": "cut",
-      "note": "hard cut on the beat: lands on 'Run your mind'"
+      "note": "hard cut on the beat: lands on 'Run your mind', the elder already looking at the running engine"
     },
     {
       "after_clip": 4,
@@ -109,8 +109,8 @@
     6,
     16,
     23,
-    29,
-    36
+    28,
+    35
   ],
   "suno_prompt": {
     "title": "RUN - Hands That Keep It Turning",
