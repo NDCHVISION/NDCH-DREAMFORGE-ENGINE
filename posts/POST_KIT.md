@@ -11,6 +11,7 @@ Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON
 | 027 | [BEARING](#027--bearing) | scheduled | Tue, Nov 10, 11:00 AM CT |
 | 028 | [RUN](#028--run) | scheduled | Fri, Nov 13, 11:00 AM CT |
 | 029 | [PRESENCE](#029--presence) | scheduled | Tue, Nov 17, 11:00 AM CT |
+| 030 | [RECEPTION](#030--reception) | draft | Fri, Nov 20, 11:00 AM CT |
 
 ## 023 · AXIOM
 
@@ -976,4 +977,146 @@ PRESENCE · 029 · NDCH Dreamforge
 
 ```text
 A young woman with dark curly hair and a charcoal sweater looks toward the camera against a black background. A sculpted shell of her face stands on a post in a black marble hall veined with gold while she walks away behind it. The hall opens onto light, then into a warm library with a spiral stair and brass lamps, where she walks to a tall window over green trees. It ends on her face again.
+```
+
+## 030 · RECEPTION
+
+Status: draft · Engine: NDCH_036_RECEPTION · YouTube: Fri, Nov 20, 11:00 AM CT
+
+Covers: `assets/covers/030_RECEPTION_vertical.png`, `assets/covers/030_RECEPTION_horizontal.png`
+
+### YouTube
+
+**Title**
+
+```text
+030 | RECEPTION 🚪 #philosophy #motivation
+```
+
+**Description**
+
+```text
+You asked again. They answered again. Somehow you know them less.
+
+Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.
+
+The person you came for is always one room away.
+Pressure can get you answers. Only trust gets you the person.
+
+So you stop forcing it. You become someone a closed door is safe around.
+
+One day, the door is wide open. Offered.
+
+—
+RECEPTION · 030 · NDCH Dreamforge
+
+#NDCH #NVSSeries #Trust #Boundaries #Relationships #Patience
+```
+
+**Pinned comment**
+
+```text
+Who finally opened up to you, and what changed before they did?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+You asked again. They answered again. Somehow you know them less.
+
+Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.
+
+The person you came for is always one room away.
+Pressure can get you answers. Only trust gets you the person.
+
+So you stop forcing it. You become someone a closed door is safe around.
+
+One day, the door is wide open. Offered.
+
+—
+RECEPTION · 030 · NDCH Dreamforge
+
+#NDCH #Trust #Boundaries #Relationships #Patience
+```
+
+**First comment (pin it)**
+
+```text
+Who finally opened up to you, and what changed before they did?
+```
+
+### TikTok
+
+**Caption**
+
+```text
+You asked again. They answered again. Somehow you know them less.
+
+Pressure can get you answers. Only trust gets you the person.
+
+RECEPTION · 030 · NDCH
+
+#ndch #trust #relationships #patience #mindset
+```
+
+**First comment (pin it)**
+
+```text
+Who finally opened up to you, and what changed before they did?
+```
+
+### Facebook
+
+**Title**
+
+```text
+RECEPTION · NDCH 030
+```
+
+**Description**
+
+```text
+You asked again. They answered again. Somehow you know them less.
+
+Every answer opens another door, and behind it, a tidy room with nothing of them in it. Pressure can get you answers. Only trust gets you the person. So you stop forcing it, and become someone a closed door is safe around.
+
+One day, the door is wide open. Offered.
+
+#NDCH #Trust #Relationships
+```
+
+**First comment**
+
+```text
+Who finally opened up to you, and what changed before they did?
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+RECEPTION · NDCH 030
+```
+
+**Post text**
+
+```text
+You can ask a colleague the same question every week and know them less each time.
+
+Pressure gets you answers: the tidy, safe version that ends the conversation. It doesn't get you the person, their real concerns, the idea they haven't said out loud. That only comes with trust.
+
+So stop forcing it. Become someone a closed door is safe around. One day, the door is wide open. Offered, not extracted.
+
+RECEPTION · 030 · NDCH Dreamforge
+
+#Leadership #Trust #EmotionalIntelligence
+```
+
+### Alt text
+
+```text
+A young Black boy in a white shirt knocks on a closed beige door in a bright, quiet house, then stands at the edge of a tidy room with one chair and one empty cup. As a teenager he walks down a long white corridor lined with identical empty tables. As a man he stands calmly before the same closed door and smiles. The door is then wide open onto a warm, sunlit room, and he walks in as the light glows. It ends on the title RECEPTION.
 ```
