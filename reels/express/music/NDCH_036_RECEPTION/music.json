@@ -1,8 +1,8 @@
 {
   "reel_id": "NDCH_036_RECEPTION",
-  "recorded_at": "2026-10-28T00:52:24.823Z",
-  "run_id": "40610830339",
-  "source": "elevenlabs",
+  "recorded_at": "2026-10-28T01:15:21.643Z",
+  "run_id": "40613205904",
+  "source": "suno",
   "suno_prompt": {
     "style": "warm hopeful cinematic instrumental, 72 BPM, E major, gentle fingerpicked nylon-string guitar and soft upright piano in short patient phrases, like someone waiting at a door, warm solo cello enters around 0:17, slow steady build with soft violins underneath, no drums, a bright open swell that lifts around 0:38 like sunlight pouring through a doorway, then settles warm and calm, intimate and tender, starts and ends on the same warm chord for a seamless loop",
     "exclude": "vocals, choir, drums, percussion, trap, EDM, lo-fi beat, dark, ominous, horror, drone, braams, risers, sub-bass hits, sad, minor key, dorian, felt piano close-mic",
@@ -10,10 +10,46 @@
     "instrumental": true,
     "model": "v5"
   },
-  "ambience_brief": "Warm hopeful cinematic: soft felt piano, gentle sustained strings, light warm pads, no percussion. Present from the first frame with no swell or fade-in, no cinematic hit, rising through the build, a tender lift at the 17s pivot, opening into a bright, warm major resolution at the close, carried into the loop. No vocals, nothing dark or ominous.",
   "chosen": {
     "file": "chosen.mp3",
-    "source_name": "ElevenLabs ambience (no Suno track available)"
+    "source_name": "Sunlight_Entering_the_Doorway",
+    "window_start_seconds": 7,
+    "window_end_seconds": 51.6,
+    "score": 0.794,
+    "confidence": 1,
+    "reasons": [
+      "Highest overall score: 0.794 across 4 evaluated tracks",
+      "Good build arc — positive slope with variation",
+      "Pivot section has identifiable dynamic event",
+      "Clean Möbius seam — energy declining at end",
+      "Strong doctrine alignment — dark, mechanical, restrained",
+      "Sits under the narration: clear speech band, steady, loops cleanly",
+      "Hook score: 0.67",
+      "Build score: 1.00",
+      "Pivot score: 0.92",
+      "Möbius seam score: 0.95",
+      "Doctrine alignment: 1.00 (cold, mechanical, restrained)",
+      "Best extraction window: 7.0s – 51.6s"
+    ]
   },
-  "candidates": []
+  "candidates": [
+    {
+      "name": "Sunlight_Entering_the_Doorway_1",
+      "rank": 2,
+      "best_window_start_seconds": 7,
+      "score": 0.788
+    },
+    {
+      "name": "E-Major_Warmth",
+      "rank": 3,
+      "best_window_start_seconds": 12,
+      "score": 0.748
+    },
+    {
+      "name": "E-Major_Warmth_1",
+      "rank": 4,
+      "best_window_start_seconds": 5,
+      "score": 0.729
+    }
+  ]
 }
