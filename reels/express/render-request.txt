@@ -4,4 +4,4 @@ reception-v2
 
 1
 
-RECEPTION (030): Suno mix at -14 LUFS (engine fix), no Runway
+RECEPTION (030): clip 5 0-4.6 s, he walks into the room, cut before the ottoman (no Runway)
