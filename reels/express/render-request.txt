@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-reception-v2
+bearing-suno-v1
 
 1
 
-RECEPTION (030) review pass: contact-shadow captions, held turn line, cooler search / warmer room, dissolve into the man (no Runway)
+BEARING (027): low sub-bass swell under the final push-in, faded before the loop (no Runway)
