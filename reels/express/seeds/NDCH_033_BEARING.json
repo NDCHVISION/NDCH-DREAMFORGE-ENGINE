@@ -114,7 +114,8 @@
     "text": "BEARING",
     "start_seconds": 31.2,
     "fade_in_seconds": 1.2,
-    "position_pct": 12
+    "position_pct": 12,
+    "fade_out_seconds": 0.5
   },
   "section_boundaries": [
     0,
@@ -134,5 +135,7 @@
     "title": "BEARING",
     "instrumental": true,
     "model": "v5"
-  }
+  },
+  "loop_audio": "seamless",
+  "loop_music_lift_db": 4
 }

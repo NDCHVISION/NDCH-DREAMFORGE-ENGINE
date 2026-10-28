@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-reception-v2
+bearing-suno-v1
 
 1
 
-RECEPTION (030) loop: doorframe shape match + music carried into the replay (no Runway)
+BEARING (027): loop fixes - music carries across the seam (+4 dB lift), title fades out, last shot pushes in to the opening close-up (no Runway)

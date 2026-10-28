@@ -301,7 +301,9 @@ from `prompt` (or read from a repo `file`) and laid over the voice and music at
 ```
 
 `end_title` sets the reel's name in spaced capitals over the closing shot,
-as on the covers. It fades in at `start_seconds` and holds to the last frame. It is burned
+as on the covers. It fades in at `start_seconds` and holds to the last frame;
+`fade_out_seconds` (default 0) fades it out over the reel's last moments so the loop point
+lands on a clean frame (033 BEARING uses 0.5). It is burned
 with the captions, so it needs subtitles on. Defaults: white, 76 px, 22 px letter spacing,
 centred 46% from the top (sizes are on the 1280-px caption canvas).
 

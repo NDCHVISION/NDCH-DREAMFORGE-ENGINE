@@ -5,16 +5,20 @@
  * at full output resolution.
  *
  *   { "text": "BEARING", "start_seconds": 41.2, "fade_in_seconds": 1.2,
- *     "color": "#FFFFFF", "size_px": 76, "letter_spacing_px": 22, "position_pct": 46 }
+ *     "color": "#FFFFFF", "size_px": 76, "letter_spacing_px": 22, "position_pct": 46,
+ *     "fade_out_seconds": 0.5 }
  *
  * size_px and letter_spacing_px are on the 1280-px-high caption canvas;
- * position_pct is the title's vertical centre, measured from the top.
+ * position_pct is the title's vertical centre, measured from the top. fade_out_seconds
+ * (default 0) fades the title out over the reel's last moments, so the loop point lands
+ * on a clean frame (033 BEARING).
  */
 
 export interface EndTitle {
   text: string;
   startSecs: number;
   fadeInSecs: number;
+  fadeOutSecs: number;
   colorHex: string;
   sizePx: number;
   spacingPx: number;
@@ -53,7 +57,7 @@ export function clearOfLastWord(title: EndTitle, lastWordEndSecs: number | undef
   return title.startSecs >= earliest ? title : { ...title, startSecs: earliest };
 }
 
-const KEYS = new Set(['text', 'start_seconds', 'fade_in_seconds', 'color', 'size_px', 'letter_spacing_px', 'position_pct']);
+const KEYS = new Set(['text', 'start_seconds', 'fade_in_seconds', 'fade_out_seconds', 'color', 'size_px', 'letter_spacing_px', 'position_pct']);
 
 function numIn(obj: Record<string, unknown>, key: string, min: number, max: number): number | undefined {
   const v = obj[key];
@@ -83,6 +87,7 @@ export function resolveEndTitle(raw: unknown): EndTitle | undefined {
     text: r.text.trim().toUpperCase(),
     startSecs,
     fadeInSecs: numIn(r, 'fade_in_seconds', 0, 3) ?? END_TITLE_DEFAULTS.fadeInSecs,
+    fadeOutSecs: numIn(r, 'fade_out_seconds', 0, 3) ?? 0,
     colorHex: (r.color as string | undefined) ?? END_TITLE_DEFAULTS.colorHex,
     sizePx: numIn(r, 'size_px', 24, 160) ?? END_TITLE_DEFAULTS.sizePx,
     spacingPx: numIn(r, 'letter_spacing_px', 0, 80) ?? END_TITLE_DEFAULTS.spacingPx,
@@ -117,8 +122,9 @@ export function endTitleAss(
   const x = Math.round(playResX / 2 + title.spacingPx / 2); // spacing trails the last letter; re-centre
   const y = Math.round((playResY * title.positionPct) / 100);
   const fadeMs = Math.round(title.fadeInSecs * 1000);
+  const fadeOutMs = Math.round(title.fadeOutSecs * 1000);
   const event =
     `Dialogue: 1,${assTime(title.startSecs)},${assTime(Math.max(endSecs, title.startSecs + 0.5))},EndTitle,,0,0,0,,` +
-    `{\\pos(${x},${y})\\fad(${fadeMs},0)}${title.text}`;
+    `{\\pos(${x},${y})\\fad(${fadeMs},${fadeOutMs})}${title.text}`;
   return { style, event };
 }

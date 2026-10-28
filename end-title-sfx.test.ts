@@ -15,7 +15,7 @@ const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
 test('end_title: absent resolves to undefined; defaults fill in', () => {
   assert.equal(resolveEndTitle(undefined), undefined);
   const t = resolveEndTitle({ text: 'Bearing', start_seconds: 41 });
-  assert.deepEqual(t, { text: 'BEARING', startSecs: 41, fadeInSecs: 1.2, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 });
+  assert.deepEqual(t, { text: 'BEARING', startSecs: 41, fadeInSecs: 1.2, fadeOutSecs: 0, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 });
 });
 
 test('end_title: rejects bad input', () => {
@@ -102,6 +102,13 @@ test('sound_events: an event mixed at 3s is silent before 3s and present after',
 test('end_title rule: the episode name, 2.2 s into the closing section, upper frame', () => {
   assert.deepEqual(ruleEndTitle('Run', 38), { text: 'RUN', start_seconds: 40.2, fade_in_seconds: 1.2, position_pct: 12 });
   assert.equal(ruleEndTitle('BEARING', 29).start_seconds, 31.2); // matches the reel the rule came from
+});
+
+test('end_title: fade_out_seconds fades the title out at the end of its event', () => {
+  const t = resolveEndTitle({ text: 'BEARING', start_seconds: 31.2, fade_out_seconds: 0.5 })!;
+  assert.equal(t.fadeOutSecs, 0.5);
+  assert.match(endTitleAss(t, 'F', 720, 1280, 35).event, /\\fad\(1200,500\)\}BEARING$/);
+  assert.throws(() => resolveEndTitle({ text: 'A', start_seconds: 1, fade_out_seconds: 5 }), /fade_out_seconds/);
 });
 
 test('end_title rule: the title waits for the last word', () => {
