@@ -121,6 +121,16 @@ export function buildMixPlan(
     ? { musicFadeInSecs: DEFAULTS.MUSIC_FADE_IN_SECS, musicStartSecs: 0 }
     : resolveOpeningAudio(reelSpec.opening_audio, `${reelSpec.reel_id}.opening_audio`);
   const loudness = reelSpec.loudness_target_lufs ?? DEFAULTS.LOUDNESS_TARGET_LUFS;
+  const loopAudio = resolveLoopAudio(reelSpec.loop_audio);
+  const lift = reelSpec.loop_music_lift_db;
+  const tailLift =
+    loopAudio === 'seamless' && lift !== undefined && lift > 0
+      ? {
+          start_seconds: Math.max(0, Math.round((reelSpec.duration_seconds - (reelSpec.end_tail_secs ?? 2.5) + 0.3) * 100) / 100),
+          gain_db: lift,
+          ramp_seconds: 0.8,
+        }
+      : undefined;
 
   return {
     schema_version: '1.0',
@@ -141,7 +151,8 @@ export function buildMixPlan(
     music_fade_out_seconds: DEFAULTS.MUSIC_FADE_OUT_SECS,
     ducking_filter: DEFAULTS.DUCKING_FILTER,
     ending_behavior: 'hard_cut', // Möbius law: no fade, hard seam at loop
-    loop_audio: resolveLoopAudio(reelSpec.loop_audio),
+    loop_audio: loopAudio,
+    ...(tailLift ? { music_tail_lift: tailLift } : {}),
     ending_fade_duration_seconds: DEFAULTS.MUSIC_FADE_OUT_SECS,
     validation_expectations: {
       duration_tolerance_seconds: 1.0,

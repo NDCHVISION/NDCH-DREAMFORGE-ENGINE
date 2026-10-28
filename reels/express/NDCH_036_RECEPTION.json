@@ -417,7 +417,7 @@
     "sound_event": {
       "prompt": "A child knocking softly on a solid wooden door with his knuckles: three slow, patient knocks about half a second apart, then quiet room tone. Dry and realistic. No music, no impacts, no whooshes.",
       "duration_seconds": 4,
-      "gain_db": -10,
+      "gain_db": -14,
       "fade_out_seconds": 1.5
     }
   },
@@ -470,9 +470,15 @@
   "loop_light": {
     "color": "#FFF1DC",
     "strength": 0.55,
-    "head_seconds": 0.9,
-    "tail_seconds": 1.5
+    "head_seconds": 1.1,
+    "tail_seconds": 1.5,
+    "head_zoom": 1.28,
+    "zoom_center": [
+      0.7,
+      0.5
+    ]
   },
+  "loop_music_lift_db": 5,
   "finish": {
     "subtitle_layout": "readable",
     "output": "1080x1920",

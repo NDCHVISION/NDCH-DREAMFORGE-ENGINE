@@ -32,3 +32,14 @@ test('filter names the colour, size and tail start', () => {
   assert.match(f, /T-44\.3/);
   assert.match(f, /\[vout\]$/);
 });
+
+test('head zoom: validated, and only added when asked for', () => {
+  assert.throws(() => resolveLoopLight({ head_zoom: 1.6 }));
+  assert.throws(() => resolveLoopLight({ head_zoom: 1.2, zoom_center: [1.2, 0.5] }));
+  assert.throws(() => resolveLoopLight({ head_zoom: 1.2, head_seconds: 0 }));
+  const plain = loopLightFilter(resolveLoopLight({})!, 45, 720, 1280);
+  assert.doesNotMatch(plain, /eval=frame/);
+  const z = loopLightFilter(resolveLoopLight({ head_zoom: 1.28, zoom_center: [0.7, 0.5], head_seconds: 1.1 })!, 45, 720, 1280);
+  assert.match(z, /scale=w='trunc\(iw\*\(1\+0\.28\*/);
+  assert.match(z, /crop=720:1280:x='0\.7\*\(iw-720\)'/);
+});

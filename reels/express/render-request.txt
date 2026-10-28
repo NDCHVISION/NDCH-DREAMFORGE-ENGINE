@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_033_BEARING.json
+reels/express/seeds/NDCH_036_RECEPTION.json
 auto
-bearing-suno-v1
+reception-v2
 
 1
 
-BEARING (027): Suno render remastered to -14 LUFS (engine fix, no Runway)
+RECEPTION (030) loop: doorframe shape match + music carried into the replay (no Runway)

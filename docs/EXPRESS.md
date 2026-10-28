@@ -257,6 +257,15 @@ before captions and the title are burned. `strength` is capped at 0.75 so it nev
 flash. Use it when the last and first shots are different places (036: the warm room he walks
 into, then the boy at the closed door); a reel whose last frame is its first frame doesn't need it.
 
+Add a shape match with `"head_zoom": 1.28, "zoom_center": [0.7, 0.5]`: the first shot opens that much
+closer, held on that point, and eases out to its normal framing over `head_seconds`. Pick the zoom
+and centre so a form in the first frame lands where the same form sat in the last (036: the boy's
+door frame where the open doorway was).
+
+`"loop_music_lift_db": 5` (0-8) lifts the music bed after the last word, ramped over 0.8 s, so the
+bed carries into the replay instead of sitting at its under-voice level and dropping out of earshot
+before the first line (036 failed the sound seam by 2.6 dB without it).
+
 ### Music mood
 
 `music_mood` is `cinematic` or `electronica` (both dark), or `uplifting` (warm piano and strings,

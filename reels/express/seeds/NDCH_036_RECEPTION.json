@@ -2,7 +2,7 @@
   "reel_id": "NDCH_036_RECEPTION",
   "posting_number": "030",
   "episode_name": "RECEPTION",
-  "status": "clip 5 0-4.6 s: he walks through the open door into the room; cut before his legs reach the ottoman (from ~5 s). Posts as episode 030.",
+  "status": "loop strengthened 2026-10-27 (no Runway): doorframe shape match, music carried into the replay. Posts as episode 030.",
   "title_hook": "Pressure gets answers. Trust opens doors.",
   "concept": "A boy keeps knocking at a closed door, waits in a tidy room made for visitors, walks a corridor of empty seats as a teenager, and as a man learns to stand at the door without forcing it. One day the same door is wide open and he walks into a warm, lived-in room. The door is never seen opening; time does it.",
   "theme": "Answers given under pressure are not trust freely given.",
@@ -28,7 +28,7 @@
     "sound_event": {
       "prompt": "A child knocking softly on a solid wooden door with his knuckles: three slow, patient knocks about half a second apart, then quiet room tone. Dry and realistic. No music, no impacts, no whooshes.",
       "duration_seconds": 4,
-      "gain_db": -10,
+      "gain_db": -14,
       "fade_out_seconds": 1.5
     }
   },
@@ -133,7 +133,7 @@
       "clip4": "reels/express/stills/approved/NDCH_036_clip04.jpg (round D v1)",
       "clip5": "reels/express/stills/approved/NDCH_036_clip05.jpg (round D v1)"
     },
-    "loop": "He walks into the warm room and the picture warms toward a soft cream light over the last 1.2 s; the reel reopens in that light on the boy at the closed door and settles to daylight in 0.9 s (loop_light). Bed runs through (seamless); 'Offered...' hands off to 'You asked again.'"
+    "loop": "Shape and light match: the last shot (open doorway filling the frame) warms into soft cream light; the reel reopens in that light 1.28x closer on the boy's door so its frame sits where the open doorway was, easing out to the normal framing over 1.1 s (loop_light head_zoom). The bed lifts 5 dB after the last word so it carries into the replay (loop_music_lift_db); the knock sits at -14 dB."
   },
   "loop_audio": "seamless",
   "narration_timing": "anchored",
@@ -224,8 +224,13 @@
   "loop_light": {
     "color": "#FFF1DC",
     "strength": 0.55,
-    "head_seconds": 0.9,
-    "tail_seconds": 1.5
+    "head_seconds": 1.1,
+    "tail_seconds": 1.5,
+    "head_zoom": 1.28,
+    "zoom_center": [
+      0.7,
+      0.5
+    ]
   },
   "suno_prompt": {
     "title": "RECEPTION - The Open Door",
@@ -234,5 +239,6 @@
     "instrumental": true,
     "model": "v5"
   },
-  "end_tail_secs": 1.5
+  "end_tail_secs": 1.5,
+  "loop_music_lift_db": 5
 }

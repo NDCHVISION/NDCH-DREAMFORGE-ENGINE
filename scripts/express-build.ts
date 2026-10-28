@@ -197,8 +197,10 @@ export interface ExpressSeed {
   clip_transitions?: TransitionSpec[];
   /** Use only part of a clip, slowed to fill its slot: { "5": [0, 3.5] } (lib/clip-source.ts). Needs narration_timing "anchored". */
   clip_source_seconds?: Record<string, [number, number]>;
-  /** Light match across the loop point: { color, strength, head_seconds, tail_seconds } (lib/loop-light.ts). */
+  /** Light match across the loop point: { color, strength, head_seconds, tail_seconds, head_zoom, zoom_center } (lib/loop-light.ts). */
   loop_light?: Record<string, unknown>;
+  /** dB (0-8) to lift the music bed after the last word so it carries into the loop (seamless loops). */
+  loop_music_lift_db?: number;
   /** Finish profile: { subtitle_layout, output, loudness_lufs } (lib/finish.ts). */
   finish?: { subtitle_layout?: 'default' | 'safe_zone' | 'readable'; output?: 'native' | '1080x1920'; loudness_lufs?: number };
   /** Reel name over the closing shot (lib/end-title.ts). */
@@ -357,6 +359,9 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   }
   resolveSoundEvents(seed.sound_events);
   resolveLoopLight(seed.loop_light);
+  if (seed.loop_music_lift_db !== undefined && (typeof seed.loop_music_lift_db !== 'number' || seed.loop_music_lift_db < 0 || seed.loop_music_lift_db > 8)) {
+    throw new Error(`${source}: loop_music_lift_db must be a number from 0 to 8`);
+  }
   if (seed.clip_source_seconds !== undefined) {
     resolveClipSource(seed.clip_source_seconds, SEGMENT_IDS.length);
     if (seed.narration_timing !== 'anchored') {
@@ -528,6 +533,8 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   else delete spec.clip_source_seconds;
   if (seed.loop_light) spec.loop_light = structuredClone(seed.loop_light);
   else delete spec.loop_light;
+  if (seed.loop_music_lift_db !== undefined) spec.loop_music_lift_db = seed.loop_music_lift_db;
+  else delete spec.loop_music_lift_db;
   const finish = seed.finish ? structuredClone(seed.finish) : undefined;
   if (reelNumber(seed.reel_id) >= CAPTION_LAW_FROM) {
     spec.finish = { ...(finish ?? {}), subtitle_layout: 'readable' };

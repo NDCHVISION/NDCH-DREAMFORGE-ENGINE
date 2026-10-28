@@ -529,3 +529,16 @@ test('the Suno mix follows the finish loudness, defaulting to -16', async () => 
   assert.equal(plan.loudness_target_lufs, -14);
   assert.equal(plan.validation_expectations.min_integrated_lufs, -15.5);
 });
+
+test('seamless reels can lift the bed after the last word', async () => {
+  const { buildMixPlan } = await import('./lib/audio/build-mix-plan.ts');
+  const { tailLiftFilter } = await import('./lib/audio/render-final-mix.ts');
+  const sel = { selected_track_path: '/tmp/a.mp3', selected_window: { start_seconds: 0, end_seconds: 45 } } as unknown as Parameters<typeof buildMixPlan>[0];
+  const spec = { reel_id: 'X', duration_seconds: 44.6, segment_boundaries_seconds: [0, 7, 17, 28, 38, 47], segment_names: [], voice_occupancy_seconds: 38, doctrine_profile: {}, mastering_preset_id: 'p', loop_audio: 'seamless', end_tail_secs: 1.5, loop_music_lift_db: 5 } as unknown as Parameters<typeof buildMixPlan>[1];
+  const plan = buildMixPlan(sel, spec);
+  assert.deepEqual(plan.music_tail_lift, { start_seconds: 43.4, gain_db: 5, ramp_seconds: 0.8 });
+  assert.match(tailLiftFilter(plan), /volume='pow\(10,5\*min\(1,max\(0,\(t-43\.4\)\/0\.8\)\)\/20\)':eval=frame/);
+  const none = buildMixPlan(sel, { ...spec, loop_music_lift_db: undefined });
+  assert.equal(none.music_tail_lift, undefined);
+  assert.equal(tailLiftFilter(none), '');
+});

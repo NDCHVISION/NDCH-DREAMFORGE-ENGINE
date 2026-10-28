@@ -145,6 +145,10 @@ export interface ReelMusicSpec {
   loop_audio?: unknown;
   /** Integrated loudness from the reel's finish profile (lib/finish.ts); default -16. */
   loudness_target_lufs?: number;
+  /** Seconds of picture after the last word (lib/end-tail.ts). */
+  end_tail_secs?: number;
+  /** dB to lift the bed after the last word, so it carries into the loop (seamless only). */
+  loop_music_lift_db?: number;
 }
 
 export interface AlternativeTrack {
@@ -191,6 +195,8 @@ export interface MixPlan {
   voice_occupancy_intervals: Array<{ start: number; end: number }>;
   intentional_silence_intervals: Array<{ start: number; end: number; function: string }>;
   music_gain_envelope: GainEnvelopePoint[];
+  /** Seamless loops: lift the bed after the last word so it doesn't dip before the replay. */
+  music_tail_lift?: { start_seconds: number; gain_db: number; ramp_seconds: number };
   mastering_preset_id: string;
   loudness_target_lufs: number;
   true_peak_target_dbfs: number;

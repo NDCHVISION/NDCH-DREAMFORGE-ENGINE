@@ -151,6 +151,8 @@ function extractReelMusicSpec(reelPath: string): ReelMusicSpec {
     mastering_preset_id: mastPreset,
     ...(raw['opening_audio'] !== undefined ? { opening_audio: raw['opening_audio'] } : {}),
     ...(raw['loop_audio'] !== undefined ? { loop_audio: raw['loop_audio'] } : {}),
+    ...(typeof raw['end_tail_secs'] === 'number' ? { end_tail_secs: raw['end_tail_secs'] as number } : {}),
+    ...(typeof raw['loop_music_lift_db'] === 'number' ? { loop_music_lift_db: raw['loop_music_lift_db'] as number } : {}),
     // The finish profile's loudness applies to the Suno mix too (was always -16).
     ...(typeof (raw['finish'] as Record<string, unknown> | undefined)?.['loudness_lufs'] === 'number'
       ? { loudness_target_lufs: (raw['finish'] as Record<string, number>)['loudness_lufs'] }

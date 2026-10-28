@@ -43,7 +43,7 @@ export function musicChain(
       tailInput: `-ss ${end.toFixed(3)} -to ${(end + overrun).toFixed(3)} -i "${musicSourcePath}" `,
       filter:
         seamlessBedFilter(musicIdx, tailIdx, 'bed', d, mixPlan.music_initial_gain_db, overrun) + ';' +
-        `[bed]aloop=loop=-1:size=2e+09[music];`,
+        `[bed]aloop=loop=-1:size=2e+09${tailLiftFilter(mixPlan)}[music];`,
     };
   }
   const fadeOutStart = Math.max(0, d - mixPlan.music_fade_out_seconds);
@@ -55,6 +55,17 @@ export function musicChain(
       `afade=t=out:st=${fadeOutStart.toFixed(3)}:d=${mixPlan.music_fade_out_seconds},` +
       `aloop=loop=-1:size=2e+09[music];`,
   };
+}
+
+/**
+ * Lift the bed after the last word (mix plan `music_tail_lift`), ramped, so the
+ * music carries into the loop point instead of sitting at its under-voice level.
+ */
+export function tailLiftFilter(mixPlan: MixPlan): string {
+  const l = mixPlan.music_tail_lift;
+  if (!l || l.gain_db <= 0) return '';
+  const r = `min(1,max(0,(t-${l.start_seconds})/${l.ramp_seconds}))`;
+  return `,volume='pow(10,${l.gain_db}*${r}/20)':eval=frame`;
 }
 
 function sourceDuration(path: string): number {
