@@ -119,6 +119,14 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     if (head !== `${p.posting}| ${p.title}` || blank !== '' || !line?.trim() || rest.length)
       errs.push(`${where}: tiktok.caption must be "${p.posting}| ${p.title}", a blank line, then one line from the reel`);
   }
+  const li = p.platforms?.linkedin;
+  if (li) {
+    const head = `${p.posting} | ${p.title}`;
+    if (li.title !== head) errs.push(`${where}: linkedin.title should be "${head}"`);
+    const blocks = (li.post ?? '').split('\n\n');
+    if (blocks.length !== 4 || blocks[0] !== head || !/^#NDCH( #[\p{L}\p{N}_]+){0,2}$/u.test(blocks[3] ?? '') || blocks.slice(1, 3).some((b) => !b.trim() || b.includes('\n')))
+      errs.push(`${where}: linkedin.post must be "${head}", the reel's line, one short paragraph, then #NDCH plus up to two topic hashtags, separated by blank lines`);
+  }
   return errs;
 }
 

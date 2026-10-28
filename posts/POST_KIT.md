@@ -128,23 +128,19 @@ What are you building now for a future you can't see yet?
 **Video title**
 
 ```text
-FAITH · NDCH 021
+021 | FAITH
 ```
 
 **Post text**
 
 ```text
-Most work that matters starts before anyone can justify it. The skill learned before the role exists. The system built before the demand shows up.
+021 | FAITH
 
-Sometimes the future you prepared for never arrives. That work is rarely wasted.
+Faith begins before certainty.
 
-What is built for one future may become capacity for another.
+The work comes before the reason. What is built for one future may become capacity for another, even when the future it was built for never arrives.
 
-Not every preparation meets the future it imagined. It may still meet the future that comes.
-
-FAITH · 021 · NDCH Dreamforge
-
-#Leadership #CareerGrowth #Purpose
+#NDCH #Purpose #CareerGrowth
 ```
 
 ## 022 · THE STATUE
@@ -260,23 +256,19 @@ What are you carrying that was never yours?
 **Video title**
 
 ```text
-THE STATUE · NDCH 022
+022 | THE STATUE
 ```
 
 **Post text**
 
 ```text
-Most growth advice is about adding. More discipline. More credentials. More polish.
+022 | THE STATUE
 
-Keep adding long enough and it gets hard to tell what is yours and what you took on because it was expected.
+Not everything you carry belongs to you.
 
-A sculptor does not add the figure to the stone. He removes what conceals it: the expectations, the performances, the roles inherited without choosing.
+A sculptor does not add the figure to the stone. He removes what conceals it. Growth is often subtraction: the expectations and roles you took on without choosing.
 
-Not everything you carry belongs to you. And not everything you lose is a loss.
-
-THE STATUE · 022 · NDCH Dreamforge
-
-#Leadership #Identity #Growth
+#NDCH #PersonalGrowth #Authenticity
 ```
 
 ### Alt text
@@ -400,23 +392,19 @@ What's a line you've held while the room moved?
 **Video title**
 
 ```text
-AXIOM · NDCH 023
+023 | AXIOM
 ```
 
 **Post text**
 
 ```text
-Orientation is easy when every reference agrees.
+023 | AXIOM
 
-It gets harder when the market shifts, the consensus turns, or the people around you start to move. In those moments, even what remains true can look wrong.
+Agreement does not determine what is true.
 
-Agreement does not determine what is true. Disagreement does not make it false.
+When the references around you begin to move, even what remains true can appear wrong. An axiom does not require its surroundings to agree.
 
-An axiom does not require its surroundings to agree.
-
-AXIOM · 023 · NDCH Dreamforge
-
-#Leadership #Conviction #ClearThinking
+#NDCH #Leadership #CriticalThinking
 ```
 
 ### Alt text
@@ -544,23 +532,19 @@ What's the lens in your work that no one can copy?
 **Video title**
 
 ```text
-FRAMES · NDCH 024
+024 | FRAMES
 ```
 
 **Post text**
 
 ```text
-They can copy the frames.
+024 | FRAMES
 
-In any field, the visible parts of good work get copied first: the format, the branding, the pitch, the exact angle.
+If they're copying your blueprint, you're watching the wrong thing.
 
-Watch the copies long enough and it's easy to forget what you were looking at in the first place. The clarity was never in the frame.
+They can copy the frames, the color, the exact angle. Watch them long enough and you forget what you were building. Take your eyes off the copies and keep going.
 
-The lenses were always clear.
-
-FRAMES · 024 · NDCH Dreamforge
-
-#Originality #Leadership #Attention
+#NDCH #Originality #Entrepreneurship
 ```
 
 ## 025 · PARALLAX
@@ -680,23 +664,19 @@ Parallax: when you move, near things shift more than far things. Nothing in the 
 **Video title**
 
 ```text
-PARALLAX · NDCH 025
+025 | PARALLAX
 ```
 
 **Post text**
 
 ```text
-Never negative. Never make-believe.
+025 | PARALLAX
 
-The wall is real: the setback, the deadline, the number on the report. So is the opening you haven't noticed yet.
+You don't have to change the facts to change where you look.
 
-Clear thinking doesn't change the facts. It changes where you stand when you look at them.
+The wall is real. So is the opening you haven't noticed. Clear thinking means not inventing the good, and not missing it either.
 
-Do not invent the good. Do not miss it either.
-
-PARALLAX · 025 · NDCH Dreamforge
-
-#ClearThinking #Perspective #Leadership
+#NDCH #Mindset #Perspective
 ```
 
 ### Alt text
@@ -826,23 +806,19 @@ Who's on your inventory?
 **Video title**
 
 ```text
-INVENTORY · NDCH 026
+026 | INVENTORY
 ```
 
 **Post text**
 
 ```text
-Everyone wants the light back. Fair.
+026 | INVENTORY
 
-But hard seasons show you what is still there: the people who kept your place, the ones who kept things warm, the doors that still open for you.
+Most of us only count them after.
 
-It is easy to miss in daylight. Most of us only count them after.
+When the light goes out, the dark shows what is still there: the coat on the chair, the cup still warm, the door that still opens. Take inventory before you have to.
 
-Count them now.
-
-INVENTORY · 026 · NDCH Dreamforge
-
-#Gratitude #Perspective #Leadership
+#NDCH #Gratitude #Perspective
 ```
 
 ### Alt text
@@ -962,21 +938,19 @@ What's one thing you did right by yourself this year?
 **Video title**
 
 ```text
-BEARING · NDCH 027
+027 | BEARING
 ```
 
 **Post text**
 
 ```text
-Most of us can repeat, word for word, what someone said to us at our worst. Far fewer can name one thing we did right by ourselves since.
+027 | BEARING
 
-Sometimes a setback, or a person, breaks a pattern you had not broken yourself. That is worth noticing. It is not a favor, and it does not earn them the credit.
+They don't get credit for where you turn.
 
-The direction you take from here is yours.
+Sometimes the person who hurt you breaks a pattern you hadn't. That is not a favor. The direction you take from it is yours.
 
-BEARING · 027 · NDCH Dreamforge
-
-#Leadership #Resilience #SelfRespect
+#NDCH #PersonalGrowth #Resilience
 ```
 
 ### Alt text
@@ -1100,21 +1074,19 @@ What are you building right now that no one could copy from the outside?
 **Video title**
 
 ```text
-RUN · NDCH 028
+028 | RUN
 ```
 
 **Post text**
 
 ```text
-Anyone can copy what they can see: the product, the layout, the pitch, the look of the thing.
+028 | RUN
 
-What they can't copy is what keeps it running. The judgement behind the decisions, the systems that turn effort into results, and the habit of building the next version before anyone asks for it.
+A mold takes the shape. Not the work that keeps it turning.
 
-A copy is a finished object. The original is a process that keeps going. If someone copies your work, the answer is rarely to guard it harder. It is to keep building.
+Anyone can copy what they can see: every contour, every detail. They can't copy the thinking and the systems underneath. Keep building the next one.
 
-RUN · 028 · NDCH Dreamforge
-
-#Leadership #Innovation #Craftsmanship
+#NDCH #Entrepreneurship #Creativity
 ```
 
 ### Alt text
@@ -1238,21 +1210,19 @@ Who do you see every day but have never really asked?
 **Video title**
 
 ```text
-PRESENCE · NDCH 029
+029 | PRESENCE
 ```
 
 **Post text**
 
 ```text
-You can work beside someone every day and mistake it for knowing them.
+029 | PRESENCE
 
-You know their voice in meetings, their laugh, the way they walk into a room. Familiarity hides distance well. What a colleague lets you see, and what they carry when no one is watching, are not always the same.
+Presence is not access.
 
-Presence is not access. Access is earned by asking, and by listening to the answer.
+You can see someone every day and mistake it for knowing them. What someone lets you see, and who they are when no one is watching, are not always the same.
 
-PRESENCE · 029 · NDCH Dreamforge
-
-#Leadership #Connection #EmotionalIntelligence
+#NDCH #EmotionalIntelligence #Relationships
 ```
 
 ### Alt text
@@ -1380,21 +1350,19 @@ Who finally opened up to you, and what changed before they did?
 **Video title**
 
 ```text
-RECEPTION · NDCH 030
+030 | RECEPTION
 ```
 
 **Post text**
 
 ```text
-You can ask a colleague the same question every week and know them less each time.
+030 | RECEPTION
 
-Pressure gets you answers: the tidy, safe version that ends the conversation. It doesn't get you the person, their real concerns, the idea they haven't said out loud. That only comes with trust.
+Pressure can get you answers. Only trust gets you the person.
 
-So stop forcing it. Become someone a closed door is safe around. One day, the door is wide open. Offered, not extracted.
+Asking again rarely brings someone closer. Become someone a closed door is safe around, and in time the door opens on its own.
 
-RECEPTION · 030 · NDCH Dreamforge
-
-#Leadership #Trust #EmotionalIntelligence
+#NDCH #Trust #Leadership
 ```
 
 ### Alt text
