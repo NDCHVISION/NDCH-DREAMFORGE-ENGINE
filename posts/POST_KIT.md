@@ -162,6 +162,8 @@ Covers: `assets/covers/024_FRAMES_vertical.png`, `assets/covers/024_FRAMES_horiz
 **Description**
 
 ```text
+If they're copying your blueprint, you're watching the wrong thing. Take your eyes off the copies and keep building.
+
 They can copy the frames.
 
 The color. The weight. The exact angle.
@@ -187,6 +189,8 @@ What's the lens in your work that no one can copy?
 **Caption**
 
 ```text
+If they're copying your blueprint, you're watching the wrong thing. Take your eyes off the copies and keep building.
+
 They can copy the frames.
 
 The color. The weight. The exact angle.
@@ -212,6 +216,8 @@ What's the lens in your work that no one can copy?
 **Caption**
 
 ```text
+If they're copying your blueprint, you're watching the wrong thing. Keep building.
+
 They can copy the frames. The color. The weight. The exact angle.
 
 Watch them long enough and you forget what you were looking at.
@@ -240,6 +246,8 @@ FRAMES · NDCH 024
 **Description**
 
 ```text
+If they're copying your blueprint, you're watching the wrong thing. Take your eyes off the copies and keep building.
+
 They can copy the frames. The color. The weight. The exact angle.
 
 Watch them long enough and you forget what you were looking at.

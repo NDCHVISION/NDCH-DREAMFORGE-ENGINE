@@ -17,7 +17,9 @@
   "recurring_element": "one master design of thick rectangular cobalt-blue acetate glasses with clear lenses, and one blade of ivory light that lies across a worn stone step in a near-black hall for the whole film",
   "character": "The same person in every shot: a first-generation Ghanaian American man in his late twenties, deep-brown skin, short tapered natural hair, a neatly trimmed short beard, calm attentive expression, in a charcoal fine-knit turtleneck",
   "material": "One eyewear design: thick rectangular cobalt-blue (#245BDB) acetate frames, clear lenses; every copy is a separate pair of that exact design. Near-black worn stone hall, one fixed narrow ivory beam",
-  "validation_overrides": {"min_words": 36},
+  "validation_overrides": {
+    "min_words": 36
+  },
   "primary_prompt": "Restrained photorealistic 9:16 sequence in a quiet near-black hall of worn dark stone. One narrow ivory (#F5F2EB) beam of daylight lies across a worn stone step and never moves. Thick rectangular cobalt-blue (#245BDB) acetate glasses with clear lenses are the only saturated colour; every pair is the identical design. Locked or unhurried camera, real focus behaviour, natural skin texture, real fabric, physically credible reflections. No glowing eyes, no magic, no particles, no lens flares, no villains, no superhero pose.",
   "segments": {
     "hook": {
@@ -44,8 +46,13 @@
       "cast": false
     }
   },
-  "highlight_words": ["frames", "clear"],
-  "peak_words": ["forget"],
+  "highlight_words": [
+    "frames",
+    "clear"
+  ],
+  "peak_words": [
+    "forget"
+  ],
   "caption": "They can copy the frames.\n\nThe color. The weight. The exact angle.\n\nWatch them long enough and you forget what you were looking at.\n\nThe lenses were always clear.",
   "hashtags": [
     "#NDCH",
@@ -54,5 +61,15 @@
     "#Originality",
     "#SelfMastery",
     "#Frames"
-  ]
+  ],
+  "post_edit_bcg_c_v2": {
+    "source": "NDCH_REEL_024_FRAMES_BCG_C.mp4 (creator's hand edit, 37.0 s)",
+    "edits": [
+      "Hook: first 0.42 s trimmed (cut just before the first word), so the hand reaches for the frames at 0.5 s",
+      "Glasses-off: frames at 25.21-25.67 s removed (the blue temple showed through his fingers) with a 0.17 s dissolve; that stretch is silent, so the cut is inaudible",
+      "Sound arc: a low tremolo hum (brown noise below 300 Hz plus 110/220 Hz, about 16 dB under the music) under 0-21.5 s, cut off with the music at the drop before 'Take them off'"
+    ],
+    "result": "35.9 s, -14.2 LUFS, peak -1.3 dBFS. No Runway or ElevenLabs.",
+    "file": "NDCH_REEL_024_FRAMES_v2.mp4 (delivered in chat)"
+  }
 }
