@@ -2,6 +2,13 @@
 
 ---
 
+## 2026-10-28 — End title fades out by default
+
+**Rule (creator directive, from the 029 PRESENCE QC):** the end title fades out over the reel's last 0.5 s, so it doesn't pop off when the reel loops.
+
+- `lib/end-title.ts`: `fade_out_seconds` defaults to 0.5 (was 0); `0` still holds the title to the last frame
+- `docs/EXPRESS.md`: end title section and rule updated
+
 ## 2026-10-26 — Music voice fit + clean narration asset
 
 **From 029 PRESENCE music choice:** the music scorer gave all 7 Suno takes 0.99-1.00, so it could not rank them.

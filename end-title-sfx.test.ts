@@ -15,7 +15,7 @@ const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
 test('end_title: absent resolves to undefined; defaults fill in', () => {
   assert.equal(resolveEndTitle(undefined), undefined);
   const t = resolveEndTitle({ text: 'Bearing', start_seconds: 41 });
-  assert.deepEqual(t, { text: 'BEARING', startSecs: 41, fadeInSecs: 1.2, fadeOutSecs: 0, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 });
+  assert.deepEqual(t, { text: 'BEARING', startSecs: 41, fadeInSecs: 1.2, fadeOutSecs: 0.5, colorHex: '#FFFFFF', sizePx: 76, spacingPx: 22, positionPct: 46 });
 });
 
 test('end_title: rejects bad input', () => {
@@ -27,7 +27,7 @@ test('end_title: rejects bad input', () => {
 });
 
 test('end_title: ASS lines carry style, position, fade and spacing', () => {
-  const t = resolveEndTitle({ text: 'BEARING', start_seconds: 41.2, position_pct: 50 })!;
+  const t = resolveEndTitle({ text: 'BEARING', start_seconds: 41.2, position_pct: 50, fade_out_seconds: 0 })!;
   const { style, event } = endTitleAss(t, 'Cormorant Garamond', 720, 1280, 101.2);
   assert.match(style, /^Style: EndTitle,Cormorant Garamond,76,&H00FFFFFF,/);
   assert.match(style, /,100,100,22,0,1,1,2,5,/);
@@ -116,4 +116,11 @@ test('end_title rule: the title waits for the last word', () => {
   assert.equal(clearOfLastWord(t, 39.5).startSecs, 40.2);
   assert.equal(clearOfLastWord(t, 40.5).startSecs, 40.9);
   assert.equal(clearOfLastWord(t, undefined).startSecs, 40.2);
+});
+
+test('end title rule: fades out over 0.5 s by default so the replay starts clean; 0 holds', () => {
+  assert.equal(resolveEndTitle({ text: 'PRESENCE', start_seconds: 40.4 })!.fadeOutSecs, 0.5);
+  assert.equal(resolveEndTitle({ text: 'PRESENCE', start_seconds: 40.4, fade_out_seconds: 0 })!.fadeOutSecs, 0);
+  assert.match(endTitleAss(resolveEndTitle({ text: 'PRESENCE', start_seconds: 40.4 })!, 'F', 720, 1280, 42.5).event,
+    /0:00:40\.40,0:00:42\.50,EndTitle.*\\fad\(1200,500\)\}PRESENCE$/);
 });
