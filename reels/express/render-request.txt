@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_034_RUN.json
 auto
-reception-v2
+run-v1
 
-1
 
-RECEPTION (030): mix the best of four Suno takes (no Runway)
+
+RUN: score the four Suno takes from the RUN prompt; no new clips
