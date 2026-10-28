@@ -4,4 +4,4 @@ bearing-suno-v1
 
 1
 
-BEARING (027): loop fixes - music carries across the seam (+4 dB lift), title fades out, last shot pushes in to the opening close-up (no Runway)
+BEARING (027): end title fades out on the last frame (no Runway)

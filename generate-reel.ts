@@ -1325,7 +1325,8 @@ interface SubtitleArtifacts {
 function writeSubtitleArtifacts(
   plan: ResolvedProductionPlan,
   sceneTimeline: SceneAllocationEntry[],
-  wordTimings: WordTiming[]
+  wordTimings: WordTiming[],
+  reelSecs?: number,
 ): SubtitleArtifacts {
   if (!plan.subtitles || typeof plan.subtitles !== 'object') return {};
   if ((plan.subtitles as Record<string, unknown>).enabled === false) return {};
@@ -1349,7 +1350,11 @@ function writeSubtitleArtifacts(
   const assPath = join(TMP, `reel-subtitles-${timestamp}.ass`);
   // The end title never lands on the closing line: it waits for the last word.
   const endTitle = plan.endTitle ? clearOfLastWord(plan.endTitle, wordTimings[wordTimings.length - 1]?.endSeconds) : undefined;
-  const title = endTitle ? endTitleAss(endTitle, style.fontName, style.playResX, style.playResY, endTitle.startSecs + 60) : undefined;
+  const title = endTitle ? endTitleAss(
+    endTitle, style.fontName, style.playResX, style.playResY,
+    // A fading-out title must end on the reel's last frame; a held one can run past it.
+    endTitle.fadeOutSecs > 0 && reelSecs ? reelSecs : endTitle.startSecs + 60,
+  ) : undefined;
   writeFileSync(assPath, buildAssDocument(cues, style, title ? { styles: [title.style], events: [title.event] } : {}));
   if (endTitle) console.log(`  end title     : "${endTitle.text}" from ${endTitle.startSecs}s`);
   console.log(`  subtitles ass : ${assPath} (font: ${style.fontName})`);
@@ -1429,7 +1434,7 @@ async function main(): Promise<void> {
   }
   const mergedPath  = mergeAudioVideo(audioPath, videoPath);
   const brandedPath = applyBrandOverlay(mergedPath, plan);
-  const subtitleArtifacts = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings);
+  const subtitleArtifacts = writeSubtitleArtifacts(plan, sceneTimeline, wordTimings, getMediaDuration(brandedPath));
   const { srtPath: subtitlePath } = subtitleArtifacts;
   const finalPath   = burnSubtitles(brandedPath, subtitleArtifacts, plan);
   const { videoUrl: publicUrl, subtitleUrl } = await uploadToGitHubRelease(finalPath, subtitlePath);
