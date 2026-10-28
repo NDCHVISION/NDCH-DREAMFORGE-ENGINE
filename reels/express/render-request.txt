@@ -1,7 +1,7 @@
-reels/express/seeds/NDCH_036_RECEPTION.json
+reels/express/seeds/NDCH_033_BEARING.json
 auto
-reception-v2
+bearing-suno-v1
 
 1
 
-RECEPTION (030): clip 5 0-4.6 s, he walks into the room, cut before the ottoman (no Runway)
+BEARING (027): real Suno music, the two Subterranean Chain takes scored against the narration (no Runway)
