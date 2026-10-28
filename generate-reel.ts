@@ -92,6 +92,8 @@ import { checkOpeningAudio } from './lib/opening-audio-check.ts';
 import { planSegmentAnchors, buildAnchorFilter, conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { resolveClipSource, CLIP_SOURCE_MAX_SLOW } from './lib/clip-source.ts';
 import { loopLightFilter } from './lib/loop-light.ts';
+import { resolveClipGrade, clipGradeFilter } from './lib/clip-grade.ts';
+import { applyVoiceHolds } from './lib/voice-holds.ts';
 import { resolveTransitions, resolveTransitionKinds, clipLengthsWithTransitions, buildTransitionGraph } from './lib/transitions.ts';
 import { outputScaleFilter, parseLoudnormJson, loudnormApplyFilter, AMBIENCE_TRIM_FILTER, ambienceLoopFilter, SAFE_ZONE_MAX_WORDS_PER_CUE } from './lib/finish.ts';
 import { clearOfLastWord, endTitleAss } from './lib/end-title.ts';
@@ -948,6 +950,7 @@ async function generateVideo(
     const kinds = resolveTransitionKinds(plan.transitions, scenePlan.length);
     const lengths = clipLengthsWithTransitions(windows, boundary);
     const sources = resolveClipSource(plan.clipSource, scenePlan.length);
+    const grades = resolveClipGrade(plan.clipGrade, scenePlan.length);
     const conformed = clipPaths.map((clipPath, idx) => {
       const out = join(TMP, `conformed-${String(idx + 1).padStart(2, '0')}.mp4`);
       const src = getMediaDuration(clipPath);
@@ -955,9 +958,10 @@ async function generateVideo(
       if (win) console.log(`         clip ${idx + 1}: using ${win.start}-${win.end}s of the clip (clip_source_seconds)`);
       execFileSync('ffmpeg', [
         '-v', 'error', '-y', '-i', clipPath, '-an',
-        '-vf', conformClipFilter(src, lengths[idx], 24, win ? { ...win, maxSlow: CLIP_SOURCE_MAX_SLOW } : undefined),
+        '-vf', [conformClipFilter(src, lengths[idx], 24, win ? { ...win, maxSlow: CLIP_SOURCE_MAX_SLOW } : undefined), clipGradeFilter(grades.get(idx + 1))].filter(Boolean).join(','),
         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', out,
       ]);
+      if (grades.has(idx + 1)) console.log(`         clip ${idx + 1}: grade ${JSON.stringify(grades.get(idx + 1))} (clip_grade)`);
       console.log(`         clip ${idx + 1}: conformed to ${lengths[idx]}s (window ${windows[idx]}s, was ${src.toFixed(2)}s)`);
       return out;
     });
@@ -1078,7 +1082,10 @@ function burnSubtitles(videoPath: string, artifacts: SubtitleArtifacts, plan: Re
   console.log('  [3c] Burning subtitles into video…');
 
   // Caption law (CAPTIONS.md): a soft scrim behind any cue that lands on a bright background.
-  if (plan.finish.subtitleLayout === 'readable' && cues?.length) {
+  // A bright film can opt for a contact shadow instead (subtitle_config.backing, CAPTIONS.md).
+  if (plan.finish.subtitleLayout === 'readable' && cues?.length && subtitleConfig?.backing === 'contact_shadow') {
+    console.log('         caption backing: contact shadow (no scrim)');
+  } else if (plan.finish.subtitleLayout === 'readable' && cues?.length) {
     const bands = measureCueBands(videoPath, cues);
     for (const b of bands) {
       console.log(`         caption band ${b.start.toFixed(2)}s: luminance ${b.luminance.toFixed(3)}${b.opacity ? `, scrim ${Math.round(b.opacity * 100)}%` : ''}`);
@@ -1424,7 +1431,9 @@ async function main(): Promise<void> {
   runOptionalV2Preflight(plan.reelSpecPath);
   console.log('');
 
-  const { audioPath, wordTimings } = await generateVoiceover();
+  const voice = await generateVoiceover();
+  if (plan.voiceHolds?.length) console.log('  [1b] Voice holds');
+  const { audioPath, wordTimings } = applyVoiceHolds(voice.audioPath, voice.wordTimings, plan.voiceHolds ?? [], TMP);
   const durationSecs = getMediaDuration(audioPath);
 
   const { videoPath, sceneTimeline, selectionOnly } = await generateVideo(durationSecs);

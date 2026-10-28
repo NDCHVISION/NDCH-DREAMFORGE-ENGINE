@@ -337,7 +337,8 @@
       "line_break_rule": "Max 5 words per line. Semantic breaks only. Never break mid-phrase.",
       "animation": "word-by-word-appear",
       "em_dash_rendering": "No em-dashes in source text. Narration uses periods and ellipsis only. Caption renderer passes text through without substitution."
-    }
+    },
+    "backing": "contact_shadow"
   },
   "sound_brief": {
     "bpm_range": "80-88",
@@ -438,9 +439,9 @@
     },
     {
       "after_clip": 3,
-      "type": "wipe_left",
-      "seconds": 0.7,
-      "note": "shadow sweep: a soft edge of light crosses from the corridor to the man at the closed door"
+      "type": "dissolve",
+      "seconds": 0.9,
+      "note": "time dissolve: the teenager walking away down the corridor fades into the grown man at the closed door; years pass in the dissolve (review pass: replaces the shadow-sweep wipe, which read as a hard edge on the bright corridor)"
     },
     {
       "after_clip": 4,
@@ -467,6 +468,34 @@
       4.6
     ]
   },
+  "clip_grade": {
+    "1": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "2": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "3": {
+      "temperature": -0.55,
+      "saturation": 0.92
+    },
+    "4": {
+      "temperature": -0.2,
+      "saturation": 0.96
+    },
+    "5": {
+      "temperature": 0.3
+    }
+  },
+  "voice_holds": [
+    {
+      "before": "Only trust",
+      "pause_seconds": 0.5,
+      "tempo": 0.92
+    }
+  ],
   "loop_light": {
     "color": "#FFF1DC",
     "strength": 0.55,

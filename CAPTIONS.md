@@ -38,3 +38,12 @@ Caption colours come from the visual palette unless the seed sets `caption_color
 ## Reference
 
 035 PRESENCE (posts as 029) is the first reel cut to this rule: 72 px bold cream, "access" in `#E9C46A`.
+
+## Bright films: contact shadow instead of a scrim
+
+The adaptive scrim is built for dark and mixed films. On a film that is bright throughout
+(036 RECEPTION: cream walls, pale floors) every cue needs the strongest scrim, and the band
+reads as a grey smudge across the frame. Such a reel can set `caption_backing: "contact_shadow"`
+in its seed: no scrim is drawn, and the readable captions keep their dark halo plus a tight
+charcoal shadow (#1C1B1A, about 75% opaque) just below each letter. Font, size, position and
+colours do not change.
