@@ -450,13 +450,13 @@ Covers: `assets/covers/026_INVENTORY_vertical.png`, `assets/covers/026_INVENTORY
 ```text
 Everyone wants the light back. Fair.
 
-But the dark shows you what was given.
+But look at what the dark just showed you.
 
-The chair. Someone held you up.
-The cup. Someone kept it warm.
-The door. Someone left it open.
+The coat still on the chair.
+The cup still warm.
+The door that still opens.
 
-None of it was owed. All of it was given.
+Easy to miss in daylight. Most of us only count them after.
 
 Count them now.
 
@@ -479,13 +479,13 @@ Who's on your inventory?
 ```text
 Everyone wants the light back. Fair.
 
-But the dark shows you what was given.
+But look at what the dark just showed you.
 
-The chair. Someone held you up.
-The cup. Someone kept it warm.
-The door. Someone left it open.
+The coat still on the chair.
+The cup still warm.
+The door that still opens.
 
-None of it was owed. All of it was given.
+Easy to miss in daylight. Most of us only count them after.
 
 Count them now.
 
@@ -506,9 +506,9 @@ Who's on your inventory?
 **Caption**
 
 ```text
-The chair. Someone held you up. The cup. Someone kept it warm. The door. Someone left it open.
+The coat still on the chair. The cup still warm. The door that still opens.
 
-None of it was owed. Count them now.
+Most of us only count them after. Count them now.
 
 INVENTORY · 026 · NDCH
 
@@ -534,9 +534,9 @@ INVENTORY · NDCH 026
 ```text
 Everyone wants the light back. Fair.
 
-But the dark shows you what was given. The chair: someone held you up. The cup: someone kept it warm. The door: someone left it open.
+But look at what the dark just showed you: the coat still on the chair, the cup still warm, the door that still opens.
 
-None of it was owed. Count them now.
+Easy to miss in daylight. Most of us only count them after. Count them now.
 
 #NDCH #Gratitude #Perspective
 ```
@@ -560,9 +560,9 @@ INVENTORY · NDCH 026
 ```text
 Everyone wants the light back. Fair.
 
-But hard seasons have a way of showing you what was given: the people who held you up, the ones who kept things warm, the ones who left a door open for you.
+But hard seasons show you what is still there: the people who kept your place, the ones who kept things warm, the doors that still open for you.
 
-None of it was owed. All of it was given.
+It is easy to miss in daylight. Most of us only count them after.
 
 Count them now.
 
