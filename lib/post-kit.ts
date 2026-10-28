@@ -59,6 +59,8 @@ export interface ReelPost {
   schedule?: Partial<Record<Platform, string>>;
   cover?: { vertical?: string; horizontal?: string };
   alt_text?: string;
+  /** Free-text posting note shown under the status line (e.g. which platforms are a backfill). */
+  note?: string;
   location: { name: string; why: string };
   platforms: Record<Platform, Record<string, string>>;
 }
@@ -134,6 +136,7 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   if (p.engine_id) meta.push(`Engine: ${p.engine_id}`);
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
   out.push(meta.join(' · '), '');
+  if (p.note) out.push(`Note: ${p.note}`, '');
   if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
   if (p.location?.name && only !== 'linkedin')
     out.push(`Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`, '', `Why: ${p.location.why}`, '');
