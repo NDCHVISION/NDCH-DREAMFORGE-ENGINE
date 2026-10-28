@@ -11,6 +11,10 @@
     "vertical": "assets/covers/023_AXIOM_vertical.png",
     "horizontal": "assets/covers/023_AXIOM_horizontal.png"
   },
+  "location": {
+    "name": "Leaning Tower of Pisa",
+    "why": "The tower leans; a plumb line dropped beside it still hangs true. The surroundings tilt, the line doesn't."
+  },
   "platforms": {
     "youtube": {
       "title": "023 | AXIOM ⚖️ #philosophy #motivation",

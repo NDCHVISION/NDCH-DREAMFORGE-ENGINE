@@ -17,7 +17,7 @@ npm run posts -- all             # everything
 ## Add a reel
 
 1. Copy the latest file in `reels/` to `<posting>_<TITLE>.json` (the posting number printed on the cover, not the engine ID).
-2. Fill in `engine_id`, `emoji`, `schedule`, `cover`, `alt_text` and the five platforms.
+2. Fill in `engine_id`, `emoji`, `schedule`, `cover`, `alt_text`, `location` and the five platforms.
 3. Run `npm run posts -- --write` to validate and regenerate `POST_KIT.md`, then `npm test`.
 
 `status` is `draft`, `scheduled` or `posted`; update it as the reel goes out.
@@ -29,6 +29,7 @@ npm run posts -- all             # everything
 - **TikTok:** shorter caption, the main line first, 5 lowercase hashtags.
 - **Facebook:** title `<TITLE> · NDCH <posting>`, tighter caption, 3 hashtags.
 - **LinkedIn:** the reel's idea in professional terms, 3 hashtags, vertical cover as the thumbnail.
+- **Location tag (rule, every post):** `location.name` is a real, monumental landmark whose story echoes the reel's idea (023 AXIOM: Leaning Tower of Pisa). Tag it on Instagram, TikTok, Facebook and YouTube (Studio: Video location); LinkedIn has no location field. `location.why` records the link for us and is never posted. Pick a different landmark each time and spread them across the world. The tests fail if a post has no location.
 - Pinned comments ask the viewer one question in the reel's own terms.
 
 The test suite (`post-kit.test.ts`) checks every file against these limits and fails if `POST_KIT.md` is out of date.

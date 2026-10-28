@@ -37,3 +37,11 @@ test('validatePost catches a long YouTube title and too many Instagram hashtags'
   assert.ok(errs.some((e) => e.includes('youtube.title')));
   assert.ok(errs.some((e) => e.includes('instagram has')));
 });
+
+test('validatePost requires a monumental location tag', () => {
+  const p = structuredClone(loadPosts()[0]);
+  delete (p as Partial<ReelPost>).location;
+  const errs = validatePost(p);
+  assert.ok(errs.some((e) => e.includes('location.name')));
+  assert.ok(errs.some((e) => e.includes('location.why')));
+});

@@ -40,6 +40,13 @@ export const FIELDS: Record<Platform, { key: string; label: string; required: bo
 /** Hashtag caps we hold ourselves to (Instagram allows at most 5). */
 export const MAX_HASHTAGS: Partial<Record<Platform, number>> = { instagram: 5, tiktok: 5, facebook: 3, linkedin: 3 };
 
+/**
+ * Rule (from 2026-10-28): every post carries a location tag naming a real, monumental landmark
+ * whose story echoes the reel's idea. Use it on Instagram, TikTok, Facebook and YouTube (Studio:
+ * "Video location"); LinkedIn has no location field. `why` records the link, for us, not the post.
+ */
+export const LOCATION_PLATFORMS = 'Instagram, TikTok, Facebook, YouTube (Video location)';
+
 export const POST_STATUSES = ['draft', 'scheduled', 'posted'] as const;
 
 export interface ReelPost {
@@ -51,6 +58,7 @@ export interface ReelPost {
   schedule?: Partial<Record<Platform, string>>;
   cover?: { vertical?: string; horizontal?: string };
   alt_text?: string;
+  location: { name: string; why: string };
   platforms: Record<Platform, Record<string, string>>;
 }
 
@@ -82,6 +90,8 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
   if (fileName && fileName !== `${p.posting}_${p.title.replace(/ /g, '_')}.json`)
     errs.push(`${where}: file name should be ${p.posting}_${p.title.replace(/ /g, '_')}.json`);
   if (!POST_STATUSES.includes(p.status)) errs.push(`${where}: status must be one of ${POST_STATUSES.join(', ')}`);
+  if (!p.location?.name?.trim()) errs.push(`${where}: location.name is empty (every post tags a monumental location)`);
+  if (!p.location?.why?.trim()) errs.push(`${where}: location.why is empty (say how the landmark echoes the reel)`);
   for (const [plat, when] of Object.entries(p.schedule ?? {}))
     if (Number.isNaN(Date.parse(when as string))) errs.push(`${where}: schedule.${plat} is not a date`);
   for (const plat of PLATFORMS) {
@@ -118,6 +128,8 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
   out.push(meta.join(' · '), '');
   if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
+  if (p.location?.name && only !== 'linkedin')
+    out.push(`Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`, '', `Why: ${p.location.why}`, '');
   for (const plat of only ? [only] : PLATFORMS) {
     out.push(`### ${LABEL[plat]}`, '');
     for (const f of FIELDS[plat]) {
@@ -136,9 +148,9 @@ export function renderKit(posts: ReelPost[]): string {
     '',
     'Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON, not this file.',
     '',
-    '| # | Reel | Status | YouTube |',
-    '| --- | --- | --- | --- |',
-    ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase()}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} |`),
+    '| # | Reel | Status | YouTube | Location |',
+    '| --- | --- | --- | --- | --- |',
+    ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase()}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
     '',
   ];
   return head.join('\n') + '\n' + posts.map((p) => renderPost(p)).join('\n');
