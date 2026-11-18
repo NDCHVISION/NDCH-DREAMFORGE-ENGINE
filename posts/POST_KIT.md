@@ -1370,3 +1370,82 @@ Asking again rarely brings someone closer. Become someone a closed door is safe 
 ```text
 A young Black boy in a white shirt knocks on a closed beige door in a bright, quiet house, then stands at the edge of a tidy room with one chair and one empty cup. As a teenager he walks down a long white corridor lined with identical empty tables. As a man he stands calmly before the same closed door and smiles. The door is then wide open onto a warm, sunlit room, and he walks in as the light glows. It ends on the title RECEPTION.
 ```
+
+# NDCH FREQ
+
+Affirmations set to sound, from `posts/freq/*.json`. The films show you how to see it; FREQ is what you tell yourself after.
+
+| # | Track | Status | YouTube | Location |
+| --- | --- | --- | --- | --- |
+| FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
+
+## FREQ 001 · I LOVE MYSELF
+
+Status: draft
+
+Note: Two cuts. Full (3:32): YouTube as a regular video. Under-3:00 cut (2:59): YouTube Short and Instagram Reel, since Reels over 3 minutes aren't shown to non-followers and Shorts cap at 3:00.
+
+Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png`
+
+Location tag: `Temple of Apollo, Delphi` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+Why: Carved at the entrance: Know thyself. You can't love what you won't look at, and FREQ starts there.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
+```
+
+**Description**
+
+```text
+I love myself.
+I love the way I feel in my own skin.
+
+The films show you how to see it. This is what you tell yourself after.
+Not because everything's where it should be. Because loving yourself was never supposed to wait for that.
+
+Look good in the light. Feel good in the dark.
+
+—
+NDCH FREQ · 001 · I Love Myself
+Short affirmations set to sound, for the days you forget.
+
+#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself #Mindset
+```
+
+**Pinned comment**
+
+```text
+Say it once for yourself today. What's one thing you love about you?
+```
+
+### Instagram
+
+**Caption**
+
+```text
+I love myself. I love the way I feel in my own skin.
+
+Things don't have to be perfect for you to love yourself. Say it until you believe it.
+
+—
+NDCH FREQ · 001
+
+#NDCH #Affirmations #SelfLove #ILoveMyself #Mindset
+```
+
+**First comment (pin it)**
+
+```text
+Say it once for yourself today. 🤍
+```
+
+### Alt text
+
+```text
+A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.
+```

@@ -62,10 +62,18 @@ export interface ReelPost {
   /** Free-text posting note shown under the status line (e.g. which platforms are a backfill). */
   note?: string;
   location: { name: string; why: string };
+  /** 'freq' for NDCH FREQ (posts/freq/); omitted for the DreamForge reels (posts/reels/). */
+  series?: 'freq';
   platforms: Record<Platform, Record<string, string>>;
 }
 
+/** Number as printed in titles: "026" for a reel, "FREQ 001" for a FREQ track. */
+export const label = (p: ReelPost) => (p.series === 'freq' ? `FREQ ${p.posting}` : p.posting);
+/** FREQ posts to YouTube and Instagram for now; the other platforms are optional until it does. */
+const REQUIRED: Record<'reel' | 'freq', readonly Platform[]> = { reel: PLATFORMS, freq: ['youtube', 'instagram'] };
+
 export const POSTS_DIR = join(process.cwd(), 'posts', 'reels');
+export const FREQ_DIR = join(process.cwd(), 'posts', 'freq');
 
 export function loadPosts(dir = POSTS_DIR): ReelPost[] {
   return readdirSync(dir)
@@ -74,10 +82,12 @@ export function loadPosts(dir = POSTS_DIR): ReelPost[] {
     .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as ReelPost);
 }
 
-/** Find a reel by posting number ("26", "026") or title ("inventory"). */
+/** Find a reel by posting number ("26", "026") or title ("inventory"); "freq 1" / "freq001" finds a FREQ track. */
 export function findPost(posts: ReelPost[], query: string): ReelPost | undefined {
   const q = query.trim().toLowerCase();
-  return posts.find((p) => p.posting === q.padStart(3, '0') || [p.title.toLowerCase(), p.title.toLowerCase().replace(/^the /, '')].includes(q));
+  const fq = q.match(/^freq[\s_-]*(\d{1,3})$/);
+  if (fq) return posts.find((p) => p.series === 'freq' && p.posting === fq[1].padStart(3, '0'));
+  return posts.find((p) => (p.series !== 'freq' && p.posting === q.padStart(3, '0')) || [p.title.toLowerCase(), p.title.toLowerCase().replace(/^the /, '')].includes(q));
 }
 
 export function hashtags(text: string): string[] {
@@ -97,9 +107,10 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
   if (!p.location?.why?.trim()) errs.push(`${where}: location.why is empty (say how the landmark echoes the reel)`);
   for (const [plat, when] of Object.entries(p.schedule ?? {}))
     if (Number.isNaN(Date.parse(when as string))) errs.push(`${where}: schedule.${plat} is not a date`);
+  const required = REQUIRED[p.series === 'freq' ? 'freq' : 'reel'];
   for (const plat of PLATFORMS) {
     const copy = p.platforms?.[plat];
-    if (!copy) { errs.push(`${where}: missing ${plat}`); continue; }
+    if (!copy) { if (required.includes(plat)) errs.push(`${where}: missing ${plat}`); continue; }
     for (const f of FIELDS[plat]) {
       const v = copy[f.key];
       if (f.required && !v?.trim()) errs.push(`${where}: ${plat}.${f.key} is empty`);
@@ -111,17 +122,18 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     const body = copy.caption ?? copy.description ?? copy.post ?? '';
     if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
-  if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${p.posting} | ${p.title}`))
-    errs.push(`${where}: youtube.title should start with "${p.posting} | ${p.title}"`);
+  const n = label(p);
+  if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${n} | ${p.title}`))
+    errs.push(`${where}: youtube.title should start with "${n} | ${p.title}"`);
   const tt = p.platforms?.tiktok?.caption;
   if (tt) {
     const [head, blank, line, ...rest] = tt.split('\n');
-    if (head !== `${p.posting}| ${p.title}` || blank !== '' || !line?.trim() || rest.length)
-      errs.push(`${where}: tiktok.caption must be "${p.posting}| ${p.title}", a blank line, then one line from the reel`);
+    if (head !== `${n}| ${p.title}` || blank !== '' || !line?.trim() || rest.length)
+      errs.push(`${where}: tiktok.caption must be "${n}| ${p.title}", a blank line, then one line from the reel`);
   }
   const li = p.platforms?.linkedin;
   if (li) {
-    const head = `${p.posting} | ${p.title}`;
+    const head = `${n} | ${p.title}`;
     if (li.title !== head) errs.push(`${where}: linkedin.title should be "${head}"`);
     const blocks = (li.post ?? '').split('\n\n');
     if (blocks.length !== 4 || blocks[0] !== head || !/^#NDCH( #[\p{L}\p{N}_]+){0,2}$/u.test(blocks[3] ?? '') || blocks.slice(1, 3).some((b) => !b.trim() || b.includes('\n')))
@@ -139,7 +151,7 @@ const LABEL: Record<Platform, string> = { youtube: 'YouTube', instagram: 'Instag
 
 /** Markdown for one reel, optionally one platform. Text sits in fenced blocks so it copies exactly. */
 export function renderPost(p: ReelPost, only?: Platform): string {
-  const out: string[] = [`## ${p.posting} · ${p.title}`, ''];
+  const out: string[] = [`## ${label(p)} · ${p.title}`, ''];
   const meta = [`Status: ${p.status}`];
   if (p.engine_id) meta.push(`Engine: ${p.engine_id}`);
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
@@ -149,6 +161,7 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   if (p.location?.name && only !== 'linkedin')
     out.push(`Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`, '', `Why: ${p.location.why}`, '');
   for (const plat of only ? [only] : PLATFORMS) {
+    if (!p.platforms[plat]) continue;
     out.push(`### ${LABEL[plat]}`, '');
     for (const f of FIELDS[plat]) {
       const v = p.platforms[plat]?.[f.key];
@@ -160,7 +173,7 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   return out.join('\n');
 }
 
-export function renderKit(posts: ReelPost[]): string {
+export function renderKit(posts: ReelPost[], freq: ReelPost[] = []): string {
   const head = [
     '# NDCH post kit',
     '',
@@ -171,5 +184,18 @@ export function renderKit(posts: ReelPost[]): string {
     ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase().replace(/ /g, '-')}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
     '',
   ];
-  return head.join('\n') + '\n' + posts.map((p) => renderPost(p)).join('\n');
+  const reels = head.join('\n') + '\n' + posts.map((p) => renderPost(p)).join('\n');
+  if (!freq.length) return reels;
+  const fhead = [
+    '',
+    '# NDCH FREQ',
+    '',
+    'Affirmations set to sound, from `posts/freq/*.json`. The films show you how to see it; FREQ is what you tell yourself after.',
+    '',
+    '| # | Track | Status | YouTube | Location |',
+    '| --- | --- | --- | --- | --- |',
+    ...freq.map((p) => `| ${label(p)} | [${p.title}](#${label(p).toLowerCase().replace(/ /g, '-')}--${p.title.toLowerCase().replace(/ /g, '-')}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
+    '',
+  ];
+  return reels + fhead.join('\n') + '\n' + freq.map((p) => renderPost(p)).join('\n');
 }
