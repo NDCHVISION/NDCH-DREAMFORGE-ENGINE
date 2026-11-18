@@ -3,6 +3,7 @@
 The published copy for every reel lives here: titles, descriptions, captions, hashtags and pinned comments for YouTube, Instagram, TikTok, Facebook and LinkedIn.
 
 - `reels/<posting>_<TITLE>.json`: one file per reel. This is the source of truth.
+- `freq/<posting>_<TITLE>.json`: NDCH FREQ, the affirmation tracks (`"series": "freq"`, own numbering from 001). Titles read `FREQ 001 | I LOVE MYSELF …`. YouTube and Instagram are required; the other platforms are added when FREQ starts posting there.
 - `POST_KIT.md`: every reel in one readable page, generated from the JSON. Don't edit it by hand.
 
 ## Pull up copy
@@ -12,6 +13,7 @@ npm run posts                    # list every reel with status and YouTube date
 npm run posts -- 026             # one reel, all platforms (or: npm run posts -- inventory)
 npm run posts -- 026 linkedin    # one reel, one platform
 npm run posts -- all             # everything
+npm run posts -- freq 001        # an NDCH FREQ track
 ```
 
 ## Add a reel

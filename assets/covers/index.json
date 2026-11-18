@@ -297,5 +297,17 @@
     "horizontal_size": "1983x793",
     "added": "2026-10-26",
     "notes": "Built on the 025 PARALLAX house template (velvet, frame and ornaments kept); art is the INVENTORY master in its vein-lit state with the inlaid emblem."
+  },
+  {
+    "posting": "001",
+    "series": "freq",
+    "title": "I LOVE MYSELF",
+    "engine_id": null,
+    "vertical": "FREQ_001_I_LOVE_MYSELF_vertical.png",
+    "vertical_size": "941x1672",
+    "horizontal": "FREQ_001_I_LOVE_MYSELF_horizontal.png",
+    "horizontal_size": "1983x793",
+    "added": "2026-11-18",
+    "notes": "NDCH FREQ 001. Velvet template with a rendered frame from the drop (2:01) in the window; header reads NDCH • FREQ."
   }
 ]
