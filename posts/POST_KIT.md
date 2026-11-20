@@ -1,6 +1,40 @@
 # NDCH post kit
 
-Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON, not this file.
+Generated from `posts/reels/*.json` and `posts/series.json` by `npm run posts -- --write`. Edit the JSON, not this file.
+
+### Series copy
+
+**Facebook series title**
+
+```text
+The NVS Series: Cinematic Stoicism & Visual Philosophy
+```
+
+**Facebook blurb**
+
+```text
+Short films about the stories we inherit, the frames we copy, and the line that stays true when the room tilts.
+
+Each film is one idea, set at one landmark, told in light and silence. No lecture, no noise. Watch it once, then ask what it was asking you.
+
+New films every week from NDCH.
+```
+
+**Cover image prompt**
+
+```text
+Cinematic wide shot. A lone figure in a long dark coat stands with their back to the viewer at the threshold of a colossal ancient temple interior at dusk. A single shaft of warm gold light falls through a circular opening in a vast dark stone dome, landing on the polished black marble floor in front of them. The marble is veined with fine gold lines that catch the light. Beyond the columns, half-lost in mist, the faint silhouettes of ancient monuments recede into the distance like memories: an obelisk, a leaning tower, the profile of a sphinx. On a low stone plinth beside the figure, a fold of deep red velvet is the only color in the frame besides gold. The mood is stoic, still and contemplative: grand scale, total silence. The palette is deep black, charcoal stone and burnished gold, with one restrained red accent. Chiaroscuro lighting, volumetric god rays, dust drifting in the beam, a thin gold rim light on the figure's shoulders. Shot on a large-format cinema camera with an anamorphic 35mm lens, shallow depth of field, subtle film grain, photorealistic, ultra-detailed stone texture. The figure sits center-left. The upper right of the frame is open, dark negative space.
+```
+
+**Negative prompt**
+
+```text
+text, letters, watermark, logo, cartoon, illustration, oversaturated, neon, modern buildings, crowds, extra people, armor, fantasy creatures, lens flare overload, distorted anatomy
+```
+
+**Title overlay**
+
+Page cover: --ar 21:8 (1640×624), subject kept central because mobile crops the sides. Series/video cover: --ar 16:9. Add --style raw in Midjourney. Title "THE NVS SERIES" in Cormorant semibold, gold, upper right; "Cinematic Stoicism & Visual Philosophy" beneath in off-white small caps at about 40% of the title size; small gilded NDCH emblem bottom right or omitted.
 
 | # | Reel | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
@@ -965,6 +999,8 @@ Status: scheduled · Engine: NDCH_034_RUN · YouTube: Fri, Nov 13, 11:00 AM CT
 
 Location tag: `Terracotta Army` (Instagram, TikTok, Facebook, YouTube (Video location))
 
+If it isn't listed, search: `Emperor Qinshihuang's Mausoleum Site Museum` → `Mausoleum of the First Qin Emperor` → `Lintong, Xi'an` → `Xi'an, Shaanxi, China`. If none of these show, leave it blank; never tag a look-alike.
+
 Why: Thousands of molded figures, perfect in shape, none of them alive. A mold takes the shape, not the work.
 
 ### YouTube
@@ -1239,6 +1275,8 @@ Covers: `assets/covers/030_RECEPTION_vertical.png`, `assets/covers/030_RECEPTION
 
 Location tag: `Forbidden City` (Instagram, TikTok, Facebook, YouTube (Video location))
 
+If it isn't listed, search: `The Palace Museum` → `Forbidden City, Beijing` → `Dongcheng, Beijing` → `Beijing, China`. If none of these show, leave it blank; never tag a look-alike.
+
 Why: Gate after gate, room after room. Every answer opens another door, and you know the place less.
 
 ### YouTube
@@ -1375,6 +1413,40 @@ A young Black boy in a white shirt knocks on a closed beige door in a bright, qu
 
 Affirmations set to sound, from `posts/freq/*.json`. The films show you how to see it; FREQ is what you tell yourself after.
 
+### Series copy
+
+**Facebook series title**
+
+```text
+NDCH FREQ: Affirmations Set to Sound
+```
+
+**Facebook blurb**
+
+```text
+The NVS films change how you see. FREQ changes what you tell yourself.
+
+Each track is one affirmation, set to sound and gold light, made to be played on the days you forget. Say it until you believe it.
+
+Start with 001: I Love Myself.
+```
+
+**Cover image prompt**
+
+```text
+Cinematic wide shot, no people. A vast, dark ancient temple at night, its stone columns fading into black. At the center, a perfect ring of molten gold light hovers just above a still pool of black water, pulsing outward in soft concentric waves like a sound frequency made visible. The ring's reflection is mirrored exactly in the water. The black stone floor around the pool is cracked with fine gold veins that glow brighter near the ring, as if lit from beneath by the same sound. Faint golden particles drift upward in the air. On a weathered column at the edge of the frame, an ancient carved inscription is barely visible in shadow. The mood is calm, intimate and reverent: a quiet place to say something true to yourself. The palette is deep black, warm burnished gold and the faintest blue-black in the water, with no other colors. Low-key lighting, the ring as the only light source, soft bloom, volumetric haze. Shot on a large-format cinema camera with a 35mm anamorphic lens, shallow depth of field, subtle film grain, photorealistic, ultra-detailed stone and water. The ring sits center-left. The upper right of the frame is open, dark negative space.
+```
+
+**Negative prompt**
+
+```text
+text, letters, readable inscription, watermark, logo, people, faces, cartoon, illustration, neon, rainbow colors, sci-fi, hologram, oversaturated, lens flare overload
+```
+
+**Title overlay**
+
+Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style raw in Midjourney. Title "NDCH FREQ" in Cormorant semibold, gold, upper right; "Affirmations Set to Sound" beneath in off-white small caps at about 40% of the title size; the gilded NDCH emblem can sit inside the gold ring, as on the FREQ 001 cover.
+
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | posted |  | Temple of Apollo, Delphi |
@@ -1388,6 +1460,8 @@ Note: YouTube posted (full 3:32 cut, description below is as posted). Instagram,
 Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png`
 
 Location tag: `Temple of Apollo, Delphi` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Delphi Archaeological Site` → `Archaeological Museum of Delphi` → `Delphi, Greece`. If none of these show, leave it blank; never tag a look-alike.
 
 Why: Carved at the entrance: Know thyself. You can't love what you won't look at, and FREQ starts there.
 

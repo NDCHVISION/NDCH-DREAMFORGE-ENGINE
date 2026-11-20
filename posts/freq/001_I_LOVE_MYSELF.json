@@ -12,7 +12,12 @@
   "alt_text": "A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.",
   "location": {
     "name": "Temple of Apollo, Delphi",
-    "why": "Carved at the entrance: Know thyself. You can't love what you won't look at, and FREQ starts there."
+    "why": "Carved at the entrance: Know thyself. You can't love what you won't look at, and FREQ starts there.",
+    "search": [
+      "Delphi Archaeological Site",
+      "Archaeological Museum of Delphi",
+      "Delphi, Greece"
+    ]
   },
   "platforms": {
     "youtube": {

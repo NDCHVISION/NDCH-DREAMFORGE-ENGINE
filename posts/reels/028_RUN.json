@@ -10,7 +10,13 @@
   "alt_text": "A small brass-and-iron engine runs in a dark stone workshop, its black flywheel turning. Beside it sits an identical bronze copy that does not move, then a long table of copies, all still. A close-up of the original's turning hub. A grey-bearded man with deep brown skin, in a charcoal work shirt and leather apron, holds an unfinished iron flywheel casting beside the running engine; he looks at it, turns to the camera and smiles. The two engines return and the word RUN appears in white.",
   "location": {
     "name": "Terracotta Army",
-    "why": "Thousands of molded figures, perfect in shape, none of them alive. A mold takes the shape, not the work."
+    "why": "Thousands of molded figures, perfect in shape, none of them alive. A mold takes the shape, not the work.",
+    "search": [
+      "Emperor Qinshihuang's Mausoleum Site Museum",
+      "Mausoleum of the First Qin Emperor",
+      "Lintong, Xi'an",
+      "Xi'an, Shaanxi, China"
+    ]
   },
   "platforms": {
     "youtube": {
