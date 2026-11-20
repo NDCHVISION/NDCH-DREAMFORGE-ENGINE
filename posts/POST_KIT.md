@@ -1377,13 +1377,13 @@ Affirmations set to sound, from `posts/freq/*.json`. The films show you how to s
 
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
-| FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
+| FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | posted |  | Temple of Apollo, Delphi |
 
 ## FREQ 001 · I LOVE MYSELF
 
-Status: draft
+Status: posted
 
-Note: Two cuts. Full (3:32): YouTube as a regular video. Under-3:00 cut (2:59): YouTube Short and Instagram Reel, since Reels over 3 minutes aren't shown to non-followers and Shorts cap at 3:00.
+Note: YouTube posted (full 3:32 cut, description below is as posted). Instagram, TikTok and Facebook still to post: use the 2:59 cut on all three, since Reels over 3 minutes aren't shown to non-followers. LinkedIn comes later.
 
 Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png`
 
@@ -1402,25 +1402,18 @@ FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
 **Description**
 
 ```text
-I love myself.
-I love the way I feel in my own skin.
+The reels change how you see.
+The frequencies change what you tell yourself.
 
-The films show you how to see it. This is what you tell yourself after.
-Not because everything's where it should be. Because loving yourself was never supposed to wait for that.
-
-Look good in the light. Feel good in the dark.
-
-—
-NDCH FREQ · 001 · I Love Myself
-Short affirmations set to sound, for the days you forget.
-
-#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself #Mindset
+001 | I LOVE MYSELF
+You do not have to become someone else to be worthy of your own love.
+You begin here.
 ```
 
 **Pinned comment**
 
 ```text
-Say it once for yourself today. What's one thing you love about you?
+Say it once for yourself today. What's one thing you love about you? 🤍
 ```
 
 ### Instagram
@@ -1430,18 +1423,60 @@ Say it once for yourself today. What's one thing you love about you?
 ```text
 I love myself. I love the way I feel in my own skin.
 
-Things don't have to be perfect for you to love yourself. Say it until you believe it.
+You do not have to become someone else to be worthy of your own love. You begin here.
 
 —
 NDCH FREQ · 001
 
-#NDCH #Affirmations #SelfLove #ILoveMyself #Mindset
+#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself
 ```
 
 **First comment (pin it)**
 
 ```text
-Say it once for yourself today. 🤍
+What's one thing you love about you? Say it here. 🤍
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 001| I LOVE MYSELF
+
+You do not have to become someone else to be worthy of your own love.
+```
+
+**First comment (pin it)**
+
+```text
+What's one thing you love about you? Say it here. 🤍
+```
+
+### Facebook
+
+**Title**
+
+```text
+I LOVE MYSELF · NDCH FREQ 001
+```
+
+**Description**
+
+```text
+I love myself. I love the way I feel in my own skin.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+You do not have to become someone else to be worthy of your own love. You begin here.
+
+#NDCH #NDCHFREQ #SelfLove
+```
+
+**First comment**
+
+```text
+What's one thing you love about you? Say it here. 🤍
 ```
 
 ### Alt text
