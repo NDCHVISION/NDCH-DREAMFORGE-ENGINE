@@ -61,7 +61,8 @@ export interface ReelPost {
   alt_text?: string;
   /** Free-text posting note shown under the status line (e.g. which platforms are a backfill). */
   note?: string;
-  location: { name: string; why: string };
+  /** `search`: other names to try, in order, when an app's location search doesn't list `name` (TikTok's China data is thin). */
+  location: { name: string; why: string; search?: string[] };
   /** 'freq' for NDCH FREQ (posts/freq/); omitted for the DreamForge reels (posts/reels/). */
   series?: 'freq';
   platforms: Record<Platform, Record<string, string>>;
@@ -159,7 +160,15 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   if (p.note) out.push(`Note: ${p.note}`, '');
   if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
   if (p.location?.name && only !== 'linkedin')
-    out.push(`Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`, '', `Why: ${p.location.why}`, '');
+    out.push(
+      `Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`,
+      '',
+      ...(p.location.search?.length
+        ? [`If it isn't listed, search: ${p.location.search.map((n) => `\`${n}\``).join(' → ')}. If none of these show, leave it blank; never tag a look-alike.`, '']
+        : []),
+      `Why: ${p.location.why}`,
+      '',
+    );
   for (const plat of only ? [only] : PLATFORMS) {
     if (!p.platforms[plat]) continue;
     out.push(`### ${LABEL[plat]}`, '');
@@ -173,12 +182,27 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   return out.join('\n');
 }
 
-export function renderKit(posts: ReelPost[], freq: ReelPost[] = []): string {
+/** Series-level copy (Facebook page/series blurb, cover prompt) from posts/series.json. */
+export interface SeriesInfo { name: string; facebook_title: string; facebook_blurb: string; cover_prompt?: string; cover_negative?: string; cover_overlay?: string }
+export function loadSeries(): Record<'nvs' | 'freq', SeriesInfo> | undefined {
+  try { return JSON.parse(readFileSync(join(process.cwd(), 'posts', 'series.json'), 'utf8')); } catch { return undefined; }
+}
+export function renderSeries(s?: SeriesInfo): string[] {
+  if (!s) return [];
+  const out = ['### Series copy', '', '**Facebook series title**', '', '```text', s.facebook_title, '```', '', '**Facebook blurb**', '', '```text', s.facebook_blurb, '```', ''];
+  if (s.cover_prompt) out.push('**Cover image prompt**', '', '```text', s.cover_prompt, '```', '');
+  if (s.cover_negative) out.push('**Negative prompt**', '', '```text', s.cover_negative, '```', '');
+  if (s.cover_overlay) out.push('**Title overlay**', '', s.cover_overlay, '');
+  return out;
+}
+
+export function renderKit(posts: ReelPost[], freq: ReelPost[] = [], series = loadSeries()): string {
   const head = [
     '# NDCH post kit',
     '',
-    'Generated from `posts/reels/*.json` by `npm run posts -- --write`. Edit the JSON, not this file.',
+    'Generated from `posts/reels/*.json` and `posts/series.json` by `npm run posts -- --write`. Edit the JSON, not this file.',
     '',
+    ...renderSeries(series?.nvs),
     '| # | Reel | Status | YouTube | Location |',
     '| --- | --- | --- | --- | --- |',
     ...posts.map((p) => `| ${p.posting} | [${p.title}](#${p.posting}--${p.title.toLowerCase().replace(/ /g, '-')}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
@@ -192,6 +216,7 @@ export function renderKit(posts: ReelPost[], freq: ReelPost[] = []): string {
     '',
     'Affirmations set to sound, from `posts/freq/*.json`. The films show you how to see it; FREQ is what you tell yourself after.',
     '',
+    ...renderSeries(series?.freq),
     '| # | Track | Status | YouTube | Location |',
     '| --- | --- | --- | --- | --- |',
     ...freq.map((p) => `| ${label(p)} | [${p.title}](#${label(p).toLowerCase().replace(/ /g, '-')}--${p.title.toLowerCase().replace(/ /g, '-')}) | ${p.status} | ${p.schedule?.youtube ? fmtWhen(p.schedule.youtube) : ''} | ${p.location?.name ?? ''} |`),
