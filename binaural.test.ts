@@ -43,8 +43,8 @@ test('FREQ rules: a track needs a bed and a headphones line; no health claims an
   const p: ReelPost = structuredClone(base);
   p.posting = '002';
   delete p.binaural;
-  p.platforms.youtube.description = p.platforms.youtube.description.replace(/\n\nBest with headphones\. 🎧/, '');
-  p.platforms.instagram.caption = p.platforms.instagram.caption.replace(/\n\nBest with headphones\. 🎧/, '');
+  p.platforms.youtube.description = 'The reels change how you see.\n\n#NDCH';
+  p.platforms.instagram.caption = 'You begin here.\n\n#NDCH';
   p.platforms.youtube.title = p.platforms.youtube.title.replace('FREQ 001', 'FREQ 002');
   p.platforms.tiktok.caption = p.platforms.tiktok.caption.replace('FREQ 001', 'FREQ 002');
   assert.ok(validatePost(p).some((e) => e.includes('binaural: missing')));
