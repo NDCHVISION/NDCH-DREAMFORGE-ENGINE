@@ -10,3 +10,4 @@ playwright-report/
 output/
 # Windows temp files
 ~$*
+renders/
