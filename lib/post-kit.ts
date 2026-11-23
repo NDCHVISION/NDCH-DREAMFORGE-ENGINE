@@ -7,6 +7,7 @@
  */
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { resolveBinaural, validateBinaural, type TrackBinaural } from './binaural.ts';
 
 export const PLATFORMS = ['youtube', 'instagram', 'tiktok', 'facebook', 'linkedin'] as const;
 export type Platform = (typeof PLATFORMS)[number];
@@ -65,6 +66,8 @@ export interface ReelPost {
   location: { name: string; why: string; search?: string[] };
   /** 'freq' for NDCH FREQ (posts/freq/); omitted for the DreamForge reels (posts/reels/). */
   series?: 'freq';
+  /** FREQ only: the binaural bed under the song (lib/binaural.ts). Required from FREQ 002 on. */
+  binaural?: TrackBinaural;
   platforms: Record<Platform, Record<string, string>>;
 }
 
@@ -95,6 +98,27 @@ export function hashtags(text: string): string[] {
   return text.match(/#[\p{L}\p{N}_]+/gu) ?? [];
 }
 
+/**
+ * Medical-claim words FREQ copy may not use. Binaural beats have mixed evidence for mood and focus
+ * and none for healing; the copy speaks to how a track feels, never to treating anything.
+ */
+export const FREQ_CLAIM_WORDS = /\b(heal(s|ing)?|cure[sd]?|immun\w*|trauma|cells?|dna|therapy|therapeutic|treat(s|ment)?|anxiety|depression|insomnia|pain relief|detox)\b/i;
+
+/** FREQ 001 was released before binaural beds; every later track carries one and says to use headphones. */
+function validateFreq(p: ReelPost, where: string): string[] {
+  const errs: string[] = [];
+  for (const [plat, copy] of Object.entries(p.platforms ?? {}))
+    for (const [k, v] of Object.entries(copy ?? {}))
+      if (FREQ_CLAIM_WORDS.test(v)) errs.push(`${where}: ${plat}.${k} makes a health claim ("${FREQ_CLAIM_WORDS.exec(v)![0]}"); FREQ copy describes the feeling, not a treatment`);
+  if (Number(p.posting) < 2 && !p.binaural) return errs;
+  errs.push(...validateBinaural(p.binaural, `${where}: binaural`));
+  for (const [plat, key] of [['youtube', 'description'], ['instagram', 'caption']] as const) {
+    const v = p.platforms?.[plat]?.[key];
+    if (v && !/headphones/i.test(v)) errs.push(`${where}: ${plat}.${key} must tell people to use headphones (binaural beats only work with one tone per ear)`);
+  }
+  return errs;
+}
+
 /** Returns a list of problems; empty means the file is valid. */
 export function validatePost(p: ReelPost, fileName?: string): string[] {
   const errs: string[] = [];
@@ -123,6 +147,7 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     const body = copy.caption ?? copy.description ?? copy.post ?? '';
     if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
+  if (p.series === 'freq') errs.push(...validateFreq(p, where));
   const n = label(p);
   if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${n} | ${p.title}`))
     errs.push(`${where}: youtube.title should start with "${n} | ${p.title}"`);
@@ -158,6 +183,10 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
   out.push(meta.join(' · '), '');
   if (p.note) out.push(`Note: ${p.note}`, '');
+  if (p.binaural && !validateBinaural(p.binaural).length) {
+    const b = resolveBinaural(p.binaural);
+    out.push(`Binaural bed: ${b.source} · left ${b.left_hz} Hz / right ${b.right_hz} Hz · ${b.beat_hz} Hz beat · ${b.level_lu_below} LU under the song (\`npm run freq:binaural -- ${p.posting} <song>\`)`, '');
+  }
   if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
   if (p.location?.name && only !== 'linkedin')
     out.push(
