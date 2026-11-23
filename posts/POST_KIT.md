@@ -1455,7 +1455,7 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 
 Status: draft
 
-Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers. Full cut (3:32) for YouTube; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers. LinkedIn comes later.
+Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers with the headphones mark. Full cut (3:32) for YouTube and LinkedIn; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers.
 
 Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`)
 
@@ -1478,6 +1478,8 @@ FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
 **Description**
 
 ```text
+🎧 Best with headphones.
+
 The reels change how you see.
 The frequencies change what you tell yourself.
 
@@ -1485,13 +1487,17 @@ The frequencies change what you tell yourself.
 You do not have to become someone else to be worthy of your own love.
 You begin here.
 
-Best with headphones. 🎧
+—
+NDCH FREQ · 001 · I Love Myself
+Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself
 ```
 
 **Pinned comment**
 
 ```text
-Say it once for yourself today. What's one thing you love about you? 🤍
+Headphones on. Say it once for yourself today: what's one thing you love about you? 🤍
 ```
 
 ### Instagram
@@ -1499,16 +1505,19 @@ Say it once for yourself today. What's one thing you love about you? 🤍
 **Caption**
 
 ```text
+🎧 Headphones on.
+
 I love myself. I love the way I feel in my own skin.
+
+The reels change how you see. The frequencies change what you tell yourself.
 
 You do not have to become someone else to be worthy of your own love. You begin here.
 
-Best with headphones. 🎧
-
 —
 NDCH FREQ · 001
+Best with headphones: 285 Hz left / 294 Hz right, a 9 Hz binaural beat.
 
-#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself
+#NDCH #NDCHFREQ #affirmations #selflove #dailyaffirmations
 ```
 
 **First comment (pin it)**
@@ -1524,13 +1533,13 @@ What's one thing you love about you? Say it here. 🤍
 ```text
 FREQ 001| I LOVE MYSELF
 
-You do not have to become someone else to be worthy of your own love.
+You do not have to become someone else to be worthy of your own love. 🎧
 ```
 
 **First comment (pin it)**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+Headphones on for this one. What's one thing you love about you? Say it here. 🤍
 ```
 
 ### Facebook
@@ -1544,13 +1553,15 @@ I LOVE MYSELF · NDCH FREQ 001
 **Description**
 
 ```text
+🎧 Best with headphones.
+
 I love myself. I love the way I feel in my own skin.
 
 The reels change how you see. The frequencies change what you tell yourself.
 
 You do not have to become someone else to be worthy of your own love. You begin here.
 
-Best with headphones. 🎧
+Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
 #NDCH #NDCHFREQ #SelfLove
 ```
@@ -1559,6 +1570,26 @@ Best with headphones. 🎧
 
 ```text
 What's one thing you love about you? Say it here. 🤍
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+FREQ 001 | I LOVE MYSELF
+```
+
+**Post text**
+
+```text
+FREQ 001 | I LOVE MYSELF
+
+You do not have to become someone else to be worthy of your own love.
+
+A lot of driven people only allow themselves approval after the next milestone, then move the milestone. FREQ is a short NDCH series of affirmations set to sound: one sentence, repeated until it lands. This one runs over 285 Hz left / 294 Hz right, a 9 Hz binaural beat, so it's best with headphones.
+
+#NDCH #Leadership #SelfWorth
 ```
 
 ### Alt text

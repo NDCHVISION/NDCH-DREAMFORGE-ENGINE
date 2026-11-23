@@ -8,7 +8,7 @@
     "vertical": "assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png",
     "horizontal": "assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png"
   },
-  "note": "Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers. Full cut (3:32) for YouTube; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers. LinkedIn comes later.",
+  "note": "Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers with the headphones mark. Full cut (3:32) for YouTube and LinkedIn; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers.",
   "alt_text": "A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.",
   "location": {
     "name": "Temple of Apollo, Delphi",
@@ -22,21 +22,25 @@
   "platforms": {
     "youtube": {
       "title": "FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove",
-      "description": "The reels change how you see.\nThe frequencies change what you tell yourself.\n\n001 | I LOVE MYSELF\nYou do not have to become someone else to be worthy of your own love.\nYou begin here.\n\nBest with headphones. 🎧",
-      "pinned_comment": "Say it once for yourself today. What's one thing you love about you? 🤍"
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n001 | I LOVE MYSELF\nYou do not have to become someone else to be worthy of your own love.\nYou begin here.\n\n—\nNDCH FREQ · 001 · I Love Myself\nSet over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself",
+      "pinned_comment": "Headphones on. Say it once for yourself today: what's one thing you love about you? 🤍"
     },
     "instagram": {
-      "caption": "I love myself. I love the way I feel in my own skin.\n\nYou do not have to become someone else to be worthy of your own love. You begin here.\n\nBest with headphones. 🎧\n\n—\nNDCH FREQ · 001\n\n#NDCH #NDCHFREQ #Affirmations #SelfLove #ILoveMyself",
+      "caption": "🎧 Headphones on.\n\nI love myself. I love the way I feel in my own skin.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nYou do not have to become someone else to be worthy of your own love. You begin here.\n\n—\nNDCH FREQ · 001\nBest with headphones: 285 Hz left / 294 Hz right, a 9 Hz binaural beat.\n\n#NDCH #NDCHFREQ #affirmations #selflove #dailyaffirmations",
       "first_comment": "What's one thing you love about you? Say it here. 🤍"
     },
     "tiktok": {
-      "caption": "FREQ 001| I LOVE MYSELF\n\nYou do not have to become someone else to be worthy of your own love.",
-      "first_comment": "What's one thing you love about you? Say it here. 🤍"
+      "caption": "FREQ 001| I LOVE MYSELF\n\nYou do not have to become someone else to be worthy of your own love. 🎧",
+      "first_comment": "Headphones on for this one. What's one thing you love about you? Say it here. 🤍"
     },
     "facebook": {
       "title": "I LOVE MYSELF · NDCH FREQ 001",
-      "description": "I love myself. I love the way I feel in my own skin.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nYou do not have to become someone else to be worthy of your own love. You begin here.\n\nBest with headphones. 🎧\n\n#NDCH #NDCHFREQ #SelfLove",
+      "description": "🎧 Best with headphones.\n\nI love myself. I love the way I feel in my own skin.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nYou do not have to become someone else to be worthy of your own love. You begin here.\n\nSet over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #SelfLove",
       "first_comment": "What's one thing you love about you? Say it here. 🤍"
+    },
+    "linkedin": {
+      "title": "FREQ 001 | I LOVE MYSELF",
+      "post": "FREQ 001 | I LOVE MYSELF\n\nYou do not have to become someone else to be worthy of your own love.\n\nA lot of driven people only allow themselves approval after the next milestone, then move the milestone. FREQ is a short NDCH series of affirmations set to sound: one sentence, repeated until it lands. This one runs over 285 Hz left / 294 Hz right, a 9 Hz binaural beat, so it's best with headphones.\n\n#NDCH #Leadership #SelfWorth"
     }
   },
   "binaural": {
