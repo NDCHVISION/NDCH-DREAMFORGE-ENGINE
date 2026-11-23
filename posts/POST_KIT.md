@@ -1449,13 +1449,15 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
-| FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | posted |  | Temple of Apollo, Delphi |
+| FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
 
 ## FREQ 001 · I LOVE MYSELF
 
-Status: posted
+Status: draft
 
-Note: YouTube posted (full 3:32 cut, description below is as posted). Instagram, TikTok and Facebook still to post: use the 2:59 cut on all three, since Reels over 3 minutes aren't shown to non-followers. LinkedIn comes later.
+Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers. Full cut (3:32) for YouTube; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers. LinkedIn comes later.
+
+Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`)
 
 Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png`
 
@@ -1482,6 +1484,8 @@ The frequencies change what you tell yourself.
 001 | I LOVE MYSELF
 You do not have to become someone else to be worthy of your own love.
 You begin here.
+
+Best with headphones. 🎧
 ```
 
 **Pinned comment**
@@ -1498,6 +1502,8 @@ Say it once for yourself today. What's one thing you love about you? 🤍
 I love myself. I love the way I feel in my own skin.
 
 You do not have to become someone else to be worthy of your own love. You begin here.
+
+Best with headphones. 🎧
 
 —
 NDCH FREQ · 001
@@ -1543,6 +1549,8 @@ I love myself. I love the way I feel in my own skin.
 The reels change how you see. The frequencies change what you tell yourself.
 
 You do not have to become someone else to be worthy of your own love. You begin here.
+
+Best with headphones. 🎧
 
 #NDCH #NDCHFREQ #SelfLove
 ```

@@ -4,11 +4,13 @@
  *   npm run freq:binaural -- 002 path/to/song.wav            uses posts/freq/002_*.json → binaural
  *   npm run freq:binaural -- 002 song.wav --out renders/      choose the output folder
  *   npm run freq:binaural -- --protocol DreamForge song.wav   try a protocol without a track file
+ *   npm run freq:binaural -- 002 song.wav --video cut.mp4    also put the verified audio into a finished video (picture untouched)
  *   npm run freq:binaural -- --list                           print the protocols and the chart
  *
  * Writes <out>/FREQ_<NNN>_<TITLE>_binaural.wav (the audio to render the video with), the bed stem,
  * and a .report.json with every measurement. Exits non-zero if any check fails: don't render with it.
  */
+import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { AFFIRMATION_FIT, CHART, PROTOCOLS, resolveBinaural, type ProtocolName, type TrackBinaural } from '../lib/binaural.ts';
@@ -27,6 +29,7 @@ if (args.includes('--list')) {
   process.exit(0);
 }
 
+const video = opt('--video');
 const outDir = resolve(opt('--out') ?? 'renders/freq');
 const protocol = opt('--protocol') as ProtocolName | undefined;
 let decl: TrackBinaural, name: string;
@@ -53,4 +56,11 @@ writeFileSync(join(outDir, `${name}_binaural.report.json`), JSON.stringify(repor
 console.log(`${name}: ${spec.source} · L ${spec.left_hz} Hz / R ${spec.right_hz} Hz · beat ${spec.beat_hz} Hz · ${spec.level_lu_below} LU under the song\n`);
 for (const c of report.checks) console.log(`  ${c.ok ? 'ok  ' : 'FAIL'}  ${c.name.padEnd(28)} ${c.detail}`);
 console.log(`\n${report.ok ? 'ready' : 'NOT READY, do not render with this'}: ${out}`);
+if (report.ok && video) {
+  // Picture copied as is; audio as stereo AAC 320k without mid/side coding, so each ear keeps its own tone.
+  const vout = join(outDir, `${name}_BINAURAL.mp4`);
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', resolve(video), '-i', out, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
+    '-c:a', 'aac', '-aac_ms', '0', '-b:a', '320k', '-ac', '2', '-movflags', '+faststart', '-shortest', vout]);
+  console.log(`video: ${vout}`);
+}
 process.exit(report.ok ? 0 : 1);

@@ -37,11 +37,14 @@ test('resolve: left = base, right = base + beat; protocols cannot be overridden'
   assert.deepEqual(validateBinaural({ protocol: 'DreamForge', level_lu_below: 20, fade_s: 6 }), []);
 });
 
-test('FREQ rules: 002+ needs a bed and a headphones line; no health claims anywhere', () => {
+test('FREQ rules: a track needs a bed and a headphones line; no health claims anywhere', () => {
   const base = loadPosts(FREQ_DIR).find((p) => p.posting === '001')!;
-  assert.deepEqual(validatePost(base), []); // 001 was released without a bed
+  assert.deepEqual(validatePost(base), []);
   const p: ReelPost = structuredClone(base);
   p.posting = '002';
+  delete p.binaural;
+  p.platforms.youtube.description = p.platforms.youtube.description.replace(/\n\nBest with headphones\. 🎧/, '');
+  p.platforms.instagram.caption = p.platforms.instagram.caption.replace(/\n\nBest with headphones\. 🎧/, '');
   p.platforms.youtube.title = p.platforms.youtube.title.replace('FREQ 001', 'FREQ 002');
   p.platforms.tiktok.caption = p.platforms.tiktok.caption.replace('FREQ 001', 'FREQ 002');
   assert.ok(validatePost(p).some((e) => e.includes('binaural: missing')));

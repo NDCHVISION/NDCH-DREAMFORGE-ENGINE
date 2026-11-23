@@ -1,6 +1,6 @@
 # NDCH FREQ audio: binaural beds
 
-Every FREQ track from 002 on carries a binaural bed under the song. FREQ 001 was released without one and stays as it is.
+Every FREQ track carries a binaural bed under the song. FREQ 001 was re-released with one (DreamForge).
 
 The frequencies are hard-coded in `lib/binaural.ts` from the two NDCH sheets: the five communication protocols and the 30-step brainwave chart. Tests fail if a value drifts from the sheets.
 
@@ -42,6 +42,8 @@ A binaural beat is two steady sine tones, one per ear: the **base** in the left 
    This writes `renders/freq/FREQ_002_<TITLE>_binaural.wav`, the file to render the video with, plus the bed stem and a report. It exits non-zero if any check fails. Don't render with a failed mix.
 
 4. Render the video from the `_binaural.wav` file. Encode the audio as stereo AAC at 320 kbps.
+
+   If the video is already finished, add `--video cut.mp4`. Pass the song as that cut's own audio track (`ffmpeg -i cut.mp4 -vn -c:a pcm_s24le song.wav`) so the beats line up with any edits. The command writes `<name>_BINAURAL.mp4` with the picture untouched.
 
 5. Copy: the YouTube description and the Instagram caption must say to use headphones. The post kit enforces this, for example with "Best with headphones."
 
