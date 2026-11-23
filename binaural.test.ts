@@ -47,6 +47,7 @@ test('FREQ rules: a track needs a bed and a headphones line; no health claims an
   p.platforms.instagram.caption = 'You begin here.\n\n#NDCH';
   p.platforms.youtube.title = p.platforms.youtube.title.replace('FREQ 001', 'FREQ 002');
   p.platforms.tiktok.caption = p.platforms.tiktok.caption.replace('FREQ 001', 'FREQ 002');
+  delete (p.platforms as Partial<ReelPost['platforms']>).linkedin;
   assert.ok(validatePost(p).some((e) => e.includes('binaural: missing')));
   p.binaural = { protocol: 'DreamForge' };
   assert.ok(validatePost(p).some((e) => e.includes('headphones')));
