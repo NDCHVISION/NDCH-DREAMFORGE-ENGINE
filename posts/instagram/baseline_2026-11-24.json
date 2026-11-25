@@ -1,0 +1,31 @@
+{
+  "account": "@ndchvision",
+  "captured": "2026-11-25",
+  "window": "last 30 days (Professional dashboard)",
+  "profile": { "posts": 44, "followers": 64, "following": 37, "highlights": ["ARTIFACTS", "ORIGINS"], "bio": "NDCH™ / Built for what outlives us.", "link": "shop.ndchvision.com and 2 more" },
+  "views": { "total": 376, "viewers": 252, "followers_pct": 29.3, "non_followers_pct": 70.7, "by_type_pct": { "reels": 83.7, "stories": 10.6, "posts": 5.6 } },
+  "interactions": { "total": 31, "accounts_engaged": 4, "followers_pct": 32.3, "non_followers_pct": 67.7, "by_type_pct": { "reels": 67.7, "posts": 29.0, "stories": 3.2 } },
+  "profile_activity": { "total": 2, "profile_visits": 2 },
+  "top_by_views": [
+    { "date": "2026-10-30", "post": "024 FRAMES reel", "views": 121 },
+    { "date": "2026-11-17", "post": "027 BEARING reel", "views": 117 },
+    { "date": "2026-11-13", "post": "026 INVENTORY reel", "views": 17 },
+    { "date": "2026-10-28", "post": "023 AXIOM reel", "views": 14 },
+    { "date": "2026-11-04", "post": "025 PARALLAX reel", "views": 11 }
+  ],
+  "top_by_interactions": [
+    { "date": "2026-11-22", "post": "FREQ 001 I LOVE MYSELF reel", "interactions": 5 },
+    { "date": "2026-10-30", "post": "024 FRAMES reel", "interactions": 5 },
+    { "date": "2026-11-04", "post": "025 PARALLAX reel", "interactions": 4 },
+    { "date": "2026-11-14", "post": "AXIOM symbol (scales)", "interactions": 3 },
+    { "date": "2026-11-17", "post": "027 BEARING reel", "interactions": 2 }
+  ],
+  "grid_pattern": "Each reel is paired with a symbol still (same number, location-tagged landmark); reel covers are framed cards on velvet (blue for NVS, red for AXIOM, gold for FREQ).",
+  "observed": [
+    "Two reels broke past ~120 views; the rest stalled at 10-20, so distribution is hit-or-miss, not steady.",
+    "252 viewers produced 2 profile visits: almost nobody who sees a reel goes on to the profile.",
+    "Posts show 'No comments yet'; first comments and replies are not happening consistently.",
+    "Symbol captions vary: 027's is the short form; 026's repeats the full reel caption.",
+    "028 RUN went up as a photo of its cover, not as a reel."
+  ]
+}
