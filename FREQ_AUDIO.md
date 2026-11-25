@@ -45,7 +45,30 @@ A binaural beat is two steady sine tones, one per ear: the **base** in the left 
 
    If the video is already finished, add `--video cut.mp4`. Pass the song as that cut's own audio track (`ffmpeg -i cut.mp4 -vn -c:a pcm_s24le song.wav`) so the beats line up with any edits. The command writes `<name>_BINAURAL.mp4` with the picture untouched.
 
+   To make the video from the cover instead, see [Video](#video) below.
+
 5. Copy: the YouTube description and the Instagram caption must say to use headphones. The post kit enforces this, for example with "Best with headphones."
+
+## Video
+
+`npm run freq:video` turns the verified mix and the post's covers into upload-ready video, with ffmpeg only:
+
+```sh
+npm run freq:video -- 001 renders/freq/FREQ_001_I_LOVE_MYSELF_binaural.wav --start 1:02
+```
+
+| File | Size | What |
+| --- | --- | --- |
+| `FREQ_001_I_LOVE_MYSELF_youtube.mp4` | 1920x1080 | whole track, horizontal cover |
+| `FREQ_001_I_LOVE_MYSELF_vertical.mp4` | 1080x1920 | whole track, vertical cover |
+| `FREQ_001_I_LOVE_MYSELF_short.mp4` | 1080x1920 | 59 s from `--start` (Shorts, Reels promo) |
+| `FREQ_001_I_LOVE_MYSELF_cut3m.mp4` | 1080x1920 | up to 2:59 from `--start` (Reels, TikTok, Facebook) |
+
+The cuts are made only when `--start` is given. Use `--only short` to make one file, `--short-length 30` for a shorter cut, and `--preset veryfast` for a quick preview. Lengths are capped at 59 s and 2:59, and a cut stops at the end of the track. `--dry-run` prints the ffmpeg commands without rendering.
+
+- **Motion.** The cover is never a frozen still, and never busy. It pushes in 2.5% over the whole video, breathes another 1% on a 10-second cycle while the gold glows slightly brighter, and drifts within that margin on two slow cycles. Nothing flashes, and nothing moves with the beat.
+- **Audio.** The audio is never re-mixed. The full videos carry the master as it is, and the cuts add only a 0.5 s fade in and a 2 s fade out. The input must be stereo. The output is stereo AAC at 320 kbps and 48 kHz, with mid/side coding off.
+- **Checks.** Every file is checked after rendering for size, H.264 yuv420p, 30 fps, 48 kHz stereo, duration and the cap, and that the left/right difference survived. The command exits non-zero if any check fails.
 
 ## Volume
 
