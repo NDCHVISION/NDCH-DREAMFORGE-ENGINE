@@ -865,6 +865,8 @@ A dark marble chamber veined with gold, lit by one round opening in the dome. Th
 
 Status: scheduled · Engine: NDCH_033_BEARING · YouTube: Tue, Nov 10, 11:00 AM CT
 
+Covers: `assets/covers/027_BEARING_vertical.png`
+
 Location tag: `Royal Observatory Greenwich` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 Why: Home of the Prime Meridian: the line the world takes its bearings from. Name your own reference point.
@@ -1125,6 +1127,26 @@ Anyone can copy what they can see: every contour, every detail. They can't copy 
 #NDCH #Entrepreneurship #Creativity
 ```
 
+### Symbol (Instagram grid)
+
+Image: `assets/symbols/028_RUN_symbol.png` · Instagram grid, directly after 027 BEARING (RUN's pair) · same location tag as the reel
+
+**Caption**
+
+```text
+028 | RUN
+
+Anyone can copy the shape.
+No one can copy what keeps it turning.
+#NDCH #Authorship #Discipline
+```
+
+**Alt text**
+
+```text
+A great armillary engine of bronze and stone turns above dark water, waterfalls spilling from its terraces, a glowing core at its center; a stone path leads toward it from the NDCH emblem in the foreground.
+```
+
 ### Alt text
 
 ```text
@@ -1135,7 +1157,7 @@ A small brass-and-iron engine runs in a dark stone workshop, its black flywheel 
 
 Status: scheduled · Engine: NDCH_035_PRESENCE · YouTube: Tue, Nov 17, 11:00 AM CT
 
-Covers: `assets/covers/029_PRESENCE_vertical.png`, `assets/covers/029_PRESENCE_horizontal.png`
+Covers: `assets/covers/029_PRESENCE_vertical.png`
 
 Location tag: `Great Sphinx of Giza` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -1271,7 +1293,7 @@ A young woman with dark curly hair and a charcoal sweater looks toward the camer
 
 Status: draft · Engine: NDCH_036_RECEPTION · YouTube: Fri, Nov 20, 11:00 AM CT
 
-Covers: `assets/covers/030_RECEPTION_vertical.png`, `assets/covers/030_RECEPTION_horizontal.png`
+Covers: `assets/covers/030_RECEPTION_vertical.png`
 
 Location tag: `Forbidden City` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -1459,7 +1481,7 @@ Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 
 
 Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`, then `npm run freq:qc -- 001 --full … --short …`)
 
-Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.jpg`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.jpg`
+Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.jpg`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.jpg` · Instagram: `assets/covers/FREQ_001_I_LOVE_MYSELF_instagram.png`
 
 Location tag: `Temple of Apollo, Delphi` (Instagram, TikTok, Facebook, YouTube (Video location))
 

@@ -303,11 +303,37 @@
     "series": "freq",
     "title": "I LOVE MYSELF",
     "engine_id": null,
-    "vertical": "FREQ_001_I_LOVE_MYSELF_vertical.png",
-    "vertical_size": "941x1672",
-    "horizontal": "FREQ_001_I_LOVE_MYSELF_horizontal.png",
-    "horizontal_size": "1983x793",
+    "vertical": "FREQ_001_I_LOVE_MYSELF_vertical.jpg",
+    "vertical_size": "1080x1920",
+    "horizontal": "FREQ_001_I_LOVE_MYSELF_horizontal.jpg",
+    "horizontal_size": "1920x1080",
     "added": "2026-11-18",
-    "notes": "NDCH FREQ 001. Velvet template with a rendered frame from the drop (2:01) in the window; header reads NDCH • FREQ."
+    "notes": "Final covers (wave, 🎧 header) exported as JPEG; Instagram uses the gold-velvet framed poster.",
+    "instagram": "FREQ_001_I_LOVE_MYSELF_instagram.png",
+    "instagram_size": "916x1717"
+  },
+  {
+    "posting": "027",
+    "title": "BEARING",
+    "engine_id": null,
+    "vertical": "027_BEARING_vertical.png",
+    "added": "2026-11-25",
+    "notes": "Chain and emblem medallion on cracked, lava-lit stone; lantern-lit archway. Blue velvet frame, 916x1717 as received."
+  },
+  {
+    "posting": "029",
+    "title": "PRESENCE",
+    "engine_id": null,
+    "vertical": "029_PRESENCE_vertical.png",
+    "added": "2026-11-25",
+    "notes": "Bronze face with gold-veined cracks inside a broken gold ring; figure in a lit colonnade. Blue velvet frame, 1080x1920."
+  },
+  {
+    "posting": "030",
+    "title": "RECEPTION",
+    "engine_id": null,
+    "vertical": "030_RECEPTION_vertical.png",
+    "added": "2026-11-25",
+    "notes": "Gold double doors open at the end of a vaulted hall; emblem inlaid in the marble floor. Blue velvet frame, 916x1717 as received."
   }
 ]
