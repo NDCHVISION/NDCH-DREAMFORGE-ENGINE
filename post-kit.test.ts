@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { FREQ_DIR, findPost, loadPosts, renderKit, validatePost, type ReelPost } from './lib/post-kit.ts';
+import { FREQ_DIR, findPost, loadPosts, readinessWarnings, renderKit, validatePost, type ReelPost } from './lib/post-kit.ts';
 
 const dir = join(process.cwd(), 'posts', 'reels');
 
@@ -76,4 +76,17 @@ test('LinkedIn posts follow the house format: number | TITLE, line, paragraph, #
   assert.deepEqual(validatePost(p).filter((e) => e.includes('linkedin')), []);
   p.platforms.linkedin.post = p.platforms.linkedin.post.replace(/#NDCH.*$/, '#Leadership #NDCH');
   assert.ok(validatePost(p).some((e) => e.includes('linkedin.post must be')));
+});
+
+test('readiness warnings: covers, alt text and stale scheduled dates', () => {
+  const base = loadPosts().find((p) => p.posting === '026')!;
+  const now = new Date('2026-11-25T12:00:00Z');
+  const ok = { ...base, status: 'scheduled' as const, schedule: { youtube: '2026-12-01T11:00:00-06:00' } };
+  assert.deepEqual(readinessWarnings(ok, process.cwd(), now), []);
+  const w = readinessWarnings({ ...ok, cover: { vertical: 'assets/covers/NOPE.png' }, alt_text: '', schedule: { youtube: '2026-11-01T11:00:00-05:00' } }, process.cwd(), now);
+  assert.ok(w.some((x) => /NOPE\.png is not in the repo/.test(x)));
+  assert.ok(w.some((x) => /no alt text/.test(x)));
+  assert.ok(w.some((x) => /every scheduled date has passed/.test(x)));
+  assert.ok(readinessWarnings({ ...ok, cover: undefined }, process.cwd(), now).some((x) => /no vertical cover/.test(x)));
+  assert.deepEqual(readinessWarnings({ ...ok, status: 'draft', cover: undefined, alt_text: undefined }, process.cwd(), now), []);
 });

@@ -126,6 +126,34 @@ export function transitionVarietyProblems(raw: unknown): string[] {
   return problems;
 }
 
+/**
+ * From TRANSITION_RULE_FROM on, every boundary is a decision (TRANSITIONS.md:
+ * "Every cut in an NDCH reel is chosen, not defaulted"). Returns problems
+ * when a boundary is left out, listed twice, or a hard cut has no note
+ * saying why the cut is the point.
+ */
+export function transitionCoverageProblems(raw: unknown, clipCount: number): string[] {
+  const boundaries = Math.max(0, clipCount - 1);
+  if (raw === undefined || raw === null) {
+    return boundaries ? [`clip_transitions must choose all ${boundaries} transitions (TRANSITIONS.md); none are listed`] : [];
+  }
+  if (!Array.isArray(raw)) return [];
+  const problems: string[] = [];
+  const seen = new Map<number, number>();
+  for (const t of raw as TransitionSpec[]) seen.set(t.after_clip, (seen.get(t.after_clip) ?? 0) + 1);
+  const missing: number[] = [];
+  for (let b = 1; b <= boundaries; b++) if (!seen.has(b)) missing.push(b);
+  if (missing.length) problems.push(`no transition chosen after clip ${missing.join(', ')}; list every boundary, a deliberate cut included`);
+  const twice = [...seen.entries()].filter(([, n]) => n > 1).map(([b]) => b);
+  if (twice.length) problems.push(`transition after clip ${twice.join(', ')} is listed more than once`);
+  for (const t of raw as TransitionSpec[]) {
+    if (t.type === 'cut' && (!t.note || !t.note.trim())) {
+      problems.push(`cut after clip ${t.after_clip} needs a note saying why a hard cut is the point here`);
+    }
+  }
+  return problems;
+}
+
 /** Length each clip must be conformed to: its window plus half of each adjoining dissolve. */
 export function clipLengthsWithTransitions(windows: number[], boundary: number[]): number[] {
   return windows.map((w, i) => round3(w + (i > 0 ? boundary[i - 1] / 2 : 0) + (i < windows.length - 1 ? boundary[i] / 2 : 0)));

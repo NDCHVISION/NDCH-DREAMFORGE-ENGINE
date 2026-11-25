@@ -5,7 +5,7 @@
  * Add a reel by copying an existing file and editing it; `npm run posts` prints any reel's copy,
  * and `npm run posts -- --write` regenerates posts/POST_KIT.md.
  */
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveBinaural, validateBinaural, type TrackBinaural } from './binaural.ts';
 
@@ -166,6 +166,29 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
       errs.push(`${where}: linkedin.post must be "${head}", the reel's line, one short paragraph, then #NDCH plus up to two topic hashtags, separated by blank lines`);
   }
   return errs;
+}
+
+/**
+ * Things to fix before a post goes out, which don't make the file invalid:
+ * a scheduled or posted reel with no cover, a cover file that isn't in the
+ * repo, no alt text, and a "scheduled" post whose dates have all passed
+ * (it has probably posted; set status to "posted" so the kit stays true).
+ * Drafts are only checked for cover files they already name.
+ */
+export function readinessWarnings(p: ReelPost, root = process.cwd(), now = new Date()): string[] {
+  const out: string[] = [];
+  const where = `${label(p)} ${p.title}`;
+  const live = p.status !== 'draft';
+  if (live && !p.cover?.vertical) out.push(`${where}: no vertical cover listed`);
+  for (const [kind, rel] of Object.entries(p.cover ?? {}))
+    if (rel && !existsSync(join(root, rel))) out.push(`${where}: ${kind} cover ${rel} is not in the repo`);
+  if (live && !p.alt_text?.trim()) out.push(`${where}: no alt text (screen readers and search use it)`);
+  if (p.status === 'scheduled') {
+    const dates = Object.values(p.schedule ?? {}).map((d) => Date.parse(d as string)).filter((d) => !Number.isNaN(d));
+    if (!dates.length) out.push(`${where}: status is scheduled but no schedule date is set`);
+    else if (Math.max(...dates) < now.getTime()) out.push(`${where}: every scheduled date has passed; set status to "posted" once it's live`);
+  }
+  return out;
 }
 
 function fmtWhen(iso: string): string {

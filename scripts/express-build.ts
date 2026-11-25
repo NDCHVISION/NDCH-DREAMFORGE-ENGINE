@@ -22,7 +22,7 @@
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
-import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
+import { resolveTransitions, transitionCoverageProblems, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
 import { resolveClipSource } from '../lib/clip-source.ts';
 import { resolveLoopLight } from '../lib/loop-light.ts';
@@ -383,6 +383,10 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     if (seed.narration_timing !== 'anchored') {
       throw new Error(`${source}: clip_source_seconds needs narration_timing "anchored"`);
     }
+  }
+  if (reelNumber(seed.reel_id) >= TRANSITION_RULE_FROM) {
+    const missing = transitionCoverageProblems(seed.clip_transitions, SEGMENT_IDS.length);
+    if (missing.length) throw new Error(`${source}: ${missing.join('; ')}`);
   }
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);

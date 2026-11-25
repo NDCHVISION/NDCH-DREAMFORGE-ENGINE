@@ -5,7 +5,7 @@ import { mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { buildTransitionGraph, dipXfade, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionVarietyProblems } from './lib/transitions.ts';
+import { buildTransitionGraph, dipXfade, clipLengthsWithTransitions, resolveTransitionKinds, resolveTransitions, transitionCoverageProblems, transitionVarietyProblems } from './lib/transitions.ts';
 import { conformClipFilter, leadsForTransitions } from './lib/segment-anchor.ts';
 import { assertSeed, buildReel, type ExpressSeed } from './scripts/express-build.ts';
 
@@ -110,6 +110,26 @@ test('express: PRESENCE uses varied, motivated transitions', () => {
   const bad = structuredClone(seed);
   bad.clip_transitions = [1, 2, 3, 4].map((n) => ({ after_clip: n, type: 'dissolve', note: 'z' }));
   assert.throws(() => assertSeed(bad, 'x'), /vary them/);
+});
+
+test('transitions: from 035 on every boundary is chosen, cuts included', () => {
+  const four = [1, 2, 3, 4].map((n) => ({ after_clip: n, type: n === 2 ? ('cut' as const) : ('dissolve' as const), note: 'why' }));
+  assert.deepEqual(transitionCoverageProblems(four, 5), []);
+  assert.match(transitionCoverageProblems(undefined, 5).join(), /none are listed/);
+  assert.match(transitionCoverageProblems(four.slice(0, 3), 5).join(), /after clip 4/);
+  assert.match(transitionCoverageProblems([...four, four[0]], 5).join(), /more than once/);
+  assert.match(transitionCoverageProblems(four.map((t) => ({ ...t, note: t.type === 'cut' ? '' : t.note })), 5).join(), /cut after clip 2 needs a note/);
+
+  const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_036_RECEPTION.json', 'utf8')) as ExpressSeed;
+  assertSeed(seed, 'reception');
+  const gap = structuredClone(seed);
+  gap.clip_transitions = seed.clip_transitions!.slice(0, 3);
+  assert.throws(() => assertSeed(gap, 'x'), /after clip 4/);
+  const none = structuredClone(seed);
+  delete none.clip_transitions;
+  assert.throws(() => assertSeed(none, 'x'), /none are listed/);
+  const older = { ...structuredClone(none), reel_id: 'NDCH_034_TEST' };
+  assert.doesNotThrow(() => assertSeed(older, 'x'));
 });
 
 test('dip: goes to near-black (never pure black) and back, keeping colour neutral', () => {
