@@ -53,7 +53,10 @@ const out = join(outDir, `${name}_binaural.wav`);
 const report = buildBinauralMix(song, out, join(outDir, `${name}_bed.wav`), spec);
 writeFileSync(join(outDir, `${name}_binaural.report.json`), JSON.stringify(report, null, 2) + '\n');
 
-console.log(`${name}: ${spec.source} · L ${spec.left_hz} Hz / R ${spec.right_hz} Hz · beat ${spec.beat_hz} Hz · ${spec.level_lu_below} LU under the song\n`);
+const used = report.spec;
+console.log(`${name}: ${spec.source} · L ${used.left_hz} Hz / R ${used.right_hz} Hz · beat ${used.beat_hz} Hz · ${used.level_lu_below} LU under the song`);
+if (report.key) console.log(`key: ${report.key.detected.name}; ${report.key.locked_to ? `base ${report.key.protocol_base_hz} Hz → ${report.key.locked_to}` : `kept protocol base (${report.key.kept_protocol_base_reason})`}`);
+console.log('');
 for (const c of report.checks) console.log(`  ${c.ok ? 'ok  ' : 'FAIL'}  ${c.name.padEnd(28)} ${c.detail}`);
 console.log(`\n${report.ok ? 'ready' : 'NOT READY, do not render with this'}: ${out}`);
 if (report.ok && video) {

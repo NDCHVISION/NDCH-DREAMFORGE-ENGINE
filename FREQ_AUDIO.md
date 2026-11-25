@@ -31,7 +31,9 @@ A binaural beat is two steady sine tones, one per ear: the **base** in the left 
    "binaural": { "protocol": "DreamForge" }
    ```
 
-   Optional settings: `"level_lu_below"` (default 18, allowed 12–24) and `"fade_s"` (default 4).
+   Optional settings: `"level_lu_below"` (default 18, allowed 12–24), `"fade_s"` (default 4) and `"key_lock"` (default true).
+
+   **Key lock.** The engine detects the song's key and moves the base to the nearest note in that key, never more than a semitone. The beat stays exact; only the pitch it rides on changes, so the tones sit in tune with the music instead of humming against it. Example: I Love Myself is in G minor, so DreamForge's 285 Hz base would move to D4 (293.665 Hz), with the right ear at 302.665 Hz. When the key is unclear, the protocol base is kept and the report says why. FREQ 001 was released before key lock and is marked `"key_lock": false`.
 
 3. Build and verify the audio:
 
@@ -46,6 +48,26 @@ A binaural beat is two steady sine tones, one per ear: the **base** in the left 
    If the video is already finished, add `--video cut.mp4`. Pass the song as that cut's own audio track (`ffmpeg -i cut.mp4 -vn -c:a pcm_s24le song.wav`) so the beats line up with any edits. The command writes `<name>_BINAURAL.mp4` with the picture untouched.
 
 5. Copy: the YouTube description and the Instagram caption must say to use headphones. The post kit enforces this, for example with "Best with headphones."
+
+## Release gate
+
+Before anything is posted, run the gate on the exact files you will upload:
+
+```sh
+npm run freq:qc -- 002 --full renders/freq/FREQ_002_..._BINAURAL.mp4 --short renders/freq/FREQ_002_..._BINAURAL_SHORT.mp4
+```
+
+It checks:
+- **Post kit:** every platform's copy against the house rules.
+- **Covers:** YouTube thumbnail 16:9, at least 1280 wide and under 2 MB; vertical cover 9:16 at 1080×1920.
+- **Each video:** codec, length (Short ≤ 3:00), AAC stereo at 48 kHz, loudness (-14 ±1 LUFS, true peak ≤ -1 dBTP), true stereo, and the binaural tones measured in the final file.
+- **Captions:** word for word against the lyric sheet, and kept clear of the areas Reels and TikTok cover.
+
+It writes a report to `renders/freq/QC_FREQ_NNN.md` with a short by-hand list: one full watch-through, four playback systems, the one-earbud test, the cover at thumbnail size and a fresh-eyes viewer. Post only on READY.
+
+Each track keeps its source files in `freq/tracks/NNN_TITLE/`:
+- `lyrics.txt`: the lyric sheet exactly as written. Paste it in before captioning.
+- `captions_full.ass` and `captions_short.ass`.
 
 ## Volume
 

@@ -98,6 +98,11 @@ export interface TrackBinaural {
   level_lu_below?: number;
   /** Fade in and out, seconds. Default 4. */
   fade_s?: number;
+  /**
+   * Move the base to the nearest note in the song's key (within a semitone) so the tones don't sit
+   * sour against the music. The beat stays exact; only the pitch the beat rides on moves. Default true.
+   */
+  key_lock?: boolean;
 }
 
 export const LEVEL_DEFAULT_LU = 18;
@@ -111,7 +116,7 @@ export const MAX_BEAT_HZ = 30;
 export const FREQ_TOLERANCE_HZ = 0.01;
 
 /** Resolve a track's declaration to exact tones and mix settings, or throw with every problem found. */
-export function resolveBinaural(b: TrackBinaural): BinauralSpec & { left_hz: number; right_hz: number; level_lu_below: number; fade_s: number; source: string } {
+export function resolveBinaural(b: TrackBinaural): BinauralSpec & { left_hz: number; right_hz: number; level_lu_below: number; fade_s: number; key_lock: boolean; source: string } {
   const errs = validateBinaural(b);
   if (errs.length) throw new Error(errs.join('\n'));
   const spec = b.protocol ? PROTOCOLS[b.protocol] : { beat_hz: b.chart_hz!, base_hz: b.base_hz! };
@@ -123,6 +128,7 @@ export function resolveBinaural(b: TrackBinaural): BinauralSpec & { left_hz: num
     right_hz: round6(spec.base_hz + spec.beat_hz),
     level_lu_below: b.level_lu_below ?? LEVEL_DEFAULT_LU,
     fade_s: b.fade_s ?? FADE_DEFAULT_S,
+    key_lock: b.key_lock ?? true,
     source,
   };
 }
@@ -145,6 +151,14 @@ export function validateBinaural(b: TrackBinaural | undefined, where = 'binaural
   const fade = b.fade_s ?? FADE_DEFAULT_S;
   if (!(fade >= 1 && fade <= 15)) errs.push(`${where}: fade_s must be 1–15 seconds`);
   return errs;
+}
+
+/** Below this margin between the best and second-best key, the key is a guess: keep the protocol base. */
+export const KEY_MIN_MARGIN = 0.02;
+
+/** The spec with its base moved onto `note` (from nearestScaleNote); the beat is unchanged. */
+export function lockBase<T extends BinauralSpec & { left_hz: number; right_hz: number }>(spec: T, noteHz: number): T {
+  return { ...spec, base_hz: noteHz, left_hz: noteHz, right_hz: round6(noteHz + spec.beat_hz) };
 }
 
 const round6 = (x: number) => Math.round(x * 1e6) / 1e6;

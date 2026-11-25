@@ -185,7 +185,8 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   if (p.note) out.push(`Note: ${p.note}`, '');
   if (p.binaural && !validateBinaural(p.binaural).length) {
     const b = resolveBinaural(p.binaural);
-    out.push(`Binaural bed: ${b.source} · left ${b.left_hz} Hz / right ${b.right_hz} Hz · ${b.beat_hz} Hz beat · ${b.level_lu_below} LU under the song (\`npm run freq:binaural -- ${p.posting} <song>\`)`, '');
+    const tones = b.key_lock ? `base ${b.base_hz} Hz moved to the song's key, right = base + ${b.beat_hz} Hz` : `left ${b.left_hz} Hz / right ${b.right_hz} Hz`;
+    out.push(`Binaural bed: ${b.source} · ${tones} · ${b.beat_hz} Hz beat · ${b.level_lu_below} LU under the song (\`npm run freq:binaural -- ${p.posting} <song>\`, then \`npm run freq:qc -- ${p.posting} --full … --short …\`)`, '');
   }
   if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
   if (p.location?.name && only !== 'linkedin')

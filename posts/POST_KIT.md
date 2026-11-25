@@ -1457,9 +1457,9 @@ Status: draft
 
 Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers with the headphones mark. Full cut (3:32) for YouTube and LinkedIn; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers.
 
-Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`)
+Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`, then `npm run freq:qc -- 001 --full … --short …`)
 
-Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png`
+Covers: `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.jpg`, `assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.jpg`
 
 Location tag: `Temple of Apollo, Delphi` (Instagram, TikTok, Facebook, YouTube (Video location))
 
