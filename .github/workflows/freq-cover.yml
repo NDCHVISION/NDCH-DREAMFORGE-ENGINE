@@ -1,0 +1,96 @@
+name: FREQ Cover
+
+# Makes a new FREQ track's covers (16:9 YouTube thumbnail and 9:16 Reel/Short cover) from the
+# approved FREQ 001 template: the OpenAI image model regenerates only the header number and the
+# title, everything else is copied pixel for pixel. Each attempt is OCR-checked; up to 3 tries per
+# format. Results go to the release freq-cover-<NNN> for review; nothing is posted or adopted
+# automatically. Roughly a few dollars at most per run; never runs on a schedule.
+#
+# Runs when freq/cover-request.txt changes on main. One value per line:
+#   1 track number (e.g. 002; "none" = nothing to make)   2 title (e.g. I AM ENOUGH)
+#   3 optional line split "LINE ONE|LINE TWO" (blank = last word on the gold line)
+#   4 free text (ignored; change it to request again)
+
+on:
+  push:
+    branches: [main]
+    paths: ['freq/cover-request.txt']
+  workflow_dispatch:
+    inputs:
+      posting: { description: 'Track number, e.g. 002', required: true }
+      title: { description: 'Title, e.g. I AM ENOUGH', required: true }
+      lines: { description: 'Optional "LINE ONE|LINE TWO"', required: false, default: '' }
+
+concurrency:
+  group: freq-cover
+  cancel-in-progress: false
+
+jobs:
+  cover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve inputs
+        id: in
+        env:
+          IN_POSTING: ${{ inputs.posting }}
+          IN_TITLE: ${{ inputs.title }}
+          IN_LINES: ${{ inputs.lines }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            F=freq/cover-request.txt
+            IN_POSTING=$(sed -n 1p "$F" | tr -d '[:space:]')
+            IN_TITLE=$(sed -n 2p "$F" | sed 's/^ *//;s/ *$//')
+            IN_LINES=$(sed -n 3p "$F" | sed 's/^ *//;s/ *$//')
+          fi
+          if [ "$IN_POSTING" = "none" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "No cover requested."; exit 0; fi
+          [[ "$IN_POSTING" =~ ^[0-9]{1,3}$ ]] || { echo "track number must be digits" >&2; exit 1; }
+          [[ "$IN_TITLE" =~ ^[A-Za-z0-9\ \'’-]{1,40}$ ]] || { echo "title: letters, digits, spaces, up to 40 characters" >&2; exit 1; }
+          [[ -z "$IN_LINES" || "$IN_LINES" =~ ^[A-Za-z0-9\ \'’-]+\|[A-Za-z0-9\ \'’-]+$ ]] || { echo 'lines must be "LINE ONE|LINE TWO"' >&2; exit 1; }
+          { echo "posting=$(printf %03d $((10#$IN_POSTING)))"; echo "title=$IN_TITLE"; echo "lines=$IN_LINES"; } >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        if: steps.in.outputs.skip != 'true'
+        with:
+          python-version: '3.12'
+
+      - name: Install tools
+        if: steps.in.outputs.skip != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr
+          pip install -q pillow
+
+      - name: Make covers
+        if: steps.in.outputs.skip != 'true'
+        id: make
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          POSTING: ${{ steps.in.outputs.posting }}
+          TITLE: ${{ steps.in.outputs.title }}
+          LINES: ${{ steps.in.outputs.lines }}
+        run: |
+          set +e
+          python3 scripts/freq_cover.py "$POSTING" "$TITLE" ${LINES:+--lines "$LINES"} --out-dir renders/covers > /tmp/report.json
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          [ "$code" = 0 ] || [ "$code" = 2 ] || exit "$code"
+
+      - name: Upload covers for review
+        if: steps.in.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POSTING: ${{ steps.in.outputs.posting }}
+        run: |
+          TAG="freq-cover-$POSTING"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "FREQ $POSTING covers" --notes "Generated FREQ $POSTING covers for review. Adopt by copying into assets/covers and updating the post kit."
+          gh release upload "$TAG" renders/covers/*.jpg renders/covers/*_try*.png renders/covers/*_report.json --clobber
+          {
+            echo "## FREQ $POSTING covers in release $TAG"
+            if [ "${{ steps.make.outputs.code }}" = 2 ]; then echo "**Needs review:** OCR could not confirm the text on at least one cover."; else echo "OCR confirmed the number and title on both covers."; fi
+            echo '```json'; jq '{model, lines, formats: (.formats | map_values({score, needs_review, pixels_changed_outside_edit_areas}))}' /tmp/report.json; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
