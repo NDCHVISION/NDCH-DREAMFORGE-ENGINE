@@ -1283,6 +1283,26 @@ You can see someone every day and mistake it for knowing them. What someone lets
 #NDCH #EmotionalIntelligence #Relationships
 ```
 
+### Symbol (Instagram grid)
+
+Image: `assets/symbols/029_PRESENCE_symbol.png` · Instagram grid, beside 029 PRESENCE · same location tag as the reel
+
+**Caption**
+
+```text
+029 | PRESENCE
+
+The face is not the whole mountain.
+Most of anyone lives behind it.
+#NDCH #Presence #Perception
+```
+
+**Alt text**
+
+```text
+A towering black stone monolith split along one face, revealing lit terraces, arches and falling water hidden inside; storm clouds above, the NDCH emblem set into the cracked stone in the foreground.
+```
+
 ### Alt text
 
 ```text
@@ -1423,6 +1443,26 @@ Pressure can get you answers. Only trust gets you the person.
 Asking again rarely brings someone closer. Become someone a closed door is safe around, and in time the door opens on its own.
 
 #NDCH #Trust #Leadership
+```
+
+### Symbol (Instagram grid)
+
+Image: `assets/symbols/030_RECEPTION_symbol.png` · Instagram grid, beside 030 RECEPTION · same location tag as the reel
+
+**Caption**
+
+```text
+030 | RECEPTION
+
+Some things open only when nothing pushes.
+Be still water.
+#NDCH #Trust #Patience
+```
+
+**Alt text**
+
+```text
+A single sealed, curving form of gold-veined black stone rises from still dark water under a storm sky, faint rings circling its base; the NDCH emblem is inlaid in the cracked stone in the foreground.
 ```
 
 ### Alt text
