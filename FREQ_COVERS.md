@@ -39,3 +39,16 @@ Locally: `python3 scripts/freq_cover.py 002 "I AM ENOUGH"` (needs `OPENAI_API_KE
 ## Changing the look
 
 Replace the template images and update the edit areas in `assets/covers/templates/freq.json`. Every later track then follows the new design.
+
+# Dreamforge reel covers
+
+The reel covers follow the **Master Cover Architecture V2.0** (`docs/covers/COVER_ARCHITECTURE_V2.md`, with the original .docx and the RUN 028 reference image). Its geometry is in `assets/covers/templates/dreamforge.json`:
+- canvas 1080×1920
+- plaque 750×1306 at X 165–915 and Y 307–1613
+- the whole plaque inside the 1080×1440 grid-safe area
+
+Check any cover against it:
+
+```sh
+python3 scripts/cover_geometry.py assets/covers/030_RECEPTION_vertical.png
+```
