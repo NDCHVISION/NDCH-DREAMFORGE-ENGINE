@@ -6,8 +6,8 @@ Y 307-1613, fully inside the 1080x1440 grid-safe area.
 
     python3 scripts/cover_geometry.py assets/covers/030_RECEPTION_vertical.png [...]
 
-The plaque is found as the region where the blue velvet stops, measured on a 1080x1920 resample of
-the file. Exit code 0 when every file passes, 1 otherwise. Works on blue-velvet covers only.
+The plaque is measured by its outer gold frame lines (the outermost columns and rows that are gold
+along most of their length), on a 1080x1920 resample of the file. Exit code 0 when every file passes.
 """
 import json, sys
 from pathlib import Path
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SPEC = json.loads((ROOT / 'assets/covers/templates/dreamforge.json').read_text())
 
 
-def longest_run(mask):
+def _unused_longest_run(mask):
     idx = np.where(mask)[0]
     if len(idx) == 0:
         return None
@@ -34,12 +34,13 @@ def measure(path):
     im = Image.open(path).convert('RGB')
     native = im.size
     a = np.asarray(im.resize(tuple(SPEC['canvas']), Image.LANCZOS)).astype(int)
-    blue = (a[..., 2] > a[..., 0] + 15) & (a[..., 2] > 40)
-    xs = longest_run(blue[700:1300].mean(0) < 0.05)
-    ys = longest_run(blue[:, 400:680].mean(1) < 0.05)
-    if not xs or not ys:
+    R, G, B = a[..., 0], a[..., 1], a[..., 2]
+    gold = (R > 110) & (R > B + 45) & (G > B + 15) & (R - G < 110)
+    xs = np.where(gold[700:1300].mean(0) > 0.5)[0]
+    ys = np.where(gold[:, 380:700].mean(1) > 0.5)[0]
+    if not len(xs) or not len(ys):
         return native, None
-    return native, dict(x0=int(xs[0]), x1=int(xs[1]) + 1, y0=int(ys[0]), y1=int(ys[1]) + 1)
+    return native, dict(x0=int(xs.min()), x1=int(xs.max()) + 1, y0=int(ys.min()), y1=int(ys.max()) + 1)
 
 
 def check(path):
