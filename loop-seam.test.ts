@@ -1,13 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import {
   LOOP_MAX_LEVEL_JUMP_DB,
   loopSeamProblems,
+  loopSeamVerdict,
+  resolveLoopSeamWaiver,
   measureLoopSeam,
   parseMeanDb,
   resolveLoopAudio,
@@ -93,6 +95,48 @@ test('express: 035 on carries the bed across the loop; older seeds keep their fa
   assert.equal((buildReel(run, tmpl) as Record<string, unknown>).loop_audio, 'seamless');
 });
 
+test('loop: a failed seam blocks unless the seed waives it with a reason', () => {
+  const picture = 'picture seam: last frame matches first at SSIM 0.40 (needs 0.6); end on the opening frame';
+  const sound = 'sound seam: level jumps 22.2 dB across the loop point (limit 15 dB)';
+  assert.deepEqual(loopSeamVerdict([]), { status: 'pass', problems: [], notes: [] });
+  assert.equal(loopSeamVerdict([sound]).status, 'fail');
+  const waived = loopSeamVerdict([sound], { waiver: 'Pre-035 reel: the bed fades out by design.' });
+  assert.equal(waived.status, 'waived');
+  assert.ok(waived.notes.some((n) => n.includes('Pre-035 reel')), 'the reason is shown');
+  // No bed (music "none"): sound is reported, not enforced; the picture still is.
+  assert.equal(loopSeamVerdict([sound], { noBed: true }).status, 'pass');
+  assert.ok(loopSeamVerdict([sound], { noBed: true }).notes[0].includes('not enforced'));
+  assert.deepEqual(loopSeamVerdict([picture, sound], { noBed: true }).problems, [picture]);
+  assert.equal(loopSeamVerdict([picture, sound], { noBed: true }).status, 'fail');
+});
+
+test('loop: loop_seam_waiver must be a real reason, and reaches the render spec', () => {
+  assert.equal(resolveLoopSeamWaiver(undefined), undefined);
+  assert.equal(resolveLoopSeamWaiver('  Pre-035 reel: the bed fades out by design. '), 'Pre-035 reel: the bed fades out by design.');
+  for (const bad of ['', 'ok', true, 1, {}]) assert.throws(() => resolveLoopSeamWaiver(bad), /must say why/);
+  const tmpl = JSON.parse(readFileSync('reels/NDCH_016_ILLUSION_OF_MOTION.json', 'utf8'));
+  const seed = JSON.parse(readFileSync('reels/express/seeds/NDCH_036_RECEPTION.json', 'utf8')) as ExpressSeed;
+  assert.equal((buildReel(seed, tmpl) as Record<string, unknown>).loop_seam_waiver, undefined);
+  assert.throws(() => assertSeed({ ...seed, loop_seam_waiver: 'fine' }, 'reception'), /loop_seam_waiver/);
+  const why = 'Re-render of the released cut; its bed fades by design.';
+  assertSeed({ ...seed, loop_seam_waiver: why }, 'reception');
+  assert.equal((buildReel({ ...seed, loop_seam_waiver: why }, tmpl) as Record<string, unknown>).loop_seam_waiver, why);
+});
+
+test('workflow: the seam check blocks the release', () => {
+  const wf = readFileSync('.github/workflows/express-reel.yml', 'utf8');
+  const steps = wf.split(/\n(?= {6}- (?:name|uses):)/);
+  const seam = steps.find((st) => st.includes('name: Loop seam check'));
+  assert.ok(seam, 'seam step exists');
+  assert.doesNotMatch(seam, /continue-on-error/);
+  assert.match(seam, /loop-check\.ts [^\n]*--strict[^\n]*--spec/);
+  assert.doesNotMatch(seam, /loop-check\.ts[^\n]*\|\| true/);
+  assert.match(seam, /exit "\$RC"/);
+  const at = (name: string) => steps.findIndex((st) => st.includes(`name: ${name}`));
+  assert.ok(at('Loop seam check') < at('Upload final video'), 'checked before the upload');
+  assert.ok(at('Pick the final video') < at('Loop seam check'));
+});
+
 const hasFfmpeg = spawnSync('ffmpeg', ['-version']).status === 0;
 function ff(args: string[]): void {
   const r = spawnSync('ffmpeg', ['-v', 'error', '-y', ...args], { encoding: 'utf8' });
@@ -120,4 +164,21 @@ test('rendered: the seam check reads the last frame when the picture ends before
     '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', out]);
   const m = measureLoopSeam(out);
   assert.ok(m.pictureSsim > 0.99, `same gray picture at both ends (got ${m.pictureSsim})`);
+});
+
+test('rendered: loop-check --strict fails a faded seam, passes it with a waiver', { skip: !hasFfmpeg }, () => {
+  const dir = mkdtempSync(join(tmpdir(), 'loopcheck-'));
+  const out = join(dir, 'faded.mp4');
+  ff(['-f', 'lavfi', '-i', 'color=c=gray:s=64x64:r=24:d=6', '-f', 'lavfi', '-i', 'anoisesrc=d=6:c=pink:a=0.2',
+    '-af', 'afade=t=out:st=4:d=2', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-shortest', out]);
+  const run = (...extra: string[]) => spawnSync(process.execPath, ['--import', 'tsx', 'scripts/loop-check.ts', out, ...extra], { encoding: 'utf8' });
+  const strict = run('--strict');
+  assert.equal(strict.status, 1, strict.stdout + strict.stderr);
+  assert.match(strict.stdout, /FAIL/);
+  assert.equal(run().status, 0, 'without --strict it only reports');
+  const spec = join(dir, 'spec.json');
+  writeFileSync(spec, JSON.stringify({ loop_seam_waiver: 'Test reel: the bed fades out on purpose.' }));
+  const waived = run('--strict', '--spec', spec);
+  assert.equal(waived.status, 0, waived.stdout + waived.stderr);
+  assert.match(waived.stdout, /WAIVED/);
 });

@@ -5,7 +5,7 @@
  * Add a reel by copying an existing file and editing it; `npm run posts` prints any reel's copy,
  * and `npm run posts -- --write` regenerates posts/POST_KIT.md.
  */
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveBinaural, validateBinaural, type TrackBinaural } from './binaural.ts';
 
@@ -137,6 +137,26 @@ function validateSymbol(p: ReelPost, where: string): string[] {
   return errs;
 }
 
+/** What is already live on Instagram (posts/instagram/posted.json, captured from the account). */
+export interface PostedIG { shortcode: string; url: string; format: 'reel' | 'photo'; posted_at: string; posted_ct: string; series: string; number: string | null; title: string | null; role: string; location: string | null; caption: string }
+export function loadPostedIG(): PostedIG[] {
+  try { return JSON.parse(readFileSync(join(process.cwd(), 'posts', 'instagram', 'posted.json'), 'utf8')); } catch { return []; }
+}
+/** This post's live Instagram entries (reel and symbol), matched by series and number. */
+export function postedOn(p: ReelPost, log = loadPostedIG()): PostedIG[] {
+  const series = p.series === 'freq' ? 'FREQ' : 'Dreamforge';
+  return log.filter((x) => x.series === series && x.number === p.posting);
+}
+const norm = (t: string) => t.toLowerCase().replace(/#\S+/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+/** A symbol caption must be new: never a repeat of any caption already on the account. */
+function validateNotRepeated(p: ReelPost, where: string, log: PostedIG[]): string[] {
+  if (!p.symbol) return [];
+  const mine = postedOn(p, log).filter((x) => x.role === 'symbol').map((x) => x.shortcode);
+  const body = norm(p.symbol.caption.split('\n').slice(2, -1).join(' '));
+  const clash = log.find((x) => !mine.includes(x.shortcode) && body && norm(x.caption).includes(body));
+  return clash ? [`${where}: symbol caption repeats a live Instagram post (${clash.posted_ct.slice(0, 10)}, ${clash.url})`] : [];
+}
+
 /** Returns a list of problems; empty means the file is valid. */
 export function validatePost(p: ReelPost, fileName?: string): string[] {
   const errs: string[] = [];
@@ -166,7 +186,7 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
   if (p.series === 'freq') errs.push(...validateFreq(p, where));
-  if (p.symbol) errs.push(...validateSymbol(p, where));
+  if (p.symbol) errs.push(...validateSymbol(p, where), ...validateNotRepeated(p, where, loadPostedIG()));
   const n = label(p);
   if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${n} | ${p.title}`))
     errs.push(`${where}: youtube.title should start with "${n} | ${p.title}"`);
@@ -187,6 +207,29 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
   return errs;
 }
 
+/**
+ * Things to fix before a post goes out, which don't make the file invalid:
+ * a scheduled or posted reel with no cover, a cover file that isn't in the
+ * repo, no alt text, and a "scheduled" post whose dates have all passed
+ * (it has probably posted; set status to "posted" so the kit stays true).
+ * Drafts are only checked for cover files they already name.
+ */
+export function readinessWarnings(p: ReelPost, root = process.cwd(), now = new Date()): string[] {
+  const out: string[] = [];
+  const where = `${label(p)} ${p.title}`;
+  const live = p.status !== 'draft';
+  if (live && !p.cover?.vertical) out.push(`${where}: no vertical cover listed`);
+  for (const [kind, rel] of Object.entries(p.cover ?? {}))
+    if (rel && !existsSync(join(root, rel))) out.push(`${where}: ${kind} cover ${rel} is not in the repo`);
+  if (live && !p.alt_text?.trim()) out.push(`${where}: no alt text (screen readers and search use it)`);
+  if (p.status === 'scheduled') {
+    const dates = Object.values(p.schedule ?? {}).map((d) => Date.parse(d as string)).filter((d) => !Number.isNaN(d));
+    if (!dates.length) out.push(`${where}: status is scheduled but no schedule date is set`);
+    else if (Math.max(...dates) < now.getTime()) out.push(`${where}: every scheduled date has passed; set status to "posted" once it's live`);
+  }
+  return out;
+}
+
 function fmtWhen(iso: string): string {
   const d = new Date(iso);
   return d.toLocaleString('en-US', { timeZone: 'America/Chicago', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' CT';
@@ -202,6 +245,8 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
   out.push(meta.join(' · '), '');
   if (p.note) out.push(`Note: ${p.note}`, '');
+  const live = postedOn(p);
+  if (live.length) out.push(`On Instagram: ${live.map((x) => `${x.role} ${x.posted_ct.slice(0, 10)} (${x.url})`).join(' · ')}`, '');
   if (p.binaural && !validateBinaural(p.binaural).length) {
     const b = resolveBinaural(p.binaural);
     const tones = b.key_lock ? `base ${b.base_hz} Hz moved to the song's key, right = base + ${b.beat_hz} Hz` : `left ${b.left_hz} Hz / right ${b.right_hz} Hz`;

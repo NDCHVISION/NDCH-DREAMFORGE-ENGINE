@@ -42,8 +42,8 @@ A reel ends **2.5 seconds after its last spoken word**, not at a fixed 45 s. A l
 
 ## The check
 
-Every Express render ends with a loop seam check in the run summary
-(`scripts/loop-check.ts`, `lib/loop-seam.ts`). It reports:
+Every Express render is checked before it is released (`scripts/loop-check.ts`,
+`lib/loop-seam.ts`). The check measures:
 
 | Measure | Passes when |
 | --- | --- |
@@ -52,6 +52,25 @@ Every Express render ends with a loop seam check in the run summary
 | Sound: last 0.5 s against first 0.5 s | within 15 dB (the head usually carries the first word) |
 
 Run it on any file: `npx tsx scripts/loop-check.ts <video.mp4> [--strict]`.
+
+**It blocks.** The workflow runs it with `--strict` before the upload. A reel whose
+seam fails is not released, is not logged as rendered, and the run fails with the
+measurements in its summary. Fix the seam and render again.
+
+**Waiver.** A seam that fails on purpose ships only when the seed says why:
+
+```json
+"loop_seam_waiver": "Pre-035 reel re-rendered as released: its bed fades out by design."
+```
+
+The reason must be a sentence (at least 20 characters). The run then passes and the
+summary shows the problems, marked WAIVED, with the reason. Use it for reels made
+before the seamless bed (seeds before 035 keep `loop_audio: "fade"`), or for a reel
+whose music deliberately enters late and so fades out at the end. Don't use it to
+skip a fix.
+
+A run with music `none` has no bed to carry across the loop. The sound checks are
+reported but not enforced, and the picture check still is.
 
 ## Reference: PRESENCE (029)
 

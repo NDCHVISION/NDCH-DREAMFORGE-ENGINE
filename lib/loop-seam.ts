@@ -91,6 +91,48 @@ export function loopSeamProblems(m: LoopSeamMetrics): string[] {
   return out;
 }
 
+/**
+ * The seam check blocks the Express render (LOOPING.md, "The check"). A seed may let one reel ship
+ * with a failed seam only by saying why in `loop_seam_waiver`: for example a reel made before the
+ * seamless bed (pre-035 seeds keep their fade-out), or one whose music deliberately enters late and
+ * so fades out at the end. The reason has to be a sentence, so a waiver is never a reflex.
+ */
+export const LOOP_SEAM_WAIVER_MIN_CHARS = 20;
+
+export function resolveLoopSeamWaiver(raw: unknown, where = 'loop_seam_waiver'): string | undefined {
+  if (raw === undefined || raw === null) return undefined;
+  if (typeof raw !== 'string' || raw.trim().length < LOOP_SEAM_WAIVER_MIN_CHARS) {
+    throw new Error(`${where} must say why this reel may ship with a failed loop seam (a sentence, at least ${LOOP_SEAM_WAIVER_MIN_CHARS} characters)`);
+  }
+  return raw.trim();
+}
+
+export interface LoopSeamVerdict {
+  status: 'pass' | 'fail' | 'waived';
+  /** The problems that count toward the verdict. */
+  problems: string[];
+  /** Lines for the log and run summary that explain anything not enforced. */
+  notes: string[];
+}
+
+/**
+ * Decide the seam. `noBed`: the run was rendered with music "none", so there is no bed to carry
+ * across the loop; the sound checks are reported but not enforced and the picture still is.
+ * `waiver`: the seed's loop_seam_waiver; a failing seam is reported as waived, with the reason.
+ */
+export function loopSeamVerdict(problems: string[], opts: { waiver?: string; noBed?: boolean } = {}): LoopSeamVerdict {
+  const notes: string[] = [];
+  let counted = problems;
+  if (opts.noBed) {
+    const sound = problems.filter((p) => p.startsWith('sound seam:'));
+    counted = problems.filter((p) => !p.startsWith('sound seam:'));
+    notes.push(`sound seam not enforced: rendered with music "none", so there is no bed to carry across the loop${sound.length ? ` (${sound.length} sound problem(s) above)` : ''}`);
+  }
+  if (counted.length === 0) return { status: 'pass', problems: [], notes };
+  if (opts.waiver) return { status: 'waived', problems: counted, notes: [...notes, `failed seam waived by the seed: ${opts.waiver}`] };
+  return { status: 'fail', problems: counted, notes };
+}
+
 function meanDb(path: string, start: number, dur: number): number {
   // volumedetect reports on stderr.
   const r = spawnSync('ffmpeg', ['-hide_banner', '-ss', String(start), '-t', String(dur), '-i', path, '-vn', '-af', 'volumedetect', '-f', 'null', '-'], {

@@ -22,7 +22,7 @@
 import { resolveValidationOverrides, type ValidationOverrides } from '../lib/validation-overrides.ts';
 import { resolveOpeningAudio, type OpeningAudioConfig } from '../lib/opening-audio.ts';
 import { resolveNarrationTiming, type NarrationTiming } from '../lib/segment-anchor.ts';
-import { resolveTransitions, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
+import { resolveTransitions, transitionCoverageProblems, transitionVarietyProblems, type TransitionSpec } from '../lib/transitions.ts';
 import { resolveFinish } from '../lib/finish.ts';
 import { resolveClipSource } from '../lib/clip-source.ts';
 import { resolveLoopLight } from '../lib/loop-light.ts';
@@ -44,7 +44,7 @@ import { validateCompiledReel } from '../reel-validation.ts';
 import { checkUniversalViewer } from '../lib/universal-viewer.ts';
 import { CAPTION_LAW_FROM, captionColourProblems } from '../lib/caption-law.ts';
 import { END_RULE_FROM, END_TAIL_SECS, resolveEndTail } from '../lib/end-tail.ts';
-import { resolveLoopAudio } from '../lib/loop-seam.ts';
+import { resolveLoopAudio, resolveLoopSeamWaiver } from '../lib/loop-seam.ts';
 
 const ROOT = resolve('.');
 const TEMPLATE_PATH = join(ROOT, 'reels', 'NDCH_016_ILLUSION_OF_MOTION.json');
@@ -190,6 +190,8 @@ export interface ExpressSeed {
   narration_timing?: NarrationTiming;
   /** Loop law (LOOPING.md). Defaults to "seamless" from 035 PRESENCE on; older seeds keep "fade". */
   loop_audio?: 'fade' | 'seamless';
+  /** Why this reel may ship with a failed loop seam check (LOOPING.md). The check blocks the render unless this is set. */
+  loop_seam_waiver?: string;
   /** Seconds after the last word where the reel ends (lib/end-tail.ts). Default 2.5 from reel 036 on. */
   end_tail_secs?: number;
   /** Caption colours when the visual palette's own fail the caption law (CAPTIONS.md). Default: palette.light/accent/peak. */
@@ -346,6 +348,7 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
   }
   assertOpening(seed, source);
   resolveOpeningAudio(seed.opening_audio, `${source}: opening_audio`);
+  resolveLoopSeamWaiver(seed.loop_seam_waiver, `${source}: loop_seam_waiver`);
   resolveNarrationTiming(seed.narration_timing);
   resolveFinish(seed.finish);
   // Caption law (CAPTIONS.md), from 035 PRESENCE on: one readable style, colours that hold contrast.
@@ -383,6 +386,10 @@ export function assertSeed(seed: ExpressSeed, source: string): void {
     if (seed.narration_timing !== 'anchored') {
       throw new Error(`${source}: clip_source_seconds needs narration_timing "anchored"`);
     }
+  }
+  if (reelNumber(seed.reel_id) >= TRANSITION_RULE_FROM) {
+    const missing = transitionCoverageProblems(seed.clip_transitions, SEGMENT_IDS.length);
+    if (missing.length) throw new Error(`${source}: ${missing.join('; ')}`);
   }
   if (seed.clip_transitions !== undefined) {
     resolveTransitions(seed.clip_transitions, SEGMENT_IDS.length);
@@ -541,6 +548,9 @@ export function buildReel(seed: ExpressSeed, template: Json): Json {
   const loopAudio = seed.loop_audio ?? (reelNumber(seed.reel_id) >= LOOP_RULE_FROM ? 'seamless' : undefined);
   if (loopAudio) spec.loop_audio = resolveLoopAudio(loopAudio);
   else delete spec.loop_audio;
+  const waiver = resolveLoopSeamWaiver(seed.loop_seam_waiver, `${seed.reel_id}.loop_seam_waiver`);
+  if (waiver) spec.loop_seam_waiver = waiver;
+  else delete spec.loop_seam_waiver;
   if (seed.narration_timing) spec.narration_timing = seed.narration_timing;
   else delete spec.narration_timing;
   if (seed.clip_transitions) spec.clip_transitions = structuredClone(seed.clip_transitions);

@@ -8,11 +8,12 @@
  *   npm run posts -- freq 001          an NDCH FREQ track (or: -- "i love myself")
  *   npm run posts -- --json 026        raw JSON
  *   npm run posts -- --write           regenerate posts/POST_KIT.md
- *   npm run posts -- --check           validate every file (non-zero exit on problems)
+ *   npm run posts -- --check           validate every file (non-zero exit on problems),
+ *                                      then list readiness warnings (missing covers, alt text, stale "scheduled")
  */
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { FREQ_DIR, PLATFORMS, type Platform, findPost, label, loadPosts, renderKit, renderPost, validatePost } from '../lib/post-kit.ts';
+import { FREQ_DIR, PLATFORMS, type Platform, findPost, label, loadPosts, readinessWarnings, renderKit, renderPost, validatePost } from '../lib/post-kit.ts';
 
 const args = process.argv.slice(2);
 const reels = loadPosts();
@@ -27,7 +28,11 @@ if (flag('--check') || flag('--write')) {
   if (flag('--write')) {
     writeFileSync(join(process.cwd(), 'posts', 'POST_KIT.md'), renderKit(reels, freq));
     console.log(`wrote posts/POST_KIT.md (${reels.length} reels, ${freq.length} FREQ)`);
-  } else console.log(`ok: ${posts.length} reels`);
+  } else {
+    console.log(`ok: ${posts.length} reels`);
+    const warns = posts.flatMap((p) => readinessWarnings(p));
+    if (warns.length) console.log(`\nBefore posting (${warns.length}):\n${warns.map((w) => `  - ${w}`).join('\n')}`);
+  }
 } else if (!rest.length) {
   for (const p of posts) console.log(`${label(p).padEnd(8)}  ${p.title.padEnd(14)} ${p.status.padEnd(10)} ${p.schedule?.youtube ?? ''}`);
 } else {

@@ -55,6 +55,8 @@ Status: scheduled · Instagram: Thu, Oct 29, 8:00 AM CT
 
 Note: Only Instagram is outstanding; every other platform is posted or scheduled.
 
+On Instagram: reel 2026-09-20 (https://www.instagram.com/ndchvision/reel/Ddg6YXIs7XF/) · symbol 2026-09-16 (https://www.instagram.com/ndchvision/p/DdWczx9lcNv/)
+
 Covers: `assets/covers/021_FAITH_vertical.png`, `assets/covers/021_FAITH_horizontal.png`
 
 Location tag: `Eiffel Tower` (Instagram, TikTok, Facebook, YouTube (Video location))
@@ -182,6 +184,8 @@ The work comes before the reason. What is built for one future may become capaci
 Status: scheduled · Engine: NDCH_022_THE_STATUE · Instagram: Wed, Nov 4, 8:00 AM CT
 
 Note: Only Instagram is outstanding; every other platform is posted or scheduled.
+
+On Instagram: reel 2026-10-22 (https://www.instagram.com/ndchvision/reel/DezF_hqtI0k/) · symbol 2026-10-20 (https://www.instagram.com/ndchvision/p/DeupCPkDbDv/)
 
 Covers: `assets/covers/022_THE_STATUE_vertical.png`, `assets/covers/022_THE_STATUE_horizontal.png`
 
@@ -314,6 +318,8 @@ A rough stone figure stands under a spotlight in a dark gallery. Inside a block 
 ## 023 · AXIOM
 
 Status: scheduled · Engine: NDCH_029_AXIOM · YouTube: Tue, Oct 27, 11:00 AM CT
+
+On Instagram: reel 2026-10-28 (https://www.instagram.com/ndchvision/reel/DfDb7I1spg6/) · symbol 2026-10-26 (https://www.instagram.com/ndchvision/p/De9uePXkbhl/)
 
 Covers: `assets/covers/023_AXIOM_vertical.png`, `assets/covers/023_AXIOM_horizontal.png`
 
@@ -451,6 +457,8 @@ A vast dark circular hall with curved stone galleries. A plumb bob hangs on a ta
 
 Status: scheduled · Engine: NDCH_030_FRAMES · YouTube: Fri, Oct 30, 11:00 AM CT
 
+On Instagram: reel 2026-10-30 (https://www.instagram.com/ndchvision/reel/DfI40ilt6Io/) · symbol 2026-10-29 (https://www.instagram.com/ndchvision/p/DfGbE71lCTz/)
+
 Covers: `assets/covers/024_FRAMES_vertical.png`, `assets/covers/024_FRAMES_horizontal.png`
 
 Location tag: `Sagrada Família` (Instagram, TikTok, Facebook, YouTube (Video location))
@@ -584,6 +592,8 @@ They can copy the frames, the color, the exact angle. Watch them long enough and
 ## 025 · PARALLAX
 
 Status: scheduled · Engine: NDCH_031_PARALLAX · YouTube: Tue, Nov 3, 11:00 AM CT
+
+On Instagram: reel 2026-11-04 (https://www.instagram.com/ndchvision/reel/DfTVJ9rNWYm/) · symbol 2026-11-03 (https://www.instagram.com/ndchvision/p/DfTiYMJjQRr/)
 
 Covers: `assets/covers/025_PARALLAX_vertical.png`, `assets/covers/025_PARALLAX_horizontal.png`
 
@@ -722,6 +732,8 @@ A dark stone chamber. A tall stone post hides the far wall's only opening. The c
 ## 026 · INVENTORY
 
 Status: scheduled · Engine: NDCH_032_INVENTORY · YouTube: Fri, Nov 6, 11:00 AM CT
+
+On Instagram: symbol 2026-11-14 (https://www.instagram.com/ndchvision/p/Dfv54mVpZLv/) · reel 2026-11-13 (https://www.instagram.com/ndchvision/reel/DfrsEwZtgYn/)
 
 Covers: `assets/covers/026_INVENTORY_vertical.png`, `assets/covers/026_INVENTORY_horizontal.png`
 
@@ -865,6 +877,8 @@ A dark marble chamber veined with gold, lit by one round opening in the dome. Th
 
 Status: scheduled · Engine: NDCH_033_BEARING · YouTube: Tue, Nov 10, 11:00 AM CT
 
+On Instagram: reel 2026-11-17 (https://www.instagram.com/ndchvision/reel/Df2GI9Tt8vv/) · symbol 2026-11-16 (https://www.instagram.com/ndchvision/p/DfzhW_ipW1U/)
+
 Covers: `assets/covers/027_BEARING_vertical.png`
 
 Location tag: `Royal Observatory Greenwich` (Instagram, TikTok, Facebook, YouTube (Video location))
@@ -998,6 +1012,8 @@ A fine gold chain drags through a crack in dark stone. In a vaulted stone chambe
 ## 028 · RUN
 
 Status: scheduled · Engine: NDCH_034_RUN · YouTube: Fri, Nov 13, 11:00 AM CT
+
+On Instagram: reel 2026-11-25 (https://www.instagram.com/ndchvision/reel/DgLqcGdM5di/) · symbol 2026-11-25 (https://www.instagram.com/ndchvision/p/DgLqEZ6JZST/)
 
 Location tag: `Terracotta Army` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -1528,6 +1544,8 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 Status: draft
 
 Note: Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers with the headphones mark. Full cut (3:32) for YouTube and LinkedIn; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers.
+
+On Instagram: reel 2026-11-23 (https://www.instagram.com/ndchvision/reel/DgEw1zusrKS/)
 
 Binaural bed: protocol DreamForge · left 285 Hz / right 294 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 001 <song>`, then `npm run freq:qc -- 001 --full … --short …`)
 

@@ -340,7 +340,8 @@ its own `end_title` (any field above) or `"end_title": false` to go without. Eng
 
 Every reel loops with no seam in picture, sound or words: see [LOOPING.md](../LOOPING.md).
 From 035 on the engine carries the music bed across the loop point (`loop_audio: "seamless"`),
-and every render ends with a loop seam check in the run summary. From 036 on, anchored reels
+and every render is held to a loop seam check before it is released: a failed seam fails the run
+unless the seed sets `loop_seam_waiver` with the reason. From 036 on, anchored reels
 end 2.5 s after the last word (`end_tail_secs`) instead of holding to 45 s.
 
 ### Captions
