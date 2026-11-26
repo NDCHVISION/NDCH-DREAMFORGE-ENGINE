@@ -283,6 +283,39 @@ jobs:
           head -40 "$OUTDIR/MUSIC_REPORT.txt" >> "$GITHUB_STEP_SUMMARY" || true
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Pick the final video
+        if: ${{ steps.in.outputs.only_clips == '' }}
+        run: |
+          ID="${{ steps.seed.outputs.reel_id }}"
+          MIXED="${{ steps.mix.outputs.mixed }}"
+          if [ -n "$MIXED" ] && [ -f "$MIXED" ]; then
+            SRC="$MIXED"
+          else
+            SRC=$(ls -t /tmp/final_subtitled.mp4 /tmp/final_branded.mp4 /tmp/final.mp4 2>/dev/null | head -1)
+          fi
+          cp "$SRC" "/tmp/${ID}_FINAL.mp4"
+
+      # Blocking (LOOPING.md): runs before the upload, so a reel whose loop doesn't join is never
+      # released. To ship one anyway, the seed must say why in loop_seam_waiver; the summary shows it.
+      # music "none" has no bed to carry across the loop, so only the picture seam is enforced then.
+      - name: Loop seam check (LOOPING.md)
+        if: ${{ steps.in.outputs.only_clips == '' }}
+        run: |
+          ID="${{ steps.seed.outputs.reel_id }}"
+          SPEC="${{ steps.seed.outputs.spec }}"
+          NO_BED=$( [ "${{ steps.in.outputs.music }}" = "none" ] && echo --no-bed || true )
+          RC=0
+          npx tsx scripts/loop-check.ts "/tmp/${ID}_FINAL.mp4" --strict --spec "$SPEC" $NO_BED > /tmp/loop-seam.txt 2>&1 || RC=$?
+          cat /tmp/loop-seam.txt
+          {
+            echo "## Loop seam"
+            echo '```'
+            cat /tmp/loop-seam.txt
+            echo '```'
+            if [ "$RC" -ne 0 ]; then echo "**❌ Not released: the loop seam failed.** Fix the seam, or add \`loop_seam_waiver\` (the reason) to the seed."; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$RC"
+
       - name: Upload final video + caption
         if: ${{ steps.in.outputs.only_clips == '' }}
         env:
@@ -291,13 +324,6 @@ jobs:
           ID="${{ steps.seed.outputs.reel_id }}"
           SPEC="${{ steps.seed.outputs.spec }}"
           TAG="express-$ID"
-          MIXED="${{ steps.mix.outputs.mixed }}"
-          if [ -n "$MIXED" ] && [ -f "$MIXED" ]; then
-            SRC="$MIXED"
-          else
-            SRC=$(ls -t /tmp/final_subtitled.mp4 /tmp/final_branded.mp4 /tmp/final.mp4 2>/dev/null | head -1)
-          fi
-          cp "$SRC" "/tmp/${ID}_FINAL.mp4"
           {
             echo "TITLE (YouTube):"
             jq -r .express.title "$SPEC"
@@ -332,18 +358,6 @@ jobs:
             echo "## Music record"
             echo '```'
             cat "reels/express/music/$ID/music.json" | head -40
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Loop seam check (LOOPING.md)
-        if: ${{ steps.in.outputs.only_clips == '' }}
-        continue-on-error: true
-        run: |
-          ID="${{ steps.seed.outputs.reel_id }}"
-          {
-            echo "## Loop seam"
-            echo '```'
-            npx tsx scripts/loop-check.ts "/tmp/${ID}_FINAL.mp4" 2>&1 || true
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
