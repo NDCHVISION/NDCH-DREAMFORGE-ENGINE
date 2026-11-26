@@ -6,7 +6,7 @@
  *   npm run posts:page            writes renders/post-kit/index.html
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
-import { FIELDS, FREQ_DIR, PLATFORMS, loadPosts, label, type ReelPost } from '../lib/post-kit.ts';
+import { FIELDS, FREQ_DIR, PLATFORMS, loadPosts, label, postedOn, type ReelPost } from '../lib/post-kit.ts';
 
 const LABEL: Record<string, string> = { youtube: 'YouTube', instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', linkedin: 'LinkedIn' };
 const when = (iso: string) => new Date(iso).toLocaleString('en-US', { timeZone: 'America/Chicago', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' CT';
@@ -18,6 +18,7 @@ const entry = (p: ReelPost) => ({
   status: p.status,
   schedule: Object.entries(p.schedule ?? {}).map(([k, v]) => `${LABEL[k]}: ${when(v as string)}`).join(' · '),
   note: p.note ?? '',
+  live: postedOn(p).map((x) => ({ role: x.role, date: x.posted_ct.slice(0, 10), url: x.url, location: x.location })),
   covers: [p.cover?.vertical, p.cover?.horizontal, p.cover?.instagram].filter(Boolean).map((c) => c!.split('/').pop()),
   location: p.location ? { name: p.location.name, why: p.location.why, search: p.location.search ?? [] } : null,
   symbol: p.symbol ? { caption: p.symbol.caption, alt: p.symbol.alt_text ?? '', image: p.symbol.image.split('/').pop(), place: p.symbol.place ?? '' } : null,
@@ -134,6 +135,7 @@ function render(r,freq){
   const h=el('div','head'),h2=el('h2',null,r.name);h2.appendChild(el('span',null,r.num));h.appendChild(h2);
   const m=el('div','meta');m.appendChild(el('span','tag'+(r.status==='draft'?' draft':''),r.status));if(r.schedule)m.appendChild(document.createTextNode(r.schedule));h.appendChild(m);s.appendChild(h);
   if(r.note)s.appendChild(el('p','note',r.note));
+  if(r.live.length){const lv=el('p','note');lv.appendChild(document.createTextNode('Already on Instagram: '));r.live.forEach((x,i)=>{if(i)lv.appendChild(document.createTextNode(' · '));const a=el('a',null,x.role+' '+x.date+(x.location?' ('+x.location+')':''));a.href=x.url;a.style.color='var(--gold)';lv.appendChild(a)});s.appendChild(lv)}
   const g=el('div','grid');
   if(r.location){const p=panel('Location tag',null,'place wide');p.appendChild(copyField('Tag this place',r.location.name,{title:true}));
     if(r.location.search.length){p.appendChild(el('div','label','If it isn\\'t listed, search in order'));const ol=el('ol','alts');r.location.search.forEach(x=>ol.appendChild(el('li',null,x)));p.appendChild(ol)}
