@@ -1512,6 +1512,7 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
+| FREQ 002 | [I TRUST MYSELF](#freq-002--i-trust-myself) | draft |  | Walden Pond State Reservation |
 
 ## FREQ 001 · I LOVE MYSELF
 
@@ -1658,4 +1659,149 @@ A lot of driven people only allow themselves approval after the next milestone, 
 
 ```text
 A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.
+```
+
+## FREQ 002 · I TRUST MYSELF
+
+Status: draft
+
+Note: Not released. Waiting on the song (make it in Suno from freq/tracks/002_I_TRUST_MYSELF/SUNO_PROMPT.md) and the covers (FREQ Cover workflow). Plan: freq/tracks/002_I_TRUST_MYSELF/PLAN.md. Aim for a song under 3:00 so one vertical cut covers the Short, Instagram, TikTok and Facebook.
+
+Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 002 <song>`, then `npm run freq:qc -- 002 --full … --short …`)
+
+Location tag: `Walden Pond State Reservation` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Walden Pond` → `Concord, Massachusetts`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Emerson owned the land where Thoreau built his cabin, and Emerson's Self-Reliance says it plainly: Trust thyself. FREQ 001 began with Know thyself at Delphi; 002 is the next line.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 002 | I TRUST MYSELF 🧭 #affirmations #selftrust
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+002 | I TRUST MYSELF
+Your own judgment has carried you this far.
+Let it lead today.
+
+—
+NDCH FREQ · 002 · I Trust Myself
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfTrust #ITrustMyself
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's one call you made on your own that turned out right? 🧭
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I trust myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Your own judgment has carried you this far. Let it lead today.
+
+—
+NDCH FREQ · 002
+Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #selftrust #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's one call you made on your own that turned out right? Say it here. 🧭
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 002| I TRUST MYSELF
+
+Your own judgment has carried you this far. Let it lead today. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's one call you made on your own that turned out right? 🧭
+```
+
+### Facebook
+
+**Title**
+
+```text
+I TRUST MYSELF · NDCH FREQ 002
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I trust myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Your own judgment has carried you this far. Let it lead today.
+
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #SelfTrust
+```
+
+**First comment**
+
+```text
+What's one call you made on your own that turned out right? Say it here. 🧭
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+FREQ 002 | I TRUST MYSELF
+```
+
+**Post text**
+
+```text
+FREQ 002 | I TRUST MYSELF
+
+Your own judgment has carried you this far.
+
+A lot of capable people collect a fifth opinion before every decision, when the first one they needed was their own. FREQ is a short NDCH series of affirmations set to sound: one sentence, repeated until it lands. This one runs over a 14.5 Hz binaural beat, so it's best with headphones.
+
+#NDCH #Leadership #DecisionMaking
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I TRUST MYSELF, NDCH FREQ 002. The picture pushes in slowly and the gold breathes brighter while one line repeats: I trust myself.
 ```
