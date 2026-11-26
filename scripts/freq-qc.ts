@@ -17,7 +17,7 @@ const args = process.argv.slice(2);
 const opt = (k: string) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
 const post = findPost(loadPosts(FREQ_DIR), `freq ${args[0]}`);
 if (!post) { console.error(`no FREQ track ${args[0]}`); process.exit(1); }
-const name = `${post.posting}_${post.title.replace(/ /g, '_')}`;
+const name = `${post.posting}_${post.title.replace(/'/g, '').replace(/ /g, '_')}`;
 const dir = join('freq', 'tracks', name);
 
 const checks: Check[] = [...checkPost(post), ...checkCovers(post)];

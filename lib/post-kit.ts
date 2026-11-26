@@ -142,9 +142,9 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
   const errs: string[] = [];
   const where = fileName ?? `${p.posting}_${p.title}`;
   if (!/^\d{3}$/.test(p.posting ?? '')) errs.push(`${where}: posting must be three digits`);
-  if (!/^[A-Z][A-Z0-9 ]*$/.test(p.title ?? '')) errs.push(`${where}: title must be uppercase`);
-  if (fileName && fileName !== `${p.posting}_${p.title.replace(/ /g, '_')}.json`)
-    errs.push(`${where}: file name should be ${p.posting}_${p.title.replace(/ /g, '_')}.json`);
+  if (!/^[A-Z][A-Z0-9 ']*$/.test(p.title ?? '')) errs.push(`${where}: title must be uppercase`);
+  const expected = `${p.posting}_${p.title.replace(/'/g, '').replace(/ /g, '_')}.json`;
+  if (fileName && fileName !== expected) errs.push(`${where}: file name should be ${expected}`);
   if (!POST_STATUSES.includes(p.status)) errs.push(`${where}: status must be one of ${POST_STATUSES.join(', ')}`);
   if (!p.location?.name?.trim()) errs.push(`${where}: location.name is empty (every post tags a monumental location)`);
   if (!p.location?.why?.trim()) errs.push(`${where}: location.why is empty (say how the landmark echoes the reel)`);

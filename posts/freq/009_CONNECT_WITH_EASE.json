@@ -1,0 +1,47 @@
+{
+  "posting": "009",
+  "title": "CONNECT WITH EASE",
+  "series": "freq",
+  "emoji": "🌉",
+  "status": "draft",
+  "schedule": {
+    "youtube": "2027-01-25T07:00:00-06:00",
+    "instagram": "2027-01-25T07:00:00-06:00",
+    "tiktok": "2027-01-25T07:00:00-06:00",
+    "facebook": "2027-01-25T07:00:00-06:00"
+  },
+  "note": "Not released. Song: Connect with Ease (3:34, deep house and hip-hop, 112 BPM), Suno take 4fe4e2af. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines CONNECT|WITH EASE. Calendar: freq/CALENDAR.md. Check the sung line against the take before captions; the line here comes from the title.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title CONNECT WITH EASE, NDCH FREQ 009. The picture pushes in slowly and the gold breathes brighter while one line repeats: I connect with ease.",
+  "location": {
+    "name": "Golden Gate Bridge",
+    "why": "Built to join two shores everyone said couldn't be joined, and it made the crossing look effortless.",
+    "search": [
+      "Golden Gate Bridge Welcome Center",
+      "Golden Gate National Recreation Area",
+      "San Francisco, California"
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 009 | CONNECT WITH EASE 🌉 #affirmations #connection",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n009 | CONNECT WITH EASE\nShow up as yourself, and the right people meet you there.\n\n—\nNDCH FREQ · 009 · Connect with Ease\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #Connection #ConnectWithEase",
+      "pinned_comment": "Headphones on. Who's one person you'll reach out to this week? 🌉"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nI connect with ease.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nShow up as yourself, and the right people meet you there.\n\n—\nNDCH FREQ · 009\nBest with headphones: a 9 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #connection #dailyaffirmations",
+      "first_comment": "Who's one person you'll reach out to this week? Say it here. 🌉"
+    },
+    "tiktok": {
+      "caption": "FREQ 009| CONNECT WITH EASE\n\nShow up as yourself, and the right people meet you there. 🎧",
+      "first_comment": "Headphones on for this one. Who's one person you'll reach out to this week? 🌉"
+    },
+    "facebook": {
+      "title": "CONNECT WITH EASE · NDCH FREQ 009",
+      "description": "🎧 Best with headphones.\n\nI connect with ease.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nShow up as yourself, and the right people meet you there.\n\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #Connection",
+      "first_comment": "Who's one person you'll reach out to this week? Say it here. 🌉"
+    }
+  },
+  "binaural": {
+    "protocol": "DreamForge"
+  }
+}

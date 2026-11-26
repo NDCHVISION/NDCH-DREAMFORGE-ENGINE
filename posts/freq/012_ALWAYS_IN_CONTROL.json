@@ -1,0 +1,47 @@
+{
+  "posting": "012",
+  "title": "ALWAYS IN CONTROL",
+  "series": "freq",
+  "emoji": "🕹️",
+  "status": "draft",
+  "schedule": {
+    "youtube": "2027-02-15T07:00:00-06:00",
+    "instagram": "2027-02-15T07:00:00-06:00",
+    "tiktok": "2027-02-15T07:00:00-06:00",
+    "facebook": "2027-02-15T07:00:00-06:00"
+  },
+  "note": "Not released. Song: Always In Control (3:58, dark electronic hip-hop), Suno take e03746ff. Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Covers: make in ChatGPT from the FREQ 001 cover, lines ALWAYS IN|CONTROL. Calendar: freq/CALENDAR.md. Check the sung line against the take before captions; the line here comes from the title.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title ALWAYS IN CONTROL, NDCH FREQ 012. The picture pushes in slowly and the gold breathes brighter while one line repeats: I am always in control.",
+  "location": {
+    "name": "Johnson Space Center",
+    "why": "Mission Control: when everything is moving at once, the room that stays calm runs the flight.",
+    "search": [
+      "Space Center Houston",
+      "NASA Johnson Space Center",
+      "Houston, Texas"
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 012 | ALWAYS IN CONTROL 🕹️ #affirmations #discipline",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n012 | ALWAYS IN CONTROL\nSteady hands, clear head, your call.\n\n—\nNDCH FREQ · 012 · Always In Control\nSet over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #Control #Composure",
+      "pinned_comment": "Headphones on. What's fully in your hands this week? 🕹️"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nI am always in control.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nSteady hands, clear head, your call.\n\n—\nNDCH FREQ · 012\nBest with headphones: a 14.5 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #composure #dailyaffirmations",
+      "first_comment": "What's fully in your hands this week? Say it here. 🕹️"
+    },
+    "tiktok": {
+      "caption": "FREQ 012| ALWAYS IN CONTROL\n\nSteady hands, clear head, your call. 🎧",
+      "first_comment": "Headphones on for this one. What's fully in your hands this week? 🕹️"
+    },
+    "facebook": {
+      "title": "ALWAYS IN CONTROL · NDCH FREQ 012",
+      "description": "🎧 Best with headphones.\n\nI am always in control.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nSteady hands, clear head, your call.\n\nSet over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #Composure",
+      "first_comment": "What's fully in your hands this week? Say it here. 🕹️"
+    }
+  },
+  "binaural": {
+    "protocol": "Lucid Commander"
+  }
+}

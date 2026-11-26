@@ -1,0 +1,47 @@
+{
+  "posting": "006",
+  "title": "I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE",
+  "series": "freq",
+  "emoji": "🌅",
+  "status": "draft",
+  "schedule": {
+    "youtube": "2027-01-04T07:00:00-06:00",
+    "instagram": "2027-01-04T07:00:00-06:00",
+    "tiktok": "2027-01-04T07:00:00-06:00",
+    "facebook": "2027-01-04T07:00:00-06:00"
+  },
+  "note": "Not released. Song: I Wake Up with Purpose and Finish with Pride (3:14, warm bass-driven hip-hop, 119 BPM), Suno take 75396ca6. 3:14: a 14 s trim gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I WAKE UP|WITH PURPOSE. Calendar: freq/CALENDAR.md.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE, NDCH FREQ 006. The picture pushes in slowly and the gold breathes brighter while one line repeats: I wake up with purpose and finish with pride.",
+  "location": {
+    "name": "Panathenaic Stadium",
+    "why": "The finish line of the Athens Marathon, the race named for a run that began with a purpose and ended in pride. First Monday of the year.",
+    "search": [
+      "Kallimarmaro",
+      "Panathenaic Stadium, Athens",
+      "Athens, Greece"
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 006 | I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE 🌅 #affirmations #morning",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n006 | I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE\nStart the day on purpose. End it proud of what you did.\n\n—\nNDCH FREQ · 006 · I Wake Up with Purpose and Finish with Pride\nSet over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #MorningMotivation #NewYear",
+      "pinned_comment": "Headphones on. What will you finish this week that you'll be proud of? 🌅"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nI wake up with purpose and finish with pride.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nStart the day on purpose. End it proud of what you did.\n\n—\nNDCH FREQ · 006\nBest with headphones: a 16 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #morningmotivation #dailyaffirmations",
+      "first_comment": "What will you finish this week that you'll be proud of? Say it here. 🌅"
+    },
+    "tiktok": {
+      "caption": "FREQ 006| I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE\n\nStart the day on purpose. End it proud of what you did. 🎧",
+      "first_comment": "Headphones on for this one. What will you finish this week that you'll be proud of? 🌅"
+    },
+    "facebook": {
+      "title": "I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE · NDCH FREQ 006",
+      "description": "🎧 Best with headphones.\n\nI wake up with purpose and finish with pride.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nStart the day on purpose. End it proud of what you did.\n\nSet over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #NewYear",
+      "first_comment": "What will you finish this week that you'll be proud of? Say it here. 🌅"
+    }
+  },
+  "binaural": {
+    "protocol": "NeuroBlade"
+  }
+}

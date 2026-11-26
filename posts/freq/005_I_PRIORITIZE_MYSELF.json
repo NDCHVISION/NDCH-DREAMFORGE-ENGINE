@@ -1,0 +1,47 @@
+{
+  "posting": "005",
+  "title": "I PRIORITIZE MYSELF",
+  "series": "freq",
+  "emoji": "👑",
+  "status": "draft",
+  "schedule": {
+    "youtube": "2026-12-28T07:00:00-06:00",
+    "instagram": "2026-12-28T07:00:00-06:00",
+    "tiktok": "2026-12-28T07:00:00-06:00",
+    "facebook": "2026-12-28T07:00:00-06:00"
+  },
+  "note": "Not released. Song: I Prioritize Myself (3:13, hip-hop with soft house shimmer, 119 BPM), Suno take ed6bb245. 3:13: close enough that a 14 s trim of the intro or outro gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I PRIORITIZE|MYSELF. Calendar: freq/CALENDAR.md.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I PRIORITIZE MYSELF, NDCH FREQ 005. The picture pushes in slowly and the gold breathes brighter while one line repeats: I prioritize myself.",
+  "location": {
+    "name": "Machu Picchu",
+    "why": "Built as a retreat for the emperor Pachacuti: the ruler of an empire kept a place above the clouds that was his alone. The last week of the year is a good time to claim yours.",
+    "search": [
+      "Machu Picchu Historic Sanctuary",
+      "Aguas Calientes",
+      "Cusco, Peru"
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 005 | I PRIORITIZE MYSELF 👑 #affirmations #selfworth",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n005 | I PRIORITIZE MYSELF\nPutting yourself first is how you keep showing up for everyone else.\n\n—\nNDCH FREQ · 005 · I Prioritize Myself\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #SelfWorth #PrioritizeYourself",
+      "pinned_comment": "Headphones on. What's one thing you're putting first for yourself this week? 👑"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nI prioritize myself.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nPutting yourself first is how you keep showing up for everyone else.\n\n—\nNDCH FREQ · 005\nBest with headphones: a 9 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #selfworth #dailyaffirmations",
+      "first_comment": "What's one thing you're putting first for yourself this week? Say it here. 👑"
+    },
+    "tiktok": {
+      "caption": "FREQ 005| I PRIORITIZE MYSELF\n\nPutting yourself first is how you keep showing up for everyone else. 🎧",
+      "first_comment": "Headphones on for this one. What's one thing you're putting first for yourself this week? 👑"
+    },
+    "facebook": {
+      "title": "I PRIORITIZE MYSELF · NDCH FREQ 005",
+      "description": "🎧 Best with headphones.\n\nI prioritize myself.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nPutting yourself first is how you keep showing up for everyone else.\n\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #SelfWorth",
+      "first_comment": "What's one thing you're putting first for yourself this week? Say it here. 👑"
+    }
+  },
+  "binaural": {
+    "protocol": "DreamForge"
+  }
+}
