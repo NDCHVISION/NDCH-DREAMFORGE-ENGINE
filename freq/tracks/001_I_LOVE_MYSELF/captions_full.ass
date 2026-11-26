@@ -1,0 +1,99 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Aff,NDCH Freq Serif,112,&H00EEF2F6,&H000000FF,&H40000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,60,60,0,1
+Style: Head,NDCH Freq Serif,44,&H006AC4E9,&H000000FF,&H60000000,&H00000000,0,0,0,0,100,100,22,0,1,1.5,0,8,60,60,190,1
+Style: End,NDCH Freq Serif,92,&H00EEF2F6,&H000000FF,&H40000000,&H00000000,0,0,0,0,100,100,24,0,1,3,0,5,60,60,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:03:32.40,Head,,0,0,0,,{\blur1}NDCH FREQ 001
+Dialogue: 1,0:00:00.17,0:00:02.65,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:04.32,0:00:06.80,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:07.76,0:00:10.24,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:13.62,0:00:17.58,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:00:17.62,0:00:19.18,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:19.22,0:00:20.98,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:21.02,0:00:22.88,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:22.92,0:00:24.75,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:24.79,0:00:28.87,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:00:31.69,0:00:33.04,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(777,837,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:33.08,0:00:35.25,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:35.29,0:00:36.74,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(777,837,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:36.78,0:00:39.04,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:39.08,0:00:40.43,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(777,837,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:40.47,0:00:42.73,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:42.77,0:00:46.85,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:00:46.92,0:00:48.33,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:48.37,0:00:50.48,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:50.52,0:00:53.00,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:55.72,0:00:57.58,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:00:57.62,0:01:01.46,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:01.50,0:01:03.28,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Look good\Nin the {\1c&H6AC4E9&}light{\1c&HEEF2F6&}
+Dialogue: 1,0:01:03.32,0:01:05.18,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Feel good\Nin the {\1c&H6AC4E9&}dark{\1c&HEEF2F6&}
+Dialogue: 1,0:01:05.22,0:01:06.88,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:06.92,0:01:08.88,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:08.92,0:01:10.68,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Look good\Nin the {\1c&H6AC4E9&}light{\1c&HEEF2F6&}
+Dialogue: 1,0:01:10.72,0:01:12.68,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Feel good\Nin the {\1c&H6AC4E9&}dark{\1c&HEEF2F6&}
+Dialogue: 1,0:01:12.72,0:01:15.96,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:16.00,0:01:17.35,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:17.39,0:01:19.66,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:19.70,0:01:21.05,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:21.09,0:01:23.35,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:23.39,0:01:24.74,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:24.78,0:01:27.05,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:27.09,0:01:30.58,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:30.62,0:01:32.48,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:32.52,0:01:34.90,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:34.94,0:01:36.43,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:36.47,0:01:38.61,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:38.65,0:01:40.25,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:40.29,0:01:42.11,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:42.15,0:01:45.48,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:45.52,0:01:47.48,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:47.52,0:01:49.08,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:01:49.12,0:01:53.08,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:01:53.12,0:01:55.20,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Look good\Nin the {\1c&H6AC4E9&}light{\1c&HEEF2F6&}
+Dialogue: 1,0:01:55.25,0:01:56.86,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}Feel good\Nin the {\1c&H6AC4E9&}dark{\1c&HEEF2F6&}
+Dialogue: 1,0:01:56.90,0:02:00.25,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:00.29,0:02:01.44,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:01.48,0:02:03.95,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:03.99,0:02:05.33,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1242,1302,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:05.37,0:02:07.64,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:07.68,0:02:08.84,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1243,1303,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:08.88,0:02:11.34,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:11.38,0:02:15.03,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:15.07,0:02:19.15,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:26.27,0:02:27.40,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:27.44,0:02:30.29,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:30.33,0:02:32.13,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:32.17,0:02:33.99,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:34.03,0:02:35.61,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:35.65,0:02:37.68,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:37.72,0:02:39.33,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:39.37,0:02:41.13,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:41.17,0:02:45.06,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:45.10,0:02:46.96,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:47.00,0:02:48.90,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:48.94,0:02:51.42,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:52.52,0:02:54.32,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:54.36,0:02:56.08,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:02:56.12,0:02:59.34,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:02:59.38,0:03:00.72,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1243,1303,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:03:00.76,0:03:03.02,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:03.06,0:03:04.20,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1243,1303,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:03:04.24,0:03:06.72,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:06.76,0:03:08.10,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(312,372,\alpha&H00&)}up, {\alpha&HFF&\t(545,605,\alpha&H00&)}up, {\alpha&HFF&\t(778,838,\alpha&H00&)}up,\N{\alpha&HFF&\t(1010,1070,\alpha&H00&)}up, {\alpha&HFF&\t(1243,1303,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:03:08.14,0:03:10.41,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:10.45,0:03:14.53,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:03:15.92,0:03:18.40,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:20.22,0:03:22.70,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:24.00,0:03:25.83,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love {\1c&H6AC4E9&}myself{\1c&HEEF2F6&}
+Dialogue: 1,0:03:25.87,0:03:29.08,Aff,,0,0,0,,{\pos(540,1440)\blur1.5\fad(160,200)}I love the way I feel\Nin my own {\1c&H6AC4E9&}skin{\1c&HEEF2F6&}
+Dialogue: 1,0:03:29.30,0:03:32.30,End,,0,0,0,,{\pos(540,1440)\blur1.5\fad(500,500)}I LOVE MYSELF\N{\fs44\1c&H6AC4E9&\fsp18}NDCH FREQ 001

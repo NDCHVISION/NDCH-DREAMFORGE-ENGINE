@@ -1,0 +1,50 @@
+{
+  "posting": "003",
+  "title": "I TRUST MY JUDGMENT AND MY INSTINCTS",
+  "series": "freq",
+  "emoji": "🧭",
+  "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_horizontal.jpg"
+  },
+  "schedule": {
+    "youtube": "2026-12-14T07:00:00-06:00",
+    "instagram": "2026-12-14T07:00:00-06:00",
+    "tiktok": "2026-12-14T07:00:00-06:00",
+    "facebook": "2026-12-14T07:00:00-06:00"
+  },
+  "note": "Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. 3:21: post the whole vertical render on every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I TRUST MY|JUDGMENT. Calendar: freq/CALENDAR.md.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I TRUST MY JUDGMENT AND MY INSTINCTS, NDCH FREQ 003. The picture pushes in slowly and the gold breathes brighter while one line repeats: I trust my judgment and my instincts.",
+  "location": {
+    "name": "Walden Pond State Reservation",
+    "why": "Emerson owned the land where Thoreau built his cabin, and Emerson's Self-Reliance says it plainly: Trust thyself. FREQ 001 began with Know thyself at Delphi; this is the next line.",
+    "search": [
+      "Walden Pond",
+      "Concord, Massachusetts"
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n003 | I TRUST MY JUDGMENT AND MY INSTINCTS\nYour own judgment has carried you this far. Let it lead today.\n\n—\nNDCH FREQ · 003 · I Trust My Judgment and My Instincts\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #SelfTrust #TrustYourself",
+      "pinned_comment": "Headphones on. What's one call you made on your own that turned out right? 🧭"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nI trust my judgment and my instincts.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nYour own judgment has carried you this far. Let it lead today.\n\n—\nNDCH FREQ · 003\nBest with headphones: a 9 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #selftrust #dailyaffirmations",
+      "first_comment": "What's one call you made on your own that turned out right? Say it here. 🧭"
+    },
+    "tiktok": {
+      "caption": "FREQ 003| I TRUST MY JUDGMENT AND MY INSTINCTS\n\nYour own judgment has carried you this far. Let it lead today. 🎧",
+      "first_comment": "Headphones on for this one. What's one call you made on your own that turned out right? 🧭"
+    },
+    "facebook": {
+      "title": "I TRUST MY JUDGMENT AND MY INSTINCTS · NDCH FREQ 003",
+      "description": "🎧 Best with headphones.\n\nI trust my judgment and my instincts.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nYour own judgment has carried you this far. Let it lead today.\n\nSet over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #SelfTrust",
+      "first_comment": "What's one call you made on your own that turned out right? Say it here. 🧭"
+    }
+  },
+  "binaural": {
+    "protocol": "DreamForge"
+  }
+}

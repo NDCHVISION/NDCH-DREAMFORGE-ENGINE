@@ -1,0 +1,9 @@
+{
+  "about": "Dreamforge reel cover geometry, from NDCH Dreamforge Master Cover Architecture V2.0 (docs/covers/COVER_ARCHITECTURE_V2.md). The 1306 px plaque height and symmetric centering were marked 'requires approval' in V2.0.",
+  "canvas": [1080, 1920],
+  "plaque": { "x0": 165, "y0": 307, "x1": 915, "y1": 1613, "w": 750, "h": 1306 },
+  "grid_safe": { "y0": 240, "y1": 1680 },
+  "center": [540, 960],
+  "tolerance_px": 6,
+  "reference": "docs/covers/RUN_028_reference.png"
+}

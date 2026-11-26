@@ -5,8 +5,9 @@
   "emoji": "🤍",
   "status": "draft",
   "cover": {
-    "vertical": "assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.png",
-    "horizontal": "assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.png"
+    "vertical": "assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_001_I_LOVE_MYSELF_horizontal.jpg",
+    "instagram": "assets/covers/FREQ_001_I_LOVE_MYSELF_instagram.png"
   },
   "note": "Re-release with binaural beats (DreamForge: left 285 Hz / right 294 Hz, 9 Hz beat, 18 LU under the song) and the new covers with the headphones mark. Full cut (3:32) for YouTube and LinkedIn; under-3:00 cut (2:59) for the Short, Instagram, TikTok and Facebook, since Reels over 3 minutes aren't shown to non-followers.",
   "alt_text": "A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.",
@@ -44,6 +45,7 @@
     }
   },
   "binaural": {
-    "protocol": "DreamForge"
+    "protocol": "DreamForge",
+    "key_lock": false
   }
 }

@@ -12,7 +12,8 @@
  *      - the bed sits at its target level, the song's loudness is unchanged, the mix keeps headroom.
  */
 import { execFileSync, spawnSync } from 'node:child_process';
-import { FREQ_TOLERANCE_HZ, type resolveBinaural } from '../binaural.ts';
+import { FREQ_TOLERANCE_HZ, KEY_MIN_MARGIN, lockBase, type resolveBinaural } from '../binaural.ts';
+import { detectKey, nearestScaleNote, type SongKey } from './key.ts';
 
 export const SR = 48000;
 type Spec = ReturnType<typeof resolveBinaural>;
@@ -22,6 +23,8 @@ export interface BinauralReport {
   out: string;
   bed: string;
   spec: Spec;
+  /** Key lock: the song's key, the protocol's own base, and the note the base was moved to (if it moved). */
+  key?: { detected: SongKey; protocol_base_hz: number; locked_to?: string; kept_protocol_base_reason?: string };
   duration_s: number;
   song_lufs: number;
   bed_target_lufs: number;
@@ -110,7 +113,19 @@ export function peakHz(x: Float64Array, near: number, span = 1): number {
 const rms = (x: Float64Array) => Math.sqrt(x.reduce((s, v) => s + v * v, 0) / x.length);
 const r4 = (x: number) => Math.round(x * 1e4) / 1e4;
 
-export function buildBinauralMix(song: string, out: string, bed: string, spec: Spec): BinauralReport {
+export function buildBinauralMix(song: string, out: string, bed: string, requested: Spec): BinauralReport {
+  let spec = requested;
+  let key: BinauralReport['key'];
+  if (requested.key_lock) {
+    const detected = detectKey(song);
+    key = { detected, protocol_base_hz: requested.base_hz };
+    if (detected.margin < KEY_MIN_MARGIN) key.kept_protocol_base_reason = `key unclear (${detected.name} vs ${detected.runner_up})`;
+    else {
+      const note = nearestScaleNote(requested.base_hz, detected);
+      spec = lockBase(requested, note.hz);
+      key.locked_to = `${note.name} (${note.hz} Hz)`;
+    }
+  }
   const duration = probeDuration(song);
   const s = loudness(song);
   const target = s.lufs - spec.level_lu_below;
@@ -166,7 +181,7 @@ export function buildBinauralMix(song: string, out: string, bed: string, spec: S
   ].map(([name, ok, detail]) => ({ name: name as string, ok: ok as boolean, detail: detail as string }));
 
   return {
-    song, out, bed, spec, duration_s: duration,
+    song, out, bed, spec, key, duration_s: duration,
     song_lufs: s.lufs, bed_target_lufs: target, bed_lufs: bedL, mix_lufs: mix.lufs,
     mix_true_peak_dbtp: mix.tp, song_true_peak_dbtp: s.tp,
     measured: Object.fromEntries(Object.entries(m).map(([k, v]) => [k, r4(v)])) as BinauralReport['measured'],

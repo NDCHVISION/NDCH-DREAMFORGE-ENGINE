@@ -23,7 +23,7 @@ const flag = (f: string) => args.includes(f);
 const rest = args.filter((a) => !a.startsWith('--'));
 
 if (flag('--check') || flag('--write')) {
-  const errs = posts.flatMap((p) => validatePost(p, `${p.posting}_${p.title.replace(/ /g, '_')}.json`));
+  const errs = posts.flatMap((p) => validatePost(p, `${p.posting}_${p.title.replace(/'/g, '').replace(/ /g, '_')}.json`));
   if (errs.length) { console.error(errs.join('\n')); process.exit(1); }
   if (flag('--write')) {
     writeFileSync(join(process.cwd(), 'posts', 'POST_KIT.md'), renderKit(reels, freq));

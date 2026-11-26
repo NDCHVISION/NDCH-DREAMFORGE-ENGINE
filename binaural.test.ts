@@ -81,3 +81,26 @@ test('mix: exact tones, one per ear, at the target level, song untouched', { ski
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('key: chroma of a C major profile reads as C major; base snaps to the nearest scale note, beat unchanged', async () => {
+  const { keyFromChroma, nearestScaleNote } = await import('./lib/audio/key.ts');
+  const { lockBase } = await import('./lib/binaural.ts');
+  const cmaj = [6.35, 2.23, 3.48, 2.33, 4.38, 4.09, 2.52, 5.19, 2.39, 3.66, 2.29, 2.88];
+  assert.equal(keyFromChroma(cmaj).name, 'C major');
+  const gmin = cmaj.map((_, i) => [6.33, 2.68, 3.52, 5.38, 2.6, 3.53, 2.54, 4.75, 3.98, 2.69, 3.34, 3.17][(i - 7 + 12) % 12]);
+  const k = keyFromChroma(gmin);
+  assert.equal(k.name, 'G minor');
+  assert.deepEqual(nearestScaleNote(285, k), { hz: 293.665, name: 'D4' });
+  const locked = lockBase(resolveBinaural({ protocol: 'DreamForge' }), 293.665);
+  assert.deepEqual([locked.left_hz, locked.right_hz, locked.beat_hz], [293.665, 302.665, 9]);
+});
+
+test('key: a synthesized C major chord is detected as C major', { skip: !hasFfmpeg && 'ffmpeg not installed' }, async () => {
+  const { detectKey } = await import('./lib/audio/key.ts');
+  const dir = mkdtempSync(join(tmpdir(), 'key-'));
+  try {
+    const f = join(dir, 'c.wav');
+    execFileSync('ffmpeg', ['-v', 'error', '-f', 'lavfi', '-i', 'aevalsrc=sin(2*PI*261.63*t)+0.8*sin(2*PI*329.63*t)+0.8*sin(2*PI*392*t)+0.6*sin(2*PI*130.81*t):s=11025:d=8', f]);
+    assert.equal(detectKey(f).name, 'C major');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});

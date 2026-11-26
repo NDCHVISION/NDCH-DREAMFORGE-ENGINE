@@ -58,7 +58,13 @@ export interface ReelPost {
   emoji?: string;
   status: (typeof POST_STATUSES)[number];
   schedule?: Partial<Record<Platform, string>>;
-  cover?: { vertical?: string; horizontal?: string };
+  /** instagram: a separate Instagram feed/Reel cover when it differs from the vertical one. */
+  cover?: { vertical?: string; horizontal?: string; instagram?: string };
+  /**
+   * The reel's symbol: a still posted to the Instagram grid beside its reel (the grid pairs each reel
+   * with its symbol). Caption format: "NNN | TITLE", blank line, two short lines, then #NDCH + up to 2.
+   */
+  symbol?: { image: string; caption: string; place?: string; alt_text?: string };
   alt_text?: string;
   /** Free-text posting note shown under the status line (e.g. which platforms are a backfill). */
   note?: string;
@@ -119,14 +125,46 @@ function validateFreq(p: ReelPost, where: string): string[] {
   return errs;
 }
 
+/** Symbol stills keep the short grid format the account already uses (see 027 BEARING's symbol). */
+function validateSymbol(p: ReelPost, where: string): string[] {
+  const errs: string[] = [];
+  const lines = p.symbol!.caption.split('\n');
+  if (lines[0] !== `${p.posting} | ${p.title}`) errs.push(`${where}: symbol caption must start "${p.posting} | ${p.title}"`);
+  if (lines[1] !== '') errs.push(`${where}: symbol caption needs a blank line after the title`);
+  const tags = lines.at(-1)!.split(/\s+/);
+  if (!tags.every((t) => t.startsWith('#')) || tags[0] !== '#NDCH' || tags.length > 3) errs.push(`${where}: symbol caption ends with one hashtag line: #NDCH plus up to 2`);
+  if (lines.length - 3 > 3) errs.push(`${where}: symbol caption keeps to two or three short lines`);
+  return errs;
+}
+
+/** What is already live on Instagram (posts/instagram/posted.json, captured from the account). */
+export interface PostedIG { shortcode: string; url: string; format: 'reel' | 'photo'; posted_at: string; posted_ct: string; series: string; number: string | null; title: string | null; role: string; location: string | null; caption: string }
+export function loadPostedIG(): PostedIG[] {
+  try { return JSON.parse(readFileSync(join(process.cwd(), 'posts', 'instagram', 'posted.json'), 'utf8')); } catch { return []; }
+}
+/** This post's live Instagram entries (reel and symbol), matched by series and number. */
+export function postedOn(p: ReelPost, log = loadPostedIG()): PostedIG[] {
+  const series = p.series === 'freq' ? 'FREQ' : 'Dreamforge';
+  return log.filter((x) => x.series === series && x.number === p.posting);
+}
+const norm = (t: string) => t.toLowerCase().replace(/#\S+/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+/** A symbol caption must be new: never a repeat of any caption already on the account. */
+function validateNotRepeated(p: ReelPost, where: string, log: PostedIG[]): string[] {
+  if (!p.symbol) return [];
+  const mine = postedOn(p, log).filter((x) => x.role === 'symbol').map((x) => x.shortcode);
+  const body = norm(p.symbol.caption.split('\n').slice(2, -1).join(' '));
+  const clash = log.find((x) => !mine.includes(x.shortcode) && body && norm(x.caption).includes(body));
+  return clash ? [`${where}: symbol caption repeats a live Instagram post (${clash.posted_ct.slice(0, 10)}, ${clash.url})`] : [];
+}
+
 /** Returns a list of problems; empty means the file is valid. */
 export function validatePost(p: ReelPost, fileName?: string): string[] {
   const errs: string[] = [];
   const where = fileName ?? `${p.posting}_${p.title}`;
   if (!/^\d{3}$/.test(p.posting ?? '')) errs.push(`${where}: posting must be three digits`);
-  if (!/^[A-Z][A-Z0-9 ]*$/.test(p.title ?? '')) errs.push(`${where}: title must be uppercase`);
-  if (fileName && fileName !== `${p.posting}_${p.title.replace(/ /g, '_')}.json`)
-    errs.push(`${where}: file name should be ${p.posting}_${p.title.replace(/ /g, '_')}.json`);
+  if (!/^[A-Z][A-Z0-9 ']*$/.test(p.title ?? '')) errs.push(`${where}: title must be uppercase`);
+  const expected = `${p.posting}_${p.title.replace(/'/g, '').replace(/ /g, '_')}.json`;
+  if (fileName && fileName !== expected) errs.push(`${where}: file name should be ${expected}`);
   if (!POST_STATUSES.includes(p.status)) errs.push(`${where}: status must be one of ${POST_STATUSES.join(', ')}`);
   if (!p.location?.name?.trim()) errs.push(`${where}: location.name is empty (every post tags a monumental location)`);
   if (!p.location?.why?.trim()) errs.push(`${where}: location.why is empty (say how the landmark echoes the reel)`);
@@ -148,6 +186,7 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
   if (p.series === 'freq') errs.push(...validateFreq(p, where));
+  if (p.symbol) errs.push(...validateSymbol(p, where), ...validateNotRepeated(p, where, loadPostedIG()));
   const n = label(p);
   if (p.platforms?.youtube?.title && !p.platforms.youtube.title.startsWith(`${n} | ${p.title}`))
     errs.push(`${where}: youtube.title should start with "${n} | ${p.title}"`);
@@ -206,11 +245,14 @@ export function renderPost(p: ReelPost, only?: Platform): string {
   for (const [plat, when] of Object.entries(p.schedule ?? {})) meta.push(`${LABEL[plat as Platform]}: ${fmtWhen(when as string)}`);
   out.push(meta.join(' · '), '');
   if (p.note) out.push(`Note: ${p.note}`, '');
+  const live = postedOn(p);
+  if (live.length) out.push(`On Instagram: ${live.map((x) => `${x.role} ${x.posted_ct.slice(0, 10)} (${x.url})`).join(' · ')}`, '');
   if (p.binaural && !validateBinaural(p.binaural).length) {
     const b = resolveBinaural(p.binaural);
-    out.push(`Binaural bed: ${b.source} · left ${b.left_hz} Hz / right ${b.right_hz} Hz · ${b.beat_hz} Hz beat · ${b.level_lu_below} LU under the song (\`npm run freq:binaural -- ${p.posting} <song>\`)`, '');
+    const tones = b.key_lock ? `base ${b.base_hz} Hz moved to the song's key, right = base + ${b.beat_hz} Hz` : `left ${b.left_hz} Hz / right ${b.right_hz} Hz`;
+    out.push(`Binaural bed: ${b.source} · ${tones} · ${b.beat_hz} Hz beat · ${b.level_lu_below} LU under the song (\`npm run freq:binaural -- ${p.posting} <song>\`, then \`npm run freq:qc -- ${p.posting} --full … --short …\`)`, '');
   }
-  if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}`, '');
+  if (p.cover?.vertical) out.push(`Covers: \`${p.cover.vertical}\`${p.cover.horizontal ? `, \`${p.cover.horizontal}\`` : ''}${p.cover.instagram ? ` · Instagram: \`${p.cover.instagram}\`` : ''}`, '');
   if (p.location?.name && only !== 'linkedin')
     out.push(
       `Location tag: \`${p.location.name}\` (${LOCATION_PLATFORMS})`,
@@ -230,6 +272,9 @@ export function renderPost(p: ReelPost, only?: Platform): string {
       out.push(`**${f.label}**`, '', '```text', v, '```', '');
     }
   }
+  if (p.symbol && (!only || only === 'instagram'))
+    out.push(`### Symbol (Instagram grid)`, '', `Image: \`${p.symbol.image}\`${p.symbol.place ? ` · ${p.symbol.place}` : ''} · same location tag as the reel`, '', '**Caption**', '', '```text', p.symbol.caption, '```', '',
+      ...(p.symbol.alt_text ? ['**Alt text**', '', '```text', p.symbol.alt_text, '```', ''] : []));
   if (p.alt_text && !only) out.push('### Alt text', '', '```text', p.alt_text, '```', '');
   return out.join('\n');
 }

@@ -1,0 +1,24 @@
+{
+  "about": "FREQ cover template: the approved FREQ 001 covers at delivery size. Only the regions below are regenerated for a new track; every other pixel is copied from the template.",
+  "source_track": "001",
+  "source_title": "I LOVE MYSELF",
+  "formats": {
+    "horizontal": {
+      "template": "assets/covers/templates/freq_horizontal.png",
+      "size": [1920, 1080],
+      "generate_size": "2048x1152",
+      "regions": { "header": [540, 85, 1420, 172], "title": [640, 235, 1810, 645] }
+    },
+    "vertical": {
+      "template": "assets/covers/templates/freq_vertical.png",
+      "size": [1080, 1920],
+      "generate_size": "1152x2048",
+      "regions": { "header": [85, 235, 890, 318], "title": [40, 815, 1040, 1245] }
+    }
+  },
+  "style": {
+    "header": "letter-spaced classic Roman serif capitals in warm ivory-gold, small, evenly tracked, separated by centered middle dots, exactly like the existing header",
+    "title_line1": "large bold classical Roman serif capitals in brushed ivory-silver metal with a subtle bevel and soft glow, exactly like the existing first title line",
+    "title_line2": "larger bold classical Roman serif capitals in polished 3D gold metal with bevel, specular highlights and warm glow, exactly like the existing second title line"
+  }
+}
