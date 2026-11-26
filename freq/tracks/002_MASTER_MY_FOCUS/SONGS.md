@@ -21,9 +21,11 @@ The binaural tool was run on both takes with **Lucid Commander** (340 / 354.5 Hz
 
 Key lock moved the base from 340 Hz to F4 for both takes, giving **349.228 Hz left / 363.728 Hz right**. F is in both A# major and D# major, so either take gets the same tones.
 
+Suno style prompt (both takes): Hypnotic electronic hip-hop, 108 BPM, 4/4, Deep commanding male baritone, calm confidence, No verses, One catchy repeating melody, Seven up hits per chant line, Dark plucked synth, warm sub-bass, bouncing kick, claps, marching snares, Clear vocals, evolving filters, low doubles, Audible whisper break, one-beat silence, huge clean bass drop, Seamless loop.
+
 ## Still to do for the release
 
 - Choose the take. Both run over 3:00, so the Short, Reels, TikTok and Facebook need an under-3:00 cut, as FREQ 001 did.
-- Add `lyrics.txt` from the original lyric sheet before captioning (see `../README.md`).
+- ~~Add `lyrics.txt`~~ Done: `lyrics.txt` is the lyric sheet exactly as entered in Suno (both takes share it; 115 hook lines, 20 "Up" lines). Hook: "I master my focus and actions."
 - Create `posts/freq/002_MASTER_MY_FOCUS.json` with `"binaural": { "protocol": "Lucid Commander" }`, the headphones line in the copy, and no health-claim words.
 - Build covers, render, then run `npm run freq:qc -- 002 …` on the exact upload files. Post only on READY.
