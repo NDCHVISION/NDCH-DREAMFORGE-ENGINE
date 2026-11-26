@@ -16,7 +16,8 @@
     "publish": "sh -c 'if [ -f .env ]; then exec tsx --env-file=.env publish-reel.ts; else exec tsx publish-reel.ts; fi'",
     "posts": "tsx scripts/post-kit.ts",
     "freq:binaural": "tsx scripts/freq-binaural.ts",
-    "freq:qc": "tsx scripts/freq-qc.ts"
+    "freq:qc": "tsx scripts/freq-qc.ts",
+    "posts:page": "tsx scripts/post-kit-page.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
