@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "🧭",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2026-12-14T07:00:00-06:00",
     "instagram": "2026-12-14T07:00:00-06:00",

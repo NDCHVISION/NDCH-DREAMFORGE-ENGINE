@@ -1678,6 +1678,8 @@ Note: Not released. Song: Master My Focus (3:37, hypnotic electronic hip-hop, 10
 
 Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 002 <song>`, then `npm run freq:qc -- 002 --full … --short …`)
 
+Covers: `assets/covers/FREQ_002_MASTER_MY_FOCUS_vertical.jpg`, `assets/covers/FREQ_002_MASTER_MY_FOCUS_horizontal.jpg`
+
 Location tag: `Shaolin Temple` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 If it isn't listed, search: `Shaolin Monastery` → `Songshan Shaolin Temple` → `Dengfeng, Henan`. If none of these show, leave it blank; never tag a look-alike.
@@ -1821,6 +1823,8 @@ Status: draft · YouTube: Mon, Dec 14, 7:00 AM CT · Instagram: Mon, Dec 14, 7:0
 Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. 3:21: post the whole vertical render on every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I TRUST MY|JUDGMENT. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 003 <song>`, then `npm run freq:qc -- 003 --full … --short …`)
+
+Covers: `assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_vertical.jpg`, `assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_horizontal.jpg`
 
 Location tag: `Walden Pond State Reservation` (Instagram, TikTok, Facebook, YouTube (Video location))
 

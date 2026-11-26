@@ -45,7 +45,7 @@ Each post kit has the copy for every platform, the location tag with search fall
 
 ## Covers in ChatGPT
 
-**Made Nov 26, 2026:** horizontal and vertical covers for FREQ 002 to 011 are in the ChatGPT conversation "Refine NDCH Artwork" (NDCH COVERS project). FREQ 004 to 011 are saved in `assets/covers/` and set in each post kit. FREQ 002 and 003 still need downloading from that chat, saving as `assets/covers/FREQ_NNN_TITLE_{horizontal,vertical}.jpg` and adding to the post's `cover`. The prompt below is for any later FREQ.
+**Made Nov 26, 2026:** horizontal and vertical covers for FREQ 002 to 011 were made in the ChatGPT conversation "Refine NDCH Artwork" (NDCH COVERS project). All of them are saved in `assets/covers/` and set in each post kit's `cover`. The prompt below is for any later FREQ.
 
 Free on the existing ChatGPT plan, and keeps the approved FREQ 001 design: only the header number and the title change. Attach `assets/covers/FREQ_001_I_LOVE_MYSELF_vertical.jpg` (then the horizontal one) and send, filling in the number and the two lines:
 
