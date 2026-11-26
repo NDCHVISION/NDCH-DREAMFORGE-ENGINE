@@ -1831,7 +1831,7 @@ Most days don't need more effort, they need fewer things competing for it. FREQ 
 ### Alt text
 
 ```text
-A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MASTER MY FOCUS, NDCH FREQ 002. The picture pushes in slowly and the gold breathes brighter while one line repeats: I master my focus and actions.
+A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I master my focus and actions, then Up, up, up, one word at a time. After a beat of silence, a gold shockwave rolls outward at the drop and the veins light up from the emblem. It ends on MASTER MY FOCUS, NDCH FREQ 002.
 ```
 
 ## FREQ 003 · I TRUST MY JUDGMENT AND MY INSTINCTS
