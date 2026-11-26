@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "🤝",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2027-01-11T07:00:00-06:00",
     "instagram": "2027-01-11T07:00:00-06:00",

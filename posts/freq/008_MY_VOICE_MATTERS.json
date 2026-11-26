@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "🎤",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_008_MY_VOICE_MATTERS_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_008_MY_VOICE_MATTERS_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2027-01-18T07:00:00-06:00",
     "instagram": "2027-01-18T07:00:00-06:00",

@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "✨",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2027-02-01T07:00:00-06:00",
     "instagram": "2027-02-01T07:00:00-06:00",

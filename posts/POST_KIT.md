@@ -1946,6 +1946,8 @@ Note: Not released. Song: I Take Care of Myself (3:45, Afrobeats-techno, 124 BPM
 
 Binaural bed: protocol Core Reboot · base 250 Hz moved to the song's key, right = base + 7.83 Hz · 7.83 Hz beat · 18 LU under the song (`npm run freq:binaural -- 004 <song>`, then `npm run freq:qc -- 004 --full … --short …`)
 
+Covers: `assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_vertical.jpg`, `assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_horizontal.jpg`
+
 Location tag: `Roman Baths, Bath` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 If it isn't listed, search: `The Roman Baths` → `Bath Abbey` → `Bath, England`. If none of these show, leave it blank; never tag a look-alike.
@@ -2069,6 +2071,8 @@ Status: draft · YouTube: Mon, Dec 28, 7:00 AM CT · Instagram: Mon, Dec 28, 7:0
 Note: Not released. Song: I Prioritize Myself (3:13, hip-hop with soft house shimmer, 119 BPM), Suno take ed6bb245. 3:13: close enough that a 14 s trim of the intro or outro gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I PRIORITIZE|MYSELF. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 005 <song>`, then `npm run freq:qc -- 005 --full … --short …`)
+
+Covers: `assets/covers/FREQ_005_I_PRIORITIZE_MYSELF_vertical.jpg`, `assets/covers/FREQ_005_I_PRIORITIZE_MYSELF_horizontal.jpg`
 
 Location tag: `Machu Picchu` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -2194,6 +2198,8 @@ Note: Not released. Song: I Wake Up with Purpose and Finish with Pride (3:14, wa
 
 Binaural bed: protocol NeuroBlade · base 360 Hz moved to the song's key, right = base + 16 Hz · 16 Hz beat · 18 LU under the song (`npm run freq:binaural -- 006 <song>`, then `npm run freq:qc -- 006 --full … --short …`)
 
+Covers: `assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_vertical.jpg`, `assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_horizontal.jpg`
+
 Location tag: `Panathenaic Stadium` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 If it isn't listed, search: `Kallimarmaro` → `Panathenaic Stadium, Athens` → `Athens, Greece`. If none of these show, leave it blank; never tag a look-alike.
@@ -2317,6 +2323,8 @@ Status: draft · YouTube: Mon, Jan 11, 7:00 AM CT · Instagram: Mon, Jan 11, 7:0
 Note: Not released. Song: I Follow Through on What I Commit To (3:30, Arabesque electronic, 124 BPM), Suno take 13eb52cb. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines I FOLLOW|THROUGH. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 007 <song>`, then `npm run freq:qc -- 007 --full … --short …`)
+
+Covers: `assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_vertical.jpg`, `assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_horizontal.jpg`
 
 Location tag: `Brooklyn Bridge` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -2442,6 +2450,8 @@ Note: Not released. Song: My Voice Matters, and I Use It with Confidence (3:32, 
 
 Binaural bed: protocol NeuroBlade · base 360 Hz moved to the song's key, right = base + 16 Hz · 16 Hz beat · 18 LU under the song (`npm run freq:binaural -- 008 <song>`, then `npm run freq:qc -- 008 --full … --short …`)
 
+Covers: `assets/covers/FREQ_008_MY_VOICE_MATTERS_vertical.jpg`, `assets/covers/FREQ_008_MY_VOICE_MATTERS_horizontal.jpg`
+
 Location tag: `Lincoln Memorial` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 If it isn't listed, search: `Lincoln Memorial Reflecting Pool` → `National Mall` → `Washington, D.C.`. If none of these show, leave it blank; never tag a look-alike.
@@ -2565,6 +2575,8 @@ Status: draft · YouTube: Mon, Jan 25, 7:00 AM CT · Instagram: Mon, Jan 25, 7:0
 Note: Not released. Song: Connect with Ease (3:34, deep house and hip-hop, 112 BPM), Suno take 4fe4e2af. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines CONNECT|WITH EASE. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 009 <song>`, then `npm run freq:qc -- 009 --full … --short …`)
+
+Covers: `assets/covers/FREQ_009_CONNECT_WITH_EASE_vertical.jpg`, `assets/covers/FREQ_009_CONNECT_WITH_EASE_horizontal.jpg`
 
 Location tag: `Golden Gate Bridge` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -2690,6 +2702,8 @@ Note: Not released. Song: I Love the Skin I'm In (3:31, Ghanaian highlife x ware
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 010 <song>`, then `npm run freq:qc -- 010 --full … --short …`)
 
+Covers: `assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_vertical.jpg`, `assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_horizontal.jpg`
+
 Location tag: `Black Star Square` (Instagram, TikTok, Facebook, YouTube (Video location))
 
 If it isn't listed, search: `Independence Square, Accra` → `Black Star Gate` → `Accra, Ghana`. If none of these show, leave it blank; never tag a look-alike.
@@ -2813,6 +2827,8 @@ Status: draft · YouTube: Mon, Feb 8, 7:00 AM CT · Instagram: Mon, Feb 8, 7:00 
 Note: Not released. Song: Always In Control (3:58, dark electronic hip-hop), Suno take e03746ff. Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Covers: make in ChatGPT from the FREQ 001 cover, lines ALWAYS IN|CONTROL. Calendar: freq/CALENDAR.md. The take opens on "I've always been a billionaire"; captions and the Short leave that line out.
 
 Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 011 <song>`, then `npm run freq:qc -- 011 --full … --short …`)
+
+Covers: `assets/covers/FREQ_011_ALWAYS_IN_CONTROL_vertical.jpg`, `assets/covers/FREQ_011_ALWAYS_IN_CONTROL_horizontal.jpg`
 
 Location tag: `Johnson Space Center` (Instagram, TikTok, Facebook, YouTube (Video location))
 

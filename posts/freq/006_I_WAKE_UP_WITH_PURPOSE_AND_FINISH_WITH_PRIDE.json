@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "🌅",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2027-01-04T07:00:00-06:00",
     "instagram": "2027-01-04T07:00:00-06:00",

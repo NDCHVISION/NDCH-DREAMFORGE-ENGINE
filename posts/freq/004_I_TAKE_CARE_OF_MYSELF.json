@@ -4,6 +4,10 @@
   "series": "freq",
   "emoji": "🌿",
   "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_horizontal.jpg"
+  },
   "schedule": {
     "youtube": "2026-12-21T07:00:00-06:00",
     "instagram": "2026-12-21T07:00:00-06:00",
