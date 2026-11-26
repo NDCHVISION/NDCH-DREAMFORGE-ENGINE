@@ -23,27 +23,35 @@ The post kit reads this record. Each reel shows what is already live, and a symb
 7. **First comments** were found only on 024 FRAMES, 023 AXIOM, 022 THE STATUE, 028 RUN and FREQ 001.
 8. **Reel pages don't show a location**, so a reel's tag couldn't be confirmed from Instagram. Symbols carry the visible tags.
 
+## Fixed on Instagram, 2026-11-25
+
+- Locations: 028 RUN symbol → Terracotta Army; 023 AXIOM symbol → Leaning Tower of Pisa; 022 THE STATUE symbol → Galleria dell'Accademia di Firenze; 025 PARALLAX symbol → Petra, Jordan; 021 FAITH symbol → Eiffel Tower, Paris.
+- Captions: 026 INVENTORY symbol and 021 FAITH symbol now use the short symbol format ("NNN | TITLE", two lines, three tags).
+- First comments added: 026 INVENTORY reel, 025 PARALLAX reel.
+- Not done: 027 BEARING reel has comments turned off, so its first comment wasn't posted. Turn commenting on in the app if you want it.
+- Still open: 020 SECOND MOVE symbol has no location; NVS 015 and 017 never posted; older title formats left as they are.
+
 ## Every post (newest first)
 
 | Date (CT) | Format | Series | # | Title | Role | Location | Link |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-25 17:02 | reel | Dreamforge | 028 | RUN | reel |  | [open](https://www.instagram.com/ndchvision/reel/DgLqcGdM5di/) |
-| 2026-11-25 16:58 | photo | Dreamforge | 028 | RUN | symbol | Citadines Xingqing Palace Xi'an | [open](https://www.instagram.com/ndchvision/p/DgLqEZ6JZST/) |
+| 2026-11-25 16:58 | photo | Dreamforge | 028 | RUN | symbol | Terracotta Army | [open](https://www.instagram.com/ndchvision/p/DgLqEZ6JZST/) |
 | 2026-11-23 00:47 | reel | FREQ | 001 | I LOVE MYSELF | reel |  | [open](https://www.instagram.com/ndchvision/reel/DgEw1zusrKS/) |
 | 2026-11-17 08:00 | reel | Dreamforge | 027 | BEARING | reel |  | [open](https://www.instagram.com/ndchvision/reel/Df2GI9Tt8vv/) |
 | 2026-11-16 08:00 | photo | Dreamforge | 027 | BEARING | symbol | Royal Observatory Greenwich | [open](https://www.instagram.com/ndchvision/p/DfzhW_ipW1U/) |
 | 2026-11-14 22:18 | photo | Dreamforge | 026 | INVENTORY | symbol | Pantheon, Rome, Italy | [open](https://www.instagram.com/ndchvision/p/Dfv54mVpZLv/) |
 | 2026-11-13 07:00 | reel | Dreamforge | 026 | INVENTORY | reel |  | [open](https://www.instagram.com/ndchvision/reel/DfrsEwZtgYn/) |
 | 2026-11-04 19:58 | reel | Dreamforge | 025 | PARALLAX | reel |  | [open](https://www.instagram.com/ndchvision/reel/DfTVJ9rNWYm/) |
-| 2026-11-03 21:53 | photo | Dreamforge | 025 | PARALLAX | symbol |  | [open](https://www.instagram.com/ndchvision/p/DfTiYMJjQRr/) |
+| 2026-11-03 21:53 | photo | Dreamforge | 025 | PARALLAX | symbol | Petra, Jordan | [open](https://www.instagram.com/ndchvision/p/DfTiYMJjQRr/) |
 | 2026-10-30 18:38 | reel | Dreamforge | 024 | FRAMES | reel |  | [open](https://www.instagram.com/ndchvision/reel/DfI40ilt6Io/) |
 | 2026-10-29 19:39 | photo | Dreamforge | 024 | FRAMES | symbol | Sagrada Familia, Barcelona | [open](https://www.instagram.com/ndchvision/p/DfGbE71lCTz/) |
 | 2026-10-28 16:42 | reel | Dreamforge | 023 | AXIOM | reel |  | [open](https://www.instagram.com/ndchvision/reel/DfDb7I1spg6/) |
-| 2026-10-26 10:36 | photo | Dreamforge | 023 | AXIOM | symbol | Worldwide | [open](https://www.instagram.com/ndchvision/p/De9uePXkbhl/) |
+| 2026-10-26 10:36 | photo | Dreamforge | 023 | AXIOM | symbol | Leaning Tower of Pisa, Tuscany, Italy | [open](https://www.instagram.com/ndchvision/p/De9uePXkbhl/) |
 | 2026-10-22 07:30 | reel | Dreamforge | 022 | THE STATUE | reel |  | [open](https://www.instagram.com/ndchvision/reel/DezF_hqtI0k/) |
-| 2026-10-20 14:00 | photo | Dreamforge | 022 | THE STATUE | symbol | Worldwide | [open](https://www.instagram.com/ndchvision/p/DeupCPkDbDv/) |
+| 2026-10-20 14:00 | photo | Dreamforge | 022 | THE STATUE | symbol | Galleria dell'Accademia di Firenze | [open](https://www.instagram.com/ndchvision/p/DeupCPkDbDv/) |
 | 2026-09-20 09:31 | reel | Dreamforge | 021 | FAITH | reel |  | [open](https://www.instagram.com/ndchvision/reel/Ddg6YXIs7XF/) |
-| 2026-09-16 08:00 | photo | Dreamforge | 021 | FAITH | symbol |  | [open](https://www.instagram.com/ndchvision/p/DdWczx9lcNv/) |
+| 2026-09-16 08:00 | photo | Dreamforge | 021 | FAITH | symbol | Eiffel Tower, Paris | [open](https://www.instagram.com/ndchvision/p/DdWczx9lcNv/) |
 | 2026-09-14 07:00 | reel | Dreamforge | 020 | SECOND MOVE | reel |  | [open](https://www.instagram.com/ndchvision/reel/DdRMb2JjVrB/) |
 | 2026-09-11 16:00 | photo | Dreamforge | 020 | SECOND MOVE | symbol |  | [open](https://www.instagram.com/ndchvision/p/DdKbxobCVmG/) |
 | 2026-09-06 00:21 | reel | Dreamforge | 019 | REMAINDER | reel |  | [open](https://www.instagram.com/ndchvision/reel/DctcWGrsSy8/) |

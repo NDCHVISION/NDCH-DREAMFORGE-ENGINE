@@ -25,7 +25,7 @@
     "number": "028",
     "title": "RUN",
     "role": "symbol",
-    "location": "Citadines Xingqing Palace Xi'an",
+    "location": "Terracotta Army",
     "ai_label": true,
     "collab": null,
     "caption": "028 | RUN\n\nAnyone can copy the shape.\nNo one can copy what keeps it turning.\n#NDCH #Authorship #Discipline",
@@ -61,7 +61,8 @@
     "ai_label": false,
     "collab": null,
     "caption": "027| BEARING\n\nYou can still repeat what they said. Word for word.\n\nNow name one thing you did right by yourself.\n\nSometimes the person who hurt you breaks a pattern you hadn't. Don't mistake that for a favor.\n\nThey don't get credit for where you turn. You do.\n\n—\nBEARING · 027 · NDCH Dreamforge\n\n#NDCH #Bearing #SelfRespect #Boundaries #ClearThinking",
-    "first_comment": null
+    "first_comment": null,
+    "comments_off": true
   },
   {
     "shortcode": "DfzhW_ipW1U",
@@ -92,7 +93,7 @@
     "location": "Pantheon, Rome, Italy",
     "ai_label": true,
     "collab": null,
-    "caption": "026 | INVENTORY 🕯️ #philosophy #motivation\n\nEveryone wants the light back. Fair.\n\nBut look at what the dark just showed you.\n\nThe coat still on the chair.\nThe cup still warm.\nThe door that still opens.\n\nEasy to miss in daylight. Most of us only count them after.\n\nCount them now.\n\n—\nINVENTORY · 026 · NDCH Dreamforge\n\n#NDCH #Inventory #Gratitude #Perspective #ClearThinking",
+    "caption": "026 | INVENTORY\n\nThe dark doesn't take anything away.\nIt shows you what was there all along.\n#NDCH #Gratitude #Perspective",
     "first_comment": null
   },
   {
@@ -109,7 +110,7 @@
     "ai_label": false,
     "collab": null,
     "caption": "026 | INVENTORY\n\nEveryone wants the light back. Fair.\n\nBut look at what the dark just showed you.\n\nThe coat still on the chair.\nThe cup still warm.\nThe door that still opens.\n\nEasy to miss in daylight. Most of us only count them after.\n\nCount them now.\n\n—\nINVENTORY · 026 · NDCH Dreamforge\n\n#NDCH #Inventory #Gratitude #Perspective #ClearThinking",
-    "first_comment": null
+    "first_comment": "Who's on your inventory?"
   },
   {
     "shortcode": "DfTVJ9rNWYm",
@@ -125,7 +126,7 @@
     "ai_label": false,
     "collab": null,
     "caption": "025| PARALLAX\n\nNever negative. Never make-believe.\n\nThe wall is real.\nSo is the opening you haven't noticed.\n\nYou don't have to change the facts to change where you look.\n\nDo not invent the good.\nDo not miss it either.\n\n—\nPARALLAX · 025 · NDCH Dreamforge\n\n#NDCH #Parallax #Perspective #ClearThinking #Mindset",
-    "first_comment": null
+    "first_comment": "Parallax: when you move, near things shift more than far things. Nothing in the room changes. Only where you stand."
   },
   {
     "shortcode": "DfTiYMJjQRr",
@@ -137,7 +138,7 @@
     "number": "025",
     "title": "PARALLAX",
     "role": "symbol",
-    "location": null,
+    "location": "Petra, Jordan",
     "ai_label": true,
     "collab": null,
     "caption": "025 | PARALLAX 🔱\n\nThe structure didn't change. Your position did.",
@@ -201,7 +202,7 @@
     "number": "023",
     "title": "AXIOM",
     "role": "symbol",
-    "location": "Worldwide",
+    "location": "Leaning Tower of Pisa, Tuscany, Italy",
     "ai_label": true,
     "collab": null,
     "caption": "NDCH 023 | AXIOM\n\nThe world may reorganize around you.\n\nThat does not mean you must become something else.\n\nThe invariant remains.\n\n#NDCH #motivation #philosophy",
@@ -233,7 +234,7 @@
     "number": "022",
     "title": "THE STATUE",
     "role": "symbol",
-    "location": "Worldwide",
+    "location": "Galleria dell'Accademia di Firenze",
     "ai_label": true,
     "collab": null,
     "caption": "Not everything built around you belongs to you.\n\n#NDCH",
@@ -265,10 +266,10 @@
     "number": "021",
     "title": "FAITH",
     "role": "symbol",
-    "location": null,
+    "location": "Eiffel Tower, Paris",
     "ai_label": true,
     "collab": null,
-    "caption": "The receiver precedes the signal.\n\n#NDCH",
+    "caption": "021 | FAITH\n\nBefore the signal, the stillness.\nBefore the answer, the readiness.\n#NDCH #Faith #Attention",
     "first_comment": null
   },
   {
