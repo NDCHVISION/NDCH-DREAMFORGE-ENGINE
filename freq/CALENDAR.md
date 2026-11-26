@@ -6,6 +6,8 @@ Draft. Nothing here is scheduled or posted until you say yes for each date.
 
 **Why this order:** strongest and shortest songs first, then dates that fit the theme: rest over the holidays (004, 005), a purposeful start to the year (006), follow-through in week two when resolutions stall (007), My Voice Matters on Martin Luther King Jr. Day (008), and I Love the Skin I'm In on the first day of Black History Month (010).
 
+My Own Time was checked and left out: it's a story song with verses, not a one-line affirmation.
+
 | FREQ | Date | Title | Song (Suno take) | Length | Protocol | Location |
 | --- | --- | --- | --- | --- | --- | --- |
 | 002 | Mon Dec 7, 2026 | [MASTER MY FOCUS](../posts/freq/002_MASTER_MY_FOCUS.json) | Master My Focus (`22ef6eba`) | 3:37 | Lucid Commander · 14.5 Hz | Shaolin Temple |
@@ -17,8 +19,7 @@ Draft. Nothing here is scheduled or posted until you say yes for each date.
 | 008 | Mon Jan 18, 2027 | [MY VOICE MATTERS](../posts/freq/008_MY_VOICE_MATTERS.json) | My Voice Matters, and I Use It with Confidence (`f5c14352`) | 3:32 | NeuroBlade · 16 Hz | Lincoln Memorial |
 | 009 | Mon Jan 25, 2027 | [CONNECT WITH EASE](../posts/freq/009_CONNECT_WITH_EASE.json) | Connect with Ease (`4fe4e2af`) | 3:34 | DreamForge · 9 Hz | Golden Gate Bridge |
 | 010 | Mon Feb 1, 2027 | [I LOVE THE SKIN I'M IN](../posts/freq/010_I_LOVE_THE_SKIN_IM_IN.json) | I Love the Skin I'm In (`22876c64`) | 3:31 | DreamForge · 9 Hz | Black Star Square |
-| 011 | Mon Feb 8, 2027 | [MY OWN TIME](../posts/freq/011_MY_OWN_TIME.json) | My Own Time (Remastered) (`27297a73`) | 3:12 | Core Reboot · 7.83 Hz | Prague Astronomical Clock |
-| 012 | Mon Feb 15, 2027 | [ALWAYS IN CONTROL](../posts/freq/012_ALWAYS_IN_CONTROL.json) | Always In Control (`e03746ff`) | 3:58 | Lucid Commander · 14.5 Hz | Johnson Space Center |
+| 011 | Mon Feb 8, 2027 | [ALWAYS IN CONTROL](../posts/freq/011_ALWAYS_IN_CONTROL.json) | Always In Control (`e03746ff`) | 3:58 | Lucid Commander · 14.5 Hz | Johnson Space Center |
 
 ## Per track
 
@@ -31,10 +32,9 @@ Each post kit has the copy for every platform, the location tag with search fall
 - **006 I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE:** 3:14: a 14 s trim gives one cut for every platform. Cover lines `I WAKE UP|WITH PURPOSE`.
 - **007 I FOLLOW THROUGH ON WHAT I COMMIT TO:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `I FOLLOW|THROUGH`.
 - **008 MY VOICE MATTERS:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `MY VOICE|MATTERS`.
-- **009 CONNECT WITH EASE:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `CONNECT|WITH EASE`. The sung line in the kit comes from the title; check it against the take before captions.
+- **009 CONNECT WITH EASE:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `CONNECT|WITH EASE`.
 - **010 I LOVE THE SKIN I'M IN:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `I LOVE THE|SKIN I'M IN`.
-- **011 MY OWN TIME:** 3:12: a 12 s trim gives one cut for every platform. Cover lines `MY OWN|TIME`. The sung line in the kit comes from the title; check it against the take before captions.
-- **012 ALWAYS IN CONTROL:** Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Cover lines `ALWAYS IN|CONTROL`. The sung line in the kit comes from the title; check it against the take before captions.
+- **011 ALWAYS IN CONTROL:** Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Cover lines `ALWAYS IN|CONTROL`. The take opens on "I've always been a billionaire"; captions and the Short leave that line out.
 
 ## Before each date
 

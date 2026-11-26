@@ -1521,8 +1521,7 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | FREQ 008 | [MY VOICE MATTERS](#freq-008--my-voice-matters) | draft | Mon, Jan 18, 7:00 AM CT | Lincoln Memorial |
 | FREQ 009 | [CONNECT WITH EASE](#freq-009--connect-with-ease) | draft | Mon, Jan 25, 7:00 AM CT | Golden Gate Bridge |
 | FREQ 010 | [I LOVE THE SKIN I'M IN](#freq-010--i-love-the-skin-i'm-in) | draft | Mon, Feb 1, 7:00 AM CT | Black Star Square |
-| FREQ 011 | [MY OWN TIME](#freq-011--my-own-time) | draft | Mon, Feb 8, 7:00 AM CT | Prague Astronomical Clock |
-| FREQ 012 | [ALWAYS IN CONTROL](#freq-012--always-in-control) | draft | Mon, Feb 15, 7:00 AM CT | Johnson Space Center |
+| FREQ 011 | [ALWAYS IN CONTROL](#freq-011--always-in-control) | draft | Mon, Feb 8, 7:00 AM CT | Johnson Space Center |
 
 ## FREQ 001 · I LOVE MYSELF
 
@@ -2563,7 +2562,7 @@ A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone vei
 
 Status: draft · YouTube: Mon, Jan 25, 7:00 AM CT · Instagram: Mon, Jan 25, 7:00 AM CT · TikTok: Mon, Jan 25, 7:00 AM CT · Facebook: Mon, Jan 25, 7:00 AM CT
 
-Note: Not released. Song: Connect with Ease (3:34, deep house and hip-hop, 112 BPM), Suno take 4fe4e2af. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines CONNECT|WITH EASE. Calendar: freq/CALENDAR.md. Check the sung line against the take before captions; the line here comes from the title.
+Note: Not released. Song: Connect with Ease (3:34, deep house and hip-hop, 112 BPM), Suno take 4fe4e2af. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines CONNECT|WITH EASE. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 009 <song>`, then `npm run freq:qc -- 009 --full … --short …`)
 
@@ -2612,7 +2611,7 @@ Headphones on. Who's one person you'll reach out to this week? 🌉
 ```text
 🎧 Headphones on.
 
-I connect with ease.
+I connect with confidence and ease.
 
 The reels change how you see. The frequencies change what you tell yourself.
 
@@ -2660,7 +2659,7 @@ CONNECT WITH EASE · NDCH FREQ 009
 ```text
 🎧 Best with headphones.
 
-I connect with ease.
+I connect with confidence and ease.
 
 The reels change how you see. The frequencies change what you tell yourself.
 
@@ -2680,7 +2679,7 @@ Who's one person you'll reach out to this week? Say it here. 🌉
 ### Alt text
 
 ```text
-A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title CONNECT WITH EASE, NDCH FREQ 009. The picture pushes in slowly and the gold breathes brighter while one line repeats: I connect with ease.
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title CONNECT WITH EASE, NDCH FREQ 009. The picture pushes in slowly and the gold breathes brighter while one line repeats: I connect with confidence and ease.
 ```
 
 ## FREQ 010 · I LOVE THE SKIN I'M IN
@@ -2807,137 +2806,13 @@ What do you love about the skin you're in? Say it here. ✨
 A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I LOVE THE SKIN I'M IN, NDCH FREQ 010. The picture pushes in slowly and the gold breathes brighter while one line repeats: I love the skin I'm in.
 ```
 
-## FREQ 011 · MY OWN TIME
+## FREQ 011 · ALWAYS IN CONTROL
 
 Status: draft · YouTube: Mon, Feb 8, 7:00 AM CT · Instagram: Mon, Feb 8, 7:00 AM CT · TikTok: Mon, Feb 8, 7:00 AM CT · Facebook: Mon, Feb 8, 7:00 AM CT
 
-Note: Not released. Song: My Own Time (Remastered) (3:12, electronic hip-hop, party anthem), Suno take 27297a73. 3:12: a 12 s trim gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines MY OWN|TIME. Calendar: freq/CALENDAR.md. Check the sung line against the take before captions; the line here comes from the title.
+Note: Not released. Song: Always In Control (3:58, dark electronic hip-hop), Suno take e03746ff. Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Covers: make in ChatGPT from the FREQ 001 cover, lines ALWAYS IN|CONTROL. Calendar: freq/CALENDAR.md. The take opens on "I've always been a billionaire"; captions and the Short leave that line out.
 
-Binaural bed: protocol Core Reboot · base 250 Hz moved to the song's key, right = base + 7.83 Hz · 7.83 Hz beat · 18 LU under the song (`npm run freq:binaural -- 011 <song>`, then `npm run freq:qc -- 011 --full … --short …`)
-
-Location tag: `Prague Astronomical Clock` (Instagram, TikTok, Facebook, YouTube (Video location))
-
-If it isn't listed, search: `Old Town Hall, Prague` → `Old Town Square` → `Prague, Czech Republic`. If none of these show, leave it blank; never tag a look-alike.
-
-Why: Six hundred years of keeping its own time: sun, moon and hours on one dial, never once in a hurry.
-
-### YouTube
-
-**Title**
-
-```text
-FREQ 011 | MY OWN TIME ⏳ #affirmations #patience
-```
-
-**Description**
-
-```text
-🎧 Best with headphones.
-
-The reels change how you see.
-The frequencies change what you tell yourself.
-
-011 | MY OWN TIME
-Your pace is yours. Move when it's right for you.
-
-—
-NDCH FREQ · 011 · My Own Time
-Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
-
-#NDCH #NDCHFREQ #Affirmations #Patience #MyOwnTime
-```
-
-**Pinned comment**
-
-```text
-Headphones on. Where are you choosing your own pace right now? ⏳
-```
-
-### Instagram
-
-**Caption**
-
-```text
-🎧 Headphones on.
-
-I move in my own time.
-
-The reels change how you see. The frequencies change what you tell yourself.
-
-Your pace is yours. Move when it's right for you.
-
-—
-NDCH FREQ · 011
-Best with headphones: a 7.83 Hz binaural beat, one tone in each ear.
-
-#NDCH #NDCHFREQ #affirmations #patience #dailyaffirmations
-```
-
-**First comment (pin it)**
-
-```text
-Where are you choosing your own pace right now? Say it here. ⏳
-```
-
-### TikTok
-
-**Caption**
-
-```text
-FREQ 011| MY OWN TIME
-
-Your pace is yours. Move when it's right for you. 🎧
-```
-
-**First comment (pin it)**
-
-```text
-Headphones on for this one. Where are you choosing your own pace right now? ⏳
-```
-
-### Facebook
-
-**Title**
-
-```text
-MY OWN TIME · NDCH FREQ 011
-```
-
-**Description**
-
-```text
-🎧 Best with headphones.
-
-I move in my own time.
-
-The reels change how you see. The frequencies change what you tell yourself.
-
-Your pace is yours. Move when it's right for you.
-
-Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
-
-#NDCH #NDCHFREQ #Patience
-```
-
-**First comment**
-
-```text
-Where are you choosing your own pace right now? Say it here. ⏳
-```
-
-### Alt text
-
-```text
-A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MY OWN TIME, NDCH FREQ 011. The picture pushes in slowly and the gold breathes brighter while one line repeats: I move in my own time.
-```
-
-## FREQ 012 · ALWAYS IN CONTROL
-
-Status: draft · YouTube: Mon, Feb 15, 7:00 AM CT · Instagram: Mon, Feb 15, 7:00 AM CT · TikTok: Mon, Feb 15, 7:00 AM CT · Facebook: Mon, Feb 15, 7:00 AM CT
-
-Note: Not released. Song: Always In Control (3:58, dark electronic hip-hop), Suno take e03746ff. Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Covers: make in ChatGPT from the FREQ 001 cover, lines ALWAYS IN|CONTROL. Calendar: freq/CALENDAR.md. Check the sung line against the take before captions; the line here comes from the title.
-
-Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 012 <song>`, then `npm run freq:qc -- 012 --full … --short …`)
+Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 011 <song>`, then `npm run freq:qc -- 011 --full … --short …`)
 
 Location tag: `Johnson Space Center` (Instagram, TikTok, Facebook, YouTube (Video location))
 
@@ -2950,7 +2825,7 @@ Why: Mission Control: when everything is moving at once, the room that stays cal
 **Title**
 
 ```text
-FREQ 012 | ALWAYS IN CONTROL 🕹️ #affirmations #discipline
+FREQ 011 | ALWAYS IN CONTROL 🕹️ #affirmations #discipline
 ```
 
 **Description**
@@ -2961,11 +2836,11 @@ FREQ 012 | ALWAYS IN CONTROL 🕹️ #affirmations #discipline
 The reels change how you see.
 The frequencies change what you tell yourself.
 
-012 | ALWAYS IN CONTROL
+011 | ALWAYS IN CONTROL
 Steady hands, clear head, your call.
 
 —
-NDCH FREQ · 012 · Always In Control
+NDCH FREQ · 011 · Always In Control
 Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
 #NDCH #NDCHFREQ #Affirmations #Control #Composure
@@ -2984,14 +2859,14 @@ Headphones on. What's fully in your hands this week? 🕹️
 ```text
 🎧 Headphones on.
 
-I am always in control.
+Calm, calculating, and always in control.
 
 The reels change how you see. The frequencies change what you tell yourself.
 
 Steady hands, clear head, your call.
 
 —
-NDCH FREQ · 012
+NDCH FREQ · 011
 Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
 
 #NDCH #NDCHFREQ #affirmations #composure #dailyaffirmations
@@ -3008,7 +2883,7 @@ What's fully in your hands this week? Say it here. 🕹️
 **Caption**
 
 ```text
-FREQ 012| ALWAYS IN CONTROL
+FREQ 011| ALWAYS IN CONTROL
 
 Steady hands, clear head, your call. 🎧
 ```
@@ -3024,7 +2899,7 @@ Headphones on for this one. What's fully in your hands this week? 🕹️
 **Title**
 
 ```text
-ALWAYS IN CONTROL · NDCH FREQ 012
+ALWAYS IN CONTROL · NDCH FREQ 011
 ```
 
 **Description**
@@ -3032,7 +2907,7 @@ ALWAYS IN CONTROL · NDCH FREQ 012
 ```text
 🎧 Best with headphones.
 
-I am always in control.
+Calm, calculating, and always in control.
 
 The reels change how you see. The frequencies change what you tell yourself.
 
@@ -3052,5 +2927,5 @@ What's fully in your hands this week? Say it here. 🕹️
 ### Alt text
 
 ```text
-A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title ALWAYS IN CONTROL, NDCH FREQ 012. The picture pushes in slowly and the gold breathes brighter while one line repeats: I am always in control.
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title ALWAYS IN CONTROL, NDCH FREQ 011. The picture pushes in slowly and the gold breathes brighter while one line repeats: Calm, calculating, and always in control.
 ```
