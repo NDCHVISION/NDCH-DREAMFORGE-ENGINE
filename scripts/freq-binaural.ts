@@ -42,7 +42,7 @@ if (protocol) {
   if (!post) { console.error(`no FREQ track ${first} in posts/freq/`); process.exit(1); }
   if (!post.binaural) { console.error(`${label(post)} has no "binaural" block in its posts/freq file`); process.exit(1); }
   decl = post.binaural;
-  name = `FREQ_${post.posting}_${post.title.replace(/ /g, '_')}`;
+  name = `FREQ_${post.posting}_${post.title.replace(/'/g, '').replace(/ /g, '_')}`;
 }
 const song = resolve(protocol ? first : second ?? '');
 if (!song || (!protocol && !second)) { console.error('give the song file'); process.exit(1); }

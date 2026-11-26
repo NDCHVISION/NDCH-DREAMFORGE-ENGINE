@@ -1,0 +1,51 @@
+{
+  "posting": "008",
+  "title": "MY VOICE MATTERS",
+  "series": "freq",
+  "emoji": "🎤",
+  "status": "draft",
+  "cover": {
+    "vertical": "assets/covers/FREQ_008_MY_VOICE_MATTERS_vertical.jpg",
+    "horizontal": "assets/covers/FREQ_008_MY_VOICE_MATTERS_horizontal.jpg"
+  },
+  "schedule": {
+    "youtube": "2027-01-18T07:00:00-06:00",
+    "instagram": "2027-01-18T07:00:00-06:00",
+    "tiktok": "2027-01-18T07:00:00-06:00",
+    "facebook": "2027-01-18T07:00:00-06:00"
+  },
+  "note": "Not released. Song: My Voice Matters, and I Use It with Confidence (3:32, hip-hop with soft house shimmer, 127 BPM), Suno take f5c14352. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines MY VOICE|MATTERS. Calendar: freq/CALENDAR.md.",
+  "alt_text": "A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MY VOICE MATTERS, NDCH FREQ 008. The picture pushes in slowly and the gold breathes brighter while one line repeats: My voice matters, and I use it with confidence.",
+  "location": {
+    "name": "Lincoln Memorial",
+    "why": "Dr. King spoke from these steps in 1963 and the country heard him. Posting on Martin Luther King Jr. Day.",
+    "search": [
+      "Lincoln Memorial Reflecting Pool",
+      "National Mall",
+      "Washington, D.C."
+    ]
+  },
+  "platforms": {
+    "youtube": {
+      "title": "FREQ 008 | MY VOICE MATTERS 🎤 #affirmations #confidence",
+      "description": "🎧 Best with headphones.\n\nThe reels change how you see.\nThe frequencies change what you tell yourself.\n\n008 | MY VOICE MATTERS\nSay what you mean, clearly, and let it be heard.\n\n—\nNDCH FREQ · 008 · My Voice Matters, and I Use It with Confidence\nSet over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.\n\n#NDCH #NDCHFREQ #Affirmations #Confidence #SpeakUp",
+      "pinned_comment": "Headphones on. Where will you speak up this week? 🎤"
+    },
+    "instagram": {
+      "caption": "🎧 Headphones on.\n\nMy voice matters, and I use it with confidence.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nSay what you mean, clearly, and let it be heard.\n\n—\nNDCH FREQ · 008\nBest with headphones: a 16 Hz binaural beat, one tone in each ear.\n\n#NDCH #NDCHFREQ #affirmations #confidence #dailyaffirmations",
+      "first_comment": "Where will you speak up this week? Say it here. 🎤"
+    },
+    "tiktok": {
+      "caption": "FREQ 008| MY VOICE MATTERS\n\nSay what you mean, clearly, and let it be heard. 🎧",
+      "first_comment": "Headphones on for this one. Where will you speak up this week? 🎤"
+    },
+    "facebook": {
+      "title": "MY VOICE MATTERS · NDCH FREQ 008",
+      "description": "🎧 Best with headphones.\n\nMy voice matters, and I use it with confidence.\n\nThe reels change how you see. The frequencies change what you tell yourself.\n\nSay what you mean, clearly, and let it be heard.\n\nSet over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.\n\n#NDCH #NDCHFREQ #MLKDay",
+      "first_comment": "Where will you speak up this week? Say it here. 🎤"
+    }
+  },
+  "binaural": {
+    "protocol": "NeuroBlade"
+  }
+}

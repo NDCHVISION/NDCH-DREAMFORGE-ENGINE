@@ -1528,6 +1528,16 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
+| FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | draft | Mon, Dec 7, 7:00 AM CT | Shaolin Temple |
+| FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 14, 7:00 AM CT | Walden Pond State Reservation |
+| FREQ 004 | [I TAKE CARE OF MYSELF](#freq-004--i-take-care-of-myself) | draft | Mon, Dec 21, 7:00 AM CT | Roman Baths, Bath |
+| FREQ 005 | [I PRIORITIZE MYSELF](#freq-005--i-prioritize-myself) | draft | Mon, Dec 28, 7:00 AM CT | Machu Picchu |
+| FREQ 006 | [I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE](#freq-006--i-wake-up-with-purpose-and-finish-with-pride) | draft | Mon, Jan 4, 7:00 AM CT | Panathenaic Stadium |
+| FREQ 007 | [I FOLLOW THROUGH ON WHAT I COMMIT TO](#freq-007--i-follow-through-on-what-i-commit-to) | draft | Mon, Jan 11, 7:00 AM CT | Brooklyn Bridge |
+| FREQ 008 | [MY VOICE MATTERS](#freq-008--my-voice-matters) | draft | Mon, Jan 18, 7:00 AM CT | Lincoln Memorial |
+| FREQ 009 | [CONNECT WITH EASE](#freq-009--connect-with-ease) | draft | Mon, Jan 25, 7:00 AM CT | Golden Gate Bridge |
+| FREQ 010 | [I LOVE THE SKIN I'M IN](#freq-010--i-love-the-skin-i'm-in) | draft | Mon, Feb 1, 7:00 AM CT | Black Star Square |
+| FREQ 011 | [ALWAYS IN CONTROL](#freq-011--always-in-control) | draft | Mon, Feb 8, 7:00 AM CT | Johnson Space Center |
 
 ## FREQ 001 · I LOVE MYSELF
 
@@ -1676,4 +1686,1284 @@ A lot of driven people only allow themselves approval after the next milestone, 
 
 ```text
 A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I love myself. I love the way I feel in my own skin. At the drop, a gold shockwave rolls outward and the veins light up from the emblem. It ends on I LOVE MYSELF, NDCH FREQ 001.
+```
+
+## FREQ 002 · MASTER MY FOCUS
+
+Status: draft · YouTube: Mon, Dec 7, 7:00 AM CT · Instagram: Mon, Dec 7, 7:00 AM CT · TikTok: Mon, Dec 7, 7:00 AM CT · Facebook: Mon, Dec 7, 7:00 AM CT
+
+Note: Not released. Song: Master My Focus (3:37, hypnotic electronic hip-hop, 108 BPM), Suno take 22ef6eba. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro. Covers: make in ChatGPT from the FREQ 001 cover, lines MASTER MY|FOCUS. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 002 <song>`, then `npm run freq:qc -- 002 --full … --short …`)
+
+Covers: `assets/covers/FREQ_002_MASTER_MY_FOCUS_vertical.jpg`, `assets/covers/FREQ_002_MASTER_MY_FOCUS_horizontal.jpg`
+
+Location tag: `Shaolin Temple` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Shaolin Monastery` → `Songshan Shaolin Temple` → `Dengfeng, Henan`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Bodhidharma is said to have sat facing a cave wall above the temple for nine years. Zen's whole idea of single-pointed attention starts on that mountain.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 002 | MASTER MY FOCUS 🎯 #affirmations #focus
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+002 | MASTER MY FOCUS
+One thing at a time, all the way through.
+
+—
+NDCH FREQ · 002 · Master My Focus
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #Focus #MasterMyFocus
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's the one thing getting your full attention this week? 🎯
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I master my focus and actions.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+One thing at a time, all the way through.
+
+—
+NDCH FREQ · 002
+Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #focus #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's the one thing getting your full attention this week? Say it here. 🎯
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 002| MASTER MY FOCUS
+
+One thing at a time, all the way through. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's the one thing getting your full attention this week? 🎯
+```
+
+### Facebook
+
+**Title**
+
+```text
+MASTER MY FOCUS · NDCH FREQ 002
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I master my focus and actions.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+One thing at a time, all the way through.
+
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #Focus
+```
+
+**First comment**
+
+```text
+What's the one thing getting your full attention this week? Say it here. 🎯
+```
+
+### LinkedIn
+
+**Video title**
+
+```text
+FREQ 002 | MASTER MY FOCUS
+```
+
+**Post text**
+
+```text
+FREQ 002 | MASTER MY FOCUS
+
+One thing at a time, all the way through.
+
+Most days don't need more effort, they need fewer things competing for it. FREQ is a short NDCH series of affirmations set to sound: one sentence, repeated until it lands. This one runs over a 14.5 Hz binaural beat, so it's best with headphones.
+
+#NDCH #Leadership #Productivity
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MASTER MY FOCUS, NDCH FREQ 002. The picture pushes in slowly and the gold breathes brighter while one line repeats: I master my focus and actions.
+```
+
+## FREQ 003 · I TRUST MY JUDGMENT AND MY INSTINCTS
+
+Status: draft · YouTube: Mon, Dec 14, 7:00 AM CT · Instagram: Mon, Dec 14, 7:00 AM CT · TikTok: Mon, Dec 14, 7:00 AM CT · Facebook: Mon, Dec 14, 7:00 AM CT
+
+Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. 3:21: post the whole vertical render on every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I TRUST MY|JUDGMENT. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 003 <song>`, then `npm run freq:qc -- 003 --full … --short …`)
+
+Covers: `assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_vertical.jpg`, `assets/covers/FREQ_003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS_horizontal.jpg`
+
+Location tag: `Walden Pond State Reservation` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Walden Pond` → `Concord, Massachusetts`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Emerson owned the land where Thoreau built his cabin, and Emerson's Self-Reliance says it plainly: Trust thyself. FREQ 001 began with Know thyself at Delphi; this is the next line.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+003 | I TRUST MY JUDGMENT AND MY INSTINCTS
+Your own judgment has carried you this far. Let it lead today.
+
+—
+NDCH FREQ · 003 · I Trust My Judgment and My Instincts
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfTrust #TrustYourself
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's one call you made on your own that turned out right? 🧭
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I trust my judgment and my instincts.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Your own judgment has carried you this far. Let it lead today.
+
+—
+NDCH FREQ · 003
+Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #selftrust #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's one call you made on your own that turned out right? Say it here. 🧭
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 003| I TRUST MY JUDGMENT AND MY INSTINCTS
+
+Your own judgment has carried you this far. Let it lead today. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's one call you made on your own that turned out right? 🧭
+```
+
+### Facebook
+
+**Title**
+
+```text
+I TRUST MY JUDGMENT AND MY INSTINCTS · NDCH FREQ 003
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I trust my judgment and my instincts.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Your own judgment has carried you this far. Let it lead today.
+
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #SelfTrust
+```
+
+**First comment**
+
+```text
+What's one call you made on your own that turned out right? Say it here. 🧭
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I TRUST MY JUDGMENT AND MY INSTINCTS, NDCH FREQ 003. The picture pushes in slowly and the gold breathes brighter while one line repeats: I trust my judgment and my instincts.
+```
+
+## FREQ 004 · I TAKE CARE OF MYSELF
+
+Status: draft · YouTube: Mon, Dec 21, 7:00 AM CT · Instagram: Mon, Dec 21, 7:00 AM CT · TikTok: Mon, Dec 21, 7:00 AM CT · Facebook: Mon, Dec 21, 7:00 AM CT
+
+Note: Not released. Song: I Take Care of Myself (3:45, Afrobeats-techno, 124 BPM), Suno take ce3b7230. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines I TAKE CARE|OF MYSELF. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol Core Reboot · base 250 Hz moved to the song's key, right = base + 7.83 Hz · 7.83 Hz beat · 18 LU under the song (`npm run freq:binaural -- 004 <song>`, then `npm run freq:qc -- 004 --full … --short …`)
+
+Covers: `assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_vertical.jpg`, `assets/covers/FREQ_004_I_TAKE_CARE_OF_MYSELF_horizontal.jpg`
+
+Location tag: `Roman Baths, Bath` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `The Roman Baths` → `Bath Abbey` → `Bath, England`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: People have travelled to these springs to look after themselves for two thousand years. Holiday week, same idea.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 004 | I TAKE CARE OF MYSELF 🌿 #affirmations #selfcare
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+004 | I TAKE CARE OF MYSELF
+Looking after yourself is part of the work, not a break from it.
+
+—
+NDCH FREQ · 004 · I Take Care of Myself
+Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfCare #LookAfterYourself
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's one small way you'll look after yourself this week? 🌿
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I look after myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Looking after yourself is part of the work, not a break from it.
+
+—
+NDCH FREQ · 004
+Best with headphones: a 7.83 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #selfcare #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's one small way you'll look after yourself this week? Say it here. 🌿
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 004| I TAKE CARE OF MYSELF
+
+Looking after yourself is part of the work, not a break from it. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's one small way you'll look after yourself this week? 🌿
+```
+
+### Facebook
+
+**Title**
+
+```text
+I TAKE CARE OF MYSELF · NDCH FREQ 004
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I look after myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Looking after yourself is part of the work, not a break from it.
+
+Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #SelfCare
+```
+
+**First comment**
+
+```text
+What's one small way you'll look after yourself this week? Say it here. 🌿
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I TAKE CARE OF MYSELF, NDCH FREQ 004. The picture pushes in slowly and the gold breathes brighter while one line repeats: I look after myself.
+```
+
+## FREQ 005 · I PRIORITIZE MYSELF
+
+Status: draft · YouTube: Mon, Dec 28, 7:00 AM CT · Instagram: Mon, Dec 28, 7:00 AM CT · TikTok: Mon, Dec 28, 7:00 AM CT · Facebook: Mon, Dec 28, 7:00 AM CT
+
+Note: Not released. Song: I Prioritize Myself (3:13, hip-hop with soft house shimmer, 119 BPM), Suno take ed6bb245. 3:13: close enough that a 14 s trim of the intro or outro gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I PRIORITIZE|MYSELF. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 005 <song>`, then `npm run freq:qc -- 005 --full … --short …`)
+
+Covers: `assets/covers/FREQ_005_I_PRIORITIZE_MYSELF_vertical.jpg`, `assets/covers/FREQ_005_I_PRIORITIZE_MYSELF_horizontal.jpg`
+
+Location tag: `Machu Picchu` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Machu Picchu Historic Sanctuary` → `Aguas Calientes` → `Cusco, Peru`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Built as a retreat for the emperor Pachacuti: the ruler of an empire kept a place above the clouds that was his alone. The last week of the year is a good time to claim yours.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 005 | I PRIORITIZE MYSELF 👑 #affirmations #selfworth
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+005 | I PRIORITIZE MYSELF
+Putting yourself first is how you keep showing up for everyone else.
+
+—
+NDCH FREQ · 005 · I Prioritize Myself
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfWorth #PrioritizeYourself
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's one thing you're putting first for yourself this week? 👑
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I prioritize myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Putting yourself first is how you keep showing up for everyone else.
+
+—
+NDCH FREQ · 005
+Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #selfworth #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's one thing you're putting first for yourself this week? Say it here. 👑
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 005| I PRIORITIZE MYSELF
+
+Putting yourself first is how you keep showing up for everyone else. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's one thing you're putting first for yourself this week? 👑
+```
+
+### Facebook
+
+**Title**
+
+```text
+I PRIORITIZE MYSELF · NDCH FREQ 005
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I prioritize myself.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Putting yourself first is how you keep showing up for everyone else.
+
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #SelfWorth
+```
+
+**First comment**
+
+```text
+What's one thing you're putting first for yourself this week? Say it here. 👑
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I PRIORITIZE MYSELF, NDCH FREQ 005. The picture pushes in slowly and the gold breathes brighter while one line repeats: I prioritize myself.
+```
+
+## FREQ 006 · I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE
+
+Status: draft · YouTube: Mon, Jan 4, 7:00 AM CT · Instagram: Mon, Jan 4, 7:00 AM CT · TikTok: Mon, Jan 4, 7:00 AM CT · Facebook: Mon, Jan 4, 7:00 AM CT
+
+Note: Not released. Song: I Wake Up with Purpose and Finish with Pride (3:14, warm bass-driven hip-hop, 119 BPM), Suno take 75396ca6. 3:14: a 14 s trim gives one cut for every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I WAKE UP|WITH PURPOSE. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol NeuroBlade · base 360 Hz moved to the song's key, right = base + 16 Hz · 16 Hz beat · 18 LU under the song (`npm run freq:binaural -- 006 <song>`, then `npm run freq:qc -- 006 --full … --short …`)
+
+Covers: `assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_vertical.jpg`, `assets/covers/FREQ_006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE_horizontal.jpg`
+
+Location tag: `Panathenaic Stadium` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Kallimarmaro` → `Panathenaic Stadium, Athens` → `Athens, Greece`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: The finish line of the Athens Marathon, the race named for a run that began with a purpose and ended in pride. First Monday of the year.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 006 | I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE 🌅 #affirmations #morning
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+006 | I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE
+Start the day on purpose. End it proud of what you did.
+
+—
+NDCH FREQ · 006 · I Wake Up with Purpose and Finish with Pride
+Set over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #MorningMotivation #NewYear
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What will you finish this week that you'll be proud of? 🌅
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I wake up with purpose and finish with pride.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Start the day on purpose. End it proud of what you did.
+
+—
+NDCH FREQ · 006
+Best with headphones: a 16 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #morningmotivation #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What will you finish this week that you'll be proud of? Say it here. 🌅
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 006| I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE
+
+Start the day on purpose. End it proud of what you did. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What will you finish this week that you'll be proud of? 🌅
+```
+
+### Facebook
+
+**Title**
+
+```text
+I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE · NDCH FREQ 006
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I wake up with purpose and finish with pride.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Start the day on purpose. End it proud of what you did.
+
+Set over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #NewYear
+```
+
+**First comment**
+
+```text
+What will you finish this week that you'll be proud of? Say it here. 🌅
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE, NDCH FREQ 006. The picture pushes in slowly and the gold breathes brighter while one line repeats: I wake up with purpose and finish with pride.
+```
+
+## FREQ 007 · I FOLLOW THROUGH ON WHAT I COMMIT TO
+
+Status: draft · YouTube: Mon, Jan 11, 7:00 AM CT · Instagram: Mon, Jan 11, 7:00 AM CT · TikTok: Mon, Jan 11, 7:00 AM CT · Facebook: Mon, Jan 11, 7:00 AM CT
+
+Note: Not released. Song: I Follow Through on What I Commit To (3:30, Arabesque electronic, 124 BPM), Suno take 13eb52cb. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines I FOLLOW|THROUGH. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 007 <song>`, then `npm run freq:qc -- 007 --full … --short …`)
+
+Covers: `assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_vertical.jpg`, `assets/covers/FREQ_007_I_FOLLOW_THROUGH_ON_WHAT_I_COMMIT_TO_horizontal.jpg`
+
+Location tag: `Brooklyn Bridge` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Brooklyn Bridge Park` → `DUMBO, Brooklyn` → `New York, New York`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: When its engineer could no longer go to the site, Emily Warren Roebling carried the work for over a decade and saw it finished. Week two of the year, when most resolutions quietly stop.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 007 | I FOLLOW THROUGH ON WHAT I COMMIT TO 🤝 #affirmations #discipline
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+007 | I FOLLOW THROUGH ON WHAT I COMMIT TO
+Say it, then do it. That's the whole promise.
+
+—
+NDCH FREQ · 007 · I Follow Through on What I Commit To
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #Discipline #FollowThrough
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's one promise to yourself you're keeping this week? 🤝
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I follow through on what I commit to.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Say it, then do it. That's the whole promise.
+
+—
+NDCH FREQ · 007
+Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #discipline #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's one promise to yourself you're keeping this week? Say it here. 🤝
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 007| I FOLLOW THROUGH ON WHAT I COMMIT TO
+
+Say it, then do it. That's the whole promise. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's one promise to yourself you're keeping this week? 🤝
+```
+
+### Facebook
+
+**Title**
+
+```text
+I FOLLOW THROUGH ON WHAT I COMMIT TO · NDCH FREQ 007
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I follow through on what I commit to.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Say it, then do it. That's the whole promise.
+
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #Discipline
+```
+
+**First comment**
+
+```text
+What's one promise to yourself you're keeping this week? Say it here. 🤝
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I FOLLOW THROUGH ON WHAT I COMMIT TO, NDCH FREQ 007. The picture pushes in slowly and the gold breathes brighter while one line repeats: I follow through on what I commit to.
+```
+
+## FREQ 008 · MY VOICE MATTERS
+
+Status: draft · YouTube: Mon, Jan 18, 7:00 AM CT · Instagram: Mon, Jan 18, 7:00 AM CT · TikTok: Mon, Jan 18, 7:00 AM CT · Facebook: Mon, Jan 18, 7:00 AM CT
+
+Note: Not released. Song: My Voice Matters, and I Use It with Confidence (3:32, hip-hop with soft house shimmer, 127 BPM), Suno take f5c14352. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines MY VOICE|MATTERS. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol NeuroBlade · base 360 Hz moved to the song's key, right = base + 16 Hz · 16 Hz beat · 18 LU under the song (`npm run freq:binaural -- 008 <song>`, then `npm run freq:qc -- 008 --full … --short …`)
+
+Covers: `assets/covers/FREQ_008_MY_VOICE_MATTERS_vertical.jpg`, `assets/covers/FREQ_008_MY_VOICE_MATTERS_horizontal.jpg`
+
+Location tag: `Lincoln Memorial` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Lincoln Memorial Reflecting Pool` → `National Mall` → `Washington, D.C.`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Dr. King spoke from these steps in 1963 and the country heard him. Posting on Martin Luther King Jr. Day.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 008 | MY VOICE MATTERS 🎤 #affirmations #confidence
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+008 | MY VOICE MATTERS
+Say what you mean, clearly, and let it be heard.
+
+—
+NDCH FREQ · 008 · My Voice Matters, and I Use It with Confidence
+Set over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #Confidence #SpeakUp
+```
+
+**Pinned comment**
+
+```text
+Headphones on. Where will you speak up this week? 🎤
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+My voice matters, and I use it with confidence.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Say what you mean, clearly, and let it be heard.
+
+—
+NDCH FREQ · 008
+Best with headphones: a 16 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #confidence #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+Where will you speak up this week? Say it here. 🎤
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 008| MY VOICE MATTERS
+
+Say what you mean, clearly, and let it be heard. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. Where will you speak up this week? 🎤
+```
+
+### Facebook
+
+**Title**
+
+```text
+MY VOICE MATTERS · NDCH FREQ 008
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+My voice matters, and I use it with confidence.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Say what you mean, clearly, and let it be heard.
+
+Set over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #MLKDay
+```
+
+**First comment**
+
+```text
+Where will you speak up this week? Say it here. 🎤
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MY VOICE MATTERS, NDCH FREQ 008. The picture pushes in slowly and the gold breathes brighter while one line repeats: My voice matters, and I use it with confidence.
+```
+
+## FREQ 009 · CONNECT WITH EASE
+
+Status: draft · YouTube: Mon, Jan 25, 7:00 AM CT · Instagram: Mon, Jan 25, 7:00 AM CT · TikTok: Mon, Jan 25, 7:00 AM CT · Facebook: Mon, Jan 25, 7:00 AM CT
+
+Note: Not released. Song: Connect with Ease (3:34, deep house and hip-hop, 112 BPM), Suno take 4fe4e2af. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines CONNECT|WITH EASE. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 009 <song>`, then `npm run freq:qc -- 009 --full … --short …`)
+
+Covers: `assets/covers/FREQ_009_CONNECT_WITH_EASE_vertical.jpg`, `assets/covers/FREQ_009_CONNECT_WITH_EASE_horizontal.jpg`
+
+Location tag: `Golden Gate Bridge` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Golden Gate Bridge Welcome Center` → `Golden Gate National Recreation Area` → `San Francisco, California`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Built to join two shores everyone said couldn't be joined, and it made the crossing look effortless.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 009 | CONNECT WITH EASE 🌉 #affirmations #connection
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+009 | CONNECT WITH EASE
+Show up as yourself, and the right people meet you there.
+
+—
+NDCH FREQ · 009 · Connect with Ease
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #Connection #ConnectWithEase
+```
+
+**Pinned comment**
+
+```text
+Headphones on. Who's one person you'll reach out to this week? 🌉
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I connect with confidence and ease.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Show up as yourself, and the right people meet you there.
+
+—
+NDCH FREQ · 009
+Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #connection #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+Who's one person you'll reach out to this week? Say it here. 🌉
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 009| CONNECT WITH EASE
+
+Show up as yourself, and the right people meet you there. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. Who's one person you'll reach out to this week? 🌉
+```
+
+### Facebook
+
+**Title**
+
+```text
+CONNECT WITH EASE · NDCH FREQ 009
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I connect with confidence and ease.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Show up as yourself, and the right people meet you there.
+
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #Connection
+```
+
+**First comment**
+
+```text
+Who's one person you'll reach out to this week? Say it here. 🌉
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title CONNECT WITH EASE, NDCH FREQ 009. The picture pushes in slowly and the gold breathes brighter while one line repeats: I connect with confidence and ease.
+```
+
+## FREQ 010 · I LOVE THE SKIN I'M IN
+
+Status: draft · YouTube: Mon, Feb 1, 7:00 AM CT · Instagram: Mon, Feb 1, 7:00 AM CT · TikTok: Mon, Feb 1, 7:00 AM CT · Facebook: Mon, Feb 1, 7:00 AM CT
+
+Note: Not released. Song: I Love the Skin I'm In (3:31, Ghanaian highlife x warehouse techno), Suno take 22876c64. Over 3:00: the vertical cut needs --cut3m-start. Covers: make in ChatGPT from the FREQ 001 cover, lines I LOVE THE|SKIN I'M IN. Calendar: freq/CALENDAR.md.
+
+Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 010 <song>`, then `npm run freq:qc -- 010 --full … --short …`)
+
+Covers: `assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_vertical.jpg`, `assets/covers/FREQ_010_I_LOVE_THE_SKIN_IM_IN_horizontal.jpg`
+
+Location tag: `Black Star Square` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Independence Square, Accra` → `Black Star Gate` → `Accra, Ghana`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Accra's independence square, under the Black Star Gate: a nation saying who it is, out loud. The highlife in the song comes from the same city. First day of Black History Month.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 010 | I LOVE THE SKIN I'M IN ✨ #affirmations #selflove
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+010 | I LOVE THE SKIN I'M IN
+Look good in the light. Feel good in the dark.
+
+—
+NDCH FREQ · 010 · I Love the Skin I'm In
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #SelfLove #BlackHistoryMonth
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What do you love about the skin you're in? ✨
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+I love the skin I'm in.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Look good in the light. Feel good in the dark.
+
+—
+NDCH FREQ · 010
+Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #blackhistorymonth #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What do you love about the skin you're in? Say it here. ✨
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 010| I LOVE THE SKIN I'M IN
+
+Look good in the light. Feel good in the dark. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What do you love about the skin you're in? ✨
+```
+
+### Facebook
+
+**Title**
+
+```text
+I LOVE THE SKIN I'M IN · NDCH FREQ 010
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+I love the skin I'm in.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Look good in the light. Feel good in the dark.
+
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #BlackHistoryMonth
+```
+
+**First comment**
+
+```text
+What do you love about the skin you're in? Say it here. ✨
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title I LOVE THE SKIN I'M IN, NDCH FREQ 010. The picture pushes in slowly and the gold breathes brighter while one line repeats: I love the skin I'm in.
+```
+
+## FREQ 011 · ALWAYS IN CONTROL
+
+Status: draft · YouTube: Mon, Feb 8, 7:00 AM CT · Instagram: Mon, Feb 8, 7:00 AM CT · TikTok: Mon, Feb 8, 7:00 AM CT · Facebook: Mon, Feb 8, 7:00 AM CT
+
+Note: Not released. Song: Always In Control (3:58, dark electronic hip-hop), Suno take e03746ff. Nearly 4:00: the vertical cut needs --cut3m-start, and the Short should start on a hook. Covers: make in ChatGPT from the FREQ 001 cover, lines ALWAYS IN|CONTROL. Calendar: freq/CALENDAR.md. The take opens on "I've always been a billionaire"; captions and the Short leave that line out.
+
+Binaural bed: protocol Lucid Commander · base 340 Hz moved to the song's key, right = base + 14.5 Hz · 14.5 Hz beat · 18 LU under the song (`npm run freq:binaural -- 011 <song>`, then `npm run freq:qc -- 011 --full … --short …`)
+
+Covers: `assets/covers/FREQ_011_ALWAYS_IN_CONTROL_vertical.jpg`, `assets/covers/FREQ_011_ALWAYS_IN_CONTROL_horizontal.jpg`
+
+Location tag: `Johnson Space Center` (Instagram, TikTok, Facebook, YouTube (Video location))
+
+If it isn't listed, search: `Space Center Houston` → `NASA Johnson Space Center` → `Houston, Texas`. If none of these show, leave it blank; never tag a look-alike.
+
+Why: Mission Control: when everything is moving at once, the room that stays calm runs the flight.
+
+### YouTube
+
+**Title**
+
+```text
+FREQ 011 | ALWAYS IN CONTROL 🕹️ #affirmations #discipline
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+The reels change how you see.
+The frequencies change what you tell yourself.
+
+011 | ALWAYS IN CONTROL
+Steady hands, clear head, your call.
+
+—
+NDCH FREQ · 011 · Always In Control
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+#NDCH #NDCHFREQ #Affirmations #Control #Composure
+```
+
+**Pinned comment**
+
+```text
+Headphones on. What's fully in your hands this week? 🕹️
+```
+
+### Instagram
+
+**Caption**
+
+```text
+🎧 Headphones on.
+
+Calm, calculating, and always in control.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Steady hands, clear head, your call.
+
+—
+NDCH FREQ · 011
+Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+
+#NDCH #NDCHFREQ #affirmations #composure #dailyaffirmations
+```
+
+**First comment (pin it)**
+
+```text
+What's fully in your hands this week? Say it here. 🕹️
+```
+
+### TikTok
+
+**Caption**
+
+```text
+FREQ 011| ALWAYS IN CONTROL
+
+Steady hands, clear head, your call. 🎧
+```
+
+**First comment (pin it)**
+
+```text
+Headphones on for this one. What's fully in your hands this week? 🕹️
+```
+
+### Facebook
+
+**Title**
+
+```text
+ALWAYS IN CONTROL · NDCH FREQ 011
+```
+
+**Description**
+
+```text
+🎧 Best with headphones.
+
+Calm, calculating, and always in control.
+
+The reels change how you see. The frequencies change what you tell yourself.
+
+Steady hands, clear head, your call.
+
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+#NDCH #NDCHFREQ #Composure
+```
+
+**First comment**
+
+```text
+What's fully in your hands this week? Say it here. 🕹️
+```
+
+### Alt text
+
+```text
+A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title ALWAYS IN CONTROL, NDCH FREQ 011. The picture pushes in slowly and the gold breathes brighter while one line repeats: Calm, calculating, and always in control.
 ```
