@@ -41,3 +41,12 @@ npm run freq:qc -- 002 --full renders/freq/FREQ_002_MASTER_MY_FOCUS_youtube.mp4 
 ## Post (only on your yes)
 
 YouTube (full 16:9 + Short), Instagram, TikTok and Facebook (vertical, ≤ 3:00), LinkedIn (full 16:9). Copy is in `posts/freq/002_MASTER_MY_FOCUS.json`.
+
+## Rendered Nov 26, 2026
+
+- **Take:** A, `songs/master_my_focus_take_a_3m37.flac` (the 3:37 take this plan was written for). Binaural bed: Lucid Commander, 349.228 / 363.728 Hz, every check passed.
+- **Renderer:** `freq:video` from draft PR #222 (`lib/freq-video.ts`, `scripts/freq-video.ts`), run locally; it isn't on this branch.
+- **Cuts:** `--start 1:47.1` (the hook drop after the whisper break and silence) and `--cut3m-start 0:37.2` (the drop after the first break; ends on the outro).
+- **Short loudness:** the hook window measured -12.8 LUFS, so its audio was rebuilt from the binaural master with a flat -1.2 dB gain (same fades, both ears equal) to -14.0 LUFS.
+- **QC:** READY after review. To decide: the vertical cover is 941x1671 (soft on large phones), and there are no captions.
+- The four MP4s and the QC report are in the project files under `freq/002/`, not in git.
