@@ -1177,6 +1177,8 @@ Covers: `assets/covers/029_PRESENCE_vertical.png`
 
 Location tag: `Great Sphinx of Giza` (Instagram, TikTok, Facebook, YouTube (Video location))
 
+If it isn't listed, search: `Giza Pyramid Complex` → `Giza Plateau` → `Giza, Egypt`. If none of these show, leave it blank; never tag a look-alike.
+
 Why: Seen by everyone for millennia, still not truly known. Familiarity hides distance.
 
 ### YouTube
@@ -1216,6 +1218,8 @@ Who do you see every day but have never really asked?
 **Caption**
 
 ```text
+029 | PRESENCE
+
 You can see someone every day and mistake it for knowing them.
 
 You know their voice. Their laugh. The way they cross a room.
