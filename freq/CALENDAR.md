@@ -4,6 +4,8 @@ Draft. Nothing here is scheduled or posted until you say yes for each date.
 
 **Cadence:** one track a week, Mondays at 7:00 AM CT, on YouTube (full 16:9 + Short), Instagram, TikTok and Facebook at the same time. Monday morning suits an affirmation you carry into the week, and one steady slot lets people expect it. LinkedIn stays occasional (002 only for now). Dates sit in each post's `schedule`, so `npm run posts` shows them.
 
+**Midweek clip:** each track comes back on Thursday at 11:00 AM CT as its 59-second cut on Instagram, TikTok and Facebook. Dates, copy and the checklist are in [MIDWEEK.md](MIDWEEK.md).
+
 **Why this order:** strongest and shortest songs first, then dates that fit the theme: rest over the holidays (004, 005), a purposeful start to the year (006), follow-through in week two when resolutions stall (007), My Voice Matters on Martin Luther King Jr. Day (008), and I Love the Skin I'm In on the first day of Black History Month (010).
 
 My Own Time was checked and left out: it's a story song with verses, not a one-line affirmation.
