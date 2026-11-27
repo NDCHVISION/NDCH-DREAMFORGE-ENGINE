@@ -16,6 +16,8 @@ The NVS Series: Cinematic Stoicism & Visual Philosophy
 Short films about the stories we inherit, the frames we copy, and the line that stays true when the room tilts.
 
 Each film is one idea, set at one landmark, told in light and silence. No lecture, no noise. Watch it once, then ask what it was asking you.
+
+From NDCH.
 ```
 
 **Cover image prompt**
