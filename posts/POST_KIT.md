@@ -17,7 +17,7 @@ Short films about the stories we inherit, the frames we copy, and the line that 
 
 Each film is one idea, set at one landmark, told in light and silence. No lecture, no noise. Watch it once, then ask what it was asking you.
 
-New films every week from NDCH.
+From NDCH.
 ```
 
 **Cover image prompt**
