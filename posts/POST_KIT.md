@@ -1210,7 +1210,7 @@ PRESENCE · 029 · NDCH Dreamforge
 **Pinned comment**
 
 ```text
-Who do you see every day but have never really asked?
+Who do you see every day but don't really know?
 ```
 
 ### Instagram
@@ -1238,7 +1238,7 @@ PRESENCE · 029 · NDCH Dreamforge
 **First comment (pin it)**
 
 ```text
-Who do you see every day but have never really asked?
+Who do you see every day but don't really know?
 ```
 
 ### TikTok
@@ -1254,7 +1254,7 @@ Familiar isn't the same as close. Presence is not access.
 **First comment (pin it)**
 
 ```text
-Who do you see every day but have never really asked?
+Who do you see every day but don't really know?
 ```
 
 ### Facebook
@@ -1280,7 +1280,7 @@ Presence is not access.
 **First comment**
 
 ```text
-Who do you see every day but have never really asked?
+Who do you see every day but don't really know?
 ```
 
 ### LinkedIn
