@@ -90,3 +90,21 @@ test('readiness warnings: covers, alt text and stale scheduled dates', () => {
   assert.ok(readinessWarnings({ ...ok, cover: undefined }, process.cwd(), now).some((x) => /no vertical cover/.test(x)));
   assert.deepEqual(readinessWarnings({ ...ok, status: 'draft', cover: undefined, alt_text: undefined }, process.cwd(), now), []);
 });
+
+test('no heart emojis anywhere in post copy', () => {
+  const p = structuredClone(findPost(loadPosts(FREQ_DIR), 'freq 002')!);
+  p.platforms.instagram.caption += ' 🤍';
+  assert.ok(validatePost(p).some((e) => e.includes('instagram.caption has a heart emoji')));
+  p.platforms.instagram.caption = p.platforms.instagram.caption.replace(' 🤍', ' 💪');
+  assert.ok(!validatePost(p).some((e) => e.includes('heart emoji')));
+});
+
+test('scheduled FREQ 002+ copy carries the signature and skips the series intro', () => {
+  const p = structuredClone(findPost(loadPosts(FREQ_DIR), 'freq 002')!);
+  p.status = 'scheduled';
+  assert.ok(!validatePost(p).some((e) => e.includes("Today's frequency")));
+  p.platforms.facebook.description = p.platforms.facebook.description.replace("Today's frequency:", 'Frequency:');
+  assert.ok(validatePost(p).some((e) => e.includes('facebook.description')));
+  p.platforms.youtube.description += '\nThe reels change how you see.';
+  assert.ok(validatePost(p).some((e) => /series intro/i.test(e)));
+});

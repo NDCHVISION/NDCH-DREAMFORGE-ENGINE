@@ -1562,7 +1562,7 @@ Why: Carved at the entrance: Know thyself. You can't love what you won't look at
 **Title**
 
 ```text
-FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
+FREQ 001 | I LOVE MYSELF 💪 #affirmations #selflove
 ```
 
 **Description**
@@ -1587,7 +1587,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **Pinned comment**
 
 ```text
-Headphones on. Say it once for yourself today: what's one thing you love about you? 🤍
+Headphones on. Say it once for yourself today: what's one thing you love about you? 💪
 ```
 
 ### Instagram
@@ -1613,7 +1613,7 @@ Best with headphones: 285 Hz left / 294 Hz right, a 9 Hz binaural beat.
 **First comment (pin it)**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### TikTok
@@ -1629,7 +1629,7 @@ You do not have to become someone else to be worthy of your own love. 🎧
 **First comment (pin it)**
 
 ```text
-Headphones on for this one. What's one thing you love about you? Say it here. 🤍
+Headphones on for this one. What's one thing you love about you? Say it here. 💪
 ```
 
 ### Facebook
@@ -1659,7 +1659,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **First comment**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### LinkedIn
@@ -1715,13 +1715,12 @@ FREQ 002 | MASTER MY FOCUS 🎯 #affirmations #focus
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I master my focus and actions.
 
-The reels change how you see.
-The frequencies change what you tell yourself.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-002 | MASTER MY FOCUS
-One thing at a time, all the way through.
+🎧 Headphones on. Say it back.
 
 —
 NDCH FREQ · 002 · Master My Focus
@@ -1741,19 +1740,20 @@ Headphones on. What's the one thing getting your full attention this week? 🎯
 **Caption**
 
 ```text
-🎧 Headphones on.
+FREQ 002 | MASTER MY FOCUS 🎯 #affirmations #focus
 
-I master my focus and actions.
+Today's frequency: I master my focus and actions.
 
-The reels change how you see. The frequencies change what you tell yourself.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-One thing at a time, all the way through.
+🎧 Headphones on. Say it back.
 
 —
-NDCH FREQ · 002
-Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+NDCH FREQ · 002 · Master My Focus
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
-#NDCH #NDCHFREQ #affirmations #focus #dailyaffirmations
+#NDCH #NDCHFREQ #Affirmations #Focus #MasterMyFocus
 ```
 
 **First comment (pin it)**
@@ -1769,7 +1769,8 @@ What's the one thing getting your full attention this week? Say it here. 🎯
 ```text
 FREQ 002| MASTER MY FOCUS
 
-One thing at a time, all the way through. 🎧
+Today's frequency: I master my focus and actions.
+Headphones on. Say it back. 🎧
 ```
 
 **First comment (pin it)**
@@ -1789,15 +1790,16 @@ MASTER MY FOCUS · NDCH FREQ 002
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I master my focus and actions.
 
-I master my focus and actions.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-The reels change how you see. The frequencies change what you tell yourself.
+🎧 Headphones on. Say it back.
 
-One thing at a time, all the way through.
-
-Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+—
+NDCH FREQ · 002 · Master My Focus
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
 #NDCH #NDCHFREQ #Focus
 ```
