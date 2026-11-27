@@ -33,5 +33,7 @@ npm run posts -- freq 001        # an NDCH FREQ track
 - **LinkedIn:** four blocks separated by blank lines: `<posting> | <TITLE>` (e.g. `020 | SECOND MOVE`), the reel's line, one short paragraph that opens the idea up, then `#NDCH` followed by two broad topic hashtags people follow on LinkedIn (e.g. `#NDCH #Leadership #CriticalThinking`); three in total, never more. The video title is `<posting> | <TITLE>`. Vertical cover as the thumbnail.
 - **Location tag (rule, every post):** `location.name` is a real, monumental landmark whose story echoes the reel's idea (023 AXIOM: Leaning Tower of Pisa). Tag it on Instagram, TikTok, Facebook and YouTube (Studio: Video location); LinkedIn has no location field. `location.why` records the link for us and is never posted. Pick a different landmark each time and spread them across the world. The tests fail if a post has no location.
 - Pinned comments ask the viewer one question in the reel's own terms.
+- **No cadence promises (rule, everywhere):** captions, descriptions, blurbs and bios never promise when the next post comes (no "every Monday", "weekly", "every week", "new films every …"). Release dates stay in each post's `schedule` and in `freq/CALENDAR.md`, which are never posted.
+- **No heart emojis (rule, everywhere):** use 💪 where a heart would go, in titles, captions and comments.
 
 The test suite (`post-kit.test.ts`) checks every file against these limits and fails if `POST_KIT.md` is out of date.

@@ -16,8 +16,6 @@ The NVS Series: Cinematic Stoicism & Visual Philosophy
 Short films about the stories we inherit, the frames we copy, and the line that stays true when the room tilts.
 
 Each film is one idea, set at one landmark, told in light and silence. No lecture, no noise. Watch it once, then ask what it was asking you.
-
-New films every week from NDCH.
 ```
 
 **Cover image prompt**
@@ -1562,7 +1560,7 @@ Why: Carved at the entrance: Know thyself. You can't love what you won't look at
 **Title**
 
 ```text
-FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
+FREQ 001 | I LOVE MYSELF 💪 #affirmations #selflove
 ```
 
 **Description**
@@ -1587,7 +1585,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **Pinned comment**
 
 ```text
-Headphones on. Say it once for yourself today: what's one thing you love about you? 🤍
+Headphones on. Say it once for yourself today: what's one thing you love about you? 💪
 ```
 
 ### Instagram
@@ -1613,7 +1611,7 @@ Best with headphones: 285 Hz left / 294 Hz right, a 9 Hz binaural beat.
 **First comment (pin it)**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### TikTok
@@ -1629,7 +1627,7 @@ You do not have to become someone else to be worthy of your own love. 🎧
 **First comment (pin it)**
 
 ```text
-Headphones on for this one. What's one thing you love about you? Say it here. 🤍
+Headphones on for this one. What's one thing you love about you? Say it here. 💪
 ```
 
 ### Facebook
@@ -1659,7 +1657,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **First comment**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### LinkedIn

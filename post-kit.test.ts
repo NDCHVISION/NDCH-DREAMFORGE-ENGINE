@@ -90,3 +90,36 @@ test('readiness warnings: covers, alt text and stale scheduled dates', () => {
   assert.ok(readinessWarnings({ ...ok, cover: undefined }, process.cwd(), now).some((x) => /no vertical cover/.test(x)));
   assert.deepEqual(readinessWarnings({ ...ok, status: 'draft', cover: undefined, alt_text: undefined }, process.cwd(), now), []);
 });
+
+test('no cadence promises in posted copy (no "every Monday", "weekly", "every week")', () => {
+  const cadence = /\bevery\s+(week|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b|\bweekly\b|\beach\s+(week|monday)\b/i;
+  const offenders: string[] = [];
+  for (const p of loadPosts()) {
+    for (const [platform, copy] of Object.entries(p.platforms ?? {})) {
+      for (const [field, value] of Object.entries(copy ?? {})) {
+        if (typeof value === 'string' && cadence.test(value)) offenders.push(`${p.posting} ${platform}.${field}`);
+      }
+    }
+  }
+  const series = JSON.parse(readFileSync(join('posts', 'series.json'), 'utf8')) as Record<string, Record<string, string>>;
+  for (const [name, s] of Object.entries(series)) {
+    for (const field of ['facebook_title', 'facebook_blurb']) {
+      if (typeof s[field] === 'string' && cadence.test(s[field])) offenders.push(`series ${name}.${field}`);
+    }
+  }
+  assert.deepEqual(offenders, []);
+});
+
+test('no heart emojis anywhere in post copy (use 💪)', () => {
+  const hearts = /[❤♥\u{1F493}-\u{1F49F}\u{1F5A4}\u{1F90D}\u{1F90E}\u{1F9E1}\u{1FA75}-\u{1FA77}]/u;
+  const offenders: string[] = [];
+  for (const p of loadPosts()) {
+    if (p.emoji && hearts.test(p.emoji)) offenders.push(`${p.posting} emoji`);
+    for (const [platform, copy] of Object.entries(p.platforms ?? {})) {
+      for (const [field, value] of Object.entries(copy ?? {})) {
+        if (typeof value === 'string' && hearts.test(value)) offenders.push(`${p.posting} ${platform}.${field}`);
+      }
+    }
+  }
+  assert.deepEqual(offenders, []);
+});
