@@ -1194,10 +1194,10 @@ Why: Seen by everyone for millennia, still not truly known. Familiarity hides di
 ```text
 You can see someone every day and mistake it for knowing them.
 
-You know their voice. Their laugh. The way they cross a room.
-Familiarity hides distance well.
+Their voice. Their laugh. The way they cross a room.
+That's only what they let you see.
 
-What someone lets you see, and who they are when no one is watching, are not always the same.
+Familiar isn't the same as close.
 
 Presence is not access.
 
@@ -1222,10 +1222,10 @@ Who do you see every day but have never really asked?
 
 You can see someone every day and mistake it for knowing them.
 
-You know their voice. Their laugh. The way they cross a room.
-Familiarity hides distance well.
+Their voice. Their laugh. The way they cross a room.
+That's only what they let you see.
 
-What someone lets you see, and who they are when no one is watching, are not always the same.
+Familiar isn't the same as close.
 
 Presence is not access.
 
@@ -1248,7 +1248,7 @@ Who do you see every day but have never really asked?
 ```text
 029| PRESENCE
 
-Familiarity hides distance well. Presence is not access.
+Familiar isn't the same as close. Presence is not access.
 ```
 
 **First comment (pin it)**
@@ -1270,7 +1270,7 @@ PRESENCE · NDCH 029
 ```text
 You can see someone every day and mistake it for knowing them.
 
-You know their voice, their laugh, the way they cross a room. Familiarity hides distance well. What someone lets you see, and who they are when no one is watching, are not always the same.
+Their voice, their laugh, the way they cross a room: that's only what they let you see. Familiar isn't the same as close.
 
 Presence is not access.
 
@@ -1298,7 +1298,7 @@ Who do you see every day but have never really asked?
 
 Presence is not access.
 
-You can see someone every day and mistake it for knowing them. What someone lets you see, and who they are when no one is watching, are not always the same.
+Seeing someone every day can pass for knowing them. Familiar isn't the same as close, on a team or at home. Ask the question you've been assuming the answer to.
 
 #NDCH #EmotionalIntelligence #Relationships
 ```
@@ -1354,14 +1354,11 @@ Why: Gate after gate, room after room. Every answer opens another door, and you 
 ```text
 You asked again. They answered again. Somehow you know them less.
 
-Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.
+Answers aren't access. Each one just opens another empty room.
 
-The person you came for is always one room away.
-Pressure can get you answers. Only trust gets you the person.
+Pressure gets you answers. Only trust gets you the person.
 
-So you stop forcing it. You become someone a closed door is safe around.
-
-One day, the door is wide open. Offered.
+Stop pushing on the door. Be someone it's safe to open for.
 
 —
 RECEPTION · 030 · NDCH Dreamforge
@@ -1380,16 +1377,15 @@ Who finally opened up to you, and what changed before they did?
 **Caption**
 
 ```text
+030 | RECEPTION
+
 You asked again. They answered again. Somehow you know them less.
 
-Every answer opens another door. Past it, a tidy room. One chair. One empty cup. Nothing of them.
+Answers aren't access. Each one just opens another empty room.
 
-The person you came for is always one room away.
-Pressure can get you answers. Only trust gets you the person.
+Pressure gets you answers. Only trust gets you the person.
 
-So you stop forcing it. You become someone a closed door is safe around.
-
-One day, the door is wide open. Offered.
+Stop pushing on the door. Be someone it's safe to open for.
 
 —
 RECEPTION · 030 · NDCH Dreamforge
@@ -1410,7 +1406,7 @@ Who finally opened up to you, and what changed before they did?
 ```text
 030| RECEPTION
 
-Pressure can get you answers. Only trust gets you the person.
+Pressure gets you answers. Only trust gets you the person.
 ```
 
 **First comment (pin it)**
@@ -1432,9 +1428,9 @@ RECEPTION · NDCH 030
 ```text
 You asked again. They answered again. Somehow you know them less.
 
-Every answer opens another door, and behind it, a tidy room with nothing of them in it. Pressure can get you answers. Only trust gets you the person. So you stop forcing it, and become someone a closed door is safe around.
+Answers aren't access; each one just opens another empty room. Pressure gets you answers. Only trust gets you the person.
 
-One day, the door is wide open. Offered.
+Stop pushing on the door. Be someone it's safe to open for.
 
 #NDCH #Trust #Relationships
 ```
@@ -1458,9 +1454,9 @@ Who finally opened up to you, and what changed before they did?
 ```text
 030 | RECEPTION
 
-Pressure can get you answers. Only trust gets you the person.
+Pressure gets you answers. Only trust gets you the person.
 
-Asking again rarely brings someone closer. Become someone a closed door is safe around, and in time the door opens on its own.
+Asking again rarely brings someone closer. Be someone a closed door is safe around, and in time it opens on its own.
 
 #NDCH #Trust #Leadership
 ```
