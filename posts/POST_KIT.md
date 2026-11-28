@@ -1529,7 +1529,7 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
 | FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | draft | Mon, Dec 7, 7:00 AM CT | Shaolin Temple |
-| FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 14, 7:00 AM CT | Walden Pond State Reservation |
+| FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 7, 7:00 AM CT | Walden Pond State Reservation |
 | FREQ 004 | [I TAKE CARE OF MYSELF](#freq-004--i-take-care-of-myself) | draft | Mon, Dec 21, 7:00 AM CT | Roman Baths, Bath |
 | FREQ 005 | [I PRIORITIZE MYSELF](#freq-005--i-prioritize-myself) | draft | Mon, Dec 28, 7:00 AM CT | Machu Picchu |
 | FREQ 006 | [I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE](#freq-006--i-wake-up-with-purpose-and-finish-with-pride) | draft | Mon, Jan 4, 7:00 AM CT | Panathenaic Stadium |
@@ -1838,9 +1838,9 @@ A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone ve
 
 ## FREQ 003 · I TRUST MY JUDGMENT AND MY INSTINCTS
 
-Status: draft · YouTube: Mon, Dec 14, 7:00 AM CT · Instagram: Mon, Dec 14, 7:00 AM CT · TikTok: Mon, Dec 14, 7:00 AM CT · Facebook: Mon, Dec 14, 7:00 AM CT
+Status: draft · YouTube: Mon, Dec 7, 7:00 AM CT · Instagram: Mon, Dec 7, 7:00 AM CT · TikTok: Mon, Dec 7, 7:00 AM CT · Facebook: Mon, Dec 7, 7:00 AM CT
 
-Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. 3:21: post the whole vertical render on every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I TRUST MY|JUDGMENT. Calendar: freq/CALENDAR.md.
+Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro, as for 002. Covers saved. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 003 <song>`, then `npm run freq:qc -- 003 --full … --short …`)
 
@@ -1863,13 +1863,12 @@ FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I trust my judgment and my instincts.
 
-The reels change how you see.
-The frequencies change what you tell yourself.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-003 | I TRUST MY JUDGMENT AND MY INSTINCTS
-Your own judgment has carried you this far. Let it lead today.
+🎧 Headphones on. Say it back.
 
 —
 NDCH FREQ · 003 · I Trust My Judgment and My Instincts
@@ -1889,19 +1888,20 @@ Headphones on. What's one call you made on your own that turned out right? 🧭
 **Caption**
 
 ```text
-🎧 Headphones on.
+FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust
 
-I trust my judgment and my instincts.
+Today's frequency: I trust my judgment and my instincts.
 
-The reels change how you see. The frequencies change what you tell yourself.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-Your own judgment has carried you this far. Let it lead today.
+🎧 Headphones on. Say it back.
 
 —
-NDCH FREQ · 003
-Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+NDCH FREQ · 003 · I Trust My Judgment and My Instincts
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
-#NDCH #NDCHFREQ #affirmations #selftrust #dailyaffirmations
+#NDCH #NDCHFREQ #Affirmations #SelfTrust #TrustYourself
 ```
 
 **First comment (pin it)**
@@ -1917,7 +1917,8 @@ What's one call you made on your own that turned out right? Say it here. 🧭
 ```text
 FREQ 003| I TRUST MY JUDGMENT AND MY INSTINCTS
 
-Your own judgment has carried you this far. Let it lead today. 🎧
+Today's frequency: I trust my judgment and my instincts.
+Headphones on. Say it back. 🎧
 ```
 
 **First comment (pin it)**
@@ -1937,15 +1938,16 @@ I TRUST MY JUDGMENT AND MY INSTINCTS · NDCH FREQ 003
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I trust my judgment and my instincts.
 
-I trust my judgment and my instincts.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-The reels change how you see. The frequencies change what you tell yourself.
+🎧 Headphones on. Say it back.
 
-Your own judgment has carried you this far. Let it lead today.
-
-Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+—
+NDCH FREQ · 003 · I Trust My Judgment and My Instincts
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
 #NDCH #NDCHFREQ #SelfTrust
 ```

@@ -10,8 +10,8 @@ My Own Time was checked and left out: it's a story song with verses, not a one-l
 
 | FREQ | Date | Title | Song (Suno take) | Length | Protocol | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 002 | Mon Dec 7, 2026 | [MASTER MY FOCUS](../posts/freq/002_MASTER_MY_FOCUS.json) | Master My Focus (`22ef6eba`) | 3:37 | Lucid Commander · 14.5 Hz | Shaolin Temple |
-| 003 | Mon Dec 14, 2026 | [I TRUST MY JUDGMENT AND MY INSTINCTS](../posts/freq/003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS.json) | I Trust My Judgment and My Instincts (`914ea1c7`) | 3:21 | DreamForge · 9 Hz | Walden Pond State Reservation |
+| 002 | Tue Dec 1, 2026 (proposed) | [MASTER MY FOCUS](../posts/freq/002_MASTER_MY_FOCUS.json) | Master My Focus (`22ef6eba`) | 3:37 | Lucid Commander · 14.5 Hz | Shaolin Temple |
+| 003 | Mon Dec 7, 2026 | [I TRUST MY JUDGMENT AND MY INSTINCTS](../posts/freq/003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS.json) | I Trust My Judgment and My Instincts (`914ea1c7`) | 3:21 | DreamForge · 9 Hz | Walden Pond State Reservation |
 | 004 | Mon Dec 21, 2026 | [I TAKE CARE OF MYSELF](../posts/freq/004_I_TAKE_CARE_OF_MYSELF.json) | I Take Care of Myself (`ce3b7230`) | 3:45 | Core Reboot · 7.83 Hz | Roman Baths, Bath |
 | 005 | Mon Dec 28, 2026 | [I PRIORITIZE MYSELF](../posts/freq/005_I_PRIORITIZE_MYSELF.json) | I Prioritize Myself (`ed6bb245`) | 3:13 | DreamForge · 9 Hz | Machu Picchu |
 | 006 | Mon Jan 4, 2027 | [I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE](../posts/freq/006_I_WAKE_UP_WITH_PURPOSE_AND_FINISH_WITH_PRIDE.json) | I Wake Up with Purpose and Finish with Pride (`75396ca6`) | 3:14 | NeuroBlade · 16 Hz | Panathenaic Stadium |
@@ -26,7 +26,7 @@ My Own Time was checked and left out: it's a story song with verses, not a one-l
 Each post kit has the copy for every platform, the location tag with search fallbacks, the protocol and a note with the song, the cut and the cover lines. What each song still needs:
 
 - **002 MASTER MY FOCUS:** Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro. Cover lines `MASTER MY|FOCUS`.
-- **003 I TRUST MY JUDGMENT AND MY INSTINCTS:** 3:21: post the whole vertical render on every platform. Cover lines `I TRUST MY|JUDGMENT`.
+- **003 I TRUST MY JUDGMENT AND MY INSTINCTS:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `I TRUST MY|JUDGMENT`.
 - **004 I TAKE CARE OF MYSELF:** Over 3:00: the vertical cut needs --cut3m-start. Cover lines `I TAKE CARE|OF MYSELF`.
 - **005 I PRIORITIZE MYSELF:** 3:13: close enough that a 14 s trim of the intro or outro gives one cut for every platform. Cover lines `I PRIORITIZE|MYSELF`.
 - **006 I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE:** 3:14: a 14 s trim gives one cut for every platform. Cover lines `I WAKE UP|WITH PURPOSE`.
