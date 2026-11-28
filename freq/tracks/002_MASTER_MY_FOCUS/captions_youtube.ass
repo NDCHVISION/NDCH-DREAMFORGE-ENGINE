@@ -1,0 +1,112 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Aff,NDCH Freq Serif,78,&H00EEF2F6,&H000000FF,&H40000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,60,60,0,1
+Style: Head,NDCH Freq Serif,34,&H006AC4E9,&H000000FF,&H60000000,&H00000000,0,0,0,0,100,100,22,0,1,1.5,0,8,60,60,56,1
+Style: End,NDCH Freq Serif,72,&H00EEF2F6,&H000000FF,&H40000000,&H00000000,0,0,0,0,100,100,24,0,1,3,0,5,60,60,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:03:33.86,Head,,0,0,0,,{\blur1}NDCH FREQ 002
+Dialogue: 1,0:00:02.28,0:00:04.48,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:04.50,0:00:06.71,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:06.74,0:00:08.95,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:08.97,0:00:11.15,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:11.17,0:00:13.38,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:13.41,0:00:15.18,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:15.18,0:00:17.17,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:17.13,0:00:19.12,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:18.96,0:00:21.17,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:21.19,0:00:23.39,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:23.41,0:00:25.62,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:25.65,0:00:27.83,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:27.85,0:00:30.05,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:30.07,0:00:32.16,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:32.16,0:00:34.15,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:34.11,0:00:36.10,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:36.78,0:00:38.99,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:39.01,0:00:41.21,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:41.23,0:00:43.44,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:43.47,0:00:45.66,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:45.68,0:00:47.89,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:47.91,0:00:49.98,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:49.98,0:00:51.97,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:51.93,0:00:53.92,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:00:54.59,0:00:56.80,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:56.86,0:00:59.05,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:00:59.07,0:01:01.28,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:01.31,0:01:03.48,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:03.50,0:01:05.71,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:05.77,0:01:07.80,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:07.80,0:01:09.79,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:09.75,0:01:11.74,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:12.44,0:01:14.65,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:14.67,0:01:16.88,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:16.90,0:01:19.08,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:19.10,0:01:21.30,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:21.32,0:01:23.53,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:23.56,0:01:25.66,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:25.66,0:01:27.65,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:27.61,0:01:29.60,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:30.25,0:01:32.46,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:32.48,0:01:34.69,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:34.72,0:01:36.93,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:36.96,0:01:39.17,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:39.19,0:01:41.40,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:41.44,0:01:43.18,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:43.18,0:01:45.17,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:45.13,0:01:47.12,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:01:48.08,0:01:50.29,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:50.31,0:01:52.51,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:52.53,0:01:54.74,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:54.76,0:01:56.96,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:56.98,0:01:59.19,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:01:59.21,0:02:01.37,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:01.37,0:02:03.36,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:03.32,0:02:05.31,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:05.89,0:02:08.10,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:08.12,0:02:10.32,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:10.34,0:02:12.55,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:12.58,0:02:14.79,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:14.81,0:02:17.01,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:17.03,0:02:19.02,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:19.02,0:02:21.01,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:20.97,0:02:22.96,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(0,200)}{\alpha&HFF&\t(80,140,\alpha&H00&)}Up, {\alpha&HFF&\t(359,419,\alpha&H00&)}up, {\alpha&HFF&\t(638,698,\alpha&H00&)}up, {\alpha&HFF&\t(917,977,\alpha&H00&)}up, {\alpha&HFF&\t(1196,1256,\alpha&H00&)}up, {\alpha&HFF&\t(1475,1535,\alpha&H00&)}up, {\alpha&HFF&\t(1754,1814,\alpha&H00&)}{\1c&H6AC4E9&}up!{\1c&HEEF2F6&}
+Dialogue: 1,0:02:23.74,0:02:25.95,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:25.97,0:02:28.15,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:28.17,0:02:30.38,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:30.40,0:02:32.61,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:32.63,0:02:34.81,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:34.83,0:02:37.04,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:37.06,0:02:39.26,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:39.28,0:02:41.49,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:41.51,0:02:43.72,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:43.74,0:02:45.93,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:45.95,0:02:48.16,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:48.18,0:02:50.39,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:50.43,0:02:52.62,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:52.64,0:02:54.82,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:54.84,0:02:57.05,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:57.07,0:02:59.28,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:02:59.30,0:03:01.51,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:01.56,0:03:03.77,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:03.89,0:03:05.94,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:05.96,0:03:08.16,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:08.18,0:03:10.39,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:10.47,0:03:12.66,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:12.68,0:03:14.87,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:14.89,0:03:17.08,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:17.10,0:03:19.31,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:19.45,0:03:21.50,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:21.52,0:03:23.72,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:23.74,0:03:25.93,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:25.95,0:03:28.16,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:28.18,0:03:30.38,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:30.40,0:03:32.58,Aff,,0,0,0,,{\pos(960,975)\blur1.5\fad(160,200)}I master my {\1c&H6AC4E9&}focus{\1c&HEEF2F6&} and actions
+Dialogue: 1,0:03:34.06,0:03:36.76,End,,0,0,0,,{\pos(960,960)\blur1.5\fad(500,500)}MASTER MY FOCUS\N{\fs34\1c&H6AC4E9&\fsp18}NDCH FREQ 002

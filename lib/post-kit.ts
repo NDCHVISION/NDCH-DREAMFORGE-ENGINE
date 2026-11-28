@@ -100,8 +100,10 @@ export function findPost(posts: ReelPost[], query: string): ReelPost | undefined
   return posts.find((p) => (p.series !== 'freq' && p.posting === q.padStart(3, '0')) || [p.title.toLowerCase(), p.title.toLowerCase().replace(/^the /, '')].includes(q));
 }
 
+/** Distinct hashtags; platforms treat #Focus and #focus as one tag, so they count once. */
 export function hashtags(text: string): string[] {
-  return text.match(/#[\p{L}\p{N}_]+/gu) ?? [];
+  const seen = new Set<string>();
+  return (text.match(/#[\p{L}\p{N}_]+/gu) ?? []).filter((t) => !seen.has(t.toLowerCase()) && seen.add(t.toLowerCase()));
 }
 
 /**
@@ -111,8 +113,32 @@ export function hashtags(text: string): string[] {
 export const FREQ_CLAIM_WORDS = /\b(heal(s|ing)?|cure[sd]?|immun\w*|trauma|cells?|dna|therapy|therapeutic|treat(s|ment)?|anxiety|depression|insomnia|pain relief|detox)\b/i;
 
 /** FREQ 001 was released before binaural beds; every later track carries one and says to use headphones. */
+/** Heart emojis never go in NDCH copy (Dr. Nkrumah's rule, Nov 2026); FREQ uses 💪 instead. */
+export const HEART_EMOJI = /[\u2763\u2764\u2665\u{1F48C}\u{1F493}-\u{1F49F}\u{1F5A4}\u{1F90D}\u{1F90E}\u{1F9E1}\u{1FA75}-\u{1FA77}\u{1F60D}\u{1F63B}\u{1F970}]/u;
+
+/**
+ * The FREQ signature, from FREQ 002 on: every track opens "Today's frequency:" with its
+ * affirmation and keeps "Headphones on. Say it back." The series intro ("The reels change
+ * how you see…") ran once on FREQ 001 and is not repeated.
+ */
+export const FREQ_SIGNATURE = { open: "Today's frequency:", close: 'Headphones on. Say it back.' };
+export const FREQ_SERIES_INTRO = /the reels change how you see/i;
+function freqSignatureIssues(p: ReelPost, where: string): string[] {
+  if (p.series !== 'freq' || Number(p.posting) < 2) return [];
+  const out: string[] = [];
+  for (const [plat, key] of [['youtube', 'description'], ['instagram', 'caption'], ['facebook', 'description'], ['tiktok', 'caption']] as const) {
+    const v = p.platforms?.[plat]?.[key];
+    if (!v) continue;
+    if (!v.includes(FREQ_SIGNATURE.open) || !v.includes(FREQ_SIGNATURE.close)) out.push(`${where}: ${plat}.${key} needs the FREQ signature ("${FREQ_SIGNATURE.open} …" and "${FREQ_SIGNATURE.close}")`);
+    if (FREQ_SERIES_INTRO.test(v)) out.push(`${where}: ${plat}.${key} repeats the FREQ series intro; FREQ 001 introduced the series`);
+  }
+  return out;
+}
+
 function validateFreq(p: ReelPost, where: string): string[] {
   const errs: string[] = [];
+  // Drafts get the signature as a readiness warning; anything scheduled or posted must carry it.
+  if (p.status !== 'draft') errs.push(...freqSignatureIssues(p, where));
   for (const [plat, copy] of Object.entries(p.platforms ?? {}))
     for (const [k, v] of Object.entries(copy ?? {}))
       if (FREQ_CLAIM_WORDS.test(v)) errs.push(`${where}: ${plat}.${k} makes a health claim ("${FREQ_CLAIM_WORDS.exec(v)![0]}"); FREQ copy describes the feeling, not a treatment`);
@@ -185,6 +211,9 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
     const body = copy.caption ?? copy.description ?? copy.post ?? '';
     if (cap !== undefined && hashtags(body).length > cap) errs.push(`${where}: ${plat} has ${hashtags(body).length} hashtags (max ${cap})`);
   }
+  for (const [plat, copy] of Object.entries(p.platforms ?? {}))
+    for (const [k, v] of Object.entries(copy ?? {}))
+      if (typeof v === 'string' && HEART_EMOJI.test(v)) errs.push(`${where}: ${plat}.${k} has a heart emoji; NDCH copy never uses hearts (use 💪 on FREQ)`);
   if (p.series === 'freq') errs.push(...validateFreq(p, where));
   if (p.symbol) errs.push(...validateSymbol(p, where), ...validateNotRepeated(p, where, loadPostedIG()));
   const n = label(p);
@@ -193,8 +222,10 @@ export function validatePost(p: ReelPost, fileName?: string): string[] {
   const tt = p.platforms?.tiktok?.caption;
   if (tt) {
     const [head, blank, line, ...rest] = tt.split('\n');
-    if (head !== `${n}| ${p.title}` || blank !== '' || !line?.trim() || rest.length)
-      errs.push(`${where}: tiktok.caption must be "${n}| ${p.title}", a blank line, then one line from the reel`);
+    // FREQ (from 002) may add its signature close as a second line under the affirmation.
+    const signed = p.series === 'freq' && rest.length === 1 && rest[0].includes(FREQ_SIGNATURE.close);
+    if (head !== `${n}| ${p.title}` || blank !== '' || !line?.trim() || (rest.length && !signed))
+      errs.push(`${where}: tiktok.caption must be "${n}| ${p.title}", a blank line, then one line from the reel${p.series === 'freq' ? ' (FREQ may add the signature close as a second line)' : ''}`);
   }
   const li = p.platforms?.linkedin;
   if (li) {
@@ -218,6 +249,7 @@ export function readinessWarnings(p: ReelPost, root = process.cwd(), now = new D
   const out: string[] = [];
   const where = `${label(p)} ${p.title}`;
   const live = p.status !== 'draft';
+  if (!live) out.push(...freqSignatureIssues(p, where).map((w) => `${w} (draft)`));
   if (live && !p.cover?.vertical) out.push(`${where}: no vertical cover listed`);
   for (const [kind, rel] of Object.entries(p.cover ?? {}))
     if (rel && !existsSync(join(root, rel))) out.push(`${where}: ${kind} cover ${rel} is not in the repo`);

@@ -1,0 +1,18 @@
+{
+  "seed": 1,
+  "sections": [
+    { "start": 0.0,   "end": 2.0,   "look": "cold" },
+    { "start": 2.0,   "end": 19.1,  "look": "groove" },
+    { "start": 19.1,  "end": 33.6,  "look": "groove" },
+    { "start": 33.6,  "end": 37.4,  "look": "breath" },
+    { "start": 37.4,  "end": 69.3,  "look": "groove" },
+    { "start": 69.3,  "end": 72.6,  "look": "breath" },
+    { "start": 72.6,  "end": 91.7,  "look": "groove" },
+    { "start": 91.7,  "end": 106.5, "look": "breath" },
+    { "start": 106.5, "end": 107.1, "look": "silence" },
+    { "start": 107.1, "end": 145.2, "look": "drop" },
+    { "start": 145.2, "end": 154.0, "look": "breath" },
+    { "start": 154.0, "end": 198.8, "look": "groove" },
+    { "start": 198.8, "end": 217.3, "look": "cold" }
+  ]
+}

@@ -1528,8 +1528,8 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
-| FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | draft | Mon, Dec 7, 7:00 AM CT | Shaolin Temple |
-| FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 14, 7:00 AM CT | Walden Pond State Reservation |
+| FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | scheduled | Tue, Dec 1, 7:00 AM CT | Shaolin Temple |
+| FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 7, 7:00 AM CT | Walden Pond State Reservation |
 | FREQ 004 | [I TAKE CARE OF MYSELF](#freq-004--i-take-care-of-myself) | draft | Mon, Dec 21, 7:00 AM CT | Roman Baths, Bath |
 | FREQ 005 | [I PRIORITIZE MYSELF](#freq-005--i-prioritize-myself) | draft | Mon, Dec 28, 7:00 AM CT | Machu Picchu |
 | FREQ 006 | [I WAKE UP WITH PURPOSE AND FINISH WITH PRIDE](#freq-006--i-wake-up-with-purpose-and-finish-with-pride) | draft | Mon, Jan 4, 7:00 AM CT | Panathenaic Stadium |
@@ -1562,7 +1562,7 @@ Why: Carved at the entrance: Know thyself. You can't love what you won't look at
 **Title**
 
 ```text
-FREQ 001 | I LOVE MYSELF 🤍 #affirmations #selflove
+FREQ 001 | I LOVE MYSELF 💪 #affirmations #selflove
 ```
 
 **Description**
@@ -1587,7 +1587,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **Pinned comment**
 
 ```text
-Headphones on. Say it once for yourself today: what's one thing you love about you? 🤍
+Headphones on. Say it once for yourself today: what's one thing you love about you? 💪
 ```
 
 ### Instagram
@@ -1613,7 +1613,7 @@ Best with headphones: 285 Hz left / 294 Hz right, a 9 Hz binaural beat.
 **First comment (pin it)**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### TikTok
@@ -1629,7 +1629,7 @@ You do not have to become someone else to be worthy of your own love. 🎧
 **First comment (pin it)**
 
 ```text
-Headphones on for this one. What's one thing you love about you? Say it here. 🤍
+Headphones on for this one. What's one thing you love about you? Say it here. 💪
 ```
 
 ### Facebook
@@ -1659,7 +1659,7 @@ Set over 285 Hz left / 294 Hz right, a 9 Hz binaural beat. Each ear hears its ow
 **First comment**
 
 ```text
-What's one thing you love about you? Say it here. 🤍
+What's one thing you love about you? Say it here. 💪
 ```
 
 ### LinkedIn
@@ -1690,7 +1690,7 @@ A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone ve
 
 ## FREQ 002 · MASTER MY FOCUS
 
-Status: draft · YouTube: Mon, Dec 7, 7:00 AM CT · Instagram: Mon, Dec 7, 7:00 AM CT · TikTok: Mon, Dec 7, 7:00 AM CT · Facebook: Mon, Dec 7, 7:00 AM CT
+Status: scheduled · YouTube: Tue, Dec 1, 7:00 AM CT · Instagram: Tue, Dec 1, 7:00 AM CT · TikTok: Mon, Dec 7, 7:05 AM CT · Facebook: Tue, Dec 1, 7:00 AM CT
 
 Note: Not released. Song: Master My Focus (3:37, hypnotic electronic hip-hop, 108 BPM), Suno take 22ef6eba. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro. Covers: make in ChatGPT from the FREQ 001 cover, lines MASTER MY|FOCUS. Calendar: freq/CALENDAR.md.
 
@@ -1715,13 +1715,12 @@ FREQ 002 | MASTER MY FOCUS 🎯 #affirmations #focus
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I master my focus and actions.
 
-The reels change how you see.
-The frequencies change what you tell yourself.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-002 | MASTER MY FOCUS
-One thing at a time, all the way through.
+🎧 Headphones on. Say it back.
 
 —
 NDCH FREQ · 002 · Master My Focus
@@ -1741,19 +1740,20 @@ Headphones on. What's the one thing getting your full attention this week? 🎯
 **Caption**
 
 ```text
-🎧 Headphones on.
+FREQ 002 | MASTER MY FOCUS 🎯 #affirmations #focus
 
-I master my focus and actions.
+Today's frequency: I master my focus and actions.
 
-The reels change how you see. The frequencies change what you tell yourself.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-One thing at a time, all the way through.
+🎧 Headphones on. Say it back.
 
 —
-NDCH FREQ · 002
-Best with headphones: a 14.5 Hz binaural beat, one tone in each ear.
+NDCH FREQ · 002 · Master My Focus
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
-#NDCH #NDCHFREQ #affirmations #focus #dailyaffirmations
+#NDCH #NDCHFREQ #Affirmations #Focus #MasterMyFocus
 ```
 
 **First comment (pin it)**
@@ -1769,7 +1769,8 @@ What's the one thing getting your full attention this week? Say it here. 🎯
 ```text
 FREQ 002| MASTER MY FOCUS
 
-One thing at a time, all the way through. 🎧
+Today's frequency: I master my focus and actions.
+Headphones on. Say it back. 🎧
 ```
 
 **First comment (pin it)**
@@ -1789,15 +1790,16 @@ MASTER MY FOCUS · NDCH FREQ 002
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I master my focus and actions.
 
-I master my focus and actions.
+Attention is the first thing you spend each day.
+Spend it on one thing at a time, all the way through.
 
-The reels change how you see. The frequencies change what you tell yourself.
+🎧 Headphones on. Say it back.
 
-One thing at a time, all the way through.
-
-Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+—
+NDCH FREQ · 002 · Master My Focus
+Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
 #NDCH #NDCHFREQ #Focus
 ```
@@ -1831,14 +1833,14 @@ Most days don't need more effort, they need fewer things competing for it. FREQ 
 ### Alt text
 
 ```text
-A gold frequency ring glows around the NDCH arch-and-Y emblem on black stone veined with gold, under the title MASTER MY FOCUS, NDCH FREQ 002. The picture pushes in slowly and the gold breathes brighter while one line repeats: I master my focus and actions.
+A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I master my focus and actions, then Up, up, up, one word at a time. After a beat of silence, a gold shockwave rolls outward at the drop and the veins light up from the emblem. It ends on MASTER MY FOCUS, NDCH FREQ 002.
 ```
 
 ## FREQ 003 · I TRUST MY JUDGMENT AND MY INSTINCTS
 
-Status: draft · YouTube: Mon, Dec 14, 7:00 AM CT · Instagram: Mon, Dec 14, 7:00 AM CT · TikTok: Mon, Dec 14, 7:00 AM CT · Facebook: Mon, Dec 14, 7:00 AM CT
+Status: draft · YouTube: Mon, Dec 7, 7:00 AM CT · Instagram: Mon, Dec 7, 7:00 AM CT · TikTok: Mon, Dec 7, 7:00 AM CT · Facebook: Mon, Dec 7, 7:00 AM CT
 
-Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. 3:21: post the whole vertical render on every platform. Covers: make in ChatGPT from the FREQ 001 cover, lines I TRUST MY|JUDGMENT. Calendar: freq/CALENDAR.md.
+Note: Not released. Song: I Trust My Judgment and My Instincts (3:21, bass-house and hip-hop, 130 BPM), Suno take 914ea1c7. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro, as for 002. Covers saved. Calendar: freq/CALENDAR.md.
 
 Binaural bed: protocol DreamForge · base 285 Hz moved to the song's key, right = base + 9 Hz · 9 Hz beat · 18 LU under the song (`npm run freq:binaural -- 003 <song>`, then `npm run freq:qc -- 003 --full … --short …`)
 
@@ -1861,13 +1863,12 @@ FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I trust my judgment and my instincts.
 
-The reels change how you see.
-The frequencies change what you tell yourself.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-003 | I TRUST MY JUDGMENT AND MY INSTINCTS
-Your own judgment has carried you this far. Let it lead today.
+🎧 Headphones on. Say it back.
 
 —
 NDCH FREQ · 003 · I Trust My Judgment and My Instincts
@@ -1887,19 +1888,20 @@ Headphones on. What's one call you made on your own that turned out right? 🧭
 **Caption**
 
 ```text
-🎧 Headphones on.
+FREQ 003 | I TRUST MY JUDGMENT AND MY INSTINCTS 🧭 #affirmations #selftrust
 
-I trust my judgment and my instincts.
+Today's frequency: I trust my judgment and my instincts.
 
-The reels change how you see. The frequencies change what you tell yourself.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-Your own judgment has carried you this far. Let it lead today.
+🎧 Headphones on. Say it back.
 
 —
-NDCH FREQ · 003
-Best with headphones: a 9 Hz binaural beat, one tone in each ear.
+NDCH FREQ · 003 · I Trust My Judgment and My Instincts
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
-#NDCH #NDCHFREQ #affirmations #selftrust #dailyaffirmations
+#NDCH #NDCHFREQ #Affirmations #SelfTrust #TrustYourself
 ```
 
 **First comment (pin it)**
@@ -1915,7 +1917,8 @@ What's one call you made on your own that turned out right? Say it here. 🧭
 ```text
 FREQ 003| I TRUST MY JUDGMENT AND MY INSTINCTS
 
-Your own judgment has carried you this far. Let it lead today. 🎧
+Today's frequency: I trust my judgment and my instincts.
+Headphones on. Say it back. 🎧
 ```
 
 **First comment (pin it)**
@@ -1935,15 +1938,16 @@ I TRUST MY JUDGMENT AND MY INSTINCTS · NDCH FREQ 003
 **Description**
 
 ```text
-🎧 Best with headphones.
+Today's frequency: I trust my judgment and my instincts.
 
-I trust my judgment and my instincts.
+The first read is usually the honest one.
+Hear it out before the second-guessing starts.
 
-The reels change how you see. The frequencies change what you tell yourself.
+🎧 Headphones on. Say it back.
 
-Your own judgment has carried you this far. Let it lead today.
-
-Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+—
+NDCH FREQ · 003 · I Trust My Judgment and My Instincts
+Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
 #NDCH #NDCHFREQ #SelfTrust
 ```
