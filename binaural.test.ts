@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { CHART, MAX_BEAT_HZ, MAX_CARRIER_HZ, PROTOCOLS, resolveBinaural, validateBinaural } from './lib/binaural.ts';
 import { SR, buildBinauralMix, peakHz } from './lib/audio/binaural-mix.ts';
-import { FREQ_DIR, loadPosts, validatePost, type ReelPost } from './lib/post-kit.ts';
+import { FREQ_DIR, FREQ_LISTENING_NOTE, FREQ_NOTE_FROM, loadPosts, validatePost, type ReelPost } from './lib/post-kit.ts';
 
 test('protocols match the NDCH Binaural Beats & Communication Protocols sheet exactly', () => {
   const sheet: [string, number, number][] = [
@@ -55,6 +55,21 @@ test('FREQ rules: a track needs a bed and a headphones line; no health claims an
   p.platforms.instagram.caption += '\nBest with headphones.';
   assert.deepEqual(validatePost(p), []);
   p.platforms.instagram.caption += ' Heals the body.';
+  assert.ok(validatePost(p).some((e) => e.includes('health claim')));
+});
+
+test('FREQ 003 on carries the listening note in YouTube and Facebook, and the note is not a health claim', () => {
+  const later = loadPosts(FREQ_DIR).filter((p) => Number(p.posting) >= FREQ_NOTE_FROM);
+  assert.ok(later.length > 0);
+  for (const p of later) {
+    assert.ok(p.platforms.youtube.description.includes(FREQ_LISTENING_NOTE), `${p.posting} youtube`);
+    assert.ok(p.platforms.facebook.description.includes(FREQ_LISTENING_NOTE), `${p.posting} facebook`);
+    assert.deepEqual(validatePost(p), []);
+  }
+  const p: ReelPost = structuredClone(later[0]);
+  p.platforms.facebook.description = p.platforms.facebook.description.replace(FREQ_LISTENING_NOTE, '');
+  assert.ok(validatePost(p).some((e) => e.includes('listening note')));
+  p.platforms.facebook.description += '\nFREQ is a treatment.';
   assert.ok(validatePost(p).some((e) => e.includes('health claim')));
 });
 

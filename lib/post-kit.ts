@@ -108,14 +108,31 @@ export function hashtags(text: string): string[] {
  * Medical-claim words FREQ copy may not use. Binaural beats have mixed evidence for mood and focus
  * and none for healing; the copy speaks to how a track feels, never to treating anything.
  */
+/**
+ * Listening note every FREQ track from 003 on carries in its YouTube and Facebook descriptions, word for word.
+ * It is the one place FREQ copy may say "medical treatment", because it says FREQ is not one.
+ */
+export const FREQ_LISTENING_NOTE =
+  'Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.';
+
+/** FREQ 001 and 002 were scheduled before the note existed; their live copy is left as it is. */
+export const FREQ_NOTE_FROM = 3;
+
 export const FREQ_CLAIM_WORDS = /\b(heal(s|ing)?|cure[sd]?|immun\w*|trauma|cells?|dna|therapy|therapeutic|treat(s|ment)?|anxiety|depression|insomnia|pain relief|detox)\b/i;
 
 /** FREQ 001 was released before binaural beds; every later track carries one and says to use headphones. */
 function validateFreq(p: ReelPost, where: string): string[] {
   const errs: string[] = [];
   for (const [plat, copy] of Object.entries(p.platforms ?? {}))
-    for (const [k, v] of Object.entries(copy ?? {}))
+    for (const [k, raw] of Object.entries(copy ?? {})) {
+      const v = raw.split(FREQ_LISTENING_NOTE).join('');
       if (FREQ_CLAIM_WORDS.test(v)) errs.push(`${where}: ${plat}.${k} makes a health claim ("${FREQ_CLAIM_WORDS.exec(v)![0]}"); FREQ copy describes the feeling, not a treatment`);
+    }
+  if (Number(p.posting) >= FREQ_NOTE_FROM)
+    for (const [plat, key] of [['youtube', 'description'], ['facebook', 'description']] as const) {
+      const v = p.platforms?.[plat]?.[key];
+      if (v && !v.includes(FREQ_LISTENING_NOTE)) errs.push(`${where}: ${plat}.${key} must carry the FREQ listening note word for word (FREQ_LISTENING_NOTE)`);
+    }
   if (Number(p.posting) < 2 && !p.binaural) return errs;
   errs.push(...validateBinaural(p.binaural, `${where}: binaural`));
   for (const [plat, key] of [['youtube', 'description'], ['instagram', 'caption']] as const) {
