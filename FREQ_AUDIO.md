@@ -51,6 +51,12 @@ A binaural beat is two steady sine tones, one per ear: the **base** in the left 
 
 5. Copy: the YouTube description and the Instagram caption must say to use headphones. The post kit enforces this, for example with "Best with headphones."
 
+   From FREQ 003 on, the YouTube and Facebook descriptions also carry the listening note, word for word, just above the hashtags. The post kit enforces it (`FREQ_LISTENING_NOTE` in `lib/post-kit.ts`):
+
+   > Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
+   Use the same note in a streaming artist bio or playlist description. FREQ 001 and 002 were scheduled before the note, so their copy is unchanged.
+
 ## Video
 
 `npm run freq:video` turns the verified mix and the post's covers into upload-ready video, with ffmpeg only:

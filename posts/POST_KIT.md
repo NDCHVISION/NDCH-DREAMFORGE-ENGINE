@@ -17,7 +17,7 @@ Short films about the stories we inherit, the frames we copy, and the line that 
 
 Each film is one idea, set at one landmark, told in light and silence. No lecture, no noise. Watch it once, then ask what it was asking you.
 
-New films every week from NDCH.
+From NDCH.
 ```
 
 **Cover image prompt**
@@ -1507,6 +1507,8 @@ The NVS films change how you see. FREQ changes what you tell yourself.
 Each track is one affirmation, set to sound and gold light, made to be played on the days you forget. Say it until you believe it.
 
 Start with 001: I Love Myself.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 ```
 
 **Cover image prompt**
@@ -1873,6 +1875,8 @@ Your own judgment has carried you this far. Let it lead today.
 NDCH FREQ · 003 · I Trust My Judgment and My Instincts
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #Affirmations #SelfTrust #TrustYourself
 ```
 
@@ -1945,6 +1949,8 @@ Your own judgment has carried you this far. Let it lead today.
 
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #SelfTrust
 ```
 
@@ -1998,6 +2004,8 @@ Looking after yourself is part of the work, not a break from it.
 —
 NDCH FREQ · 004 · I Take Care of Myself
 Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #SelfCare #LookAfterYourself
 ```
@@ -2071,6 +2079,8 @@ Looking after yourself is part of the work, not a break from it.
 
 Set over a 7.83 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #SelfCare
 ```
 
@@ -2124,6 +2134,8 @@ Putting yourself first is how you keep showing up for everyone else.
 —
 NDCH FREQ · 005 · I Prioritize Myself
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #SelfWorth #PrioritizeYourself
 ```
@@ -2197,6 +2209,8 @@ Putting yourself first is how you keep showing up for everyone else.
 
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #SelfWorth
 ```
 
@@ -2250,6 +2264,8 @@ Start the day on purpose. End it proud of what you did.
 —
 NDCH FREQ · 006 · I Wake Up with Purpose and Finish with Pride
 Set over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #MorningMotivation #NewYear
 ```
@@ -2323,6 +2339,8 @@ Start the day on purpose. End it proud of what you did.
 
 Set over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #NewYear
 ```
 
@@ -2376,6 +2394,8 @@ Say it, then do it. That's the whole promise.
 —
 NDCH FREQ · 007 · I Follow Through on What I Commit To
 Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #Discipline #FollowThrough
 ```
@@ -2449,6 +2469,8 @@ Say it, then do it. That's the whole promise.
 
 Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #Discipline
 ```
 
@@ -2502,6 +2524,8 @@ Say what you mean, clearly, and let it be heard.
 —
 NDCH FREQ · 008 · My Voice Matters, and I Use It with Confidence
 Set over a 16 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #Confidence #SpeakUp
 ```
@@ -2575,6 +2599,8 @@ Say what you mean, clearly, and let it be heard.
 
 Set over a 16 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #MLKDay
 ```
 
@@ -2628,6 +2654,8 @@ Show up as yourself, and the right people meet you there.
 —
 NDCH FREQ · 009 · Connect with Ease
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #Connection #ConnectWithEase
 ```
@@ -2701,6 +2729,8 @@ Show up as yourself, and the right people meet you there.
 
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #Connection
 ```
 
@@ -2754,6 +2784,8 @@ Look good in the light. Feel good in the dark.
 —
 NDCH FREQ · 010 · I Love the Skin I'm In
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #SelfLove #BlackHistoryMonth
 ```
@@ -2827,6 +2859,8 @@ Look good in the light. Feel good in the dark.
 
 Set over a 9 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
 
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
+
 #NDCH #NDCHFREQ #BlackHistoryMonth
 ```
 
@@ -2880,6 +2914,8 @@ Steady hands, clear head, your call.
 —
 NDCH FREQ · 011 · Always In Control
 Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so it needs headphones; phone speakers blend them.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Affirmations #Control #Composure
 ```
@@ -2952,6 +2988,8 @@ The reels change how you see. The frequencies change what you tell yourself.
 Steady hands, clear head, your call.
 
 Set over a 14.5 Hz binaural beat. Each ear hears its own tone, so use headphones for the full effect.
+
+Mixed with a binaural beat; best with headphones at a comfortable volume. Not for use while driving. If you have epilepsy or a seizure disorder, check with your doctor before listening. FREQ is music, not medical treatment.
 
 #NDCH #NDCHFREQ #Composure
 ```
