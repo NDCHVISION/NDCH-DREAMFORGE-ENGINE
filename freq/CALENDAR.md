@@ -10,7 +10,7 @@ My Own Time was checked and left out: it's a story song with verses, not a one-l
 
 | FREQ | Date | Title | Song (Suno take) | Length | Protocol | Location |
 | --- | --- | --- | --- | --- | --- | --- |
-| 002 | Tue Dec 1, 2026 (proposed) | [MASTER MY FOCUS](../posts/freq/002_MASTER_MY_FOCUS.json) | Master My Focus (`22ef6eba`) | 3:37 | Lucid Commander · 14.5 Hz | Shaolin Temple |
+| 002 | Tue Dec 1, 2026 (TikTok Dec 7) | [MASTER MY FOCUS](../posts/freq/002_MASTER_MY_FOCUS.json) | Master My Focus (`22ef6eba`) | 3:37 | Lucid Commander · 14.5 Hz | Shaolin Temple |
 | 003 | Mon Dec 7, 2026 | [I TRUST MY JUDGMENT AND MY INSTINCTS](../posts/freq/003_I_TRUST_MY_JUDGMENT_AND_MY_INSTINCTS.json) | I Trust My Judgment and My Instincts (`914ea1c7`) | 3:21 | DreamForge · 9 Hz | Walden Pond State Reservation |
 | 004 | Mon Dec 21, 2026 | [I TAKE CARE OF MYSELF](../posts/freq/004_I_TAKE_CARE_OF_MYSELF.json) | I Take Care of Myself (`ce3b7230`) | 3:45 | Core Reboot · 7.83 Hz | Roman Baths, Bath |
 | 005 | Mon Dec 28, 2026 | [I PRIORITIZE MYSELF](../posts/freq/005_I_PRIORITIZE_MYSELF.json) | I Prioritize Myself (`ed6bb245`) | 3:13 | DreamForge · 9 Hz | Machu Picchu |

@@ -3,16 +3,16 @@
   "title": "MASTER MY FOCUS",
   "series": "freq",
   "emoji": "🎯",
-  "status": "draft",
+  "status": "scheduled",
   "cover": {
     "vertical": "assets/covers/FREQ_002_MASTER_MY_FOCUS_vertical.jpg",
     "horizontal": "assets/covers/FREQ_002_MASTER_MY_FOCUS_horizontal.jpg"
   },
   "schedule": {
-    "youtube": "2026-12-07T07:00:00-06:00",
-    "instagram": "2026-12-07T07:00:00-06:00",
-    "tiktok": "2026-12-07T07:00:00-06:00",
-    "facebook": "2026-12-07T07:00:00-06:00"
+    "youtube": "2026-12-01T07:00:00-06:00",
+    "instagram": "2026-12-01T07:00:00-06:00",
+    "tiktok": "2026-12-07T07:05:00-06:00",
+    "facebook": "2026-12-01T07:00:00-06:00"
   },
   "note": "Not released. Song: Master My Focus (3:37, hypnotic electronic hip-hop, 108 BPM), Suno take 22ef6eba. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro. Covers: make in ChatGPT from the FREQ 001 cover, lines MASTER MY|FOCUS. Calendar: freq/CALENDAR.md.",
   "alt_text": "A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone veined with gold. The lyrics appear one line at a time: I master my focus and actions, then Up, up, up, one word at a time. After a beat of silence, a gold shockwave rolls outward at the drop and the veins light up from the emblem. It ends on MASTER MY FOCUS, NDCH FREQ 002.",

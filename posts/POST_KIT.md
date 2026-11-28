@@ -1528,7 +1528,7 @@ Page cover: --ar 21:8 (1640×624); series/video cover: --ar 16:9. Add --style ra
 | # | Track | Status | YouTube | Location |
 | --- | --- | --- | --- | --- |
 | FREQ 001 | [I LOVE MYSELF](#freq-001--i-love-myself) | draft |  | Temple of Apollo, Delphi |
-| FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | draft | Mon, Dec 7, 7:00 AM CT | Shaolin Temple |
+| FREQ 002 | [MASTER MY FOCUS](#freq-002--master-my-focus) | scheduled | Tue, Dec 1, 7:00 AM CT | Shaolin Temple |
 | FREQ 003 | [I TRUST MY JUDGMENT AND MY INSTINCTS](#freq-003--i-trust-my-judgment-and-my-instincts) | draft | Mon, Dec 7, 7:00 AM CT | Walden Pond State Reservation |
 | FREQ 004 | [I TAKE CARE OF MYSELF](#freq-004--i-take-care-of-myself) | draft | Mon, Dec 21, 7:00 AM CT | Roman Baths, Bath |
 | FREQ 005 | [I PRIORITIZE MYSELF](#freq-005--i-prioritize-myself) | draft | Mon, Dec 28, 7:00 AM CT | Machu Picchu |
@@ -1690,7 +1690,7 @@ A gold frequency ring pulses around the NDCH arch-and-Y emblem on black stone ve
 
 ## FREQ 002 · MASTER MY FOCUS
 
-Status: draft · YouTube: Mon, Dec 7, 7:00 AM CT · Instagram: Mon, Dec 7, 7:00 AM CT · TikTok: Mon, Dec 7, 7:00 AM CT · Facebook: Mon, Dec 7, 7:00 AM CT
+Status: scheduled · YouTube: Tue, Dec 1, 7:00 AM CT · Instagram: Tue, Dec 1, 7:00 AM CT · TikTok: Mon, Dec 7, 7:05 AM CT · Facebook: Tue, Dec 1, 7:00 AM CT
 
 Note: Not released. Song: Master My Focus (3:37, hypnotic electronic hip-hop, 108 BPM), Suno take 22ef6eba. Over 3:00: the vertical cut needs --cut3m-start so it still ends on the outro. Covers: make in ChatGPT from the FREQ 001 cover, lines MASTER MY|FOCUS. Calendar: freq/CALENDAR.md.
 
